@@ -1,7 +1,9 @@
 this page documents all of the more advanced config options. Binds, curves,
 execs, etc.
 
-Please remember, that for ALL arguments separated by a comma, if you want to leave one of them empty, you cannot reduce the number of commas, *unless told otherwise in a specific section*:
+Please remember, that for ALL arguments separated by a comma, if you want to
+leave one of them empty, you cannot reduce the number of commas, *unless told
+otherwise in a specific section*:
 
 ```
 three_param_keyword=A,B,C # OK
@@ -33,15 +35,20 @@ Please remember the offset is calculated with the scaled resolution, meaning if
 you want your 4K monitor with scale 2 to the left of your 1080p one, you'd use
 the offset `1920x0` for the second screen. (3840 / 2)
 
-Leaving the name empty will define a fallback rule to use when no other rules match.
+Leaving the name empty will define a fallback rule to use when no other rules
+match.
 
-You can use `preferred` as a resolution to use the display's preferred size, and `auto` as an offset to let Hyprland decide on an offset for you.
+You can use `preferred` as a resolution to use the display's preferred size, and
+`auto` as an offset to let Hyprland decide on an offset for you.
 
 Recommended rule for easy and quick plugging in of random monitors:
+
 ```
 monitor=,preferred,auto,1
 ```
-Will make any monitor that was not specified with an explicit rule automatically placed in a sensible location with its preferred resolution.
+
+Will make any monitor that was not specified with an explicit rule automatically
+placed in a sensible location with its preferred resolution.
 
 To disable a monitor, use
 
@@ -171,7 +178,9 @@ bind=SUPER,mouse:272,exec,amongus
 
 will bind it to SUPER+LMB.
 
-For binding only modkeys, you need to use the TARGET modmask (with the activating mod) and the `r` flag, e.g.:
+For binding only modkeys, you need to use the TARGET modmask (with the
+activating mod) and the `r` flag, e.g.:
+
 ```
 bindr=SUPERALT,Alt_L,exec,amongus
 ```
@@ -208,7 +217,8 @@ bindr=ALT,Alt_L,exec,amongus
 
 ## General dispatcher list:
 
-Please keep in mind some layout-specific dispatchers will be listed in the layout pages (See the sidebar)
+Please keep in mind some layout-specific dispatchers will be listed in the
+layout pages (See the sidebar)
 
 ### exec
 
@@ -279,12 +289,14 @@ fullscreen (keeps the gaps and bar(s))
 
 sets the monitor's dpms status.
 
-**Warning**: it is NOT recommended to set DPMS with a keybind directly, as it might cause undefined behavior. Instead, consider something like
+**Warning**: it is NOT recommended to set DPMS with a keybind directly, as it
+might cause undefined behavior. Instead, consider something like
+
 ```
 bind = MOD,KEY,exec,sleep 1 && hyprctl dispatch dpms off
 ```
 
-**params**: `on` for on, `off` for  off.
+**params**: `on` for on, `off` for off.
 
 ### pseudo
 
@@ -485,7 +497,9 @@ workspace that you can toggle on/off on any monitor.
 you can execute a shell script on startup of the compositor or on each time it's
 reloaded.
 
-**Note**: There currently is a bug with the exec that makes the executed app unable to die if killed, use `SIGKILL` (e.g. `killall name -9`) or launch from a script (`exec-once=~/myscript.sh` and do `myapp &` in the script)
+**Note**: There currently is a bug with the exec that makes the executed app
+unable to die if killed, use `SIGKILL` (e.g. `killall name -9`) or launch from a
+script (`exec-once=~/myscript.sh` and do `myapp &` in the script)
 
 `exec-once=command` will execute only on launch
 
@@ -664,7 +678,8 @@ animation=windows,1,10,myepiccurve,slide
 
 `STYLE` (optional) is the animation style
 
-The animations are a tree. If an animation is unset, it will inherit its parent's values.
+The animations are a tree. If an animation is unset, it will inherit its
+parent's values.
 
 _Animation tree:_
 
@@ -685,10 +700,13 @@ global
 
 ### Extras
 
-For animation style `popin` in `windows`, you can specify a minimum percentage to start from. For example:
+For animation style `popin` in `windows`, you can specify a minimum percentage
+to start from. For example:
+
 ```
 animation=windows,1,8,default,popin 80%
 ```
+
 will make the animation 80% -> 100% of the size.
 
 # Defining variables

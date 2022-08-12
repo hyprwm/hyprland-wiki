@@ -1,6 +1,8 @@
-
 ## Foreword
-There is no _official_ support for Nvidia. Unfortunately, their drivers are so messy, and their products so random, that it's impossible for us to help if these instructions don't work fully.
+
+There is no _official_ support for Nvidia. Unfortunately, their drivers are so
+messy, and their products so random, that it's impossible for us to help if
+these instructions don't work fully.
 
 Every card seems to be random, and might work perfectly, or not work at all.
 
@@ -8,12 +10,17 @@ Nevertheless, it's recommended to at least try this tutorial.
 
 ## How to get Hyprland to possibly work on Nvidia
 
-Install the `nvidia-dkms` driver and add it to your initram & kernel parameters, follow the information available here: [https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting](https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting)
+Install the `nvidia-dkms` driver and add it to your initram & kernel parameters,
+follow the information available here:
+[https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting](https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting)
 
-   _* Note_: If your GPU is listed as supported by the `nvidia-open-dkms` driver, go with that one instead.
+_\* Note_: If your GPU is listed as supported by the `nvidia-open-dkms` driver,
+go with that one instead.
 
+Following the wrapping instructions found at
+[The Quick Start Page](https://github.com/hyprwm/Hyprland/wiki/Quick-start#wrapping-the-launcher-recommended),
+wrap the launcher and additionally export these:
 
-Following the wrapping instructions found at [The Quick Start Page](https://github.com/hyprwm/Hyprland/wiki/Quick-start#wrapping-the-launcher-recommended), wrap the launcher and additionally export these:
 ```sh
 export LIBVA_DRIVER_NAME=nvidia
 export CLUTTER_BACKEND=wayland
@@ -28,7 +35,9 @@ export QT_QPA_PLATFORM=wayland
 export GDK_BACKEND=wayland
 ```
 
-Install `qt5-wayland`, `qt5ct` and `libva`. Additionally `nvidia-vaapi-driver-git` (AUR) to fix crashes in some Electron-based applications, such as Unity Hub.
+Install `qt5-wayland`, `qt5ct` and `libva`. Additionally
+`nvidia-vaapi-driver-git` (AUR) to fix crashes in some Electron-based
+applications, such as Unity Hub.
 
 Reboot your computer
 
@@ -37,11 +46,15 @@ Launch Hyprland with the wrapper.
 It _should_ work now.
 
 ### Fixing random flickering
-Do note though that this forces performance mode to be active, resulting in increased power-consumption (from 22W idle on a RTX 3070TI, to 74W).
 
-This may not even be needed for some users, only apply these 'fixes' if you in-fact do notice flickering artifacts from being idle for ~5 seconds.
+Do note though that this forces performance mode to be active, resulting in
+increased power-consumption (from 22W idle on a RTX 3070TI, to 74W).
+
+This may not even be needed for some users, only apply these 'fixes' if you
+in-fact do notice flickering artifacts from being idle for ~5 seconds.
 
 Make a new file at `/etc/modprobe.d/nvidia.conf` and paste this in:
+
 ```
 options nvidia NVreg_RegistryDwords="PowerMizerEnable=0x1; PerfLevelSrc=0x2222; PowerMizerLevel=0x3; PowerMizerDefault=0x3; PowerMizerDefaultAC=0x3"
 ```

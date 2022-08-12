@@ -57,7 +57,8 @@ turning off the blur and animations.
 
 ### Blur makes my GPU cry :(
 
-You probably forgot to turn on `decoration:blur_new_optimizations`. Thank me later.
+You probably forgot to turn on `decoration:blur_new_optimizations`. Thank me
+later.
 
 ### My monitor no worky!
 
@@ -99,10 +100,10 @@ Use a wayland-compatible locking utility using WLR protocols, e.g. `swaylock`.
 
 Use a tool like for example `lxappearance` to change the GTK cursor.
 
-After that, add `exec-once=hyprctl setcursor [THEME] [SIZE]` to your config and restart Hyprland.
+After that, add `exec-once=hyprctl setcursor [THEME] [SIZE]` to your config and
+restart Hyprland.
 
-If that doesn't work, change the config files manually according to
-the
+If that doesn't work, change the config files manually according to the
 [XDG specification (Arch wiki link)](https://wiki.archlinux.org/title/Cursor_themes#Configuration).
 
 Make sure to also edit `~/.config/gtk-4.0/settings.ini` and `~/.gtkrc-2.0` if
@@ -256,7 +257,8 @@ Try disabling VFR with `misc:no_vfr=1`
 
 ### How do I make Hyprland draw as little power as possible on my laptop?
 
-I assume you already have `damage_tracking` on full. If you don't, do it. It's heavily advised to use `full` regardless of anything.
+I assume you already have `damage_tracking` on full. If you don't, do it. It's
+heavily advised to use `full` regardless of anything.
 
 Optimization options:
 
@@ -269,4 +271,3 @@ Optimization options:
 `decoration:drop_shadow  = false`
 
 `misc:no_vfr = false`
-

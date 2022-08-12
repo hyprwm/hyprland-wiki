@@ -9,41 +9,41 @@ Hyprland.
 
 Arch and NixOS are very supported. For any other distro (not based on Arch/Nix)
 you might have varying amounts of success. However, since Hyprland is extremely
-bleeding-edge, distros like Pop!\_OS, Ubuntu, etc. might have **major**
-issues running Hyprland.
+bleeding-edge, distros like Pop!\_OS, Ubuntu, etc. might have **major** issues
+running Hyprland.
 
 # Installation
 
 Installing Hyprland is very easy. Either you install it from your local package
 provider (if they provide pkgs for Hyprland) or you install/build it yourself.
 
-{{< hint title=Note >}}
-This project is under development and is constantly changing. If
-you want to keep up to date with the latest commits, please consider updating
-your packages with `yay -Syu --devel`, or your other preferred package manager.
-{{< /hint >}}
+{{\< hint title=Note >}} This project is under development and is constantly
+changing. If you want to keep up to date with the latest commits, please
+consider updating your packages with `yay -Syu --devel`, or your other preferred
+package manager. {{\< /hint >}}
 
 ## Packages
 
 **WARNING:** I do not maintain any packages. If they are broken, try building
 from source first.
 
-{{< tabs "uniqueid" >}}
+{{\< tabs "uniqueid" >}}
 
-{{< tab "Arch Linux" >}} 
-*If you're on Arch Linux, I* ***heavily*** *recommend you use the AUR.*
+{{\< tab "Arch Linux" >}} *If you're on Arch Linux, I* ***heavily*** *recommend
+you use the AUR.*
 
 ```plain
 hyprland-git - compiles from latest source
 hyprland - compiles from latest release source
 hyprland-bin - compiled latest release
 ```
-{{< /tab >}}
 
-{{< tab "Nix" >}}Read the [Nix page](https://github.com/hyprwm/Hyprland/wiki/Nix).{{< /tab >}}
-{{< tab "Fedora" >}}<https://github.com/hyprwm/Hyprland/discussions/284>{{< /tab >}}
-{{< /tabs >}}
+{{\< /tab >}}
 
+{{\< tab "Nix" >}}Read the
+[Nix page](https://github.com/hyprwm/Hyprland/wiki/Nix).{{\< /tab >}} {{\< tab
+"Fedora" >}}<https://github.com/hyprwm/Hyprland/discussions/284>{{\< /tab >}}
+{{\< /tabs >}}
 
 ## Manual (Releases)
 
@@ -96,7 +96,8 @@ ninja -C _build
 ninja -C _build install
 ```
 
-Refer to [Debugging](../../Contributing-and-Debugging) to see how to build & debug.
+Refer to [Debugging](../../Contributing-and-Debugging) to see how to build &
+debug.
 
 ## Crash on launch
 

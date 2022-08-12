@@ -1,4 +1,3 @@
-
 **NOTE:** Hyprland is NOT supported on NixOS stable. It may (not) compile or
 work as intended. Please use the flake.
 
@@ -92,11 +91,11 @@ modules set.
 
 ## Cachix
 
-A [Hyprland Cachix](https://app.cachix.org/cache/nix-gaming) exists to cache
-the `wlroots` package and speed up builds.
+A [Hyprland Cachix](https://app.cachix.org/cache/nix-gaming) exists to cache the
+`wlroots` package and speed up builds.
 
-In case you don't plan on changing the Nixpkgs Hyprland builds with, you can
-use this cache to speed up your builds.
+In case you don't plan on changing the Nixpkgs Hyprland builds with, you can use
+this cache to speed up your builds.
 
 ```nix
 # configuration.nix

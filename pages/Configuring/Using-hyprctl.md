@@ -1,4 +1,3 @@
-
 `hyprctl` is a utility for controlling some parts of the compositor from a CLI
 or a script. If you install with `make install`, or any package, it should
 automatically be installed.
@@ -56,11 +55,13 @@ Kind of like xkill.
 
 ### setcursor
 
-Sets the cursor theme and reloads the cursor manager. Will set the theme for everything except GTK, because GTK.
+Sets the cursor theme and reloads the cursor manager. Will set the theme for
+everything except GTK, because GTK.
 
 params: theme and size
 
 e.g.:
+
 ```
 hyprctl setcursor Bibata-Modern-Classic 24
 ```

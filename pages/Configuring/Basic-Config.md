@@ -5,8 +5,8 @@ This page documents all the "options" of Hyprland. For binds, monitors, execs,
 curves, etc. see
 [Advanced Configuring](https://github.com/hyprwm/Hyprland/wiki/Advanced-config).
 
-Please keep in mind some options that are layout-specific will be documented in the layout pages
-and not here. (See the Sidebar)
+Please keep in mind some options that are layout-specific will be documented in
+the layout pages and not here. (See the Sidebar)
 
 # Variable types
 
@@ -14,7 +14,8 @@ Variable types are:
 
 `int` - integer
 
-`bool` - boolean, `true` or `false` (`yes` or `no`, `0` or `1`) - any numerical value that is not `0` or `1` will cause undefined behaviour.
+`bool` - boolean, `true` or `false` (`yes` or `no`, `0` or `1`) - any numerical
+value that is not `0` or `1` will cause undefined behaviour.
 
 `float` - floating point number
 
@@ -63,12 +64,14 @@ inactivity to hide it. (default / never is `0`)
 
 `damage_tracking=str` - Makes the compositor redraw only the needed bits of the
 display. Saves on resources by not redrawing when not needed. Available modes:
-`none, monitor, full`. You don't need to know what different modes do, just always use `full`.
+`none, monitor, full`. You don't need to know what different modes do, just
+always use `full`.
 
 `layout=str` - which layout to use. (Available: `dwindle`, `master`, default is
 `dwindle`)
 
-`no_cursor_warps=bool` - if true, will not warp the cursor in many cases (focusing, keybinds, etc)
+`no_cursor_warps=bool` - if true, will not warp the cursor in many cases
+(focusing, keybinds, etc)
 
 ## Decoration
 
@@ -101,7 +104,9 @@ The more passes, the more you can up the blur_size without noticing artifacts.
 `blur_ignore_opacity=bool` - make the blur layer ignore the opacity of the
 window.
 
-`blur_new_optimizations=bool` - whether to enable further optimizations to the blur. Recommended to turn on, as it will massively improve performance, but some people have experienced graphical issues.
+`blur_new_optimizations=bool` - whether to enable further optimizations to the
+blur. Recommended to turn on, as it will massively improve performance, but some
+people have experienced graphical issues.
 
 `drop_shadow=bool` - enable drop shadows on windows
 
@@ -131,11 +136,12 @@ _More about animations is on the Advanced Configuring page._
 `kb_layout=str` `kb_variant=str` `kb_model=str` `kb_options=str` `kb_rules=str`
 \- adequate keyboard settings
 
-`follow_mouse=int` - (0/1/2/3) enable mouse following (focus on enter new window)
-\- Quirk: will always focus on mouse enter if you're entering a floating window
-from a tiled one, or vice versa. 0 - disabled, 1 - full, 2 - loose. Loose will
-focus mouse on other windows on focus but not the keyboard.
-3 - full loose, will not refocus on click, but allow mouse focus to be detached from the keyboard like in 2.
+`follow_mouse=int` - (0/1/2/3) enable mouse following (focus on enter new
+window) - Quirk: will always focus on mouse enter if you're entering a floating
+window from a tiled one, or vice versa. 0 - disabled, 1 - full, 2 - loose. Loose
+will focus mouse on other windows on focus but not the keyboard. 3 - full loose,
+will not refocus on click, but allow mouse focus to be detached from the
+keyboard like in 2.
 
 `repeat_rate=int` - in ms, the repeat rate for held keys
 
@@ -197,13 +203,19 @@ revert)
 `no_vfr=bool` - disables VFR (variable frame rate) - VFR increases battery life
 at the expense of possible issues on a few monitors. (VFR is off by default)
 
-`damage_entire_on_snapshot=bool` - Damage the entire monitor when rendering snapshots. Recommended with transformed displays. Do not use without transformed displays.
+`damage_entire_on_snapshot=bool` - Damage the entire monitor when rendering
+snapshots. Recommended with transformed displays. Do not use without transformed
+displays.
 
-`mouse_move_enables_dpms=bool` - If DPMS is set to off, wake up the monitors if the mouse moves.
+`mouse_move_enables_dpms=bool` - If DPMS is set to off, wake up the monitors if
+the mouse moves.
 
-`always_follow_on_dnd=bool` - By default enabled, will make mouse focus follow the mouse when drag and dropping. Recommended to leave it enabled, especially for people using focus follows mouse at 0.
+`always_follow_on_dnd=bool` - By default enabled, will make mouse focus follow
+the mouse when drag and dropping. Recommended to leave it enabled, especially
+for people using focus follows mouse at 0.
 
-`layers_hog_keyboard_focus=bool` - If true, will make keyboard interactive layers keep their focus on mouse move (e.g. wofi, bemenu)
+`layers_hog_keyboard_focus=bool` - If true, will make keyboard interactive
+layers keep their focus on mouse move (e.g. wofi, bemenu)
 
 ## Binds
 

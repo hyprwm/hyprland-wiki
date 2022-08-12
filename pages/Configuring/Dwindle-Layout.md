@@ -1,6 +1,5 @@
-=
-Dwindle is a BSPWM-like layout, where every window on a workspace is a member of
-a binary tree.
+= Dwindle is a BSPWM-like layout, where every window on a workspace is a member
+of a binary tree.
 
 # Quirks
 
@@ -61,7 +60,8 @@ the special workspace
 
 `split_width_multiplier=float` - specifies the auto-split width multiplier
 
-`no_gaps_when_only=bool` - whether to apply gaps when there is only one window on a workspace.
+`no_gaps_when_only=bool` - whether to apply gaps when there is only one window
+on a workspace.
 
 ## Bind Dispatchers
 

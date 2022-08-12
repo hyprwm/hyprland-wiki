@@ -1,4 +1,3 @@
-
 The master layout makes one window be the "master", taking the left part of the
 screen, and tiles the rest on the right.
 
@@ -26,7 +25,8 @@ join the slaves.
 `new_on_top=bool` - whether a newly open window should be on the top of the
 stack
 
-`no_gaps_when_only=bool` - whether to apply gaps when there is only one window on a workspace.
+`no_gaps_when_only=bool` - whether to apply gaps when there is only one window
+on a workspace.
 
 ## Dispatchers
 
