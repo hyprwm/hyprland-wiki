@@ -1,4 +1,3 @@
-# Uncommon tips & tricks
 
 ## Switchable keyboard layouts
 

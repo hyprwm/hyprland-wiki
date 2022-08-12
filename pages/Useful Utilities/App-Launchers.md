@@ -1,4 +1,3 @@
-# App Launchers
 
 ## Wofi
 wofi is a great and customizable launcher just for wayland. [SourceHut](https://hg.sr.ht/~scoopta/wofi).

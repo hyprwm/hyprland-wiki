@@ -1,4 +1,3 @@
-# Quick start
 
 After you've installed Hyprland, you can either launch it from a TTY with
 `Hyprland` or from a login manager. Although login managers aren't officially

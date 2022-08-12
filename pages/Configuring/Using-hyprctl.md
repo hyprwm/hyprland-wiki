@@ -1,4 +1,3 @@
-# Using Hyprctl
 
 `hyprctl` is a utility for controlling some parts of the compositor from a CLI
 or a script. If you install with `make install`, or any package, it should

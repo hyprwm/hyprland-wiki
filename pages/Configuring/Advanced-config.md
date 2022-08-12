@@ -1,7 +1,3 @@
-# Advanced config
-
-### If you skipped the "Basic Config" page because you think you are the best, please check the Basic Config first. It documents configuration not mentioned here.
-
 this page documents all of the more advanced config options. Binds, curves,
 execs, etc.
 

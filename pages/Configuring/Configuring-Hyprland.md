@@ -1,4 +1,3 @@
-# Configuring
 
 The config is located in `~/.config/hypr/hyprland.conf`.
 

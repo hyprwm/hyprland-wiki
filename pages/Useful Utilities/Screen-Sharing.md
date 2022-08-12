@@ -1,4 +1,3 @@
-# Screen Sharing
 
 Screensharing is done through PipeWire WebRTC on Wayland.
 

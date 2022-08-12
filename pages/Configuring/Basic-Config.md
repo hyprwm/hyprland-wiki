@@ -1,5 +1,3 @@
-# Basic Configuring
-
 For basic syntax info, see
 [Master Configuring](https://github.com/hyprwm/Hyprland/wiki/Configuring-Hyprland).
 

@@ -1,4 +1,3 @@
-# Status Bars
 
 Launch your bar with `exec-once=`.
 

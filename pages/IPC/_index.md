@@ -1,4 +1,3 @@
-# IPC
 
 Hyprland exposes 2 UNIX Sockets, for controlling / getting info about Hyprland
 via code / bash utilities.

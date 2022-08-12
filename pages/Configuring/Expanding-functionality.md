@@ -1,4 +1,3 @@
-# Expanding functionality
 
 Hyprland exposes two powerful sockets for you to use.
 

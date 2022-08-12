@@ -1,4 +1,3 @@
-# Nvidia
 
 ## Foreword
 There is no _official_ support for Nvidia. Unfortunately, their drivers are so messy, and their products so random, that it's impossible for us to help if these instructions don't work fully.

@@ -1,4 +1,3 @@
-# Wallpapers
 
 Launch your wallpaper utility with `exec-once=`.
 

@@ -1,4 +1,3 @@
-# Nix
 
 **NOTE:** Hyprland is NOT supported on NixOS stable. It may (not) compile or
 work as intended. Please use the flake.
