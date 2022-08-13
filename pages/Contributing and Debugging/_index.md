@@ -11,7 +11,7 @@ For PRs, make sure that you:
 For issues, please see
 [the guidelines](https://github.com/hyprwm/Hyprland/blob/main/docs/ISSUE_GUIDELINES.md)
 
-# Build in debug
+# Build in debug mode
 
 ## Required packages
 
@@ -29,10 +29,10 @@ For issues, please see
 
 ## Recommended, CMake
 
-install the VSCode C/C++ and CMake Tools extensions and use that.
+Install the VSCode C/C++ and CMake Tools extensions and use that.
 
-I've attached a launch.json to examples/ that you can copy to your .vscode/
-folder in the repo root.
+I've attached a [example/launch.json](https://github.com/hyprwm/Hyprland/blob/main/example/launch.json)
+that you can copy to your .vscode/ folder in the repo root.
 
 With that, you can build in debug, go to the debugging tab and hit
 `(gdb) Launch`.
@@ -43,12 +43,12 @@ With that, you can build in debug, go to the debugging tab and hit
 
 attach and profile in your preferred way.
 
-## Notice
-
+{{< hint >}}
 For all ways, make sure to `sudo make clear` to clear any root-owned files.
 Also, before the first build (or after some updates, possibly)
 `sudo make config`. (If you get any `missing header file "...-protocol.h"`, you
 need to `make config`.)
+{{< /hint >}}
 
 # Running
 
@@ -67,7 +67,9 @@ the dump.
 
 I also recommend the amazing command
 
-`watch -n 0.1 "cat /tmp/hypr/$(echo HYPRLAND_INSTANCE_SIGNATURE)/hyprland.log | grep -v \"arranged\" | tail -n 40"`
+```sh
+watch -n 0.1 "cat /tmp/hypr/$(echo HYPRLAND_INSTANCE_SIGNATURE)/hyprland.log | grep -v \"arranged\" | tail -n 40"
+```
 
 for live logs. (replace `hyprland` with `hyprlandd` for debug builds)
 
