@@ -3,6 +3,7 @@ replacements for them:
 
 ## Discord
 
-Use [WebCord](https://github.com/SpacingBat3/WebCord), it has native support for
-pipewire screensharing, tons of great features and tries to stay infringing as
-little as possible on the Discord ToS.
+[WebCord](https://github.com/SpacingBat3/WebCord) is a Discord client based on
+the latest Electron, with support for Wayland Ozone platform, as well as
+PipeWire screensharing. It has tons of great features and tries not to infringe
+on the Discord ToS.

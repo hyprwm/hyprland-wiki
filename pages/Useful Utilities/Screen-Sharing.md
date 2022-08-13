@@ -1,4 +1,4 @@
-Screensharing is done through PipeWire WebRTC on Wayland.
+Screensharing is done through PipeWire on Wayland.
 
 ## Prereqs
 
@@ -15,4 +15,5 @@ for a great tutorial.
 
 ## Caveats
 
-You cannot screenshare separate windows with Hyprland, yet. Only full monitors.
+You cannot screenshare separate windows with Hyprland, yet. Only entire
+monitors.

@@ -3,12 +3,12 @@ Hyprland working.
 
 ## List of Pages
 
-- **[Status Bars](https://github.com/hyprwm/Hyprland/wiki/Status-Bars)**
+- **[Status Bars](./Status-Bars)**
 
-- **[App Launchers](https://github.com/hyprwm/Hyprland/wiki/App-Launchers)**
+- **[App Launchers](./App-Launchers)**
 
-- **[Wallpapers](https://github.com/hyprwm/Hyprland/wiki/Wallpapers)**
+- **[Wallpapers](./Wallpapers)**
 
-- **[Screen Sharing](https://github.com/hyprwm/Hyprland/wiki/Screen-Sharing)**
+- **[Screen Sharing](./Screen-Sharing)**
 
-- **[App Clients](https://github.com/hyprwm/Hyprland/wiki/App-Clients)**
+- **[App Clients](./App-Clients)**
