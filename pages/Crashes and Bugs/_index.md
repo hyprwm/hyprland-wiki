@@ -38,7 +38,7 @@ Report an issue on Github or on the Discord server.
 ## Bugs
 
 First of all, ***READ THE
-[FAQ PAGE](https://github.com/hyprwm/Hyprland/wiki/FAQ)***
+[FAQ PAGE](../FAQ)***
 
 If your bug is not listed there, you can ask on the Discord server or open an
 issue on Github.
