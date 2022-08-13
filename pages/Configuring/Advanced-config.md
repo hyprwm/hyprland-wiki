@@ -1,6 +1,8 @@
 This page documents all of the more advanced config options. Binds, curves,
 execs, etc.
 
+{{< hint type=important >}}
+
 Please remember, that for ALL arguments separated by a comma, if you want to
 leave one of them empty, you cannot reduce the number of commas, *unless told
 otherwise in a specific section*:
@@ -12,6 +14,8 @@ three_param_keyword=A,C # NOT OK
 
 three_param_keyword=A,,C # OK
 ```
+
+{{< /hint >}}
 
 # Table of contents
 {{< toc format=html >}}
