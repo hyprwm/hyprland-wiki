@@ -1,0 +1,17 @@
+name: Update website
+  
+on:  
+  push:  
+    branches:  
+      - main  
+  
+jobs:  
+  notify-parent-repo:  
+    runs-on: ubuntu-latest  
+    steps:  
+      - name: Repository Dispatch  
+        uses: peter-evans/repository-dispatch@v2  
+        with:  
+          token: ${{ secrets.TOKN }}  
+          repository: hyprwm/hyprland-wiki-backend
+          event-type: sync-shared-submodule
