@@ -127,25 +127,7 @@ it with the `exec-once` keyword.
 
 ### I want to use Waybar, but the workspaces don't work!
 
-Copy the Waybar source, edit `include/factory.hpp` and add
-
-```c
-#define HAVE_WLR
-#define USE_EXPERIMENTAL
-```
-
-on top. If you want to also have sway modules (or any other defined in the file)
-add the appropriate defines.
-
-All `#ifdef HAVE_<thing>` can be enabled by adding `#define HAVE_<thing>` on
-top.
-
-Then compile according to the instructions on the Waybar github repo.
-
-Use the `wlr/workspaces` module.
-
-Please do not blame me for this, it's the Waybar dev that doesn't include
-experimental in the base binary for whatever reason.
+Check [Status bars](../Useful-Utilities/Status-Bars).
 
 ### Waybar doesn't show the active workspace!
 
@@ -161,7 +143,7 @@ app will not start it on the initially assigned workspace (which could be a drag
 if e.g. you want kitty to be started on ws 1 while you need kitty to open on any
 workspace subsequently).
 
-Put the following in your `hyprdland.conf`: (example)
+Put the following in your `hyprland.conf`: (example)
 
 ```plain
 windowrule=workspace 1 silent,kitty
