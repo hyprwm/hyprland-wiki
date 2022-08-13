@@ -41,10 +41,9 @@ hyprland-bin - compiled latest release
 ```
 
 {{< /tab >}}
+{{< tab "Nix" >}}Read the [Nix page](https://github.com/hyprwm/Hyprland/wiki/Nix).{{< /tab >}}
+{{< tab "Fedora" >}}<https://github.com/hyprwm/Hyprland/discussions/284>{{< /tab >}}
 
-{{< tab "Nix" >}}Read the
-[Nix page](https://github.com/hyprwm/Hyprland/wiki/Nix).{{< /tab >}} {{< tab
-"Fedora" >}}<https://github.com/hyprwm/Hyprland/discussions/284>{{< /tab >}}
 {{< /tabs >}}
 
 ## Manual (Releases)

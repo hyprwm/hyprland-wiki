@@ -11,16 +11,16 @@ section `general`.
 
 There is no "reload" keybind. The config is reloaded the moment you save it.
 
-Refer to the example config in `/examples/hyprland.conf` to see, well... an
-example.
+Refer to the example config in
+[example/hyprland.conf](https://github.com/hyprwm/Hyprland/blob/main/example/hyprland.conf).
 
-Start a section with `name {` and end in `}` ***in separate lines!***
+Start a section with `name {` and end in `}` ***on separate lines!***
 
 # Line style
 
 every config line is a command followed by a value.
 
-```
+```plain
 COMMAND=VALUE
 ```
 
@@ -31,7 +31,7 @@ You are **allowed to** input trailing spaces at the beginning and end.
 
 e.g.:
 
-```
+```plain
 COMMAND = VALUE
 ```
 
@@ -40,7 +40,7 @@ is valid.
 # Basic configuring
 
 To configure the "options" of Hyprland, animations, styling, etc. see
-[Basic Configuring](https://github.com/hyprwm/Hyprland/wiki/Basic-Config).
+[Basic Configuring](../Basic-Config).
 
 # Advanced configuring
 
@@ -48,4 +48,4 @@ Some keywords (binds, curves, execs, monitors, etc.) arent variables but define
 special behaviour.
 
 See all of them in
-[Advanced Configuring](https://github.com/hyprwm/Hyprland/wiki/Advanced-config)
+[Advanced Configuring](../Advanced-config)

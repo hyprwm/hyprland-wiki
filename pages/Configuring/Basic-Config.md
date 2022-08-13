@@ -1,9 +1,9 @@
 For basic syntax info, see
-[Master Configuring](https://github.com/hyprwm/Hyprland/wiki/Configuring-Hyprland).
+[Master Configuring](../Configuring-Hyprland).
 
 This page documents all the "options" of Hyprland. For binds, monitors, execs,
 curves, etc. see
-[Advanced Configuring](https://github.com/hyprwm/Hyprland/wiki/Advanced-config).
+[Advanced Configuring](../Advanced-config).
 
 Please keep in mind some options that are layout-specific will be documented in
 the layout pages and not here. (See the Sidebar)
@@ -19,17 +19,18 @@ value that is not `0` or `1` will cause undefined behaviour.
 
 `float` - floating point number
 
-`col` - color (e.g. 0x22334455 - alpha 0x22, red 0x33, green 0x44, blue 0x55)
+`col` - color (e.g. `0x22334455` - alpha `0x22`, red `0x33`, green `0x44`, blue
+`0x55`)
 
 `vec2` - vector with 2 values (float), separated by a space (e.g. `0 0` or
 `-10.9 99.1`)
 
-`MOD` - a string modmask (e.g. SUPER or SUPERSHIFT or
-SUPERSHIFTALTCTLRCAPSMOD2MOD3MOD5 or empty for none)
+`MOD` - a string modmask (e.g. `SUPER` or `SUPERSHIFT` or
+`SUPERSHIFTALTCTLRCAPSMOD2MOD3MOD5` or empty for none)
 
 Mod list:
 
-```
+```plain
 SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 ```
 
@@ -173,7 +174,7 @@ _Subcategory input:touchpad:_
 
 *Note:* Touchpad config changes may require a Hyprland restart.
 
-### Per-device input config is described [here](https://github.com/hyprwm/Hyprland/wiki/Advanced-config#per-device-input-configs)
+### Per-device input config is described [here](../Advanced-config#per-device-input-configs)
 
 ## Gestures
 
