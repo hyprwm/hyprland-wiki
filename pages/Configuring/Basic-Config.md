@@ -5,8 +5,8 @@ This page documents all the "options" of Hyprland. For binds, monitors, execs,
 curves, etc. see
 [Advanced Configuring](https://github.com/hyprwm/Hyprland/wiki/Advanced-config).
 
-Please keep in mind some options that are layout-specific will be documented in the layout pages and
-not here. (See the Sidebar)
+Please keep in mind some options that are layout-specific will be documented in the layout pages
+and not here. (See the Sidebar)
 
 # Variable types
 
