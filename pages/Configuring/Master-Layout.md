@@ -16,30 +16,27 @@ You can, however, resize the master window.
 
 *category name `master`*
 
-`special_scale_factor=float` - (0.0 - 1.0) the scale of the special workspace
-windows
-
-`new_is_master=bool` - whether a newly open window should replace the master or
-join the slaves.
-
-`new_on_top=bool` - whether a newly open window should be on the top of the
-stack
-
-`no_gaps_when_only=bool` - whether to apply gaps when there is only one window
-on a workspace.
+| name | description | type | default |
+|---|---|---|---|---|
+| special_scale_factor | (0.0 - 1.0) the scale of the special workspace windows | float | 0.8 |
+| new_is_master | whether a newly open window should replace the master or join the slaves. | bool | false |
+| new_on_top | whether a newly open window should be on the top of the stack | bool | false |
+| no_gaps_when_only | whether to apply gaps when there is only one window on a workspace, aka. smart gaps. | bool | false |
 
 ## Dispatchers
 
 `layoutmsg` params:
 
-`swapwithmaster` -> swaps the current window with master
+| param | description |
+| --- | --- |
+| swapwithmaster | swaps the current window with master |
+| cyclenext | focuses the next window respecting the layout |
+| cycleprev | focuses the previous window respecting the layout |
 
-`cyclenext` -> focuses the next window respecting the layout
-
-`cycleprev` -> focuses the previous window respecting the layout
-
+{{< hint type=info >}}
 example usage:
 
 ```
 bind=MOD,KEY,layoutmsg,cyclenext
 ```
+{{< /hint >}}
