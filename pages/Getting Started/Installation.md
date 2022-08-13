@@ -2,7 +2,7 @@
 
 Nvidia GPUs are widely known as... yeah. If you want to try Hyprland on Nvidia
 regardless (many people have reported successes), follow the
-[Nvidia page](https://github.com/hyprwm/Hyprland/wiki/Nvidia) after installing
+[Nvidia page](../../Nvidia) after installing
 Hyprland.
 
 ### Distros
