@@ -13,16 +13,17 @@ set up themes with envvars) to set up your themes.
 > Your PC is very, very old.
 
 In that case, see the
-[Installation Page](https://github.com/hyprwm/Hyprland/wiki/Installation) and
+[Installation Page](../../Getting-Started/Installation) and
 try compiling with LEGACY_RENDERER
 
 *For more info about bugs and crashes, see this*
-*[wiki page](https://github.com/hyprwm/Hyprland/wiki/Crashing-and-bugs)*
+*[wiki page](../../Crashes-and-Bugs)*
 
 ### Me cursor no render?
 
 Are you on NVIDIA? If so, then you have been a naughty boy and haven't listened
-to my tips on other pages. Use the `WLR_NO_HARDWARE_CURSORS=1` envvar.
+to my tips on other pages. Use the `WLR_NO_HARDWARE_CURSORS=1` environment
+variable.
 
 ### How do I screenshot?
 
@@ -30,11 +31,14 @@ Install `grim-git` and `slurp`
 
 Use a keybind (or execute) `grim -g $(slurp)`, select a region. A screenshot
 will pop into your `~/Pictures/` (You can configure grim and slurp, see their
-github pages)
+github pages).
+
+For a more complete utility, try our own
+[Grimblast](https://github.com/hyprwm/contrib).
 
 ### How do I change my wallpaper?
 
-Install hyprpaper, swaybg or any other wlroots-compatible wallpaper utility.
+See [Wallpapers](../Useful-Utilities/Wallpapers).
 
 ### My workspace (2, 3, or any other) is like... bugged?
 
@@ -42,11 +46,11 @@ You did the below, unknowingly.
 
 ### How do I mirror a screen?
 
-Mirroring isn't *officially* supported, it's technically a bug, but it works.
+Mirroring isn't *officially* supported. It's technically a bug, but it works.
 Make sure the screen you want mirrored is the same resolution as the source.
 
 Then, just make them overlap in the layout, e.g. making the primary monitor at
-0x0 and the mirrored one on 0x0 as well.
+`0x0` and the mirrored one on `0x0` as well.
 
 That creates an issue though, as the mirrored output also *has* to have an
 active workspace, and usually will be annoyingly taking 2,3 etc, while making
@@ -74,11 +78,12 @@ lower one. A good way to list all modes is to get `wlr-randr` and do a
 *These instructions are ONLY for systemd. If you use anything else, you should
 know what you're doing.*
 
-Launch `coredumpctl` in a terminal. Press "END" on the keyboard to go to the
-end. Note the **last** (the one furthest to the bottom) crash that has
+Launch `coredumpctl` in a terminal. Press <key>END</key> on the keyboard to go
+to the end. Note the **last** (the one furthest to the bottom) crash that has
 `/usr/bin/Hyprland` as an executable. Remember the PID of it (the first number
-after the date in a given line) exit (Ctrl+C) type `coredumpctl info PID` where
-PID is the remembered PID. Send the entire thing.
+after the date in a given line) exit (<key>Ctrl</key>+<key>C</key>) type
+`coredumpctl info PID` where `PID` is the remembered PID. Send the entire thing
+as a file.
 
 ### How do I update?
 
@@ -87,15 +92,9 @@ open a terminal where you cloned the repo.
 
 ### Screenshare / OBS no worky!
 
-Yes, hello, this is Wayland.
+Check [Screensharing](../Useful-Utilities/Screen-Sharing).
 
-Amazing gist just about that:
-https://gist.github.com/PowerBall253/2dea6ddf6974ba4e5d26c3139ffb7580
-
-Please remember in OBS you need to select "Pipewire screen capture" as the
-source.
-
-### Howdy I screen lock???
+### How do I screen lock?
 
 Use a wayland-compatible locking utility using WLR protocols, e.g. `swaylock`.
 
@@ -106,8 +105,8 @@ Use a tool like for example `lxappearance` to change the GTK cursor.
 After that, add `exec-once=hyprctl setcursor [THEME] [SIZE]` to your config and
 restart Hyprland.
 
-If that doesn't work, change the config files manually according to the
-[XDG specification (Arch wiki link)](https://wiki.archlinux.org/title/Cursor_themes#Configuration).
+Alternatively, change the config files manually according to the
+[XDG specification (Arch Wiki link)](https://wiki.archlinux.org/title/Cursor_themes#Configuration).
 
 Make sure to also edit `~/.config/gtk-4.0/settings.ini` and `~/.gtkrc-2.0` if
 _not_ using a tool (like `lxappearance`).
@@ -115,7 +114,7 @@ _not_ using a tool (like `lxappearance`).
 Then, do a `gsettings set $gnome-schema cursor-theme 'theme-name'` and you're
 all good!
 
-If it still doesn't work
+If it still doesn't work...
 
 ### GTK Settings no work / whatever!
 
@@ -130,7 +129,7 @@ it with the `exec-once` keyword.
 
 Copy the Waybar source, edit `include/factory.hpp` and add
 
-```
+```c
 #define HAVE_WLR
 #define USE_EXPERIMENTAL
 ```
@@ -162,9 +161,9 @@ app will not start it on the initially assigned workspace (which could be a drag
 if e.g. you want kitty to be started on ws 1 while you need kitty to open on any
 workspace subsequently).
 
-Put the following in your hyprdland.conf: (example)
+Put the following in your `hyprdland.conf`: (example)
 
-```
+```plain
 windowrule=workspace 1 silent,kitty
 windowrule=workspace 1 silent,Subl
 windowrule=workspace 3 silent,Mailspring
@@ -180,7 +179,7 @@ exec-once=cleanup_after_start.sh
 
 where `cleanup_after_start.sh` script contains:
 
-```
+```sh
 sleep 10
 hyprctl keyword windowrule "workspace unset,kitty"
 hyprctl keyword windowrule "workspace unset,Subl"
@@ -188,22 +187,22 @@ hyprctl keyword windowrule "workspace unset,Mailspring"
 hyprctl keyword windowrule "workspace unset,firefox"
 ```
 
-in `sleep 10`, the 10 is of course only a suggestion.
+in `sleep 10`, the 10 seconds is of course only a suggestion.
 
-### Howdy I move my favorite workspaces to a new monitor when I plug it in?
+### How do I move my favorite workspaces to a new monitor when I plug it in?
 
 if you want workspaces to automatically go to a monitor upon connection, use the
 following:
 
 In hyprland.conf:
 
-```
+```plain
 exec-once=handle_monitor_connect.sh
 ```
 
 where `handle_monitor_connect.sh` is: (example)
 
-```
+```sh
 #!/bin/sh
 
 function handle {
@@ -232,7 +231,7 @@ Until then, OTD.
 
 *~/.config/hypr/hyprland.conf*
 
-```
+```plain
 exec-once=systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 ```
 
@@ -246,17 +245,19 @@ should probably add it to your exported envvars.
 As with any Display Server, Xorg included, you should probably make a script to
 launch it, for example:
 
-```
+```plain
 export AMONG_US=1
 exec Hyprland
 ```
 
-and launch that. (For Login Manager users, you can replace the "exec" entry in
-the .desktop file to point to your script)
+and launch that.
+
+For Display Manager users, you can replace the `exec` entry in
+the `.desktop` file to point to your script.
 
 ### I get random white flashes!
 
-Try disabling VFR with `misc:no_vfr=1`
+Try disabling VFR with `misc:no_vfr=1`.
 
 ### How do I make Hyprland draw as little power as possible on my laptop?
 
