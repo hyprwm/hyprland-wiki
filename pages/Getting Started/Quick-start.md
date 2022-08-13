@@ -81,8 +81,8 @@ example command:
 hyprctl keyword monitor DP-3,1920x1080@240,1920x0,1
 ```
 
-{{\< hint type=important >}} These changes are **not** permanent! If you want to
-make those changes persist, configure your outputs in the config! {{\< /hint >}}
+{{< hint type=important >}} These changes are **not** permanent! If you want to
+make those changes persist, configure your outputs in the config! {{< /hint >}}
 
 # Proper configuring
 

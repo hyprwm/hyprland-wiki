@@ -17,19 +17,21 @@ running Hyprland.
 Installing Hyprland is very easy. Either you install it from your local package
 provider (if they provide pkgs for Hyprland) or you install/build it yourself.
 
-{{\< hint title=Note >}} This project is under development and is constantly
+{{< hint title=note >}}
+This project is under development and is constantly
 changing. If you want to keep up to date with the latest commits, please
 consider updating your packages with `yay -Syu --devel`, or your other preferred
-package manager. {{\< /hint >}}
+package manager. 
+{{< /hint >}}
 
 ## Packages
 
 **WARNING:** I do not maintain any packages. If they are broken, try building
 from source first.
 
-{{\< tabs "uniqueid" >}}
+{{< tabs "uniqueid" >}}
 
-{{\< tab "Arch Linux" >}} *If you're on Arch Linux, I* ***heavily*** *recommend
+{{< tab "Arch Linux" >}} *If you're on Arch Linux, I* ***heavily*** *recommend
 you use the AUR.*
 
 ```plain
@@ -38,12 +40,12 @@ hyprland - compiles from latest release source
 hyprland-bin - compiled latest release
 ```
 
-{{\< /tab >}}
+{{< /tab >}}
 
-{{\< tab "Nix" >}}Read the
-[Nix page](https://github.com/hyprwm/Hyprland/wiki/Nix).{{\< /tab >}} {{\< tab
-"Fedora" >}}<https://github.com/hyprwm/Hyprland/discussions/284>{{\< /tab >}}
-{{\< /tabs >}}
+{{< tab "Nix" >}}Read the
+[Nix page](https://github.com/hyprwm/Hyprland/wiki/Nix).{{< /tab >}} {{< tab
+"Fedora" >}}<https://github.com/hyprwm/Hyprland/discussions/284>{{< /tab >}}
+{{< /tabs >}}
 
 ## Manual (Releases)
 
