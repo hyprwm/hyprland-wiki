@@ -1,17 +1,28 @@
-name: Update website
-  
-on:  
-  push:  
-    branches:  
-      - main  
-  
-jobs:  
-  notify-parent-repo:  
-    runs-on: ubuntu-latest  
-    steps:  
-      - name: Repository Dispatch  
-        uses: peter-evans/repository-dispatch@v2  
-        with:  
-          token: ${{ secrets.TOKN }}  
+name: Send submodule updates to the website repository
+
+on:
+  push:
+    branches: 
+      - main
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with: 
           repository: hyprwm/hyprland-wiki-backend
-          event-type: sync-shared-submodule
+          token: ${{ secrets.TOKEN }}
+
+      - name: Pull & update submodules recursively
+        run: |
+          git submodule update --init --recursive
+          git submodule update --recursive --remote
+      - name: Commit
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions - update submodules"
+          git add --all
+          git commit -m "Update submodules" || echo "No changes to commit"
+          git push
