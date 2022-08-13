@@ -6,7 +6,7 @@ Nvidia GPUs are widely known as... yeah. If you want to try Hyprland on Nvidia r
 
 Arch and NixOS are very supported. For any other distro (not based on Arch/Nix)
 you might have varying amounts of success. However, since Hyprland is extremely
-bleeding-edge, distros like Pop!\_OS, Ubuntu, etc. etc. might have **major**
+bleeding-edge, distros like Pop!_OS, Ubuntu, etc. etc. might have **major**
 issues running Hyprland.
 
 # Installation
