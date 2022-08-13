@@ -13,12 +13,16 @@ jobs:
       - uses: actions/checkout@v2
         with: 
           repository: hyprwm/hyprland-wiki-backend
-          token: ${{ secrets.TOKEN }}
+          token: ${{ secrets.TOKN }}
 
       - name: Pull & update submodules recursively
         run: |
+          git config --global user.name "Github Actions"
+          git config --global user.email "actions@github.com"
           git submodule update --init --recursive
           git submodule update --recursive --remote
+        with:
+          token: ${{ secrets.TOKN }}
       - name: Commit
         run: |
           git config user.email "actions@github.com"
