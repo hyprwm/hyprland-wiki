@@ -1,11 +1,11 @@
-this page documents all of the more advanced config options. Binds, curves,
+This page documents all of the more advanced config options. Binds, curves,
 execs, etc.
 
 Please remember, that for ALL arguments separated by a comma, if you want to
 leave one of them empty, you cannot reduce the number of commas, *unless told
 otherwise in a specific section*:
 
-```
+```plain
 three_param_keyword=A,B,C # OK
 
 three_param_keyword=A,C # NOT OK
@@ -15,13 +15,13 @@ three_param_keyword=A,,C # OK
 
 # Monitors
 
-```
+```plain
 monitor=name,res,offset,scale
 ```
 
 for example:
 
-```
+```plain
 monitor=DP-1,1920x1080@144,0x0,1
 ```
 
@@ -43,7 +43,7 @@ You can use `preferred` as a resolution to use the display's preferred size, and
 
 Recommended rule for easy and quick plugging in of random monitors:
 
-```
+```plain
 monitor=,preferred,auto,1
 ```
 
@@ -52,13 +52,13 @@ placed in a sensible location with its preferred resolution.
 
 To disable a monitor, use
 
-```
+```plain
 monitor=name,disable
 ```
 
 If your workflow requires custom reserved area, you can add it with
 
-```
+```plain
 monitor=name,addreserved,TOP,BOTTOM,LEFT,RIGHT
 ```
 
@@ -66,13 +66,13 @@ Where `TOP` `BOTTOM` `LEFT` `RIGHT` are integers in pixels of the reserved area
 to add. This does stack on top of the calculated one, (e.g. bars) but you may
 only use one of these rules per monitor in the config.
 
-```
+```plain
 workspace=name,number
 ```
 
 for example:
 
-```
+```plain
 workspace=DP-1,1
 ```
 
@@ -80,15 +80,17 @@ will tell Hyprland to make the default workspace on DP-1 a number 1.
 
 If you want to rotate a monitor, use
 
-```
+```plain
 monitor=NAME,transform,TRANSFORM
 ```
 
 where `NAME` is the name, and `TRANSFORM` is an integer, from 0 to 7,
 corresponding to your transform of choice.
 
-***Important!*** This keyword **MUST** be _after_ your `monitor=` keyword with
+{{< hint type=important >}}
+This keyword **MUST** be _after_ your `monitor=` keyword with
 the resolution, etc.
+{{< /hint >}}
 
 ```
 WL_OUTPUT_TRANSFORM_NORMAL = 0

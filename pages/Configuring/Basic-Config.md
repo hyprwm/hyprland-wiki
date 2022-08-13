@@ -78,7 +78,7 @@ always use `full`.
 
 `rounding=int` - rounded corners radius (in pixels)
 
-`multisample_edges=bool` - enable antialiasing (no-jaggies) for rounded corners.
+`multisample_edges=bool` - enable antialiasing (no-jaggies) for rounded corners
 
 `no_blur_on_oversized=bool` - disable blur on oversized windows (deprecated,
 leave at `0`)
@@ -91,9 +91,9 @@ leave at `0`)
 
 `blur=bool` - enable dual kawase window background blur
 
-`blur_size=int` - Minimum 1, blur size (intensity)
+`blur_size=int` - minimum 1, blur size (intensity)
 
-`blur_passes=int` - Minimim 1, more passes = more resource intensive.
+`blur_passes=int` - minimum 1, more passes = more resource intensive
 
 Your blur "amount" is blur_size * blur_passes, but high blur_size (over around
 5-ish) will produce artifacts.
@@ -103,11 +103,11 @@ If you want heavy blur, you need to up the blur_passes.
 The more passes, the more you can up the blur_size without noticing artifacts.
 
 `blur_ignore_opacity=bool` - make the blur layer ignore the opacity of the
-window.
+window
 
 `blur_new_optimizations=bool` - whether to enable further optimizations to the
 blur. Recommended to turn on, as it will massively improve performance, but some
-people have experienced graphical issues.
+people have experienced graphical issues
 
 `drop_shadow=bool` - enable drop shadows on windows
 
@@ -139,10 +139,12 @@ _More about animations is on the Advanced Configuring page._
 
 `follow_mouse=int` - (0/1/2/3) enable mouse following (focus on enter new
 window) - Quirk: will always focus on mouse enter if you're entering a floating
-window from a tiled one, or vice versa. 0 - disabled, 1 - full, 2 - loose. Loose
-will focus mouse on other windows on focus but not the keyboard. 3 - full loose,
-will not refocus on click, but allow mouse focus to be detached from the
-keyboard like in 2.
+window from a tiled one, or vice versa.
+- 0 - disabled
+- 1 - full
+- 2 - loose. Will focus mouse on other windows on focus but not the keyboard.
+- 3 - full loose, will not refocus on click, but allow mouse focus to be
+detached from the keyboard like in 2.
 
 `repeat_rate=int` - in ms, the repeat rate for held keys
 
@@ -160,21 +162,23 @@ to 1, or else it will be clamped.
 
 ### Touchpad
 
-_Subcategory input:touchpad:_
+_Subcategory `input:touchpad:`_
 
-`disable_while_typing=bool` - self-explanatory
+`disable_while_typing=bool`
 
-`natural_scroll=bool` - self-explanatory
+`natural_scroll=bool`
 
-`clickfinger_behavior=bool` - self-explanatory
+`clickfinger_behavior=bool`
 
-`middle_button_emulation=bool` - self-explanatory
+`middle_button_emulation=bool`
 
-`tap-to-click=bool` - self-explanatory
+`tap-to-click=bool`
 
 *Note:* Touchpad config changes may require a Hyprland restart.
 
-### Per-device input config is described [here](../Advanced-config#per-device-input-configs)
+### Per-device input config
+
+Described [here](../Advanced-config#per-device-input-configs).
 
 ## Gestures
 
@@ -215,7 +219,7 @@ the mouse moves.
 the mouse when drag and dropping. Recommended to leave it enabled, especially
 for people using focus follows mouse at 0.
 
-`layers_hog_keyboard_focus=bool` - If true, will make keyboard interactive
+`layers_hog_keyboard_focus=bool` - If true, will make keyboard-interactive
 layers keep their focus on mouse move (e.g. wofi, bemenu)
 
 ## Binds
@@ -243,4 +247,4 @@ tracking
 ## More
 
 There are more config options described in other pages, which are layout- or
-circumstance-specific. See the sidebar navpanel for more pages.
+circumstance-specific. See the sidebar for more pages.
