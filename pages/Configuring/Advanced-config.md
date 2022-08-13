@@ -122,9 +122,9 @@ for example,
 bind=SUPERSHIFT,Q,exec,firefox
 ```
 
-will bind opening firefox to SUPER+SHIFT+Q
+will bind opening firefox to <key>SUPER</key> + <key>SHIFT</key> + <key>Q</key>
 
-Please note that `SHIFT` modifies the key names, so for example
+Please note that <key>SHIFT</key> modifies the key names, so for example
 
 ```
 bind=SHIFT,1,anything,
@@ -167,7 +167,7 @@ e.g.:
 bind=SUPER,28,exec,amongus
 ```
 
-Will bind SUPER+T. (T is keycode 28.) - You can also use `xev` or `wev` to find
+Will bind <key>SUPER</key> + <key>T</key>. (<key>T</key> is keycode 28.) - You can also use `xev` or `wev` to find
 keycodes.
 
 You can also unbind with `unbind`, e.g.:
@@ -185,7 +185,7 @@ for example:
 bind=SUPER,mouse:272,exec,amongus
 ```
 
-will bind it to SUPER+LMB.
+will bind it to <key>SUPER</key> + <key>LMB</key>.
 
 For binding only modkeys, you need to use the TARGET modmask (with the
 activating mod) and the `r` flag, e.g.:
@@ -319,9 +319,13 @@ allpseudo -> makes all new windows pseudo (also pseudos/unpseudos on toggle)
 you can execute a shell script on startup of the compositor or on each time it's
 reloaded.
 
-**Note**: There currently is a bug with the exec that makes the executed app
+{{< hint type=info >}}
+
+There currently is a bug with the exec that makes the executed app
 unable to die if killed, use `SIGKILL` (e.g. `killall name -9`) or launch from a
 script (`exec-once=~/myscript.sh` and do `myapp &` in the script)
+
+{{< /hint >}}
 
 `exec-once=command` will execute only on launch
 
