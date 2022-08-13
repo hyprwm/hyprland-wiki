@@ -3,15 +3,15 @@
 If you are in a TTY, and the hyprland session that crashed was the last one you
 launched, the log will be printed with
 
-```
+```sh
 cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 1)/hyprland.log
 ```
 
-feel free to send it to a file, save, copy, etc.
+feel free to save it to a file, save, copy, etc.
 
 if you are in a Hyprland session, and you want the log of the last session, use
 
-```
+```sh
 cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 2 | tail -n 1)/hyprland.log
 ```
 

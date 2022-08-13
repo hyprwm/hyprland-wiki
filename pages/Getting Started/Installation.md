@@ -102,24 +102,7 @@ debug.
 
 ## Crash on launch
 
-See the log, `cat /tmp/hypr/[INSTANCE_SIGNATURE]/hyprland.log`
-
-*If you are unsure of the signature, grab the one that's the most recently
-modified.*
-
-Diagnose the issue by what is in the log:
-
-- `sWLRBackend was NULL!` -> launch in the TTY and refer to the wlr logs in RED.
-- `Monitor X has NO PREFERRED MODE, and an INVALID one was requested` -> your
-  monitor is borked.
-- Other -> see the coredump. Use `coredumpctl`, find the latest one's PID and do
-  `coredumpctl info PID`.
-- failing on a driver (e.g. `radeon`) -> try compiling with
-  `make legacyrenderer`. If that doesn't help, report an issue.
-- failing on `wlr-xxx` -> try compiling with `make legacyrenderer`. If that
-  doesn't help, report an issue, and also refer to the TTY wlr logs in RED like
-  in the first point.
-- failing on `Hyprland` -> report an issue.
+See [Crashes and Bugs](../../Crashes-and-Bugs).
 
 ## Custom installation (legacy renderer, etc)
 
