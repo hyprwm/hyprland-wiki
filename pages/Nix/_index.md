@@ -1,7 +1,11 @@
-**NOTE:** Hyprland is NOT supported on NixOS stable. It may (not) compile or
-work as intended. Please use the flake.
+## Table of contents
+{{< toc format=html >}}
 
-## Install and configure Hyprland on Nix & NixOS
+**NOTE:** Hyprland is NOT supported on NixOS stable. It may (not) compile or
+work as intended. Please use the
+[flake](https://github.com/hyprwm/Hyprland/blob/main/flake.nix).
+
+## Install and configure Hyprland on NixOS
 
 Make sure to check out the options of the
 [Nix module](https://github.com/hyprwm/Hyprland/blob/main/nix/module.nix).
@@ -36,8 +40,10 @@ Don't forget to replace `HOSTNAME` with your hostname!
 
 ### Without flakes
 
-**NOTE:** If you're using Hyprland through an overlay, set
+{{< hint >}}
+If you're using Hyprland through an overlay, set
 `programs.hyprland.package = pkgs.hyprland;`.
+{{< /hint >}}
 
 ```nix
 # configuration.nix
@@ -50,17 +56,15 @@ in {
   imports = [
     hyprland.nixosModules.default
   ];
-
-  nixpkgs.overlays = [ hyprland.overlays.default ];
-
+  
   programs.hyprland = {
     enable = true;
-    package = pkgs.hyprland;
+    package = hyprland.packages.${pkgs.system}.default;
   };
 }
 ```
 
-## Home Manager module
+## Install and configure through Home Manager
 
 You can use the Home Manager module by adding it to your configuration:
 
@@ -80,22 +84,27 @@ For a list of available options, check the
 
 ## Modules mix'n'match
 
-If you plan on using the HM module alongside the NixOS module, set the NixOS
+- If you plan on using the HM module alongside the NixOS module, set the NixOS
 `programs.hyprland.package = null;`.
 
-If you don't plan on using the NixOS module, but want to use the HM module, you
+- If you don't plan on using the NixOS module, but want to use the HM module, you
 will have to enable all the options the NixOS module enables.
 
-If you don't plan on using any module, manually enable whatever options the
+- If you don't plan on using any module, manually enable whatever options the
 modules set.
+
+## Non-NixOS install
+
+If you plan on using Hyprland through Nix, outside of NixOS, please use
+[nixGL](https://github.com/guibou/nixGL).
 
 ## Cachix
 
-A [Hyprland Cachix](https://app.cachix.org/cache/nix-gaming) exists to cache the
+A [Hyprland Cachix](https://app.cachix.org/cache/hyprland) exists to cache the
 `wlroots` package and speed up builds.
 
-In case you don't plan on changing the Nixpkgs Hyprland builds with, you can use
-this cache to speed up your builds.
+In case you don't plan on changing the Nixpkgs input of Hyprland, you can use
+this cache to download the binary directly, instead of building locally.
 
 ```nix
 # configuration.nix

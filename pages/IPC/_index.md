@@ -3,14 +3,14 @@ via code / bash utilities.
 
 ## Hyprland Instance Signature (HIS)
 
-```
+```sh
 echo $HYPRLAND_INSTANCE_SIGNATURE
 ```
 
 # /tmp/hypr/\[HIS\]/.socket.sock
 
 Used for hyprctl-like requests. See the
-[Hyprctl page](https://github.com/hyprwm/Hyprland/wiki/Using-hyprctl) for
+[Hyprctl page](../Configuring/Using-hyprctl) for
 commands.
 
 basically, write `command args`.
@@ -31,19 +31,19 @@ e.g.: `workspace>>2`
 emitted on workspace change. Is emitted ONLY when a user requests a workspace
 change, and is not emitted on mouse movements (see `activemon`)
 
-Data: WORKSPACENAME
+Data: `WORKSPACENAME`
 
 ### focusedmon
 
 emitted on the active monitor being changed.
 
-Data: MONNAME,WORKSPACENAME
+Data: `MONNAME,WORKSPACENAME`
 
 ### activewindow
 
 emitted on the active window being changed.
 
-Data: WINDOWCLASS,WINDOWTITLE
+Data: `WINDOWCLASS,WINDOWTITLE`
 
 ### fullscreen
 
@@ -53,31 +53,31 @@ Warning: a fullscreen event is not guaranteed to fire on/off once in succession.
 A window might do for example 3 requests to be fullscreen'd, which would result
 in 3 fullscreen events.
 
-Data: 0/1 (exit fullscreen / enter fullscreen)
+Data: `0/1` (exit fullscreen / enter fullscreen)
 
 ### monitorremoved
 
 emitted when a monitor is removed (disconnected)
 
-Data: MONITORNAME
+Data: `MONITORNAME`
 
 ### monitoradded
 
 emitted when a monitor is added (connected)
 
-Data: MONITORNAME
+Data: `MONITORNAME`
 
 ### createworkspace and destroyworkspace
 
 emitted when a workspace is created or removed
 
-Data: WORKSPANCENAME
+Data: `WORKSPANCENAME`
 
 ## How to use socket2 with bash
 
 example script using socket2 events with bash and `socat`:
 
-```
+```sh
 #!/bin/sh
 
 function handle {

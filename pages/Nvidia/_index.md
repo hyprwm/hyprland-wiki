@@ -10,15 +10,16 @@ Nevertheless, it's recommended to at least try this tutorial.
 
 ## How to get Hyprland to possibly work on Nvidia
 
-Install the `nvidia-dkms` driver and add it to your initram & kernel parameters,
-follow the information available here:
+Install the `nvidia-dkms` driver and add it to your initramfs & kernel
+parameters. Follow the information available here:
 [https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting](https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting)
 
-_\* Note_: If your GPU is listed as supported by the `nvidia-open-dkms` driver,
-go with that one instead.
+{{< hint >}}If your GPU is listed as supported by the `nvidia-open-dkms` driver,
+use that one instead.
+{{< /hint >}}
 
-Following the wrapping instructions found at
-[The Quick Start Page](https://github.com/hyprwm/Hyprland/wiki/Quick-start#wrapping-the-launcher-recommended),
+Following the wrapping instructions found on
+[the Quick Start page](../Getting-Started/Quick-start#wrapping-the-launcher-recommended),
 wrap the launcher and additionally export these:
 
 ```sh
@@ -55,7 +56,7 @@ in-fact do notice flickering artifacts from being idle for ~5 seconds.
 
 Make a new file at `/etc/modprobe.d/nvidia.conf` and paste this in:
 
-```
+```sh
 options nvidia NVreg_RegistryDwords="PowerMizerEnable=0x1; PerfLevelSrc=0x2222; PowerMizerLevel=0x3; PowerMizerDefault=0x3; PowerMizerDefaultAC=0x3"
 ```
 
