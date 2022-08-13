@@ -14,7 +14,7 @@ There is no "reload" keybind. The config is reloaded the moment you save it.
 Refer to the example config in
 [example/hyprland.conf](https://github.com/hyprwm/Hyprland/blob/main/example/hyprland.conf).
 
-Start a section with `name {` and end in `}` ***on separate lines!***
+Start a section with `name {` and end in `}` ***in separate lines!***
 
 # Line style
 

@@ -1,4 +1,4 @@
-= Dwindle is a BSPWM-like layout, where every window on a workspace is a member
+Dwindle is a BSPWM-like layout, where every window on a workspace is a member
 of a binary tree.
 
 # Quirks
