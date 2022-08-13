@@ -10,6 +10,17 @@ If it's not, go to the repo root and `/hyprctl`. Issue a `make all` and then
 
 # Commands
 
+{{< hint type=warning >}}
+
+*hyprctl* calls will be dispatched by the compositor *synchronously*,
+meaning any spam of the utility will cause slowdowns.
+It's recommended to use `--batch` for many control calls, and
+limiting the amount of info calls.
+
+For live event handling, see the [socket2](../../IPC/).
+
+{{< /hint >}}
+
 ## Control
 
 ### Dispatch

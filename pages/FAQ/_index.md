@@ -1,13 +1,16 @@
+　
+{{< toc format=html >}}
+
 ### Nothing renders / screen is empty / crash on opening first app
 
 Possible causes:
 
-#### Your themes are not set up properly, making apps crash.
+> Your themes are not set up properly, making apps crash.
 
 Use something like `qt5ct` (QT) and `lxappearance` (GTK) (\*for GTK you can also
 set up themes with envvars) to set up your themes.
 
-#### Your PC is very, very old.
+> Your PC is very, very old.
 
 In that case, see the
 [Installation Page](https://github.com/hyprwm/Hyprland/wiki/Installation) and

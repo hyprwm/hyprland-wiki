@@ -13,6 +13,9 @@ three_param_keyword=A,C # NOT OK
 three_param_keyword=A,,C # OK
 ```
 
+# Table of contents
+{{< toc format=html >}}
+
 # Monitors
 
 ```plain
