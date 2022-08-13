@@ -220,282 +220,95 @@ You can bind a mod alone like this:
 bindr=ALT,Alt_L,exec,amongus
 ```
 
-## General dispatcher list:
+## General dispatcher list
 
 Please keep in mind some layout-specific dispatchers will be listed in the
 layout pages (See the sidebar)
 
-### exec
 
-executes a shell command
+*Some confusing params explained:*
 
-**params**: command
+| param type | description |
+| --- | --- | --- |
+| window | a window. Any of the following: Class regex, `title:` and a title regex, `pid:` and the pid, `address:` and the address |
+| workspace | see below. |
+| direction | `l` `r` `u` `d` left right up down |
+| monitor | One of: direction, ID, name |
+| resizeparams | Pixel delta vec2 (e.g. `10 -10`) or `exact` followed by exact vec2, e.g. `exact 1280 720`) |
+| floatdelta | a float value delta, e.g `-0.2` or `+0.2`. |
+| workspaceopt | see below. |
 
-### pass
+*Dispatchers:*
 
-passes the key (with mods) to a specified window. Can be used as a workaround to
-global keybinds not working on Wayland.
+| dispatcher | description | params |
+|---|---|---|
+| exec | executes a shell command | command |
+| pass | passes the key (with mods) to a specified window. Can be used as a workaround to global keybinds not working on Wayland. | window |
+| killactive | kills the active window | none |
+| workspace | changes the workspace | workspace |
+| movetoworkspace | moves the focused window to a workspace | workspace |
+| movetoworkspacesilent | same as above, but doesnt switch to the workspace | workspace |
+| togglefloating | toggles the current window's floating state | none |
+| fullscreen | toggles the focused window's fullscreen state | 0 - real fullscreen (takes your entire screen), 1 - "maximize" fullscreen (keeps the gaps and bar(s)) |
+| dpms | sets all monitors' DPMS status. Do not use with a keybind directly. | `on` or `off` |
+| pseudo | toggles the focused window's pseudo mode | none |
+| movefocus | moves the focus in a direction | direction |
+| movewindow | moves the active window in a direction or to a monitor | direction or monitor |
+| resizeactive | resizes the active window | resizeparams |
+| moveactive | moves the active window | resizeparams |
+| cyclenext | focuses the next window on a workspace | none (for next) or `prev` (for previous) |
+| focuswindow | focuses the first window matching | window |
+| focusmonitor | focuses a monitor | monitor |
+| splitratio | changes the split ratio | floatdelta |
+| toggleopaque | toggles the current window to always be opaque | none |
+| movecursortocorner | moves the cursor to the corner of the active window | direction, 0 - 3, bottom left - 0, bottom right - 1, top right - 2, top left - 3 |
+| workspaceopt | toggles a workspace option for the active workspace. | workspaceopt |
+| exit | exits the compositor with no questions asked. | none |
+| forcerendererreload | forces the renderer to reload all resources and outputs | none |
+| movecurrentworkspacetomonitor | Moves the active workspace to a monitor | monitor |
+| moveworkspacetomonitor | Moves a workspace to a monitor | workspace and a monitor separated by a space |
+| togglespecialworkspace | toggles the special workspace on/off | none |
 
-**params**: a window, so:
-
-class regex
-
-OR
-
-`title:` and a title regex
-
-OR
-
-`pid:` and the pid
-
-OR
-
-`address:` and an address
-
-### killactive
-
-kills the focused window
-
-**params**: none
-
-### workspace
-
-changes the workspace
-
-params: workspace (see below)
-
-### movetoworkspace
-
-moves the focused window to workspace X
-
-**params**: workspace (see below)
-
-### movetoworkspacesilent
-
-moves the focused window to workspace X, without changing to that workspace
-(silent)
-
-**params**: workspace (see below)
-
-### togglefloating
-
-toggles the focused window floating
-
-**params**: none
-
-### fullscreen
-
-toggles the focused window's fullscreen state
-
-**params**: 0 - real fullscreen (takes your entire screen), 1 - "maximize"
-fullscreen (keeps the gaps and bar(s))
-
-### dpms
-
-sets the monitor's dpms status.
-
-**Warning**: it is NOT recommended to set DPMS with a keybind directly, as it
+{{< hint type=warning >}}
+it is NOT recommended to set DPMS with a keybind directly, as it
 might cause undefined behavior. Instead, consider something like
 
 ```
 bind = MOD,KEY,exec,sleep 1 && hyprctl dispatch dpms off
 ```
-
-**params**: `on` for on, `off` for off.
-
-### pseudo
-
-toggles the focused window to be pseudotiled
-
-**params**: none
-
-### movefocus
-
-moves the focus in a specified direction
-
-**params**: l/r/u/d (left right up down)
-
-### movewindow
-
-moves the active window in a specified direction OR monitor
-
-**params**: l/r/u/d (left right up down) OR mon: and ONE OF: l/r/u/d OR name OR
-id (e.g.: `mon:DP-1` or `mon:l`)
-
-### resizeactive
-
-resizes the active window.
-
-**params**:
-
-- pixel delta to resize by, integer X and Y, separated by a space.
-
-OR
-
-- "exact" followed by a space and exact pixel size
-
-negative X -> left, negative Y -> top, positive X -> right, positive Y -> bottom
-
-e.g.:
-
-```
-bind=MOD,KEY,resizeactive,-20 0
-bind=MOD,KEY,resizeactive,exact 1280 720
-```
-
-### moveactive
-
-moves the active window.
-
-**params**:
-
-- pixel delta to move by, integer X and Y, separated by a space.
-
-OR
-
-- "exact" followed by a space and exact coordinates
-
-negative X -> left, negative Y -> top, positive X -> right, positive Y -> bottom
-
-e.g.:
-
-```
-bind=MOD,KEY,moveactive,20 -20
-bind=MOD,KEY,moveactive,exact 720 0
-```
-
-### cyclenext
-
-focuses the next window on a workspace
-
-**params**: empty for next, `prev` for previous
-
-### focuswindow
-
-focuses the first found window matching a specified regex
-
-**params**:
-
-class regex
-
-OR
-
-`title:` and a title regex
-
-OR
-
-`pid:` and the pid
-
-OR
-
-`address:` and an address
-
-### focusmonitor
-
-focuses a monitor
-
-**params**: direction OR name OR id
-
-Directions: l/r/u/d (left right up down)
-
-Name: e.g. `DP-1`
-
-ID: e.g. `0`
-
-(You can get names and IDs with `hyprctl monitors`)
-
-### splitratio
-
-changes the split ratio
-
-**params**: relative split change, +n/-n, e.g. +0.1 or -0.02, clamps to 0.1 -
-1.9
-
-### toggleopaque
-
-toggles the current window to always be opaque
-
-**params**: none
-
-### movecursortocorner
-
-moves the cursor to the corner of the active window
-
-**params**: direction, 0 - 3, bottom left - 0, bottom right - 1, top right - 2,
-top left - 3.
-
-### workspaceopt
-
-toggles a workspace option for the active workspace.
-
-**params**: a workspace option
-
-Workspace options:
-
-```
-allfloat -> makes all new windows floating (also floats/unfloats windows on toggle)
-allpseudo -> makes all new windows pseudo (also pseudos/unpseudos on toggle)
-```
-
-### exit
-
-exits the compositor. No questions asked.
-
-**params**: none
-
-### forcerendererreload
-
-forces the renderer to reload all resources and outputs.
-
-**params**: none
-
-### movecurrentworkspacetomonitor
-
-Moves the active workspace to a monitor
-
-**params**: monitor ID, name or direction (l/r/u/d)
-
-### moveworkspacetomonitor
-
-Moves a workspace to a monitor
-
-**params**: workspace and monitor ID, name or direction
-
-e.g.:
-
-```
-bind=MOD,KEY,moveworkspacetomonitor,4 0
-```
-
-will move workspace 4 to monitor 0.
-
-### togglespecialworkspace
-
-toggles the special workspace on/off.
-
-**params**: none
+{{< /hint >}}
 
 ## Workspaces
 
-workspace args are unified. You have six choices:
+You have six choices:
 
-ID: e.g. `1`, `2`, or `3`
+- ID: e.g. `1`, `2`, or `3`
 
-Relative ID: e.g. `+1`, `-3` or `+100`
+- Relative ID: e.g. `+1`, `-3` or `+100`
 
-Relative workspace on monitor: e.g. `m+1`, `m-1` or `m+3`
+- Relative workspace on monitor: e.g. `m+1`, `m-1` or `m+3`
 
-Relative open workspace: e.g. `e+1` or `e-10`
+- Relative open workspace: e.g. `e+1` or `e-10`
 
-Name: e.g. `name:Web`, `name:Anime` or `name:Better anime`
+- Name: e.g. `name:Web`, `name:Anime` or `name:Better anime`
 
-Special Workspace: `special` **Warning**: `special` is supported ONLY on
+- Special Workspace: `special`
+
+{{< hint type=warning >}}
+`special` is supported ONLY on
 `movetoworkspace`. Any other dispatcher will result in undocumented behavior.
+{{< /hint >}}
 
 ### Special Workspace
 
 Special workspace is what is called a "scratchpad" in some other places. A
 workspace that you can toggle on/off on any monitor.
+
+### Workspace options
+```
+allfloat -> makes all new windows floating (also floats/unfloats windows on toggle)
+allpseudo -> makes all new windows pseudo (also pseudos/unpseudos on toggle)
+```
 
 # Executing
 
@@ -554,109 +367,40 @@ windowrule=move 0 0,title:^(Firefox)(.*)$
 
 ## Rules
 
-### float
+| rule | description |
+| --- | --- | 
+| float | floats a window |
+| tile | tiles a window |
+| fullscreen | fullscreens a window |
+| move \[x\] \[y\] | moves a floating window (x,y -> int or %, e.g. 20% or 100) |
+| size \[x\] \[y\] | resizes a floating window (x,y -> int or %, e.g. 20% or 100) |
+| center | if the window is floating, will center it on the monitor |
+| pseudo | pseudotiles a window |
+| monitor \[id\] | sets the monitor on which a window should open |
+| workspace \[w\] | sets the workspace on which a window should open (for workspace syntax, see [binds->workspaces](../Advanced-config#workspaces)). You can also make \[w\] to `unset`, will unset all previous workspace rules applied to this window. You can also add `silent` after the workspace to make the window open silently. |
+| opacity \[a\] | additional opacity multiplier. Options for a: `float` -> sets an opacity OR `float float` -> sets activeopacity and inactiveopacity respectively |
+| opaque | forces the window to be opaque (can be toggled with the toggleopaque dispatcher) |
+| animation \[style\] (\[opt\]) | forces an animation onto a window, with a selected opt. Opt is optional. |
+| rounding \[x\] | forces the application to have X pixels of rounding, ignoring the set default (in `decoration:rounding`). Has to be an int. |
+| noblur | disables blur for the window |
+| nofocus | disables focus to the window |
 
-floats a window
-
-### tile
-
-tiles a window
-
-### fullscreen
-
-fullscreens a window
-
-### move \[x\] \[y\]
-
-moves a floating window (x,y -> int or %, e.g. 20% or 100)
-
-### size \[x\] \[y\]
-
-resizes a floating window (x,y -> int or %, e.g. 20% or 100)
-
-### center
-
-if the window is floating, will center it on the monitor.
-
-### pseudo
-
-pseudotiles a window
-
-### monitor \[id\]
-
-sets the monitor on which a window should open
-
-### workspace \[w\]
-
-sets the workspace on which a window should open (for workspace syntax, see
-binds->workspaces)
-
-you can also make \[w\] to `unset`, will unset all previous workspace rules
-applied to this window.
-
-you can also add `silent` after the workspace to make the window open silently.
-
-e.g.:
-
+*Examples*:
 ```
-windowrule=workspace unset,Dolphin
-windowrule=workspace name:amongus silent,kitty
-windowrule=workspace 12,firefox
+windowrule = move 100 100,^(kitty)$
+windowrule = animation popin,^(kitty)$
+windowrule = noblur,^(firefox)$
 ```
 
-### opacity \[a\]
+{{< hint type=tip >}}
 
-additional opacity multiplier
-
-options for a:
-
-`float` -> sets an opacity
-
-`float float` -> sets activeopacity and inactiveopacity respectively
-
-_Notice_: Opacity is always a PRODUCT of all opacities. E.g. active_opacity to
+Opacity is always a PRODUCT of all opacities. E.g. active_opacity to
 0.5 and windowrule opacity to 0.5 will result in a total opacity 0.25. You are
 allowed to set opacities over 1, but any opacity product over 1 will cause
 graphical glitches. E.g. 0.5 * 2 = 1, and it will be fine, 0.5 * 4 will cause
 graphical glitches.
 
-### opaque
-
-forces the window to be opaque (can be toggled with the toggleopaque dispatcher)
-
-### animation \[style\] \[opt\]
-
-forces an animation onto a window, with a selected opt.
-
-e.g.:
-
-```
-windowrule=animation slide left,kitty
-windowrule=animation popin,dolphin
-```
-
-### rounding \[x\]
-
-forces the application to have X pixels of rounding, ignoring the set default
-(in `decoration:rounding`)
-
-`x` has to be an int.
-
-## More examples
-
-```
-windowrule=float,kitty
-windowrule=monitor 0,Firefox
-windowrule=move 200 200,Discord
-```
-
-### noblur
-
-forces the window not to have blur
-
-### nofocus
-
-forces the window to never receive focus
+{{< /hint >}}
 
 # Animations
 
@@ -772,10 +516,10 @@ bind=ALT,R,submap,resize # will switch to a submap called resize
 
 submap=resize # will start a submap called "resize"
 
-bind=,right,resizeactive,10 0
-bind=,left,resizeactive,-10 0
-bind=,up,resizeactive,0 -10
-bind=,down,resizeactive,0 10
+binde=,right,resizeactive,10 0
+binde=,left,resizeactive,-10 0
+binde=,up,resizeactive,0 -10
+binde=,down,resizeactive,0 10
 
 bind=,escape,submap,reset # use reset to go back to the global submap
 
@@ -791,8 +535,6 @@ If you get stuck inside a keymap, you can use `hyprctl dispatch submap reset` to
 go back. If you do not have a terminal open, tough luck buddy. I warned you.
 
 # Per-device input configs
-
-*Warning:* Some configs, notably touchpad ones, require a Hyprland restart.
 
 Per-device config options will overwrite your options set in the `input`
 section. It's worth noting that ONLY values explicitly changed will be
