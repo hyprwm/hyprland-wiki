@@ -43,33 +43,21 @@ container get removed, the group will be broken back to its dwindle form.
 
 category name: `dwindle`
 
-`pseudotile=int` - (0/1) enable pseudotiling
-
-`col.group_border=col` - inactive (out of focus) group border color
-
-`col.group_border_active=col` - active group border color
-
-`force_split=int` - 0 -> split follows mouse, 1 -> always split to the left (new
-= left or top) 2 -> always split to the right (new = right or bottom)
-
-`preserve_split=int` - (0/1) if enabled, the split (side/top) will not change
-regardless of what happens to the container.
-
-`special_scale_factor=float` - 0 - 1 -> specifies the scale factor of windows on
-the special workspace
-
-`split_width_multiplier=float` - specifies the auto-split width multiplier
-
-`no_gaps_when_only=bool` - whether to apply gaps when there is only one window
-on a workspace.
+| name | description | type | default |
+|---|---|---|---|---|
+| pseudotile | enable pseudotiling | bool | false |
+| col.group_border | inactive (out of focus) group border color | color | 0x66777700 |
+| col.group_border_active | active group border color | color | 0x66ffff00 |
+| force_split | 0 -> split follows mouse, 1 -> always split to the left (new = left or top) 2 -> always split to the right (new = right or bottom) | int | 0 |
+| preserve_split | if enabled, the split (side/top) will not change regardless of what happens to the container. | bool | false |
+| special_scale_factor | 0 - 1 -> specifies the scale factor of windows on the special workspace | float | 0.8 |
+| split_width_multiplier | specifies the auto-split width multiplier | float | 1.0 |
+| no_gaps_when_only | whether to apply gaps when there is only one window on a workspace, aka. smart gaps. | bool | false |
 
 ## Bind Dispatchers
 
-`togglegroup` - toggles the current window and its siblings (recursively) into a
-group - params: none
-
-`changegroupactive` - switches to the next window in a group. - params: b -
-back, f - forward.
-
-`togglesplit` - toggles the split (top/side) of the current window - params:
-none
+| dispatcher | description | params |
+|---|---|---|
+| togglegroup | toggles the current window and its siblings (recursively) into a group | none |
+| changegroupactive | switches to the next window in a group. | b - back, f - forward. |
+| togglesplit | toggles the split (top/side) of the current window | none |
