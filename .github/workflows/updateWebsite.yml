@@ -14,4 +14,4 @@ jobs:
         with:  
           token: ${{ secrets.TOKN }}  
           repository: hyprwm/hyprland-wiki-backend
-          event-type: sync-shared-submodule
+          event-type: sync-shared-submodules
