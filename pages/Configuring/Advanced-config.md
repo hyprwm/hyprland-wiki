@@ -308,6 +308,11 @@ You have six choices:
 Special workspace is what is called a "scratchpad" in some other places. A
 workspace that you can toggle on/off on any monitor.
 
+{{< hint >}}
+You cannot have floating windows in the Special workspace. Making a window floating
+will send it to the currently active *real* workspace.
+{{< /hint >}}
+
 ### Workspace options
 ```
 allfloat -> makes all new windows floating (also floats/unfloats windows on toggle)
