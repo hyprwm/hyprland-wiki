@@ -6,7 +6,7 @@ Wofi is a GTK-based customizable launcher for wayland.
 ## Rofi (Wayland fork)
 
 Rofi, but with Wayland support.
-[GitHub](https://github.com/Ibonn/rofi).
+[GitHub](https://github.com/lbonn/rofi).
 
 ## bemenu
 
