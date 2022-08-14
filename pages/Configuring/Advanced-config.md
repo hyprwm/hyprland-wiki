@@ -319,6 +319,29 @@ allfloat -> makes all new windows floating (also floats/unfloats windows on togg
 allpseudo -> makes all new windows pseudo (also pseudos/unpseudos on toggle)
 ```
 
+# Global Keybinds
+Yes, you heard this right, Hyprland does support global keybinds for ALL apps,
+including OBS, Webcord, Firefox, etc.
+
+See the `pass` dispatcher for keybinds.
+
+e.g.:
+
+I've set the "Start/Stop Recording" keybind in OBS to SUPER+F10, and I want it
+to be global.
+
+Simple, add
+```plain
+bind = SUPER,F10,pass,^(com\.obsproject\.Studio)$
+```
+to your config and you're done.
+
+{{< hint type=important >}}
+`pass` has currently a minor issue with XWayland and may not fully work on XWayland apps.
+
+It works flawlessly with all native Wayland applications though.
+{{< /hint >}}
+
 # Executing
 
 you can execute a shell script on startup of the compositor or on each time it's
