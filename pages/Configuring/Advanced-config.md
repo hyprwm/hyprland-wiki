@@ -260,6 +260,8 @@ layout pages (See the sidebar)
 | movewindow | moves the active window in a direction or to a monitor | direction or monitor |
 | resizeactive | resizes the active window | resizeparams |
 | moveactive | moves the active window | resizeparams |
+| resizewindowpixel | resizes a selected window | resizeparams and a window, separated by a comma, e.g. `100 100,^(kitty)$ |
+| movewindowpixel | moves a selected window | resizeparams and a window, separated by a comma |
 | cyclenext | focuses the next window on a workspace | none (for next) or `prev` (for previous) |
 | focuswindow | focuses the first window matching | window |
 | focusmonitor | focuses a monitor | monitor |
