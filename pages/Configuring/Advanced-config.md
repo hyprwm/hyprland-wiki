@@ -250,8 +250,8 @@ layout pages (See the sidebar)
 | pass | passes the key (with mods) to a specified window. Can be used as a workaround to global keybinds not working on Wayland. | window |
 | killactive | kills the active window | none |
 | workspace | changes the workspace | workspace |
-| movetoworkspace | moves the focused window to a workspace | workspace |
-| movetoworkspacesilent | same as above, but doesnt switch to the workspace | workspace |
+| movetoworkspace | moves the focused window to a workspace | workspace OR `workspace,window` for a specific window |
+| movetoworkspacesilent | same as above, but doesnt switch to the workspace | workspace OR `workspace,window` for a specific window |
 | togglefloating | toggles the current window's floating state | none |
 | fullscreen | toggles the focused window's fullscreen state | 0 - real fullscreen (takes your entire screen), 1 - "maximize" fullscreen (keeps the gaps and bar(s)) |
 | dpms | sets all monitors' DPMS status. Do not use with a keybind directly. | `on` or `off` |
@@ -260,8 +260,8 @@ layout pages (See the sidebar)
 | movewindow | moves the active window in a direction or to a monitor | direction or monitor |
 | resizeactive | resizes the active window | resizeparams |
 | moveactive | moves the active window | resizeparams |
-| resizewindowpixel | resizes a selected window | resizeparams and a window, separated by a comma, e.g. `100 100,^(kitty)$ |
-| movewindowpixel | moves a selected window | resizeparams and a window, separated by a comma |
+| resizewindowpixel | resizes a selected window | `resizeparams,window`, e.g. `100 100,^(kitty)$ |
+| movewindowpixel | moves a selected window | `resizeparams,window` |
 | cyclenext | focuses the next window on a workspace | none (for next) or `prev` (for previous) |
 | focuswindow | focuses the first window matching | window |
 | focusmonitor | focuses a monitor | monitor |
