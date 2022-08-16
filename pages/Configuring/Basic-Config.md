@@ -165,6 +165,7 @@ Described [here](../Advanced-config#per-device-input-configs).
 | mouse_move_enables_dpms | If DPMS is set to off, wake up the monitors if the mouse moves. | bool | false |
 | always_follow_on_dnd | Will make mouse focus follow the mouse when drag and dropping. Recommended to leave it enabled, especially for people using focus follows mouse at 0. | bool | true |
 | layers_hog_keyboard_focus | If true, will make keyboard-interactive layers keep their focus on mouse move (e.g. wofi, bemenu) | bool | true |
+| animate_manual_resizes | If true, will animate manual window resizes/moves | bool | false |
 
 ## Binds
 
