@@ -69,7 +69,7 @@ libwlroots), you don't need to update anything else.
 *Arch dependencies*:
 
 ```plain
-yay -S gdb ninja gcc cmake libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite xorg-xinput libxrender pixman wayland-protocols cairo pango
+yay -S gdb ninja gcc cmake libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite xorg-xinput libxrender pixman wayland-protocols cairo pango seatd
 ```
 
 (If any are missing hmu)
