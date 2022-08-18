@@ -36,7 +36,7 @@ e.g.: `workspace>>2`
 | monitoradded | emitted when a monitor is added (connected) | `MONITORNAME` |
 | createworkspace | emitted when a workspace is created | `WORKSPACENAME` |
 | destroyworkspace | emitted when a workspace is destroyed | `WORKSPACENAME` |
-| activelayout | emitted on a layout change of the active keyboard | `LAYOUTNAME` |
+| activelayout | emitted on a layout change of the active keyboard | `KEYBOARDNAME,LAYOUTNAME` |
 
 {{< hint type=warning >}}
 A fullscreen event is not guaranteed to fire on/off once in succession.
