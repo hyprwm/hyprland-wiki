@@ -26,52 +26,23 @@ e.g.: `workspace>>2`
 
 ## Events list:
 
-### workspace
+| name | description | data |
+| --- | --- | --- |
+| workspace | emitted on workspace change. Is emitted ONLY when a user requests a workspace change, and is not emitted on mouse movements (see `activemon`) | `WORKSPACENAME` |
+| focusedmon | emitted on the active monitor being changed. | `MONNAME,WORKSPACENAME` |
+| activewindow | emitted on the active window being changed. | `WINDOWCLASS,WINDOWTITLE` |
+| fullscreen | emitted when a fullscreen status of a window changes. | `0/1` (exit fullscreen / enter fullscreen) |
+| monitorremoved | emitted when a monitor is removed (disconnected) | `MONITORNAME` |
+| monitoradded | emitted when a monitor is added (connected) | `MONITORNAME` |
+| createworkspace | emitted when a workspace is created | `WORKSPACENAME` |
+| destroyworkspace | emitted when a workspace is destroyed | `WORKSPACENAME` |
+| activelayout | emitted on a layout change of the active keyboard | `LAYOUTNAME` |
 
-emitted on workspace change. Is emitted ONLY when a user requests a workspace
-change, and is not emitted on mouse movements (see `activemon`)
-
-Data: `WORKSPACENAME`
-
-### focusedmon
-
-emitted on the active monitor being changed.
-
-Data: `MONNAME,WORKSPACENAME`
-
-### activewindow
-
-emitted on the active window being changed.
-
-Data: `WINDOWCLASS,WINDOWTITLE`
-
-### fullscreen
-
-emitted when a fullscreen status of a window changes.
-
-Warning: a fullscreen event is not guaranteed to fire on/off once in succession.
+{{< hint type=warning >}}
+A fullscreen event is not guaranteed to fire on/off once in succession.
 A window might do for example 3 requests to be fullscreen'd, which would result
 in 3 fullscreen events.
-
-Data: `0/1` (exit fullscreen / enter fullscreen)
-
-### monitorremoved
-
-emitted when a monitor is removed (disconnected)
-
-Data: `MONITORNAME`
-
-### monitoradded
-
-emitted when a monitor is added (connected)
-
-Data: `MONITORNAME`
-
-### createworkspace and destroyworkspace
-
-emitted when a workspace is created or removed
-
-Data: `WORKSPANCENAME`
+{{< /hint >}}
 
 ## How to use socket2 with bash
 
