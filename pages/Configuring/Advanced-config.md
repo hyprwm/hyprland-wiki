@@ -194,6 +194,12 @@ activating mod) and the `r` flag, e.g.:
 bindr=SUPERALT,Alt_L,exec,amongus
 ```
 
+You can also bind the mouse wheel with `mouse_up` and `mouse_down`:
+```
+bind=SUPER,mouse_down,workspace,e-1
+```
+(control the reset time with `binds:scroll_event_delay`)
+
 ## Bind flags
 
 bind supports flags in this format:
