@@ -53,6 +53,7 @@ category name: `dwindle`
 | special_scale_factor | 0 - 1 -> specifies the scale factor of windows on the special workspace | float | 0.8 |
 | split_width_multiplier | specifies the auto-split width multiplier | float | 1.0 |
 | no_gaps_when_only | whether to apply gaps when there is only one window on a workspace, aka. smart gaps. | bool | false |
+| use_active_for_splits | whether to prefer the active window or the mouse position for splits | bool | true |
 
 ## Bind Dispatchers
 
