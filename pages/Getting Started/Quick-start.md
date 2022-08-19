@@ -111,7 +111,7 @@ Exit hyprland, and then:
 - edit `~/.config/hypr/hyprland.conf`
 - replace the `monitor=` line with `monitor=NAME,RES@Hz,OFFSET,SCALE`, for
   example `monitor=DP-1,1920x1080@60,0x0,1` (See [Monitors](#monitors) for more
-  info about the values). You can also add multiple of those for multi-montor
+  info about the values). You can also add multiple of those for multi-monitor
   setups.
 
 After this, upon launching Hyprland again, everything should be fine, provided
