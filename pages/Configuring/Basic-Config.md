@@ -107,6 +107,7 @@ _More about animations is on the [Advanced Configuring page](../Advanced-config#
 | kb_model | Appropriate XKB keymap parameter | str | \[EMPTY\] |
 | kb_options | Appropriate XKB keymap parameter | str | \[EMPTY\] |
 | kb_rules | Appropriate XKB keymap parameter | str | \[EMPTY\] |
+| kb_file | If you prefer, you can use a path to an .xkb file. | str | \[EMPTY\] |
 | follow_mouse | (0/1/2/3) enable mouse following (focus on enter new window) - See the note below for more info | int | 1 |
 | repeat_rate | in ms, the repeat rate for held keys | int | 25 |
 | repeat_delay | in ms, the repeat delay (grace period) before the spam | int | 600 |
