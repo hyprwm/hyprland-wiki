@@ -37,7 +37,8 @@ you use the AUR.*
 ```plain
 hyprland-git - compiles from latest source
 hyprland - compiles from latest release source
-hyprland-bin - compiled latest release
+hyprland-bin - compiled latest release, prone to breaking on ARM devices as Hyprland binary is compiled for x86
+
 ```
 
 {{< /tab >}}
