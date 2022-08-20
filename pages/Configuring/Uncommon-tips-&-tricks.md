@@ -19,6 +19,8 @@ If you are unsure about the key names of your chosen alphabet, refer to the
 [xkbcommon keysym header](https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h).
 The keysym name in Hyprland is the XKB define name without the `XKB_KEY_`.
 
+Generally, for switched layouts, it's recommended to bind by a keycode.
+
 {{< hint type=important >}}
 
 For proper switching, or avoiding problems / bugs, it's recommended to switch per-device configs instead of global ones.
