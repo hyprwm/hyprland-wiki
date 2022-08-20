@@ -44,6 +44,13 @@ hyprland-bin - compiled latest release, prone to breaking on ARM devices as Hypr
 {{< /tab >}}
 {{< tab "Nix" >}}Read the [Nix page](../../Nix).{{< /tab >}}
 {{< tab "Fedora" >}}<https://github.com/hyprwm/Hyprland/discussions/284>{{< /tab >}}
+{{< tab "Gentoo" >}}
+The hyprland package is available in the [wayland-desktop](https://github.com/bsd-ac/wayland-desktop) overlay.
+```sh
+$ eselect repository enable wayland-desktop
+$ emerge --ask --verbose hyprland
+```
+{{</ tab >}}
 
 {{< /tabs >}}
 
