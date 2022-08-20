@@ -611,6 +611,13 @@ device:ROYUAN Akko Multi-modes Keyboard-B {
 
 *remember about the space after the end of the device's name (before the `{`)!*
 
+{{< hint type=note >}}
+With hyprctl, the category's spaces get turned into `-`, and everything is lowercase. So, for `hyprctl` calls, do for example:
+```
+hyprctl keyword device:royuan-akko-multi-modes-keyboard-b:kb_layout us
+```
+{{< /hint >}}
+
 # Wallpapers
 
 The hyprland background you see when you first start Hyprland is **NOT A
