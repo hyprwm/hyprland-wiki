@@ -19,6 +19,14 @@ If you are unsure about the key names of your chosen alphabet, refer to the
 [xkbcommon keysym header](https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h).
 The keysym name in Hyprland is the XKB define name without the `XKB_KEY_`.
 
+{{< hint type=important >}}
+
+For proper switching, or avoiding problems / bugs, it's recommended to switch per-device configs instead of global ones.
+
+See [per-device input configs](https://wiki.hyprland.org/Configuring/Advanced-config/#per-device-input-configs).
+
+{{< /hint >}}
+
 ## Disabling keybinds with one master keybind
 
 If you want to disable all keybinds with another keybind (make a kaybind toggle
