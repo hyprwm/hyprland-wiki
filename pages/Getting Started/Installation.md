@@ -164,7 +164,7 @@ You can of course also change the `BUILD_TYPE` to `Debug`.
 Now, build:
 
 ```plain
-cmake --build ./build --config Release --target all -j 10
+cmake --build ./build --config Release --target all -j $(nproc)
 ```
 
 If you configured in `Debug`, change the `--config` to `Debug` as well.
