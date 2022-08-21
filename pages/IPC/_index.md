@@ -37,6 +37,9 @@ e.g.: `workspace>>2`
 | createworkspace | emitted when a workspace is created | `WORKSPACENAME` |
 | destroyworkspace | emitted when a workspace is destroyed | `WORKSPACENAME` |
 | activelayout | emitted on a layout change of the active keyboard | `KEYBOARDNAME,LAYOUTNAME` |
+| openwindow | emitted when a window is opened | `WINDOWADDRESS`,`WORKSPACENAME`,`WINDOWCLASS`,`WINDOWTITLE`
+| closewindow | emitted when a window is closed | `WINDOWADDRESS`
+| movewindow | emitted when a window is moved to a workspace | `WINDOWADDRESS`,`WORKSPACENAME`
 
 {{< hint type=warning >}}
 A fullscreen event is not guaranteed to fire on/off once in succession.
