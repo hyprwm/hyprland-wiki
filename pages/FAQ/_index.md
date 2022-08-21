@@ -90,6 +90,10 @@ as a file.
 open a terminal where you cloned the repo.
 `git pull && sudo make clear && sudo make install`
 
+### Waybar popups render behind the windows??
+
+You have misconfigured Waybar. Make sure the `layer` in the waybar config is set to `top`, and not `bottom`.
+
 ### Screenshare / OBS no worky!
 
 Check [Screensharing](../Useful-Utilities/Screen-Sharing).
