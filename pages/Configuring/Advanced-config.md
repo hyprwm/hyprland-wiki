@@ -124,6 +124,13 @@ bind=SUPERSHIFT,Q,exec,firefox
 
 will bind opening firefox to <key>SUPER</key> + <key>SHIFT</key> + <key>Q</key>
 
+{{< hint type=important >}}
+After Hyprland v0.10.3beta, the SHIFT-mod behaviour described below has been removed, meaning now you should normally bind them with e.g.:
+```
+bind=SUPERSHIFT,1,exec,amogus
+```
+{{< /hint >}}
+
 Please note that <key>SHIFT</key> modifies the key names, so for example
 
 ```
