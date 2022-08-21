@@ -112,6 +112,8 @@ WL_OUTPUT_TRANSFORM_FLIPPED_270 = 7
 
 # Binds
 
+## Basic
+
 ```
 bind=MOD,key,dispatcher,params
 ```
@@ -123,6 +125,8 @@ bind=SUPERSHIFT,Q,exec,firefox
 ```
 
 will bind opening firefox to <key>SUPER</key> + <key>SHIFT</key> + <key>Q</key>
+
+## Binding with Shift
 
 {{< hint type=important >}}
 After Hyprland v0.10.3beta, the SHIFT-mod behaviour described below has been removed, meaning now you should normally bind them with e.g.:
@@ -159,6 +163,8 @@ Common overwrites:
 
 *(Overwrites may vary on different keymaps)*
 
+## Uncommon syms / binding with a keycode
+
 See the
 [xkbcommon-keysyms.h header](https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h)
 for all the keysyms. The name you should use is the one after XKB_KEY\_, written
@@ -176,6 +182,8 @@ bind=SUPER,28,exec,amongus
 
 Will bind <key>SUPER</key> + <key>T</key>. (<key>T</key> is keycode 28.) - You can also use `xev` or `wev` to find
 keycodes.
+
+## Misc
 
 You can also unbind with `unbind`, e.g.:
 
