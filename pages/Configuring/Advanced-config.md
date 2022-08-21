@@ -292,7 +292,7 @@ bind = MOD,KEY,exec,sleep 1 && hyprctl dispatch dpms off
 
 ## Workspaces
 
-You have six choices:
+You have seven choices:
 
 - ID: e.g. `1`, `2`, or `3`
 
