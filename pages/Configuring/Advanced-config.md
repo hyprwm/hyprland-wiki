@@ -304,6 +304,8 @@ You have six choices:
 
 - Name: e.g. `name:Web`, `name:Anime` or `name:Better anime`
 
+- Previous workspace: `previous`
+
 - Special Workspace: `special`
 
 {{< hint type=warning >}}
