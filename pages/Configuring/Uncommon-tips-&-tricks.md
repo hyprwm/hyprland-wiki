@@ -12,8 +12,15 @@ You can apply this to any number of languages, mix'n'match, etc.
 
 Please note that if a keyboard layout has a different alphabet, mappings for "a"
 "b" "c" will be replaced with mappings from that language. (meaning, e.g.
-`SUPER+D` will not work on a `ru` layout, because the russian layout does not
-have a `D`.)
+<key>SUPER</key> + <key>D</key> will not work on a `ru` layout, because the russian layout does not
+have a <key>D</key>.)
+
+{{< hint type=important >}}
+After Hyprland v0.10.3beta, the above statement may be false. Hyprland (since *after* v0.10.3beta) will now ALWAYS use the global xkb settings for keybind parsing.
+
+Thus, if you have a global layout set to `us`, and per-keyboard layout as `ru`, your keyboard's layout will be russian, but the keybinds will parse based on
+the `us` layout (e.g. <key>SUPER</key> + <key>E</key>)
+{{< /hint >}}
 
 If you are unsure about the key names of your chosen alphabet, refer to the
 [xkbcommon keysym header](https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h).
