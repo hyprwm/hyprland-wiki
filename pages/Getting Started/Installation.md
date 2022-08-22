@@ -47,16 +47,16 @@ hyprland-bin - compiled latest release, prone to breaking on ARM devices as Hypr
 There are [precompiled packages of Hyprland](https://build.opensuse.org/package/show/X11:Wayland/hyprland)
 available in the [X11:Wayland](https://build.opensuse.org/project/show/X11:Wayland) project on OBS.
 
-To install them, follow the instructions on [software.opensuse.org/download.html?project=X11:Wayland&package=hyprland](https://software.opensuse.org//download.html?project=X11%3AWayland&package=hyprland) or use [OPI](https://github.com/openSUSE/opi) to install it.
+To install them, follow the instructions at [software.opensuse.org/download.html?project=X11:Wayland&package=hyprland](https://software.opensuse.org//download.html?project=X11%3AWayland&package=hyprland) or use [OPI](https://github.com/openSUSE/opi) to install it.
 
 ```sh
 $ opi hyprland
 ```
 
-Alternativly, you can also follow the instructions under ["Manual (Manual Build)"](#manual-manual-build)
+Alternatively, you can also follow the instructions under ["Manual (Manual Build)"](#manual-manual-build)
 to build Hyprland yourself.
 
-Note: *Hyprland is not available for Leap, as most libraries (and compiler) that Hyprland needs are to old.*
+Note: *Hyprland is not available for Leap, as most libraries (and compiler) that Hyprland needs are too old.*
 {{< /tab >}}
 {{< tab "Fedora" >}}<https://github.com/hyprwm/Hyprland/discussions/284>{{< /tab >}}
 {{< tab "Gentoo" >}}
@@ -103,7 +103,7 @@ yay -S gdb ninja gcc cmake libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes 
 zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig(gbm)" "pkgconfig(gl)" "pkgconfig(glesv2)" "pkgconfig(libdrm)" "pkgconfig(libinput)" "pkgconfig(libseat)" "pkgconfig(libudev)" "pkgconfig(pango)" "pkgconfig(pangocairo)" "pkgconfig(pixman-1)" "pkgconfig(vulkan)" "pkgconfig(wayland-client)" "pkgconfig(wayland-protocols)" "pkgconfig(wayland-scanner)" "pkgconfig(wayland-server)" "pkgconfig(xcb)" "pkgconfig(xcb-icccm)" "pkgconfig(xcb-renderutil)" "pkgconfig(xkbcommon)" "pkgconfig(xwayland)" glslang-devel Mesa-libGLESv3-devel "pkgconfig(xcb-errors)"
 ```
 
-(this should also work on RHEL/Fedora if your remove `Mesa-libGLESv3-devel` and `pkgconfig(xcb-errors)`)
+(this should also work on RHEL/Fedora if you remove `Mesa-libGLESv3-devel` and `pkgconfig(xcb-errors)`)
 
 Please note Hyprland builds `wlroots`. Make sure you have the dependencies of
 wlroots installed, you can make sure you have them by installing wlroots
