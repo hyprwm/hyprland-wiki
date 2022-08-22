@@ -44,6 +44,10 @@ See [Wallpapers](../Useful-Utilities/Wallpapers).
 
 You did the below, unknowingly.
 
+### My games work poorly, especially proton ones!
+
+Use `gamescope`, tends to fix any and all issues with wayland/Hyprland.
+
 ### How do I mirror a screen?
 
 Mirroring isn't *officially* supported. It's technically a bug, but it works.
