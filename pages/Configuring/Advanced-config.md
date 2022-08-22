@@ -57,11 +57,15 @@ monitor=,preferred,auto,1
 Will make any monitor that was not specified with an explicit rule automatically
 placed in a sensible location with its preferred resolution.
 
+## Disabling a monitor
+
 To disable a monitor, use
 
 ```plain
 monitor=name,disable
 ```
+
+## Custom reserved area
 
 If your workflow requires custom reserved area, you can add it with
 
@@ -72,6 +76,13 @@ monitor=name,addreserved,TOP,BOTTOM,LEFT,RIGHT
 Where `TOP` `BOTTOM` `LEFT` `RIGHT` are integers in pixels of the reserved area
 to add. This does stack on top of the calculated one, (e.g. bars) but you may
 only use one of these rules per monitor in the config.
+
+## Rotating and the default workspace
+
+{{< hint type=important >}}
+The monitor transform and workspace keywords depend on a monitor rule set specifically for the targeted monitor,
+and ***MUST*** be after it.
+{{< /hint >}}
 
 ```plain
 workspace=name,number
@@ -85,11 +96,6 @@ workspace=DP-1,1
 
 will tell Hyprland to make the default workspace on DP-1 a number 1.
 
-{{< hint type=important >}}
-This keyword depends on a monitor rule set specifically for the targeted monitor,
-and ***MUST*** be after it.
-{{< /hint >}}
-
 If you want to rotate a monitor, use
 
 ```plain
@@ -98,11 +104,6 @@ monitor=NAME,transform,TRANSFORM
 
 where `NAME` is the name, and `TRANSFORM` is an integer, from 0 to 7,
 corresponding to your transform of choice.
-
-{{< hint type=important >}}
-This keyword depends on a monitor rule set specifically for the targeted monitor,
-and ***MUST*** be after it.
-{{< /hint >}}
 
 
 ```
