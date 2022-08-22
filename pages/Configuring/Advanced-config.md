@@ -628,7 +628,7 @@ the `name` can be easily obtained by doing `hyprctl devices`.
 Inside of it, put your config options. All options from the `input` category
 (and all subcategories, e.g. `input:touchpad`) can be put inside, **EXCEPT**:
 
-force_no_accel, follow_mouse
+force_no_accel, follow_mouse, float_switch_override_focus
 
 For example:
 

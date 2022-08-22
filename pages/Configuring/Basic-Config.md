@@ -109,6 +109,7 @@ _More about animations is on the [Advanced Configuring page](../Advanced-config#
 | kb_rules | Appropriate XKB keymap parameter | str | \[EMPTY\] |
 | kb_file | If you prefer, you can use a path to an .xkb file. | str | \[EMPTY\] |
 | follow_mouse | (0/1/2/3) enable mouse following (focus on enter new window) - See the note below for more info | int | 1 |
+| float_switch_override_focus | if enabled, focus will follow mouse if changing from tiled to floating and vice versa | bool | true |
 | repeat_rate | in ms, the repeat rate for held keys | int | 25 |
 | repeat_delay | in ms, the repeat delay (grace period) before the spam | int | 600 |
 | natural_scroll | enable natural scroll | bool | false |
@@ -119,8 +120,6 @@ _More about animations is on the [Advanced Configuring page](../Advanced-config#
 {{< hint type=info >}}
 ### Follow Mouse
 
-Quirk: will always focus on mouse enter if you're entering a floating
-window from a tiled one, or vice versa.
 - 0 - disabled
 - 1 - full
 - 2 - loose. Will focus mouse on other windows on focus but not the keyboard.
