@@ -85,6 +85,11 @@ workspace=DP-1,1
 
 will tell Hyprland to make the default workspace on DP-1 a number 1.
 
+{{< hint=important >}}
+This keyword depends on a monitor rule set specifically for the targeted monitor,
+and ***MUST*** be after it.
+{{< /hint >}}
+
 If you want to rotate a monitor, use
 
 ```plain
@@ -94,10 +99,11 @@ monitor=NAME,transform,TRANSFORM
 where `NAME` is the name, and `TRANSFORM` is an integer, from 0 to 7,
 corresponding to your transform of choice.
 
-{{< hint type=important >}}
-This keyword **MUST** be _after_ your `monitor=` keyword with
-the resolution, etc.
+{{< hint=important >}}
+This keyword depends on a monitor rule set specifically for the targeted monitor,
+and ***MUST*** be after it.
 {{< /hint >}}
+
 
 ```
 WL_OUTPUT_TRANSFORM_NORMAL = 0
