@@ -85,7 +85,7 @@ workspace=DP-1,1
 
 will tell Hyprland to make the default workspace on DP-1 a number 1.
 
-{{< hint=important >}}
+{{< hint type=important >}}
 This keyword depends on a monitor rule set specifically for the targeted monitor,
 and ***MUST*** be after it.
 {{< /hint >}}
@@ -99,7 +99,7 @@ monitor=NAME,transform,TRANSFORM
 where `NAME` is the name, and `TRANSFORM` is an integer, from 0 to 7,
 corresponding to your transform of choice.
 
-{{< hint=important >}}
+{{< hint type=important >}}
 This keyword depends on a monitor rule set specifically for the targeted monitor,
 and ***MUST*** be after it.
 {{< /hint >}}
