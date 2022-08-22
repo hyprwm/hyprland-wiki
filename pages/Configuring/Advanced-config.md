@@ -133,6 +133,13 @@ bind=SUPERSHIFT,Q,exec,firefox
 
 will bind opening firefox to <key>SUPER</key> + <key>SHIFT</key> + <key>Q</key>
 
+{{< hint type=tip >}}
+For binding keys without a modkey, leave it empty:
+```
+bind=,Print,exec,grim
+```
+{{< /hint >}}
+
 ## Binding with Shift
 
 {{< hint type=important >}}
