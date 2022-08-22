@@ -7,10 +7,10 @@ Hyprland.
 
 ### Distros
 
-Arch and NixOS are very supported. For any other distro (not based on Arch/Nix)
-you might have varying amounts of success. However, since Hyprland is extremely
-bleeding-edge, distros like Pop!\_OS, Ubuntu, etc. might have **major** issues
-running Hyprland.
+Arch, NixOS and openSUSE Tumbleweed are very supported. For any other distro
+(not based on Arch/Nix) you might have varying amounts of success. However,
+since Hyprland is extremely bleeding-edge, distros like Pop!\_OS, Ubuntu, etc.
+might have **major** issues running Hyprland.
 
 # Installation
 
@@ -43,6 +43,21 @@ hyprland-bin - compiled latest release, prone to breaking on ARM devices as Hypr
 
 {{< /tab >}}
 {{< tab "Nix" >}}Read the [Nix page](../../Nix).{{< /tab >}}
+{{< tab "openSUSE" >}}
+There are [precompiled packages of Hyprland](https://build.opensuse.org/package/show/X11:Wayland/hyprland)
+available in the [X11:Wayland](https://build.opensuse.org/project/show/X11:Wayland) project on OBS.
+
+To install them, follow the instructions on [software.opensuse.org/download.html?project=X11:Wayland&package=hyprland](https://software.opensuse.org//download.html?project=X11%3AWayland&package=hyprland) or use [OPI](https://github.com/openSUSE/opi) to install it.
+
+```sh
+$ opi hyprland
+```
+
+Alternativly, you can also follow the instructions under ["Manual (Manual Build)"](#manual-manual-build)
+to build Hyprland yourself.
+
+Note: *Hyprland is not available for Leap, as most libraries (and compiler) that Hyprland needs are to old.*
+{{< /tab >}}
 {{< tab "Fedora" >}}<https://github.com/hyprwm/Hyprland/discussions/284>{{< /tab >}}
 {{< tab "Gentoo" >}}
 The hyprland package is available in the [wayland-desktop](https://github.com/bsd-ac/wayland-desktop) overlay.
@@ -82,6 +97,14 @@ yay -S gdb ninja gcc cmake libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes 
 
 (If any are missing hmu)
 
+*openSUSE dependencies*:
+
+```sh
+zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig(gbm)" "pkgconfig(gl)" "pkgconfig(glesv2)" "pkgconfig(libdrm)" "pkgconfig(libinput)" "pkgconfig(libseat)" "pkgconfig(libudev)" "pkgconfig(pango)" "pkgconfig(pangocairo)" "pkgconfig(pixman-1)" "pkgconfig(vulkan)" "pkgconfig(wayland-client)" "pkgconfig(wayland-protocols)" "pkgconfig(wayland-scanner)" "pkgconfig(wayland-server)" "pkgconfig(xcb)" "pkgconfig(xcb-icccm)" "pkgconfig(xcb-renderutil)" "pkgconfig(xkbcommon)" "pkgconfig(xwayland)" glslang-devel Mesa-libGLESv3-devel "pkgconfig(xcb-errors)"
+```
+
+(this should also work on RHEL/Fedora if your remove `Mesa-libGLESv3-devel` and `pkgconfig(xcb-errors)`)
+
 Please note Hyprland builds `wlroots`. Make sure you have the dependencies of
 wlroots installed, you can make sure you have them by installing wlroots
 separately (Hyprland doesn't mind)
@@ -102,7 +125,7 @@ sudo make install
 ```plain
 meson _build
 ninja -C _build
-ninja -C _build install
+ninja -C _build install --tags runtime,man
 ```
 
 Refer to [Debugging](../../Contributing-and-Debugging) to see how to build &
