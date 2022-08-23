@@ -379,6 +379,10 @@ to your config and you're done.
 `pass` has currently a minor issue with XWayland and may not fully work on XWayland apps.
 
 It works flawlessly with all native Wayland applications though.
+
+*Side note*: **OBS** on Wayland really dislikes keybinds wih modifiers. If they don't work, try
+removing mods and binding them to e.g. F1. Combining this with a submap should yield
+neat and usable results.
 {{< /hint >}}
 
 # Executing
