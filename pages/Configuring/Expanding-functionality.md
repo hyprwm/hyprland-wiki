@@ -1,11 +1,11 @@
 Hyprland exposes two powerful sockets for you to use.
 
 The first, socket1, can be fully controlled with `hyprctl`, see its usage
-[here](https://github.com/hyprwm/Hyprland/wiki/Using-hyprctl).
+[here](../Using-hyprctl).
 
 The second, socket2, sends events for certain changes / actions and can be used
 to react to different events. See its description
-[here](https://github.com/hyprwm/Hyprland/wiki/IPC).
+[here](../../IPC/).
 
 ## Example script
 
