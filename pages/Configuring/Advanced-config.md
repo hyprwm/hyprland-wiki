@@ -404,24 +404,6 @@ script (`exec-once=~/myscript.sh` and do `myapp &` in the script)
 
 `exec=command` will execute on each reload
 
-# Curves
-
-Defining your own Bezier curve can be done with the `bezier` keyword:
-
-```
-bezier=NAME,X0,Y0,X1,Y1
-```
-
-where `NAME` is the name, and the rest are two points for the Cubic Bezier. A
-good website to design your bezier can be found
-[here, on cssportal.com](https://www.cssportal.com/css-cubic-bezier-generator/).
-
-Example curve:
-
-```
-bezier=overshot,0.05,0.9,0.1,1.1
-```
-
 # Window Rules
 
 You can set window rules for various actions. These are applied on window open!
@@ -504,7 +486,7 @@ animation=windows,1,10,myepiccurve,slide
 
 `SPEED` is the amount of ds (1ds = 100ms) the animation will take
 
-`CURVE` is the bezier curve name, see curves above.
+`CURVE` is the bezier curve name, see [curves](https://wiki.hyprland.org/Configuring/Advanced-config/#curves).
 
 `STYLE` (optional) is the animation style
 
@@ -538,6 +520,25 @@ animation=windows,1,8,default,popin 80%
 ```
 
 will make the animation 80% -> 100% of the size.
+
+# Curves
+
+Defining your own Bezier curve can be done with the `bezier` keyword:
+
+```
+bezier=NAME,X0,Y0,X1,Y1
+```
+
+where `NAME` is the name, and the rest are two points for the Cubic Bezier. A
+good website to design your bezier can be found
+[here, on cssportal.com](https://www.cssportal.com/css-cubic-bezier-generator/).
+
+Example curve:
+
+```
+bezier=overshot,0.05,0.9,0.1,1.1
+```
+
 
 # Defining variables
 
