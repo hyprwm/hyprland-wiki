@@ -119,8 +119,17 @@ that (`gcc>=12.1.0` or `clang>=15`)
 ```Plain
 git clone --recursive https://github.com/hyprwm/Hyprland
 cd Hyprland
-sudo make install
+sudo make install 
 ```
+
+Do note that `sudo make install` will copy the example .desktop file to `/usr/share/wayland-sessions/` directory,
+promptly overriding the existent .desktop file from previous installations.
+
+If you would like to move the file yourself, or if you find yourself running `sudo make install` frequently
+and overriding your previous .desktop file (which is definitely a case for NVIDIA users who run Hyprland
+through a wrapper script); you can use `sudo make cleaninstall`, which will do everything `sudo make install does`
+_except_ to copy the desktop file. You may use `sudo make cleaninstall` everytime you need to rebuild fromm source, 
+which happens quite often as Hyprland receives active development.
 
 ### Meson
 
