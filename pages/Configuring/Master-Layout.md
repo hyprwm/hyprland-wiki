@@ -32,6 +32,8 @@ You can, however, resize the master window.
 | swapwithmaster | swaps the current window with master |
 | cyclenext | focuses the next window respecting the layout |
 | cycleprev | focuses the previous window respecting the layout |
+| swapnext | swaps the focused window with the next window respecting the layout |
+| swapprev | swaps the focused window with the previous window respecting the layout |
 
 {{< hint type=info >}}
 example usage:
