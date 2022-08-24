@@ -1,9 +1,9 @@
 # Foreword
 
-Nvidia GPUs are widely known as... yeah. If you want to try Hyprland on Nvidia
-regardless (many people have reported successes), follow the
-[Nvidia page](../../Nvidia) after installing
-Hyprland.
+Due to their proprietary nature, Nvidia GPUs have limited compatibility with
+Hyprland. If you want to try Hyprland on Nvidia regardless
+(many people have reported successes), follow the [Nvidia page](../../Nvidia)
+after installing Hyprland.
 
 ### Distros
 
@@ -21,7 +21,7 @@ provider (if they provide pkgs for Hyprland) or you install/build it yourself.
 This project is under development and is constantly
 changing. If you want to keep up to date with the latest commits, please
 consider updating your packages with `yay -Syu --devel`, or your other preferred
-package manager. 
+package manager.
 {{< /hint >}}
 
 ## Packages
@@ -50,7 +50,7 @@ available in the [X11:Wayland](https://build.opensuse.org/project/show/X11:Wayla
 To install them, follow the instructions at [software.opensuse.org/download.html?project=X11:Wayland&package=hyprland](https://software.opensuse.org//download.html?project=X11%3AWayland&package=hyprland) or use [OPI](https://github.com/openSUSE/opi) to install it.
 
 ```sh
-$ opi hyprland
+opi hyprland
 ```
 
 Alternatively, you can also follow the instructions under ["Manual (Manual Build)"](#manual-manual-build)
@@ -61,10 +61,12 @@ Note: *Hyprland is not available for Leap, as most libraries (and compiler) that
 {{< tab "Fedora" >}}<https://github.com/hyprwm/Hyprland/discussions/284>{{< /tab >}}
 {{< tab "Gentoo" >}}
 The hyprland package is available in the [wayland-desktop](https://github.com/bsd-ac/wayland-desktop) overlay.
+
 ```sh
-$ eselect repository enable wayland-desktop
-$ emerge --ask --verbose hyprland
+eselect repository enable wayland-desktop
+emerge --ask --verbose hyprland
 ```
+
 {{</ tab >}}
 
 {{< /tabs >}}
@@ -145,7 +147,7 @@ for legacy renderer:
 sudo make clear && sudo make config && make legacyrenderer && sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
 ```
 
-_please note the legacy renderer may not support some graphical features._
+*please note the legacy renderer may not support some graphical features.*
 <br/><br/> Any other config: (replace \[PRESET\] with your preset, `release`
 `debug` `legacyrenderer` `legacyrendererdebug`)
 
