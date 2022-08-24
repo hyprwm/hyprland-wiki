@@ -34,7 +34,7 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 
 | name | description | type | default |
 |---|---|---|---|---|
-| sensitivity | mouse sensitivity (\*this is Hyprland sensitivity, added on top of the data. To modify the data per-device, or more accurately (sensitivities > 1 might cause mouse to jump pixels), see `input:sensitivity` | float | 1.0 |
+| sensitivity | mouse sensitivity (legacy, may cause bugs if not 1, prefer `input:sensitivity`) | float | 1.0 |
 | apply_sens_to_raw | if on, will also apply the sensitivity to raw mouse output (e.g. sensitivity in games) | bool | false |
 | main_mod | the mod used to move/resize windows (hold main_mod and LMB/RMB, try it and you'll know what I mean.) | mod | SUPER |
 | border_size | self-explanatory | int | 1 |
@@ -47,6 +47,10 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 | damage_tracking | Makes the compositor redraw only the needed bits of the display. Saves on resources by not redrawing when not needed. Available modes: `none, monitor, full`. You don't need to know what different modes do, just always use `full`. | str | full |
 | layout | which layout to use. (Available: `dwindle`, `master`) | str | dwindle |
 | no_cursor_warps | if true, will not warp the cursor in many cases (focusing, keybinds, etc) | bool | false |
+
+{{< hint type=warning >}}
+Prefer using `input:sensitivity` over `general:sensitivity` to avoid bugs, especially with Wine/Proton apps.
+{{< /hint >}}
 
 ## Decoration
 | name | description | type | default |
