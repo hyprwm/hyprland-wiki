@@ -25,6 +25,15 @@ Are you on NVIDIA? If so, then you have been a naughty boy and haven't listened
 to my tips on other pages. Use the `WLR_NO_HARDWARE_CURSORS=1` environment
 variable.
 
+### My external monitor is blank / doesn't render / receives no signal (laptop)
+
+For Radeon graphics - unfortunately, it's a bug in wlroots, and I can't
+do much about it other than wait for the wlroots devs to fix it:
+[https://gitlab.freedesktop.org/wlroots/wlroots/-/issues/3451](https://gitlab.freedesktop.org/wlroots/wlroots/-/issues/3451)
+
+For Nvidia graphics - unfortunately, it's a wlroots issue as well, most likely due to Nvidia's
+lack of support and proprietary drivers.
+
 ### How do I screenshot?
 
 Install `grim-git` and `slurp`
