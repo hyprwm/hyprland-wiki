@@ -34,6 +34,22 @@ do much about it other than wait for the wlroots devs to fix it:
 For Nvidia graphics - unfortunately, it's a wlroots issue as well, most likely due to Nvidia's
 lack of support and proprietary drivers.
 
+There is a way to fix it that *might* work for you though:
+
+**Option 1:** Use *only* the external monitor
+
+By using `WLR_DRM_DEVICES=/dev/dri/card1` (or `card0`) you can force Hyprland to use only your dGPU,
+meaning your laptop's screen will be gone but your external one will work.
+
+**Option 2:** Use all outputs, at the cost of battery life.
+
+By switching your laptop to only use the dGPU in the BIOS, you *might* be able to get everything to work,
+at the cost of high battery usage.
+
+*Please note these are highly model-specific and might or might not work. If they don't, you're unfortunately out of luck.*
+
+You might try a USB-C to hdmi adapter though, maybe that could route the external monitor through the iGPU.
+
 ### How do I screenshot?
 
 Install `grim-git` and `slurp`
