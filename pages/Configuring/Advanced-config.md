@@ -510,6 +510,7 @@ global
     ↳ fadeShadow - fade on changing activewindow for shadows
   ↳ border
   ↳ workspaces - styles: slide, slidevert, fade
+    ↳ specialWorkspace - styles: same as workspaces
 ```
 
 ### Extras
