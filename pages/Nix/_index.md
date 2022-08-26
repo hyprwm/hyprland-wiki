@@ -121,12 +121,10 @@ or by creating a wrapper script that runs the above command inside.
 
 ### Upgrading
 
-In order to upgrade, you can run
+In order to upgrade all your packages, you can run
 ```sh
 $ nix profile upgrade '.*'
 ```
-in order to upgrade all your packages.
-
 Check the
 [nix profile](https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-profile.html)
 command documentation for other upgrade options.
