@@ -95,8 +95,41 @@ modules set.
 
 ## Non-NixOS install
 
-If you plan on using Hyprland through Nix, outside of NixOS, please use
-[nixGL](https://github.com/guibou/nixGL).
+### With flakes
+
+First, [enable flakes](https://nixos.wiki/wiki/Flakes#Enable_flakes).
+
+Once you have flakes working, install Hyprland through `nix profile`:
+
+```sh
+$ nix profile install github:hyprwm/Hyprland
+```
+
+Since you're using Hyprland outside of NixOS, it won't be able to find graphics
+drivers. To get around that, you can use [nixGL](https://github.com/guibou/nixGL).
+
+First, install it, in the same manner you installed Hyprland:
+```sh
+$ nix profile install github:guibou/nixGL
+```
+
+From now on, you can run Hyprland by invoking it with nixGL
+```sh
+$ nixGL Hyprland
+```
+or by creating a wrapper script that runs the above command inside.
+
+### Upgrading
+
+In order to upgrade, you can run
+```sh
+$ nix profile upgrade '.*'
+```
+in order to upgrade all your packages.
+
+Check the
+[nix profile](https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-profile.html)
+command documentation for other upgrade options.
 
 ## Cachix
 
