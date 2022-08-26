@@ -36,6 +36,7 @@ e.g.: `workspace>>2`
 | monitoradded | emitted when a monitor is added (connected) | `MONITORNAME` |
 | createworkspace | emitted when a workspace is created | `WORKSPACENAME` |
 | destroyworkspace | emitted when a workspace is destroyed | `WORKSPACENAME` |
+| moveworkspace | emitted when a workspace is moved to a different monitor | `WORKSPACENAME,MONNAME` |
 | activelayout | emitted on a layout change of the active keyboard | `KEYBOARDNAME,LAYOUTNAME` |
 | openwindow | emitted when a window is opened | `WINDOWADDRESS`,`WORKSPACENAME`,`WINDOWCLASS`,`WINDOWTITLE` |
 | closewindow | emitted when a window is closed | `WINDOWADDRESS` |
