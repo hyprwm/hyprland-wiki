@@ -14,7 +14,6 @@ Install the `nvidia-dkms` driver and add it to your initramfs & kernel
 parameters. Follow the information available here:
 [https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting](https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting)
 
-### Arch Specific Instructions
 in `/etc/mkinitcpio.conf` add `nvidia nvidia_modeset nvidia_uvm nvidia_drm` to your `MODULES`
 
 
