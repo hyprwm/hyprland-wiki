@@ -449,6 +449,7 @@ windowrule=move 0 0,title:^(Firefox)(.*)$
 | rounding \[x\] | forces the application to have X pixels of rounding, ignoring the set default (in `decoration:rounding`). Has to be an int. |
 | noblur | disables blur for the window |
 | nofocus | disables focus to the window |
+| forceinput | forces an XWayland window to receive input, even if it requests not to do so. (Might fix issues like e.g. Game Launchers not receiving focus for some reason) |
 
 *Examples*:
 ```
