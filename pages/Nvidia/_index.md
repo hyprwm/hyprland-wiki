@@ -16,10 +16,9 @@ parameters. Follow the information available here:
 
 in `/etc/mkinitcpio.conf` add `nvidia nvidia_modeset nvidia_uvm nvidia_drm` to your `MODULES`
 
-
 run `#  mkinitcpio --config /etc/mkinitcpio.conf --generate /boot/initramfs-custom.img`
 
-add a new line to `/etc/modprobe.d/nvidia.conf` (make it if it does not exist) and add the line options nvidia-drm modeset=1`
+add a new line to `/etc/modprobe.d/nvidia.conf` (make it if it does not exist) and add the line `options nvidia-drm modeset=1`
 
 {{< hint >}}If your GPU is listed as supported by the `nvidia-open-dkms` driver,
 use that one instead.
