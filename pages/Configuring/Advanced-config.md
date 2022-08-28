@@ -381,6 +381,15 @@ bind = SUPER,F10,pass,^(com\.obsproject\.Studio)$
 ```
 to your config and you're done.
 
+`pass` will pass the PRESS and RELEASE events by itself, no need for a `bindr`.
+This also means that push-to-talk will work flawlessly with one pass, e.g.:
+
+```
+bind=,mouse:276,pass,^(TeamSpeak 3)$
+```
+
+Will pass MOUSE5 to TeamSpeak3.
+
 {{< hint type=important >}}
 XWayland is a bit wonky. Make sure that what you're passing is a "global Xorg keybind",
 otherwise passing from a different XWayland app may not work.
