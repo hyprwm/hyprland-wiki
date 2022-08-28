@@ -382,7 +382,8 @@ bind = SUPER,F10,pass,^(com\.obsproject\.Studio)$
 to your config and you're done.
 
 {{< hint type=important >}}
-`pass` has currently a minor issue with XWayland and may not fully work on XWayland apps.
+XWayland is a bit wonky. Make sure that what you're passing is a "global Xorg keybind",
+otherwise passing from a different XWayland app may not work.
 
 It works flawlessly with all native Wayland applications though.
 
