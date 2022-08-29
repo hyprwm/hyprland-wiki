@@ -1,9 +1,11 @@
 ## Table of contents
 {{< toc format=html >}}
 
-**NOTE:** Hyprland is NOT supported on NixOS stable. It may (not) compile or
+{{< hint type=warning >}}
+Hyprland is NOT supported on NixOS stable. It may (not) compile or
 work as intended. Please use the
 [flake](https://github.com/hyprwm/Hyprland/blob/main/flake.nix).
+{{< /hint >}}
 
 ## Install and configure Hyprland on NixOS
 
@@ -128,6 +130,60 @@ $ nix profile upgrade '.*'
 Check the
 [nix profile](https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-profile.html)
 command documentation for other upgrade options.
+
+## XWayland
+
+XWayland is enabled by default in the Nix package. You can disable it either
+in the package itself, or through the Home Manager module.
+
+#### Package
+
+```nix
+(inputs.hyprland.packages.${pkgs.default}.default.override {
+  enableXWayland = false;
+})
+```
+
+#### HM module
+
+```nix
+wayland.windowManager.hyprland = {
+  enable = true;
+  xwayland.enable = false;
+}
+```
+
+### HiDPI
+
+By default, the Nix package includes a patched wlroots that can render HiDPI
+XWayland windows.
+
+In order to enable the functionality, you have to add:
+
+```toml
+exec-once=xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
+```
+
+This will make XWL programs look as if they were unscaled. To fix this, you
+have to export different environment variables to make the specific toolkits
+render at the proper scaling. For example
+
+```sh
+export GDK_SCALE=2
+export XCURSOR_SIZE=32
+```
+
+{{< hint >}}
+The GDK_SCALE variable won't conflict with wayland-native GTK programs.
+{{< /hint >}}
+
+Usually, there's no reason to disable this functionality, as it won't affect
+people who don't have HiDPI screens.
+
+If you *do* insist on disabling it though (e.g. for adding your own patches
+to wlroots), you can do so by either using the `hyprland-no-hidpi` package,
+or by passing the `hidpiXWayland = false;` flag, the same way as
+[disabling XWayland](#package)
 
 ## Cachix
 
