@@ -521,6 +521,7 @@ global
     ↳ fadeOut - fade out (close) -> layers and windows
     ↳ fadeSwitch - fade on changing activewindow and its opacity
     ↳ fadeShadow - fade on changing activewindow for shadows
+    ↳ fadeDim - the easing of the dimming of inactive windows
   ↳ border
   ↳ workspaces - styles: slide, slidevert, fade
     ↳ specialWorkspace - styles: same as workspaces

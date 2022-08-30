@@ -72,6 +72,8 @@ Prefer using `input:sensitivity` over `general:sensitivity` to avoid bugs, espec
 | col.shadow | shadow's color. Alpha dictates shadow's opacity. | color | 0xee1a1a1a |
 | col.shadow_inactive | inactive shadow color. (if not set, will fall back to col.shadow) | color | unset |
 | shadow_offset | shadow's rendering offset. | vec2 | [0, 0] |
+| dim_inactive | enables dimming of inactive windows | bool | false |
+| dim_strength | how much inactive windows should be dimmed, 0.0 - 1.0 | float | 0.5 |
 
 {{< hint type=info >}}
 
