@@ -287,7 +287,8 @@ layout pages (See the sidebar)
 |---|---|---|
 | exec | executes a shell command | command |
 | pass | passes the key (with mods) to a specified window. Can be used as a workaround to global keybinds not working on Wayland. | window |
-| killactive | kills the active window | none |
+| killactive | closes (not kills, unlike the name, i know) the active window | none |
+| closewindow | closes a specified window | `window` |
 | workspace | changes the workspace | workspace |
 | movetoworkspace | moves the focused window to a workspace | workspace OR `workspace,window` for a specific window |
 | movetoworkspacesilent | same as above, but doesnt switch to the workspace | workspace OR `workspace,window` for a specific window |
