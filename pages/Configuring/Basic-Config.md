@@ -171,7 +171,7 @@ Described [here](../Advanced-config#per-device-input-configs).
 | disable_hyprland_logo | disables the hyprland logo background. :( | bool | false |
 | disable_splash_rendering | disables the hyprland splash rendering. (requires a monitor reload to take effect) | bool | false |
 | no_vfr | disables VFR (variable frame rate) - VFR increases battery life at the expense of possible issues on a few monitors. | bool | true |
-| damage_entire_on_snapshot | Damage the entire monitor when rendering snapshots. Recommended with transformed displays. Do not use without transformed displays. | bool | false |
+| damage_entire_on_snapshot | (deprecated: do not enable) Damage the entire monitor when rendering snapshots. Recommended with transformed displays. Do not use without transformed displays. | bool | false |
 | mouse_move_enables_dpms | If DPMS is set to off, wake up the monitors if the mouse moves. | bool | false |
 | always_follow_on_dnd | Will make mouse focus follow the mouse when drag and dropping. Recommended to leave it enabled, especially for people using focus follows mouse at 0. | bool | true |
 | layers_hog_keyboard_focus | If true, will make keyboard-interactive layers keep their focus on mouse move (e.g. wofi, bemenu) | bool | true |
