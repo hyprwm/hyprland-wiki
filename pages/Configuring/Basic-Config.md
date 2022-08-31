@@ -149,6 +149,23 @@ _Subcategory `input:touchpad:`_
 | middle_button_emulation | self-explanatory | bool | false |
 | tap-to-click | self-explanatory | bool | true |
 
+{{< hint type=important >}}
+A subcategory is a nested category:
+```
+input {
+    # ...
+    # ...
+
+    touchpad {
+        # ...
+        # ...
+    }
+}
+```
+
+Doing `input:touchpad {` is **invalid**!
+{{< /hint >}}
+
 ### Per-device input config
 
 Described [here](../Advanced-config#per-device-input-configs).
