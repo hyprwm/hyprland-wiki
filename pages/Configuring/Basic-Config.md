@@ -55,7 +55,7 @@ Prefer using `input:sensitivity` over `general:sensitivity` to avoid bugs, espec
 ## Decoration
 | name | description | type | default |
 |---|---|---|---|---|
-| rounding | rounded corners' radius (in layout px) | int | 1 |
+| rounding | rounded corners' radius (in layout px) | int | 0 |
 | multisample_edges | enable antialiasing (no-jaggies) for rounded corners | bool | true |
 | active_opacity | self-explanatory, only for windows. (0.0 - 1.0) | float | 1.0 |
 | inactive_opacity | self-explanatory, only for windows. (0.0 - 1.0) | float | 1.0 |
