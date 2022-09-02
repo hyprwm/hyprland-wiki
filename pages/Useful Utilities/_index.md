@@ -12,3 +12,5 @@ Hyprland working.
 - **[Screen Sharing](./Screen-Sharing)**
 
 - **[App Clients](./App-Clients)**
+
+- **[Color Pickers](./Color-Pickers)**
