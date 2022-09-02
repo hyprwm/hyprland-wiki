@@ -144,43 +144,6 @@ bind=,Print,exec,grim
 
 *For a complete mod list, see [The basic configuring page](https://wiki.hyprland.org/Configuring/Basic-Config/#variable-types).*
 
-## Binding with Shift
-
-{{< hint type=important >}}
-After Hyprland v0.10.3beta, the SHIFT-mod behaviour described below has been removed, meaning now you should normally bind them with e.g.:
-```
-bind=SUPERSHIFT,1,exec,amogus
-```
-{{< /hint >}}
-
-Please note that <key>SHIFT</key> modifies the key names, so for example
-
-```
-bind=SHIFT,1,anything,
-```
-
-will not work, because when you press SHIFT+1, on your screen you won't get a 1,
-you'll get a !
-
-Common overwrites:
-
-```
-1 -> exclam
-2 -> at
-3 -> numbersign
-4 -> dollar
-5 -> percent
-6 -> asciicircum
-7 -> ampersand
-8 -> asterisk
-9 -> parenleft
-0 -> parenright
-- -> underscore
-= -> plus
-```
-
-*(Overwrites may vary on different keymaps)*
-
 ## Uncommon syms / binding with a keycode
 
 See the
