@@ -37,6 +37,5 @@ programs crash Hyprland.
     ```
 
     {{< hint >}}
-    The GDK_SCALE variable won't conflict with wayland-native GTK programs.
+The GDK_SCALE variable won't conflict with wayland-native GTK programs.
     {{< /hint >}}
-
