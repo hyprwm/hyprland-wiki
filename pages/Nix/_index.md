@@ -112,8 +112,9 @@ drivers. To get around that, you can use [nixGL](https://github.com/guibou/nixGL
 
 First, install it, in the same manner you installed Hyprland:
 ```sh
-$ nix profile install github:guibou/nixGL
+$ nix profile install github:guibou/nixGL --impure
 ```
+Impure is needed due to `nixGL`'s reliance on hardware information.
 
 From now on, you can run Hyprland by invoking it with nixGL
 ```sh
@@ -202,3 +203,19 @@ this cache to download the binary directly, instead of building locally.
   };
 }
 ```
+
+## Overrides
+
+You can override the package through `.override` or `.overrideAttrs`. This is
+easily achievable through NixOS or Home Manager.
+
+If you're using Nix (and not NixOS or Home Manager) and you want to override,
+you can do it like this
+
+```sh
+$ nix repl
+nix-repl> :lf "github:hyprwm/Hyprland"
+nix-repl> :bl outputs.packages.x86_64-linux.hyprland.override { nvidiaPatches = true; } # option = value
+```
+
+Then you can run Hyprland from the built path.
