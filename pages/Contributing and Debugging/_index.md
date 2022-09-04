@@ -1,12 +1,6 @@
 # Contributing guidelines
 
-For PRs, make sure that you:
-
-- follow the code style
-- don't write "hacky" code
-- check and test the code
-- are contributing something useful
-- explain your PR as best as you can
+PR, code styling and code FAQs are [here](./PR-Guidelines)
 
 For issues, please see
 [the guidelines](https://github.com/hyprwm/Hyprland/blob/main/docs/ISSUE_GUIDELINES.md)
@@ -16,8 +10,6 @@ For issues, please see
 ## Required packages
 
 `xcb` stuff, check with your local package provider.
-
-`wlroots-git` - always have the latest wlroots.
 
 `wayland` - of course.
 
@@ -48,6 +40,12 @@ For all ways, make sure to `sudo make clear` to clear any root-owned files.
 Also, before the first build (or after some updates, possibly)
 `sudo make config`. (If you get any `missing header file "...-protocol.h"`, you
 need to `make config`.)
+{{< /hint >}}
+
+{{< hint type=warning >}}
+`make config` will overwrite wlroots headers in `/usr/`,
+meaning you'll be unable to build any other wlroots compositor
+without a wlroots reinstall.
 {{< /hint >}}
 
 # Running
