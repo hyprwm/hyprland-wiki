@@ -413,7 +413,7 @@ rule system, window rules v2 were implemented.
 
 In V2, you are allowed to match multiple variables.
 
-the `RULE` field is unchanged, but inthe `WINDOW` field, you can put regexes for multiple values like so:
+the `RULE` field is unchanged, but in the `WINDOW` field, you can put regexes for multiple values like so:
 ```
 windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
 ```
