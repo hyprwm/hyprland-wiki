@@ -406,6 +406,25 @@ windowrule=float,^(kitty)$
 windowrule=move 0 0,title:^(Firefox)(.*)$
 ```
 
+## Window Rules V2
+
+In order to allow more flexible rules, while also not breaking compatibility with the above
+rule system, window rules v2 were implemented.
+
+In V2, you are allowed to match multiple variables.
+
+the `RULE` field is unchanged, but inthe `WINDOW` field, you can put regexes for multiple values like so:
+```
+windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
+```
+
+For now, the supported fields are:
+```
+class title
+```
+
+Keep in mind you do *not* need to define all of them, but you need to define at least one.
+
 ## Rules
 
 | rule | description |
