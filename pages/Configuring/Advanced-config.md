@@ -420,7 +420,10 @@ windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
 
 For now, the supported fields are:
 ```
-class title
+class - class regex
+title - title regex
+xwayland - 0/1
+floating - 0/1
 ```
 
 Keep in mind you do *not* need to define all of them, but you need to define at least one.
