@@ -260,7 +260,7 @@ layout pages (See the sidebar)
 | dpms | sets all monitors' DPMS status. Do not use with a keybind directly. | `on` or `off` |
 | pseudo | toggles the focused window's pseudo mode | none |
 | movefocus | moves the focus in a direction | direction |
-| movewindow | moves the active window in a direction or to a monitor | direction or monitor |
+| movewindow | moves the active window in a direction or to a monitor | direction or `mon:` and a monitor |
 | resizeactive | resizes the active window | resizeparams |
 | moveactive | moves the active window | resizeparams |
 | resizewindowpixel | resizes a selected window | `resizeparams,window`, e.g. `100 100,^(kitty)$ |
