@@ -259,6 +259,7 @@ layout pages (See the sidebar)
 | fullscreen | toggles the focused window's fullscreen state | 0 - real fullscreen (takes your entire screen), 1 - "maximize" fullscreen (keeps the gaps and bar(s)) |
 | dpms | sets all monitors' DPMS status. Do not use with a keybind directly. | `on` or `off` |
 | pseudo | toggles the focused window's pseudo mode | none |
+| pin | pins the active window (will be on top regardless of workspace changes) *note: floating only* | none |
 | movefocus | moves the focus in a direction | direction |
 | movewindow | moves the active window in a direction or to a monitor | direction or `mon:` and a monitor |
 | resizeactive | resizes the active window | resizeparams |
@@ -448,6 +449,7 @@ Keep in mind you do *not* need to define all of them, but you need to define at 
 | noblur | disables blur for the window |
 | nofocus | disables focus to the window |
 | forceinput | forces an XWayland window to receive input, even if it requests not to do so. (Might fix issues like e.g. Game Launchers not receiving focus for some reason) |
+| pin | pins the window *note: floating only* |
 
 *Examples*:
 ```
