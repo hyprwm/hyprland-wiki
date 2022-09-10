@@ -239,7 +239,7 @@ layout pages (See the sidebar)
 | window | a window. Any of the following: Class regex, `title:` and a title regex, `pid:` and the pid, `address:` and the address |
 | workspace | see below. |
 | direction | `l` `r` `u` `d` left right up down |
-| monitor | One of: direction, ID, name |
+| monitor | One of: direction, ID, name, `current` |
 | resizeparams | Pixel delta vec2 (e.g. `10 -10`) or `exact` followed by exact vec2, e.g. `exact 1280 720`) |
 | floatdelta | a float value delta, e.g `-0.2` or `+0.2`. |
 | workspaceopt | see below. |
