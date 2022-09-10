@@ -290,3 +290,5 @@ Optimization options:
 `decoration:drop_shadow  = false`
 
 `misc:no_vfr = false`
+
+*possibly* `misc:disable_autoreload = true`
