@@ -4,6 +4,15 @@ Hello there, dear traveler! Welcome to the Hyprland Wiki!
 
 Take a tour of the pages on the left and read ones that you may need.
 
+## Wayland info (especially useful for Xorg users)
+
+A Wayland compositor is a fully autonomous Display Server, like Xorg itself. 
+It is **not** possible to mix'n'match Wayland compositors like you could on Xorg
+with window managers and compositors.
+
+Calling a Wayland compositor a *"window manager"* is a sin.
+I hope you are aware of that going forward.
+
 ## IMPORTANT
 
 If you are having issues, please try
