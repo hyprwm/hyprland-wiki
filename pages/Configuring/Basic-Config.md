@@ -1,5 +1,5 @@
 For basic syntax info, see
-[Master Configuring](../Configuring-Hyprland).
+[Master Configuring](../Master-config).
 
 This page documents all the "options" of Hyprland. For binds, monitors, execs,
 curves, etc. see

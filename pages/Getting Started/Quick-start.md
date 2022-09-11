@@ -89,7 +89,7 @@ make those changes persist, configure your outputs in the config! {{< /hint >}}
 # Proper configuring
 
 Head onto the
-[Configuring Hyprland page](../../Configuring/Configuring-Hyprland) to learn all
+[Master Configuring page](../../Configuring/Master-config) to learn all
 about configuring Hyprland to your likings.
 
 # Apps / X11 replacements
