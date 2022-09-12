@@ -119,6 +119,19 @@ WL_OUTPUT_TRANSFORM_FLIPPED_180 = 6
 WL_OUTPUT_TRANSFORM_FLIPPED_270 = 7
 ```
 
+## Binding workspaces to a monitor
+A workspace can be bound to a monitor, meaning by default it will ALWAYS open
+on the selected monitor. You can do this with
+```
+wsbind=WORKSPACE,MONITOR
+```
+
+for example:
+```
+wsbind=5,DP-1
+wsbind=name:secret,DP-2
+```
+
 # Binds
 
 ## Basic
