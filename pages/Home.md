@@ -15,6 +15,13 @@ I hope you are aware of that going forward.
 
 ## IMPORTANT
 
+{{< hint type=important >}}
+**FOR THE LOVE OF GOD** GTK apps launching slowly and/or OBS/Screensharing not working
+is easily fixable by checking out the
+[FAQ (GTK issue)](https://wiki.hyprland.org/FAQ/#some-of-my-apps-take-a-really-long-time-to-open)
+and [FAQ (screensharing)](https://wiki.hyprland.org/FAQ/#screenshare--obs-no-worky).
+{{< /hint >}}
+
 If you are having issues, please try
 [reading the FAQ section](https://wiki.hyprland.org/FAQ/) and both configuring
 sections — chances are your issue is described somewhere there. If not, you

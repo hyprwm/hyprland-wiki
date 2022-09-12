@@ -61,6 +61,10 @@ github pages).
 For a more complete utility, try our own
 [Grimblast](https://github.com/hyprwm/contrib).
 
+### Screenshare / OBS no worky!
+
+Check [Screensharing](../Useful-Utilities/Screen-Sharing).
+
 ### How do I change my wallpaper?
 
 See [Wallpapers](../Useful-Utilities/Wallpapers).
@@ -122,10 +126,6 @@ open a terminal where you cloned the repo.
 ### Waybar popups render behind the windows??
 
 You have misconfigured Waybar. Make sure the `layer` in the waybar config is set to `top`, and not `bottom`.
-
-### Screenshare / OBS no worky!
-
-Check [Screensharing](../Useful-Utilities/Screen-Sharing).
 
 ### How do I screen lock?
 
