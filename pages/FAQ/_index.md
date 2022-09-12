@@ -247,6 +247,10 @@ Until then, OTD.
 *~/.config/hypr/hyprland.conf*
 
 ```plain
+exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+```
+or
+```plain
 exec-once=systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 ```
 

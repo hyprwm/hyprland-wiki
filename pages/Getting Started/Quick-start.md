@@ -98,6 +98,11 @@ See the [Useful Utilities page](../../Useful-Utilities) and the
 [Sway wiki page](https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway)
 just about that.
 
+# Screenshare / GTK slow launch issues
+[FAQ (GTK issue)](https://wiki.hyprland.org/FAQ/#some-of-my-apps-take-a-really-long-time-to-open)
+
+[FAQ (screensharing)](https://wiki.hyprland.org/FAQ/#screenshare--obs-no-worky)
+
 # Screen broken on launch
 
 This usually happens due to your monitor not being very happy about the default
