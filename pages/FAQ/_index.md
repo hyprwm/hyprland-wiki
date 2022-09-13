@@ -77,19 +77,6 @@ You did the below, unknowingly.
 
 Use `gamescope`, tends to fix any and all issues with wayland/Hyprland.
 
-### How do I mirror a screen?
-
-Mirroring isn't *officially* supported. It's technically a bug, but it works.
-Make sure the screen you want mirrored is the same resolution as the source.
-
-Then, just make them overlap in the layout, e.g. making the primary monitor at
-`0x0` and the mirrored one on `0x0` as well.
-
-That creates an issue though, as the mirrored output also *has* to have an
-active workspace, and usually will be annoyingly taking 2,3 etc, while making
-them unreachable. An easy fix is to assign e.g.
-`workspace=MIRROREDSCREEN,name:unused` and never use it.
-
 ### How heavy is this?
 
 Not that much heavier than Xorg. If you want maximum performance, consider

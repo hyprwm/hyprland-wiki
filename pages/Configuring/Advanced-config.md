@@ -79,6 +79,20 @@ Where `TOP` `BOTTOM` `LEFT` `RIGHT` are integers in pixels of the reserved area
 to add. This does stack on top of the calculated one, (e.g. bars) but you may
 only use one of these rules per monitor in the config.
 
+## Mirrored displays
+
+If you want to mirror a display, add a `,mirror,[NAME]` at the end of the monitor
+rule, examples:
+```
+monitor=DP-3,1920x1080@60,0x0,1,mirror,DP-2
+monitor=,preferred,auto,1,mirror,DP-1
+```
+
+Please remember that mirroring displays will not "re-render" everything for your
+second monitor, so if mirroring a 1080p screen onto a 4K one, the resolution will
+still be 1080p on the 4K display. This also means squishing and stretching
+will occur on non-matching resolutions.
+
 ## Rotating and the default workspace
 
 {{< hint type=important >}}
