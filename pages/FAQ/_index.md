@@ -265,6 +265,29 @@ the `.desktop` file to point to your script.
 
 Try disabling VFR with `misc:no_vfr=1`.
 
+If VFR is important to you, you can "step" your monitor into proper VFR high refresh mode with some experimenting:
+
+Turn on VFR with `misc:no_vfr=0`.
+
+Use `hyprctl` multiple times to figure out the needed steps and put them in a script that is executed at startup.
+
+*~/.config/hypr/hyrland.conf*
+
+```plain 
+exec-once=~/.config/hypr/hz.sh #makes vfr work properly
+```
+
+Where hz.sh contains the needed steps e.g.
+```
+#!/bin/bash
+hyprctl keyword monitor DP-1,2560x1440@60,0x0,1
+hyprctl keyword monitor DP-1,2560x1440@120,0x0,1
+hyprctl keyword monitor DP-1,2560x1440@165,0x0,1
+```
+If you want monitor DP-1 to have 1440p@165hz VFR.
+
+
+
 ### How do I make Hyprland draw as little power as possible on my laptop?
 
 I assume you already have `damage_tracking` on full. If you don't, do it. It's
