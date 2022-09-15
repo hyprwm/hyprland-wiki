@@ -388,7 +388,7 @@ otherwise passing from a different XWayland app may not work.
 
 It works flawlessly with all native Wayland applications though.
 
-*Side note*: **OBS** on Wayland really dislikes keybinds wih modifiers. If they don't work, try
+*Side note*: **OBS** on Wayland really dislikes keybinds with modifiers. If they don't work, try
 removing mods and binding them to e.g. F1. Combining this with a submap should yield
 neat and usable results.
 {{< /hint >}}
