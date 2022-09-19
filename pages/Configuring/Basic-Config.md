@@ -36,7 +36,6 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 |---|---|---|---|---|
 | sensitivity | mouse sensitivity (legacy, may cause bugs if not 1, prefer `input:sensitivity`) | float | 1.0 |
 | apply_sens_to_raw | if on, will also apply the sensitivity to raw mouse output (e.g. sensitivity in games) | bool | false |
-| main_mod | the mod used to move/resize windows (hold main_mod and LMB/RMB, try it and you'll know what I mean.) | mod | SUPER |
 | border_size | self-explanatory | int | 1 |
 | no_border_on_floating | disable borders for floating windows | bool | false |
 | gaps_in | gaps between windows | int | 5 |
