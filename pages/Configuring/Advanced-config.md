@@ -243,7 +243,32 @@ flags:
 l -> locked, aka. works also when an input inhibitor is active
 r -> release, will trigger on release of a key
 e -> repeat, will repeat when held.
+m -> mouse, see below
 ```
+
+## Mouse Binds
+Mouse binds are binds that heavily rely on a mouse, usually its movement.
+They will have one less arg, and look for example like this:
+
+```
+bindm=ALT,mouse:272,movewindow
+```
+
+this will create a bind with <key>ALT</key> + <key>LMB</key> to move the window
+with your mouse.
+
+*Available mouse binds*:
+| name | description |
+| movewindow | moves the active window |
+| resizewindow | resizes the active window |
+
+*Common mouse buttons' codes:*
+```
+LMB -> 272
+RMB -> 273
+```
+
+*for more, you can of course use `wev` to check.*
 
 ## Binding mods
 
