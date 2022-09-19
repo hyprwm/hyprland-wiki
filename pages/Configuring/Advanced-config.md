@@ -270,6 +270,11 @@ RMB -> 273
 
 *for more, you can of course use `wev` to check.*
 
+{{< hint type=tip >}}
+Mouse binds, despite their name, behave like normal binds. You are free to use
+whatever keys / mods you please. When held, the mouse function will be activated.
+{{< /hint >}}
+
 ## Binding mods
 
 You can bind a mod alone like this:
