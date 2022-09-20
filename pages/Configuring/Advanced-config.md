@@ -258,6 +258,7 @@ this will create a bind with <key>ALT</key> + <key>LMB</key> to move the window
 with your mouse.
 
 *Available mouse binds*:
+
 | name | description |
 | movewindow | moves the active window |
 | resizewindow | resizes the active window |
