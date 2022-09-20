@@ -260,6 +260,7 @@ with your mouse.
 *Available mouse binds*:
 
 | name | description |
+| -----|------------ |
 | movewindow | moves the active window |
 | resizewindow | resizes the active window |
 
