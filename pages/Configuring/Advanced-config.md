@@ -59,6 +59,22 @@ monitor=,preferred,auto,1
 Will make any monitor that was not specified with an explicit rule automatically
 placed in a sensible location with its preferred resolution.
 
+Alternatively you can use the highrr or highres rules in order to get the best possible
+resolution or refreshrate mix.
+
+for a focus on refreshrate use this:
+
+```plain
+monitor=,highrr,auto,1
+```
+
+for a focus on resolution this:
+
+
+```plain
+monitor=,highres,auto,1
+```
+
 ## Disabling a monitor
 
 To disable a monitor, use
