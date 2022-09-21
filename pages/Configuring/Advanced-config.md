@@ -70,7 +70,6 @@ monitor=,highrr,auto,1
 
 for a focus on resolution this:
 
-
 ```plain
 monitor=,highres,auto,1
 ```
