@@ -1,3 +1,6 @@
+# Table of contents
+{{< toc >}}
+
 Please keep in mind some layout-specific dispatchers will be listed in the
 layout pages (See the sidebar).
 
@@ -13,7 +16,7 @@ layout pages (See the sidebar).
 | floatdelta | a float value delta, e.g `-0.2` or `+0.2`. |
 | workspaceopt | see below. |
 
-## Dispatchers:
+# Dispatchers:
 
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
@@ -58,3 +61,43 @@ might cause undefined behavior. Instead, consider something like
 bind = MOD,KEY,exec,sleep 1 && hyprctl dispatch dpms off
 ```
 {{< /hint >}}
+
+# Workspaces
+
+You have seven choices:
+
+- ID: e.g. `1`, `2`, or `3`
+
+- Relative ID: e.g. `+1`, `-3` or `+100`
+
+- Relative workspace on monitor: e.g. `m+1`, `m-1` or `m+3`
+
+- Relative open workspace: e.g. `e+1` or `e-10`
+
+- Name: e.g. `name:Web`, `name:Anime` or `name:Better anime`
+
+- Previous workspace: `previous`
+
+- Special Workspace: `special`
+
+{{< hint type=warning >}}
+`special` is supported ONLY on
+`movetoworkspace`. Any other dispatcher will result in undocumented behavior.
+{{< /hint >}}
+
+## Special Workspace
+
+Special workspace is what is called a "scratchpad" in some other places. A
+workspace that you can toggle on/off on any monitor.
+
+{{< hint >}}
+You cannot have floating windows in the Special workspace. Making a window floating
+will send it to the currently active *real* workspace.
+{{< /hint >}}
+
+## Workspace options
+```
+allfloat -> makes all new windows floating (also floats/unfloats windows on toggle)
+allpseudo -> makes all new windows pseudo (also pseudos/unpseudos on toggle)
+```
+

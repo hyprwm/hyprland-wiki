@@ -23,7 +23,9 @@ bind=,Print,exec,grim
 ```
 {{< /hint >}}
 
-*For a complete mod list, see [Variables](http://localhost:1313/Configuring/Variables/#variable-types).*
+*For a complete mod list, see [Variables](https://wiki.hyprland.org/Configuring/Variables/#variable-types).*
+
+*The dispatcher list can be found in [Dispatchers](https://wiki.hyprland.org/Configuring/Dispatchers).*
 
 ## Uncommon syms / binding with a keycode
 

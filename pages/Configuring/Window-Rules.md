@@ -59,7 +59,7 @@ Keep in mind you do *not* need to define all of them, but you need to define at 
 | center | if the window is floating, will center it on the monitor |
 | pseudo | pseudotiles a window |
 | monitor \[id\] | sets the monitor on which a window should open |
-| workspace \[w\] | sets the workspace on which a window should open (for workspace syntax, see [binds->workspaces](../Keywords#workspaces)). You can also make \[w\] to `unset`, will unset all previous workspace rules applied to this window. You can also add `silent` after the workspace to make the window open silently. |
+| workspace \[w\] | sets the workspace on which a window should open (for workspace syntax, see [dispatchers->workspaces](../Dispatchers#workspaces)). You can also make \[w\] to `unset`, will unset all previous workspace rules applied to this window. You can also add `silent` after the workspace to make the window open silently. |
 | opacity \[a\] | additional opacity multiplier. Options for a: `float` -> sets an opacity OR `float float` -> sets activeopacity and inactiveopacity respectively |
 | opaque | forces the window to be opaque (can be toggled with the toggleopaque dispatcher) |
 | animation \[style\] (\[opt\]) | forces an animation onto a window, with a selected opt. Opt is optional. |
