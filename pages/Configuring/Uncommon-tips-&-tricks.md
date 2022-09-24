@@ -3,7 +3,7 @@
 An example of a switchable keyboard layout between US and RU, where you switch
 between them with SUPER+A (SUPER+Ф)
 
-```
+```ini
 bind=SUPER,A,exec,hyprctl keyword input:kb_layout ru
 bind=SUPER,Cyrillic_ef,exec,hyprctl keyword input:kb_layout us
 ```
@@ -41,7 +41,7 @@ See [per-device input configs](https://wiki.hyprland.org/Configuring/Advanced-co
 If you want to disable all keybinds with another keybind (make a kaybind toggle
 of sorts) you can just use a submap with only a keybind to exit it.
 
-```
+```ini
 bind=MOD,KEY,submap,clean
 submap=clean
 bind=MOD,KEY,submap,reset

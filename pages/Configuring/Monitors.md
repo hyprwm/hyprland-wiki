@@ -5,13 +5,13 @@
 ## General
 
 The general config of a monitor looks like this
-```plain
+```ini
 monitor=name,resolution,offset,scale
 ```
 
 A common example:
 
-```plain
+```ini
 monitor=DP-1,1920x1080@144,0x0,1
 ```
 
@@ -37,7 +37,7 @@ You can use `preferred` as a resolution to use the display's preferred size, and
 
 Recommended rule for quickly plugging in random monitors:
 
-```plain
+```ini
 monitor=,preferred,auto,1
 ```
 
@@ -49,13 +49,13 @@ resolution or refreshrate mix.
 
 for a focus on refreshrate use this:
 
-```plain
+```ini
 monitor=,highrr,auto,1
 ```
 
 for a focus on resolution this:
 
-```plain
+```ini
 monitor=,highres,auto,1
 ```
 
@@ -63,7 +63,7 @@ monitor=,highres,auto,1
 
 To disable a monitor, use
 
-```plain
+```ini
 monitor=name,disable
 ```
 
@@ -71,7 +71,7 @@ monitor=name,disable
 
 If your workflow requires custom reserved area, you can add it with
 
-```plain
+```ini
 monitor=name,addreserved,TOP,BOTTOM,LEFT,RIGHT
 ```
 
@@ -83,7 +83,8 @@ only use one of these rules per monitor in the config.
 
 If you want to mirror a display, add a `,mirror,[NAME]` at the end of the monitor
 rule, examples:
-```
+
+```ini
 monitor=DP-3,1920x1080@60,0x0,1,mirror,DP-2
 monitor=,preferred,auto,1,mirror,DP-1
 ```
@@ -102,13 +103,13 @@ specifically for the targeted monitor, and ***MUST*** be after it.
 
 {{< /hint >}}
 
-```plain
+```ini
 workspace=name,number
 ```
 
 for example:
 
-```plain
+```ini
 workspace=DP-1,1
 ```
 
@@ -116,15 +117,14 @@ will tell Hyprland to make the default workspace on DP-1 a number 1.
 
 If you want to rotate a monitor, use
 
-```plain
+```ini
 monitor=NAME,transform,TRANSFORM
 ```
 
 where `NAME` is the name, and `TRANSFORM` is an integer, from 0 to 7,
 corresponding to your transform of choice.
 
-
-```
+```ini
 WL_OUTPUT_TRANSFORM_NORMAL = 0
 WL_OUTPUT_TRANSFORM_90 = 1
 WL_OUTPUT_TRANSFORM_180 = 2
@@ -139,12 +139,12 @@ WL_OUTPUT_TRANSFORM_FLIPPED_270 = 7
 
 A workspace can be bound to a monitor, meaning by default it will ALWAYS open
 on the selected monitor. You can do this with
-```
+```ini
 wsbind=WORKSPACE,MONITOR
 ```
 
 for example:
-```
+```ini
 wsbind=5,DP-1
 wsbind=name:secret,DP-2
 ```

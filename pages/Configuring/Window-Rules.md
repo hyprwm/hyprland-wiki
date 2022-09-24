@@ -5,7 +5,7 @@
 
 You can set window rules for various actions. These are applied on window open!
 
-```
+```ini
 windowrule=RULE,WINDOW
 ```
 
@@ -20,7 +20,7 @@ you can get both by inspecting `hyprctl clients`
 
 Examples:
 
-```
+```ini
 windowrule=float,^(kitty)$
 windowrule=move 0 0,title:^(Firefox)(.*)$
 ```
@@ -33,12 +33,12 @@ rule system, window rules v2 were implemented.
 In V2, you are allowed to match multiple variables.
 
 the `RULE` field is unchanged, but in the `WINDOW` field, you can put regexes for multiple values like so:
-```
+```ini
 windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
 ```
 
 For now, the supported fields are:
-```
+```ini
 class - class regex
 title - title regex
 xwayland - 0/1
@@ -70,7 +70,7 @@ Keep in mind you do *not* need to define all of them, but you need to define at 
 | pin | pins the window *note: floating only* |
 
 *Examples*:
-```
+```ini
 windowrule = move 100 100,^(kitty)$
 windowrule = animation popin,^(kitty)$
 windowrule = noblur,^(firefox)$

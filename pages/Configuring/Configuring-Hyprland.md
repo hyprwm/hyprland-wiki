@@ -21,7 +21,7 @@ toggleable / numerical options.
 
 every config line is a command followed by a value.
 
-```plain
+```ini
 COMMAND=VALUE
 ```
 
@@ -32,7 +32,7 @@ You are **allowed to** input trailing spaces at the beginning and end.
 
 e.g.:
 
-```plain
+```ini
 COMMAND = VALUE
 ```
 

@@ -27,7 +27,7 @@ and [this commit](https://gitlab.freedesktop.org/wlroots/wlroots/-/commit/185950
 programs crash Hyprland.
 
 3. Add this line to your configuration:
-    ```toml
+    ```ini
     exec-once=xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
     ```
     and configure toolkits to scale using their specific mechanisms, such as

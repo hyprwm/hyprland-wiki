@@ -6,7 +6,7 @@ Please remember, that for ALL arguments separated by a comma, if you want to
 leave one of them empty, you cannot reduce the number of commas, *unless told
 otherwise in a specific section*:
 
-```plain
+```ini
 three_param_keyword=A,B,C # OK
 
 three_param_keyword=A,C # NOT OK
@@ -82,25 +82,25 @@ script (`exec-once=~/myscript.sh` and do `myapp &` in the script)
 
 You can define your own custom variables like this:
 
-```
+```ini
 $VAR = value
 ```
 
 for example:
 
-```
+```ini
 $MyFavoriteGame = Among Us
 ```
 
 then, to use them, simply use them. For example:
 
-```
+```ini
 col.active_border=$MyColor
 ```
 
 You ARE allowed to do this:
 
-```
+```ini
 col.active_border=ff$MyRedValue1111
 ```
 
@@ -110,7 +110,7 @@ Use the `source` keyword to source another file.
 
 For example, in your `hyprland.conf` you can:
 
-```
+```ini
 source=~/.config/hypr/myColors.conf
 ```
 
@@ -134,7 +134,7 @@ overwritten.
 
 In order to apply per-device config options, make a new category like this:
 
-```
+```ini
 device:name {
 
 }
@@ -149,7 +149,7 @@ force_no_accel, follow_mouse, float_switch_override_focus
 
 For example:
 
-```
+```ini
 device:ROYUAN Akko Multi-modes Keyboard-B {
     repeat_rate=50
     repeat_delay=500
@@ -161,7 +161,7 @@ device:ROYUAN Akko Multi-modes Keyboard-B {
 
 {{< hint type=tip >}}
 With hyprctl, the category's spaces get turned into `-`, and everything is lowercase. So, for `hyprctl` calls, do for example:
-```
+```sh
 hyprctl keyword device:royuan-akko-multi-modes-keyboard-b:kb_layout us
 ```
 {{< /hint >}}
@@ -182,7 +182,7 @@ notification overlays, bars, etc.
 
 If you really want to blur them, use `blurls=`
 
-```
+```ini
 blurls=NAMESPACE
 ```
 
@@ -191,6 +191,6 @@ where `NAMESPACE` is the namespace of the layerSurface. (You can get it from
 
 to remove a namespace from being blurred (useful in dynamic situations) use:
 
-```
+```ini
 blurls=remove,NAMESPACE
 ```

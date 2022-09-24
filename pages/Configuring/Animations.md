@@ -5,7 +5,7 @@
 
 Animations are declared with the `animation` keyword.
 
-```
+```ini
 animation=NAME,ONOFF,SPEED,CURVE,STYLE
 or
 animation=NAME,ONOFF,SPEED,CURVE
@@ -13,7 +13,7 @@ animation=NAME,ONOFF,SPEED,CURVE
 
 for example:
 
-```
+```ini
 animation=workspaces,1,8,default
 animation=windows,1,10,myepiccurve,slide
 ```
@@ -53,7 +53,7 @@ global
 For animation style `popin` in `windows`, you can specify a minimum percentage
 to start from. For example:
 
-```
+```ini
 animation=windows,1,8,default,popin 80%
 ```
 
@@ -63,7 +63,7 @@ will make the animation 80% -> 100% of the size.
 
 Defining your own Bezier curve can be done with the `bezier` keyword:
 
-```
+```ini
 bezier=NAME,X0,Y0,X1,Y1
 ```
 
@@ -73,6 +73,6 @@ good website to design your bezier can be found
 
 Example curve:
 
-```
+```ini
 bezier=overshot,0.05,0.9,0.1,1.1
 ```

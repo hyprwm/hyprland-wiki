@@ -165,7 +165,7 @@ workspace subsequently).
 
 Put the following in your `hyprland.conf`: (example)
 
-```plain
+```ini
 windowrule=workspace 1 silent,kitty
 windowrule=workspace 1 silent,Subl
 windowrule=workspace 3 silent,Mailspring
@@ -198,7 +198,7 @@ following:
 
 In hyprland.conf:
 
-```plain
+```ini
 exec-once=handle_monitor_connect.sh
 ```
 
@@ -233,11 +233,11 @@ Until then, OTD.
 
 *~/.config/hypr/hyprland.conf*
 
-```plain
+```ini
 exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 ```
 and
-```plain
+```ini
 exec-once=systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 ```
 
@@ -251,7 +251,7 @@ should probably add it to your exported envvars.
 As with any Display Server, Xorg included, you should probably make a script to
 launch it, for example:
 
-```plain
+```ini
 export AMONG_US=1
 exec Hyprland
 ```

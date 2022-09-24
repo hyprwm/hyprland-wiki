@@ -38,7 +38,7 @@ You can, however, resize the master window.
 {{< hint type=info >}}
 example usage:
 
-```
+```ini
 bind=MOD,KEY,layoutmsg,cyclenext
 ```
 {{< /hint >}}

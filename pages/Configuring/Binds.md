@@ -4,13 +4,13 @@
 
 ## Basic
 
-```
+```ini
 bind=MODS,key,dispatcher,params
 ```
 
 for example,
 
-```
+```ini
 bind=SUPER_SHIFT,Q,exec,firefox
 ```
 
@@ -18,7 +18,7 @@ will bind opening firefox to <key>SUPER</key> + <key>SHIFT</key> + <key>Q</key>
 
 {{< hint type=tip >}}
 For binding keys without a modkey, leave it empty:
-```
+```ini
 bind=,Print,exec,grim
 ```
 {{< /hint >}}
@@ -38,7 +38,7 @@ use `xev` or `wev` to find that information.
 If you want to bind by a keycode, you can just input it in the KEY position,
 e.g.:
 
-```
+```ini
 bind=SUPER,28,exec,amongus
 ```
 
@@ -49,7 +49,7 @@ can also use `xev` or `wev` to find keycodes.
 
 You can also unbind with `unbind`, e.g.:
 
-```
+```ini
 unbind=SUPER,O
 ```
 
@@ -58,7 +58,7 @@ May be useful for dynamic keybindings with `hyprctl`.
 You can also bind mouse buttons, by prefacing the mouse keycode with `mouse:`,
 for example:
 
-```
+```ini
 bind=SUPER,mouse:272,exec,amongus
 ```
 
@@ -67,12 +67,12 @@ will bind it to <key>SUPER</key> + <key>LMB</key>.
 For binding only modkeys, you need to use the TARGET modmask (with the
 activating mod) and the `r` flag, e.g.:
 
-```
+```ini
 bindr=SUPERALT,Alt_L,exec,amongus
 ```
 
 You can also bind the mouse wheel with `mouse_up` and `mouse_down`:
-```
+```ini
 bind=SUPER,mouse_down,workspace,e-1
 ```
 (control the reset time with `binds:scroll_event_delay`)
@@ -81,19 +81,19 @@ bind=SUPER,mouse_down,workspace,e-1
 
 bind supports flags in this format:
 
-```
+```ini
 bind[flags]=...
 ```
 
 e.g.:
 
-```
+```ini
 bindrl=MOD,KEY,exec,amongus
 ```
 
 flags:
 
-```
+```ini
 l -> locked, aka. works also when an input inhibitor is active
 r -> release, will trigger on release of a key
 e -> repeat, will repeat when held.
@@ -113,7 +113,7 @@ with your mouse.
 
 *Available mouse binds*:
 
-| name | description |
+| Name | Description |
 | -----|------------ |
 | movewindow | moves the active window |
 | resizewindow | resizes the active window |
@@ -135,7 +135,7 @@ whatever keys / mods you please. When held, the mouse function will be activated
 
 You can bind a mod alone like this:
 
-```
+```ini
 bindr=ALT,Alt_L,exec,amongus
 ```
 
@@ -151,7 +151,7 @@ I've set the "Start/Stop Recording" keybind in OBS to <key>SUPER</key> +
 <key>F10</key>, and I want it to be global.
 
 Simple, add
-```plain
+```ini
 bind = SUPER,F10,pass,^(com\.obsproject\.Studio)$
 ```
 to your config and you're done.
@@ -159,7 +159,7 @@ to your config and you're done.
 `pass` will pass the PRESS and RELEASE events by itself, no need for a `bindr`.
 This also means that push-to-talk will work flawlessly with one pass, e.g.:
 
-```
+```ini
 bind=,mouse:276,pass,^(TeamSpeak 3)$
 ```
 
@@ -182,7 +182,7 @@ If you want keybind submaps, for example if you press <key>ALT</key> +
 <key>R</key>, you can enter a "resize" mode, resize with arrow keys, and leave
 with escape, do it like this:
 
-```
+```ini
 bind=ALT,R,submap,resize # will switch to a submap called resize
 
 submap=resize # will start a submap called "resize"

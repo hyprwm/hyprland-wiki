@@ -22,7 +22,7 @@ the layout pages and not here. (See the Sidebar)
 {{< hint type=info >}}
 
 Mod list:
-```plain
+```ini
 SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 ```
 
