@@ -1,0 +1,206 @@
+
+## Table of contents
+{{< toc >}}
+
+## Basic
+
+```
+bind=MODS,key,dispatcher,params
+```
+
+for example,
+
+```
+bind=SUPER_SHIFT,Q,exec,firefox
+```
+
+will bind opening firefox to <key>SUPER</key> + <key>SHIFT</key> + <key>Q</key>
+
+{{< hint type=tip >}}
+For binding keys without a modkey, leave it empty:
+```
+bind=,Print,exec,grim
+```
+{{< /hint >}}
+
+*For a complete mod list, see [The basic configuring page](https://wiki.hyprland.org/Configuring/Basic-Config/#variable-types).*
+
+## Uncommon syms / binding with a keycode
+
+See the
+[xkbcommon-keysyms.h header](https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h)
+for all the keysyms. The name you should use is the one after `XKB_KEY_`,
+written in all lowercase.
+
+If you are unsure of what your key's name is, or what it shifts into, you can
+use `xev` or `wev` to find that information.
+
+If you want to bind by a keycode, you can just input it in the KEY position,
+e.g.:
+
+```
+bind=SUPER,28,exec,amongus
+```
+
+Will bind <key>SUPER</key> + <key>T</key>. (<key>T</key> is keycode 28.) - You
+can also use `xev` or `wev` to find keycodes.
+
+## Misc
+
+You can also unbind with `unbind`, e.g.:
+
+```
+unbind=SUPER,O
+```
+
+May be useful for dynamic keybindings with `hyprctl`.
+
+You can also bind mouse buttons, by prefacing the mouse keycode with `mouse:`,
+for example:
+
+```
+bind=SUPER,mouse:272,exec,amongus
+```
+
+will bind it to <key>SUPER</key> + <key>LMB</key>.
+
+For binding only modkeys, you need to use the TARGET modmask (with the
+activating mod) and the `r` flag, e.g.:
+
+```
+bindr=SUPERALT,Alt_L,exec,amongus
+```
+
+You can also bind the mouse wheel with `mouse_up` and `mouse_down`:
+```
+bind=SUPER,mouse_down,workspace,e-1
+```
+(control the reset time with `binds:scroll_event_delay`)
+
+## Bind flags
+
+bind supports flags in this format:
+
+```
+bind[flags]=...
+```
+
+e.g.:
+
+```
+bindrl=MOD,KEY,exec,amongus
+```
+
+flags:
+
+```
+l -> locked, aka. works also when an input inhibitor is active
+r -> release, will trigger on release of a key
+e -> repeat, will repeat when held.
+m -> mouse, see below
+```
+
+## Mouse Binds
+Mouse binds are binds that heavily rely on a mouse, usually its movement.
+They will have one less arg, and look for example like this:
+
+```
+bindm=ALT,mouse:272,movewindow
+```
+
+this will create a bind with <key>ALT</key> + <key>LMB</key> to move the window
+with your mouse.
+
+*Available mouse binds*:
+
+| name | description |
+| -----|------------ |
+| movewindow | moves the active window |
+| resizewindow | resizes the active window |
+
+*Common mouse buttons' codes:*
+```
+LMB -> 272
+RMB -> 273
+```
+
+*for more, you can of course use `wev` to check.*
+
+{{< hint type=tip >}}
+Mouse binds, despite their name, behave like normal binds. You are free to use
+whatever keys / mods you please. When held, the mouse function will be activated.
+{{< /hint >}}
+
+## Binding mods
+
+You can bind a mod alone like this:
+
+```
+bindr=ALT,Alt_L,exec,amongus
+```
+
+## Global Keybinds
+Yes, you heard this right, Hyprland does support global keybinds for ALL apps,
+including OBS, Discord, Firefox, etc.
+
+See the `pass` dispatcher for keybinds.
+
+e.g.:
+
+I've set the "Start/Stop Recording" keybind in OBS to <key>SUPER</key> +
+<key>F10</key>, and I want it to be global.
+
+Simple, add
+```plain
+bind = SUPER,F10,pass,^(com\.obsproject\.Studio)$
+```
+to your config and you're done.
+
+`pass` will pass the PRESS and RELEASE events by itself, no need for a `bindr`.
+This also means that push-to-talk will work flawlessly with one pass, e.g.:
+
+```
+bind=,mouse:276,pass,^(TeamSpeak 3)$
+```
+
+Will pass MOUSE5 to TeamSpeak3.
+
+{{< hint type=important >}}
+XWayland is a bit wonky. Make sure that what you're passing is a "global Xorg
+keybind", otherwise passing from a different XWayland app may not work.
+
+It works flawlessly with all native Wayland applications though.
+
+*Side note*: **OBS** on Wayland really dislikes keybinds with modifiers. If
+they don't work, try removing mods and binding them to e.g. <key>F1</key>.
+Combining this with a submap should yield neat and usable results.
+{{< /hint >}}
+
+## Submaps
+
+If you want keybind submaps, for example if you press <key>ALT</key> +
+<key>R</key>, you can enter a "resize" mode, resize with arrow keys, and leave
+with escape, do it like this:
+
+```
+bind=ALT,R,submap,resize # will switch to a submap called resize
+
+submap=resize # will start a submap called "resize"
+
+binde=,right,resizeactive,10 0
+binde=,left,resizeactive,-10 0
+binde=,up,resizeactive,0 -10
+binde=,down,resizeactive,0 10
+
+bind=,escape,submap,reset # use reset to go back to the global submap
+
+submap=reset # will reset the submap, meaning end the current one and return to the global one.
+
+# keybinds further down will be global again...
+```
+
+**IMPORTANT:** do not forget a keybind to reset the keymap while inside it! (In
+this case, `escape`)
+
+If you get stuck inside a keymap, you can use `hyprctl dispatch submap reset` to
+go back. If you do not have a terminal open, tough luck buddy. I warned you.
