@@ -132,7 +132,7 @@ detached from the keyboard like in 2.
 {{< /hint >}}
 
 {{< hint type=info >}}
-For switchable keyboard configs, take a look at [the uncommon tips & tricks page entry](https://wiki.hyprland.org/Configuring/Uncommon-tips--tricks/#switchable-keyboard-layouts).
+For switchable keyboard configs, take a look at [the uncommon tips & tricks page entry](../Uncommon-tips--tricks/#switchable-keyboard-layouts).
 {{< /hint >}}
 
 ### Touchpad

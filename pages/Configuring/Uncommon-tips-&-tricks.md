@@ -32,7 +32,7 @@ Generally, for switched layouts, it's recommended to bind by a keycode.
 
 For proper switching, or avoiding problems / bugs, it's recommended to switch per-device configs instead of global ones.
 
-See [per-device input configs](https://wiki.hyprland.org/Configuring/Keywords/#per-device-input-configs).
+See [per-device input configs](../Keywords/#per-device-input-configs).
 
 {{< /hint >}}
 
