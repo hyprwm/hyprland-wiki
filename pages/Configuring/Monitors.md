@@ -44,8 +44,8 @@ monitor=,preferred,auto,1
 Will make any monitor that was not specified with an explicit rule automatically
 placed on the right of the other(s) with its preferred resolution.
 
-Alternatively you can use the `highrr` or `highres` rules in order to get the best possible
-resolution or refreshrate mix.
+Alternatively you can use the `highrr` or `highres` rules in order to get the
+best possible resolution or refreshrate mix.
 
 for a focus on refreshrate use this:
 
@@ -90,8 +90,8 @@ monitor=,preferred,auto,1,mirror,DP-1
 ```
 
 Please remember that mirroring displays will not "re-render" everything for your
-second monitor, so if mirroring a 1080p screen onto a 4K one, the resolution will
-still be 1080p on the 4K display. This also means squishing and stretching
+second monitor, so if mirroring a 1080p screen onto a 4K one, the resolution
+will still be 1080p on the 4K display. This also means squishing and stretching
 will occur on non-matching resolutions.
 
 ## Rotating and the default workspace

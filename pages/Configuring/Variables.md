@@ -98,7 +98,7 @@ Using `blur_new_optimizations` with an animated wallpaper may actually increase 
 
 {{< hint type=info >}}
 
-_More about animations is on the [Advanced Configuring page](../Advanced-config#animations)._
+_[More about Animations](../Animations)._
 
 {{< /hint >}}
 
@@ -167,7 +167,7 @@ Doing `input:touchpad {` is **invalid**!
 
 ### Per-device input config
 
-Described [here](../Advanced-config#per-device-input-configs).
+Described [here](../Keywords#per-device-input-configs).
 
 ## Gestures
 

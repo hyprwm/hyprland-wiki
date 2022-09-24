@@ -124,7 +124,7 @@ then lines inside `~/.config/hypr/myColors.conf`, then lines below.
 Use something like
 [libinput-gestures](https://github.com/bulletmark/libinput-gestures), with
 `hyprctl` if you want to expand Hyprland's gestures beyond what's offered in
-Basic Configuring.
+[Variables](../Variables).
 
 # Per-device input configs
 
@@ -160,7 +160,8 @@ device:ROYUAN Akko Multi-modes Keyboard-B {
 *remember about the space after the end of the device's name (before the `{`)!*
 
 {{< hint type=tip >}}
-With hyprctl, the category's spaces get turned into `-`, and everything is lowercase. So, for `hyprctl` calls, do for example:
+With hyprctl, the category's spaces get turned into `-`, and everything is
+lowercase. So, for `hyprctl` calls, do for example:
 ```sh
 hyprctl keyword device:royuan-akko-multi-modes-keyboard-b:kb_layout us
 ```

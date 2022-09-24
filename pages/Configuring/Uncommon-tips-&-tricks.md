@@ -1,7 +1,7 @@
 ## Switchable keyboard layouts
 
 An example of a switchable keyboard layout between US and RU, where you switch
-between them with SUPER+A (SUPER+Ф)
+between them with <key>SUPER</key>+<key>A</key> (<key>SUPER</key>+<key>Ф</key>)
 
 ```ini
 bind=SUPER,A,exec,hyprctl keyword input:kb_layout ru
@@ -32,7 +32,7 @@ Generally, for switched layouts, it's recommended to bind by a keycode.
 
 For proper switching, or avoiding problems / bugs, it's recommended to switch per-device configs instead of global ones.
 
-See [per-device input configs](https://wiki.hyprland.org/Configuring/Advanced-config/#per-device-input-configs).
+See [per-device input configs](https://wiki.hyprland.org/Configuring/Keywords/#per-device-input-configs).
 
 {{< /hint >}}
 

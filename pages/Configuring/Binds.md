@@ -23,7 +23,7 @@ bind=,Print,exec,grim
 ```
 {{< /hint >}}
 
-*For a complete mod list, see [The basic configuring page](https://wiki.hyprland.org/Configuring/Basic-Config/#variable-types).*
+*For a complete mod list, see [Variables](http://localhost:1313/Configuring/Variables/#variable-types).*
 
 ## Uncommon syms / binding with a keycode
 

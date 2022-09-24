@@ -13,7 +13,7 @@ Start a section with `name {` and end in `}` ***in separate lines!***
 The default config is *very* barebones. Please refer to this wiki page and the pages
 linked further down here for full configuration instructions.
 
-**Make sure to read the "Basic configuring" page as well**. It covers all the
+**Make sure to read the "Variables" page as well**. It covers all the
 toggleable / numerical options.
 {{< /hint >}}
 
@@ -41,12 +41,11 @@ is valid.
 # Basic configuring
 
 To configure the "options" of Hyprland, animations, styling, etc. see
-[Basic Configuring](../Basic-Config).
+[Variables](../Variables).
 
 # Advanced configuring
 
 Some keywords (binds, curves, execs, monitors, etc.) arent variables but define
 special behaviour.
 
-See all of them in
-[Advanced Configuring](../Advanced-config)
+See all of them in [Keywords](../Keywords) and the sidebar.
