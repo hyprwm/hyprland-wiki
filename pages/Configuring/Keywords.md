@@ -21,7 +21,7 @@ three_param_keyword=A,B, # OK
 # Table of contents
 {{< toc format=html >}}
 
-## Workspaces
+# Workspaces
 
 You have seven choices:
 
@@ -44,7 +44,7 @@ You have seven choices:
 `movetoworkspace`. Any other dispatcher will result in undocumented behavior.
 {{< /hint >}}
 
-### Special Workspace
+## Special Workspace
 
 Special workspace is what is called a "scratchpad" in some other places. A
 workspace that you can toggle on/off on any monitor.
@@ -54,7 +54,7 @@ You cannot have floating windows in the Special workspace. Making a window float
 will send it to the currently active *real* workspace.
 {{< /hint >}}
 
-### Workspace options
+## Workspace options
 ```
 allfloat -> makes all new windows floating (also floats/unfloats windows on toggle)
 allpseudo -> makes all new windows pseudo (also pseudos/unpseudos on toggle)

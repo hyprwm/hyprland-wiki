@@ -1,9 +1,8 @@
 For basic syntax info, see
-[Master Configuring](../Configuring-Hyprland).
+[Configuring Hyprland](../Configuring-Hyprland).
 
-This page documents all the "options" of Hyprland. For binds, monitors, execs,
-curves, etc. see
-[Advanced Configuring](../Advanced-config).
+This page documents all the "options" of Hyprland. For binds, monitors, animations,
+etc. see the sidebar. For anything else, see [Keywords](../Keywords).
 
 Please keep in mind some options that are layout-specific will be documented in
 the layout pages and not here. (See the Sidebar)
