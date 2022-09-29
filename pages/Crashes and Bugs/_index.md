@@ -33,7 +33,7 @@ Diagnose the issue by what is in the log:
 
 ## Crashes not at launch
 
-Report an issue on Github or on the Discord server.
+Report an issue on GitHub or on the Discord server.
 
 ## Bugs
 
@@ -41,4 +41,4 @@ First of all, ***READ THE
 [FAQ PAGE](../FAQ)***
 
 If your bug is not listed there, you can ask on the Discord server or open an
-issue on Github.
+issue on GitHub.
