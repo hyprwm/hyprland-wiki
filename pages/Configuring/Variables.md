@@ -17,6 +17,7 @@ the layout pages and not here. (See the Sidebar)
 | color | color (e.g. `0x22334455` - alpha `0x22`, red `0x33`, green `0x44`, blue `0x55`) |
 | vec2 | vector with 2 values (float), separated by a space (e.g. `0 0` or `-10.9 99.1`) |
 | MOD | a string modmask (e.g. `SUPER` or `SUPERSHIFT` or`SUPERSHIFTALTCTRLCAPSMOD2MOD3MOD5` or empty for none) |
+| str | a string |
 
 {{< hint type=info >}}
 
@@ -193,6 +194,8 @@ Described [here](../Keywords#per-device-input-configs).
 | layers_hog_keyboard_focus | If true, will make keyboard-interactive layers keep their focus on mouse move (e.g. wofi, bemenu) | bool | true |
 | animate_manual_resizes | If true, will animate manual window resizes/moves | bool | false |
 | disable_autoreload | If true, the config will not reload automatically on save, and instead needs to be reloaded with `hyprctl reload`. Might save on battery. | bool | false |
+| enable_swallow | Enable window swallowing | bool | false |
+| swallow_regex | The *class* regex to be used for windows that should be swallowed (usually, a terminal) | str | \[EMPTY\] |
 
 ## Binds
 
