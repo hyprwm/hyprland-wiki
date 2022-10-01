@@ -34,7 +34,6 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 | name | description | type | default |
 |---|---|---|---|---|
 | sensitivity | mouse sensitivity (legacy, may cause bugs if not 1, prefer `input:sensitivity`) | float | 1.0 |
-| apply_sens_to_raw | if on, will also apply the sensitivity to raw mouse output (e.g. sensitivity in games) | bool | false |
 | border_size | self-explanatory | int | 1 |
 | no_border_on_floating | disable borders for floating windows | bool | false |
 | gaps_in | gaps between windows | int | 5 |
@@ -45,6 +44,7 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 | damage_tracking | Makes the compositor redraw only the needed bits of the display. Saves on resources by not redrawing when not needed. Available modes: `none, monitor, full`. You don't need to know what different modes do, just always use `full`. | str | full |
 | layout | which layout to use. (Available: `dwindle`, `master`) | str | dwindle |
 | no_cursor_warps | if true, will not warp the cursor in many cases (focusing, keybinds, etc) | bool | false |
+| apply_sens_to_raw | if on, will also apply the sensitivity to raw mouse output (e.g. sensitivity in games) **NOTICE:** ***really*** not recommended. | bool | false |
 
 {{< hint type=warning >}}
 Prefer using `input:sensitivity` over `general:sensitivity` to avoid bugs, especially with Wine/Proton apps.
