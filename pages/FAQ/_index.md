@@ -241,6 +241,21 @@ and
 exec-once=systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 ```
 
+Make sure that your portals launch *after* this gets executed. For some people,
+they might launch before that has happened.
+
+In such cases, a script like this:
+```sh
+#!/bin/bash
+sleep 4
+killall xdg-desktop-portal-wlr
+killall xdg-desktop-portal
+/usr/lib/xdg-desktop-portal-wlr &
+sleep 4
+/usr/lib/xdg-desktop-portal &
+```
+launched with `exec-once` should fix all issues. Adjust the sleep durations to taste.
+
 ### My cursor in QT apps is too big!
 
 The QT cursor size can be fixed by setting the envvar `XCURSOR_SIZE=24`. You
