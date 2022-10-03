@@ -7,13 +7,13 @@ leave one of them empty, you cannot reduce the number of commas, *unless told
 otherwise in a specific section*:
 
 ```ini
-three_param_keyword=A,B,C # OK
+three_param_keyword = A, B, C # OK
 
-three_param_keyword=A,C # NOT OK
+three_param_keyword = A, C # NOT OK
 
-three_param_keyword=A,,C # OK
+three_param_keyword = A, , C # OK
 
-three_param_keyword=A,B, # OK
+three_param_keyword = A, B,  # OK
 ```
 
 {{< /hint >}}
