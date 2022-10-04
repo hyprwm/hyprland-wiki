@@ -121,6 +121,7 @@ _[More about Animations](../Animations)._
 | numlock_by_default | lock numlock by default | bool | false |
 | force_no_accel | force no mouse acceleration, bypasses most of your pointer settings to get as raw of a signal as possible. | bool | false |
 | sensitivity | set the libinput sensitivity. This **HAS** to be from -1 to 1, or else it will be clamped. | float | 0.0 |
+| left_handed | switches RMB and LMB | bool | false |
 
 {{< hint type=info >}}
 ### Follow Mouse
