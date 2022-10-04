@@ -49,6 +49,7 @@ can also use `xev` or `wev` to find keycodes.
 
 ## Misc
 
+### Unbind
 You can also unbind with `unbind`, e.g.:
 
 ```ini
@@ -57,6 +58,7 @@ unbind=SUPER,O
 
 May be useful for dynamic keybindings with `hyprctl`.
 
+### Mouse buttons
 You can also bind mouse buttons, by prefacing the mouse keycode with `mouse:`,
 for example:
 
@@ -66,6 +68,7 @@ bind=SUPER,mouse:272,exec,amongus
 
 will bind it to <key>SUPER</key> + <key>LMB</key>.
 
+### Only modkeys
 For binding only modkeys, you need to use the TARGET modmask (with the
 activating mod) and the `r` flag, e.g.:
 
@@ -73,11 +76,19 @@ activating mod) and the `r` flag, e.g.:
 bindr=SUPERALT,Alt_L,exec,amongus
 ```
 
+### Mouse wheel
 You can also bind the mouse wheel with `mouse_up` and `mouse_down`:
 ```ini
 bind=SUPER,mouse_down,workspace,e-1
 ```
 (control the reset time with `binds:scroll_event_delay`)
+
+### Switches
+Useful for binding e.g. the lid close/open event:
+```
+bindl=,switch:[switch name],exec,swaylock
+```
+check out your switches in `hyprctl devices`.
 
 ## Bind flags
 
