@@ -122,6 +122,8 @@ _[More about Animations](../Animations)._
 | force_no_accel | force no mouse acceleration, bypasses most of your pointer settings to get as raw of a signal as possible. | bool | false |
 | sensitivity | set the libinput sensitivity. This **HAS** to be from -1 to 1, or else it will be clamped. | float | 0.0 |
 | left_handed | switches RMB and LMB | bool | false |
+| accel_profile | set the libinput acceleration profile. Can be one of `adaptive`, `flat`. | str | \[EMPTY\]
+| scroll_method | set the libinput scroll method. Can be one of `2fg` (2 fingers), `edge`, `on_button_down`, `no_scroll`. | str | \[EMPTY\]
 
 {{< hint type=info >}}
 ### Follow Mouse
