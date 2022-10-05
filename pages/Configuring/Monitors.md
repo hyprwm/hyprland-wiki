@@ -59,6 +59,13 @@ for a focus on resolution this:
 monitor=,highres,auto,1
 ```
 
+For more specific rules, you can also use the output's description
+(see `hyprctl monitors`) like this:
+
+```
+monitor=desc:SDC 0x4154 (eDP-1),preferred,auto,1.5
+```
+
 ## Disabling a monitor
 
 To disable a monitor, use
