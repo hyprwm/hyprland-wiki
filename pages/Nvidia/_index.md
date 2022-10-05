@@ -46,7 +46,18 @@ Launch Hyprland with the wrapper.
 
 It _should_ work now.
 
-### Fixing random flickering
+### Fixing random flickering, method 1
+If you take a look at the wlroots patches in the [nix flake](https://github.com/hyprwm/Hyprland/blob/main/nix/wlroots.nix)
+you will find a one-line patch:
+```sh
+substituteInPlace render/gles2/renderer.c --replace "glFlush();" "glFinish();"
+```
+
+What this means, for non-nix users, is you have to (before building) go to
+`submodules/wlroots/render/gles2/renderer.c` and replace all occurrences of `glFlush()`
+with `glFinish()`, and then compile Hyprland as usual.
+
+### Fixing random flickering, method 2 (nuclear)
 
 Do note though that this forces performance mode to be active, resulting in
 increased power-consumption (from 22W idle on a RTX 3070TI, to 74W).
