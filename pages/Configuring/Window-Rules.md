@@ -56,6 +56,7 @@ Keep in mind you do *not* need to define all of them, but you need to define at 
 | fullscreen | fullscreens a window |
 | move \[x\] \[y\] | moves a floating window (x,y -> int or %, e.g. 20% or 100) |
 | size \[x\] \[y\] | resizes a floating window (x,y -> int or %, e.g. 20% or 100) |
+| minsize \[x\] \[y\] | sets the minimum size on creation (x,y -> int) |
 | center | if the window is floating, will center it on the monitor |
 | pseudo | pseudotiles a window |
 | monitor \[id\] | sets the monitor on which a window should open |
