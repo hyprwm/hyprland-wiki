@@ -28,6 +28,8 @@ reloaded.
 
 {{< hint type=info >}}
 
+**Note:** The issue below was fixed in upstream. (since *after* v0.15.0beta)
+
 There currently is a bug with the exec that makes the executed app
 unable to die if killed, use `SIGKILL` (e.g. `killall name -9`) or launch from a
 script (`exec-once=~/myscript.sh` and do `myapp &` in the script)
