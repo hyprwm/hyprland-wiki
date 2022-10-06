@@ -151,6 +151,7 @@ _Subcategory `input:touchpad:`_
 | middle_button_emulation | self-explanatory | bool | false |
 | tap-to-click | self-explanatory | bool | true |
 | drag_lock | enable dragging with drag lock | bool | false |
+| scroll_factor | control the amount of scroll applied | float | 1.0
 
 {{< hint type=important >}}
 A subcategory is a nested category:
