@@ -69,6 +69,7 @@ Keep in mind you do *not* need to define all of them, but you need to define at 
 | nofocus | disables focus to the window |
 | forceinput | forces an XWayland window to receive input, even if it requests not to do so. (Might fix issues like e.g. Game Launchers not receiving focus for some reason) |
 | pin | pins the window *note: floating only* |
+| noanim | disables the animations for the window |
 
 *Examples*:
 ```ini
