@@ -41,6 +41,8 @@ e.g.: `workspace>>2`
 | openwindow | emitted when a window is opened | `WINDOWADDRESS`,`WORKSPACENAME`,`WINDOWCLASS`,`WINDOWTITLE` |
 | closewindow | emitted when a window is closed | `WINDOWADDRESS` |
 | movewindow | emitted when a window is moved to a workspace | `WINDOWADDRESS`,`WORKSPACENAME` |
+| openlayer | emitted when a layerSurface is mapped | `NAMESPACE` |
+| closelayer | emitted when a layerSurface is unmapped | `NAMESPACE` |
 | submap | emitted when a keybind submap changes. Empty means default. |`SUBMAPNAME` |
 
 {{< hint type=warning >}}
