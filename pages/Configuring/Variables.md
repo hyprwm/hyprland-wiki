@@ -170,6 +170,14 @@ input {
 Doing `input:touchpad {` is **invalid**!
 {{< /hint >}}
 
+### Touchdevice
+
+_Subcategory `input:touchdevice:`_
+
+| name | description | type | default |
+|---|---|---|---|---|
+| transform | transform the input from touchdevices. The possible transformations are the same as [those of the monitors](../Monitors/#rotating-and-the-default-workspace) | int | 0 |
+
 ### Per-device input config
 
 Described [here](../Keywords#per-device-input-configs).
