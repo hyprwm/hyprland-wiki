@@ -21,3 +21,9 @@ and other fancy stuff. [GitHub](https://github.com/danyspin97/wpaperd).
 
 A neat mpv wrapper to play a video as your wallpaper.
 [GitHub](https://github.com/GhostNaN/mpvpaper).
+
+## swww
+
+An efficient animated wallpaper daemon for wayland, controlled at runtime,
+which means you can change wallpapers without even needing to restart. 
+[GitHub](https://github.com/Horus645/swww)
