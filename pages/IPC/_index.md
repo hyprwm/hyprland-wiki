@@ -20,7 +20,7 @@ basically, write `command args`.
 Used for events. Hyprland will write to each connected client live events like
 this:
 
-`EVENT>>DATA\n` (\\n is a linebreak)
+`EVENT>>DATA\n` (`\n` is a linebreak)
 
 e.g.: `workspace>>2`
 

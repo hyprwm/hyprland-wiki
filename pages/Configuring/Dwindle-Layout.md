@@ -7,24 +7,6 @@ Dwindle splits are NOT PERMANENT. The split is determined dynamically with the
 W/H ratio of the parent node. If W > H, it's side-by-side. If H > W, it's
 top-and-bottom. You can make them permanent by enabling `preserve_split`.
 
-Dwindle allows for mouse moving and resizing using the mouse with the following
-config:
-
-```ini
-bindm=SUPER,mouse:272,movewindow
-bindm=SUPER,mouse:273,resizewindow
-```
-
-More info about mouse bindings can be found in [Binds](../Binds#mouse-binds).
-
-_Moving_
-
-![moveExampleHyprland](https://user-images.githubusercontent.com/43317083/162996595-c2b41ab1-0f3b-4680-99df-34d6dbad87f4.gif)
-
-_Resizing_
-
-![resizeExampleHyprland](https://user-images.githubusercontent.com/43317083/162996612-6341199a-eeee-4de0-85ee-f6a42c426c3f.gif)
-
 ## Grouped (tabbed) windows
 
 Dwindle allows you to make a group with the `togglegroup` bind dispatcher, and
