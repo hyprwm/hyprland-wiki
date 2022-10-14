@@ -113,6 +113,7 @@ force_no_accel, follow_mouse, float_switch_override_focus
 Properties that change names:
 ```plain
 touchdevice:transform -> touch_transform
+touchdevice:output -> touch_output
 ```
 
 Example config section:
