@@ -110,7 +110,12 @@ Inside of it, put your config options. All options from the `input` category
 
 force_no_accel, follow_mouse, float_switch_override_focus
 
-For example:
+Properties that change names:
+```plain
+touchdevice:transform -> touch_transform
+```
+
+Example config section:
 
 ```ini
 device:ROYUAN Akko Multi-modes Keyboard-B {
