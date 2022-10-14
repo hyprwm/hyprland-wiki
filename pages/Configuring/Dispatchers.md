@@ -51,6 +51,7 @@ layout pages (See the sidebar).
 | movecurrentworkspacetomonitor | Moves the active workspace to a monitor | monitor |
 | moveworkspacetomonitor | Moves a workspace to a monitor | workspace and a monitor separated by a space |
 | swapactiveworkspaces | Swaps the active workspaces between two monitors | two monitors separated by a space |
+| bringactivetotop | Brings the current window to the top of the stack | none |
 | togglespecialworkspace | toggles the special workspace on/off | none |
 
 {{< hint type=warning >}}
