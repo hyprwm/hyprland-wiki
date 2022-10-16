@@ -14,14 +14,26 @@ the layout pages and not here. (See the Sidebar)
 | int | integer |
 | bool | boolean, `true` or `false` (`yes` or `no`, `0` or `1`) - any numerical value that is not `0` or `1` will cause undefined behaviour. |
 | float | floating point number |
-| color | color (e.g. `0x22334455` - alpha `0x22`, red `0x33`, green `0x44`, blue `0x55`) |
+| color | color (see hint below for color info) |
 | vec2 | vector with 2 values (float), separated by a space (e.g. `0 0` or `-10.9 99.1`) |
 | MOD | a string modmask (e.g. `SUPER` or `SUPERSHIFT` or `SUPER + SHIFT` or `SUPER and SHIFT` or `CTRL_SHIFT` or empty for none. You are allowed to put any separators you please except for a `,`) |
 | str | a string |
 
 {{< hint type=info >}}
 
-Mod list:
+***Colors:***
+
+You have 3 options:
+
+rgba(), e.g. `rgba(b3ff1aee)`
+
+rgb(), e.g. `rgb(b3ff1a)`
+
+legacy, e.g. `0xeeb3ff1a` -> ARGB order
+
+
+***Mod list:***
+
 ```ini
 SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 ```
