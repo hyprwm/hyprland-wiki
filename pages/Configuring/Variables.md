@@ -16,7 +16,7 @@ the layout pages and not here. (See the Sidebar)
 | float | floating point number |
 | color | color (e.g. `0x22334455` - alpha `0x22`, red `0x33`, green `0x44`, blue `0x55`) |
 | vec2 | vector with 2 values (float), separated by a space (e.g. `0 0` or `-10.9 99.1`) |
-| MOD | a string modmask (e.g. `SUPER` or `SUPERSHIFT` or`SUPERSHIFTALTCTRLCAPSMOD2MOD3MOD5` or empty for none) |
+| MOD | a string modmask (e.g. `SUPER` or `SUPERSHIFT` or `SUPER + SHIFT` or `SUPER and SHIFT` or `CTRL_SHIFT` or empty for none. You are allowed to put any separators you please except for a `,`) |
 | str | a string |
 
 {{< hint type=info >}}

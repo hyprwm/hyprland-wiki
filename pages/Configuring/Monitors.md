@@ -132,14 +132,14 @@ where `NAME` is the name, and `TRANSFORM` is an integer, from 0 to 7,
 corresponding to your transform of choice.
 
 ```ini
-WL_OUTPUT_TRANSFORM_NORMAL = 0
-WL_OUTPUT_TRANSFORM_90 = 1
-WL_OUTPUT_TRANSFORM_180 = 2
-WL_OUTPUT_TRANSFORM_270 = 3
-WL_OUTPUT_TRANSFORM_FLIPPED = 4
-WL_OUTPUT_TRANSFORM_FLIPPED_90 = 5
-WL_OUTPUT_TRANSFORM_FLIPPED_180 = 6
-WL_OUTPUT_TRANSFORM_FLIPPED_270 = 7
+normal (no transforms) -> 0
+90 degrees -> 1
+180 degrees -> 2
+270 degrees -> 3
+flipped -> 4
+flipped + 90 degrees -> 5
+flipped + 180 degrees -> 6
+flipped + 270 degrees -> 7
 ```
 
 ## Binding workspaces to a monitor
