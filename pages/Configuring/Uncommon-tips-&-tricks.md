@@ -12,7 +12,7 @@ input {
 
 The first layout defined in the input section will be the one used for binds.
 
-For example: `us,ua` -> config binds would be e.g. `SUPER, A`, while on `ua,us` -> `SUPER, Cyryllic_ef`
+For example: `us,ua` -> config binds would be e.g. `SUPER, A`, while on `ua,us` -> `SUPER, Cyrillic_ef`
 
 {{< /hint >}}
 
