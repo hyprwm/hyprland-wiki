@@ -1,38 +1,18 @@
 ## Switchable keyboard layouts
 
-An example of a switchable keyboard layout between US and RU, where you switch
-between them with <key>SUPER</key>+<key>A</key> (<key>SUPER</key>+<key>Ф</key>)
-
-```ini
-bind=SUPER,A,exec,hyprctl keyword input:kb_layout ru
-bind=SUPER,Cyrillic_ef,exec,hyprctl keyword input:kb_layout us
+The easiest way to accomplish this is to set this using XKB settings, for example:
+```
+input {
+    kb_layout = us,pl
+    kb_options = grp:alt_shift_toggle
+}
 ```
 
-You can apply this to any number of languages, mix'n'match, etc.
-
-Please note that if a keyboard layout has a different alphabet, mappings for "a"
-"b" "c" will be replaced with mappings from that language. (meaning, e.g.
-<key>SUPER</key> + <key>D</key> will not work on a `ru` layout, because the russian layout does not
-have a <key>D</key>.)
-
-{{< hint type=important >}}
-After Hyprland v0.10.3beta, the above statement may be false. Hyprland (since *after* v0.10.3beta) will now ALWAYS use the global xkb settings for keybind parsing.
-
-Thus, if you have a global layout set to `us`, and per-keyboard layout as `ru`, your keyboard's layout will be russian, but the keybinds will parse based on
-the `us` layout (e.g. <key>SUPER</key> + <key>E</key>)
-{{< /hint >}}
-
-If you are unsure about the key names of your chosen alphabet, refer to the
-[xkbcommon keysym header](https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h).
-The keysym name in Hyprland is the XKB define name without the `XKB_KEY_`.
-
-Generally, for switched layouts, it's recommended to bind by a keycode.
-
 {{< hint type=important >}}
 
-For proper switching, or avoiding problems / bugs, it's recommended to switch per-device configs instead of global ones.
+The first layout defined in the input section will be the one used for binds.
 
-See [per-device input configs](../Keywords/#per-device-input-configs).
+For example: `us,ua` -> config binds would be e.g. `SUPER, A`, while on `ua,us` -> `SUPER, Cyryllic_ef`
 
 {{< /hint >}}
 
