@@ -196,18 +196,23 @@ If you want keybind submaps, for example if you press <key>ALT</key> +
 with escape, do it like this:
 
 ```ini
-bind=ALT,R,submap,resize # will switch to a submap called resize
+# will switch to a submap called resize
+bind=ALT,R,submap,resize
 
-submap=resize # will start a submap called "resize"
+# will start a submap called "resize"
+submap=resize
 
+# sets repeatable binds for resizing the active window
 binde=,right,resizeactive,10 0
 binde=,left,resizeactive,-10 0
 binde=,up,resizeactive,0 -10
 binde=,down,resizeactive,0 10
 
-bind=,escape,submap,reset # use reset to go back to the global submap
+# use reset to go back to the global submap
+bind=,escape,submap,reset 
 
-submap=reset # will reset the submap, meaning end the current one and return to the global one.
+# will reset the submap, meaning end the current one and return to the global one
+submap=reset
 
 # keybinds further down will be global again...
 ```
@@ -217,3 +222,21 @@ this case, `escape`)
 
 If you get stuck inside a keymap, you can use `hyprctl dispatch submap reset` to
 go back. If you do not have a terminal open, tough luck buddy. I warned you.
+
+You can also set the same keybind to perform multiple actions, such as resize
+and close the submap, like so:
+
+```ini
+bind=ALT,R,submap,resize
+
+submap=resize
+
+bind=,right,resizeactive,10 0
+bind=,right,submap,reset
+# ...
+
+submap=reset
+```
+
+This works because the binds are executed in the order they appear, and
+assigning multiple actions per bind is possible.
