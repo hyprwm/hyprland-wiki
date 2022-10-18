@@ -74,9 +74,9 @@ Keep in mind you do *not* need to define all of them, but you need to define at 
 
 *Examples*:
 ```ini
-windowrule = move 100 100,^(kitty)$
-windowrule = animation popin,^(kitty)$
-windowrule = noblur,^(firefox)$
+windowrulev2 = move 100 100,class:^(kitty)$
+windowrulev2 = animation popin,class:^(kitty)$
+windowrulev2 = noblur,class:^(firefox)$
 ```
 
 {{< hint type=tip >}}
