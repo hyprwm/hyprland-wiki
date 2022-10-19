@@ -1,3 +1,5 @@
+# Status Bars
+
 Launch your bar with `exec-once=`.
 
 ## Waybar
@@ -6,6 +8,8 @@ Waybar is a GTK status bar made specifically for wlroots compositors.
 
 To use it, it's recommended to use the AUR package `waybar-hyprland-git`,
 or compile manually with the `USE_EXPERIMENTAL` flag enabled.
+
+### Compiling Manually
 
 To compile manually:
 

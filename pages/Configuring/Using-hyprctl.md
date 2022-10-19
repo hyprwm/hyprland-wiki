@@ -12,7 +12,7 @@ If it's not, go to the repo root and `/hyprctl`. Issue a `make all` and then
 
 {{< hint type=warning >}}
 
-*hyprctl* calls will be dispatched by the compositor *synchronously*,
+_hyprctl_ calls will be dispatched by the compositor _synchronously_,
 meaning any spam of the utility will cause slowdowns.
 It's recommended to use `--batch` for many control calls, and
 limiting the amount of info calls.
@@ -31,7 +31,7 @@ An arg has to be present, for dispatchers without parameters it can be anything.
 
 Examples:
 
-```
+```sh
 hyprctl dispatch exec kitty
 
 hyprctl dispatch pseudo x
@@ -39,13 +39,15 @@ hyprctl dispatch pseudo x
 
 Returns: `ok` on success, an error message on fail.
 
+See [Dispatchers](./Dispatchers) for a list of dispatchers.
+
 ### Keyword
 
 issue a `keyword` to call a config keyword dynamically.
 
 Examples:
 
-```
+```sh
 hyprctl keyword bind SUPER,O,pseudo
 
 hyprctl keyword general:border_size 10
@@ -73,13 +75,13 @@ params: theme and size
 
 e.g.:
 
-```
+```sh
 hyprctl setcursor Bibata-Modern-Classic 24
 ```
 
 ## Info
 
-```
+```sh
 version - prints the hyprland version, meaning flags, commit and branch of build.
 monitors - lists all the outputs with their properties
 workspaces - lists all workspaces with their properties
@@ -91,13 +93,27 @@ splash - prints the current random splash
 getoption [option] - gets the config option status (values)
 ```
 
+For the `getoption` command, you need to pass the command in the following format:
+
+```sh
+hyprctl getoption section:option
+```
+
+e.g.
+
+```sh
+hyprctl getoption general:border_size
+```
+
+See [Variables](./Variables) for section and options you can use.
+
 # Batch
 
 You can also use `--batch` to specify a batch of commands to execute
 
 e.g.
 
-```
+```sh
 hyprctl --batch "keyword general:border_size 2 ; keyword general:gaps_out 20"
 ```
 
@@ -107,7 +123,7 @@ hyprctl --batch "keyword general:border_size 2 ; keyword general:gaps_out 20"
 
 You can specify flags for the request like this:
 
-```
+```sh
 hyprctl -j monitors
 ```
 

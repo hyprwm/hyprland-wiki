@@ -1,12 +1,14 @@
+# Wallpaper Utilties
+
 Launch your wallpaper utility with `exec-once=`.
 
-## hyprpaper
+## Hyprpaper
 
 Straight from our oven, `hyprpaper` is a wallpaper utility from the Hypr
 Development team. See its usage and config by following the README on the
 [GitHub Page](https://github.com/hyprwm/hyprpaper).
 
-## swaybg
+## Swaybg
 
 Great utility if all you want is one simple static wallpaper that will never
 change, and don't want to make a config file. Get it
@@ -25,5 +27,5 @@ A neat mpv wrapper to play a video as your wallpaper.
 ## swww
 
 An efficient animated wallpaper daemon for wayland, controlled at runtime,
-which means you can change wallpapers without even needing to restart. 
+which means you can change wallpapers without even needing to restart.
 [GitHub](https://github.com/Horus645/swww)

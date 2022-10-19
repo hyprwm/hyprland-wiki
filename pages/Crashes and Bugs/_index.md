@@ -1,3 +1,5 @@
+# Crashes & Bugs
+
 ## Getting the log
 
 If you are in a TTY, and the hyprland session that crashed was the last one you
@@ -37,8 +39,7 @@ Report an issue on GitHub or on the Discord server.
 
 ## Bugs
 
-First of all, ***READ THE
-[FAQ PAGE](../FAQ)***
+First of all, **_READ THE [FAQ PAGE](../FAQ)_**
 
 If your bug is not listed there, you can ask on the Discord server or open an
 issue on GitHub.

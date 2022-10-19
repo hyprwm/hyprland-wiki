@@ -1,3 +1,5 @@
+# Expanding Functionality
+
 Hyprland exposes two powerful sockets for you to use.
 
 The first, socket1, can be fully controlled with `hyprctl`, see its usage
@@ -12,7 +14,7 @@ to react to different events. See its description
 This bash script will change the outer gaps to 20 if the currently focused
 monitor is DP-1, and 30 otherwise.
 
-```bash
+```sh
 #!/bin/sh
 
 function handle {

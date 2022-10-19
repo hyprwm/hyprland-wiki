@@ -1,4 +1,7 @@
+# Hyprland with Nix
+
 ## Table of contents
+
 {{< toc format=html >}}
 
 {{< hint type=warning >}}
@@ -11,6 +14,9 @@ work as intended. Please use the
 
 Make sure to check out the options of the
 [Nix module](https://github.com/hyprwm/Hyprland/blob/main/nix/module.nix).
+
+Do note that the Nixpkg for Hyprland is no actively maintained, and may be outdated.
+Installation using the Flake is recommended.
 
 ### With flakes
 
@@ -30,7 +36,7 @@ Make sure to check out the options of the
     nixosConfigurations.HOSTNAME = nixpkgs.lib.nixosSystem {
       # ...
       modules = [
-        hyprland.nixosModules.default 
+        hyprland.nixosModules.default
         { programs.hyprland.enable = true; }
         # ...
       ];
@@ -58,7 +64,7 @@ in {
   imports = [
     hyprland.nixosModules.default
   ];
-  
+
   programs.hyprland = {
     enable = true;
     package = hyprland.packages.${pkgs.system}.default;
@@ -92,7 +98,7 @@ You can use the Home Manager module by adding it to your configuration:
     homeConfigurations."USER@HOSTNAME"= home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       modules = [
-        hyprland.homeManagerModules.default 
+        hyprland.homeManagerModules.default
         { wayland.windowManager.hyprland.enable = true; }
         # ...
       ];
@@ -127,13 +133,13 @@ For a list of available options, check the
 ## Modules mix'n'match
 
 - If you plan on using the HM module alongside the NixOS module, set the NixOS
-`programs.hyprland.package = null;`.
+  `programs.hyprland.package = null;`.
 
 - If you don't plan on using the NixOS module, but want to use the HM module, you
-will have to enable all the options the NixOS module enables.
+  will have to enable all the options the NixOS module enables.
 
 - If you don't plan on using any module, manually enable whatever options the
-modules set.
+  modules set.
 
 ## Non-NixOS install
 
@@ -144,30 +150,36 @@ First, [enable flakes](https://nixos.wiki/wiki/Flakes#Enable_flakes).
 Once you have flakes working, install Hyprland through `nix profile`:
 
 ```sh
-$ nix profile install github:hyprwm/Hyprland
+nix profile install github:hyprwm/Hyprland
 ```
 
 Since you're using Hyprland outside of NixOS, it won't be able to find graphics
 drivers. To get around that, you can use [nixGL](https://github.com/guibou/nixGL).
 
 First, install it, in the same manner you installed Hyprland:
+
 ```sh
-$ nix profile install github:guibou/nixGL --impure
+nix profile install github:guibou/nixGL --impure
 ```
+
 Impure is needed due to `nixGL`'s reliance on hardware information.
 
 From now on, you can run Hyprland by invoking it with nixGL
+
 ```sh
-$ nixGL Hyprland
+nixGL Hyprland
 ```
+
 or by creating a wrapper script that runs the above command inside.
 
 ### Upgrading
 
 In order to upgrade all your packages, you can run
+
 ```sh
-$ nix profile upgrade '.*'
+nix profile upgrade '.*'
 ```
+
 Check the
 [nix profile](https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-profile.html)
 command documentation for other upgrade options.
@@ -177,7 +189,7 @@ command documentation for other upgrade options.
 XWayland is enabled by default in the Nix package. You can disable it either
 in the package itself, or through the Home Manager module.
 
-#### Package
+### Package
 
 ```nix
 (inputs.hyprland.packages.${pkgs.default}.default.override {
@@ -221,7 +233,7 @@ The GDK_SCALE variable won't conflict with wayland-native GTK programs.
 Usually, there's no reason to disable this functionality, as it won't affect
 people who don't have HiDPI screens.
 
-If you *do* insist on disabling it though (e.g. for adding your own patches
+If you _do_ insist on disabling it though (e.g. for adding your own patches
 to wlroots), you can do so by either using the `hyprland-no-hidpi` package,
 or by passing the `hidpiXWayland = false;` flag, the same way as
 [disabling XWayland](#package)

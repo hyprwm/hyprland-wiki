@@ -1,4 +1,6 @@
-Color pickers are useful for quickly grabbing a color of *something* on your screen.
+# Color Pickers
+
+Color pickers are useful for quickly grabbing a color of _something_ on your screen.
 
 We recommend our own solution, which, so far, seems to be the only one that doesn't suck.
 

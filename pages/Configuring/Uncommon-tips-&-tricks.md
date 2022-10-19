@@ -1,6 +1,9 @@
+# Uncommon Tips & Tricks
+
 ## Switchable keyboard layouts
 
 The easiest way to accomplish this is to set this using XKB settings, for example:
+
 ```
 input {
     kb_layout = us,pl

@@ -1,3 +1,5 @@
+# Hyprland on NVIDIA GPUs
+
 ## Foreword
 
 There is no _official_ support for Nvidia. Unfortunately, their drivers are so
@@ -16,7 +18,7 @@ parameters. Follow the information available here:
 
 in `/etc/mkinitcpio.conf` add `nvidia nvidia_modeset nvidia_uvm nvidia_drm` to your `MODULES`
 
-run `#  mkinitcpio --config /etc/mkinitcpio.conf --generate /boot/initramfs-custom.img`
+run `# mkinitcpio --config /etc/mkinitcpio.conf --generate /boot/initramfs-custom.img`
 
 add a new line to `/etc/modprobe.d/nvidia.conf` (make it if it does not exist) and add the line `options nvidia-drm modeset=1`
 
@@ -47,8 +49,10 @@ Launch Hyprland with the wrapper.
 It _should_ work now.
 
 ### Fixing random flickering, method 1
+
 If you take a look at the wlroots patches in the [nix flake](https://github.com/hyprwm/Hyprland/blob/main/nix/wlroots.nix)
 you will find a one-line patch:
+
 ```sh
 substituteInPlace render/gles2/renderer.c --replace "glFlush();" "glFinish();"
 ```

@@ -1,13 +1,14 @@
-For basic syntax info, see
-[Configuring Hyprland](../Configuring-Hyprland).
+# Variables
+
+For basic syntax info, see [Configuring Hyprland](../Configuring-Hyprland).
 
 This page documents all the "options" of Hyprland. For binds, monitors, animations,
 etc. see the sidebar. For anything else, see [Keywords](../Keywords).
 
 Please keep in mind some options that are layout-specific will be documented in
-the layout pages and not here. (See the Sidebar)
+the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 
-# Variable types
+## Variable types
 
 | type | description |
 |---|---|
@@ -40,9 +41,9 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 
 {{< /hint >}}
 
-# Sections
+## Sections
 
-## General
+### General
 
 | name | description | type | default |
 |---|---|---|---|---|
@@ -63,7 +64,8 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 Prefer using `input:sensitivity` over `general:sensitivity` to avoid bugs, especially with Wine/Proton apps.
 {{< /hint >}}
 
-## Decoration
+### Decoration
+
 | name | description | type | default |
 |---|---|---|---|---|
 | rounding | rounded corners' radius (in layout px) | int | 0 |
@@ -103,7 +105,7 @@ Using `blur_new_optimizations` with an animated wallpaper may actually increase 
 
 {{< /hint >}}
 
-## Animations
+### Animations
 
 | name | description | type | default |
 |---|---|---|---|---|
@@ -115,7 +117,7 @@ _[More about Animations](../Animations)._
 
 {{< /hint >}}
 
-## Input
+### Input
 
 | name | description | type | default |
 |---|---|---|---|---|

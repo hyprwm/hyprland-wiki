@@ -1,3 +1,5 @@
+# Monitors
+
 ## Table of contents
 
 {{< toc format=html >}}
@@ -5,6 +7,7 @@
 ## General
 
 The general config of a monitor looks like this
+
 ```ini
 monitor=name,resolution,offset,scale
 ```
@@ -106,7 +109,7 @@ will occur on non-matching resolutions.
 {{< hint type=important >}}
 
 The monitor transform and workspace keywords depend on a monitor rule set
-specifically for the targeted monitor, and ***MUST*** be after it.
+specifically for the targeted monitor, and **_MUST_** be after it.
 
 {{< /hint >}}
 
@@ -146,11 +149,13 @@ flipped + 270 degrees -> 7
 
 A workspace can be bound to a monitor, meaning by default it will ALWAYS open
 on the selected monitor. You can do this with
+
 ```ini
 wsbind=WORKSPACE,MONITOR
 ```
 
 for example:
+
 ```ini
 wsbind=5,DP-1
 wsbind=name:secret,DP-2

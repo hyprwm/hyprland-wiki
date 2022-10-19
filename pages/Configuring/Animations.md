@@ -1,4 +1,7 @@
+# Animations
+
 ## Table of contents
+
 {{< toc >}}
 
 ## General

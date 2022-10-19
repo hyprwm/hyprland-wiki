@@ -1,6 +1,8 @@
+# Screensharing on Hyprland
+
 Screensharing is done through PipeWire on Wayland.
 
-## Prereqs
+## Prerequsities
 
 Make sure you have `pipewire` and `wireplumber` installed, enabled and running
 if you don't have them yet.

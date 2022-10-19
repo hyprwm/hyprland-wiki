@@ -5,21 +5,21 @@ PR, code styling and code FAQs are [here](./PR-Guidelines)
 For issues, please see
 [the guidelines](https://github.com/hyprwm/Hyprland/blob/main/docs/ISSUE_GUIDELINES.md)
 
-# Build in debug mode
+## Build in debug mode
 
-## Required packages
+### Required packages
 
 `xcb` stuff, check with your local package provider.
 
 `wayland` - of course.
 
-*Arch*:
+_Arch_:
 
 `yay -S gdb ninja gcc cmake libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite xorg-xinput libxrender pixman wayland-protocols cairo pango seatd`
 
 (If any are missing hmu)
 
-## Recommended, CMake
+### Recommended, CMake
 
 Install the VSCode C/C++ and CMake Tools extensions and use that.
 
@@ -29,7 +29,7 @@ that you can copy to your .vscode/ folder in the repo root.
 With that, you can build in debug, go to the debugging tab and hit
 `(gdb) Launch`.
 
-## Custom, CLI
+### Custom, CLI
 
 `make debug`
 
@@ -48,13 +48,13 @@ meaning you'll be unable to build any other wlroots compositor
 without a wlroots reinstall.
 {{< /hint >}}
 
-# Running
+## Running
 
 when running Hyprland in Debug mode, the config is
 `~/.config/hypr/hyprlandd.conf` and the logs can be found at
 `/tmp/hypr/[INSTANCE SIGNATURE]/hyprlandd.conf`.
 
-# Logs, dumps, etc.
+## Logs, dumps, etc
 
 You can use the logs and the GDB debugger, but running Hyprland in debug compile
 as a driver and using it for a while might give more insight to the more random
@@ -71,7 +71,7 @@ watch -n 0.1 "cat /tmp/hypr/$(echo HYPRLAND_INSTANCE_SIGNATURE)/hyprland.log | g
 
 for live logs. (replace `hyprland` with `hyprlandd` for debug builds)
 
-# Nesting Hyprland
+## Nesting Hyprland
 
 Hyprland can run nested in a window. For that, make sure you did the following:
 

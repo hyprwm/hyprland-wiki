@@ -1,3 +1,5 @@
+# App Launchers
+
 ## Wofi
 
 Wofi is a GTK-based customizable launcher for wayland.
