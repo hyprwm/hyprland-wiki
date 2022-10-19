@@ -6,22 +6,20 @@
 
 ## Window Rules V1
 
-You can set window rules for various actions. These are applied on window open!
+You can set window rules to achieve different behaviours from the active container.
+
+### Syntax
 
 ```ini
 windowrule=RULE,WINDOW
 ```
 
-`RULE` is a rule (and a param if applicable)
+- `RULE` is a rule (and a param if applicable)
+- `WINDOW` is a RegEx, either:
+    - plain RegEx (for matching a window class);
+    - `title:` followed by a regex (for matching a window's title)
 
-`WINDOW` is a RegEx, either:
-
-- plain regex (for matching a window class)
-- `title:` followed by a regex (for matching a window's title)
-
-you can get both by inspecting `hyprctl clients`
-
-Examples:
+#### Examples
 
 ```ini
 windowrule=float,^(kitty)$
@@ -50,7 +48,13 @@ xwayland - 0/1
 floating - 0/1
 ```
 
-Keep in mind you do _not_ need to define all of them, but you need to define at least one.
+Keep in mind that you *have* to declare at least one field, but not all.
+
+{{< hint type=tip >}}
+
+To get informations about windows' class, title, if it uses XWayland or its size, you can use `hyprctl client`.
+
+{{< /hint >}}
 
 ## Rules
 
@@ -77,7 +81,7 @@ Keep in mind you do _not_ need to define all of them, but you need to define at 
 | pin                           | pins the window _note: floating only_                                                                                                                                                                                                                                                                                  |
 | noanim                        | disables the animations for the window                                                                                                                                                                                                                                                                                 |
 
-_Examples_:
+#### Examples
 
 ```ini
 windowrule = move 100 100,^(kitty)$
