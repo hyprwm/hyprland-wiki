@@ -137,8 +137,11 @@ Example Usage:
 ```ini
 bindl=
 bindr=
-binde=
-# See below for bindm
+
+# Example volume button that allows press and hold
+binde=,XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+
+# See Mouse Binds section for bindm usage
 ```
 
 ## Mouse Binds
