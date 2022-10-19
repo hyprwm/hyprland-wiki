@@ -106,6 +106,15 @@ zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig
 ```
 
 (this should also work on RHEL/Fedora if you remove `Mesa-libGLESv3-devel` and `pkgconfig(xcb-errors)`)
+<br>
+<br>
+<br>
+
+### Clone Hyprland
+```Plain
+git clone --recursive https://github.com/hyprwm/Hyprland
+cd Hyprland
+```
 
 {{< hint title=note >}}
 Hyprland builds `wlroots`. Make sure you have the dependencies of
@@ -114,7 +123,7 @@ separately (Hyprland doesn't mind)
 {{< /hint >}}
 <br>
 <br>
-*In your Hyprland Folder*
+
 ```Plain
 cd subprojects/
 git clone https://gitlab.freedesktop.org/wlroots/wlroots.git
@@ -128,8 +137,6 @@ that (`gcc>=12.1.0` or `clang>=15`)
 ### CMake (recommended)
 
 ```Plain
-git clone --recursive https://github.com/hyprwm/Hyprland
-cd Hyprland
 sudo make install 
 ```
 
