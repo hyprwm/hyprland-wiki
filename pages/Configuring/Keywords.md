@@ -105,7 +105,7 @@ device:name {
 }
 ```
 
-the `name` can be easily obtained by doing `hyprctl devices`.
+The `name` can be easily obtained by doing `hyprctl devices`.
 
 Inside of it, put your config options. All options from the `input` category
 (and all subcategories, e.g. `input:touchpad`) can be put inside, **EXCEPT**:

@@ -1,6 +1,6 @@
 # Dispatchers
 
-# Table of contents
+## Table of contents
 
 {{< toc >}}
 
@@ -19,7 +19,7 @@ layout pages (See the sidebar).
 | floatdelta   | a float value delta, e.g `-0.2` or `+0.2`.                                                                              |
 | workspaceopt | see below.                                                                                                              |
 
-# Dispatchers
+## List of Dispatchers
 
 | Dispatcher                    | Description                                                                                                              | Params                                                                           |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- |
@@ -61,13 +61,13 @@ layout pages (See the sidebar).
 it is NOT recommended to set DPMS with a keybind directly, as it
 might cause undefined behavior. Instead, consider something like
 
-```
+```ini
 bind = MOD,KEY,exec,sleep 1 && hyprctl dispatch dpms off
 ```
 
 {{< /hint >}}
 
-# Workspaces
+## Workspaces
 
 You have seven choices:
 
@@ -102,7 +102,7 @@ will send it to the currently active _real_ workspace.
 
 ## Workspace options
 
-```
+```txt
 allfloat -> makes all new windows floating (also floats/unfloats windows on toggle)
 allpseudo -> makes all new windows pseudo (also pseudos/unpseudos on toggle)
 ```

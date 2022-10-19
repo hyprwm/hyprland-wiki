@@ -1,3 +1,5 @@
+# Hyprctl
+
 `hyprctl` is a utility for controlling some parts of the compositor from a CLI
 or a script. If you install with `make install`, or any package, it should
 automatically be installed.
@@ -8,7 +10,7 @@ the terminal.
 If it's not, go to the repo root and `/hyprctl`. Issue a `make all` and then
 `sudo cp ./hyprctl /usr/bin`.
 
-# Commands
+## Using Hyprctl
 
 {{< hint type=warning >}}
 
@@ -21,7 +23,7 @@ For live event handling, see the [socket2](../../IPC/).
 
 {{< /hint >}}
 
-## Control
+## Commands
 
 ### Dispatch
 
@@ -107,7 +109,7 @@ hyprctl getoption general:border_size
 
 See [Variables](./Variables) for section and options you can use.
 
-# Batch
+## Batch
 
 You can also use `--batch` to specify a batch of commands to execute
 
@@ -119,7 +121,7 @@ hyprctl --batch "keyword general:border_size 2 ; keyword general:gaps_out 20"
 
 `;` separates the commands
 
-# Flags
+## Flags
 
 You can specify flags for the request like this:
 
@@ -129,6 +131,6 @@ hyprctl -j monitors
 
 flag list:
 
-```
+```txt
 j -> output in JSON
 ```

@@ -14,10 +14,10 @@ You can set window rules to achieve different behaviours from the active contain
 windowrule=RULE,WINDOW
 ```
 
-+ `RULE` is a rule (and a param if applicable)
-+ `WINDOW` is a RegEx, either:
-  + plain RegEx (for matching a window class);
-  + `title:` followed by a regex (for matching a window's title)
+- `RULE` is a rule (and a param if applicable)
+- `WINDOW` is a RegEx, either:
+  - plain RegEx (for matching a window class);
+  - `title:` followed by a regex (for matching a window's title)
 
 #### Examples
 
@@ -33,7 +33,8 @@ rule system, window rules V2 were implemented.
 
 In V2, you are allowed to match multiple variables.
 
-the `RULE` field is unchanged, but in the `WINDOW` field, you can put regexes for multiple values like so:
+the `RULE` field is unchanged, but in the `WINDOW` field, you can put regexes
+for multiple values like so:
 
 ```ini
 windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
@@ -48,11 +49,12 @@ xwayland - 0/1
 floating - 0/1
 ```
 
-Keep in mind that you *have* to declare at least one field, but not all.
+Keep in mind that you _have_ to declare at least one field, but not all.
 
 {{< hint type=tip >}}
 
-To get more information about a window's class, title, XWayland status or its size; you can use `hyprctl clients`.
+To get more information about a window's class, title, XWayland status or its size;
+you can use `hyprctl clients`.
 
 {{< /hint >}}
 
@@ -81,7 +83,7 @@ To get more information about a window's class, title, XWayland status or its si
 | pin                           | pins the window _note: floating only_                                                                                                                                                                                                                                                                                  |
 | noanim                        | disables the animations for the window                                                                                                                                                                                                                                                                                 |
 
-### Examples
+### Example Rules
 
 ```ini
 windowrule = move 100 100,^(kitty)$
@@ -93,10 +95,10 @@ windowrule = noblur,^(firefox)$
 
 {{< hint type=tip >}}
 
-Opacity is _always_ a PRODUCT of all opacities. E.g. active_opacity to
+Opacity is _always_ a PRODUCT of all opacities. E.g. active*opacity to
 0.5 and windowrule opacity to 0.5 will result in a total opacity 0.25. You are
 allowed to set opacities over 1, but any opacity product over 1 will cause
-graphical glitches. E.g. 0.5 _2 = 1, and it will be fine, 0.5_ 4 will cause
+graphical glitches. E.g. 0.5 \_2 = 1, and it will be fine, 0.5* 4 will cause
 graphical glitches.
 
 {{< /hint >}}

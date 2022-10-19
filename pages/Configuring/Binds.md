@@ -109,7 +109,7 @@ check out your switches in `hyprctl devices`.
 
 ## Bind flags
 
-bind supports flags in this format:
+`bind` supports flags in this format:
 
 ```ini
 bind[flags]=...
@@ -121,7 +121,7 @@ e.g.:
 bindrl=MOD,KEY,exec,amongus
 ```
 
-flags:
+Flags:
 
 ```ini
 l -> locked, aka. works also when an input inhibitor is active
@@ -130,12 +130,23 @@ e -> repeat, will repeat when held.
 m -> mouse, see below
 ```
 
+Example Usage:
+
+// TODO: ADD EXAMPLES //
+
+```ini
+bindl=
+bindr=
+binde=
+# See below for bindm
+```
+
 ## Mouse Binds
 
 Mouse binds are binds that heavily rely on a mouse, usually its movement.
 They will have one less arg, and look for example like this:
 
-```
+```ini
 bindm=ALT,mouse:272,movewindow
 ```
 
@@ -151,7 +162,7 @@ _Available mouse binds_:
 
 _Common mouse buttons' codes:_
 
-```
+```txt
 LMB -> 272
 RMB -> 273
 ```
