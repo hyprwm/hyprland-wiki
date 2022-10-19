@@ -14,10 +14,10 @@ You can set window rules to achieve different behaviours from the active contain
 windowrule=RULE,WINDOW
 ```
 
-- `RULE` is a rule (and a param if applicable)
-- `WINDOW` is a RegEx, either:
-    - plain RegEx (for matching a window class);
-    - `title:` followed by a regex (for matching a window's title)
++ `RULE` is a rule (and a param if applicable)
++ `WINDOW` is a RegEx, either:
+  + plain RegEx (for matching a window class);
+  + `title:` followed by a regex (for matching a window's title)
 
 #### Examples
 
@@ -52,7 +52,7 @@ Keep in mind that you *have* to declare at least one field, but not all.
 
 {{< hint type=tip >}}
 
-To get informations about windows' class, title, if it uses XWayland or its size, you can use `hyprctl client`.
+To get more information about a window's class, title, XWayland status or its size; you can use `hyprctl clients`.
 
 {{< /hint >}}
 
@@ -81,13 +81,15 @@ To get informations about windows' class, title, if it uses XWayland or its size
 | pin                           | pins the window _note: floating only_                                                                                                                                                                                                                                                                                  |
 | noanim                        | disables the animations for the window                                                                                                                                                                                                                                                                                 |
 
-#### Examples
+### Examples
 
 ```ini
 windowrule = move 100 100,^(kitty)$
 windowrule = animation popin,^(kitty)$
 windowrule = noblur,^(firefox)$
 ```
+
+## Notes
 
 {{< hint type=tip >}}
 
