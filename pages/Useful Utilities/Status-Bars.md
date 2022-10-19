@@ -15,31 +15,49 @@ To compile manually:
 
 Clone the source, cd into it, then do:
 
-```sh
+```bash
 sed -i 's/zext_workspace_handle_v1_activate(workspace_handle_);/const std::string command = "hyprctl dispatch workspace " + name_;\n\tsystem(command.c_str());/g' src/modules/wlr/workspace_manager.cpp
-
 meson --prefix=/usr --buildtype=plain --auto-features=enabled --wrap-mode=nodownload build
 meson configure -Dexperimental=true build
-```
-
-and finally:
-
-```sh
 sudo ninja -C build install
 ```
 
-If you want to use the workspaces module, it's called `wlr/workspaces`.
+If you want to use the workspaces module, first, copy the configuration files from 
+`/etc/xdg/waybar/` into `~/.config/waybar/`. Then, in `~/.config/waybar/conf/` replace 
+all the references to `sway/workspaces/` with `wlr/workspaces`.
 
 For more info regarding configuration, see
 [The Waybar Wiki](https://github.com/Alexays/Waybar/wiki).
 
 ### Waybar popups render behind the windows
 
-In `~/waybar/config`, make sure that you have the `layer` configuration set to `top` and not `bottom`.
+In `~/.config/waybar/config`, make sure that you have the `layer` configuration 
+set to `top` and not `bottom`.
 
 ### Active workspace doesn't show up
 
 Replace `#workspaces button.focus` with `#wroskapces button.active` in `~/.config/style.css`.
+
+### Scroll through workspaces
+
+Since there are a lot of configurations from `sway/workspaces` missing, you
+should deduce some of them by yourself. In the case of scrolling, configure
+your module this way:
+
+```json
+"wlr/workspaces": {
+     "format": "{icon}",
+     "on-scroll-up": "hyprctl dispatch workspace e+1",
+     "on-scroll-down": "hyprctl dispatch workspace e-1"
+},
+```
+
+### Clicking on workspace doesn't work!
+
+On the `wlr/workspaces` module, add `"on-click": "activate"`. That's the purpose of
+the `sed` command we had to apply before building: the default way to select a
+workspace by clicking uses the `swaymsg`'s way, furthermore it is required to edit
+this function to make it work with `hyprctl`.
 
 ## Eww
 
