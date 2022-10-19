@@ -31,8 +31,8 @@ from source first.
 
 {{< tabs "uniqueid" >}}
 
-{{< tab "Arch Linux" >}} *If you're on Arch Linux, I* ***heavily*** *recommend
-you use the AUR.*
+{{< tab "Arch Linux" >}} _If you're on Arch Linux, I_ **_heavily_** _recommend
+you use the AUR._
 
 ```plain
 hyprland-git - compiles from latest source
@@ -56,7 +56,7 @@ opi hyprland
 Alternatively, you can also follow the instructions under ["Manual (Manual Build)"](#manual-manual-build)
 to build Hyprland yourself.
 
-Note: *Hyprland is not available for Leap, as most libraries (and compiler) that Hyprland needs are too old.*
+Note: _Hyprland is not available for Leap, as most libraries (and compiler) that Hyprland needs are too old._
 {{< /tab >}}
 {{< tab "Fedora" >}}<https://github.com/hyprwm/Hyprland/discussions/284>{{< /tab >}}
 {{< tab "Gentoo" >}}
@@ -91,7 +91,7 @@ libwlroots), you don't need to update anything else.
 
 ## Manual (Manual Build)
 
-*Arch dependencies*:
+_Arch dependencies_:
 
 ```plain
 yay -S gdb ninja gcc cmake libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite xorg-xinput libxrender pixman wayland-protocols cairo pango seatd
@@ -99,7 +99,7 @@ yay -S gdb ninja gcc cmake libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes 
 
 (If any are missing hmu)
 
-*openSUSE dependencies*:
+_openSUSE dependencies_:
 
 ```sh
 zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig(gbm)" "pkgconfig(gl)" "pkgconfig(glesv2)" "pkgconfig(libdrm)" "pkgconfig(libinput)" "pkgconfig(libseat)" "pkgconfig(libudev)" "pkgconfig(pango)" "pkgconfig(pangocairo)" "pkgconfig(pixman-1)" "pkgconfig(vulkan)" "pkgconfig(wayland-client)" "pkgconfig(wayland-protocols)" "pkgconfig(wayland-scanner)" "pkgconfig(wayland-server)" "pkgconfig(xcb)" "pkgconfig(xcb-icccm)" "pkgconfig(xcb-renderutil)" "pkgconfig(xkbcommon)" "pkgconfig(xwayland)" glslang-devel Mesa-libGLESv3-devel "pkgconfig(xcb-errors)"
@@ -108,9 +108,8 @@ zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig
 (this should also work on RHEL/Fedora if you remove `Mesa-libGLESv3-devel` and `pkgconfig(xcb-errors)`)
 <br>
 <br>
-<br>
-
 ### Clone Hyprland
+
 ```Plain
 git clone --recursive https://github.com/hyprwm/Hyprland
 cd Hyprland
@@ -125,11 +124,10 @@ separately (Hyprland doesn't mind)
 <br>
 
 ```Plain
-cd subprojects/
+cd subprojects
 git clone https://gitlab.freedesktop.org/wlroots/wlroots.git
 cd ..
 ```
-
 
 Also note that Hyprland uses the C++23 standard, so your compiler has to support
 that (`gcc>=12.1.0` or `clang>=15`)
@@ -137,7 +135,7 @@ that (`gcc>=12.1.0` or `clang>=15`)
 ### CMake (recommended)
 
 ```Plain
-sudo make install 
+sudo make install
 ```
 
 Do note that `sudo make install` will copy the example .desktop file to `/usr/share/wayland-sessions/` directory,
@@ -170,7 +168,7 @@ for legacy renderer:
 sudo make clear && sudo make config && make legacyrenderer && sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
 ```
 
-*please note the legacy renderer may not support some graphical features.*
+_please note the legacy renderer may not support some graphical features._
 <br/><br/> Any other config: (replace \[PRESET\] with your preset, `release`
 `debug` `legacyrenderer` `legacyrendererdebug`)
 
