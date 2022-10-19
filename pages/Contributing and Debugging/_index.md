@@ -61,7 +61,7 @@ as a driver and using it for a while might give more insight to the more random
 bugs.
 
 When Hyprland crashes, use `coredumpctl` and then `coredumpctl info PID` to see
-the dump. See the instructions below this paragraph for more info about `coredumpctl`.
+the dump. See the instructions below for more info about `coredumpctl`.
 
 I also recommend the amazing command
 
@@ -70,7 +70,6 @@ watch -n 0.1 "cat /tmp/hypr/$(echo HYPRLAND_INSTANCE_SIGNATURE)/hyprland.log | g
 ```
 
 for live logs. (replace `hyprland` with `hyprlandd` for debug builds)
-
 
 ### How do I get a coredump?
 
