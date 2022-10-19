@@ -132,14 +132,15 @@ m -> mouse, see below
 
 Example Usage:
 
-// TODO: ADD EXAMPLES //
-
 ```ini
-bindl=
-bindr=
-
 # Example volume button that allows press and hold
 binde=,XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+
+# Example volume button that will activate even while the input inhibitor is active
+bindl=, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+
+# Kill wofi when left super key is released
+bindr=, SUPER, SUPER_L, exec, pkill wofi 
 
 # See Mouse Binds section for bindm usage
 ```
