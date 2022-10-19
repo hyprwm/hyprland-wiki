@@ -7,4 +7,4 @@ website whenever a change occurs, within a reasonable timeframe. (usually 1–2 
 
 Feel free to open an issue or a PR if you feel anything is necessary.
 Make sure to clearly state the reason for the changes. If you have questions regarding the wiki,
-you should consider joining our [Discord Server]() instead.
+you should consider joining our [Discord Server](https://discord.gg/hQ9XvMUjjr) instead.
