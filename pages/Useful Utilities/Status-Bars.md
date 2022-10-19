@@ -33,6 +33,14 @@ If you want to use the workspaces module, it's called `wlr/workspaces`.
 For more info regarding configuration, see
 [The Waybar Wiki](https://github.com/Alexays/Waybar/wiki).
 
+### Waybar popups render behind the windows
+
+In `~/waybar/config`, make sure that you have the `layer` configuration set to `top` and not `bottom`.
+
+### Active workspace doesn't show up
+
+Replace `#workspaces button.focus` with `#wroskapces button.active` in `~/.config/style.css`.
+
 ## Eww
 
 In order to use [Eww](https://github.com/elkowar/eww), you first have to install

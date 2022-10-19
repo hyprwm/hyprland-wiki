@@ -53,13 +53,13 @@ You might try a USB-C to hdmi adapter though, maybe that could route the externa
 
 ### How do I screenshot?
 
-Install `grim-git` and `slurp`
+Install `grim` and `slurp`
 
 Use a keybind (or execute) `grim -g $(slurp)`, select a region. A screenshot
 will pop into your `~/Pictures/` (You can configure grim and slurp, see their
 GitHub pages).
 
-For a more complete utility, try our own
+For a more complete utility, try our own 
 [Grimblast](https://github.com/hyprwm/contrib).
 
 For recording videos, wf-recorder could be used.
@@ -72,10 +72,6 @@ Check [Screensharing](../Useful-Utilities/Screen-Sharing).
 
 See [Wallpapers](../Useful-Utilities/Wallpapers).
 
-### My workspace (2, 3, or any other) is like... bugged?
-
-You did the below, unknowingly.
-
 ### My games work poorly, especially proton ones
 
 Use `gamescope`, tends to fix any and all issues with wayland/Hyprland.
@@ -85,41 +81,24 @@ Use `gamescope`, tends to fix any and all issues with wayland/Hyprland.
 Not that much heavier than Xorg. If you want maximum performance, consider
 turning off the blur and animations.
 
-### Blur makes my GPU cry :(
-
-You probably forgot to turn on `decoration:blur_new_optimizations`. Thank me
-later.
-
 ### My monitor no worky
 
 Try changing the mode in your config. If your preferred one doesn't work, try a
 lower one. A good way to list all modes is to get `wlr-randr` and do a
 `wlr-randr --dryrun`
 
-### How do I get a coredump?
-
-_These instructions are ONLY for systemd. If you use anything else, you should
-know what you're doing._
-
-Launch `coredumpctl` in a terminal. Press <key>END</key> on the keyboard to go
-to the end. Note the **last** (the one furthest to the bottom) crash that has
-`/usr/bin/Hyprland` as an executable. Remember the PID of it (the first number
-after the date in a given line) exit (<key>Ctrl</key>+<key>C</key>) type
-`coredumpctl info PID` where `PID` is the remembered PID. Send the entire thing
-as a file.
-
 ### How do I update?
 
 Open a terminal where you cloned the repo.
-`git pull && sudo make clear && sudo make cleaninstall`
+```bash
+git pull 
+sudo make clear 
+sudo make cleaninstall
+```
 
 If you are using the AUR (hyprland-git) package, you
 will need to cleanbuild to update the package. Paru
 has been problematic with updating before, use Yay.
-
-### Waybar popups render behind the windows??
-
-You have misconfigured Waybar. Make sure the `layer` in the waybar config is set to `top`, and not `bottom`.
 
 ### How do I screen lock?
 
@@ -131,6 +110,8 @@ Use a tool like for example `lxappearance` to change the GTK cursor.
 
 After that, add `exec-once=hyprctl setcursor [THEME] [SIZE]` to your config and
 restart Hyprland.
+
+If you want to change cursor size on QT, add `XCURSOR_SIZE=[SIZE]` to your wrapper.
 
 Alternatively, change the config files manually according to the
 [XDG specification (Arch Wiki link)](https://wiki.archlinux.org/title/Cursor_themes#Configuration).
@@ -155,10 +136,6 @@ it with the `exec-once` keyword.
 ### I want to use Waybar, but the workspaces don't work
 
 Check [Status bars](../Useful-Utilities/Status-Bars).
-
-### Waybar doesn't show the active workspace
-
-Use the style for `#workspaces button.active`
 
 ### How do I autostart my favorite apps?
 
@@ -188,7 +165,7 @@ exec-once=cleanup_after_start.sh
 
 where `cleanup_after_start.sh` script contains:
 
-```sh
+```bash
 sleep 10
 hyprctl keyword windowrule "workspace unset,kitty"
 hyprctl keyword windowrule "workspace unset,Subl"
@@ -211,7 +188,7 @@ exec-once=handle_monitor_connect.sh
 
 where `handle_monitor_connect.sh` is: (example)
 
-```sh
+```bash
 #!/bin/sh
 
 function handle {
@@ -255,7 +232,7 @@ they might launch before that has happened.
 
 In such cases, a script like this:
 
-```sh
+```bash
 #!/bin/bash
 sleep 4
 killall xdg-desktop-portal-wlr
@@ -267,17 +244,12 @@ sleep 4
 
 launched with `exec-once` should fix all issues. Adjust the sleep durations to taste.
 
-### My cursor in QT apps is too big
-
-Oh no! Anyway, the QT cursor size can be fixed by setting the envvar `XCURSOR_SIZE=24`. You
-should probably add it to your exported envvars.
-
 ### How do I export envvars for Hyprland?
 
 As with any Display Server, Xorg included, you should probably make a script to
 launch it, for example:
 
-```ini
+```bash
 export AMONG_US=1
 exec Hyprland
 ```
@@ -297,16 +269,16 @@ Try disabling VFR with `misc:no_vfr=1`.
 I assume you already have `damage_tracking` on full. If you don't, change it. It's
 heavily advised to use `full` regardless of anything.
 
-Optimization options:
+_Useful Optimizations_
 
-_feel free to ignore any that you find causing issues_
+* `decoration:blur_new_optimizations = true`, to use new optimizations for
+   blurring.
 
-`decoration:blur_new_optimizations = true`
+* `decoration:blur = false` & `decoration:drop_shadow = false` to disable
+   fancy but battery hungry effects.
 
-`decoration:blur = false`
+* `misc:no_vfr = false`, since it has been proven that it consumes less power.
 
-`decoration:drop_shadow = false`
+* `misc:disable_autoreload = true` to stop Hyprland from reloading configuration
+  file each time that it changes.
 
-`misc:no_vfr = false`
-
-_possibly_ `misc:disable_autoreload = true`
