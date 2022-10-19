@@ -133,9 +133,10 @@ If it still doesn't work...
 Make sure you have a notification daemon running, for example `dunst`. Autostart
 it with the `exec-once` keyword.
 
-### I want to use Waybar, but the workspaces don't work
+### Waybar no worky???
 
-Check [Status bars](../Useful-Utilities/Status-Bars).
+Waybar has a set of caveats or settings that you need to be aware of. See
+[Status bars](../Useful-Utilities/Status-Bars) for solutions.
 
 ### How do I autostart my favorite apps?
 
@@ -269,12 +270,12 @@ Try disabling VFR with `misc:no_vfr=1`.
 I assume you already have `damage_tracking` on full. If you don't, change it. It's
 heavily advised to use `full` regardless of anything.
 
-_Useful Optimizations_
+#### Useful Optimizations
 
 * `decoration:blur_new_optimizations = true`, to use new optimizations for
    blurring.
 
-* `decoration:blur = false` & `decoration:drop_shadow = false` to disable
+* `decoration:blur = false` and `decoration:drop_shadow = false` to disable
    fancy but battery hungry effects.
 
 * `misc:no_vfr = false`, since it has been proven that it consumes less power.
