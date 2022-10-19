@@ -107,9 +107,20 @@ zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig
 
 (this should also work on RHEL/Fedora if you remove `Mesa-libGLESv3-devel` and `pkgconfig(xcb-errors)`)
 
-Please note Hyprland builds `wlroots`. Make sure you have the dependencies of
+{{< hint title=note >}}
+Hyprland builds `wlroots`. Make sure you have the dependencies of
 wlroots installed, you can make sure you have them by installing wlroots
 separately (Hyprland doesn't mind)
+{{< /hint >}}
+<br>
+<br>
+*In your Hyprland Folder*
+```Plain
+cd subprojects/
+git clone https://gitlab.freedesktop.org/wlroots/wlroots.git
+cd ..
+```
+
 
 Also note that Hyprland uses the C++23 standard, so your compiler has to support
 that (`gcc>=12.1.0` or `clang>=15`)
