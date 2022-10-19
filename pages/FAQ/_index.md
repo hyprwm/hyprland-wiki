@@ -55,7 +55,7 @@ You might try a USB-C to hdmi adapter though, maybe that could route the externa
 
 Install `grim` and `slurp`
 
-Use a keybind (or execute) `grim -g $(slurp)`, select a region. A screenshot
+Use a keybind (or execute) `grim -g "$(slurp)"`, select a region. A screenshot
 will pop into your `~/Pictures/` (You can configure grim and slurp, see their
 GitHub pages).
 
