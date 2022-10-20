@@ -111,7 +111,8 @@ Use a tool like for example `lxappearance` to change the GTK cursor.
 After that, add `exec-once=hyprctl setcursor [THEME] [SIZE]` to your config and
 restart Hyprland.
 
-If you want to change cursor size on QT, add `XCURSOR_SIZE=[SIZE]` to your wrapper.
+About QT applications, instead, Hyprland automatically exports `XCURSOR_SIZE`, 24 
+being the default. You may export a different value in your wrapper to change it.
 
 Alternatively, change the config files manually according to the
 [XDG specification (Arch Wiki link)](https://wiki.archlinux.org/title/Cursor_themes#Configuration).
