@@ -1,7 +1,7 @@
 The master layout makes one window be the "master", taking the left part of the
 screen, and tiles the rest on the right.
 
-## Quirks
+# Quirks
 
 The right, "slave" windows will always be split uniformly. You cannot change
 their size.
@@ -12,7 +12,7 @@ However, you can resize the master window.
 
 ![master2](https://user-images.githubusercontent.com/43317083/179357863-928b0b5a-ff10-4edc-aa76-3ff88c59c980.gif)
 
-## Config
+# Config
 
 _category name `master`_
 
@@ -28,7 +28,7 @@ _category name `master`_
 | no_gaps_when_only | whether to apply gaps when there is only one window on a workspace, aka. smart gaps. | bool | false |
 | use_active_for_splits | whether to prefer the active window or the mouse position for splits | bool | true |
 
-## Dispatchers
+# Dispatchers
 
 `layoutmsg` params:
 

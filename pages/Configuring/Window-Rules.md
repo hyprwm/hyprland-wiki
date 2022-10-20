@@ -2,11 +2,11 @@
 
 {{< toc >}}
 
-## Window Rules V1
+# Window Rules V1
 
 You can set window rules to achieve different behaviours from the active container.
 
-### Syntax
+## Syntax
 
 ```ini
 windowrule=RULE,WINDOW
@@ -17,14 +17,14 @@ windowrule=RULE,WINDOW
   - plain RegEx (for matching a window class);
   - `title:` followed by a regex (for matching a window's title)
 
-#### Examples
+### Examples
 
 ```ini
 windowrule=float,^(kitty)$
 windowrule=move 0 0,title:^(Firefox)(.*)$
 ```
 
-## Window Rules V2
+# Window Rules V2
 
 In order to allow more flexible rules, while retaining compatibility with the above
 rule system, window rules V2 were implemented.
@@ -92,7 +92,7 @@ windowrule = animation popin,^(kitty)$
 windowrule = noblur,^(firefox)$
 ```
 
-## Notes
+### Notes
 
 {{< hint type=tip >}}
 

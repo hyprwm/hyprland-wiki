@@ -1,8 +1,8 @@
-## Table of Contents
+# Table of Contents
 
 {{< toc format=html >}}
 
-## Nothing renders / screen is empty / crash on opening first app
+# Nothing renders / screen is empty / crash on opening first app
 
 Possible causes:
 
@@ -20,13 +20,13 @@ try compiling with LEGACY_RENDERER
 _For more info about bugs and crashes, see this_
 _[wiki page](../../Crashes-and-Bugs)_
 
-### Me cursor no render?
+# Me cursor no render?
 
 Are you on NVIDIA? If so, then you have been a naughty boy and haven't listened
 to my tips on other pages. Use the `WLR_NO_HARDWARE_CURSORS=1` environment
 variable.
 
-### My external monitor is blank / doesn't render / receives no signal (laptop)
+# My external monitor is blank / doesn't render / receives no signal (laptop)
 
 For Radeon graphics - unfortunately, it's a bug in wlroots, and I can't
 do much about it other than wait for the wlroots devs to fix it:
@@ -51,7 +51,7 @@ _Please note these are highly model-specific and might or might not work. If the
 
 You might try a USB-C to hdmi adapter though, maybe that could route the external monitor through the iGPU.
 
-### How do I screenshot?
+# How do I screenshot?
 
 Install `grim` and `slurp`
 
@@ -64,30 +64,30 @@ For a more complete utility, try our own screenshotting utility:
 
 For recording videos, wf-recorder or OBS Studio could be used.
 
-### Screenshare / OBS no worky
+# Screenshare / OBS no worky
 
 Check [Screensharing](../Useful-Utilities/Screen-Sharing).
 
-### How do I change my wallpaper?
+# How do I change my wallpaper?
 
 See [Wallpapers](../Useful-Utilities/Wallpapers).
 
-### My games work poorly, especially proton ones
+# My games work poorly, especially proton ones
 
 Use `gamescope`, tends to fix any and all issues with wayland/Hyprland.
 
-### How heavy is this?
+# How heavy is this?
 
 Not that much heavier than Xorg. If you want maximum performance, consider
 turning off the blur and animations.
 
-### My monitor no worky
+# My monitor no worky
 
 Try changing the mode in your config. If your preferred one doesn't work, try a
 lower one. A good way to list all modes is to get `wlr-randr` and do a
 `wlr-randr --dryrun`
 
-### How do I update?
+# How do I update?
 
 Open a terminal where you cloned the repo.
 ```bash
@@ -100,11 +100,11 @@ If you are using the AUR (hyprland-git) package, you
 will need to cleanbuild to update the package. Paru
 has been problematic with updating before, use Yay.
 
-### How do I screen lock?
+# How do I screen lock?
 
 Use a wayland-compatible locking utility using WLR protocols, e.g. `swaylock`.
 
-### How do I change me mouse cursor?
+# How do I change me mouse cursor?
 
 Use a tool like for example `lxappearance` to change the GTK cursor.
 
@@ -125,21 +125,21 @@ all good!
 
 If it still doesn't work...
 
-### GTK Settings no work / whatever
+# GTK Settings no work / whatever
 
 [https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland](https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland)
 
-### My \[program name\] is freezing
+# My \[program name\] is freezing
 
 Make sure you have a notification daemon running, for example `dunst`. Autostart
 it with the `exec-once` keyword.
 
-### Waybar no worky???
+# Waybar no worky???
 
 Waybar has a set of caveats or settings that you need to be aware of. See
 [Status bars](../Useful-Utilities/Status-Bars) for solutions.
 
-### How do I autostart my favorite apps?
+# How do I autostart my favorite apps?
 
 Using the window rules to assign apps to workspace you can setup a session start
 script to open a bunch of applications on various workspaces. The following
@@ -177,7 +177,7 @@ hyprctl keyword windowrule "workspace unset,firefox"
 
 in `sleep 10`, the 10 seconds is of course only a suggestion.
 
-### How do I move my favorite workspaces to a new monitor when I plug it in?
+# How do I move my favorite workspaces to a new monitor when I plug it in?
 
 if you want workspaces to automatically go to a monitor upon connection, use the
 following:
@@ -209,13 +209,13 @@ if you want workspaces 1 2 4 5 to go to monitor 1 when connecting it.
 
 Please note this requires `socat` to be installed.
 
-### My tablet no worky??
+# My tablet no worky??
 
 Use [Open Tablet Driver](https://github.com/OpenTabletDriver/OpenTabletDriver)
 to configure your tablet. In the future it will be supported in the config.
 Until then, OTD is the way to go.
 
-### Some of my apps take a really long time to open...?
+# Some of my apps take a really long time to open...?
 
 _~/.config/hypr/hyprland.conf_
 
@@ -246,7 +246,7 @@ sleep 4
 
 launched with `exec-once` should fix all issues. Adjust the sleep durations to taste.
 
-### How do I export envvars for Hyprland?
+# How do I export envvars for Hyprland?
 
 As with any Display Server, Xorg included, you should probably make a script to
 launch it, for example:
@@ -262,16 +262,16 @@ For Display Manager users, you can replace the `exec` entry in
 the `.desktop` file to point to your script. You are recommended
 to use absolute paths, such as `/home/username/Script` instead of `~/Script`
 
-### I get random white flashes
+# I get random white flashes
 
 Try disabling VFR with `misc:no_vfr=1`.
 
-### How do I make Hyprland draw as little power as possible on my laptop?
+# How do I make Hyprland draw as little power as possible on my laptop?
 
 I assume you already have `damage_tracking` on full. If you don't, change it. It's
 heavily advised to use `full` regardless of anything.
 
-#### Useful Optimizations
+## Useful Optimizations
 
 * `decoration:blur_new_optimizations = true`, to use new optimizations for
    blurring.

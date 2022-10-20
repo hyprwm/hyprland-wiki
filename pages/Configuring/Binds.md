@@ -1,8 +1,8 @@
-## Table of Contents
+# Table of Contents
 
 {{< toc >}}
 
-## Basic
+# Basic
 
 ```ini
 bind=MODS,key,dispatcher,params
@@ -29,7 +29,7 @@ _For a complete mod list, see [Variables](../Variables/#variable-types)._
 
 _The dispatcher list can be found in [Dispatchers](../Dispatchers)._
 
-## Uncommon syms / binding with a keycode
+# Uncommon syms / binding with a keycode
 
 See the
 [xkbcommon-keysyms.h header](https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h)
@@ -49,9 +49,9 @@ bind=SUPER,28,exec,amongus
 Will bind <key>SUPER</key> + <key>T</key>. (<key>T</key> is keycode 28.) - You
 can also use `xev` or `wev` to find keycodes.
 
-## Misc
+# Misc
 
-### Unbind
+## Unbind
 
 You can also unbind with `unbind`, e.g.:
 
@@ -65,7 +65,7 @@ May be useful for dynamic keybindings with `hyprctl`.
 hyprctl keyword unbind SUPER,O
 ```
 
-### Mouse buttons
+## Mouse buttons
 
 You can also bind mouse buttons, by prefacing the mouse keycode with `mouse:`,
 for example:
@@ -76,7 +76,7 @@ bind=SUPER,mouse:272,exec,amongus
 
 will bind it to <key>SUPER</key> + <key>LMB</key>.
 
-### Only modkeys
+## Only modkeys
 
 For binding only modkeys, you need to use the TARGET modmask (with the
 activating mod) and the `r` flag, e.g.:
@@ -85,7 +85,7 @@ activating mod) and the `r` flag, e.g.:
 bindr=SUPERALT,Alt_L,exec,amongus
 ```
 
-### Mouse wheel
+## Mouse wheel
 
 You can also bind the mouse wheel with `mouse_up` and `mouse_down`:
 
@@ -95,7 +95,7 @@ bind=SUPER,mouse_down,workspace,e-1
 
 (control the reset time with `binds:scroll_event_delay`)
 
-### Switches
+## Switches
 
 Useful for binding e.g. the lid close/open event:
 
@@ -105,7 +105,7 @@ bindl=,switch:[switch name],exec,swaylock
 
 check out your switches in `hyprctl devices`.
 
-## Bind flags
+# Bind flags
 
 `bind` supports flags in this format:
 
@@ -143,7 +143,7 @@ bindr=, SUPER, SUPER_L, exec, pkill wofi || wofi
 # See Mouse Binds section for bindm usage
 ```
 
-## Mouse Binds
+# Mouse Binds
 
 Mouse binds are binds that heavily rely on a mouse, usually its movement.
 They will have one less arg, and look for example like this:
@@ -176,7 +176,7 @@ Mouse binds, despite their name, behave like normal binds. You are free to use
 whatever keys / mods you please. When held, the mouse function will be activated.
 {{< /hint >}}
 
-## Binding mods
+# Binding mods
 
 You can bind a mod alone like this:
 
@@ -184,7 +184,7 @@ You can bind a mod alone like this:
 bindr=ALT,Alt_L,exec,amongus
 ```
 
-## Global Keybinds
+# Global Keybinds
 
 Yes, you heard this right, Hyprland does support global keybinds for ALL apps,
 including OBS, Discord, Firefox, etc.
@@ -224,7 +224,7 @@ they don't work, try removing mods and binding them to e.g. <key>F1</key>.
 Combining this with a submap should yield neat and usable results.
 {{< /hint >}}
 
-## Submaps
+# Submaps
 
 If you want keybind submaps, for example if you press <key>ALT</key> +
 <key>R</key>, you can enter a "resize" mode, resize with arrow keys, and leave

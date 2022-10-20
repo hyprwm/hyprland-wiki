@@ -1,4 +1,4 @@
-## Getting the log
+# Getting the log
 
 If you are in a TTY, and the hyprland session that crashed was the last one you
 launched, the log will be printed with
@@ -15,7 +15,7 @@ if you are in a Hyprland session, and you want the log of the last session, use
 cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 2 | tail -n 1)/hyprland.log
 ```
 
-## Crashes at launch
+# Crashes at launch
 
 Diagnose the issue by what is in the log:
 
@@ -31,11 +31,11 @@ Diagnose the issue by what is in the log:
   in the first point.
 - failing on `Hyprland` -> report an issue.
 
-## Crashes not at launch
+# Crashes not at launch
 
 Report an issue on GitHub or on the Discord server.
 
-## Bugs
+# Bugs
 
 First of all, **_READ THE [FAQ PAGE](../FAQ)_**
 

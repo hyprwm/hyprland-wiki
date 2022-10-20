@@ -1,8 +1,8 @@
-## Table of contents
+# Table of contents
 
 {{< toc format=html >}}
 
-## General
+# General
 
 The general config of a monitor looks like this
 
@@ -67,7 +67,7 @@ For more specific rules, you can also use the output's description
 monitor=desc:SDC 0x4154 (eDP-1),preferred,auto,1.5
 ```
 
-## Disabling a monitor
+# Disabling a monitor
 
 To disable a monitor, use
 
@@ -75,7 +75,7 @@ To disable a monitor, use
 monitor=name,disable
 ```
 
-## Custom reserved area
+# Custom reserved area
 
 If your workflow requires custom reserved area, you can add it with
 
@@ -87,7 +87,7 @@ Where `TOP` `BOTTOM` `LEFT` `RIGHT` are integers in pixels of the reserved area
 to add. This does stack on top of the calculated one, (e.g. bars) but you may
 only use one of these rules per monitor in the config.
 
-## Mirrored displays
+# Mirrored displays
 
 If you want to mirror a display, add a `,mirror,[NAME]` at the end of the monitor
 rule, examples:
@@ -102,7 +102,7 @@ second monitor, so if mirroring a 1080p screen onto a 4K one, the resolution
 will still be 1080p on the 4K display. This also means squishing and stretching
 will occur on non-matching resolutions.
 
-## Rotating and the default workspace
+# Rotating and the default workspace
 
 {{< hint type=important >}}
 
@@ -143,7 +143,7 @@ flipped + 180 degrees -> 6
 flipped + 270 degrees -> 7
 ```
 
-## Binding workspaces to a monitor
+# Binding workspaces to a monitor
 
 A workspace can be bound to a monitor, meaning by default it will ALWAYS open
 on the selected monitor. You can do this with

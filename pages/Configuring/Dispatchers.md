@@ -1,11 +1,11 @@
-## Table of contents
+# Table of contents
 
 {{< toc >}}
 
 Please keep in mind some layout-specific dispatchers will be listed in the
 layout pages (See the sidebar).
 
-## Parameter explanation
+# Parameter explanation
 
 | Param type | Description |
 | ---------- | ----------- |
@@ -17,7 +17,7 @@ layout pages (See the sidebar).
 | floatdelta | a float value delta, e.g `-0.2` or `+0.2`. |
 | workspaceopt | see below. |
 
-## List of Dispatchers
+# List of Dispatchers
 
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
@@ -65,7 +65,7 @@ bind = MOD,KEY,exec,sleep 1 && hyprctl dispatch dpms off
 
 {{< /hint >}}
 
-## Workspaces
+# Workspaces
 
 You have seven choices:
 
@@ -88,7 +88,7 @@ You have seven choices:
 `movetoworkspace`. Any other dispatcher will result in undocumented behavior.
 {{< /hint >}}
 
-## Special Workspace
+# Special Workspace
 
 Special workspace is what is called a "scratchpad" in some other places. A
 workspace that you can toggle on/off on any monitor.
@@ -98,7 +98,7 @@ You cannot have floating windows in the Special workspace. Making a window float
 will send it to the currently active _real_ workspace.
 {{< /hint >}}
 
-## Workspace options
+# Workspace options
 
 ```txt
 allfloat -> makes all new windows floating (also floats/unfloats windows on toggle)

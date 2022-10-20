@@ -1,4 +1,4 @@
-## Foreword
+# Foreword
 
 There is no _official_ support for Nvidia. Unfortunately, their drivers are so
 messy, and their products so random, that it's impossible for us to help if
@@ -8,7 +8,7 @@ Every card seems to be random, and might work perfectly, or not work at all.
 
 Nevertheless, it's recommended to at least try this tutorial.
 
-## How to get Hyprland to possibly work on Nvidia
+# How to get Hyprland to possibly work on Nvidia
 
 Install the `nvidia-dkms` driver and add it to your initramfs & kernel
 parameters. Follow the information available here:
@@ -46,7 +46,7 @@ Launch Hyprland with the wrapper.
 
 It _should_ work now.
 
-### Fixing random flickering, method 1
+## Fixing random flickering, method 1
 
 If you take a look at the wlroots patches in the [nix flake](https://github.com/hyprwm/Hyprland/blob/main/nix/wlroots.nix)
 you will find a one-line patch:
@@ -59,7 +59,7 @@ What this means, for non-nix users, is you have to (before building) go to
 `submodules/wlroots/render/gles2/renderer.c` and replace all occurrences of `glFlush()`
 with `glFinish()`, and then compile Hyprland as usual.
 
-### Fixing random flickering, method 2 (nuclear)
+## Fixing random flickering, method 2 (nuclear)
 
 Do note though that this forces performance mode to be active, resulting in
 increased power-consumption (from 22W idle on a RTX 3070TI, to 74W).

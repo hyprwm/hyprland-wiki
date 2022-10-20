@@ -1,14 +1,14 @@
 Some clients are known for being a massive pain under Wayland. Here are great
 replacements for them:
 
-## Discord
+# Discord
 
 [WebCord](https://github.com/SpacingBat3/WebCord) is a Discord client based on
 the latest Electron, with support for Wayland Ozone platform, as well as
 PipeWire screensharing. It has tons of great features and tries not to infringe
 on the Discord ToS.
 
-## Spotify
+# Spotify
 
 It has been reported that Spotify does not follow window rules. This is possibly
 because the client sets is class _after_ the window has opened, thus making it "immune"

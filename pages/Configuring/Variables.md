@@ -6,7 +6,7 @@ etc. see the sidebar. For anything else, see [Keywords](../Keywords).
 Please keep in mind some options that are layout-specific will be documented in
 the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 
-## Variable types
+# Variable types
 
 | type | description |
 |---|---|
@@ -38,9 +38,9 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 
 {{< /hint >}}
 
-## Sections
+# Sections
 
-### General
+## General
 
 | name | description | type | default |
 |---|---|---|---|---|
@@ -61,7 +61,7 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 Prefer using `input:sensitivity` over `general:sensitivity` to avoid bugs, especially with Wine/Proton apps.
 {{< /hint >}}
 
-### Decoration
+## Decoration
 
 | name | description | type | default |
 |---|---|---|---|---|
@@ -102,7 +102,7 @@ Using `blur_new_optimizations` with an animated wallpaper may actually increase 
 
 {{< /hint >}}
 
-### Animations
+# Animations
 
 | name    | description       | type | default |
 | ------- | ----------------- | ---- | ------- |
@@ -114,7 +114,7 @@ _[More about Animations](../Animations)._
 
 {{< /hint >}}
 
-### Input
+# Input
 
 ## Input
 
@@ -141,7 +141,7 @@ _[More about Animations](../Animations)._
 
 {{< hint type=info >}}
 
-### Follow Mouse
+## Follow Mouse
 
 - 0 - disabled
 - 1 - full
@@ -154,7 +154,7 @@ _[More about Animations](../Animations)._
 For switchable keyboard configs, take a look at [the uncommon tips & tricks page entry](../Uncommon-tips--tricks/#switchable-keyboard-layouts).
 {{< /hint >}}
 
-### Touchpad
+## Touchpad
 
 _Subcategory `input:touchpad:`_
 
@@ -186,7 +186,7 @@ input {
 Doing `input:touchpad {` is **invalid**!
 {{< /hint >}}
 
-### Touchdevice
+## Touchdevice
 
 _Subcategory `input:touchdevice:`_
 
@@ -195,11 +195,11 @@ _Subcategory `input:touchdevice:`_
 | transform | transform the input from touchdevices. The possible transformations are the same as [those of the monitors](../Monitors/#rotating-and-the-default-workspace) | int | 0 |
 | output | the output to bind touch devices. Empty means unset and will use the current / autodetected. | string | \[EMPTY\] |
 
-### Per-device input config
+## Per-device input config
 
 Described [here](../Keywords#per-device-input-configs).
 
-## Gestures
+# Gestures
 
 | name | description | type | default |
 |---|---|---|---|---|
@@ -211,7 +211,7 @@ Described [here](../Keywords#per-device-input-configs).
 | workspace_swipe_cancel_ratio | (0.0 - 1.0) how much the swipe has to proceed in order to commence it. (0.7 -> if > 0.7 * distance, switch, if less, revert) | float | 0.5 |
 | workspace_swipe_create_new | whether a swipe right on the last workspace should create a new one. | bool | true |
 
-## Misc
+# Misc
 
 | name | description | type | default |
 |---|---|---|---|---|
@@ -227,7 +227,7 @@ Described [here](../Keywords#per-device-input-configs).
 | enable_swallow | Enable window swallowing | bool | false |
 | swallow_regex | The *class* regex to be used for windows that should be swallowed (usually, a terminal) | str | \[EMPTY\] |
 
-## Binds
+# Binds
 
 | name | description | type | default |
 |---|---|---|---|---|
@@ -236,7 +236,7 @@ Described [here](../Keywords#per-device-input-configs).
 | workspace_back_and_forth | If enabled, an attempt to switch to the currently focused workspace will instead switch to the previous workspace. Akin to i3's *auto_back_and_forth*. | bool | false |
 | allow_workspace_cycles | If enabled, workspaces don't forget their previous workspace, so cycles can be created by switching to the first workspace in a sequence, then endlessly going to the previous workspace. | bool | false |
 
-## Debug
+# Debug
 
 {{< hint type=warning >}}
 
@@ -251,7 +251,7 @@ Only for developers.
 | disable_logs | self-explanatory | bool | false |
 | disable_time | disables time logging | bool | true |
 
-## More
+# More
 
 There are more config options described in other pages, which are layout- or
 circumstance-specific. See the sidebar for more pages.

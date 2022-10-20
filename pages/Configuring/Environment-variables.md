@@ -7,7 +7,7 @@ Please avoid putting those environment variables in /etc/environment. That will 
 sessions (including Xorg ones) to pick up your wayland-specific environment on traditional
 Linux distros.
 
-## XDG Specifications
+# XDG Specifications
 
 - `XDG_CURRENT_DESKTOP=Hyprland`
 - `XDG_SESSION_TYPE=wayland`
@@ -16,7 +16,7 @@ Linux distros.
 XDG specific environment variables are often detected through portals and applications that may
 set those for you, however it is a good idea to provide them in your wrapper script as a fail-safe.
 
-## QT Variables
+# QT Variables
 
 - `QT_AUTO_SCREEN_SCALE_FACTOR=1` - [(From the QT documentation)](https://doc.qt.io/qt-5/highdpi.html)
   enables automatic scaling, based on the monitor's pixel density
@@ -24,7 +24,7 @@ set those for you, however it is a good idea to provide them in your wrapper scr
 - `QT_WAYLAND_DISABLE_WINDOWDECORATION=1` - Disables window decorations on QT applications
 - `QT_QPA_PLATFORMTHEME=qt5ct` - Tells QT based applications to pick your theme from qt5ct, use with Kvantum.
 
-## NVIDIA Specific
+# NVIDIA Specific
 
 To force GBM as a backend, set the following environment variables:
 
@@ -46,7 +46,7 @@ To force GBM as a backend, set the following environment variables:
 
 - `WLR_DRM_NO_ATOMIC=1` - use legacy DRM interface instead of atomic mode setting. Might fix flickering issues.
 
-## Toolkit Backend Variables
+# Toolkit Backend Variables
 
 - `SDL_VIDEODRIVER=wayland` - Run SDL2 applications on Wayland. Remove or set to x11 if games that provide older versions of SDL cause
   compatibility issues
@@ -57,7 +57,7 @@ To force GBM as a backend, set the following environment variables:
 - `GDK_BACKEND` - Force backend for wayland-enabled GTK3 and GTK4 backends. Available options are "wayland" or "x11". If GTK XWayland
   applications cause issues when set to "wayland", try "wayland,x11"
 
-## Theming Related Variables
+# Theming Related Variables
 
 - `GTK_THEME` - Set a GTK theme manually, for those who want to avoid appearance tools lxappearance or nwg-look
 - `XCURSOR_THEME` - Set your cursor theme. The theme needs to be installed and readable by your user.

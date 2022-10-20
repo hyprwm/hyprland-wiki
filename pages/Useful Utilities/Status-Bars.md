@@ -1,10 +1,10 @@
-## Waybar
+# Waybar
 
 Waybar is a GTK status bar made specifically for wlroots compositors.
 
 To use it, it's recommended to use the AUR package `waybar-hyprland-git`.
 
-### Compiling Manually
+## Compiling Manually
 
 To compile manually:
 
@@ -24,16 +24,16 @@ all the references to `sway/workspaces/` with `wlr/workspaces`.
 For more info regarding configuration, see
 [The Waybar Wiki](https://github.com/Alexays/Waybar/wiki).
 
-### Waybar popups render behind the windows
+## Waybar popups render behind the windows
 
 In `~/.config/waybar/config`, make sure that you have the `layer` configuration 
 set to `top` and not `bottom`.
 
-### Active workspace doesn't show up
+## Active workspace doesn't show up
 
 Replace `#workspaces button.focus` with `#wroskapces button.active` in `~/.config/style.css`.
 
-### Scroll through workspaces
+## Scroll through workspaces
 
 Since there are a lot of configurations from `sway/workspaces` missing, you
 should deduce some of them by yourself. In the case of scrolling, configure
@@ -47,21 +47,21 @@ your module this way:
 },
 ```
 
-### Clicking on workspace doesn't work!
+## Clicking on workspace doesn't work!
 
 On the `wlr/workspaces` module, add `"on-click": "activate"`. That's the purpose of
 the `sed` command we had to apply before building: the default way to select a
 workspace by clicking uses the `swaymsg`'s way, furthermore it is required to edit
 this function to make it work with `hyprctl`.
 
-## Eww
+# Eww
 
 In order to use [Eww](https://github.com/elkowar/eww), you first have to install
 it, either using your distro's package manager, by searching `eww-wayland`, or
 by manually compiling. In the latter case, you can follow the
 [instructions](https://elkowar.github.io/eww).
 
-### Configuration
+## Configuration
 
 After you've successfully installed Eww, you can move onto configuring it. There
 are a few examples listed in the [Readme](https://github.com/elkowar/eww). We
@@ -74,13 +74,13 @@ Read
 carefully before asking why your bar doesn't work.
 {{< /hint >}}
 
-## Hybrid
+# Hybrid
 
 Like Waybar, Hybrid is a GTK status bar mainly focused for wlroots compositors.
 
 You can install it from the AUR by the name `hybrid-bar-git`, do note though that
 it builds the bar from source, so it may take a few minutes.
 
-### Configuration
+## Configuration
 
 The configuration is done through JSON, more information is available [here](https://github.com/vars1ty/HybridBar).

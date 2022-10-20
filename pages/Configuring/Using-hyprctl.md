@@ -8,7 +8,7 @@ the terminal.
 If it's not, go to the repo root and `/hyprctl`. Issue a `make all` and then
 `sudo cp ./hyprctl /usr/bin`.
 
-## Using Hyprctl
+# Using Hyprctl
 
 {{< hint type=warning >}}
 
