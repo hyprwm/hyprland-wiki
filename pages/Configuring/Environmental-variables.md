@@ -1,4 +1,4 @@
-# Environmental Variables
+# Environment Variables
 
 We have [previously mentioned] using a wrapper to launch Hyprland. Whether you
 start Hyprland through TTY or a Display Manager, it is recommended to use a wrapper.
