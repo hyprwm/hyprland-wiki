@@ -18,9 +18,7 @@ animation=NAME,ONOFF,SPEED,CURVE
 
 `CURVE` is the bezier curve name, see [curves](#curves).
 
-`STYLE` is the animation style
-
-All the parameters are required, except for the `STYLE` parameter.
+`STYLE` (optional) is the animation style
 
 The animations are a tree. If an animation is unset, it will inherit its
 parent's values. See [animation tree](#animation-tree).
