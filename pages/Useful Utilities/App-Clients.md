@@ -16,3 +16,6 @@ to windowrules. An alternative to Spotify's GUI client is
 [spotify-tui](https://github.com/Rigellute/spotify-tui) which can be launched in a terminal
 with a custom class. While limited in functionality, it is quite powerful and could be
 preferred over the GUI client if windowrules are a dealbreaker for you.
+
+Some users have also reported [installing spotifywm](https://github.com/dasJ/spotifywm/) has resolved
+the issue. Pick your poison.
