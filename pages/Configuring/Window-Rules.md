@@ -95,10 +95,9 @@ windowrule = noblur,^(firefox)$
 
 {{< hint type=tip >}}
 
-Opacity is _always_ a PRODUCT of all opacities. E.g. active*opacity to
+Opacity is _always_ a PRODUCT of all opacities. E.g. `active_opacity` to
 0.5 and windowrule opacity to 0.5 will result in a total opacity 0.25. You are
 allowed to set opacities over 1, but any opacity product over 1 will cause
-graphical glitches. E.g. 0.5 \_2 = 1, and it will be fine, 0.5* 4 will cause
+graphical glitches. E.g. `0.5 * 2 = 1`, and it will be fine, `0.5 * 4` will cause
 graphical glitches.
-
 {{< /hint >}}
