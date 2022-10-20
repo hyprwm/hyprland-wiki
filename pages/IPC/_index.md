@@ -26,24 +26,24 @@ e.g.: `workspace>>2`
 
 ### Events list
 
-| name             | description                                                                                                                                   | data                                                        |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| workspace        | emitted on workspace change. Is emitted ONLY when a user requests a workspace change, and is not emitted on mouse movements (see `activemon`) | `WORKSPACENAME`                                             |
-| focusedmon       | emitted on the active monitor being changed.                                                                                                  | `MONNAME,WORKSPACENAME`                                     |
-| activewindow     | emitted on the active window being changed.                                                                                                   | `WINDOWCLASS,WINDOWTITLE`                                   |
-| fullscreen       | emitted when a fullscreen status of a window changes.                                                                                         | `0/1` (exit fullscreen / enter fullscreen)                  |
-| monitorremoved   | emitted when a monitor is removed (disconnected)                                                                                              | `MONITORNAME`                                               |
-| monitoradded     | emitted when a monitor is added (connected)                                                                                                   | `MONITORNAME`                                               |
-| createworkspace  | emitted when a workspace is created                                                                                                           | `WORKSPACENAME`                                             |
-| destroyworkspace | emitted when a workspace is destroyed                                                                                                         | `WORKSPACENAME`                                             |
-| moveworkspace    | emitted when a workspace is moved to a different monitor                                                                                      | `WORKSPACENAME,MONNAME`                                     |
-| activelayout     | emitted on a layout change of the active keyboard                                                                                             | `KEYBOARDNAME,LAYOUTNAME`                                   |
-| openwindow       | emitted when a window is opened                                                                                                               | `WINDOWADDRESS`,`WORKSPACENAME`,`WINDOWCLASS`,`WINDOWTITLE` |
-| closewindow      | emitted when a window is closed                                                                                                               | `WINDOWADDRESS`                                             |
-| movewindow       | emitted when a window is moved to a workspace                                                                                                 | `WINDOWADDRESS`,`WORKSPACENAME`                             |
-| openlayer        | emitted when a layerSurface is mapped                                                                                                         | `NAMESPACE`                                                 |
-| closelayer       | emitted when a layerSurface is unmapped                                                                                                       | `NAMESPACE`                                                 |
-| submap           | emitted when a keybind submap changes. Empty means default.                                                                                   | `SUBMAPNAME`                                                |
+| name | description | data |
+| --- | --- | --- |
+| workspace | emitted on workspace change. Is emitted ONLY when a user requests a workspace change, and is not emitted on mouse movements (see `activemon`) | `WORKSPACENAME` |
+| focusedmon | emitted on the active monitor being changed. | `MONNAME,WORKSPACENAME` |
+| activewindow | emitted on the active window being changed. | `WINDOWCLASS,WINDOWTITLE` |
+| fullscreen | emitted when a fullscreen status of a window changes. | `0/1` (exit fullscreen / enter fullscreen) |
+| monitorremoved | emitted when a monitor is removed (disconnected) | `MONITORNAME` |
+| monitoradded | emitted when a monitor is added (connected) | `MONITORNAME` |
+| createworkspace | emitted when a workspace is created | `WORKSPACENAME` |
+| destroyworkspace | emitted when a workspace is destroyed | `WORKSPACENAME` |
+| moveworkspace | emitted when a workspace is moved to a different monitor | `WORKSPACENAME,MONNAME` |
+| activelayout | emitted on a layout change of the active keyboard | `KEYBOARDNAME,LAYOUTNAME` |
+| openwindow | emitted when a window is opened | `WINDOWADDRESS`,`WORKSPACENAME`,`WINDOWCLASS`,`WINDOWTITLE` |
+| closewindow | emitted when a window is closed | `WINDOWADDRESS` |
+| movewindow | emitted when a window is moved to a workspace | `WINDOWADDRESS`,`WORKSPACENAME` |
+| openlayer | emitted when a layerSurface is mapped | `NAMESPACE` |
+| closelayer | emitted when a layerSurface is unmapped | `NAMESPACE` |
+| submap | emitted when a keybind submap changes. Empty means default. |`SUBMAPNAME` |
 
 {{< hint type=warning >}}
 A fullscreen event is not guaranteed to fire on/off once in succession.

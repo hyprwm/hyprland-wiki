@@ -16,24 +16,27 @@ However, you can resize the master window.
 
 _category name `master`_
 
-| name                 | description                                                                          | type  | default |
-| -------------------- | ------------------------------------------------------------------------------------ | ----- | ------- |
-| special_scale_factor | (0.0 - 1.0) the scale of the special workspace windows                               | float | 0.8     |
-| new_is_master        | whether a newly open window should replace the master or join the slaves.            | bool  | false   |
-| new_on_top           | whether a newly open window should be on the top of the stack                        | bool  | false   |
-| no_gaps_when_only    | whether to apply gaps when there is only one window on a workspace, aka. smart gaps. | bool  | false   |
+| name | description | type | default |
+|---|---|---|---|---|
+| pseudotile | enable pseudotiling. Pseudotiled windows retain their floating size when tiled. | bool | false |
+| col.group_border | inactive (out of focus) group border color | color | 0x66777700 |
+| col.group_border_active | active group border color | color | 0x66ffff00 |
+| force_split | 0 -> split follows mouse, 1 -> always split to the left (new = left or top) 2 -> always split to the right (new = right or bottom) | int | 0 |
+| preserve_split | if enabled, the split (side/top) will not change regardless of what happens to the container. | bool | false |
+| special_scale_factor | 0 - 1 -> specifies the scale factor of windows on the special workspace | float | 0.8 |
+| split_width_multiplier | specifies the auto-split width multiplier | float | 1.0 |
+| no_gaps_when_only | whether to apply gaps when there is only one window on a workspace, aka. smart gaps. | bool | false |
+| use_active_for_splits | whether to prefer the active window or the mouse position for splits | bool | true |
 
 ## Dispatchers
 
 `layoutmsg` params:
 
-| param          | description                                                             |
-| -------------- | ----------------------------------------------------------------------- |
-| swapwithmaster | swaps the current window with master                                    |
-| cyclenext      | focuses the next window respecting the layout                           |
-| cycleprev      | focuses the previous window respecting the layout                       |
-| swapnext       | swaps the focused window with the next window respecting the layout     |
-| swapprev       | swaps the focused window with the previous window respecting the layout |
+| dispatcher | description | params |
+|---|---|---|
+| togglegroup | toggles the current window and its siblings (recursively) into a group | none |
+| changegroupactive | switches to the next window in a group. | b - back, f - forward. |
+| togglesplit | toggles the split (top/side) of the current window | none |
 
 {{< hint type=info >}}
 example usage:

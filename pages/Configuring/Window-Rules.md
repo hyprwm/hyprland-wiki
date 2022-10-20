@@ -58,28 +58,31 @@ you can use `hyprctl clients`.
 
 ## Rules
 
-| Rule                          | Description                                                                                                                                                                                                                                                                                                            |
-| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| float                         | floats a window                                                                                                                                                                                                                                                                                                        |
-| tile                          | tiles a window                                                                                                                                                                                                                                                                                                         |
-| fullscreen                    | fullscreens a window                                                                                                                                                                                                                                                                                                   |
-| move \[x\] \[y\]              | moves a floating window (x,y -> int or %, e.g. 20% or 100)                                                                                                                                                                                                                                                             |
-| size \[x\] \[y\]              | resizes a floating window (x,y -> int or %, e.g. 20% or 100)                                                                                                                                                                                                                                                           |
-| minsize \[x\] \[y\]           | sets the minimum size on creation (x,y -> int)                                                                                                                                                                                                                                                                         |
-| maxsize \[x\] \[y\]           | sets the maximum size on creation (x,y -> int)                                                                                                                                                                                                                                                                         |
-| center                        | if the window is floating, will center it on the monitor                                                                                                                                                                                                                                                               |
-| pseudo                        | pseudotiles a window                                                                                                                                                                                                                                                                                                   |
-| monitor \[id\]                | sets the monitor on which a window should open                                                                                                                                                                                                                                                                         |
-| workspace \[w\]               | sets the workspace on which a window should open (for workspace syntax, see [dispatchers->workspaces](../Dispatchers#workspaces)). You can also make \[w\] to `unset`, will unset all previous workspace rules applied to this window. You can also add `silent` after the workspace to make the window open silently. |
-| opacity \[a\]                 | additional opacity multiplier. Options for a: `float` -> sets an opacity OR `float float` -> sets activeopacity and inactiveopacity respectively                                                                                                                                                                       |
-| opaque                        | forces the window to be opaque (can be toggled with the toggleopaque dispatcher)                                                                                                                                                                                                                                       |
-| animation \[style\] (\[opt\]) | forces an animation onto a window, with a selected opt. Opt is optional.                                                                                                                                                                                                                                               |
-| rounding \[x\]                | forces the application to have X pixels of rounding, ignoring the set default (in `decoration:rounding`). Has to be an int.                                                                                                                                                                                            |
-| noblur                        | disables blur for the window                                                                                                                                                                                                                                                                                           |
-| nofocus                       | disables focus to the window                                                                                                                                                                                                                                                                                           |
-| forceinput                    | forces an XWayland window to receive input, even if it requests not to do so. (Might fix issues like e.g. Game Launchers not receiving focus for some reason)                                                                                                                                                          |
-| pin                           | pins the window _note: floating only_                                                                                                                                                                                                                                                                                  |
-| noanim                        | disables the animations for the window                                                                                                                                                                                                                                                                                 |
+=======
+| Rule | Description |
+| ---- | ----------- | 
+| float | floats a window |
+| tile | tiles a window |
+| fullscreen | fullscreens a window |
+| move \[x\] \[y\] | moves a floating window (x,y -> int or %, e.g. 20% or 100) |
+| size \[x\] \[y\] | resizes a floating window (x,y -> int or %, e.g. 20% or 100) |
+| minsize \[x\] \[y\] | sets the minimum size on creation (x,y -> int) |
+| maxsize \[x\] \[y\] | sets the maximum size on creation (x,y -> int) |
+| center | if the window is floating, will center it on the monitor |
+| pseudo | pseudotiles a window |
+| monitor \[id\] | sets the monitor on which a window should open |
+| workspace \[w\] | sets the workspace on which a window should open (for workspace syntax, see [dispatchers->workspaces](../Dispatchers#workspaces)). You can also make \[w\] to `unset`, will unset all previous workspace rules applied to this window. You can also add `silent` after the workspace to make the window open silently. |
+| opacity \[a\] | additional opacity multiplier. Options for a: `float` -> sets an opacity OR `float float` -> sets activeopacity and inactiveopacity respectively |
+| opaque | forces the window to be opaque (can be toggled with the toggleopaque dispatcher) |
+| animation \[style\] (\[opt\]) | forces an animation onto a window, with a selected opt. Opt is optional. |
+| rounding \[x\] | forces the application to have X pixels of rounding, ignoring the set default (in `decoration:rounding`). Has to be an int. |
+| noblur | disables blur for the window |
+| nofocus | disables focus to the window |
+| noborder | disables borders for the window |
+| noshadow | disables shadows for the window |
+| forceinput | forces an XWayland window to receive input, even if it requests not to do so. (Might fix issues like e.g. Game Launchers not receiving focus for some reason) |
+| pin | pins the window *note: floating only* |
+| noanim | disables the animations for the window |
 
 ### Example Rules
 
