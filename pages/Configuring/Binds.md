@@ -157,8 +157,8 @@ with your mouse.
 
 _Available mouse binds_:
 
-| Name         | Description               |
-| ------------ | ------------------------- |
+| Name | Description |
+| -----|------------ |
 | movewindow   | moves the active window   |
 | resizewindow | resizes the active window |
 

@@ -17,7 +17,7 @@ linked further down here for full configuration instructions.
 toggleable / numerical options.
 {{< /hint >}}
 
-## Line style
+# Line style
 
 Every config line is a command followed by a value.
 
@@ -38,12 +38,12 @@ COMMAND = VALUE
 
 is valid.
 
-## Basic configuring
+# Basic configuring
 
 To configure the "options" of Hyprland, animations, styling, etc. see
 [Variables](../Variables).
 
-## Advanced configuring
+# Advanced configuring
 
 Some keywords (binds, curves, execs, monitors, etc.) are not variables but define
 special behaviour.

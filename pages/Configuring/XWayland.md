@@ -1,7 +1,7 @@
 XWayland is the bridging mechanism between legacy Xorg programs and Wayland
 compositors.
 
-## HiDPI XWayland
+# HiDPI XWayland
 
 Currently XWayland on HiDPI screens looks pixelated/blurry, due to Xorg's
 inability to scale.
