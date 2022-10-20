@@ -17,5 +17,14 @@ to windowrules. An alternative to Spotify's GUI client is
 with a custom class. While limited in functionality, it is quite powerful and could be
 preferred over the GUI client if windowrules are a dealbreaker for you.
 
-Some users have also reported [installing spotifywm](https://github.com/dasJ/spotifywm/) has resolved
-the issue. Pick your poison.
+Some users have also reported [installing spotifywm](https://github.com/amurzeau/spotifywm) has resolved
+the issue. The original repository by [`dasJ`](https://github.com/dasJ/spotifywm) is no longer working because of some changes made in the newer
+Spotify version , and until the pull request gets merged, [`amurzeau`](https://github.com/amurzeau/spotifywm)'s fork does the job.
+
+After following the installation paragraph on the README, start Spotify with:
+```bash
+LD_PRELOADER=/path/to/spotifywm.so spotify
+```
+The path **MUST** be the absolute one. If it's not, the hack will not work.
+
+Pick your poison.
