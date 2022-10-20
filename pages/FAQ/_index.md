@@ -278,7 +278,7 @@ heavily advised to use `full` regardless of anything.
 * `decoration:blur = false` and `decoration:drop_shadow = false` to disable
    fancy but battery hungry effects.
 
-* `misc:no_vfr = false`, since it has been proven that it consumes less power.
+* `misc:no_vfr = false`, since it'll lower the refresh rate when nothing is happening on-screen.
 
 * `misc:disable_autoreload = true` to stop Hyprland from reloading configuration
   file each time that it changes.
