@@ -92,7 +92,7 @@ hyprctl keyword monitor DP-3,1920x1080@240,1920x0,1
 {{< hint type=important >}} These changes are **not** permanent! If you want to
 make those changes persist, configure your outputs in the config! {{< /hint >}}
 
-## Proper configuring
+# Proper configuring
 
 Head onto the
 [Configuring Hyprland page](../../Configuring/Configuring-Hyprland) to learn all
