@@ -73,3 +73,14 @@ Read
 [the Wayland section](https://elkowar.github.io/eww/configuration.html#wayland)
 carefully before asking why your bar doesn't work.
 {{< /hint >}}
+
+## Hybrid
+
+Like Waybar, Hybrid is a GTK status bar mainly focused for wlroots compositors.
+
+You can install it from the AUR by the name `hybrid-bar-git`, do note though that
+it builds the bar from source, so it may take a few minutes.
+
+### Configuration
+
+The configuration is done through JSON, more information is available [here](https://github.com/vars1ty/HybridBar).
