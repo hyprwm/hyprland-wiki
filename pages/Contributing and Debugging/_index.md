@@ -73,15 +73,7 @@ for live logs. (replace `hyprland` with `hyprlandd` for debug builds)
 
 ### How do I get a coredump?
 
-_These instructions are ONLY for systemd. If you use anything else, you should
-know what you're doing._
-
-Launch `coredumpctl` in a terminal. Press <key>END</key> on the keyboard to go
-to the end. Note the **last** (the one furthest to the bottom) crash that has
-`/usr/bin/Hyprland` as an executable. Remember the PID of it (the first number
-after the date in a given line) exit (<key>Ctrl</key>+<key>C</key>) type
-`coredumpctl info PID` where `PID` is the remembered PID. Send the entire thing
-as a file.
+See [`ISSUIE_GUIDELINES.md`](https://github.com/hyprwm/Hyprland/blob/main/docs/ISSUE_GUIDELINES.md).
 
 ## Nesting Hyprland
 
