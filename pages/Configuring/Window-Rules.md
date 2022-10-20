@@ -68,6 +68,8 @@ Keep in mind you do *not* need to define all of them, but you need to define at 
 | rounding \[x\] | forces the application to have X pixels of rounding, ignoring the set default (in `decoration:rounding`). Has to be an int. |
 | noblur | disables blur for the window |
 | nofocus | disables focus to the window |
+| noborder | disables borders for the window |
+| noshadow | disables shadows for the window |
 | forceinput | forces an XWayland window to receive input, even if it requests not to do so. (Might fix issues like e.g. Game Launchers not receiving focus for some reason) |
 | pin | pins the window *note: floating only* |
 | noanim | disables the animations for the window |
