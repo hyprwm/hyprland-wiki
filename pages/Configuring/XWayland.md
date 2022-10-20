@@ -39,7 +39,6 @@ and [Pacman patching](https://wiki.archlinux.org/title/Patching_packages).
         export XCURSOR_SIZE=32
         ```
 
-        {{< hint >}}
-
-    The GDK_SCALE variable won't conflict with wayland-native GTK programs.
-    {{< /hint >}}
+{{< hint >}}
+The GDK_SCALE variable won't conflict with wayland-native GTK programs.
+{{< /hint >}}
