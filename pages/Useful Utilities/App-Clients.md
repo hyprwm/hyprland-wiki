@@ -19,7 +19,7 @@ preferred over the GUI client if windowrules are a dealbreaker for you.
 
 Some users have also reported [installing spotifywm](https://github.com/amurzeau/spotifywm) has resolved
 the issue. The original repository by [`dasJ`](https://github.com/dasJ/spotifywm) is no longer working because of some changes made in the newer
-Spotify version , and until the pull request gets merged, [`amurzeau`](https://github.com/amurzeau/spotifywm)'s fork does the job.
+Spotify version, and until the pull request gets merged, [`amurzeau's fork`](https://github.com/amurzeau/spotifywm) does the job.
 
 After following the installation paragraph on the README, start Spotify with:
 ```bash
