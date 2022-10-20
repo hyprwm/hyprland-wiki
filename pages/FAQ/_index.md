@@ -298,3 +298,11 @@ Optimization options:
 `misc:no_vfr = false`
 
 *possibly* `misc:disable_autoreload = true`
+
+### Telegram appears stretched after viewing a picture or video!
+
+Add
+```ini
+windowrulev2=float,class:^(org.telegram.desktop|telegramdesktop)$,title:^(Media viewer)$
+```
+to your hyprland.conf
