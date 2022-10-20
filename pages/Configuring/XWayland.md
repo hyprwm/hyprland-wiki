@@ -28,17 +28,17 @@ and [Pacman patching](https://wiki.archlinux.org/title/Patching_packages).
 
 3. Add this line to your configuration:
 
-        ```ini
-        exec-once=xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
-        ```
+    ```ini
+    exec-once=xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
+    ```
 
-        and configure toolkits to scale using their specific mechanisms, such as
+    and configure toolkits to scale using their specific mechanisms, such as
 
-        ```sh
-        export GDK_SCALE=2
-        export XCURSOR_SIZE=32
-        ```
+    ```sh
+    export GDK_SCALE=2
+    export XCURSOR_SIZE=32
+    ```
 
-{{< hint >}}
-The GDK_SCALE variable won't conflict with wayland-native GTK programs.
-{{< /hint >}}
+    {{< hint >}}
+    The GDK_SCALE variable won't conflict with wayland-native GTK programs.
+    {{< /hint >}}

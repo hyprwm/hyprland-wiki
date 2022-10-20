@@ -1,4 +1,6 @@
-{< toc format=html >}}
+## Table of Contents
+
+{{< toc format=html >}}
 
 ## Nothing renders / screen is empty / crash on opening first app
 
