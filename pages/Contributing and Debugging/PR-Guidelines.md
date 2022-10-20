@@ -1,6 +1,4 @@
-# Pull Request Guidelines
-
-## PR Requirements
+# PR Requirements
 
 - Clean, not hacky code
 - Described changes and _why_ they were there

@@ -1,6 +1,4 @@
-# Frequently Asked Questions
-
-{{< toc format=html >}}
+{< toc format=html >}}
 
 ## Nothing renders / screen is empty / crash on opening first app
 

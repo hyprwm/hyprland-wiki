@@ -1,5 +1,3 @@
-# Keywords
-
 This page documents all of the more advanced config options.
 
 {{< hint type=important >}}

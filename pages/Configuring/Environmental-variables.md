@@ -1,6 +1,4 @@
-# Environment Variables
-
-We have [previously mentioned] using a wrapper to launch Hyprland. Whether you
+We have [previously mentioned](../Getting-Started/Quick-start/#wrapping-the-launcher-recommended) using a wrapper to launch Hyprland. Whether you
 start Hyprland through TTY or a Display Manager, it is recommended to use a wrapper.
 As such, you can pass certain environmental variables to improve Wayland compatibility, or
 simply change certain aspects of your desktop.

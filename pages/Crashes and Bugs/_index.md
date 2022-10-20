@@ -1,5 +1,3 @@
-# Crashes & Bugs
-
 ## Getting the log
 
 If you are in a TTY, and the hyprland session that crashed was the last one you

@@ -1,5 +1,3 @@
-# Dispatchers
-
 ## Table of contents
 
 {{< toc >}}

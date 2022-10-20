@@ -1,5 +1,3 @@
-# Variables
-
 For basic syntax info, see [Configuring Hyprland](../Configuring-Hyprland).
 
 This page documents all the "options" of Hyprland. For binds, monitors, animations,

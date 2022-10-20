@@ -1,5 +1,3 @@
-# Dwindle Layout
-
 Dwindle is a BSPWM-like layout, where every window on a workspace is a member
 of a binary tree.
 

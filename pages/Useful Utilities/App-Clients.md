@@ -1,5 +1,3 @@
-# Alternative App Clients
-
 Some clients are known for being a massive pain under Wayland. Here are great
 replacements for them:
 

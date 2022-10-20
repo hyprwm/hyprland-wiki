@@ -1,5 +1,3 @@
-# Screensharing on Hyprland
-
 Screensharing is done through PipeWire on Wayland.
 
 ## Prerequsities

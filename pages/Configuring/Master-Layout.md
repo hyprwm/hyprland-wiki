@@ -1,5 +1,3 @@
-# Master Layout
-
 The master layout makes one window be the "master", taking the left part of the
 screen, and tiles the rest on the right.
 

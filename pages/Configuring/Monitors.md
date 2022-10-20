@@ -1,5 +1,3 @@
-# Monitors
-
 ## Table of contents
 
 {{< toc format=html >}}

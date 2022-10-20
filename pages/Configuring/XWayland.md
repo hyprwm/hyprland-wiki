@@ -1,6 +1,4 @@
-# XWayland
-
-XWayland is the bridging mechanism between legacy Xorg programs and Wayland
+Wayland is the bridging mechanism between legacy Xorg programs and Wayland
 compositors.
 
 ## HiDPI XWayland

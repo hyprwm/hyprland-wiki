@@ -1,5 +1,3 @@
-# Expanding Functionality
-
 Hyprland exposes two powerful sockets for you to use.
 
 The first, socket1, can be fully controlled with `hyprctl`, see its usage

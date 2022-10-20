@@ -1,5 +1,3 @@
-# Quickstart
-
 After you have installed Hyprland, you can either launch it from a TTY with
 `Hyprland` or from a login manager. Although login managers aren't officially
 supported, I recommend `SDDM`, as it's been working flawlessly with wayland

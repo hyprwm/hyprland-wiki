@@ -1,5 +1,3 @@
-# Hyprland on NVIDIA GPUs
-
 ## Foreword
 
 There is no _official_ support for Nvidia. Unfortunately, their drivers are so
