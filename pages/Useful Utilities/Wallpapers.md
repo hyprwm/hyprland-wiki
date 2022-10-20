@@ -1,12 +1,12 @@
 Launch your wallpaper utility with `exec-once=`.
 
-## Hyprpaper
+## hyprpaper
 
 Straight from our oven, `hyprpaper` is a wallpaper utility from the Hypr
 Development team. See its usage and config by following the README on the
 [GitHub Page](https://github.com/hyprwm/hyprpaper).
 
-## Swaybg
+## swaybg
 
 Great utility if all you want is one simple static wallpaper that will never
 change, and don't want to make a config file. Get it
