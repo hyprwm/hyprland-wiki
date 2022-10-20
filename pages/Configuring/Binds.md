@@ -1,4 +1,3 @@
-# Binds
 
 ## Table of Contents
 
@@ -101,7 +100,7 @@ bind=SUPER,mouse_down,workspace,e-1
 
 Useful for binding e.g. the lid close/open event:
 
-```
+```ini
 bindl=,switch:[switch name],exec,swaylock
 ```
 
@@ -134,13 +133,13 @@ Example Usage:
 
 ```ini
 # Example volume button that allows press and hold
-binde=,XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+binde=, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 
 # Example volume button that will activate even while the input inhibitor is active
 bindl=, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 
-# Kill wofi when left super key is released
-bindr=, SUPER, SUPER_L, exec, pkill wofi 
+# Start wofi on hold and kill it on release
+bindr=, SUPER, SUPER_L, exec, pkill wofi || wofi
 
 # See Mouse Binds section for bindm usage
 ```
