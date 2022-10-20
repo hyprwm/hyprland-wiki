@@ -138,7 +138,7 @@ binde=, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 bindl=, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 
 # Start wofi on hold and kill it on release
-bindr=, SUPER, SUPER_L, exec, pkill wofi || wofi
+bindr=SUPER,SUPER_L,exec,pkill wofi || wofi
 
 # See Mouse Binds section for bindm usage
 ```
