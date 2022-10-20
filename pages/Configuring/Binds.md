@@ -134,7 +134,7 @@ Example Usage:
 # Example volume button that allows press and hold
 binde=, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 
-# Example volume button that will activate even while the input inhibitor is active
+# Example volume button that will activate even while an input inhibitor is active
 bindl=, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 
 # Start wofi on hold and kill it on release
