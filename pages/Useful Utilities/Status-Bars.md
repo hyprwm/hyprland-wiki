@@ -50,8 +50,8 @@ your module this way:
 ## Clicking on workspace doesn't work!
 
 On the `wlr/workspaces` module, add `"on-click": "activate"`. That's the purpose of
-the `sed` command we had to apply before building: the default way to select a
-workspace by clicking uses the `swaymsg`'s way, furthermore it is required to edit
+the `sed` command used before building: the default way to select a workspace by 
+clicking uses the `swaymsg`'s way, furthermore it is required to edit
 this function to make it work with `hyprctl`.
 
 # Eww
@@ -64,8 +64,8 @@ by manually compiling. In the latter case, you can follow the
 ## Configuration
 
 After you've successfully installed Eww, you can move onto configuring it. There
-are a few examples listed in the [Readme](https://github.com/elkowar/eww). We
-highly recommend you also read through the
+are a few examples listed in the [Readme](https://github.com/elkowar/eww). It's also
+highly recommend to read through the
 [Configuration options](https://elkowar.github.io/eww/configuration.html).
 
 {{< hint type=important >}}

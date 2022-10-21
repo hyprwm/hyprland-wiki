@@ -63,7 +63,7 @@ bugs.
 When Hyprland crashes, use `coredumpctl` and then `coredumpctl info PID` to see
 the dump. See the instructions below for more info about `coredumpctl`.
 
-I also recommend the amazing command
+You can also use the amazing command
 
 ```sh
 watch -n 0.1 "cat /tmp/hypr/$(echo HYPRLAND_INSTANCE_SIGNATURE)/hyprland.log | grep -v \"arranged\" | tail -n 40"
@@ -83,8 +83,7 @@ Hyprland can run nested in a window. For that, make sure you did the following:
 - removed ALL `exec=` and `exec-once=` keywords from your debug config
   (`hyprlandd.conf`)
 - set a resolution and are not using `preferred`
-- made sure no keybinds overlap (I recommend using a different mod for your
-  keybinds altogether)
+- made sure no keybinds overlap (use a different mod for your keybinds altogether)
 
 Once you launch, the display will probably be completely garbled. To fix that,
 in the parent, do a `hyprctl clients` and note the size of the window. Make sure

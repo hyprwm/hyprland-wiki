@@ -191,12 +191,10 @@ including OBS, Discord, Firefox, etc.
 
 See the [`pass` dispatcher](./Dispatchers/#dispatchers) for keybinds.
 
-e.g.:
+Let's take OBS as example: the "Start/Stop Recording" keybind is set to 
+<key>SUPER</key> + <key>F10</key>, and you want to make it work globally.
 
-I've set the "Start/Stop Recording" keybind in OBS to <key>SUPER</key> +
-<key>F10</key>, and I want it to be global.
-
-Simple, add
+Simply, just add
 
 ```ini
 bind = SUPER,F10,pass,^(com\.obsproject\.Studio)$
@@ -256,7 +254,7 @@ submap=reset
 this case, `escape`)
 
 If you get stuck inside a keymap, you can use `hyprctl dispatch submap reset` to
-go back. If you do not have a terminal open, tough luck buddy. I warned you.
+go back. If you do not have a terminal open, tough luck buddy. You have been warned.
 
 You can also set the same keybind to perform multiple actions, such as resize
 and close the submap, like so:

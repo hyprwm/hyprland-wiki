@@ -31,9 +31,10 @@ submap=reset
 
 ## Window Dancing
 
-Some XWayland games like Rhythm Doctor and Friday Night Funkin' mods like to move the windows by themselves, but that often doesn't work by default.
+Some XWayland games like Rhythm Doctor and Friday Night Funkin' mods like to move 
+the windows by themselves, but that often doesn't work by default.
 
-To configure this, I'll be using Rhythm Doctor as an example. 
+For example, if you want to configure Rhythm Doctor, you'd have to:
 
 1. Set input rules
 ```ini

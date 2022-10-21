@@ -1,7 +1,7 @@
-We have [previously mentioned](../Getting-Started/Quick-start/#wrapping-the-launcher-recommended) using a wrapper to launch Hyprland. Whether you
-start Hyprland through TTY or a Display Manager, it is recommended to use a wrapper.
-As such, you can pass certain environment variables to improve Wayland compatibility, or
-simply change certain aspects of your desktop.
+As  [previously mentioned](../Getting-Started/Quick-start/#wrapping-the-launcher-recommended), it's 
+useful using a wrapper to launch Hyprland. Whether you start Hyprland through TTY or a Display 
+Manager, it is always suggested to use one. As such, you can pass certain environment 
+variables to improve Wayland compatibility, or simply change certain aspects of your desktop.
 
 Please avoid putting those environment variables in /etc/environment. That will cause all
 sessions (including Xorg ones) to pick up your wayland-specific environment on traditional

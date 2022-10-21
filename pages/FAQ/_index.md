@@ -28,8 +28,8 @@ variable.
 
 # My external monitor is blank / doesn't render / receives no signal (laptop)
 
-For Radeon graphics - unfortunately, it's a bug in wlroots, and I can't
-do much about it other than wait for the wlroots devs to fix it:
+For Radeon graphics - unfortunately, it's a bug in wlroots, and not much 
+can be done other than waiting for the wlroots devs to fix it:
 [https://gitlab.freedesktop.org/wlroots/wlroots/-/issues/3451](https://gitlab.freedesktop.org/wlroots/wlroots/-/issues/3451)
 
 For Nvidia graphics - unfortunately, it's a wlroots issue as well, most likely due to Nvidia's

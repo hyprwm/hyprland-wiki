@@ -1,6 +1,6 @@
-After you have installed Hyprland, you can either launch it from a TTY with
+wAfter you have installed Hyprland, you can either launch it from a TTY with
 `Hyprland` or from a login manager. Although login managers aren't officially
-supported, I recommend `SDDM`, as it's been working flawlessly with wayland
+supported, you might want to use `SDDM`, as it's been working flawlessly with wayland
 compositors.
 
 It is recommended you have `kitty` installed for terminal access, (example and
@@ -34,7 +34,7 @@ exec Hyprland
 ```
 
 You can add as many exported envvars as you need (Nvidia users might need a
-lot), but I recommend having _at least_ the shown two.
+lot), but it' recommended to have _at least_ the shown two.
 
 You should now launch Hyprland with `wrappedhl` instead of `Hyprland`. Make sure
 to copy your `.desktop` file in `/usr/share/wayland-sessions/` and edit it if you use a
@@ -54,7 +54,7 @@ the desktop file on updates. If you manually build Hyprland, consider using `sud
 Once you log in, you'll be greeted with a yellow warning that will give you some
 basic keybind info of your pregenerated config.
 
-I recommend you use the config provided in `examples/hyprland.conf` though.
+It's better to use the config provided in `examples/hyprland.conf` though.
 
 Paste it into `~/.config/hypr/hyprland.conf`
 
