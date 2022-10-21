@@ -81,6 +81,7 @@ you can use `hyprctl clients`.
 | noborder | disables borders for the window |
 | noshadow | disables shadows for the window |
 | forceinput | forces an XWayland window to receive input, even if it requests not to do so. (Might fix issues like e.g. Game Launchers not receiving focus for some reason) |
+| windowdance | forces an XWayland window to never refocus, used for games/applications like Rhythm Doctor |
 | pin | pins the window *note: floating only* |
 | noanim | disables the animations for the window |
 

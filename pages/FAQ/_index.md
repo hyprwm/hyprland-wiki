@@ -284,3 +284,6 @@ heavily advised to use `full` regardless of anything.
 * `misc:disable_autoreload = true` to stop Hyprland from reloading configuration
   file each time that it changes.
 
+# How to fix games with window dancing?
+
+Read [this trick](../Configuring/Uncommon-tips--tricks/#window-dancing).
