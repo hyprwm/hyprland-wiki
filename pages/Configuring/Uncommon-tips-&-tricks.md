@@ -55,4 +55,24 @@ windowrule=windowdance, rhythm doctor.exe
 
 Click the GIF below to see a full demo video
 
-[![Demo GIF](https://cdn.discordapp.com/attachments/810799100940255260/1032843745864986644/ezgif.com-gif-maker18.gif)](https://pool.jortage.com/voringme/misskey/565b9dfb-125f-4ea0-9257-b371cb4c7195.mp4)
+[![Demo GIF of Rhythm Doctor](https://cdn.discordapp.com/attachments/810799100940255260/1032843745864986644/ezgif.com-gif-maker18.gif)](https://pool.jortage.com/voringme/misskey/565b9dfb-125f-4ea0-9257-b371cb4c7195.mp4)
+
+## Shimeji
+
+To use Shimeji programs like [this](https://codeberg.org/thatonecalculator/spamton-linux-shimeji), set the following rules:
+
+```ini
+windowrule=float, com-group_finity-mascot-Main
+windowrule=noblur, com-group_finity-mascot-Main
+windowrule=nofocus, com-group_finity-mascot-Main
+windowrule=noshadow, com-group_finity-mascot-Main
+windowrule=noborder, com-group_finity-mascot-Main
+```
+
+{{< hint >}}
+
+The app indicator probably won't show, so you'll have to `killall -9 java` to kill them.
+
+{{< /hint >}}
+
+![Demo GIF of Spamton Shimeji](https://media.discordapp.net/attachments/810799100940255260/1032846469855727656/ezgif.com-gif-maker19.gif)
