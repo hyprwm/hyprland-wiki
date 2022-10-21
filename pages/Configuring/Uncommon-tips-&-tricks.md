@@ -48,9 +48,11 @@ input {
 
 ```ini
 windowrule=windowdance, rhythm doctor.exe
+# windowrule=forceinput, rhythm doctor.exe # May also be needed
 ```
 
 3. Have fun!
 
-Demo video: https://pool.jortage.com/voringme/misskey/565b9dfb-125f-4ea0-9257-b371cb4c7195.mp4
+Click the GIF below to see a full demo video
 
+[![Demo GIF](https://cdn.discordapp.com/attachments/810799100940255260/1032843745864986644/ezgif.com-gif-maker18.gif)](https://pool.jortage.com/voringme/misskey/565b9dfb-125f-4ea0-9257-b371cb4c7195.mp4)
