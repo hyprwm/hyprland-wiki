@@ -76,7 +76,7 @@ carefully before asking why your bar doesn't work.
 
 # Hybrid
 
-Like Waybar, Hybrid is a GTK status bar mainly focused for wlroots compositors.
+Like Waybar, [Hybrid](https://github.com/vars1ty/HybridBar) is a GTK status bar mainly focused for wlroots compositors.
 
 You can install it from the AUR by the name `hybrid-bar-git`, do note though that
 it builds the bar from source, so it may take a few minutes.
