@@ -52,5 +52,5 @@ windowrule=windowdance, rhythm doctor.exe
 
 3. Have fun!
 
-![Demo](https://pool.jortage.com/voringme/misskey/565b9dfb-125f-4ea0-9257-b371cb4c7195.mp4)
+Demo video: https://pool.jortage.com/voringme/misskey/565b9dfb-125f-4ea0-9257-b371cb4c7195.mp4
 

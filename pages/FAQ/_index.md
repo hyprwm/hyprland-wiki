@@ -298,3 +298,7 @@ Optimization options:
 `misc:no_vfr = false`
 
 *possibly* `misc:disable_autoreload = true`
+
+### How to fix games with window dancing?
+
+Read [this trick](../Configuring/Uncommon-tips--tricks/#window-dancing).
