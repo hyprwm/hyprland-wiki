@@ -137,7 +137,7 @@ binde=, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 # Example volume button that will activate even while an input inhibitor is active
 bindl=, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 
-# Start wofi on hold and kill it on release
+# Start wofi opens wofi on first press, closes it on second
 bindr=SUPER, SUPER_L, exec, pkill wofi || wofi
 
 # See Mouse Binds section for bindm usage
