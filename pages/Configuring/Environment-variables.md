@@ -19,7 +19,7 @@ set those for you, however it is a good idea to provide them in your wrapper scr
 # QT Variables
 
 - `QT_AUTO_SCREEN_SCALE_FACTOR=1` - [(From the QT documentation)](https://doc.qt.io/qt-5/highdpi.html)
-  enables automatic scaling, based on the monitor's pixel density
+enables automatic scaling, based on the monitor's pixel density
 - `QT_QPA_PLATFORM="wayland;xcb"` - Tell QT applications to use the Wayland backend, and fall back to x11 if Wayland is unavailable
 - `QT_WAYLAND_DISABLE_WINDOWDECORATION=1` - Disables window decorations on QT applications
 - `QT_QPA_PLATFORMTHEME=qt5ct` - Tells QT based applications to pick your theme from qt5ct, use with Kvantum.

@@ -27,7 +27,7 @@ Spotify version, and until the pull request gets merged, [`amurzeau's fork`](htt
 After following the installation paragraph on the README, start Spotify with:
 
 ```bash
-LD_PRELOADER=/path/to/spotifywm.so spotify
+LD_PRELOAD=/path/to/spotifywm.so spotify
 ```
 
 The path **MUST** be the absolute one. If it's not, the hack will not work.
@@ -38,7 +38,6 @@ window. Example:
 ```ini
 windowrulev2 = tile, class:^(Spotify)$
 windowrulev2 = workspace 9, class:^(Spotify)$
-
 ```
 
 Pick your poison. 
