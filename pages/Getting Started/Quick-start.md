@@ -12,6 +12,17 @@ If you have an Nvidia card, please also take a look at
 wrapper, as described in the section below, then follow the instructions from
 the Nvidia page, and then continue on with sections below.
 
+{{< hint type=important >}}
+Running Hyprland in a VM is **_unsupported_**. VMs employ a bunch of tactics that
+mess with Hyprland, on top of the fact that they do _not_ provide a GPU.
+
+If running Hyprland via `WLR_RENDERER_ALLOW_SOFTWARE=1 Hyprland` does not work,
+you are out of luck. Try installing it on a real machine.
+
+Although it's 100% possible to use Hyprland in a VM, if it's not launching it's 99.9%
+of the times your fault. Please also keep in mind software rendering is _REALLY_ slow.
+{{</ hint >}}
+
 # Wrapping the launcher (recommended)
 
 With Xorg, you get the `.xinitrc`. With Hyprland, you can create your own...

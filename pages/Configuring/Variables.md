@@ -226,6 +226,7 @@ Described [here](../Keywords#per-device-input-configs).
 | disable_autoreload | If true, the config will not reload automatically on save, and instead needs to be reloaded with `hyprctl reload`. Might save on battery. | bool | false |
 | enable_swallow | Enable window swallowing | bool | false |
 | swallow_regex | The *class* regex to be used for windows that should be swallowed (usually, a terminal) | str | \[EMPTY\] |
+| focus_on_activate | Whether Hyprland should focus an app that requests to be focused (an `activate` request) | bool | true |
 
 # Binds
 
