@@ -45,7 +45,7 @@ exec Hyprland
 ```
 
 You can add as many exported envvars as you need (Nvidia users might need a
-lot), but it' recommended to have _at least_ the shown two.
+lot), but it's recommended to have _at least_ the shown two.
 
 You should now launch Hyprland with `wrappedhl` instead of `Hyprland`. Make sure
 to copy your `.desktop` file in `/usr/share/wayland-sessions/` and edit it if you use a
