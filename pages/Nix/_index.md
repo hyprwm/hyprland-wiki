@@ -13,8 +13,8 @@ work as intended. Please use the
 Make sure to check out the options of the
 [Nix module](https://github.com/hyprwm/Hyprland/blob/main/nix/module.nix).
 
-Do note that the Nixpkgs Hyprland package is not actively maintained, and may be outdated
-Installation using the Flake is recommended.
+Do note that the Nixpkgs Hyprland package is not actively maintained, and may be outdated.
+As such, installation using the Flake is recommended.
 
 ## With flakes
 

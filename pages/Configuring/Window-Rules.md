@@ -51,14 +51,13 @@ Keep in mind that you _have_ to declare at least one field, but not all.
 
 {{< hint type=tip >}}
 
-To get more information about a window's class, title, XWayland status or its size;
+To get more information about a window's class, title, XWayland status or its size,
 you can use `hyprctl clients`.
 
 {{< /hint >}}
 
 ## Rules
 
-=======
 | Rule | Description |
 | ---- | ----------- | 
 | float | floats a window |

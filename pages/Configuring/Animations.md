@@ -21,7 +21,7 @@ animation=NAME,ONOFF,SPEED,CURVE
 `STYLE` (optional) is the animation style
 
 The animations are a tree. If an animation is unset, it will inherit its
-parent's values. See [animation tree](#animation-tree).
+parent's values. See [the animation tree](#animation-tree).
 
 ## Examples
 

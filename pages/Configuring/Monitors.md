@@ -67,7 +67,7 @@ For more specific rules, you can also use the output's description
 monitor=desc:SDC 0x4154 (eDP-1),preferred,auto,1.5
 ```
 
-# Disabling a monitor
+## Disabling a monitor
 
 To disable a monitor, use
 

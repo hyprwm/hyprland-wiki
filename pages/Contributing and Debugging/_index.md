@@ -73,7 +73,7 @@ for live logs. (replace `hyprland` with `hyprlandd` for debug builds)
 
 ### How do I get a coredump?
 
-See [`ISSUIE_GUIDELINES.md`](https://github.com/hyprwm/Hyprland/blob/main/docs/ISSUE_GUIDELINES.md).
+See [`ISSUE_GUIDELINES.md`](https://github.com/hyprwm/Hyprland/blob/main/docs/ISSUE_GUIDELINES.md).
 
 ## Nesting Hyprland
 

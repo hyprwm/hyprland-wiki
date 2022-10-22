@@ -13,12 +13,11 @@ While it does infringe on Discord's ToS, it's relatively safe and doesn't rely o
 
 # Spotify
 
-It has been reported that Spotify does not follow window rules. This is possibly
-because the client sets is class _after_ the window has opened, thus making it "immune"
-to windowrules. An alternative to Spotify's GUI client is
-[spotify-tui](https://github.com/Rigellute/spotify-tui) which can be launched in a terminal
-with a custom class. While limited in functionality, it is quite powerful and could be
-preferred over the GUI client if windowrules are a dealbreaker for you.
+Spotify does not follow window rules. This is because the client sets is class _after_
+the window has opened, thus making it "immune" to windowrules. An alternative to
+Spotify's GUI client is [spotify-tui](https://github.com/Rigellute/spotify-tui) which can be
+launched in a terminal with a custom class. While limited in functionality, it is quite
+powerful and could be preferred over the GUI client.
 
 Some users have also reported [installing spotifywm](https://github.com/amurzeau/spotifywm) has resolved
 the issue. The original repository by [`dasJ`](https://github.com/dasJ/spotifywm) is no longer working because of some changes made in the newer
@@ -33,7 +32,7 @@ LD_PRELOAD=/path/to/spotifywm.so spotify
 The path **MUST** be the absolute one. If it's not, the hack will not work.
 
 Now you can freely manage your Spotify client. Always use `class` to manage the 
-window. Example:
+window. For example:
 
 ```ini
 windowrulev2 = tile, class:^(Spotify)$

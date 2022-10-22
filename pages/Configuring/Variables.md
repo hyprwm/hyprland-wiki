@@ -104,9 +104,9 @@ Using `blur_new_optimizations` with an animated wallpaper may actually increase 
 
 # Animations
 
-| name    | description       | type | default |
-| ------- | ----------------- | ---- | ------- |
-| enabled | enable animations | bool | true    |
+| name | description | type | default |
+|---|---|---|---|---|
+| enabled | enable animations | bool | true |
 
 {{< hint type=info >}}
 
@@ -137,7 +137,6 @@ _[More about Animations](../Animations)._
 | left_handed | switches RMB and LMB | bool | false |
 | accel_profile | set the libinput acceleration profile. Can be one of `adaptive`, `flat`. | str | \[EMPTY\]
 | scroll_method | set the libinput scroll method. Can be one of `2fg` (2 fingers), `edge`, `on_button_down`, `no_scroll`. | str | \[EMPTY\]
-
 
 {{< hint type=info >}}
 

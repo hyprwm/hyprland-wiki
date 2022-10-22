@@ -3,7 +3,7 @@ compositors.
 
 # HiDPI XWayland
 
-Currently XWayland on HiDPI screens looks pixelated/blurry, due to Xorg's
+Currently, XWayland on HiDPI screens looks pixelated/blurry, due to Xorg's
 inability to scale.
 There are attempts to add a standard scaling mechanism, such as [MR 733](https://gitlab.freedesktop.org/xorg/xserver/-/merge_requests/733).
 

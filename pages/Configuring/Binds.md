@@ -122,7 +122,7 @@ bindrl=MOD,KEY,exec,amongus
 Flags:
 
 ```ini
-l -> locked, aka. works also when an input inhibitor is active
+l -> locked, aka. works also when an an input inhibitor (e.g. a lockscreen) is active
 r -> release, will trigger on release of a key
 e -> repeat, will repeat when held.
 m -> mouse, see below
@@ -191,10 +191,10 @@ including OBS, Discord, Firefox, etc.
 
 See the [`pass` dispatcher](./Dispatchers/#dispatchers) for keybinds.
 
-Let's take OBS as example: the "Start/Stop Recording" keybind is set to 
+Let's take OBS as an example: the "Start/Stop Recording" keybind is set to 
 <key>SUPER</key> + <key>F10</key>, and you want to make it work globally.
 
-Simply, just add
+Simply add
 
 ```ini
 bind = SUPER,F10,pass,^(com\.obsproject\.Studio)$

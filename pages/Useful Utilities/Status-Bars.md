@@ -17,8 +17,8 @@ meson configure -Dexperimental=true build
 sudo ninja -C build install
 ```
 
-If you want to use the workspaces module, first, copy the configuration files from 
-`/etc/xdg/waybar/` into `~/.config/waybar/`. Then, in `~/.config/waybar/conf/` replace 
+If you want to use the workspaces module, first, copy the configuration files from
+`/etc/xdg/waybar/` into `~/.config/waybar/`. Then, in `~/.config/waybar/conf/` replace
 all the references to `sway/workspaces/` with `wlr/workspaces`.
 
 For more info regarding configuration, see
@@ -26,18 +26,19 @@ For more info regarding configuration, see
 
 ## Waybar popups render behind the windows
 
-In `~/.config/waybar/config`, make sure that you have the `layer` configuration 
+In `~/.config/waybar/config`, make sure that you have the `layer` configuration
 set to `top` and not `bottom`.
 
 ## Active workspace doesn't show up
 
 Replace `#workspaces button.focus` with `#wroskapces button.active` in `~/.config/style.css`.
 
-## Scroll through workspaces
+## Scrolling through workspaces
 
-Since there are a lot of configurations from `sway/workspaces` missing, you
-should deduce some of them by yourself. In the case of scrolling, configure
-your module this way:
+Since there a lot of configuration options from `sway/workspaces` are missing, you
+should deduce some of them by yourself. In the case of scrolling, it should look like this:
+
+```json
 
 ```json
 "wlr/workspaces": {
@@ -47,11 +48,11 @@ your module this way:
 },
 ```
 
-## Clicking on workspace doesn't work!
+## Clicking on a workspace icon does not work!
 
 On the `wlr/workspaces` module, add `"on-click": "activate"`. That's the purpose of
-the `sed` command used before building: the default way to select a workspace by 
-clicking uses the `swaymsg`'s way, furthermore it is required to edit
+the `sed` command used before building Waybar: the default way to select a workspace by 
+clicking uses the `swaymsg`'s way, and thus it is required to edit
 this function to make it work with `hyprctl`.
 
 # Eww
@@ -65,7 +66,7 @@ by manually compiling. In the latter case, you can follow the
 
 After you've successfully installed Eww, you can move onto configuring it. There
 are a few examples listed in the [Readme](https://github.com/elkowar/eww). It's also
-highly recommend to read through the
+highly recommended to read through the
 [Configuration options](https://elkowar.github.io/eww/configuration.html).
 
 {{< hint type=important >}}

@@ -111,8 +111,8 @@ Use a tool like for example `lxappearance` to change the GTK cursor.
 After that, add `exec-once=hyprctl setcursor [THEME] [SIZE]` to your config and
 restart Hyprland.
 
-About QT applications, instead, Hyprland automatically exports `XCURSOR_SIZE`, 24 
-being the default. You may export a different value in your wrapper to change it.
+For QT applications, Hyprland exports XCURSOR_SIZE as 24, which is the default. 
+You can overwrite this by exporting XCURSOR_SIZE to a different value in your wrapper.
 
 Alternatively, change the config files manually according to the
 [XDG specification (Arch Wiki link)](https://wiki.archlinux.org/title/Cursor_themes#Configuration).
@@ -134,7 +134,7 @@ If it still doesn't work...
 Make sure you have a notification daemon running, for example `dunst`. Autostart
 it with the `exec-once` keyword.
 
-# Waybar no worky???
+# Waybar workspaces no worky???
 
 Waybar has a set of caveats or settings that you need to be aware of. See
 [Status bars](../Useful-Utilities/Status-Bars) for solutions.
