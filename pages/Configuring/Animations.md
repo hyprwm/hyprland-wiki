@@ -61,7 +61,7 @@ bezier=NAME,X0,Y0,X1,Y1
 where `NAME` is the name, and the rest are two points for the Cubic Bezier. A
 good website to design your bezier can be found
 [here, on cssportal.com](https://www.cssportal.com/css-cubic-bezier-generator/), but
-if you want to instead choose from a list of beizers, you can check out [easings.net](https://easings.net).
+if you want to instead choose from a list of beziers, you can check out [easings.net](https://easings.net).
 
 ## Example
 
