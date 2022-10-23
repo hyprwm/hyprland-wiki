@@ -23,7 +23,7 @@ Although it's 100% possible to use Hyprland in a VM, if it's not launching it's 
 of the times your fault. Please also keep in mind software rendering is _REALLY_ slow.
 {{</ hint >}}
 
-## Wrapping the launcher (recommended)
+# Wrapping the launcher (recommended)
 
 With Xorg, you get the `.xinitrc`. With Hyprland, you can create your own...
 kind of.
