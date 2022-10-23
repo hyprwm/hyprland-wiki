@@ -1,43 +1,45 @@
-## Table of contents
+# Table of contents
+
 {{< toc >}}
 
-## Window Rules V1
+# Window Rules V1
 
-You can set window rules for various actions. These are applied on window open!
+You can set window rules to achieve different behaviours from the active container.
+
+## Syntax
 
 ```ini
 windowrule=RULE,WINDOW
 ```
 
-`RULE` is a rule (and a param if applicable)
+- `RULE` is a rule (and a param if applicable)
+- `WINDOW` is a RegEx, either:
+  - plain RegEx (for matching a window class);
+  - `title:` followed by a regex (for matching a window's title)
 
-`WINDOW` is a RegEx, either:
-
-- plain regex (for matching a window class)
-- `title:` followed by a regex (for matching a window's title)
-
-you can get both by inspecting `hyprctl clients`
-
-Examples:
+### Examples
 
 ```ini
 windowrule=float,^(kitty)$
 windowrule=move 0 0,title:^(Firefox)(.*)$
 ```
 
-## Window Rules V2
+# Window Rules V2
 
-In order to allow more flexible rules, while also not breaking compatibility with the above
-rule system, window rules v2 were implemented.
+In order to allow more flexible rules, while retaining compatibility with the above
+rule system, window rules V2 were implemented.
 
 In V2, you are allowed to match multiple variables.
 
-the `RULE` field is unchanged, but in the `WINDOW` field, you can put regexes for multiple values like so:
+the `RULE` field is unchanged, but in the `WINDOW` field, you can put regexes
+for multiple values like so:
+
 ```ini
 windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
 ```
 
 For now, the supported fields are:
+
 ```ini
 class - class regex
 title - title regex
@@ -45,7 +47,14 @@ xwayland - 0/1
 floating - 0/1
 ```
 
-Keep in mind you do *not* need to define all of them, but you need to define at least one.
+Keep in mind that you _have_ to declare at least one field, but not all.
+
+{{< hint type=tip >}}
+
+To get more information about a window's class, title, XWayland status or its size,
+you can use `hyprctl clients`.
+
+{{< /hint >}}
 
 ## Rules
 
@@ -75,20 +84,21 @@ Keep in mind you do *not* need to define all of them, but you need to define at 
 | pin | pins the window *note: floating only* |
 | noanim | disables the animations for the window |
 
-*Examples*:
+### Example Rules
+
 ```ini
 windowrule = move 100 100,^(kitty)$
 windowrule = animation popin,^(kitty)$
 windowrule = noblur,^(firefox)$
 ```
 
+### Notes
+
 {{< hint type=tip >}}
 
-Opacity is always a PRODUCT of all opacities. E.g. active_opacity to
+Opacity is _always_ a PRODUCT of all opacities. E.g. `active_opacity` to
 0.5 and windowrule opacity to 0.5 will result in a total opacity 0.25. You are
 allowed to set opacities over 1, but any opacity product over 1 will cause
-graphical glitches. E.g. 0.5 * 2 = 1, and it will be fine, 0.5 * 4 will cause
+graphical glitches. E.g. `0.5 * 2 = 1`, and it will be fine, `0.5 * 4` will cause
 graphical glitches.
-
 {{< /hint >}}
-

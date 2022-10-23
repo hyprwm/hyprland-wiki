@@ -1,6 +1,7 @@
-## Switchable keyboard layouts
+# Switchable keyboard layouts
 
 The easiest way to accomplish this is to set this using XKB settings, for example:
+
 ```
 input {
     kb_layout = us,pl
@@ -16,7 +17,7 @@ For example: `us,ua` -> config binds would be e.g. `SUPER, A`, while on `ua,us` 
 
 {{< /hint >}}
 
-## Disabling keybinds with one master keybind
+# Disabling keybinds with one master keybind
 
 If you want to disable all keybinds with another keybind (make a kaybind toggle
 of sorts) you can just use a submap with only a keybind to exit it.
@@ -28,11 +29,12 @@ bind=MOD,KEY,submap,reset
 submap=reset
 ```
 
-## Window Dancing
+# Window Dancing
 
-Some XWayland games like Rhythm Doctor and Friday Night Funkin' mods like to move the windows by themselves, but that often doesn't work by default.
+Some XWayland games like Rhythm Doctor and Friday Night Funkin' mods like to move 
+the windows by themselves, but that often doesn't work by default.
 
-To configure this, I'll be using Rhythm Doctor as an example. 
+For example, if you want to configure Rhythm Doctor, you'd have to:
 
 1. Set input rules
 ```ini
@@ -40,7 +42,6 @@ input {
 	# ...
 	follow_mouse=0
 	float_switch_override_focus=0
-	
 }
 ```
 

@@ -1,7 +1,8 @@
-　
+# Table of Contents
+
 {{< toc format=html >}}
 
-### Nothing renders / screen is empty / crash on opening first app
+# Nothing renders / screen is empty / crash on opening first app
 
 Possible causes:
 
@@ -10,120 +11,108 @@ Possible causes:
 Use something like `qt5ct` (QT) and `lxappearance` (GTK) (\*for GTK you can also
 set up themes with envvars) to set up your themes.
 
-> Your PC is very, very old.
+> Your PC is very, _very_ old.
 
 In that case, see the
 [Installation Page](../../Getting-Started/Installation) and
 try compiling with LEGACY_RENDERER
 
-*For more info about bugs and crashes, see this*
-*[wiki page](../../Crashes-and-Bugs)*
+_For more info about bugs and crashes, see this_
+_[wiki page](../../Crashes-and-Bugs)_
 
-### Me cursor no render?
+# Me cursor no render?
 
 Are you on NVIDIA? If so, then you have been a naughty boy and haven't listened
 to my tips on other pages. Use the `WLR_NO_HARDWARE_CURSORS=1` environment
 variable.
 
-### My external monitor is blank / doesn't render / receives no signal (laptop)
+# My external monitor is blank / doesn't render / receives no signal (laptop)
 
-For Radeon graphics - unfortunately, it's a bug in wlroots, and I can't
-do much about it other than wait for the wlroots devs to fix it:
+For Radeon graphics - unfortunately, it's a bug in wlroots, and not much 
+can be done other than waiting for the wlroots devs to fix it:
 [https://gitlab.freedesktop.org/wlroots/wlroots/-/issues/3451](https://gitlab.freedesktop.org/wlroots/wlroots/-/issues/3451)
 
 For Nvidia graphics - unfortunately, it's a wlroots issue as well, most likely due to Nvidia's
 lack of support and proprietary drivers.
 
-There is a way to fix it that *might* work for you though:
+There is a way to fix it that _might_ work for you though:
 
-**Option 1:** Use *only* the external monitor
+**Option 1:** Use _only_ the external monitor
 
 By using `WLR_DRM_DEVICES=/dev/dri/card1` (or `card0`) you can force Hyprland to use only your dGPU,
 meaning your laptop's screen will be gone but your external one will work.
 
 **Option 2:** Use all outputs, at the cost of battery life.
 
-By switching your laptop to only use the dGPU in the BIOS, you *might* be able to get everything to work,
+By switching your laptop to only use the dGPU in the BIOS, you _might_ be able to get everything to work,
 at the cost of high battery usage.
 
-*Please note these are highly model-specific and might or might not work. If they don't, you're unfortunately out of luck.*
+_Please note these are highly model-specific and might or might not work. If they don't, you're unfortunately out of luck._
 
 You might try a USB-C to hdmi adapter though, maybe that could route the external monitor through the iGPU.
 
-### How do I screenshot?
+# How do I screenshot?
 
-Install `grim-git` and `slurp`
+Install `grim` and `slurp`
 
-Use a keybind (or execute) `grim -g $(slurp)`, select a region. A screenshot
+Use a keybind (or execute) `grim -g "$(slurp)"`, select a region. A screenshot
 will pop into your `~/Pictures/` (You can configure grim and slurp, see their
 GitHub pages).
 
-For a more complete utility, try our own
+For a more complete utility, try our own screenshotting utility:
 [Grimblast](https://github.com/hyprwm/contrib).
 
-### Screenshare / OBS no worky!
+For recording videos, wf-recorder or OBS Studio could be used.
+
+# Screenshare / OBS no worky
 
 Check [Screensharing](../Useful-Utilities/Screen-Sharing).
 
-### How do I change my wallpaper?
+# How do I change my wallpaper?
 
 See [Wallpapers](../Useful-Utilities/Wallpapers).
 
-### My workspace (2, 3, or any other) is like... bugged?
-
-You did the below, unknowingly.
-
-### My games work poorly, especially proton ones!
+# My games work poorly, especially proton ones
 
 Use `gamescope`, tends to fix any and all issues with wayland/Hyprland.
 
-### How heavy is this?
+# How heavy is this?
 
 Not that much heavier than Xorg. If you want maximum performance, consider
 turning off the blur and animations.
 
-### Blur makes my GPU cry :(
-
-You probably forgot to turn on `decoration:blur_new_optimizations`. Thank me
-later.
-
-### My monitor no worky!
+# My monitor no worky
 
 Try changing the mode in your config. If your preferred one doesn't work, try a
 lower one. A good way to list all modes is to get `wlr-randr` and do a
 `wlr-randr --dryrun`
 
-### How do I get a coredump?
+# How do I update?
 
-*These instructions are ONLY for systemd. If you use anything else, you should
-know what you're doing.*
+Open a terminal where you cloned the repo.
+```bash
+git pull 
+sudo make clear 
+sudo make cleaninstall
+```
 
-Launch `coredumpctl` in a terminal. Press <key>END</key> on the keyboard to go
-to the end. Note the **last** (the one furthest to the bottom) crash that has
-`/usr/bin/Hyprland` as an executable. Remember the PID of it (the first number
-after the date in a given line) exit (<key>Ctrl</key>+<key>C</key>) type
-`coredumpctl info PID` where `PID` is the remembered PID. Send the entire thing
-as a file.
+If you are using the AUR (hyprland-git) package, you
+will need to cleanbuild to update the package. Paru
+has been problematic with updating before, use Yay.
 
-### How do I update?
-
-open a terminal where you cloned the repo.
-`git pull && sudo make clear && sudo make install`
-
-### Waybar popups render behind the windows??
-
-You have misconfigured Waybar. Make sure the `layer` in the waybar config is set to `top`, and not `bottom`.
-
-### How do I screen lock?
+# How do I screen lock?
 
 Use a wayland-compatible locking utility using WLR protocols, e.g. `swaylock`.
 
-### How do I change me mouse cursor?
+# How do I change me mouse cursor?
 
 Use a tool like for example `lxappearance` to change the GTK cursor.
 
 After that, add `exec-once=hyprctl setcursor [THEME] [SIZE]` to your config and
 restart Hyprland.
+
+For QT applications, Hyprland exports XCURSOR_SIZE as 24, which is the default. 
+You can overwrite this by exporting XCURSOR_SIZE to a different value in your wrapper.
 
 Alternatively, change the config files manually according to the
 [XDG specification (Arch Wiki link)](https://wiki.archlinux.org/title/Cursor_themes#Configuration).
@@ -136,24 +125,21 @@ all good!
 
 If it still doesn't work...
 
-### GTK Settings no work / whatever!
+# GTK Settings no work / whatever
 
 [https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland](https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland)
 
-### My \[program name\] is freezing!
+# My \[program name\] is freezing
 
 Make sure you have a notification daemon running, for example `dunst`. Autostart
 it with the `exec-once` keyword.
 
-### I want to use Waybar, but the workspaces don't work!
+# Waybar workspaces no worky???
 
-Check [Status bars](../Useful-Utilities/Status-Bars).
+Waybar has a set of caveats or settings that you need to be aware of. See
+[Status bars](../Useful-Utilities/Status-Bars) for solutions.
 
-### Waybar doesn't show the active workspace!
-
-Use the style for `#workspaces button.active`
-
-### How do I autostart my favorite apps?
+# How do I autostart my favorite apps?
 
 Using the window rules to assign apps to workspace you can setup a session start
 script to open a bunch of applications on various workspaces. The following
@@ -181,7 +167,7 @@ exec-once=cleanup_after_start.sh
 
 where `cleanup_after_start.sh` script contains:
 
-```sh
+```bash
 sleep 10
 hyprctl keyword windowrule "workspace unset,kitty"
 hyprctl keyword windowrule "workspace unset,Subl"
@@ -191,7 +177,7 @@ hyprctl keyword windowrule "workspace unset,firefox"
 
 in `sleep 10`, the 10 seconds is of course only a suggestion.
 
-### How do I move my favorite workspaces to a new monitor when I plug it in?
+# How do I move my favorite workspaces to a new monitor when I plug it in?
 
 if you want workspaces to automatically go to a monitor upon connection, use the
 following:
@@ -204,7 +190,7 @@ exec-once=handle_monitor_connect.sh
 
 where `handle_monitor_connect.sh` is: (example)
 
-```sh
+```bash
 #!/bin/sh
 
 function handle {
@@ -223,29 +209,32 @@ if you want workspaces 1 2 4 5 to go to monitor 1 when connecting it.
 
 Please note this requires `socat` to be installed.
 
-### My tablet no worky??
+# My tablet no worky??
 
 Use [Open Tablet Driver](https://github.com/OpenTabletDriver/OpenTabletDriver)
 to configure your tablet. In the future it will be supported in the config.
-Until then, OTD.
+Until then, OTD is the way to go.
 
-### Some of my apps take a really long time to open...?
+# Some of my apps take a really long time to open...?
 
-*~/.config/hypr/hyprland.conf*
+_~/.config/hypr/hyprland.conf_
 
 ```ini
 exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 ```
+
 and
+
 ```ini
 exec-once=systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 ```
 
-Make sure that your portals launch *after* this gets executed. For some people,
+Make sure that your portals launch _after_ this gets executed. For some people,
 they might launch before that has happened.
 
 In such cases, a script like this:
-```sh
+
+```bash
 #!/bin/bash
 sleep 4
 killall xdg-desktop-portal-wlr
@@ -254,19 +243,15 @@ killall xdg-desktop-portal
 sleep 4
 /usr/lib/xdg-desktop-portal &
 ```
+
 launched with `exec-once` should fix all issues. Adjust the sleep durations to taste.
 
-### My cursor in QT apps is too big!
-
-The QT cursor size can be fixed by setting the envvar `XCURSOR_SIZE=24`. You
-should probably add it to your exported envvars.
-
-### How do I export envvars for Hyprland?
+# How do I export envvars for Hyprland?
 
 As with any Display Server, Xorg included, you should probably make a script to
 launch it, for example:
 
-```ini
+```bash
 export AMONG_US=1
 exec Hyprland
 ```
@@ -274,31 +259,31 @@ exec Hyprland
 and launch that.
 
 For Display Manager users, you can replace the `exec` entry in
-the `.desktop` file to point to your script.
+the `.desktop` file to point to your script. You are recommended
+to use absolute paths, such as `/home/username/Script` instead of `~/Script`
 
-### I get random white flashes!
+# I get random white flashes
 
 Try disabling VFR with `misc:no_vfr=1`.
 
-### How do I make Hyprland draw as little power as possible on my laptop?
+# How do I make Hyprland draw as little power as possible on my laptop?
 
-I assume you already have `damage_tracking` on full. If you don't, do it. It's
+I assume you already have `damage_tracking` on full. If you don't, change it. It's
 heavily advised to use `full` regardless of anything.
 
-Optimization options:
+**_Useful Optimizations_**:
 
-*feel free to ignore any that you find causing issues*
+* `decoration:blur_new_optimizations = true`, to use new optimizations for
+   blurring.
 
-`decoration:blur_new_optimizations = true`
+* `decoration:blur = false` and `decoration:drop_shadow = false` to disable
+   fancy but battery hungry effects.
 
-`decoration:blur = false`
+* `misc:no_vfr = false`, since it'll lower the refresh rate when nothing is happening on-screen.
 
-`decoration:drop_shadow  = false`
+* `misc:disable_autoreload = true` to stop Hyprland from reloading configuration
+  file each time that it changes.
 
-`misc:no_vfr = false`
-
-*possibly* `misc:disable_autoreload = true`
-
-### How to fix games with window dancing?
+# How to fix games with window dancing?
 
 Read [this trick](../Configuring/Uncommon-tips--tricks/#window-dancing).

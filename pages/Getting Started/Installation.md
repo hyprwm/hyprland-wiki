@@ -5,14 +5,14 @@ Hyprland. If you want to try Hyprland on Nvidia regardless
 (many people have reported successes), follow the [Nvidia page](../../Nvidia)
 after installing Hyprland.
 
-### Distros
+## Distros
 
 Arch, NixOS and openSUSE Tumbleweed are very supported. For any other distro
 (not based on Arch/Nix) you might have varying amounts of success. However,
 since Hyprland is extremely bleeding-edge, distros like Pop!\_OS, Ubuntu, etc.
 might have **major** issues running Hyprland.
 
-# Installation
+## Installation
 
 Installing Hyprland is very easy. Either you install it from your local package
 provider (if they provide pkgs for Hyprland) or you install/build it yourself.
@@ -24,21 +24,20 @@ consider updating your packages with `yay -Syu --devel`, or your other preferred
 package manager.
 {{< /hint >}}
 
-## Packages
+### Packages
 
 **WARNING:** I do not maintain any packages. If they are broken, try building
 from source first.
 
 {{< tabs "uniqueid" >}}
 
-{{< tab "Arch Linux" >}} *If you're on Arch Linux, I* ***heavily*** *recommend
-you use the AUR.*
+{{< tab "Arch Linux" >}} _If you're on Arch Linux, I_ **_heavily_** _recommend
+you use the AUR._
 
 ```plain
 hyprland-git - compiles from latest source
 hyprland - compiles from latest release source
 hyprland-bin - compiled latest release, prone to breaking on ARM devices as Hyprland binary is compiled for x86
-
 ```
 
 {{< /tab >}}
@@ -56,7 +55,7 @@ opi hyprland
 Alternatively, you can also follow the instructions under ["Manual (Manual Build)"](#manual-manual-build)
 to build Hyprland yourself.
 
-Note: *Hyprland is not available for Leap, as most libraries (and compiler) that Hyprland needs are too old.*
+Note: _Hyprland is not available for Leap, as most libraries (and compiler) that Hyprland needs are too old._
 {{< /tab >}}
 {{< tab "Fedora" >}}<https://github.com/hyprwm/Hyprland/discussions/284>{{< /tab >}}
 {{< tab "Gentoo" >}}
@@ -71,7 +70,7 @@ emerge --ask --verbose hyprland
 
 {{< /tabs >}}
 
-## Manual (Releases)
+### Manual (Releases)
 
 Download the most recent release.
 
@@ -89,17 +88,17 @@ the example config is in `examples/Hyprland.conf`.
 For updating later on, you can overwrite the binaries (hyprctl, hyprland and
 libwlroots), you don't need to update anything else.
 
-## Manual (Manual Build)
+### Manual (Manual Build)
 
-*Arch dependencies*:
+_Arch dependencies_:
 
 ```plain
 yay -S gdb ninja gcc cmake libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite xorg-xinput libxrender pixman wayland-protocols cairo pango seatd
 ```
 
-(If any are missing hmu)
+_(If any are missing, hmu)_
 
-*openSUSE dependencies*:
+_openSUSE dependencies_:
 
 ```sh
 zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig(gbm)" "pkgconfig(gl)" "pkgconfig(glesv2)" "pkgconfig(libdrm)" "pkgconfig(libinput)" "pkgconfig(libseat)" "pkgconfig(libudev)" "pkgconfig(pango)" "pkgconfig(pangocairo)" "pkgconfig(pixman-1)" "pkgconfig(vulkan)" "pkgconfig(wayland-client)" "pkgconfig(wayland-protocols)" "pkgconfig(wayland-scanner)" "pkgconfig(wayland-server)" "pkgconfig(xcb)" "pkgconfig(xcb-icccm)" "pkgconfig(xcb-renderutil)" "pkgconfig(xkbcommon)" "pkgconfig(xwayland)" glslang-devel Mesa-libGLESv3-devel "pkgconfig(xcb-errors)"
@@ -119,13 +118,15 @@ that (`gcc>=12.1.0` or `clang>=15`)
 ```Plain
 git clone --recursive https://github.com/hyprwm/Hyprland
 cd Hyprland
-sudo make install 
+sudo make install
 ```
 
-Do note that `sudo make install` will copy the example .desktop file to `/usr/share/wayland-sessions/` directory,
-promptly overriding the existent .desktop file from previous installations.
+Do note that `sudo make install` will copy the example .desktop file to
+`/usr/share/wayland-sessions/` directory, promptly overriding the existent
+.desktop file from previous installations.
 
-It's probably a good idea to run `sudo make cleaninstall` to update Hyprland later on, as it does not overwrite the desktop file.
+It's probably a good idea to run `sudo make cleaninstall` to update Hyprland later on,
+as it will not overwrite the desktop file.
 
 ### Meson
 
@@ -152,7 +153,7 @@ for legacy renderer:
 sudo make clear && sudo make config && make legacyrenderer && sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
 ```
 
-*please note the legacy renderer may not support some graphical features.*
+_please note the legacy renderer may not support some graphical features._
 <br/><br/> Any other config: (replace \[PRESET\] with your preset, `release`
 `debug` `legacyrenderer` `legacyrendererdebug`)
 
@@ -205,7 +206,7 @@ Now, of course, install manually.
 sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
 ```
 
-# Launching
+## Launching
 
 You can launch Hyprland by either going into a TTY and executing `Hyprland`, or
 with a login manager.

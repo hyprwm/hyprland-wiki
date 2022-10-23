@@ -25,5 +25,5 @@ A neat mpv wrapper to play a video as your wallpaper.
 ## swww
 
 An efficient animated wallpaper daemon for wayland, controlled at runtime,
-which means you can change wallpapers without even needing to restart. 
+which means you can change wallpapers without even needing to restart.
 [GitHub](https://github.com/Horus645/swww)

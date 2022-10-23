@@ -1,8 +1,8 @@
+# Table of Contents
 
-## Table of contents
 {{< toc >}}
 
-## Basic
+# Basic
 
 ```ini
 bind=MODS,key,dispatcher,params
@@ -18,14 +18,16 @@ will bind opening firefox to <key>SUPER</key> + <key>SHIFT</key> + <key>Q</key>
 
 {{< hint type=tip >}}
 For binding keys without a modkey, leave it empty:
+
 ```ini
 bind=,Print,exec,grim
 ```
+
 {{< /hint >}}
 
-*For a complete mod list, see [Variables](../Variables/#variable-types).*
+_For a complete mod list, see [Variables](../Variables/#variable-types)._
 
-*The dispatcher list can be found in [Dispatchers](../Dispatchers).*
+_The dispatcher list can be found in [Dispatchers](../Dispatchers)._
 
 ## Uncommon syms / binding with a keycode
 
@@ -47,9 +49,10 @@ bind=SUPER,28,exec,amongus
 Will bind <key>SUPER</key> + <key>T</key>. (<key>T</key> is keycode 28.) - You
 can also use `xev` or `wev` to find keycodes.
 
-## Misc
+# Misc
 
-### Unbind
+## Unbind
+
 You can also unbind with `unbind`, e.g.:
 
 ```ini
@@ -58,7 +61,12 @@ unbind=SUPER,O
 
 May be useful for dynamic keybindings with `hyprctl`.
 
-### Mouse buttons
+```sh
+hyprctl keyword unbind SUPER,O
+```
+
+## Mouse buttons
+
 You can also bind mouse buttons, by prefacing the mouse keycode with `mouse:`,
 for example:
 
@@ -68,7 +76,8 @@ bind=SUPER,mouse:272,exec,amongus
 
 will bind it to <key>SUPER</key> + <key>LMB</key>.
 
-### Only modkeys
+## Only modkeys
+
 For binding only modkeys, you need to use the TARGET modmask (with the
 activating mod) and the `r` flag, e.g.:
 
@@ -76,23 +85,29 @@ activating mod) and the `r` flag, e.g.:
 bindr=SUPERALT,Alt_L,exec,amongus
 ```
 
-### Mouse wheel
+## Mouse wheel
+
 You can also bind the mouse wheel with `mouse_up` and `mouse_down`:
+
 ```ini
 bind=SUPER,mouse_down,workspace,e-1
 ```
+
 (control the reset time with `binds:scroll_event_delay`)
 
-### Switches
+## Switches
+
 Useful for binding e.g. the lid close/open event:
-```
+
+```ini
 bindl=,switch:[switch name],exec,swaylock
 ```
+
 check out your switches in `hyprctl devices`.
 
-## Bind flags
+# Bind flags
 
-bind supports flags in this format:
+`bind` supports flags in this format:
 
 ```ini
 bind[flags]=...
@@ -104,47 +119,64 @@ e.g.:
 bindrl=MOD,KEY,exec,amongus
 ```
 
-flags:
+Flags:
 
 ```ini
-l -> locked, aka. works also when an input inhibitor is active
+l -> locked, aka. works also when an an input inhibitor (e.g. a lockscreen) is active
 r -> release, will trigger on release of a key
 e -> repeat, will repeat when held.
 m -> mouse, see below
 ```
 
-## Mouse Binds
+Example Usage:
+
+```ini
+# Example volume button that allows press and hold
+binde=, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+
+# Example volume button that will activate even while an input inhibitor is active
+bindl=, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+
+# Start wofi opens wofi on first press, closes it on second
+bindr=SUPER, SUPER_L, exec, pkill wofi || wofi
+
+# See Mouse Binds section for bindm usage
+```
+
+# Mouse Binds
+
 Mouse binds are binds that heavily rely on a mouse, usually its movement.
 They will have one less arg, and look for example like this:
 
-```
+```ini
 bindm=ALT,mouse:272,movewindow
 ```
 
 this will create a bind with <key>ALT</key> + <key>LMB</key> to move the window
 with your mouse.
 
-*Available mouse binds*:
+_Available mouse binds_:
 
 | Name | Description |
 | -----|------------ |
-| movewindow | moves the active window |
+| movewindow   | moves the active window   |
 | resizewindow | resizes the active window |
 
-*Common mouse buttons' codes:*
-```
+_Common mouse buttons' codes:_
+
+```txt
 LMB -> 272
 RMB -> 273
 ```
 
-*for more, you can of course use `wev` to check.*
+_for more, you can of course use `wev` to check._
 
 {{< hint type=tip >}}
 Mouse binds, despite their name, behave like normal binds. You are free to use
 whatever keys / mods you please. When held, the mouse function will be activated.
 {{< /hint >}}
 
-## Binding mods
+# Binding mods
 
 You can bind a mod alone like this:
 
@@ -152,21 +184,22 @@ You can bind a mod alone like this:
 bindr=ALT,Alt_L,exec,amongus
 ```
 
-## Global Keybinds
+# Global Keybinds
+
 Yes, you heard this right, Hyprland does support global keybinds for ALL apps,
 including OBS, Discord, Firefox, etc.
 
-See the `pass` dispatcher for keybinds.
+See the [`pass` dispatcher](./Dispatchers/#dispatchers) for keybinds.
 
-e.g.:
+Let's take OBS as an example: the "Start/Stop Recording" keybind is set to 
+<key>SUPER</key> + <key>F10</key>, and you want to make it work globally.
 
-I've set the "Start/Stop Recording" keybind in OBS to <key>SUPER</key> +
-<key>F10</key>, and I want it to be global.
+Simply add
 
-Simple, add
 ```ini
 bind = SUPER,F10,pass,^(com\.obsproject\.Studio)$
 ```
+
 to your config and you're done.
 
 `pass` will pass the PRESS and RELEASE events by itself, no need for a `bindr`.
@@ -184,12 +217,12 @@ keybind", otherwise passing from a different XWayland app may not work.
 
 It works flawlessly with all native Wayland applications though.
 
-*Side note*: **OBS** on Wayland really dislikes keybinds with modifiers. If
+_Side note_: **OBS** on Wayland really dislikes keybinds with modifiers. If
 they don't work, try removing mods and binding them to e.g. <key>F1</key>.
 Combining this with a submap should yield neat and usable results.
 {{< /hint >}}
 
-## Submaps
+# Submaps
 
 If you want keybind submaps, for example if you press <key>ALT</key> +
 <key>R</key>, you can enter a "resize" mode, resize with arrow keys, and leave
@@ -221,7 +254,7 @@ submap=reset
 this case, `escape`)
 
 If you get stuck inside a keymap, you can use `hyprctl dispatch submap reset` to
-go back. If you do not have a terminal open, tough luck buddy. I warned you.
+go back. If you do not have a terminal open, tough luck buddy. You have been warned.
 
 You can also set the same keybind to perform multiple actions, such as resize
 and close the submap, like so:

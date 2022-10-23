@@ -1,10 +1,13 @@
-This page documents all of the more advanced config options.
+Keywords are not variables, but "commands" for more advanced configuring. On this
+page, you will be presented with some that do not deserve their own page.
+
+See the sidebar for more keywords to control binds, animations, monitors, et cetera.
 
 {{< hint type=important >}}
 
 Please remember, that for ALL arguments separated by a comma, if you want to
-leave one of them empty, you cannot reduce the number of commas, *unless told
-otherwise in a specific section*:
+leave one of them empty, you cannot reduce the number of commas, _unless told
+otherwise in a specific section_:
 
 ```ini
 three_param_keyword = A, B, C # OK
@@ -19,6 +22,7 @@ three_param_keyword = A, B,  # OK
 {{< /hint >}}
 
 # Table of contents
+
 {{< toc format=html >}}
 
 # Executing
@@ -26,20 +30,9 @@ three_param_keyword = A, B,  # OK
 you can execute a shell script on startup of the compositor or on each time it's
 reloaded.
 
-{{< hint type=info >}}
-
-**Note:** The issue below was fixed in upstream. (since *after* v0.15.0beta)
-
-There currently is a bug with the exec that makes the executed app
-unable to die if killed, use `SIGKILL` (e.g. `killall name -9`) or launch from a
-script (`exec-once=~/myscript.sh` and do `myapp &` in the script)
-
-{{< /hint >}}
-
 `exec-once=command` will execute only on launch
 
 `exec=command` will execute on each reload
-
 
 # Defining variables
 
@@ -103,7 +96,7 @@ device:name {
 }
 ```
 
-the `name` can be easily obtained by doing `hyprctl devices`.
+The `name` can be easily obtained by doing `hyprctl devices`.
 
 Inside of it, put your config options. All options from the `input` category
 (and all subcategories, e.g. `input:touchpad`) can be put inside, **EXCEPT**:
@@ -111,6 +104,7 @@ Inside of it, put your config options. All options from the `input` category
 force_no_accel, follow_mouse, float_switch_override_focus
 
 Properties that change names:
+
 ```plain
 touchdevice:transform -> touch_transform
 touchdevice:output -> touch_output
@@ -126,14 +120,16 @@ device:ROYUAN Akko Multi-modes Keyboard-B {
 }
 ```
 
-*remember about the space after the end of the device's name (before the `{`)!*
+_remember about the space after the end of the device's name (before the `{`)!_
 
 {{< hint type=tip >}}
 With hyprctl, the category's spaces get turned into `-`, and everything is
 lowercase. So, for `hyprctl` calls, do for example:
+
 ```sh
 hyprctl keyword device:royuan-akko-multi-modes-keyboard-b:kb_layout us
 ```
+
 {{< /hint >}}
 
 # Wallpapers
@@ -142,8 +138,9 @@ The hyprland background you see when you first start Hyprland is **NOT A
 WALLPAPER**, it's the default image rendered at the bottom of the render stack.
 
 To set a wallpaper, use a wallpaper utility like
-[hyprpaper](https://github.com/hyprwm/hyprpaper) or
-[swaybg](https://github.com/swaywm/swaybg).
+[hyprpaper](https://github.com/hyprwm/hyprpaper) or [swaybg](https://github.com/swaywm/swaybg). 
+
+More can be found in [Useful Utilities](../Useful-Utilities).
 
 # Blurring layerSurfaces
 
@@ -159,7 +156,7 @@ blurls=NAMESPACE
 where `NAMESPACE` is the namespace of the layerSurface. (You can get it from
 `hyprctl layers`)
 
-to remove a namespace from being blurred (useful in dynamic situations) use:
+To remove a namespace from being blurred (useful in dynamic situations) use:
 
 ```ini
 blurls=remove,NAMESPACE

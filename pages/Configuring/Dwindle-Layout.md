@@ -7,7 +7,7 @@ Dwindle splits are NOT PERMANENT. The split is determined dynamically with the
 W/H ratio of the parent node. If W > H, it's side-by-side. If H > W, it's
 top-and-bottom. You can make them permanent by enabling `preserve_split`.
 
-## Grouped (tabbed) windows
+# Grouped (tabbed) windows
 
 Dwindle allows you to make a group with the `togglegroup` bind dispatcher, and
 cycle through it with `changegroupactive`.
@@ -44,7 +44,7 @@ category name: `dwindle`
 | no_gaps_when_only | whether to apply gaps when there is only one window on a workspace, aka. smart gaps. | bool | false |
 | use_active_for_splits | whether to prefer the active window or the mouse position for splits | bool | true |
 
-## Bind Dispatchers
+# Bind Dispatchers
 
 | dispatcher | description | params |
 |---|---|---|
