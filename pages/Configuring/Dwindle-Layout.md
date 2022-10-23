@@ -50,4 +50,4 @@ category name: `dwindle`
 |---|---|---|
 | togglegroup | toggles the current window and its siblings (recursively) into a group | none |
 | changegroupactive | switches to the next window in a group. | b - back, f - forward. |
-| togglesplit | toggles the split (top/side) of the current window | none |
+| togglesplit | toggles the split (top/side) of the current window. `preserve_split` must be enabled for toggling to work. | none |
