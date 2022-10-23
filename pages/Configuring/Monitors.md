@@ -1,10 +1,11 @@
-## Table of contents
+# Table of contents
 
 {{< toc format=html >}}
 
-## General
+# General
 
 The general config of a monitor looks like this
+
 ```ini
 monitor=name,resolution,offset,scale
 ```
@@ -74,7 +75,7 @@ To disable a monitor, use
 monitor=name,disable
 ```
 
-## Custom reserved area
+# Custom reserved area
 
 If your workflow requires custom reserved area, you can add it with
 
@@ -86,7 +87,7 @@ Where `TOP` `BOTTOM` `LEFT` `RIGHT` are integers in pixels of the reserved area
 to add. This does stack on top of the calculated one, (e.g. bars) but you may
 only use one of these rules per monitor in the config.
 
-## Mirrored displays
+# Mirrored displays
 
 If you want to mirror a display, add a `,mirror,[NAME]` at the end of the monitor
 rule, examples:
@@ -101,12 +102,12 @@ second monitor, so if mirroring a 1080p screen onto a 4K one, the resolution
 will still be 1080p on the 4K display. This also means squishing and stretching
 will occur on non-matching resolutions.
 
-## Rotating and the default workspace
+# Rotating and the default workspace
 
 {{< hint type=important >}}
 
 The monitor transform and workspace keywords depend on a monitor rule set
-specifically for the targeted monitor, and ***MUST*** be after it.
+specifically for the targeted monitor, and **_MUST_** be after it.
 
 {{< /hint >}}
 
@@ -142,15 +143,17 @@ flipped + 180 degrees -> 6
 flipped + 270 degrees -> 7
 ```
 
-## Binding workspaces to a monitor
+# Binding workspaces to a monitor
 
 A workspace can be bound to a monitor, meaning by default it will ALWAYS open
 on the selected monitor. You can do this with
+
 ```ini
 wsbind=WORKSPACE,MONITOR
 ```
 
 for example:
+
 ```ini
 wsbind=5,DP-1
 wsbind=name:secret,DP-2

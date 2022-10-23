@@ -1,4 +1,4 @@
-## Switchable keyboard layouts
+# Switchable keyboard layouts
 
 The easiest way to accomplish this is to set this using XKB settings, for example:
 ```
@@ -16,7 +16,7 @@ For example: `us,ua` -> config binds would be e.g. `SUPER, A`, while on `ua,us` 
 
 {{< /hint >}}
 
-## Disabling keybinds with one master keybind
+# Disabling keybinds with one master keybind
 
 If you want to disable all keybinds with another keybind (make a kaybind toggle
 of sorts) you can just use a submap with only a keybind to exit it.

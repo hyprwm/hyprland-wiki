@@ -1,7 +1,7 @@
 Hyprland exposes 2 UNIX Sockets, for controlling / getting info about Hyprland
 via code / bash utilities.
 
-## Hyprland Instance Signature (HIS)
+# Hyprland Instance Signature (HIS)
 
 ```sh
 echo $HYPRLAND_INSTANCE_SIGNATURE
@@ -24,7 +24,7 @@ this:
 
 e.g.: `workspace>>2`
 
-## Events list:
+# Events list
 
 | name | description | data |
 | --- | --- | --- |
@@ -51,7 +51,7 @@ A window might do for example 3 requests to be fullscreen'd, which would result
 in 3 fullscreen events.
 {{< /hint >}}
 
-## How to use socket2 with bash
+# How to use socket2 with bash
 
 example script using socket2 events with bash and `socat`:
 
