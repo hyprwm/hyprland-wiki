@@ -56,7 +56,7 @@ substituteInPlace render/gles2/renderer.c --replace "glFlush();" "glFinish();"
 ```
 
 What this means, for non-nix users, is you have to (before building) go to
-`submodules/wlroots/render/gles2/renderer.c` and replace all occurrences of `glFlush()`
+`subprojects/wlroots/render/gles2/renderer.c` and replace all occurrences of `glFlush()`
 with `glFinish()`, and then compile Hyprland as usual.
 
 ## Fixing random flickering, method 2 (nuclear)
