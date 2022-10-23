@@ -29,7 +29,7 @@ _For a complete mod list, see [Variables](../Variables/#variable-types)._
 
 _The dispatcher list can be found in [Dispatchers](../Dispatchers)._
 
-# Uncommon syms / binding with a keycode
+## Uncommon syms / binding with a keycode
 
 See the
 [xkbcommon-keysyms.h header](https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h)

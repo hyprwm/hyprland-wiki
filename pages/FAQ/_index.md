@@ -271,7 +271,7 @@ Try disabling VFR with `misc:no_vfr=1`.
 I assume you already have `damage_tracking` on full. If you don't, change it. It's
 heavily advised to use `full` regardless of anything.
 
-## Useful Optimizations
+**_Useful Optimizations_**:
 
 * `decoration:blur_new_optimizations = true`, to use new optimizations for
    blurring.

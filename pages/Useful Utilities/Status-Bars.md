@@ -39,13 +39,11 @@ Since there a lot of configuration options from `sway/workspaces` are missing, y
 should deduce some of them by yourself. In the case of scrolling, it should look like this:
 
 ```json
-
-```json
 "wlr/workspaces": {
      "format": "{icon}",
      "on-scroll-up": "hyprctl dispatch workspace e+1",
      "on-scroll-down": "hyprctl dispatch workspace e-1"
-},
+}
 ```
 
 ## Clicking on a workspace icon does not work!

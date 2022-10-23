@@ -93,20 +93,14 @@ splash - prints the current random splash
 getoption [option] - gets the config option status (values)
 ```
 
-For the getoption command, the option name should be in the following format:
-section:option
-
-```sh
-hyprctl getoption section:option
-```
-
-e.g.
+For the getoption command, the option name should be written as `section:option`,
+e.g.:
 
 ```sh
 hyprctl getoption general:border_size
 
-# Or nested
-hyprctl getoption input:touchpad:disable_while_typing = bool
+# For nested sections:
+hyprctl getoption input:touchpad:disable_while_typing
 ```
 
 See [Variables](./Variables) for section and options you can use.

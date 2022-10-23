@@ -8,7 +8,7 @@ Every card seems to be random, and might work perfectly, or not work at all.
 
 Nevertheless, it's recommended to at least try this tutorial.
 
-# How to get Hyprland to possibly work on Nvidia
+## How to get Hyprland to possibly work on Nvidia
 
 Install the `nvidia-dkms` driver and add it to your initramfs & kernel
 parameters. Follow the information available here:

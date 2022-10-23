@@ -29,7 +29,7 @@ bind=MOD,KEY,submap,reset
 submap=reset
 ```
 
-## Window Dancing
+# Window Dancing
 
 Some XWayland games like Rhythm Doctor and Friday Night Funkin' mods like to move 
 the windows by themselves, but that often doesn't work by default.

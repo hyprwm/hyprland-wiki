@@ -1,4 +1,7 @@
-This page documents all of the more advanced config options.
+Keywords are not variables, but "commands" for more advanced configuring. On this
+page, you will be presented with some that do not deserve their own page.
+
+See the sidebar for more keywords to control binds, animations, monitors, et cetera.
 
 {{< hint type=important >}}
 
@@ -26,16 +29,6 @@ three_param_keyword = A, B,  # OK
 
 you can execute a shell script on startup of the compositor or on each time it's
 reloaded.
-
-{{< hint type=info >}}
-
-**Note:** The issue below was fixed in upstream. (since _after_ v0.15.0beta)
-
-There currently is a bug with the exec that makes the executed app
-unable to die if killed, use `SIGKILL` (e.g. `killall name -9`) or launch from a
-script (`exec-once=~/myscript.sh` and do `myapp &` in the script)
-
-{{< /hint >}}
 
 `exec-once=command` will execute only on launch
 

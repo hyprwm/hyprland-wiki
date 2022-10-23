@@ -33,7 +33,6 @@ animation=windows,1,10,myepiccurve,slide
 ## Animation tree
 
 ```txt
-
 global
   ↳ windows - styles: slide, popin
     ↳ windowsIn - window open

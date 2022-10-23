@@ -3,6 +3,6 @@ Color pickers are useful for quickly grabbing a color of _something_ on your scr
 It's preferred using _hyrpwm_'s own solution, which, so far, seems to be the only one that 
 doesn't suck.
 
-# Hyprpicker
+## Hyprpicker
 
 Dead simple to use. Launch, click, and you're done. [GitHub](https://github.com/hyprwm/hyprpicker)
