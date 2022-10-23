@@ -24,7 +24,36 @@ all the references to `sway/workspaces/` with `wlr/workspaces`.
 For more info regarding configuration, see
 [The Waybar Wiki](https://github.com/Alexays/Waybar/wiki).
 
-## Eww
+## Waybar popups render behind the windows
+
+In `~/.config/waybar/config`, make sure that you have the `layer` configuration
+set to `top` and not `bottom`.
+
+## Active workspace doesn't show up
+
+Replace `#workspaces button.focus` with `#wroskapces button.active` in `~/.config/style.css`.
+
+## Scrolling through workspaces
+
+Since there a lot of configuration options from `sway/workspaces` are missing, you
+should deduce some of them by yourself. In the case of scrolling, it should look like this:
+
+```json
+"wlr/workspaces": {
+     "format": "{icon}",
+     "on-scroll-up": "hyprctl dispatch workspace e+1",
+     "on-scroll-down": "hyprctl dispatch workspace e-1"
+}
+```
+
+## Clicking on a workspace icon does not work!
+
+On the `wlr/workspaces` module, add `"on-click": "activate"`. That's the purpose of
+the `sed` command used before building Waybar: the default way to select a workspace by 
+clicking uses the `swaymsg`'s way, and thus it is required to edit
+this function to make it work with `hyprctl`.
+
+# Eww
 
 In order to use [Eww](https://github.com/elkowar/eww), you first have to install
 it, either using your distro's package manager, by searching `eww-wayland`, or
@@ -43,3 +72,14 @@ Read
 [the Wayland section](https://elkowar.github.io/eww/configuration.html#wayland)
 carefully before asking why your bar doesn't work.
 {{< /hint >}}
+
+# Hybrid
+
+Like Waybar, [Hybrid](https://github.com/vars1ty/HybridBar) is a GTK status bar mainly focused for wlroots compositors.
+
+You can install it from the AUR by the name `hybrid-bar-git`, do note though that
+it builds the bar from source, so it may take a few minutes.
+
+## Configuration
+
+The configuration is done through JSON, more information is available [here](https://github.com/vars1ty/HybridBar).
