@@ -20,7 +20,7 @@ the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 
 {{< hint type=info >}}
 
-***Colors:***
+**_Colors:_**
 
 You have 3 options:
 
@@ -30,8 +30,7 @@ rgb(), e.g. `rgb(b3ff1a)`
 
 legacy, e.g. `0xeeb3ff1a` -> ARGB order
 
-
-***Mod list:***
+**_Mod list:_**
 
 ```ini
 SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
