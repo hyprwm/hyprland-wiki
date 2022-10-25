@@ -17,6 +17,24 @@ For example: `us,ua` -> config binds would be e.g. `SUPER, A`, while on `ua,us` 
 
 {{< /hint >}}
 
+
+Alternatively, you can use keybinds to trigger specific keyboard layouts:
+
+```
+bind=SUPER,A,exec,hyprctl keyword input:kb_layout ru
+bind=SUPER,Cyrillic_ef,exec,hyprctl keyword input:kb_layout us
+```
+
+Please note that if a keyboard layout has a different alphabet, mappings for
+"a" "b" "c" will be replaced with mappings from that language. (meaning, e.g.
+SUPER+D will not work on a ru layout, because the russian layout does not have
+a D.)
+
+If you are unsure about the key names of your chosen alphabet, refer to the
+[xkbcommon keysym
+header](https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h).
+The keysym name in Hyprland is the XKB define name without the `XKB_KEY_`.
+
 # Disabling keybinds with one master keybind
 
 If you want to disable all keybinds with another keybind (make a kaybind toggle
