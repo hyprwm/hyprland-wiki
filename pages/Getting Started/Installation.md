@@ -93,10 +93,10 @@ libwlroots), you don't need to update anything else.
 _Arch dependencies_:
 
 ```plain
-yay -S gdb ninja gcc cmake libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite xorg-xinput libxrender pixman wayland-protocols cairo pango seatd
+yay -S gdb ninja gcc cmake libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite xorg-xinput libxrender pixman wayland-protocols cairo pango seatd libxkbcommon xcb-util-wm xorg-xwayland
 ```
 
-_(If any are missing, hmu)_
+_(Please make a pull request or open an issue if any packages are missing from the list)_
 
 _openSUSE dependencies_:
 
