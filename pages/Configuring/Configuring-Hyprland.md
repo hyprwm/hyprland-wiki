@@ -38,6 +38,14 @@ COMMAND = VALUE
 
 is valid.
 
+## Comments
+
+Comments are started with the `#` character.
+
+If you want to escape it (put an actual `#` and not start a comment)
+you can use `##`. It will be turned into a single `#` that WILL be a part of your
+line.
+
 # Basic configuring
 
 To configure the "options" of Hyprland, animations, styling, etc. see
