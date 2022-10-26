@@ -81,7 +81,7 @@ hyprctl setcursor Bibata-Modern-Classic 24
 
 ## Info
 
-```sh
+```plain
 version - prints the hyprland version, meaning flags, commit and branch of build.
 monitors - lists all the outputs with their properties
 workspaces - lists all workspaces with their properties
@@ -91,6 +91,7 @@ activewindow - gets the active window name
 layers - lists all the layers
 splash - prints the current random splash
 getoption [option] - gets the config option status (values)
+cursorpos - gets the current cursor pos in global layout coordinates
 ```
 
 For the getoption command, the option name should be written as `section:option`,
