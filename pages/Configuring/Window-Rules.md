@@ -63,7 +63,7 @@ you can use `hyprctl clients`.
 | float | floats a window |
 | tile | tiles a window |
 | fullscreen | fullscreens a window |
-| move \[x\] \[y\] | moves a floating window (x,y -> int or %, e.g. 20% or 100) |
+| move \[x\] \[y\] | moves a floating window (x,y -> int or %, e.g. 20% or 100. You are also allowed to do `100%-` for the right/bottom anchor, e.g. `100%-20`) |
 | size \[x\] \[y\] | resizes a floating window (x,y -> int or %, e.g. 20% or 100) |
 | minsize \[x\] \[y\] | sets the minimum size on creation (x,y -> int) |
 | maxsize \[x\] \[y\] | sets the maximum size on creation (x,y -> int) |
