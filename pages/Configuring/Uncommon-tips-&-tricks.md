@@ -48,8 +48,8 @@ input {
 2. Set the windowrule
 
 ```ini
-windowrule=windowdance, rhythm doctor.exe
-# windowrule=forceinput, rhythm doctor.exe # May also be needed
+windowrule=windowdance,title:^(Rhythm Doctor)$
+# windowrule=forceinput,title:^(Rhythm Doctor)$ # May also be needed
 ```
 
 3. Have fun!
