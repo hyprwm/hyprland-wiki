@@ -64,8 +64,10 @@ For more specific rules, you can also use the output's description
 (see `hyprctl monitors`) like this:
 
 ```
-monitor=desc:SDC 0x4154 (eDP-1),preferred,auto,1.5
+monitor=desc:SDC 0x4154,preferred,auto,1.5
 ```
+
+remember to remove the (portname)!
 
 ## Disabling a monitor
 
