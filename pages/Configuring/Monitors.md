@@ -87,7 +87,9 @@ Where `TOP` `BOTTOM` `LEFT` `RIGHT` are integers in pixels of the reserved area
 to add. This does stack on top of the calculated one, (e.g. bars) but you may
 only use one of these rules per monitor in the config.
 
-# Mirrored displays
+# Extra args
+
+## Mirrored displays
 
 If you want to mirror a display, add a `,mirror,[NAME]` at the end of the monitor
 rule, examples:
@@ -101,6 +103,17 @@ Please remember that mirroring displays will not "re-render" everything for your
 second monitor, so if mirroring a 1080p screen onto a 4K one, the resolution
 will still be 1080p on the 4K display. This also means squishing and stretching
 will occur on non-matching resolutions.
+
+## 10 bit support
+
+If you want to enable 10 bit support for your display, add a `,bitdepth,10` at the
+end of the monitor rule, e.g.:
+```ini
+monitor=eDP-1,2880x1800@90,0x0,1,bitdepth,10
+```
+
+Please be aware that colors registered in Hyprland (e.g. the border color) do _not_
+support 10 bit.
 
 # Rotating and the default workspace
 
