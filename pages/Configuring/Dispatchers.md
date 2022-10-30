@@ -65,6 +65,16 @@ bind = MOD,KEY,exec,sleep 1 && hyprctl dispatch dpms off
 
 {{< /hint >}}
 
+{{< hint >}}
+You can use multiple dispatchers with the same keybind by writing the same keybind in two lines with one dispatcher for each , example :
+```
+#to switch between windows in a flowting workspace
+bind = $mainMod,Tab,movefocus,l         #change focus to git other window
+bind = $mainMod,Tab,bringactivetotop    #brings it to top
+```
+please note that the order of dispatchers matters
+{{< /hint >}}
+
 # Workspaces
 
 You have seven choices:
