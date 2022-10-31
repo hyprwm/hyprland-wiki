@@ -83,6 +83,7 @@ you can use `hyprctl clients`.
 | windowdance | forces an XWayland window to never refocus, used for games/applications like Rhythm Doctor |
 | pin | pins the window *note: floating only* |
 | noanim | disables the animations for the window |
+| idleinhibit \[mode\] | sets an idle inhibit rule for the window. If active, apps like `swayidle` will not fire. Modes: `none`, `always`, `focus`, `fullscreen` |
 
 ### Example Rules
 
