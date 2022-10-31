@@ -19,7 +19,7 @@ sudo ninja -C build install
 
 If you want to use the workspaces module, first, copy the configuration files from
 `/etc/xdg/waybar/` into `~/.config/waybar/`. Then, in `~/.config/waybar/conf/` replace
-all the references to `sway/workspaces/` with `wlr/workspaces`.
+all the references to `sway/workspaces` with `wlr/workspaces`.
 
 For more info regarding configuration, see
 [The Waybar Wiki](https://github.com/Alexays/Waybar/wiki).
