@@ -30,6 +30,7 @@ _category name `master`_
 | param | description |
 | --- | --- |
 | swapwithmaster | swaps the current window with master |
+| focusmaster | focuses the master window |
 | cyclenext | focuses the next window respecting the layout |
 | cycleprev | focuses the previous window respecting the layout |
 | swapnext | swaps the focused window with the next window respecting the layout |
