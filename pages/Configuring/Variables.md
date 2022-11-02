@@ -52,7 +52,6 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 | col.inactive_border | self-explanatory | color | 0xffffffff |
 | col.active_border | self-explanatory | color | 0xff444444 |
 | cursor_inactive_timeout | in seconds, after how many seconds of cursor's inactivity to hide it. Set to `0` for never. | int | 0 |
-| damage_tracking | Makes the compositor redraw only the needed bits of the display. Saves on resources by not redrawing when not needed. Available modes: `none, monitor, full`. You don't need to know what different modes do, just always use `full`. | str | full |
 | layout | which layout to use. (Available: `dwindle`, `master`) | str | dwindle |
 | no_cursor_warps | if true, will not warp the cursor in many cases (focusing, keybinds, etc) | bool | false |
 | apply_sens_to_raw | if on, will also apply the sensitivity to raw mouse output (e.g. sensitivity in games) **NOTICE:** ***really*** not recommended. | bool | false |
@@ -250,6 +249,7 @@ Only for developers.
 | damage_blink | (epilepsy warning!) flash areas updated with damage tracking | bool | false |
 | disable_logs | self-explanatory | bool | false |
 | disable_time | disables time logging | bool | true |
+| damage_tracking | redraw only the needed bits of the display. Do **not** change. (default: full - 2) monitor - 1, none - 0 | int | 2 |
 
 # More
 
