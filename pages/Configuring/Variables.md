@@ -208,6 +208,7 @@ Described [here](../Keywords#per-device-input-configs).
 | workspace_swipe_min_speed_to_force | minimum speed in px per timepoint to force the change ignoring `cancel_ratio`. Setting to `0` will disable this mechanic. | int | 30 |
 | workspace_swipe_cancel_ratio | (0.0 - 1.0) how much the swipe has to proceed in order to commence it. (0.7 -> if > 0.7 * distance, switch, if less, revert) | float | 0.5 |
 | workspace_swipe_create_new | whether a swipe right on the last workspace should create a new one. | bool | true |
+| workspace_swipe_forever | if enabled, swiping will not clamp at the neighboring workspaces but continue to the further ones. | bool | false |
 
 # Misc
 
