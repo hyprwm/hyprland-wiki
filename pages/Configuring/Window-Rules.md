@@ -84,6 +84,7 @@ you can use `hyprctl clients`.
 | pin | pins the window *note: floating only* |
 | noanim | disables the animations for the window |
 | idleinhibit \[mode\] | sets an idle inhibit rule for the window. If active, apps like `swayidle` will not fire. Modes: `none`, `always`, `focus`, `fullscreen` |
+| unset | removes all previously set rules for the given parameters. Please note it has to match EXACTLY. |
 
 ### Example Rules
 
