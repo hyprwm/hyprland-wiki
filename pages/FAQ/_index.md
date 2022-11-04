@@ -66,7 +66,8 @@ For recording videos, wf-recorder or OBS Studio could be used.
 
 # Screenshare / OBS no worky
 
-Check [Screensharing](../Useful-Utilities/Screen-Sharing).
+Check [Screensharing](../Useful-Utilities/Screen-Sharing). <br>
+also install `qt6-wayland` if you plan to use obs.
 
 # How do I change my wallpaper?
 
