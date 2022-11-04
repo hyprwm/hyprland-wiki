@@ -105,6 +105,18 @@ bindl=,switch:[switch name],exec,swaylock
 
 check out your switches in `hyprctl devices`.
 
+## Multiple binds to one key
+
+You can trigger multiple actions with one keybind by assigning multiple binds to one combination, e.g.:
+
+```
+# to switch between windows in a floating workspace
+bind = SUPER,Tab,cyclenext,          # change focus to another window
+bind = SUPER,Tab,bringactivetotop,   # bring it to the top
+```
+
+The keybinds will be executed in the order they were created. (top to bottom)
+
 # Bind flags
 
 `bind` supports flags in this format:
