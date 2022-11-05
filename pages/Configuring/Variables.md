@@ -226,6 +226,7 @@ Described [here](../Keywords#per-device-input-configs).
 | enable_swallow | Enable window swallowing | bool | false |
 | swallow_regex | The *class* regex to be used for windows that should be swallowed (usually, a terminal) | str | \[EMPTY\] |
 | focus_on_activate | Whether Hyprland should focus an app that requests to be focused (an `activate` request) | bool | true |
+| no_direct_scanout | Disables direct scanout. Direct scanout attempts to reduce lag when there is only one fullscreen application on a screen (e.g. game) | bool | false |
 
 # Binds
 
