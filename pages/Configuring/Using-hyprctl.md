@@ -79,6 +79,31 @@ e.g.:
 hyprctl setcursor Bibata-Modern-Classic 24
 ```
 
+### output
+
+Allows you to add and remove fake outputs to your preferred backend.
+
+params: `create` or `remove` and `backend` or `name` respectively.
+
+For _create_:
+
+pass a backend name: `wayland`, `x11`, `headless` or `auto`. On a _real_ hyprland
+session, if you're looking for a VNC / RDP type thing, it's 99% going to be `headless`.
+
+For _remove_:
+
+pass the output's name, as found in `hyprctl monitors`. Please be aware you are _not_ 
+allowed to remove real displays with this command.
+
+e.g.:
+```ini
+# will create a 1920x1080 headless display, for example to use with RDP.
+hyprctl output create headless
+
+# will remove the above display, provided its name was HEADLESS-1
+hyprctl output remove HEADLESS-1
+```
+
 ## Info
 
 ```plain
