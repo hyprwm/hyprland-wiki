@@ -19,16 +19,28 @@ monitor=DP-1,1920x1080@144,0x0,1
 will tell Hyprland to make the monitor on `DP-1` a `1920x1080` display, at 144Hz,
 `0x0` off from the top left corner, with a scale of 1 (unscaled).
 
-{{< hint >}}
+Monitors are positioned on a virtual "layout". The `offset` is the position of 
+said display in the layout. (calculated from the top-left corner)
+
+For example:
+```ini
+monitor=DP-1, 1920x1080, 0x0, 1
+monitor=DP-2, 1920x1080, 1920x0, 1
+```
+will tell hyprland to make DP-1 on the _left_ of DP-2, while
+```ini
+monitor=DP-1, 1920x1080, 1920x0, 1
+monitor=DP-2, 1920x1080, 0x0, 1
+```
+will tell hyprland to make DP-1 on the _right_.
+
+{{< hint type=tip >}}
 
 The offset is calculated with the scaled resolution, meaning if
 you want your 4K monitor with scale 2 to the left of your 1080p one, you'd use
 the offset `1920x0` for the second screen. (3840 / 2)
 
 {{</ hint >}}
-
-Please use the offset for its intended purpose before asking stupid questions
-about "fixing" monitors being mirrored.
 
 Leaving the name empty will define a fallback rule to use when no other rules
 match.
