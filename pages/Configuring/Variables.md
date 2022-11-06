@@ -106,6 +106,7 @@ Using `blur_new_optimizations` with an animated wallpaper may actually increase 
 | name | description | type | default |
 |---|---|---|---|---|
 | enabled | enable animations | bool | true |
+| use_resize_transitions | enable fade transitions for resize animations | bool | true |
 
 {{< hint type=info >}}
 
