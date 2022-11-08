@@ -43,7 +43,7 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 ## General
 
 | name | description | type | default |
-|---|---|---|---|---|
+|---|---|---|---|
 | sensitivity | mouse sensitivity (legacy, may cause bugs if not 1, prefer `input:sensitivity`) | float | 1.0 |
 | border_size | self-explanatory | int | 1 |
 | no_border_on_floating | disable borders for floating windows | bool | false |
@@ -63,7 +63,7 @@ Prefer using `input:sensitivity` over `general:sensitivity` to avoid bugs, espec
 ## Decoration
 
 | name | description | type | default |
-|---|---|---|---|---|
+|---|---|---|---|
 | rounding | rounded corners' radius (in layout px) | int | 0 |
 | multisample_edges | enable antialiasing (no-jaggies) for rounded corners | bool | true |
 | active_opacity | self-explanatory, only for windows. (0.0 - 1.0) | float | 1.0 |
@@ -105,7 +105,7 @@ Using `blur_new_optimizations` with an animated wallpaper may actually increase 
 # Animations
 
 | name | description | type | default |
-|---|---|---|---|---|
+|---|---|---|---|
 | enabled | enable animations | bool | true |
 | use_resize_transitions | enable fade transitions for resize animations | bool | false |
 
@@ -120,7 +120,7 @@ _[More about Animations](../Animations)._
 ## Input
 
 | name | description | type | default |
-|---|---|---|---|---|
+|---|---|---|---|
 | kb_model | Appropriate XKB keymap parameter. See the note below. | str | \[EMPTY\] |
 | kb_layout | Appropriate XKB keymap parameter | str | us |
 | kb_variant | Appropriate XKB keymap parameter | str | \[EMPTY\] |
@@ -131,8 +131,8 @@ _[More about Animations](../Animations)._
 | repeat_rate | The repeat rate for held-down keys, in repeats per second. | int | 25 |
 | repeat_delay | Delay before a held-down key is repeated, in milliseconds. | int | 600 |
 | sensitivity | Sets the mouse input sensitivity. Value will be clamped to the range -1.0 to 1.0. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) | float | 0.0 |
-| accel_profile | Sets the cursor acceleration profile. Can be one of `adaptive`, `flat`. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) | str | \[EMPTY\]
-| force_no_accel | Force no cursor acceleration. This bypasses most of your pointer settings to get as raw of a signal as possible. | bool | false |
+| accel_profile | Sets the cursor acceleration profile. Can be one of `adaptive`, `flat`. Leave empty to use `libinput`'s default mode for your input device. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) | str | \[EMPTY\]
+| force_no_accel | Force no cursor acceleration. This bypasses most of your pointer settings to get as raw of a signal as possible. **Enabling this is not recommended due to potential cursor desynchronization.** | bool | false |
 | left_handed | Switches RMB and LMB | bool | false |
 | scroll_method | Sets the scroll method. Can be one of `2fg` (2 fingers), `edge`, `on_button_down`, `no_scroll`. [libinput#scrolling](https://wayland.freedesktop.org/libinput/doc/latest/scrolling.html) | str | \[EMPTY\]
 | natural_scroll | Inverts scrolling direction. When enabled, scrolling moves content directly instead of manipulating a scrollbar. | bool | false |
@@ -165,14 +165,14 @@ For switchable keyboard configurations, take a look at [the uncommon tips & tric
 _Subcategory `input:touchpad:`_
 
 | name | description | type | default |
-|---|---|---|---|---|
+|---|---|---|---|
 | disable_while_typing | Disable the touchpad while typing. | bool | true |
 | natural_scroll | Inverts scrolling direction. When enabled, scrolling moves content directly instead of manipulating a scrollbar. | bool | false |
+| scroll_factor | Multiplier applied to the amount of scroll movement. | float | 1.0
 | middle_button_emulation | Sending LMB and RMB simultaneously will be interpreted as a middle click. This disables any touchpad area that would normally send a middle click based on location. [libinput#middle-button-emulation](https://wayland.freedesktop.org/libinput/doc/latest/middle-button-emulation.html) | bool | false |
 | clickfinger_behavior | Button presses with 1, 2, or 3 fingers will be mapped to LMB, RMB, and MMB respectively. This disables interpretation of clicks based on location on the touchpad. [libinput#clickfinger-behavior](https://wayland.freedesktop.org/libinput/doc/latest/clickpad-softbuttons.html#clickfinger-behavior) | bool | false |
 | tap-to-click | Tapping on the touchpad with 1, 2, or 3 fingers will send LMB, RMB, and MMB respectively. | bool | true |
 | drag_lock | When enabled, lifting the finger off for a short time while dragging will not drop the dragged item. [libinput#tap-and-drag](https://wayland.freedesktop.org/libinput/doc/latest/tapping.html#tap-and-drag) | bool | false |
-| scroll_factor | Multiplier applied to the amount of scroll movement. | float | 1.0
 
 {{< hint type=important >}}
 A subcategory is a nested category:
@@ -197,7 +197,7 @@ Doing `input:touchpad {` is **invalid**!
 _Subcategory `input:touchdevice:`_
 
 | name | description | type | default |
-|---|---|---|---|---|
+|---|---|---|---|
 | transform | transform the input from touchdevices. The possible transformations are the same as [those of the monitors](../Monitors/#rotating-and-the-default-workspace) | int | 0 |
 | output | the output to bind touch devices. Empty means unset and will use the current / autodetected. | string | \[EMPTY\] |
 
@@ -208,7 +208,7 @@ Described [here](../Keywords#per-device-input-configs).
 # Gestures
 
 | name | description | type | default |
-|---|---|---|---|---|
+|---|---|---|---|
 | workspace_swipe | enable workspace swipe gesture | bool | false |
 | workspace_swipe_fingers | how many fingers for the gesture | int | 3 |
 | workspace_swipe_distance | in px, the distance of the gesture | int | 300 |
@@ -221,7 +221,7 @@ Described [here](../Keywords#per-device-input-configs).
 # Misc
 
 | name | description | type | default |
-|---|---|---|---|---|
+|---|---|---|---|
 | disable_hyprland_logo | disables the hyprland logo background. :( | bool | false |
 | disable_splash_rendering | disables the hyprland splash rendering. (requires a monitor reload to take effect) | bool | false |
 | no_vfr | disables VFR (variable frame rate) - VFR increases battery life at the expense of possible issues on a few monitors. | bool | true |
@@ -239,7 +239,7 @@ Described [here](../Keywords#per-device-input-configs).
 # Binds
 
 | name | description | type | default |
-|---|---|---|---|---|
+|---|---|---|---|
 | pass_mouse_when_bound | if disabled, will not pass the mouse events to apps / dragging windows around if a keybind has been triggered. | bool | false |
 | scroll_event_delay | in ms, how many ms to wait after a scroll event to allow to pass another one for the binds. | int | 300 |
 | workspace_back_and_forth | If enabled, an attempt to switch to the currently focused workspace will instead switch to the previous workspace. Akin to i3's *auto_back_and_forth*. | bool | false |
@@ -254,7 +254,7 @@ Only for developers.
 {{< /hint >}}
 
 | name | description | type | default |
-|---|---|---|---|---|
+|---|---|---|---|
 | overlay | print the debug performance overlay. Disable VFR for accurate results. | bool | false |
 | damage_blink | (epilepsy warning!) flash areas updated with damage tracking | bool | false |
 | disable_logs | self-explanatory | bool | false |
