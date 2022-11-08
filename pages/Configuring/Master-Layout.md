@@ -35,6 +35,8 @@ _category name `master`_
 | cycleprev | focuses the previous window respecting the layout |
 | swapnext | swaps the focused window with the next window respecting the layout |
 | swapprev | swaps the focused window with the previous window respecting the layout |
+| addmaster | adds a master to the master side. That will be the active window, if it's not a master, or the first non-master window. |
+| removemaster | removes a master from the master side. That will be the active window, if it's a master, or the last master window. |
 
 {{< hint type=info >}}
 example usage:
