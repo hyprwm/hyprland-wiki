@@ -121,38 +121,44 @@ _[More about Animations](../Animations)._
 
 | name | description | type | default |
 |---|---|---|---|---|
+| kb_model | Appropriate XKB keymap parameter. See the note below. | str | \[EMPTY\] |
 | kb_layout | Appropriate XKB keymap parameter | str | us |
 | kb_variant | Appropriate XKB keymap parameter | str | \[EMPTY\] |
-| kb_model | Appropriate XKB keymap parameter | str | \[EMPTY\] |
 | kb_options | Appropriate XKB keymap parameter | str | \[EMPTY\] |
 | kb_rules | Appropriate XKB keymap parameter | str | \[EMPTY\] |
-| kb_file | If you prefer, you can use a path to an .xkb file. | str | \[EMPTY\] |
-| follow_mouse | (0/1/2/3) enable mouse following (focus on enter new window) - See the note below for more info | int | 1 |
-| float_switch_override_focus | if enabled (1 or 2), focus will follow mouse if changing from tiled to floating and vice versa. 2 will also follow mouse on float -> float switches | int | 1 |
-| repeat_rate | in repeats per second, the repeat rate for held keys | int | 25 |
-| repeat_delay | in ms, the repeat delay (grace period) before the spam | int | 600 |
-| natural_scroll | enable natural scroll | bool | false |
-| numlock_by_default | lock numlock by default | bool | false |
-| force_no_accel | force no mouse acceleration, bypasses most of your pointer settings to get as raw of a signal as possible. | bool | false |
-| sensitivity | set the libinput sensitivity. This **HAS** to be from -1 to 1, or else it will be clamped. | float | 0.0 |
-| left_handed | switches RMB and LMB | bool | false |
-| accel_profile | set the libinput acceleration profile. Can be one of `adaptive`, `flat`. | str | \[EMPTY\]
-| scroll_method | set the libinput scroll method. Can be one of `2fg` (2 fingers), `edge`, `on_button_down`, `no_scroll`. | str | \[EMPTY\]
+| kb_file | If you prefer, you can use a path to your custom .xkb file. | str | \[EMPTY\] |
+| numlock_by_default | Engage numlock by default. | bool | false |
+| repeat_rate | The repeat rate for held-down keys, in repeats per second. | int | 25 |
+| repeat_delay | Delay before a held-down key is repeated, in milliseconds. | int | 600 |
+| sensitivity | Sets the mouse input sensitivity. Value will be clamped to the range -1.0 to 1.0. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) | float | 0.0 |
+| accel_profile | Sets the cursor acceleration profile. Can be one of `adaptive`, `flat`. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) | str | \[EMPTY\]
+| force_no_accel | Force no cursor acceleration. This bypasses most of your pointer settings to get as raw of a signal as possible. | bool | false |
+| left_handed | Switches RMB and LMB | bool | false |
+| scroll_method | Sets the scroll method. Can be one of `2fg` (2 fingers), `edge`, `on_button_down`, `no_scroll`. [libinput#scrolling](https://wayland.freedesktop.org/libinput/doc/latest/scrolling.html) | str | \[EMPTY\]
+| natural_scroll | Inverts scrolling direction. When enabled, scrolling moves content directly instead of manipulating a scrollbar. | bool | false |
+| follow_mouse | (0/1/2/3) Specify if and how cursor movement should affect window focus. See the note below. | int | 1 |
+| float_switch_override_focus | If enabled (1 or 2), focus will change to the window under the cursor when changing from tiled-to-floating and vice versa. If 2, focus will also follow mouse on float-to-float switches. | int | 1 |
 
 {{< hint type=info >}}
+## XKB Settings
 
-## Follow Mouse
+You can find a list of models, layouts, variants and options in [`/usr/share/X11/xkb/rules/base.lst`](file:///usr/share/X11/xkb/rules/base.lst). 
+Alternatively, you can use the `localectl` command to discover what is available on your system.
 
-- 0 - disabled
-- 1 - full
-- 2 - loose. Will focus mouse on other windows on focus but not the keyboard.
-- 3 - full loose, will not refocus on click, but allow mouse focus to be
-  detached from the keyboard like in 2.
+For switchable keyboard configurations, take a look at [the uncommon tips & tricks page entry](../Uncommon-tips--tricks/#switchable-keyboard-layouts).
+
+{{< /hint >}}
+
+{{< hint type=info >}}
+## Follow Mouse Cursor
+
+- 0 - Cursor movement will not change focus.
+- 1 - Cursor movement will always change focus to the window under the cursor.
+- 2 - Cursor focus will be detached from keyboard focus. Clicking on a window will move keyboard focus to that window.
+- 3 - Cursor focus will be completely separate from keyboard focus. Clicking on a window will not change keyboard focus.
+
   {{< /hint >}}
 
-{{< hint type=info >}}
-For switchable keyboard configs, take a look at [the uncommon tips & tricks page entry](../Uncommon-tips--tricks/#switchable-keyboard-layouts).
-{{< /hint >}}
 
 ## Touchpad
 
@@ -160,13 +166,13 @@ _Subcategory `input:touchpad:`_
 
 | name | description | type | default |
 |---|---|---|---|---|
-| disable_while_typing | disables the touchpad while typing | bool | true |
-| natural_scroll | self-explanatory | bool | false |
-| clickfinger_behavior | self-explanatory | bool | false |
-| middle_button_emulation | self-explanatory | bool | false |
-| tap-to-click | self-explanatory | bool | true |
-| drag_lock | enable dragging with drag lock | bool | false |
-| scroll_factor | control the amount of scroll applied | float | 1.0
+| disable_while_typing | Disable the touchpad while typing. | bool | true |
+| natural_scroll | Inverts scrolling direction. When enabled, scrolling moves content directly instead of manipulating a scrollbar. | bool | false |
+| middle_button_emulation | Sending LMB and RMB simultaneously will be interpreted as a middle click. This disables any touchpad area that would normally send a middle click based on location. [libinput#middle-button-emulation](https://wayland.freedesktop.org/libinput/doc/latest/middle-button-emulation.html) | bool | false |
+| clickfinger_behavior | Button presses with 1, 2, or 3 fingers will be mapped to LMB, RMB, and MMB respectively. This disables interpretation of clicks based on location on the touchpad. [libinput#clickfinger-behavior](https://wayland.freedesktop.org/libinput/doc/latest/clickpad-softbuttons.html#clickfinger-behavior) | bool | false |
+| tap-to-click | Tapping on the touchpad with 1, 2, or 3 fingers will send LMB, RMB, and MMB respectively. | bool | true |
+| drag_lock | When enabled, lifting the finger off for a short time while dragging will not drop the dragged item. [libinput#tap-and-drag](https://wayland.freedesktop.org/libinput/doc/latest/tapping.html#tap-and-drag) | bool | false |
+| scroll_factor | Multiplier applied to the amount of scroll movement. | float | 1.0
 
 {{< hint type=important >}}
 A subcategory is a nested category:
