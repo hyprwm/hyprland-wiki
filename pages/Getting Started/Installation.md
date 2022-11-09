@@ -63,6 +63,7 @@ The hyprland package is available in the [wayland-desktop](https://github.com/bs
 
 ```sh
 eselect repository enable wayland-desktop
+emaint sync -r wayland-desktop
 emerge --ask --verbose hyprland
 ```
 
