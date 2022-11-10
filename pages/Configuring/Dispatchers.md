@@ -21,7 +21,7 @@ layout pages (See the sidebar).
 
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
-| exec | executes a shell command | command |
+| exec | executes a shell command | command (supports rules, see below) |
 | pass | passes the key (with mods) to a specified window. Can be used as a workaround to global keybinds not working on Wayland. | window |
 | killactive | closes (not kills) the active window | none |
 | closewindow | closes a specified window | window |
@@ -110,4 +110,19 @@ will send it to the currently active _real_ workspace.
 ```txt
 allfloat -> makes all new windows floating (also floats/unfloats windows on toggle)
 allpseudo -> makes all new windows pseudo (also pseudos/unpseudos on toggle)
+```
+
+# Executing with rules
+The `exec` dispatcher supports adding rules. Please note some windows might work better, some
+worse. It records the PID of the spawned process and uses that. If your process e.g. forks and then
+the fork opens a window, this will not work.
+
+The syntax is:
+```
+bind = mod, key, exec, [rules...] command
+```
+
+For example:
+```
+bind = SUPER, E, exec, [workspace 2 silent;float;noanim] kitty
 ```
