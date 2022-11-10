@@ -63,7 +63,7 @@ you can use `hyprctl clients`.
 | float | floats a window |
 | tile | tiles a window |
 | fullscreen | fullscreens a window |
-| move \[x\] \[y\] | moves a floating window (x,y -> int or %, e.g. 20% or 100. You are also allowed to do `100%-` for the right/bottom anchor, e.g. `100%-20`) |
+| move \[x\] \[y\] | moves a floating window (x,y -> int or %, e.g. 20% or 100. You are also allowed to do `100%-` for the right/bottom anchor, e.g. `100%-20`) Additionally, you can also do `cursor [x] [y]` where x and y are either pixels or percent. Percent is calculated from the window's size. |
 | size \[x\] \[y\] | resizes a floating window (x,y -> int or %, e.g. 20% or 100) |
 | minsize \[x\] \[y\] | sets the minimum size on creation (x,y -> int) |
 | maxsize \[x\] \[y\] | sets the maximum size on creation (x,y -> int) |
@@ -89,9 +89,10 @@ you can use `hyprctl clients`.
 ### Example Rules
 
 ```ini
-windowrule = move 100 100,^(kitty)$
-windowrule = animation popin,^(kitty)$
-windowrule = noblur,^(firefox)$
+windowrule = move 100 100,^(kitty)$ # moves kitty to 100 100
+windowrule = animation popin,^(kitty)$ # sets the animation style for kitty
+windowrule = noblur,^(firefox)$ # disables blur for firefox
+windowrule = move cursor -50% -50%,^(kitty)$ # moves kitty to the center of the cursor
 ```
 
 ### Notes
