@@ -88,6 +88,13 @@ You have seven choices:
 `movetoworkspace`. Any other dispatcher will result in undocumented behavior.
 {{< /hint >}}
 
+{{< hint type=important >}}
+Numerical workspaces (e.g. `1`, `2`, `127634934729`) are allowed
+**ONLY** between 1 and 9223372036854775806 (inclusive)
+
+Neither `0` nor negative numbers are allowed.
+{{< /hint >}}
+
 # Special Workspace
 
 Special workspace is what is called a "scratchpad" in some other places. A
