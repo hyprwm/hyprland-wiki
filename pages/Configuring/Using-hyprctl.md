@@ -29,10 +29,16 @@ issue a `dispatch` to call a keybind dispatcher with an arg.
 
 An arg has to be present, for dispatchers without parameters it can be anything.
 
+To pass an argument starting with `-` or `--`, such as command line options to
+`exec` programs, pass `--` as an option. This will disable any subsequent
+parsing of options by _hyprctl_.
+
 Examples:
 
 ```sh
 hyprctl dispatch exec kitty
+
+hyprctl dispatch -- exec kitty --single-instance
 
 hyprctl dispatch pseudo x
 ```
