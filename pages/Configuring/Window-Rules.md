@@ -59,7 +59,7 @@ you can use `hyprctl clients`.
 ## Rules
 
 | Rule | Description |
-| ---- | ----------- | 
+| ---- | ----------- |
 | float | floats a window |
 | tile | tiles a window |
 | fullscreen | fullscreens a window |
@@ -83,6 +83,7 @@ you can use `hyprctl clients`.
 | windowdance | forces an XWayland window to never refocus, used for games/applications like Rhythm Doctor |
 | pin | pins the window *note: floating only* |
 | noanim | disables the animations for the window |
+| bordercolor \[c\] | force the bordercolor of the window. Options for c: `color` -> sets the active border color OR `color color` -> sets the active and inactive border color of the window. See [variables->colors](../Variables#Colors) for color definition.
 | idleinhibit \[mode\] | sets an idle inhibit rule for the window. If active, apps like `swayidle` will not fire. Modes: `none`, `always`, `focus`, `fullscreen` |
 | unset | removes all previously set rules for the given parameters. Please note it has to match EXACTLY. |
 
