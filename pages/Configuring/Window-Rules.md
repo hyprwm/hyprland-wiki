@@ -45,6 +45,8 @@ class - class regex
 title - title regex
 xwayland - 0/1
 floating - 0/1
+fullscreen - 0/1
+pinned - 0/1
 ```
 
 Keep in mind that you _have_ to declare at least one field, but not all.
