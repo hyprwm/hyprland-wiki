@@ -61,4 +61,4 @@ To force GBM as a backend, set the following environment variables:
 
 - `GTK_THEME` - Set a GTK theme manually, for those who want to avoid appearance tools lxappearance or nwg-look
 - `XCURSOR_THEME` - Set your cursor theme. The theme needs to be installed and readable by your user.
-- `XCURSOR_SIZE` - Set cursor size. See [here](../FAQ/) for why you might want this variable set.
+- `XCURSOR_SIZE` - Set cursor size. See [here](../../FAQ/) for why you might want this variable set.
