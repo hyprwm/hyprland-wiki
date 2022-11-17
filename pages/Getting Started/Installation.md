@@ -73,7 +73,7 @@ emerge --ask --verbose hyprland
 
 ### Manual (Releases)
 
-Download the most recent release.
+Download the [most recent release](https://github.com/hyprwm/Hyprland/releases).
 
 copy the binary (Hyprland) to `/usr/bin/`.
 
@@ -212,7 +212,7 @@ sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/sha
 You can launch Hyprland by either going into a TTY and executing `Hyprland`, or
 with a login manager.
 
-**!IMPORTANT**: Do **not** launch Hyprland with `root` permissions (don't
+**IMPORTANT**: Do **NOT** launch Hyprland with `root` permissions (don't
 `sudo`)
 
 Login managers are not officially supported, but here's a short compatibility
