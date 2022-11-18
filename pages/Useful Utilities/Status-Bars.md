@@ -93,4 +93,4 @@ You can install it from the AUR by the name `hybrid-bar` or `hybrid-bar-git`.
 The configuration is done through JSON, more information is available [here](https://github.com/vars1ty/HybridBar).
 
 {{</ tab >}}
-{{< /tabs >}}
+{{</ tabs >}}
