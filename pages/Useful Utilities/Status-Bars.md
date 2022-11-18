@@ -1,3 +1,5 @@
+Status bars on Hyprland.
+
 {{< tabs "uniqueid" >}}
 
 {{< tab "Waybar" >}} Waybar is a GTK status bar made specifically for wlroots compositors.
