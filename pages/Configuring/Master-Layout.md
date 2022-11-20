@@ -29,8 +29,8 @@ _category name `master`_
 
 | param | description |
 | --- | --- |
-| swapwithmaster | swaps the current window with master |
-| focusmaster | focuses the master window |
+| swapwithmaster | swaps the current window with master. If the current window is the master, swaps it with the first child. |
+| focusmaster | focuses the master window. If the current window is the master, focuses the first child. |
 | cyclenext | focuses the next window respecting the layout |
 | cycleprev | focuses the previous window respecting the layout |
 | swapnext | swaps the focused window with the next window respecting the layout |
