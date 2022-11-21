@@ -136,6 +136,15 @@ support 10 bit.
 The monitor transform and workspace keywords depend on a monitor rule set
 specifically for the targeted monitor, and **_MUST_** be after it.
 
+e.g.:
+```ini
+monitor=,preferred,auto,1
+workspace=DP-3,1 # invalid
+
+monitor=DP-3,preferred,auto,1
+workspace=DP-3,1 # valid
+```
+
 {{< /hint >}}
 
 ```ini
