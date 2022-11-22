@@ -12,7 +12,7 @@ You can set window rules to achieve different behaviours from the active contain
 windowrule=RULE,WINDOW
 ```
 
-- `RULE` is a rule (and a param if applicable)
+- `RULE` is a [rule](#rules) (and a param if applicable)
 - `WINDOW` is a RegEx, either:
   - plain RegEx (for matching a window class);
   - `title:` followed by a regex (for matching a window's title)
