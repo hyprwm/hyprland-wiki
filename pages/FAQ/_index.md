@@ -273,6 +273,46 @@ Try disabling VFR with `misc:no_vfr=1`.
 I assume you already have `damage_tracking` on full. If you don't, change it. It's
 heavily advised to use `full` regardless of anything.
 
+# How can I have Waybar show all Hyprland workspaces?
+
+Add the following to your hyprland.conf, also make sure to change the terminal emulator (in this case, alacritty) to you're preferred.
+```
+windowrule=float,title:^PERSISTENT_WORKSPACE.*$
+windowrule=nofocus,title:^PERSISTENT_WORKSPACE.*$
+windowrule=noblur,title:^PERSISTENT_WORKSPACE.*$
+windowrule=size 0 0,title:^PERSISTENT_WORKSPACE.*$
+windowrule=move 0 0,title:^PERSISTENT_WORKSPACE.*$
+windowrule=opacity 0,title:^PERSISTENT_WORKSPACE.*$
+# Individual persistent workspace rules
+windowrule=workspace 1,title:^(PERSISTENT_WORKSPACE_1)$
+windowrule=workspace 2,title:^(PERSISTENT_WORKSPACE_2)$
+windowrule=workspace 3,title:^(PERSISTENT_WORKSPACE_3)$
+windowrule=workspace 4,title:^(PERSISTENT_WORKSPACE_4)$
+windowrule=workspace 5,title:^(PERSISTENT_WORKSPACE_5)$
+# Exec commands to keep each workspace persistent
+exec-once=alacritty -t PERSISTENT_WORKSPACE_1 &
+exec-once=alacritty -t PERSISTENT_WORKSPACE_2 &
+exec-once=alacritty -t PERSISTENT_WORKSPACE_3 &
+exec-once=alacritty -t PERSISTENT_WORKSPACE_4 &
+exec-once=alacritty -t PERSISTENT_WORKSPACE_5 &
+```
+
+In your Waybar config, make sure you have the `wlr/workspaces` module, here's an example module config.
+<br>
+**Also make sure you have the `waybar-hyprland-git` module or manual compilation of that installed, otherwise the workspaces won't show/work.**
+```
+"wlr/workspaces": {
+  "max-length": 10,
+   "format": "{icon}",
+   "on-click": "activate",
+   "active-only": "false",
+      "format-icons": {
+        "active": "",
+        "default": "",
+        },
+    },
+```
+
 **_Useful Optimizations_**:
 
 * `decoration:blur_new_optimizations = true`, to use new optimizations for
