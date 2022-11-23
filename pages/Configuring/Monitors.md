@@ -89,6 +89,14 @@ To disable a monitor, use
 monitor=name,disable
 ```
 
+{{< hint type=tip >}}
+
+Disabling a monitor will literally remove it from the layout, moving all windows and workspaces
+to any remaining ones. If you want to disable your monitor in a screensaver style (just turn
+off the monitor) use the `dpms` [dispatcher](../Dispatchers).
+
+{{</ hint >}}
+
 # Custom reserved area
 
 If your workflow requires custom reserved area, you can add it with
