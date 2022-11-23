@@ -44,7 +44,7 @@ layout pages (See the sidebar).
 | focuswindow | focuses the first window matching | window |
 | focusmonitor | focuses a monitor | monitor |
 | splitratio | changes the split ratio | floatdelta |
-| toggleopaque | toggles the current window to always be opaque | none |
+| toggleopaque | toggles the current window to always be opaque. Will override the `opaque` window rules. | none |
 | movecursortocorner | moves the cursor to the corner of the active window | direction, 0 - 3, bottom left - 0, bottom right - 1, top right - 2, top left - 3 |
 | workspaceopt | toggles a workspace option for the active workspace. | workspaceopt |
 | exit | exits the compositor with no questions asked. | none |
