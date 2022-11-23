@@ -81,7 +81,7 @@ You have eight choices:
 
 - Previous workspace: `previous`
 
-- Empty workspace: `empty`
+- First available empty workspace: `empty`
 
 - Special Workspace: `special`
 
