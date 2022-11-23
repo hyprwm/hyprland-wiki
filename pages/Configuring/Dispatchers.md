@@ -67,7 +67,7 @@ bind = MOD,KEY,exec,sleep 1 && hyprctl dispatch dpms off
 
 # Workspaces
 
-You have seven choices:
+You have eight choices:
 
 - ID: e.g. `1`, `2`, or `3`
 
@@ -80,6 +80,8 @@ You have seven choices:
 - Name: e.g. `name:Web`, `name:Anime` or `name:Better anime`
 
 - Previous workspace: `previous`
+
+- First available empty workspace: `empty`
 
 - Special Workspace: `special`
 
