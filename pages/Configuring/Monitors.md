@@ -7,7 +7,7 @@
 The general config of a monitor looks like this
 
 ```ini
-monitor=name,resolution,offset,scale
+monitor=name,resolution,position,scale
 ```
 
 A common example:
@@ -19,7 +19,7 @@ monitor=DP-1,1920x1080@144,0x0,1
 will tell Hyprland to make the monitor on `DP-1` a `1920x1080` display, at 144Hz,
 `0x0` off from the top left corner, with a scale of 1 (unscaled).
 
-Monitors are positioned on a virtual "layout". The `offset` is the position of 
+Monitors are positioned on a virtual "layout". The `position` is the position of 
 said display in the layout. (calculated from the top-left corner)
 
 For example:
@@ -36,9 +36,10 @@ will tell hyprland to make DP-1 on the _right_.
 
 {{< hint type=tip >}}
 
-The offset is calculated with the scaled resolution, meaning if
+The position is calculated with the scaled (and transformed) resolution, meaning if
 you want your 4K monitor with scale 2 to the left of your 1080p one, you'd use
-the offset `1920x0` for the second screen. (3840 / 2)
+the position `1920x0` for the second screen. (3840 / 2)
+If the monitor is also rotated 90 degrees (vertical) you'd use `1080x0`.
 
 {{</ hint >}}
 
@@ -46,7 +47,7 @@ Leaving the name empty will define a fallback rule to use when no other rules
 match.
 
 You can use `preferred` as a resolution to use the display's preferred size, and
-`auto` as an offset to let Hyprland decide on an offset for you.
+`auto` as a position to let Hyprland decide on a position for you.
 
 Recommended rule for quickly plugging in random monitors:
 
