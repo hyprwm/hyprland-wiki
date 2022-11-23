@@ -73,7 +73,7 @@ Prefer using `input:sensitivity` over `general:sensitivity` to avoid bugs, espec
 | blur_size | blur size (distance) | int | 8 |
 | blur_passes | the amount of passes to perform | int | 1 |
 | blur_ignore_opacity | make the blur layer ignore the opacity of the window | bool | false |
-| blur_new_optimizations | whether to enable further optimizations to the blur. Recommended to turn on, as it will massively improve performance, but some people have experienced graphical issues | bool | false |
+| blur_new_optimizations | whether to enable further optimizations to the blur. Recommended to leave on, as it will massively improve performance, but some people have experienced graphical issues | bool | true |
 | drop_shadow | enable drop shadows on windows | bool | true |
 | shadow_range | Shadow range ("size") in layout px | int | 4 |
 | shadow_render_power | (1 - 4), in what power to render the falloff (more power, the faster the falloff) | int | 3 |
