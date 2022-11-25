@@ -82,3 +82,14 @@ You can install it from the AUR by the name `hybrid-bar`.
 ## Configuration
 
 The configuration is done through JSON, more information is available [here](https://github.com/vars1ty/HybridBar).
+
+### Blur
+
+To activate blur, set `blurls=NAMESPACE` in your hyprland configuration, where `NAMESPACE` is the gtk-layer-shell namespace of your HybridBar. The default namespace is `gtk-layer-shell` and can be changed in the HybridBar configuration at 
+```json
+{
+     "hybrid" {
+          "namespace": "namespace name"
+     }
+}
+```
