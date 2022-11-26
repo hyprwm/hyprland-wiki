@@ -17,6 +17,7 @@ the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 | vec2 | vector with 2 values (float), separated by a space (e.g. `0 0` or `-10.9 99.1`) |
 | MOD | a string modmask (e.g. `SUPER` or `SUPERSHIFT` or `SUPER + SHIFT` or `SUPER and SHIFT` or `CTRL_SHIFT` or empty for none. You are allowed to put any separators you please except for a `,`) |
 | str | a string |
+| gradient | a gradient, in the form of `color color ... [angle]` where `color` is a color (see above) and angle is an angle in degrees, in the format of `123deg` e.g. `45deg` (e.g. `rgba(11ee11ff) rgba(1111eeff) 45deg`) Angle is optional and will default to `0deg` |
 
 {{< hint type=info >}}
 
@@ -49,8 +50,8 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 | no_border_on_floating | disable borders for floating windows | bool | false |
 | gaps_in | gaps between windows | int | 5 |
 | gaps_out | gaps between windows and monitor edges | int | 20 |
-| col.inactive_border | self-explanatory | color | 0xffffffff |
-| col.active_border | self-explanatory | color | 0xff444444 |
+| col.inactive_border | self-explanatory | gradient | 0xffffffff |
+| col.active_border | self-explanatory | gradient | 0xff444444 |
 | cursor_inactive_timeout | in seconds, after how many seconds of cursor's inactivity to hide it. Set to `0` for never. | int | 0 |
 | layout | which layout to use. (Available: `dwindle`, `master`) | str | dwindle |
 | no_cursor_warps | if true, will not warp the cursor in many cases (focusing, keybinds, etc) | bool | false |
