@@ -53,7 +53,7 @@ layout pages (See the sidebar).
 | moveworkspacetomonitor | Moves a workspace to a monitor | workspace and a monitor separated by a space |
 | swapactiveworkspaces | Swaps the active workspaces between two monitors | two monitors separated by a space |
 | bringactivetotop | Brings the current window to the top of the stack | none |
-| togglespecialworkspace | toggles the special workspace on/off | none |
+| togglespecialworkspace | toggles a special workspace on/off | none (for the first) or name for named (name has to be a special workspace's name) |
 
 {{< hint type=warning >}}
 it is NOT recommended to set DPMS with a keybind directly, as it
@@ -83,7 +83,7 @@ You have eight choices:
 
 - First available empty workspace: `empty`
 
-- Special Workspace: `special`
+- Special Workspace: `special` or `special:name` for named special workspaces.
 
 {{< hint type=warning >}}
 `special` is supported ONLY on
@@ -99,12 +99,14 @@ Neither `0` nor negative numbers are allowed.
 
 # Special Workspace
 
-Special workspace is what is called a "scratchpad" in some other places. A
+A special workspace is what is called a "scratchpad" in some other places. A
 workspace that you can toggle on/off on any monitor.
 
 {{< hint >}}
-You cannot have floating windows in the Special workspace. Making a window floating
+You cannot have floating windows in a Special workspace. Making a window floating
 will send it to the currently active _real_ workspace.
+
+You can define multiple named special workspaces, but the amount of those is limited to 97 at a time.
 {{< /hint >}}
 
 # Workspace options
