@@ -16,13 +16,6 @@ Wayland **compositors** should not be confused with Xorg **window managers**.
 
 ## IMPORTANT
 
-{{< hint type=important >}}
-GTK apps launching slowly and/or OBS/Screensharing not working
-is easily fixable by checking out the
-[FAQ (GTK issue)](../FAQ/#some-of-my-apps-take-a-really-long-time-to-open)
-and [FAQ (screensharing)](../FAQ/#screenshare--obs-no-worky).
-{{< /hint >}}
-
 If you are having issues, please try [reading the FAQ](../FAQ) and configuring
 sections — chances are your issue is described somewhere there. If not, you can
 try [searching the issues](https://github.com/hyprwm/Hyprland/issues) or
