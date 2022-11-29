@@ -97,12 +97,6 @@ It will, however, cause zero overhead on tiled windows if using `blur_new_optimi
 
 {{< /hint >}}
 
-{{< hint type=warning >}}
-
-Using `blur_new_optimizations` with an animated wallpaper may actually increase GPU usage.
-
-{{< /hint >}}
-
 # Animations
 
 | name | description | type | default |
