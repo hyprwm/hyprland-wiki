@@ -36,7 +36,7 @@ See the
 for all the keysyms. The name you should use is the one after `XKB_KEY_`,
 written in all lowercase.
 
-If you are unsure of what your key's name is, or what it shifts into, you can
+If you are unsure of what your key's name is, you can
 use `xev` or `wev` to find that information.
 
 If you want to bind by a keycode, you can just input it in the KEY position,
