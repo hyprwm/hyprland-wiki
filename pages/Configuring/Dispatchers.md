@@ -35,6 +35,7 @@ layout pages (See the sidebar).
 | pin | pins the active window (shown on all workspaces) *note: floating only* | none |
 | movefocus | moves the focus in a direction | direction |
 | movewindow | moves the active window in a direction or to a monitor | direction or `mon:` and a monitor |
+| centerwindow | center the active window *note: floating only* | none |
 | resizeactive | resizes the active window | resizeparams |
 | moveactive | moves the active window | resizeparams |
 | resizewindowpixel | resizes a selected window | `resizeparams,window`, e.g. `100 100,^(kitty)$` |
