@@ -12,6 +12,3 @@ Rofi, but with Wayland support.
 
 bemenu is a Wayland-native replacement for dmenu.
 [GitHub](https://github.com/Cloudef/bemenu).
-
-For a more comprehensive list of launchers, check
-[awesome-wayland](https://github.com/natpen/awesome-wayland#launchers).
