@@ -85,6 +85,7 @@ Prefer using `input:sensitivity` over `general:sensitivity` to avoid bugs, espec
 | shadow_scale | shadow's scale. 0.0 - 1.0 | float | 1.0 |
 | dim_inactive | enables dimming of inactive windows | bool | false |
 | dim_strength | how much inactive windows should be dimmed, 0.0 - 1.0 | float | 0.5 |
+| screen_shader | a path to a custom shader to be applied at the end of rendering. See `examples/screenShader.frag` for an example. | str | \[EMPTY\] |
 
 {{< hint type=info >}}
 
