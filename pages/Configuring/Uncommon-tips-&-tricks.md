@@ -17,7 +17,7 @@ For example: `us,ua` -> config binds would be e.g. `SUPER, A`, while on `ua,us` 
 
 {{< /hint >}}
 
-You can also bind a key to execute `hyprctl setxkblayout` for more keybind freedom.
+You can also bind a key to execute `hyprctl switchxkblayout` for more keybind freedom.
 See [Using hyprctl](../Using-hyprctl).
 
 # Disabling keybinds with one master keybind
