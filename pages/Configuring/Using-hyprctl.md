@@ -110,6 +110,25 @@ hyprctl output create headless
 hyprctl output remove HEADLESS-1
 ```
 
+### setxkblayout
+
+Sets the xkb layout index for a keyboard.
+
+For example, if you set:
+```ini
+device:my-epic-keyboard-v1 {
+    layout=us,pl,de
+}
+```
+
+You can use this command to switch between them.
+
+```
+hyprctl setxkblayout [DEVICE] [CMD]
+```
+where `CMD` is either `next` for next, `prev` for previous, or `ID`
+for a specific one (in the above case, `us`: 0, `pl`: 1, `de`: 2)
+
 ## Info
 
 ```plain
