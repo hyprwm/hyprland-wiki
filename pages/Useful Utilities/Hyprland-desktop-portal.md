@@ -20,9 +20,27 @@ region sharing.
 
 ## Installing
 
+#### AUR
+```sh
+yay -S xdg-desktop-portal-hyprland-git
+```
+
+#### Manual
 See [The Github repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland).
 
-Make sure to disable XDPW from starting to avoid conflicts.
+
+## Usage
+
+Should start automatically.
+
+The most basic way of telling everything is OK is by trying to screenshare anything, or
+open OBS and select pipewire source. If XDPH is running, a qt menu will pop up asking you
+what to share.
+
+If it doesn't, and you get e.g. slurp, then XDPW is launching. In that case, try removing XDPW.
+
+XDPH will work on other wlroots compositors, but features available only on Hyprland will not work
+(e.g. window sharing)
 
 For a nuclear option, you can use this script and `exec-once` it:
 ```sh
@@ -31,7 +49,8 @@ sleep 1
 killall xdg-desktop-portal-hyprland
 killall xdg-desktop-portal-wlr
 killall xdg-desktop-portal
-/usr/lib/xdg-desktop-portal-hyprland &
+/usr/libexec/xdg-desktop-portal-hyprland &
 sleep 2
 /usr/lib/xdg-desktop-portal &
 ```
+adjust the paths if incorrect.
