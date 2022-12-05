@@ -15,7 +15,7 @@ has more features, called [xdg-desktop-portal-hyprland](https://github.com/hyprw
 
 {{< hint type=important >}}
 You don't **need** XDPH. Hyprland will work with XDPW, but XDPH has more features, like e.g.
-region sharing.
+window sharing.
 {{< /hint >}}
 
 ## Installing
