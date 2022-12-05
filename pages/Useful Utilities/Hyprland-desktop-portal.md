@@ -16,6 +16,9 @@ has more features, called [xdg-desktop-portal-hyprland](https://github.com/hyprw
 {{< hint type=important >}}
 You don't **need** XDPH. Hyprland will work with XDPW, but XDPH has more features, like e.g.
 window sharing.
+
+XDPH will work on other wlroots-based compositors, although limited to the XDPW features (other
+will be disabled)
 {{< /hint >}}
 
 ## Installing
