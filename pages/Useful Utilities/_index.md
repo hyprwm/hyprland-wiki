@@ -14,3 +14,7 @@ Hyprland working.
 - **[App Clients](./App-Clients)**
 
 - **[Color Pickers](./Color-Pickers)**
+
+- **[Hyprland Desktop Portal](./Hyprland-desktop-portal)**
+
+- **[Other](./Other)**
