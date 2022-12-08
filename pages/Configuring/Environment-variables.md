@@ -38,7 +38,7 @@ To force GBM as a backend, set the following environment variables:
 > See [Archwiki Hardware Acecleration Page](https://wiki.archlinux.org/title/Hardware_video_acceleration)
 > for details and necessary values before setting this variable.
 
-- `__GLX_GSYNC_ALLOWED` - Controls if G-Sync capable monitors should use Variable Refresh Rate (VRR)
+- `__GL_GSYNC_ALLOWED` - Controls if G-Sync capable monitors should use Variable Refresh Rate (VRR)
 
 > See [Nvidia Documentation](https://download.nvidia.com/XFree86/Linux-32bit-ARM/375.26/README/openglenvvariables.html) for details.
 
