@@ -1,5 +1,6 @@
-The master layout makes one window be the "master", taking the left part of the
-screen, and tiles the rest on the right.
+The master layout makes one window be the "master", taking (by default) the left part of the
+screen, and tiles the rest on the right. You can change the orientation on per-workspace basis
+if you want to use anything other than the default left/right split.
 
 # Quirks
 
@@ -22,6 +23,7 @@ _category name `master`_
 | new_is_master | whether a newly open window should replace the master or join the slaves. | bool | true |
 | new_on_top | whether a newly open window should be on the top of the stack | bool | false |
 | no_gaps_when_only | whether to apply gaps when there is only one window on a workspace, aka. smart gaps. | bool | false |
+| orientation | default placement of the master area, can be left, right, top or bottom | string | left |
 
 # Dispatchers
 
@@ -37,6 +39,12 @@ _category name `master`_
 | swapprev | swaps the focused window with the previous window respecting the layout |
 | addmaster | adds a master to the master side. That will be the active window, if it's not a master, or the first non-master window. |
 | removemaster | removes a master from the master side. That will be the active window, if it's a master, or the last master window. |
+| orientationleft | sets the orientation for the current workspace to left (master area left, slave windows to the right, vertically stacked) |
+| orientationright | sets the orientation for the current workspace to right (master area right, slave windows to the left, vertically stacked) |
+| orientationtop | sets the orientation for the current workspace to top (master area top, slave windows to the bottom, horizontally stacked) |
+| orientationbottom | sets the orientation for the current workspace to bottom (master area bottom, slave windows to the top, horizontally stacked) |
+| orientationnext | cycle to the next orientation for the current workspace (clockwise) |
+| orientationprev | cycle to the previous orientation for the current workspace (counter-clockwise) |
 
 {{< hint type=info >}}
 example usage:
