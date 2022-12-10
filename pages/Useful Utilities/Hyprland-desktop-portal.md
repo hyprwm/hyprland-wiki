@@ -31,6 +31,11 @@ yay -S xdg-desktop-portal-hyprland-git
 #### Manual
 See [The Github repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland).
 
+{{< hint type=important >}}
+It's recommended to uninstall any other portal implementations to avoid conflicts with the `-hyprland` or `-wlr` ones.
+
+`-kde` and `-gnome` are known to cause issues.
+{{< /hint >}}
 
 ## Usage
 

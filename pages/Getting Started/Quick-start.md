@@ -104,6 +104,11 @@ Head onto the
 [Configuring Hyprland page](../../Configuring/Configuring-Hyprland) to learn all
 about configuring Hyprland to your likings.
 
+# Critical software
+
+See the [Must-have Software page](../../Useful-Utilities/Must-have) for the crucial
+things to make Wayland / Hyprland / other apps work correctly.
+
 ## Apps / X11 replacements
 
 See the [Useful Utilities page](../../Useful-Utilities) and the
