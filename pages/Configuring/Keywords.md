@@ -118,7 +118,7 @@ enabled -> (only for mice / touchpads) enables / disables the device (connects /
 Example config section:
 
 ```ini
-device:ROYUAN Akko Multi-modes Keyboard-B {
+device:royuan-akko-multi-modes-keyboard-b {
     repeat_rate=50
     repeat_delay=500
     middle_button_emulation=0
@@ -126,16 +126,6 @@ device:ROYUAN Akko Multi-modes Keyboard-B {
 ```
 
 _remember about the space after the end of the device's name (before the `{`)!_
-
-{{< hint type=tip >}}
-With hyprctl, the category's spaces get turned into `-`, and everything is
-lowercase. So, for `hyprctl` calls, do for example:
-
-```sh
-hyprctl keyword device:royuan-akko-multi-modes-keyboard-b:kb_layout us
-```
-
-{{< /hint >}}
 
 # Wallpapers
 
