@@ -74,7 +74,7 @@ you can use `hyprctl clients`.
 | pseudo | pseudotiles a window | |
 | monitor \[id\] | sets the monitor on which a window should open | |
 | workspace \[w\] | sets the workspace on which a window should open (for workspace syntax, see [dispatchers->workspaces](../Dispatchers#workspaces)). You can also make \[w\] to `unset`, will unset all previous workspace rules applied to this window. You can also add `silent` after the workspace to make the window open silently. | |
-| opacity \[a\] | additional opacity multiplier. Options for a: `float` -> sets an opacity OR `float float` -> sets activeopacity and inactiveopacity respectively |&check;|
+| opacity \[a\] | additional opacity multiplier. Options for a: `float` -> sets an opacity OR `float float` -> sets activeopacity and inactiveopacity respectively. You can also add `override` after an opacity to make it override instead of a multiplier. (e.g. `1.0 override 0.5 override`) |&check;|
 | opaque | forces the window to be opaque (can be toggled with the toggleopaque dispatcher) |&check;|
 | animation \[style\] (\[opt\]) | forces an animation onto a window, with a selected opt. Opt is optional. |&check;|
 | rounding \[x\] | forces the application to have X pixels of rounding, ignoring the set default (in `decoration:rounding`). Has to be an int. |&check;|
@@ -99,7 +99,9 @@ windowrule = animation popin,^(kitty)$ # sets the animation style for kitty
 windowrule = noblur,^(firefox)$ # disables blur for firefox
 windowrule = move cursor -50% -50%,^(kitty)$ # moves kitty to the center of the cursor
 windowrulev2 = bordercolor rgb(FF0000) rgb(880808),fullscreen:1 # set bordercolor to red if window is fullscreen
-windowrulev2 = bordercolor rgb(FFFF00),title:^(.*Hyprland.*)$ #set bordercolor to yellow when title contains Hyprland
+windowrulev2 = bordercolor rgb(FFFF00),title:^(.*Hyprland.*)$ # set bordercolor to yellow when title contains Hyprland
+windowrule = opacity 1.0 override 0.5 override,^(kitty)$ # set opacity to 1.0 active and 0.5 inactive for kitty
+windowrule = rounding 10,^(kitty)$ # set rounding to 10 for kitty
 ```
 
 ### Notes
