@@ -35,6 +35,8 @@ See [The Github repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hypr
 It's recommended to uninstall any other portal implementations to avoid conflicts with the `-hyprland` or `-wlr` ones.
 
 `-kde` and `-gnome` are known to cause issues.
+
+both `-wlr` and `-hyprland` installed at once will also cause conflicts. Choose one and uninstall the other.
 {{< /hint >}}
 
 ## Usage
