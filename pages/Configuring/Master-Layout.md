@@ -24,6 +24,7 @@ _category name `master`_
 | new_on_top | whether a newly open window should be on the top of the stack | bool | false |
 | no_gaps_when_only | whether to apply gaps when there is only one window on a workspace, aka. smart gaps. | bool | false |
 | orientation | default placement of the master area, can be left, right, top or bottom | string | left |
+| inherit_fullscreen | inherit fullscreen status when cycling/swapping to another window (e.g. monocle layout) | bool | true |
 
 # Dispatchers
 
