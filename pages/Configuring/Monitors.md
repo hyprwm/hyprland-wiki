@@ -49,6 +49,9 @@ match.
 You can use `preferred` as a resolution to use the display's preferred size, and
 `auto` as a position to let Hyprland decide on a position for you.
 
+You can also use `auto` as a scale to let Hyprland decide on a scale for you. These
+depend on the PPI of the monitor.
+
 Recommended rule for quickly plugging in random monitors:
 
 ```ini
