@@ -225,12 +225,6 @@ _~/.config/hypr/hyprland.conf_
 exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 ```
 
-and
-
-```ini
-exec-once=systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-```
-
 Make sure that your portals launch _after_ this gets executed. For some people,
 they might launch before that has happened.
 
