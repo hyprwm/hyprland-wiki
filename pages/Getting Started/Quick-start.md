@@ -54,8 +54,8 @@ usually not ran through the user account.
 
 {{< hint type=important >}}
 It is highly recommended to copy the desktop file to e.g. `wrapped_hl.desktop` instead of editing
-the provided one, as many package managers (and `sudo make install`) will **overwrite**
-the desktop file on updates. If you manually build Hyprland, consider using `sudo make cleaninstall` to preserve `hyprland.deskop`
+the provided one, as many package managers will **overwrite**
+the desktop file on updates.
 {{< /hint >}}
 
 # Immediate

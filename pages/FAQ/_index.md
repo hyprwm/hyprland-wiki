@@ -95,7 +95,7 @@ Open a terminal where you cloned the repo.
 ```bash
 git pull 
 sudo make clear 
-sudo make cleaninstall
+sudo make install
 ```
 
 If you are using the AUR (hyprland-git) package, you

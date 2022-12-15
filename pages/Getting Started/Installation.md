@@ -122,14 +122,6 @@ cd Hyprland
 sudo make install
 ```
 
-Do note that `sudo make install` will copy the example .desktop file to
-`/usr/share/wayland-sessions/` directory, promptly overriding the existent
-.desktop file from previous installations.
-
-The previous build task `cleaninstall` has been deprecated in favor of the new
-file check in the default `install` task. You may safely run `sudo make install`
-without worrying about your wrapped `hyprland.desktop` being overwritten.
-
 ### Meson
 
 ```plain
