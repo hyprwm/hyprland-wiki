@@ -112,7 +112,7 @@ touchdevice:output -> touch_output
 
 Additional properties only present in per-device configs:
 ```plain
-enabled -> (only for mice / touchpads) enables / disables the device (connects / disconnects from the on-screen cursor) - default: Enabled
+enabled -> (only for mice / touchpads / keyboards) enables / disables the device (connects / disconnects from the on-screen cursor) - default: Enabled
 ```
 
 Example config section:
