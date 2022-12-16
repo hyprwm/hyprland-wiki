@@ -68,6 +68,14 @@ emerge --ask --verbose hyprland
 ```
 
 {{</ tab >}}
+{{< tab "FreeBSD" >}}
+Hyprland and related are in the default repository:
+- [hyprland](https://www.freshports.org/x11-wm/hyprland)
+- [hyprpaper](https://www.freshports.org/x11/hyprpaper)
+- [hyprpicker](https://www.freshports.org/x11/hyprpicker)
+- [xdg-desktop-portal-hyprland](https://www.freshports.org/x11/xdg-desktop-portal-hyprland)
+- [Other Wayland stuff](https://www.freshports.org/wayland/)
+{{</ tab >}}
 
 {{< /tabs >}}
 
