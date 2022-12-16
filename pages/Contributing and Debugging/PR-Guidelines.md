@@ -6,53 +6,9 @@
 
 ## Code Style
 
-Hyprland's code style:
+Hyprland's code style is governed by the `.clang-format` file.
 
-```cpp
-void myFunction(int arg) {
-
-    if (shortStatement)
-        doSomething();
-    else
-        doNotDoIt();
-
-    switch (value) {
-        case 1:
-        { // braces optional
-            blahBlah();
-            break;
-        }
-        default:
-            Debug::log(ERR, "error");
-            break;
-    }
-
-    const auto CONSTVALUE = arg == 1 ? 2 : 3;
-
-    void* pLocalPointer = nullptr;
-
-    int localValue = 0;
-
-    if (MY && VERY && LONG && IF && STATEMENT && OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO && SUPERLONG && STATEMENT) {
-        ; // blank
-    }
-}
-
-class myClass {
-public:
-    int         m_iMyLocalInt = 0;
-    //          ^ member
-    //            ^ int
-    //              ^ camel name
-
-    void        classFunction(int, int, bool defaultBool = false);
-    //                          ^ most arg names omitted
-    //                                          ^ arg name mandatory here because C++
-
-    //          Note: omitting args only for functions with clear / few args. For long functions:
-    void        classFunctionLong(int a, int b, bool sure, bool red, bool enabled, void* item, const CColor& color = {0});
-}
-```
+Make sure to format accordingly whenever you make a PR.
 
 ## Some code FAQ
 
@@ -61,7 +17,7 @@ public:
 Every variable from the config needs to be found in a hashmap. To limit the amount of hashmap searches, getting a config option looks like this:
 
 ```cpp
-static auto *const PFOLLOWMOUSE = &g_pConfigManager->getConfigValuePtr("input:follow_mouse")->intValue;
+static auto* const PFOLLOWMOUSE = &g_pConfigManager->getConfigValuePtr("input:follow_mouse")->intValue;
 ```
 
 Since the hashmap _cannot_ be mutated during runtime, this pointer will always be valid, and will not require hashmap lookups every single time it's read.
