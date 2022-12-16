@@ -31,7 +31,6 @@ yay -S xdg-desktop-portal-hyprland-git
 {{< /tab >}}
 {{< tab "Gentoo" >}} 
 ```plain
-
 ## Unmask dependencies and  enable necessary useflags
 /etc/portage/profile/package.unmask:
 =dev-qt/qtbase-6.4.0
