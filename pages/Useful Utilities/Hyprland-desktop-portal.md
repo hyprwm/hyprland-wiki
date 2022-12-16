@@ -28,6 +28,13 @@ will be disabled)
 yay -S xdg-desktop-portal-hyprland-git
 ```
 
+### Gentoo
+```
+eselect repository add useless-overlay git https://github.com/Wa1t5/useless-overlay
+emaint sync -r useless-overlay
+emerge --ask --verbose gui-libs/xdg-desktop-portal-hyprland
+```
+
 #### Manual
 See [The Github repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland).
 
