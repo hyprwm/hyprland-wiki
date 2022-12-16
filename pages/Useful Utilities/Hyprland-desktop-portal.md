@@ -22,18 +22,22 @@ will be disabled)
 {{< /hint >}}
 
 ## Installing
+{{< tabs "uniqueid" >}}
 
-#### AUR
-```sh
+{{< tab "Arch Linux" >}} 
+```plain
 yay -S xdg-desktop-portal-hyprland-git
 ```
-
-### Gentoo
-```
+{{< /tab >}}
+{{< tab "Gentoo" >}} 
+```plain
 eselect repository add useless-overlay git https://github.com/Wa1t5/useless-overlay
 emaint sync -r useless-overlay
 emerge --ask --verbose gui-libs/xdg-desktop-portal-hyprland
 ```
+{{</ tab >}}
+
+{{< /tabs >}}
 
 #### Manual
 See [The Github repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland).
