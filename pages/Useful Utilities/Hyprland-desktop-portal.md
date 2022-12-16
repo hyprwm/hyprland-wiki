@@ -31,10 +31,35 @@ yay -S xdg-desktop-portal-hyprland-git
 {{< /tab >}}
 {{< tab "Gentoo" >}} 
 ```plain
+
+## Unmask dependencies and  enable necessary useflags
+/etc/portage/profile/package.unmask:
+=dev-qt/qtbase-6.4.0
+=dev-qt/qtwayland-6.4.0
+=dev-qt/qtdeclarative-6.4.0
+=dev-qt/qtshadertools-6.4.0
+
+/etc/portage/package.use:
+dev-qt/qtbase opengl X
+dev-qt/qtdeclarative opengl
+gui-libs/xdg-desktop-portal-hyprland select-window select-region
+sys-apps/xdg-desktop-portal screencast
+
+/etc/portage/package.accept_keywords:
+gui-libs/xdg-desktop-portal-hyprland **
+=dev-qt/qtbase-6.4.0
+=dev-qt/qtwayland-6.4.0
+=dev-qt/qtdeclarative-6.4.0
+=dev-qt/qtshadertools-6.4.0
+
+instead of using X on qtbase you could also use egl and eglfs
+
+## Installation
 eselect repository add useless-overlay git https://github.com/Wa1t5/useless-overlay
 emaint sync -r useless-overlay
 emerge --ask --verbose gui-libs/xdg-desktop-portal-hyprland
 ```
+
 {{</ tab >}}
 
 {{< /tabs >}}
