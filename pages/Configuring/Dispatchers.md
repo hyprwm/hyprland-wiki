@@ -13,8 +13,8 @@ layout pages (See the sidebar).
 | workspace | see below. |
 | direction | `l` `r` `u` `d` left right up down |
 | monitor | One of: direction, ID, name, `current`, relative (e.g. `+1` or `-1`) |
-| resizeparams | Pixel delta vec2 (e.g. `10 -10`) or `exact` followed by exact vec2, e.g. `exact 1280 720`) |
-| floatdelta | a float value delta, e.g `-0.2` or `+0.2`. |
+| resizeparams | Pixel delta vec2 (e.g. `10 -10`) or `exact` followed by exact vec2 (e.g. `exact 1280 720`) |
+| floatvalue | a relative float delta (e.g `-0.2` or `+0.2`) or `exact` followed by a the exact float value (e.g. `exact 0.5`) |
 | workspaceopt | see below. |
 
 # List of Dispatchers
@@ -44,7 +44,7 @@ layout pages (See the sidebar).
 | swapnext | swaps the focused window with the next window on a workspace | none (for next) or `prev` (for previous) |
 | focuswindow | focuses the first window matching | window |
 | focusmonitor | focuses a monitor | monitor |
-| splitratio | changes the split ratio | floatdelta |
+| splitratio | changes the split ratio | floatvalue |
 | toggleopaque | toggles the current window to always be opaque. Will override the `opaque` window rules. | none |
 | movecursortocorner | moves the cursor to the corner of the active window | direction, 0 - 3, bottom left - 0, bottom right - 1, top right - 2, top left - 3 |
 | workspaceopt | toggles a workspace option for the active workspace. | workspaceopt |
