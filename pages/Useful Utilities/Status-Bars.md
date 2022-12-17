@@ -73,6 +73,116 @@ Read
 carefully before asking why your bar doesn't work.
 {{< /hint >}}
 
+Here are some example widgets that might be useful for Hyprland:
+
+<details>
+<summary>Workspaces widget</summary>
+
+This widget displays a list of workspaces 1-10. Each workspace can be clicked on to jump to it, and scrolling over the widget cycles through them. It supports different styles for the current workspace, occupied workspaces, and empty workspaces. It requires [bash](https://linux.die.net/man/1/bash), [awk](https://linux.die.net/man/1/awk), [stdbuf](https://linux.die.net/man/1/stdbuf), [grep](https://linux.die.net/man/1/grep), [seq](https://linux.die.net/man/1/seq), [socat](https://linux.die.net/man/1/socat), [jq](https://stedolan.github.io/jq/), and [Python 3](https://www.python.org/).
+
+### `~/.config/eww.yuck`
+
+```lisp
+...
+(deflisten workspaces :initial "[]" "bash ~/.config/eww/scripts/get-workspaces")
+(deflisten current_workspace :initial "1" "bash ~/.config/eww/scripts/get-active-workspace")
+(defwidget workspaces []
+  (eventbox :onscroll "bash ~/.config/eww/scripts/change-active-workspace {} ${current_workspace}" :class "workspaces-widget"
+    (box :space-evenly true
+      (for workspace in workspaces
+        (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
+          (box :class "workspace-entry ${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
+            (label :text "${workspace.id}")
+            )
+          )
+        )
+      )
+    )
+  )
+...
+
+```
+
+### `~/.config/eww/scripts/change-active-workspace`
+
+```sh
+#! /bin/bash
+function clamp {
+	min=$1
+	max=$2
+	val=$3
+	python -c "print(max($min, min($val, $max)))"
+}
+
+direction=$1
+current=$2
+if test "$direction" = "down"
+then
+	target=$(clamp 1 10 $(($current+1)))
+	echo "jumping to $target"
+	hyprctl dispatch workspace $target
+elif test "$direction" = "up"
+then
+	target=$(clamp 1 10 $(($current-1)))
+	echo "jumping to $target"
+	hyprctl dispatch workspace $target
+fi
+```
+
+### `~/.config/eww/scripts/get-active-workspace`
+
+```sh
+#!/bin/bash
+hyprctl monitors -j | jq --raw-output .[0].activeWorkspace.id
+socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | stdbuf -o0 grep '^workspace>>' | stdbuf -o0 awk -F '>>|,' '{print $2}'
+```
+
+### `~/.config/eww/scripts/get-workspaces`
+
+```sh
+#!/bin/bash
+
+spaces (){
+	WORKSPACE_WINDOWS=$(hyprctl workspaces -j | jq 'map({key: .id | tostring, value: .windows}) | from_entries')
+	seq 1 10 | jq --argjson windows "${WORKSPACE_WINDOWS}" --slurp -Mc 'map(tostring) | map({id: ., windows: ($windows[.]//0)})'
+}
+
+spaces
+socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | while read -r line; do
+	spaces
+done
+```
+
+</details>
+
+<details>
+<summary>Active window title widget</summary>
+
+This widget simply displays the title of the active window. It requires [bash](https://linux.die.net/man/1/bash), [awk](https://linux.die.net/man/1/awk), [stdbuf](https://linux.die.net/man/1/stdbuf), [grep](https://linux.die.net/man/1/grep), [socat](https://linux.die.net/man/1/socat), and [jq](https://stedolan.github.io/jq/).
+
+### `~/.config/eww/eww.yuck`
+
+```lisp
+...
+(deflisten window :initial "..." "bash ~/.config/eww/scripts/get-window-title")
+(defwidget window_w []
+  (box
+    (label :text "${window}"
+    )
+  )
+...
+```
+
+### `~/.config/eww/scripts/get-window-title`
+
+```sh
+#!/bin/bash
+hyprctl activewindow -j | jq --raw-output .title
+socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | stdbuf -o0 grep '^activewindow>>' | stdbuf -o0 awk -F '>>|,' '{print $3}'
+```
+
+</details>
+
 # Hybrid
 
 Like Waybar, [Hybrid](https://github.com/vars1ty/HybridBar) is a GTK status bar mainly focused for wlroots compositors.
