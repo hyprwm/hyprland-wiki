@@ -24,13 +24,12 @@ will be disabled)
 ## Installing
 {{< tabs "uniqueid" >}}
 
-{{< tab "Arch Linux" >}} 
+{{< tab "Arch Linux" >}}
 ```plain
 yay -S xdg-desktop-portal-hyprland-git
 ```
 {{< /tab >}}
-{{< tab "Gentoo" >}} 
-
+{{< tab "Gentoo" >}}
 ## Unmask dependencies
 ### /etc/portage/profile/package.unmask
 ```plain
@@ -70,12 +69,13 @@ emaint sync -r useless-overlay
 emerge --ask --verbose gui-libs/xdg-desktop-portal-hyprland
 ```
 
+{{< /tab >}}
+{{< tab "Manual" >}}
+See [The Github repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland).
+
 {{</ tab >}}
 
 {{< /tabs >}}
-
-#### Manual
-See [The Github repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland).
 
 {{< hint type=important >}}
 It's recommended to uninstall any other portal implementations to avoid conflicts with the `-hyprland` or `-wlr` ones.
