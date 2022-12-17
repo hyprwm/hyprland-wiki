@@ -3,6 +3,8 @@ Hyprland working.
 
 # List of Pages
 
+- **[Must-Have](./Must-have)**
+
 - **[Status Bars](./Status-Bars)**
 
 - **[App Launchers](./App-Launchers)**
@@ -14,3 +16,7 @@ Hyprland working.
 - **[App Clients](./App-Clients)**
 
 - **[Color Pickers](./Color-Pickers)**
+
+- **[Hyprland Desktop Portal](./Hyprland-desktop-portal)**
+
+- **[Other](./Other)**

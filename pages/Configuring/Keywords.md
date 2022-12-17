@@ -112,13 +112,13 @@ touchdevice:output -> touch_output
 
 Additional properties only present in per-device configs:
 ```plain
-enabled -> (only for mice / touchpads) enables / disables the device (connects / disconnects from the on-screen cursor) - default: Enabled
+enabled -> (only for mice / touchpads / keyboards) enables / disables the device (connects / disconnects from the on-screen cursor) - default: Enabled
 ```
 
 Example config section:
 
 ```ini
-device:ROYUAN Akko Multi-modes Keyboard-B {
+device:royuan-akko-multi-modes-keyboard-b {
     repeat_rate=50
     repeat_delay=500
     middle_button_emulation=0
@@ -126,16 +126,6 @@ device:ROYUAN Akko Multi-modes Keyboard-B {
 ```
 
 _remember about the space after the end of the device's name (before the `{`)!_
-
-{{< hint type=tip >}}
-With hyprctl, the category's spaces get turned into `-`, and everything is
-lowercase. So, for `hyprctl` calls, do for example:
-
-```sh
-hyprctl keyword device:royuan-akko-multi-modes-keyboard-b:kb_layout us
-```
-
-{{< /hint >}}
 
 # Wallpapers
 
@@ -145,7 +135,7 @@ WALLPAPER**, it's the default image rendered at the bottom of the render stack.
 To set a wallpaper, use a wallpaper utility like
 [hyprpaper](https://github.com/hyprwm/hyprpaper) or [swaybg](https://github.com/swaywm/swaybg). 
 
-More can be found in [Useful Utilities](../Useful-Utilities).
+More can be found in [Useful Utilities](../../Useful-Utilities).
 
 # Blurring layerSurfaces
 

@@ -10,6 +10,9 @@ work as intended. Please use the
 
 # Install and configure Hyprland on NixOS
 
+First of all, it is a good idea to set up [Cachix](#cachix) before enabling
+any of the modules/installing Hyprland. 
+
 Make sure to check out the options of the
 [Nix module](https://github.com/hyprwm/Hyprland/blob/main/nix/module.nix).
 
@@ -23,19 +26,15 @@ As such, installation using the Flake is recommended.
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      # build with your own instance of nixpkgs
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = { self, nixpkgs, hyprland }: {
+  outputs = {self, nixpkgs, hyprland, ...}: {
     nixosConfigurations.HOSTNAME = nixpkgs.lib.nixosSystem {
       # ...
       modules = [
         hyprland.nixosModules.default
-        { programs.hyprland.enable = true; }
+        {programs.hyprland.enable = true;}
         # ...
       ];
     };
@@ -81,37 +80,37 @@ You can use the Home Manager module by adding it to your configuration:
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      # build with your own instance of nixpkgs
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland }: {
-    homeConfigurations."USER@HOSTNAME"= home-manager.lib.homeManagerConfiguration {
+  outputs = {self, nixpkgs, home-manager, hyprland, ...}: {
+    homeConfigurations."user@hostname" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
+
       modules = [
         hyprland.homeManagerModules.default
-        { wayland.windowManager.hyprland.enable = true; }
+        {wayland.windowManager.hyprland.enable = true;}
         # ...
       ];
     };
   };
 ```
 
-Don't forget to replace `USER@HOSTNAME` with your username and hostname!
+Don't forget to replace `user@hostname` with your username and hostname!
 
 ## Without flakes
 
 ```nix
 # home config
-{ config, pkgs, inputs, ... }: let
+{config, pkgs, inputs, ...}: let
   flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
+
   hyprland = (import flake-compat {
     src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/master.tar.gz";
   }).defaultNix;
@@ -130,8 +129,8 @@ For a list of available options, check the
 
 # Modules mix'n'match
 
-- If you plan on using the HM module alongside the NixOS module, set the NixOS
-  `programs.hyprland.package = null;`.
+- If you're on NixOS and also use HM it's a good idea to use Hyprland modules
+  for both. Make sure the package options are the same for both modules.
 
 - If you don't plan on using the NixOS module, but want to use the HM module, you
   will have to enable all the options the NixOS module enables.
@@ -185,7 +184,7 @@ command documentation for other upgrade options.
 # XWayland
 
 XWayland is enabled by default in the Nix package. You can disable it either
-in the package itself, or through the Home Manager module.
+in the package itself, or through the module options.
 
 ## Package
 
@@ -204,6 +203,15 @@ wayland.windowManager.hyprland = {
 }
 ```
 
+### NixOS module
+
+```nix
+programs.hyprland = {
+  enable = true;
+  xwayland.enable = false;
+}
+```
+
 ## HiDPI
 
 By default, the Nix package includes a patched wlroots that can render HiDPI
@@ -215,7 +223,7 @@ In order to enable the functionality, you have to add:
 exec-once=xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
 ```
 
-This will make XWL programs look as if they were unscaled. To fix this, you
+This will make XWayland programs look as if they were unscaled. To fix this, you
 have to export different environment variables to make the specific toolkits
 render at the proper scaling. For example
 
@@ -238,11 +246,24 @@ or by passing the `hidpiXWayland = false;` flag, the same way as
 
 # Cachix
 
-A [Hyprland Cachix](https://app.cachix.org/cache/hyprland) exists to cache the
-`wlroots` package and speed up builds.
+Hyprland often needs dependencies which aren't yet cached in `cache.nixos.org`.
+Instead of requiring you to build those dependencies (which may include `mesa`,
+`ffmpeg`, etc), we provide a Cachix cache that you can add to your Nix
+substituters.
 
-In case you don't plan on changing the Nixpkgs input of Hyprland, you can use
-this cache to download the binary directly, instead of building locally.
+The [Hyprland Cachix](https://app.cachix.org/cache/hyprland) exists to cache the
+`hyprland` packages and any dependencies not found in `cache.nixos.org`.
+
+{{< hint >}}
+In order for Nix to take advantage of the cache, it has to be enabled **before**
+enabling the Hyprland module(s) or adding the package.
+{{< /hint >}}
+
+{{< hint type=important >}}
+Overriding Hyprland's `nixpkgs` input
+(`inputs.hyprland.inputs.nixpkgs.follows = "nixpkgs";`) will make the cache
+useless, since you're building from a different Nixpkgs commit.
+{{< /hint >}}
 
 ```nix
 # configuration.nix
@@ -265,7 +286,7 @@ you can do it like this
 ```sh
 $ nix repl
 nix-repl> :lf "github:hyprwm/Hyprland"
-nix-repl> :bl outputs.packages.x86_64-linux.hyprland.override { nvidiaPatches = true; } # option = value
+nix-repl> :bl outputs.packages.x86_64-linux.hyprland.override {nvidiaPatches = true;} # option = value
 ```
 
 Then you can run Hyprland from the built path.

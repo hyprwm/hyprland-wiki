@@ -54,8 +54,8 @@ usually not ran through the user account.
 
 {{< hint type=important >}}
 It is highly recommended to copy the desktop file to e.g. `wrapped_hl.desktop` instead of editing
-the provided one, as many package managers (and `sudo make install`) will **overwrite**
-the desktop file on updates. If you manually build Hyprland, consider using `sudo make cleaninstall` to preserve `hyprland.deskop`
+the provided one, as many package managers will **overwrite**
+the desktop file on updates.
 {{< /hint >}}
 
 # Immediate
@@ -103,6 +103,11 @@ make those changes persist, configure your outputs in the config! {{< /hint >}}
 Head onto the
 [Configuring Hyprland page](../../Configuring/Configuring-Hyprland) to learn all
 about configuring Hyprland to your likings.
+
+# Critical software
+
+See the [Must-have Software page](../../Useful-Utilities/Must-have) for the crucial
+things to make Wayland / Hyprland / other apps work correctly.
 
 ## Apps / X11 replacements
 

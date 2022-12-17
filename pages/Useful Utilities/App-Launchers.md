@@ -12,3 +12,8 @@ Rofi, but with Wayland support.
 
 bemenu is a Wayland-native replacement for dmenu.
 [GitHub](https://github.com/Cloudef/bemenu).
+
+## fuzzel
+
+Fuzzel is an application launcher for wlroots based Wayland compositors, similar to rofi's `drun` mode.
+[Codeberg](https://codeberg.org/dnkl/fuzzel)

@@ -44,6 +44,7 @@ e.g.: `workspace>>2`
 | openlayer | emitted when a layerSurface is mapped | `NAMESPACE` |
 | closelayer | emitted when a layerSurface is unmapped | `NAMESPACE` |
 | submap | emitted when a keybind submap changes. Empty means default. |`SUBMAPNAME` |
+| changefloatingmode | emitted when a window changes its floating mode. `FLOATING` is either 0 or 1. | `WINDOWADDRESS`,`FLOATING` |
 
 {{< hint type=warning >}}
 A fullscreen event is not guaranteed to fire on/off once in succession.

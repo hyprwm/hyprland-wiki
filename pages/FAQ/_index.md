@@ -95,7 +95,7 @@ Open a terminal where you cloned the repo.
 ```bash
 git pull 
 sudo make clear 
-sudo make cleaninstall
+sudo make install
 ```
 
 If you are using the AUR (hyprland-git) package, you
@@ -223,12 +223,6 @@ _~/.config/hypr/hyprland.conf_
 
 ```ini
 exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-```
-
-and
-
-```ini
-exec-once=systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 ```
 
 Make sure that your portals launch _after_ this gets executed. For some people,
