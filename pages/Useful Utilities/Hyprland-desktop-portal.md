@@ -39,7 +39,7 @@ yay -S xdg-desktop-portal-hyprland-git
 =dev-qt/qtshadertools-6.4.0
 
 /etc/portage/package.use:
-dev-qt/qtbase opengl X
+dev-qt/qtbase opengl egl eglfs gles2-only
 dev-qt/qtdeclarative opengl
 gui-libs/xdg-desktop-portal-hyprland select-window select-region
 sys-apps/xdg-desktop-portal screencast
@@ -51,7 +51,7 @@ gui-libs/xdg-desktop-portal-hyprland **
 =dev-qt/qtdeclarative-6.4.0
 =dev-qt/qtshadertools-6.4.0
 
-instead of using X on qtbase you could also use egl and eglfs
+btw those are the useflags that I have tested, you could also test others
 
 ## Installation
 eselect repository add useless-overlay git https://github.com/Wa1t5/useless-overlay
