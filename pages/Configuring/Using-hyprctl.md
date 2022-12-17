@@ -117,7 +117,7 @@ Sets the xkb layout index for a keyboard.
 For example, if you set:
 ```ini
 device:my-epic-keyboard-v1 {
-    layout=us,pl,de
+    kb_layout=us,pl,de
 }
 ```
 
