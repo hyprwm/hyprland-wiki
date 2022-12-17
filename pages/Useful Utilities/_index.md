@@ -3,6 +3,8 @@ Hyprland working.
 
 # List of Pages
 
+- **[Must-Have](./Must-have)**
+
 - **[Status Bars](./Status-Bars)**
 
 - **[App Launchers](./App-Launchers)**
