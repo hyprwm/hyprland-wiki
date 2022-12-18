@@ -17,3 +17,6 @@ bemenu is a Wayland-native replacement for dmenu.
 
 Fuzzel is an application launcher for wlroots based Wayland compositors, similar to rofi's `drun` mode.
 [Codeberg](https://codeberg.org/dnkl/fuzzel)
+
+For a more comprehensive list of launchers, check
+[awesome-hyprland](https://github.com/hyprland-community/awesome-hyprland#runners-menus-and-application-launchers).
