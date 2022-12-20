@@ -79,7 +79,7 @@ Hyprland and related are in the default repository:
 
 {{< /tabs >}}
 
-### Manual (Releases)
+### Manual (Releases, Linux-only)
 
 Download the most recent release.
 
@@ -114,6 +114,14 @@ zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig
 ```
 
 (this should also work on RHEL/Fedora if you remove `Mesa-libGLESv3-devel` and `pkgconfig(xcb-errors)`)
+
+_FreeBSD dependencies_:
+
+```plain
+pkg install git pkgconf gmake gcc evdev-proto cmake wayland-protocols wayland libglvnd libxkbcommon libinput cairo pixman libxcb
+pkg install meson `pkg rquery %dn wlroots`
+export CC=gcc CXX=g++ LDFLAGS="-static-libstdc++ -static-libgcc"
+```
 
 Please note Hyprland builds `wlroots`. Make sure you have the dependencies of
 wlroots installed, you can make sure you have them by installing wlroots
