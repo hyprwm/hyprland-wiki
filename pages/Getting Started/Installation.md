@@ -68,10 +68,18 @@ emerge --ask --verbose hyprland
 ```
 
 {{</ tab >}}
+{{< tab "FreeBSD" >}}
+Hyprland and related are in the default repository:
+- [hyprland](https://www.freshports.org/x11-wm/hyprland)
+- [hyprpaper](https://www.freshports.org/x11/hyprpaper)
+- [hyprpicker](https://www.freshports.org/x11/hyprpicker)
+- [xdg-desktop-portal-hyprland](https://www.freshports.org/x11/xdg-desktop-portal-hyprland)
+- [Other Wayland stuff](https://www.freshports.org/wayland/)
+{{</ tab >}}
 
 {{< /tabs >}}
 
-### Manual (Releases)
+### Manual (Releases, Linux-only)
 
 Download the most recent release.
 
@@ -107,12 +115,22 @@ zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig
 
 (this should also work on RHEL/Fedora if you remove `Mesa-libGLESv3-devel` and `pkgconfig(xcb-errors)`)
 
+_FreeBSD dependencies_:
+
+```plain
+pkg install git pkgconf gmake gcc evdev-proto cmake wayland-protocols wayland libglvnd libxkbcommon libinput cairo pixman libxcb
+pkg install meson `pkg rquery %dn wlroots`
+export CC=gcc CXX=g++ LDFLAGS="-static-libstdc++ -static-libgcc"
+```
+
 Please note Hyprland builds `wlroots`. Make sure you have the dependencies of
 wlroots installed, you can make sure you have them by installing wlroots
 separately (Hyprland doesn't mind)
 
-Also note that Hyprland uses the C++23 standard, so your compiler has to support
-that (`gcc>=12.1.0` or `clang>=15`)
+Also note that Hyprland uses the C++23 standard, so both your compiler
+and your C++ library has to support that (`gcc>=12.1.0` or `clang>=15`).
+On Clang-based systems libc++ may be used by default, so until libc++
+supports C++23 you have to pass `-stdlib=libstdc++` or switch to GCC.
 
 ### CMake (recommended)
 
