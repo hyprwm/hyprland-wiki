@@ -106,9 +106,12 @@ force_no_accel, follow_mouse, float_switch_override_focus
 Properties that change names:
 
 ```plain
-touchdevice:transform -> touch_transform
-touchdevice:output -> touch_output
+touchdevice:transform -> transform
+touchdevice:output -> output
 ```
+
+You can also use the `output` setting for tablets to bind them to outputs. Remember to
+use the name of the `Tablet` and not `Tablet Pad` or `Tablet tool`.
 
 Additional properties only present in per-device configs:
 ```plain
