@@ -236,8 +236,9 @@ Combining this with a submap should yield neat and usable results.
 
 # Submaps
 
-If you want keybind submaps, for example if you press <key>ALT</key> +
-<key>R</key>, you can enter a "resize" mode, resize with arrow keys, and leave
+If you want keybind submaps, also known as _modes_ or _groups_, for example if
+you press <key>ALT</key> + <key>R</key>, you can enter a "resize" mode,
+resize with arrow keys, and leave
 with escape, do it like this:
 
 ```ini
