@@ -214,6 +214,7 @@ Described [here](../Keywords#per-device-input-configs).
 | workspace_swipe_cancel_ratio | (0.0 - 1.0) how much the swipe has to proceed in order to commence it. (0.7 -> if > 0.7 * distance, switch, if less, revert) | float | 0.5 |
 | workspace_swipe_create_new | whether a swipe right on the last workspace should create a new one. | bool | true |
 | workspace_swipe_forever | if enabled, swiping will not clamp at the neighboring workspaces but continue to the further ones. | bool | false |
+| workspace_swipe_numbered | if enabled, swiping will swipe on consecutive numbered workspaces. | bool | false |
 
 # Misc
 
