@@ -32,9 +32,9 @@ For Radeon graphics - unfortunately, it's a bug in wlroots. You can either rever
 from wlroots or use a special env flag, see
 [https://gitlab.freedesktop.org/wlroots/wlroots/-/issues/3451](https://gitlab.freedesktop.org/wlroots/wlroots/-/issues/3451)
 
-For Nvidia graphics - This issue appears to be resolved when using Nvidia Drivers 525.60.11 or later, but the may persist with older drivers.
+For Nvidia graphics - This issue appears to be resolved when using Nvidia Drivers 525.60.11 or later, but it may persist with older drivers.
 
-There is a way to fix it that _might_ work for you though:
+Outside those, there is a way to fix it that _might_ work for you though:
 
 **Option 1:** Use _only_ the external monitor
 
