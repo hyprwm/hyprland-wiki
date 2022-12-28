@@ -32,8 +32,7 @@ For Radeon graphics - unfortunately, it's a bug in wlroots. You can either rever
 from wlroots or use a special env flag, see
 [https://gitlab.freedesktop.org/wlroots/wlroots/-/issues/3451](https://gitlab.freedesktop.org/wlroots/wlroots/-/issues/3451)
 
-For Nvidia graphics - unfortunately, it's a wlroots issue as well, most likely due to Nvidia's
-lack of support and proprietary drivers.
+For Nvidia graphics - This issue appears to be resolved when using Nvidia Drivers 525.60.11 or later, but the may persist with older drivers.
 
 There is a way to fix it that _might_ work for you though:
 
