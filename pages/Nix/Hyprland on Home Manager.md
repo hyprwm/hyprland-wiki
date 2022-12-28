@@ -30,6 +30,7 @@ For a list of available options, check the
       ];
     };
   };
+}
 ```
 
 Don't forget to replace `user@hostname` with your username and hostname!
@@ -38,7 +39,7 @@ Don't forget to replace `user@hostname` with your username and hostname!
 
 ```nix
 # home config
-{config, pkgs, inputs, ...}: let
+{config, pkgs, ...}: let
   flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
 
   hyprland = (import flake-compat {

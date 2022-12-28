@@ -30,6 +30,7 @@ As such, installation using the Flake is recommended.
       ];
     };
   };
+}
 ```
 
 Don't forget to replace `HOSTNAME` with your hostname!

@@ -26,7 +26,7 @@ programs.hyprland = { # or wayland.windowManager.hyprland
     hidpi = true;
   };
   nvidiaPatches = false;
-}
+};
 ```
 
 ## Options descriptions
