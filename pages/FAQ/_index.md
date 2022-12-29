@@ -61,7 +61,7 @@ GitHub pages).
 For a more complete utility, try our own screenshotting utility:
 [Grimblast](https://github.com/hyprwm/contrib).
 
-For recording videos, wf-recorder or OBS Studio could be used.
+For recording videos, [wf-recorder](https://github.com/ammen99/wf-recorder) or [OBS Studio](https://obsproject.com/) could be used.
 
 # Screenshare / OBS no worky
 
