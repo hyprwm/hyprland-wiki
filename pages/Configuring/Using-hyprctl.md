@@ -45,7 +45,7 @@ hyprctl dispatch pseudo x
 
 Returns: `ok` on success, an error message on fail.
 
-See [Dispatchers](./Dispatchers) for a list of dispatchers.
+See [Dispatchers](../Dispatchers) for a list of dispatchers.
 
 ### Keyword
 
@@ -154,7 +154,7 @@ hyprctl getoption general:border_size
 hyprctl getoption input:touchpad:disable_while_typing
 ```
 
-See [Variables](./Variables) for section and options you can use.
+See [Variables](../Variables) for section and options you can use.
 
 ## Batch
 
