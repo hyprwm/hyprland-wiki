@@ -4,7 +4,7 @@ if you want to use anything other than the default left/right split.
 
 # Quirks
 
-The right, "slave" windows will always be split uniformly. You cannot change
+The right, "slave" windows will be split uniformly. You can change
 their size.
 
 ![master1](https://user-images.githubusercontent.com/43317083/179357849-321f042c-f536-44b3-9e6f-371df5321836.gif)
