@@ -8,7 +8,7 @@ work as intended. Please use the
 
 {{< /hint >}}
 
-First of all, it is a good idea to set up [Cachix](#cachix) before continuing
+First of all, it is a good idea to set up [Cachix](../Cachix) before continuing
 with installing Hyprland. 
 
 Start off by choosing your appropriate install method on the sidebar.
