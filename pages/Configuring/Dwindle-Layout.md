@@ -35,8 +35,8 @@ category name: `dwindle`
 | name | description | type | default |
 |---|---|---|---|---|
 | pseudotile | enable pseudotiling. Pseudotiled windows retain their floating size when tiled. | bool | false |
-| col.group_border | inactive (out of focus) group border color | color | 0x66777700 |
-| col.group_border_active | active group border color | color | 0x66ffff00 |
+| col.group_border | inactive (out of focus) group border color | gradient | 0x66777700 |
+| col.group_border_active | active group border color | gradient | 0x66ffff00 |
 | force_split | 0 -> split follows mouse, 1 -> always split to the left (new = left or top) 2 -> always split to the right (new = right or bottom) | int | 0 |
 | preserve_split | if enabled, the split (side/top) will not change regardless of what happens to the container. | bool | false |
 | special_scale_factor | 0 - 1 -> specifies the scale factor of windows on the special workspace | float | 0.8 |
