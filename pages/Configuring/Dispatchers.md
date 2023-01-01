@@ -30,6 +30,7 @@ layout pages (See the sidebar).
 | movetoworkspacesilent | same as above, but doesnt switch to the workspace | workspace OR `workspace,window` for a specific window |
 | togglefloating | toggles the current window's floating state | left empty / `active` for current, or `window` for a specific window |
 | fullscreen | toggles the focused window's fullscreen state | 0 - fullscreen (takes your entire screen), 1 - maximize (keeps gaps and bar(s)) |
+| fakefullscreen | toggles the focused window's internal fullscreen state without altering the geometry | none |
 | dpms | sets all monitors' DPMS status. Do not use with a keybind directly. | `on` or `off`, for specific monitor add monitor name after a space |
 | pseudo | toggles the focused window's pseudo mode | none |
 | pin | pins the active window (shown on all workspaces) *note: floating only* | none |
