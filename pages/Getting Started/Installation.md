@@ -229,6 +229,6 @@ with a login manager.
 Login managers are not officially supported, but here's a short compatibility
 list:
 
-- SDDM → Works flawlessly
+- SDDM → Works flawlessly. Install the [latest git version](https://github.com/sddm/sddm) (or [sddm-git](https://aur.archlinux.org/packages/sddm-git) from the AUR if you use Arch) to prevent SDDM bug [1476](https://github.com/sddm/sddm/issues/1476).
 - GDM → Works with the caveat of crashing Hyprland on the first launch
 - ly → Works with minor to major issues and/or caveats
