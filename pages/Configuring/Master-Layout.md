@@ -1,17 +1,8 @@
-The master layout makes one window be the "master", taking (by default) the left part of the
+The master layout makes one (or more) window(s) be the "master", taking (by default) the left part of the
 screen, and tiles the rest on the right. You can change the orientation on per-workspace basis
 if you want to use anything other than the default left/right split.
 
-# Quirks
-
-The right, "slave" windows will always be split uniformly. You cannot change
-their size.
-
 ![master1](https://user-images.githubusercontent.com/43317083/179357849-321f042c-f536-44b3-9e6f-371df5321836.gif)
-
-However, you can resize the master window.
-
-![master2](https://user-images.githubusercontent.com/43317083/179357863-928b0b5a-ff10-4edc-aa76-3ff88c59c980.gif)
 
 # Config
 
