@@ -57,6 +57,8 @@ Examples:
 hyprctl keyword bind SUPER,O,pseudo
 
 hyprctl keyword general:border_size 10
+
+hyprctl keyword monitor DP-3,1920x1080@144,0x0,1
 ```
 
 Returns: `ok` on success, an error message on fail.
