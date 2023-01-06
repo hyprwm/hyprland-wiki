@@ -139,6 +139,7 @@ monitors - lists all the outputs with their properties
 workspaces - lists all workspaces with their properties
 clients - lists all windows with their properties
 devices - lists all connected keyboards and mice
+binds - lists all registered binds
 activewindow - gets the active window name
 layers - lists all the layers
 splash - prints the current random splash
