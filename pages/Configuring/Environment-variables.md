@@ -1,4 +1,4 @@
-As  [previously mentioned](../Getting-Started/Quick-start/#wrapping-the-launcher-recommended), it's 
+As  [previously mentioned](../Getting%20Started/Quick-start.md#wrapping-the-launcher-recommended), it's 
 useful using a wrapper to launch Hyprland. Whether you start Hyprland through TTY or a Display 
 Manager, it is always suggested to use one. As such, you can pass certain environment 
 variables to improve Wayland compatibility, or simply change certain aspects of your desktop.
