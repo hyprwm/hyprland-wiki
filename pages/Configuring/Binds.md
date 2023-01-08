@@ -100,7 +100,12 @@ bind=SUPER,mouse_down,workspace,e-1
 Useful for binding e.g. the lid close/open event:
 
 ```ini
+# trigger when the switch is toggle
 bindl=,switch:[switch name],exec,swaylock
+# trigger when the switch is turning on
+bindl=,switch:on:[switch name],exec,hyprctl keyword monitor "eDP-1, 2560x1600, 0x0, 1"
+# trigger when the switch is turning off
+bindl=,switch:off:[switch name],exec,hyprctl keyword monitor "eDP-1, disable"
 ```
 
 check out your switches in `hyprctl devices`.
