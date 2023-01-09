@@ -100,3 +100,11 @@ just about that.
 Head onto the
 [Configuring Hyprland page](../../Configuring/Configuring-Hyprland) to learn all
 about configuring Hyprland to your likings.
+
+## Cursors
+Cursors are a notorious pain to set up when you don't know how. See
+[this FAQ entry](../../FAQ#how-do-i-change-me-mouse-cursor)
+
+## Themes
+Since this is not a DE, you'll need to use stuff like `lxappearance` (GTK)
+and `qt6ct` / `qt5ct` (QT)
