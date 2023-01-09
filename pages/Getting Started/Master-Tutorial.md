@@ -42,14 +42,29 @@ In it, put:
 
 cd ~
 
-export _JAVA_AWT_WM_NONREPARENTING=1
+# Log WLR errors and logs to the hyprland log. Recommended
+export HYPRLAND_LOG_WLR=1
+
+# Tell XWayland to use a cursor theme
+export XCURSOR_THEME=Bibata-Modern-Classic
+
+# Set a cursor size
 export XCURSOR_SIZE=24
+
+# Example IME Support: fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export SDL_IM_MODULE=fcitx
+export GLFW_IM_MODULE=ibus
 
 exec Hyprland
 ```
 
 You can add as many exported envvars as you need (Nvidia users might need a
-lot), but it's recommended to have _at least_ the shown two.
+lot)
+
+The shown envvars are examples.
 
 You should now launch Hyprland with `wrappedhl` instead of `Hyprland`. Make sure
 to copy your `.desktop` file in `/usr/share/wayland-sessions/` and edit it if you use a
