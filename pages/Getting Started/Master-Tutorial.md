@@ -108,3 +108,8 @@ Cursors are a notorious pain to set up when you don't know how. See
 ## Themes
 Since this is not a DE, you'll need to use stuff like `lxappearance` (GTK)
 and `qt6ct` / `qt5ct` (QT)
+
+## Force apps to use Wayland
+A lot of apps will use Wayland by default. Chromium (and other browsers based on it or electron)
+don't. You need to pass `--enable-features=UseOzonePlatform --ozone-platform=wayland`
+to them or somehow pass it in some `.conf` files. It's a mess, blame chromium devs.
