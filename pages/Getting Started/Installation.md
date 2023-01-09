@@ -217,18 +217,3 @@ Now, of course, install manually.
 ```plain
 sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
 ```
-
-## Launching
-
-You can launch Hyprland by either going into a TTY and executing `Hyprland`, or
-with a login manager.
-
-**!IMPORTANT**: Do **not** launch Hyprland with `root` permissions (don't
-`sudo`)
-
-Login managers are not officially supported, but here's a short compatibility
-list:
-
-- SDDM → Works flawlessly. Install the [latest git version](https://github.com/sddm/sddm) (or [sddm-git](https://aur.archlinux.org/packages/sddm-git) from the AUR if you use Arch) to prevent SDDM bug [1476](https://github.com/sddm/sddm/issues/1476).
-- GDM → Works with the caveat of crashing Hyprland on the first launch
-- ly → Works with minor to major issues and/or caveats
