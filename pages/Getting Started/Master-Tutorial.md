@@ -33,7 +33,7 @@ We recommend you set up a wrapper. A wrapper will be your executable to launch
 Hyprland with envvars.
 
 Make an executable file somewhere in your `PATH`, for example `~/.local/bin/`,
-called (for example) `wrappedhl`
+called (for example) `wrappedhl`.
 
 In it, put:
 
