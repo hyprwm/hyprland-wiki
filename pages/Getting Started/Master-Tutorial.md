@@ -111,5 +111,10 @@ and `qt6ct` / `qt5ct` (QT)
 
 ## Force apps to use Wayland
 A lot of apps will use Wayland by default. Chromium (and other browsers based on it or electron)
-don't. You need to pass `--enable-features=UseOzonePlatform --ozone-platform=wayland`
-to them or somehow pass it in some `.conf` files. It's a mess, blame chromium devs.
+don't. You need to pass `--enable-features=UseOzonePlatform --ozone-platform=wayland` to them or use `.conf` files
+where possible. Chromium-based browsers also may have a toggle in about:config.
+
+For most electron apps, you should put the above in `~/.config/electron-flags.conf`. VSCode is known 
+to not work with that though.
+
+You can check whether an app is running in xwayland or not with `hyprctl clients`.
