@@ -48,6 +48,7 @@ layout pages (See the sidebar).
 | toggleopaque | toggles the current window to always be opaque. Will override the `opaque` window rules. | none |
 | movecursortocorner | moves the cursor to the corner of the active window | direction, 0 - 3, bottom left - 0, bottom right - 1, top right - 2, top left - 3 |
 | workspaceopt | toggles a workspace option for the active workspace. | workspaceopt |
+| renameworkspace | rename a workspace | `id name`, e.g. `2 work` |
 | exit | exits the compositor with no questions asked. | none |
 | forcerendererreload | forces the renderer to reload all resources and outputs | none |
 | movecurrentworkspacetomonitor | Moves the active workspace to a monitor | monitor |
