@@ -181,6 +181,7 @@ Supported custom build flags:
 
 ```plain
 NO_XWAYLAND - Removes XWayland support
+NO_SYSTEMD - Removes systemd dependencies
 ```
 
 How to?
