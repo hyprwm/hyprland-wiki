@@ -22,7 +22,7 @@ See [Using hyprctl](../Using-hyprctl).
 
 # Disabling keybinds with one master keybind
 
-If you want to disable all keybinds with another keybind (make a kaybind toggle
+If you want to disable all keybinds with another keybind (make a keybind toggle
 of sorts) you can just use a submap with only a keybind to exit it.
 
 ```ini
