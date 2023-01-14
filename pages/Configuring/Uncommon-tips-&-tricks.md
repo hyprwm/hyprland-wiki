@@ -32,6 +32,19 @@ bind=MOD,KEY,submap,reset
 submap=reset
 ```
 
+# Minimize Steam instead of killing
+
+Steam will exit entirely when it's last window is closed using the `killactive` dispatcher.
+To minimize Steam to tray, use the following script to close applications:
+
+```sh
+if [[ $(hyprctl activewindow -j | jq -r ".class") == "Steam" ]]; then
+    xdotool windowunmap $(xdotool getactivewindow)
+else
+    hyprctl dispatch killactive ""
+fi
+```
+
 # Window Dancing
 
 Some XWayland games like Rhythm Doctor and Friday Night Funkin' mods like to move 
