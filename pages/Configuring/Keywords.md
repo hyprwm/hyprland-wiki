@@ -103,15 +103,48 @@ Inside of it, put your config options. All options from the `input` category
 
 force_no_accel, follow_mouse, float_switch_override_focus
 
-Properties that change names:
+Properties that change names according to the device name:
 
 ```plain
-touchdevice:transform -> transform
-touchdevice:output -> output
+<touchdevice>:transform -> transform
+<touchdevice>:output -> output
 ```
+
+where `<touchdevice>` is again the device as obtained by `hyprctl devices`.
+
+Example for tablet with touch screen and stylus:
+```plain
+> hyprctl devices
+...
+Tablets:
+        Tablet at 2a54080:
+                elan2514:00-04f3:29f5-stylus
+
+
+Touch:
+        Touch Device at 2b53430:
+                elan2514:00-04f3:29f5
+...
+```
+
+you can rotate the screen, touch and stylus together dynamically by doing
+```bash
+hyprctl --batch "keyword device:elan2514:00-04f3:29f5:transform 1 ; keyword device:elan2514:00-04f3:29f5-stylus:transform 1 ; keyword monitor eDP-1,transform,1"
+```
+
+(If you combine the above with [iio-sensor-proxy](https://gitlab.freedesktop.org/hadess/iio-sensor-proxy/) you can easily achieve fully automatic rotation for tablets/2-in-1
+based on the acceleration sensor. [Example one-liner to run as a user-service](https://github.com/ppenguin/nixos-modules/blob/main/home-manager/iiorient.nix#L3)).
 
 You can also use the `output` setting for tablets to bind them to outputs. Remember to
 use the name of the `Tablet` and not `Tablet Pad` or `Tablet tool`.
+
+E.g. for the above touch screen in a portrait orientation, you could write:
+```ini
+device:elan2514:00-04f3:29f5 {
+    transform=1
+    output=eDP-1
+}
+```
 
 Additional properties only present in per-device configs:
 ```plain
