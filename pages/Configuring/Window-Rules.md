@@ -91,7 +91,7 @@ you can use `hyprctl clients`.
 | idleinhibit \[mode\] | sets an idle inhibit rule for the window. If active, apps like `swayidle` will not fire. Modes: `none`, `always`, `focus`, `fullscreen` | |
 | unset | removes all previously set rules for the given parameters. Please note it has to match EXACTLY. | |
 | nomaxsize | removes max size limitations. Especially useful with windows that report invalid max sizes (e.g. winecfg) | |
-| dimaround | dims everything around the window | &check; |
+| dimaround | dims everything around the window . Please note this rule is meant for floating windows and using it on tiled ones may result in strange behavior. | &check; |
 
 ### Example Rules
 
