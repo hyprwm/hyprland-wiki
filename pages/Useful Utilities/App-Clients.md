@@ -13,7 +13,7 @@ While it does infringe on Discord's ToS, it's relatively safe and doesn't rely o
 
 ## Spotify
 
-Spotify does not follow window rules. This is because the client sets is class _after_
+Spotify does not follow window rules. This is because the client sets its class _after_
 the window has opened, thus making it "immune" to windowrules. An alternative to
 Spotify's GUI client is [spotify-tui](https://github.com/Rigellute/spotify-tui) which can be
 launched in a terminal with a custom class. While limited in functionality, it is quite

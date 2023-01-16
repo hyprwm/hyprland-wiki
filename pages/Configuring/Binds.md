@@ -27,7 +27,7 @@ bind=,Print,exec,grim
 
 _For a complete mod list, see [Variables](../Variables/#variable-types)._
 
-_The dispatcher list can be found in [Dispatchers](../Dispatchers)._
+_The dispatcher list can be found in [Dispatchers](../Dispatchers/#list-of-dispatchers)._
 
 ## Uncommon syms / binding with a keycode
 
@@ -100,7 +100,7 @@ bind=SUPER,mouse_down,workspace,e-1
 Useful for binding e.g. the lid close/open event:
 
 ```ini
-# trigger when the switch is toggle
+# trigger when the switch is toggled
 bindl=,switch:[switch name],exec,swaylock
 # trigger when the switch is turning on
 bindl=,switch:on:[switch name],exec,hyprctl keyword monitor "eDP-1, 2560x1600, 0x0, 1"
@@ -139,7 +139,7 @@ bindrl=MOD,KEY,exec,amongus
 Flags:
 
 ```ini
-l -> locked, aka. works also when an an input inhibitor (e.g. a lockscreen) is active
+l -> locked, aka. works also when an input inhibitor (e.g. a lockscreen) is active
 r -> release, will trigger on release of a key
 e -> repeat, will repeat when held.
 m -> mouse, see below
@@ -206,7 +206,7 @@ bindr=ALT,Alt_L,exec,amongus
 Yes, you heard this right, Hyprland does support global keybinds for ALL apps,
 including OBS, Discord, Firefox, etc.
 
-See the [`pass` dispatcher](./Dispatchers/#dispatchers) for keybinds.
+See the [`pass` dispatcher](./Dispatchers/#list-of-dispatchers) for keybinds.
 
 Let's take OBS as an example: the "Start/Stop Recording" keybind is set to 
 <key>SUPER</key> + <key>F10</key>, and you want to make it work globally.

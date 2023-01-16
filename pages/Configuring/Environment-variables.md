@@ -1,4 +1,4 @@
-As  [previously mentioned](../Getting-Started/Quick-start/#wrapping-the-launcher-recommended), it's 
+As [aforementioned](../Getting-Started/Master-Tutorial/#launching-hyprland-part-1), it's 
 useful using a wrapper to launch Hyprland. Whether you start Hyprland through TTY or a Display 
 Manager, it is always suggested to use one. As such, you can pass certain environment 
 variables to improve Wayland compatibility, or simply change certain aspects of your desktop.
@@ -59,6 +59,6 @@ To force GBM as a backend, set the following environment variables:
 
 # Theming Related Variables
 
-- `GTK_THEME` - Set a GTK theme manually, for those who want to avoid appearance tools lxappearance or nwg-look
+- `GTK_THEME` - Set a GTK theme manually, for those who want to avoid appearance tools such as lxappearance or nwg-look
 - `XCURSOR_THEME` - Set your cursor theme. The theme needs to be installed and readable by your user.
 - `XCURSOR_SIZE` - Set cursor size. See [here](../../FAQ/) for why you might want this variable set.
