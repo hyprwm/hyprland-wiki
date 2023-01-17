@@ -6,9 +6,11 @@ you need to just get things going. It does link to other pages where necessary.
 {{< toc >}}
 
 ## Install Hyprland
-See [Installation](../Installation) and come back here once you install Hyprland.
+See [Installation](../Installation) and come back here once you have successfully
+installed Hyprland.
 
-Install `kitty` (default terminal emulator)
+Install `kitty` (default terminal emulator) terminal. This is available in most 
+distros' repositories.
 
 ## NVIDIA?
 _If not using an NVIDIA card, skip this step_
@@ -72,9 +74,12 @@ login manager! You might need to put the full path in it, as login managers are
 usually not ran through the user account.
 
 {{< hint type=important >}}
-It is highly recommended to copy the desktop file to e.g. `wrapped_hl.desktop` instead of editing
-the provided one, as many package managers will **overwrite**
-the desktop file on updates.
+Hyprland, by default on most distros, will place `hyprland.desktop` inside 
+`/usr/share/wayland-sessions`. Login managers generally pick this file up and add 
+a session to their settings. It is highly recommended to make a copy of this 
+desktop file and name it something like `hyprland-wrapped.desktop` The new desktop
+file will also be picked up by login managers, and provide you an extra session with 
+the environment variables applied to your session. 
 {{< /hint >}}
 
 ## Launching Hyprland, part 2
@@ -91,10 +96,11 @@ list:
 - GDM → Works with the caveat of crashing Hyprland on the first launch
 - ly → Works poorly
 
-## In hyprland
-Hello, you're good to go with your adventure, technically.
+## In Hyprland
+You're good to go with your adventure, technically.
 
-Use <key>SUPER</key> + <key>Q</key> to launch kitty.
+Use <key>SUPER</key> + <key>Q</key> to launch kitty. If you wish to choose the
+default terminal before you proceed, you can do so in `~/.config/hypr/hyprland.conf`.
 
 If you want the best experience with less hassle googling, keep reading.
 
@@ -120,9 +126,13 @@ about configuring Hyprland to your likings.
 Cursors are a notorious pain to set up when you don't know how. See
 [this FAQ entry](../../FAQ#how-do-i-change-me-mouse-cursor)
 
+If your cursor does not appear, then see this FAQ entry](../../FAQ#me-cursor-no-render)
+
 ## Themes
-Since this is not a DE, you'll need to use stuff like `lxappearance` (GTK)
-and `qt6ct` / `qt5ct` (QT)
+Since this is not a full fledged Desktop Environment, you will need to use tools such as 
+`lxappearance` and `nwg-look` (recommended) for GTK, and `qt5ct` / `qt6ct` for their
+respective QT versions. Some older applications may also require `qt4ct`.
+
 
 ## Force apps to use Wayland
 A lot of apps will use Wayland by default. Chromium (and other browsers based on it or electron)
