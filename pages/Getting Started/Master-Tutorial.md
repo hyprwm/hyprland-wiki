@@ -126,7 +126,7 @@ about configuring Hyprland to your likings.
 Cursors are a notorious pain to set up when you don't know how. See
 [this FAQ entry](../../FAQ#how-do-i-change-me-mouse-cursor)
 
-If your cursor does not appear, then see this FAQ entry](../../FAQ#me-cursor-no-render)
+If your cursor does not appear, then see [this FAQ entry](../../FAQ#me-cursor-no-render)
 
 ## Themes
 Since this is not a full fledged Desktop Environment, you will need to use tools such as 
