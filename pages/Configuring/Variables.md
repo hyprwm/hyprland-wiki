@@ -234,6 +234,7 @@ Described [here](../Keywords#per-device-input-configs).
 | swallow_regex | The *class* regex to be used for windows that should be swallowed (usually, a terminal) | str | \[EMPTY\] |
 | focus_on_activate | Whether Hyprland should focus an app that requests to be focused (an `activate` request) | bool | false |
 | no_direct_scanout | Disables direct scanout. Direct scanout attempts to reduce lag when there is only one fullscreen application on a screen (e.g. game) | bool | false |
+| hide_cursor_on_touch | Hides the cursor when the last input was a touch input until a mouse input is done. | bool | true |
 
 # Binds
 
