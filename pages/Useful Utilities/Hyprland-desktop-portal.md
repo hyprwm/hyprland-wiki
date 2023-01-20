@@ -28,6 +28,13 @@ will be disabled)
 ```plain
 yay -S xdg-desktop-portal-hyprland-git
 ```
+
+{{< hint type=warning >}}
+`paru` has an issue with searching for implementations in the AUR, and will falsely ask you to install
+an additional implementation. Installing any other than `-gtk` alongside XDPH will cause it to most likely
+not work.
+{{</ hint >}}
+
 {{< /tab >}}
 {{< tab "Gentoo" >}}
 ## Unmask dependencies
