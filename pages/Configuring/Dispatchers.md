@@ -56,7 +56,7 @@ layout pages (See the sidebar).
 | swapactiveworkspaces | Swaps the active workspaces between two monitors | two monitors separated by a space |
 | bringactivetotop | Brings the current window to the top of the stack | none |
 | togglespecialworkspace | toggles a special workspace on/off | none (for the first) or name for named (name has to be a special workspace's name) |
-| focusurgentorlastwindow | focuses the last urgent window or last the last window | none |
+| focusurgentorlast | Focuses the urgent window or the last window | none |
 
 {{< hint type=warning >}}
 it is NOT recommended to set DPMS with a keybind directly, as it
