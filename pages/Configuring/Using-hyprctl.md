@@ -131,6 +131,46 @@ hyprctl switchxkblayout [DEVICE] [CMD]
 where `CMD` is either `next` for next, `prev` for previous, or `ID`
 for a specific one (in the above case, `us`: 0, `pl`: 1, `de`: 2)
 
+### seterror
+
+Sets the hyprctl error string. Will reset when Hyprland's config is reloaded.
+
+```sh
+hyprctl seterror rgba(66ee66ff) hello world this is my problem
+```
+
+or disable:
+```sh
+hyprctl seterror disable
+```
+
+### setprop
+
+Sets a window prop. Can be locked by adding `lock` at the end. If `lock` is not added,
+will be unlocked. Locking means a dynamic windowrule _cannot_ override this setting.
+
+Prop List:
+| prop | comment |
+| --- | --- |
+| animationstyle | string, cannot be locked |
+| rounding | int, -1 means not overriden |
+| forcenoblur | 0/1 |
+| forceopaque | 0/1|
+| forceopaqueoverriden | 0/1 |
+| forceallowsinput | 0/1, forceinput rule |
+| forcenoanims | 0/1 |
+| forcenoborder | 0/1 |
+| forcenoshadow | 0/1 |
+| windowdancecompat | 0/1 |
+| nomaxsize | 0/1 |
+| dimaround | 0/1 |
+| alphaoverride | 0/1, makes the next setting be override instead of multiply |
+| alpha | float 0.0 - 1.0 |
+| alphainactiveoverride | 0/1, makes the next setting be override instead of multiply |
+| alphainactive | float 0.0 - 1.0 |
+| activebordercolor | color, argb, must be input in decimal, -1 means not set |
+| inactivebordercolor | color, argb, must be input in decimal, -1 means not set |
+
 ## Info
 
 ```plain
