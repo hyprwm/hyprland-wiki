@@ -168,8 +168,8 @@ Prop List:
 | alpha | float 0.0 - 1.0 |
 | alphainactiveoverride | 0/1, makes the next setting be override instead of multiply |
 | alphainactive | float 0.0 - 1.0 |
-| activebordercolor | color, argb, must be input in decimal, -1 means not set |
-| inactivebordercolor | color, argb, must be input in decimal, -1 means not set |
+| activebordercolor | color, -1 means not set |
+| inactivebordercolor | color, -1 means not set |
 
 ```sh
 hyprctl setprop address:0x13371337 forcenoanims 1 lock  # with locking
