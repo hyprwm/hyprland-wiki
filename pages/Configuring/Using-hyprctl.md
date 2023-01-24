@@ -171,6 +171,11 @@ Prop List:
 | activebordercolor | color, argb, must be input in decimal, -1 means not set |
 | inactivebordercolor | color, argb, must be input in decimal, -1 means not set |
 
+```sh
+hyprctl setprop address:0x13371337 forcenoanims 1 lock  # with locking
+hyprctl setprop address:0x13371337 nomaxsize 0          # without locking
+```
+
 ## Info
 
 ```plain
