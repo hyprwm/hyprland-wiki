@@ -138,3 +138,19 @@ allowed to set opacities over 1, but any opacity product over 1 will cause
 graphical glitches. E.g. `0.5 * 2 = 1`, and it will be fine, `0.5 * 4` will cause
 graphical glitches.
 {{< /hint >}}
+
+# Layer Rules
+Some things in wayland are not windows, but layers. That includes for example most launchers, your status bar or wallpaper.
+
+Those have specific rules separate from windows:
+
+```ini
+layerrule = rule, namespace
+```
+where `rule` is the rule and `namespace` is the namespace regex (find namespaces in `hyprctl layers`)
+
+## Rules
+
+| rule | description |
+| --- | --- |
+| noanim | disables animations |
