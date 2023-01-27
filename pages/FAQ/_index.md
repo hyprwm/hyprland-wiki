@@ -268,8 +268,12 @@ exact bindcode may vary, so you may want to check it with `wev` first.
 
 # How do I make Hyprland draw as little power as possible on my laptop?
 
-I assume you already have `damage_tracking` on full. If you don't, change it. It's
-heavily advised to use `full` regardless of anything.
+I assume you already have `damage_tracking` on full. If you don't, change it.
+It's heavily advised to use `full` regardless of anything.
+
+Note that some software, like `kitty`, intercepts middle-click events and binds
+them to paste from primary on their own. Their configurations will need to be
+changed to account for that.
 
 **_Useful Optimizations_**:
 
