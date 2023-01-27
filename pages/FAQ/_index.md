@@ -48,7 +48,7 @@ at the cost of high battery usage.
 
 _Please note these are highly model-specific and might or might not work. If they don't, you're unfortunately out of luck._
 
-You might try a USB-C to hdmi adapter though, maybe that could route the external monitor through the iGPU.
+You might try a USB-C to HDMI adapter though, maybe that could route the external monitor through the iGPU.
 
 # How do I screenshot?
 
@@ -260,6 +260,11 @@ to use absolute paths, such as `/home/username/Script` instead of `~/Script`
 # I get random white flashes
 
 Try disabling VFR with `misc:no_vfr=1`.
+
+# How to disable middle-click paste?
+
+In your config, add this bind: `bind = , mouse:274, exec, ;`. Note that the
+exact bindcode may vary, so you may want to check it with `wev` first.
 
 # How do I make Hyprland draw as little power as possible on my laptop?
 
