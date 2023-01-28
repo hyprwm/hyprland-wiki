@@ -13,7 +13,7 @@ a more tangible example.
 [https://github.com/linuxmobile/hyprland-dots](https://github.com/linuxmobile/hyprland-dots)
 
 ### flick0
-![](https://raw.githubusercontent.com/flick0/dotfiles/cherry-blossom/assets/workflow.png)
+![](https://raw.githubusercontent.com/flick0/dotfiles/aurora/assets/fetch.png)
 
 [https://github.com/flick0/dotfiles](https://github.com/flick0/dotfiles)
 
