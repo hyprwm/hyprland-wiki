@@ -46,6 +46,7 @@ e.g.: `workspace>>2`
 | submap | emitted when a keybind submap changes. Empty means default. |`SUBMAPNAME` |
 | changefloatingmode | emitted when a window changes its floating mode. `FLOATING` is either 0 or 1. | `WINDOWADDRESS`,`FLOATING` |
 | urgent | emitted when a window requests an `urgent` state | `WINDOWADDRESS` |
+| minimize | emitted when a window requests a change to its minimized state. `MINIMIZED` is either 0 or 1. | `WINDOWADDRESS,MINIMIZED` |
 
 {{< hint type=warning >}}
 A fullscreen event is not guaranteed to fire on/off once in succession.
