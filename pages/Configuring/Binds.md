@@ -206,7 +206,7 @@ bindr=ALT,Alt_L,exec,amongus
 Yes, you heard this right, Hyprland does support global keybinds for ALL apps,
 including OBS, Discord, Firefox, etc.
 
-See the [`pass` dispatcher](./Dispatchers/#list-of-dispatchers) for keybinds.
+See the [`pass` dispatcher](../Dispatchers/#list-of-dispatchers) for keybinds.
 
 Let's take OBS as an example: the "Start/Stop Recording" keybind is set to 
 <key>SUPER</key> + <key>F10</key>, and you want to make it work globally.
