@@ -44,7 +44,8 @@ global
     ↳ fadeSwitch - fade on changing activewindow and its opacity
     ↳ fadeShadow - fade on changing activewindow for shadows
     ↳ fadeDim - the easing of the dimming of inactive windows
-  ↳ border
+  ↳ border - for animating the border's color switch speed
+  ↳ borderangle - for animating the border's gradient angle - styles: once (default), loop
   ↳ workspaces - styles: slide, slidevert, fade
     ↳ specialWorkspace - styles: same as workspaces
 ```
