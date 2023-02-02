@@ -13,7 +13,7 @@ Used for hyprctl-like requests. See the
 [Hyprctl page](../Configuring/Using-hyprctl) for
 commands.
 
-basically, write `command args`.
+basically, write `[flag(s)]/command args`.
 
 # /tmp/hypr/\[HIS\]/.socket2.sock
 
