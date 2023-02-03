@@ -115,7 +115,9 @@ about configuring your displays.
 ## Apps / X11 replacements
 See the [Useful Utilities page](../../Useful-Utilities) and the
 [Sway wiki page](https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway)
-just about that.
+just about that. You can also visit the
+[Awesome-Hyprland](https://github.com/hyprland-community/awesome-hyprland)
+repository for a more comprehensive list.
 
 ## Fully configure
 Head onto the
