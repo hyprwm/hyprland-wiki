@@ -38,6 +38,8 @@ export GBM_BACKEND=nvidia-drm
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export WLR_NO_HARDWARE_CURSORS=1
 ```
+{{< hint >}}If you encounter crashes in Firefox, remove the line `export GBM_BACKEND=nvidia-drm` from your launcher.
+{{< /hint >}}
 
 Install `qt5-wayland`, `qt5ct` and `libva`. Additionally
 `nvidia-vaapi-driver-git` (AUR) to fix crashes in some Electron-based
