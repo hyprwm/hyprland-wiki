@@ -31,6 +31,7 @@ e.g.: `workspace>>2`
 | workspace | emitted on workspace change. Is emitted ONLY when a user requests a workspace change, and is not emitted on mouse movements (see `activemon`) | `WORKSPACENAME` |
 | focusedmon | emitted on the active monitor being changed. | `MONNAME,WORKSPACENAME` |
 | activewindow | emitted on the active window being changed. | `WINDOWCLASS,WINDOWTITLE` |
+| activewindowv2 | emitted on the active window being changed. | `WINDOWADDRESS` |
 | fullscreen | emitted when a fullscreen status of a window changes. | `0/1` (exit fullscreen / enter fullscreen) |
 | monitorremoved | emitted when a monitor is removed (disconnected) | `MONITORNAME` |
 | monitoradded | emitted when a monitor is added (connected) | `MONITORNAME` |
