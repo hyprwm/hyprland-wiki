@@ -27,9 +27,6 @@ use that one instead. Note that on a laptop, it could cause problems with the su
 {{< hint >}}To get multi monitor to work properly on a hybrid graphics device (a laptop with both an Intel and an Nvidia GPU), you will need to remove the `optimus-manager` package if installed (disabling the service does not work). You also need to change your BIOS settings from hybrid graphics to discrete graphics.
 {{< /hint >}}
 
-{{< hint >}}To get multi monitor to work properly on a hybrid graphics device (a laptop with both an Intel and an Nvidia GPU), you will need to remove the `optimus-manager` package if installed (disabling the service does not work). You also need to change your BIOS settings from hybrid graphics to discrete graphics.
-{{< /hint >}}
-
 Following the wrapping instructions found on
 [the Quick Start page](../Getting-Started/Quick-start#wrapping-the-launcher-recommended),
 wrap the launcher and additionally export these:
