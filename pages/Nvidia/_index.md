@@ -21,7 +21,7 @@ run `# mkinitcpio --config /etc/mkinitcpio.conf --generate /boot/initramfs-custo
 add a new line to `/etc/modprobe.d/nvidia.conf` (make it if it does not exist) and add the line `options nvidia-drm modeset=1`
 
 {{< hint >}}If your GPU is listed as supported by the `nvidia-open-dkms` driver,
-use that one instead.
+use that one instead. Note that on a laptop, it could cause problems with the suspended state when closing the lid, so you might be better off with `nvidia-dkms`.
 {{< /hint >}}
 
 {{< hint >}}To get multi monitor to work properly on a hybrid graphics device (a laptop with both an Intel and an Nvidia GPU), you will need to remove the `optimus-manager` package if installed (disabling the service does not work). You also need to change your BIOS settings from hybrid graphics to discrete graphics.
