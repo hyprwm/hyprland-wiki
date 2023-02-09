@@ -236,6 +236,7 @@ Described [here](../Keywords#per-device-input-configs).
 | focus_on_activate | Whether Hyprland should focus an app that requests to be focused (an `activate` request) | bool | false |
 | no_direct_scanout | Disables direct scanout. Direct scanout attempts to reduce lag when there is only one fullscreen application on a screen (e.g. game) | bool | false |
 | hide_cursor_on_touch | Hides the cursor when the last input was a touch input until a mouse input is done. | bool | true |
+| mouse_move_focuses_monitor | Whether mouse moving into a different monitor should focus it | bool | true |
 
 # Binds
 
