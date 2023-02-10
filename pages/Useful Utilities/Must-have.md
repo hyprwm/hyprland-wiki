@@ -41,3 +41,5 @@ You can autostart it with `exec-once=/usr/lib/polkit-kde-authentication-agent-1`
 _Starting method:_ none (just a library)
 
 Install `qt5-wayland` and `qt6-wayland`.
+
+
