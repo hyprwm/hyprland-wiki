@@ -19,30 +19,34 @@ _category name `master`_
 
 # Dispatchers
 
-`layoutmsg` params:
+`layoutmsg` commands:
 
-| param | description |
-| --- | --- |
-| swapwithmaster | swaps the current window with master. If the current window is the master, swaps it with the first child. |
-| focusmaster | focuses the master window. If the current window is the master, focuses the first child. |
-| cyclenext | focuses the next window respecting the layout |
-| cycleprev | focuses the previous window respecting the layout |
-| swapnext | swaps the focused window with the next window respecting the layout |
-| swapprev | swaps the focused window with the previous window respecting the layout |
-| addmaster | adds a master to the master side. That will be the active window, if it's not a master, or the first non-master window. |
-| removemaster | removes a master from the master side. That will be the active window, if it's a master, or the last master window. |
-| orientationleft | sets the orientation for the current workspace to left (master area left, slave windows to the right, vertically stacked) |
-| orientationright | sets the orientation for the current workspace to right (master area right, slave windows to the left, vertically stacked) |
-| orientationtop | sets the orientation for the current workspace to top (master area top, slave windows to the bottom, horizontally stacked) |
-| orientationbottom | sets the orientation for the current workspace to bottom (master area bottom, slave windows to the top, horizontally stacked) |
-| orientationnext | cycle to the next orientation for the current workspace (clockwise) |
-| orientationprev | cycle to the previous orientation for the current workspace (counter-clockwise) |
+| command | description | params |
+| --- | --- | --- |
+| swapwithmaster | swaps the current window with master. If the current window is the master, swaps it with the first child. | either `master` (new focus is the new master window), `child` (new focus is the new child) or `auto` (which is the default, keeps the focus of the previously focused window) |
+| focusmaster | focuses the master window. | either `master` (focus stays at master, even if it was selected before) or `auto` (which is the default, if the current window is the master, focuses the first child.) |
+| cyclenext | focuses the next window respecting the layout | none |
+| cycleprev | focuses the previous window respecting the layout | none |
+| swapnext | swaps the focused window with the next window respecting the layout | none |
+| swapprev | swaps the focused window with the previous window respecting the layout | none |
+| addmaster | adds a master to the master side. That will be the active window, if it's not a master, or the first non-master window. | none |
+| removemaster | removes a master from the master side. That will be the active window, if it's a master, or the last master window. | none |
+| orientationleft | sets the orientation for the current workspace to left (master area left, slave windows to the right, vertically stacked) | none |
+| orientationright | sets the orientation for the current workspace to right (master area right, slave windows to the left, vertically stacked) | none |
+| orientationtop | sets the orientation for the current workspace to top (master area top, slave windows to the bottom, horizontally stacked) | none |
+| orientationbottom | sets the orientation for the current workspace to bottom (master area bottom, slave windows to the top, horizontally stacked) | none |
+| orientationnext | cycle to the next orientation for the current workspace (clockwise) | none |
+| orientationprev | cycle to the previous orientation for the current workspace (counter-clockwise) | none |
+
+params for the commands are separated by a single space
 
 {{< hint type=info >}}
 example usage:
 
 ```ini
 bind=MOD,KEY,layoutmsg,cyclenext
+# behaves like xmonads promote feature (https://hackage.haskell.org/package/xmonad-contrib-0.17.1/docs/XMonad-Actions-Promote.html)
+bind=MOD,KEY,layoutmsg,swapwithmaster master
 ```
 
 {{< /hint >}}
