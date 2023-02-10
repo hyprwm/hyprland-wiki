@@ -14,7 +14,7 @@ Some common ones used are `copyq`, `clipman` and `cliphist`.
 Start by adding the following lines to your `~/.config/hypr/hyprland.conf`
 
 ```ini
-exec-once = wl-paste --watch cliphist store #Stores only text data
+exec-once = wl-paste --type text --watch cliphist store #Stores only text data
 
 exec-once = wl-paste --type image --watch cliphist store #Stores only image data
 ```
