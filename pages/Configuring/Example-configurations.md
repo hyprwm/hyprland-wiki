@@ -26,3 +26,8 @@ a more tangible example.
 ![](https://github.com/notusknot/dotfiles-nix/raw/main/pics/screenshot.png)
 
 [https://github.com/notusknot/dotfiles-nix](https://github.com/notusknot/dotfiles-nix)
+
+### coffebar
+![](https://github.com/coffebar/dotfiles/raw/6a5d595c594f108cd10219df08d338e98e1d2d7d/screenshot.png)
+
+[https://github.com/coffebar/dotfiles](https://github.com/coffebar/dotfiles)
