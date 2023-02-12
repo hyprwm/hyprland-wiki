@@ -8,7 +8,7 @@ Some common ones used are `copyq`, `clipman` and `cliphist`.
 
 `cliphist` - Utilizes Wayland with `wl-clipboard` and can store both images and text [Github](https://github.com/sentriz/cliphist) 
 
-##cliphist
+## cliphist
 
 Start by adding the following lines to your `~/.config/hypr/hyprland.conf`
 
