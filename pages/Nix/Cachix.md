@@ -1,4 +1,4 @@
-Hyprland is not build by Hydra and cached in `cache.nixos.org`, like the rest
+Hyprland is not built by Hydra and cached in `cache.nixos.org`, like the rest
 of the Nixpkgs packages.
 
 Instead of requiring you to build Hyprland (and its dependencies, which may
