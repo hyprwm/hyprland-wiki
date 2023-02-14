@@ -9,7 +9,7 @@ can be changed by setting the appropriate option to `true`/`false`.
 ### Package
 
 ```nix
-(inputs.hyprland.packages.${pkgs.default}.default.override {
+(inputs.hyprland.packages.${pkgs.hostPlatform.system}.default.override {
   enableXWayland = true;
   hidpiXWayland = true;
   nvidiaPatches = false;
@@ -44,7 +44,7 @@ XWayland windows.
 In order to enable the functionality, you have to add:
 
 ```toml
-exec-once=xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
+exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
 ```
 
 This will make XWayland programs look as if they were unscaled. To fix this, you
@@ -66,7 +66,7 @@ people who don't have HiDPI screens.
 If you _do_ insist on disabling it though (e.g. for adding your own patches
 to wlroots), you can do so by either using the `hyprland-no-hidpi` package,
 or by passing the `hidpiXWayland = false;` flag, the same way as
-[disabling XWayland](#package)
+[disabling XWayland](#package).
 
 ### Nvidia Patches
 

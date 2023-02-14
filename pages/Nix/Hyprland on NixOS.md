@@ -5,9 +5,9 @@ graphics drivers, fonts, dconf, xwayland, and adding a proper Desktop Entry to
 your Display Manager.
 
 Make sure to check out the options of the
-[Nix module](https://github.com/hyprwm/Hyprland/blob/main/nix/module.nix).
+[NixOS module](https://github.com/hyprwm/Hyprland/blob/main/nix/module.nix).
 
-Do note that the Nixpkgs Hyprland package is not actively maintained, and may be outdated.
+Note that the Nixpkgs Hyprland package is not actively maintained, and may be outdated.
 As such, installation using the Flake is recommended.
 
 ## With flakes
@@ -45,19 +45,28 @@ and `nvidiaPatches` options no longer apply.
 
 ```nix
 # configuration.nix
-{config, pkgs, ...}: let
+
+{pkgs, ...}: let
   flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
+
   hyprland = (import flake-compat {
     src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/master.tar.gz";
   }).defaultNix;
 in {
-  imports = [
-    hyprland.nixosModules.default
-  ];
+  imports = [hyprland.nixosModules.default];
 
   programs.hyprland = {
     enable = true;
+
+    # default options, you don't need to set them
     package = hyprland.packages.${pkgs.system}.default;
+
+    xwayland = {
+      enable = true;
+      hidpi = true;
+    };
+
+    nvidiaPatches = false;
   };
 }
 ```

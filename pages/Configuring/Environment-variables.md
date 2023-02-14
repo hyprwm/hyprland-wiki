@@ -1,4 +1,4 @@
-As [aforementioned](../Getting-Started/Master-Tutorial/#launching-hyprland-part-1), it's 
+As [aforementioned](../../Getting-Started/Master-Tutorial/#launching-hyprland-part-1), it's 
 useful using a wrapper to launch Hyprland. Whether you start Hyprland through TTY or a Display 
 Manager, it is always suggested to use one. As such, you can pass certain environment 
 variables to improve Wayland compatibility, or simply change certain aspects of your desktop.

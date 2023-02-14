@@ -1,7 +1,9 @@
-Hyprland often needs dependencies which aren't yet cached in `cache.nixos.org`.
-Instead of requiring you to build those dependencies (which may include `mesa`,
-`ffmpeg`, etc), we provide a Cachix cache that you can add to your Nix
-substituters.
+Hyprland is not build by Hydra and cached in `cache.nixos.org`, like the rest
+of the Nixpkgs packages.
+
+Instead of requiring you to build Hyprland (and its dependencies, which may
+include `mesa`, `ffmpeg`, etc), we provide a Cachix cache that you can add to
+your Nix configuration.
 
 The [Hyprland Cachix](https://app.cachix.org/cache/hyprland) exists to cache the
 `hyprland` packages and any dependencies not found in `cache.nixos.org`.
