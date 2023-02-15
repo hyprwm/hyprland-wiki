@@ -1,4 +1,9 @@
-## Hyprland on Nix
+First of all, it is a good idea to set up [Cachix](./Cachix) before continuing
+with installing Hyprland. 
+
+After getting Cachix working, you have a few options ahead:
+
+## NixOS + Home Manager (recommended)
 
 {{< hint type=warning >}}
 
@@ -8,18 +13,22 @@ work as intended. Please use the
 
 {{< /hint >}}
 
-First of all, it is a good idea to set up [Cachix](./Cachix) before continuing
-with installing Hyprland. 
+If you're on NixOS and also use HM, it is a good idea to use Hyprland modules
+for both. Make sure the package options are the same for both modules.
 
-Start off by choosing your appropriate install method on the sidebar.
+Read [Hyprland on NixOS](./Hyprland-on-NixOS) and
+[Hyprland on Home Manager](./Hyprland-on-Home-Manager).
 
-## Modules mix'n'match
+## Home Manager only
 
-- If you're on NixOS and also use HM it's a good idea to use Hyprland modules
-  for both. Make sure the package options are the same for both modules.
+If you do not plan on using the NixOS module, but want to use the HM module, you
+will have to enable all the options the NixOS module enables.
 
-- If you don't plan on using the NixOS module, but want to use the HM module, you
-  will have to enable all the options the NixOS module enables.
+Read [Hyprland on Home Manager](./Hyprland-on-Home-Manager).
 
-- If you don't plan on using any module, manually enable whatever options the
-  modules set.
+## On your own
+
+If you don't plan on using any module, manually enable all the options that the
+modules have set.
+
+Read [the sources](https://github.com/hyprwm/Hyprland/tree/main/nix).

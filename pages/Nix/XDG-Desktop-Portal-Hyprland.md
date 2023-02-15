@@ -2,7 +2,7 @@
 (xdpw), which supports window sharing and region sharing (currently broken),
 apart from output (per-screen) sharing.
 
-Due to the internal workings, `xdph` depends on the Hyrpland package for
+Due to the internal workings, `xdph` depends on the Hyprland package for
 getting the window list. However, we cannot make a cross-dependency betwen
 the Hyprland flake and the `xdph` flake.
 
@@ -16,8 +16,10 @@ xdg-desktop-portal-hyprland = inputs.xdph.packages.${prev.system}.default.overri
 };
 ```
 
-A similar override is being done inside the NixOS module, which means you don't
-have to tinker with it if you use the module.
+{{< hint >}}
+A similar override is done inside the [NixOS module](../Hyprland-on-NixOS), so
+you do not have to tinker with it if you use the module.
+{{< /hint >}}
 
 If you don't use the module, you will want to do a similar override in your
 configuration.

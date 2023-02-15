@@ -257,10 +257,6 @@ For Display Manager users, you can replace the `exec` entry in
 the `.desktop` file to point to your script. You are recommended
 to use absolute paths, such as `/home/username/Script` instead of `~/Script`
 
-# I get random white flashes
-
-Try disabling VFR with `misc:no_vfr=1`.
-
 # How to disable middle-click paste?
 
 In your config, add this bind: `bind = , mouse:274, exec, ;`. Note that the
@@ -283,7 +279,7 @@ It's heavily advised to use `full` regardless of anything.
 * `decoration:blur = false` and `decoration:drop_shadow = false` to disable
    fancy but battery hungry effects.
 
-* `misc:no_vfr = false`, since it'll lower the refresh rate when nothing is happening on-screen.
+* `misc:vfr = true`, since it'll lower the amount of sent frames when nothing is happening on-screen.
 
 # How to fix games with window dancing?
 
