@@ -46,12 +46,12 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 | name | description | type | default |
 |---|---|---|---|
 | sensitivity | mouse sensitivity (legacy, may cause bugs if not 1, prefer `input:sensitivity`) | float | 1.0 |
-| border_size | self-explanatory | int | 1 |
+| border_size | size of the border around windows | int | 1 |
 | no_border_on_floating | disable borders for floating windows | bool | false |
 | gaps_in | gaps between windows | int | 5 |
 | gaps_out | gaps between windows and monitor edges | int | 20 |
-| col.inactive_border | self-explanatory | gradient | 0xffffffff |
-| col.active_border | self-explanatory | gradient | 0xff444444 |
+| col.inactive_border | border color for inactive windows | gradient | 0xffffffff |
+| col.active_border | border color for the active window | gradient | 0xff444444 |
 | cursor_inactive_timeout | in seconds, after how many seconds of cursor's inactivity to hide it. Set to `0` for never. | int | 0 |
 | layout | which layout to use. (Available: `dwindle`, `master`) | str | dwindle |
 | no_cursor_warps | if true, will not warp the cursor in many cases (focusing, keybinds, etc) | bool | false |
@@ -67,9 +67,9 @@ Prefer using `input:sensitivity` over `general:sensitivity` to avoid bugs, espec
 |---|---|---|---|
 | rounding | rounded corners' radius (in layout px) | int | 0 |
 | multisample_edges | enable antialiasing (no-jaggies) for rounded corners | bool | true |
-| active_opacity | self-explanatory, only for windows. (0.0 - 1.0) | float | 1.0 |
-| inactive_opacity | self-explanatory, only for windows. (0.0 - 1.0) | float | 1.0 |
-| fullscreen_opacity | self-explanatory, only for windows. (0.0 - 1.0) | float | 1.0 |
+| active_opacity | opacity of active windows. (0.0 - 1.0) | float | 1.0 |
+| inactive_opacity | opacity of inactive windows. (0.0 - 1.0) | float | 1.0 |
+| fullscreen_opacity | opacity of fullscreen windows. (0.0 - 1.0) | float | 1.0 |
 | blur | enable kawase window background blur | bool | true |
 | blur_size | blur size (distance) | int | 8 |
 | blur_passes | the amount of passes to perform | int | 1 |
@@ -225,7 +225,8 @@ Described [here](../Keywords#per-device-input-configs).
 |---|---|---|---|
 | disable_hyprland_logo | disables the hyprland logo background. :( | bool | false |
 | disable_splash_rendering | disables the hyprland splash rendering. (requires a monitor reload to take effect) | bool | false |
-| no_vfr | disables VFR (variable frame rate) - VFR increases battery life at the expense of possible issues on a few monitors. | bool | true |
+| vfr | controls the VFR status of hyprland. Heavily recommended to leave on true to conserve resources. | bool | true |
+| vrr | controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on, 2 - fullscreen only | int | 0 |
 | mouse_move_enables_dpms | If DPMS is set to off, wake up the monitors if the mouse moves. | bool | false |
 | always_follow_on_dnd | Will make mouse focus follow the mouse when drag and dropping. Recommended to leave it enabled, especially for people using focus follows mouse at 0. | bool | true |
 | layers_hog_keyboard_focus | If true, will make keyboard-interactive layers keep their focus on mouse move (e.g. wofi, bemenu) | bool | true |
@@ -260,7 +261,7 @@ Only for developers.
 |---|---|---|---|
 | overlay | print the debug performance overlay. Disable VFR for accurate results. | bool | false |
 | damage_blink | (epilepsy warning!) flash areas updated with damage tracking | bool | false |
-| disable_logs | self-explanatory | bool | false |
+| disable_logs | disable logging | bool | false |
 | disable_time | disables time logging | bool | true |
 | damage_tracking | redraw only the needed bits of the display. Do **not** change. (default: full - 2) monitor - 1, none - 0 | int | 2 |
 

@@ -7,6 +7,7 @@ For a list of available options, check the
 
 ```nix
 # flake.nix
+
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -39,7 +40,8 @@ Don't forget to replace `user@hostname` with your username and hostname!
 
 ```nix
 # home config
-{config, pkgs, ...}: let
+
+{pkgs, ...}: let
   flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
 
   hyprland = (import flake-compat {
@@ -50,7 +52,13 @@ in {
     hyprland.homeManagerModules.default
   ];
 
-  wayland.windowManager.hyprland.enable = true;
-  # ...
+  wayland.windowManager.hyprland = {
+    enable = true;
+
+    extraConfig = ''
+      bind = SUPER, Return, exec, kitty
+      # ...
+    '';
+  };
 }
 ```
