@@ -17,7 +17,7 @@ Hyprland working.
 
 - **[Color Pickers](./Color-Pickers)**
 
- **[Clipboard Managers](./Clipboard-Managers)**
+- **[Clipboard Managers](./Clipboard-Managers)**
 
 - **[Hyprland Desktop Portal](./Hyprland-desktop-portal)**
 
