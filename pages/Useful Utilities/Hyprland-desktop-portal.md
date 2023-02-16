@@ -89,6 +89,8 @@ It's recommended to uninstall any other portal implementations to avoid conflict
 
 `-kde` and `-gnome` are known to cause issues.
 
+`-kde` is unfortunately a hard dep of `plasma-integration` in Arch Linux, so if using that, you'll need to `pacman -Rnsdd xdg-desktop-portal-kde`.
+
 both `-wlr` and `-hyprland` installed at once will also cause conflicts. Choose one and uninstall the other.
 {{< /hint >}}
 
@@ -117,3 +119,14 @@ sleep 2
 /usr/lib/xdg-desktop-portal &
 ```
 adjust the paths if incorrect.
+
+## Debugging
+
+If you get long app launch times, or screensharing does not work, consult the logs.
+
+`systemctl --user status xdg-desktop-portal-hyprland`
+
+if you see a crash, it's most likely you are missing `qt6-wayland` and/or `qt5-wayland`.
+
+if you don't, make _sure_ you don't have `-kde` or `-gnome` installed. Only `-gtk`
+will work with `-hyprland` or `-wlr` on Hyprland.

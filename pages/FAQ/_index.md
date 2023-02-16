@@ -284,3 +284,9 @@ It's heavily advised to use `full` regardless of anything.
 # How to fix games with window dancing?
 
 Read [this trick](../Configuring/Uncommon-tips--tricks/#window-dancing).
+
+# My apps take a long time to start / can't screenshare
+
+See [The XDPH Page](../Useful-Utilities/Hyprland-desktop-portal).
+
+You most likely have multiple portal impls / an impl is failing to launch.
