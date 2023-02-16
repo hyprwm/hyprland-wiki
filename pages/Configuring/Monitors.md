@@ -61,7 +61,7 @@ monitor=,preferred,auto,1
 Will make any monitor that was not specified with an explicit rule automatically
 placed on the right of the other(s) with its preferred resolution.
 
-Alternatively you can use the `highrr` or `highres` rules in order to get the
+Alternatively you can use the `highres` or `highrr` rules in order to get the
 best possible resolution or refreshrate mix.
 
 for a focus on refreshrate use this:
