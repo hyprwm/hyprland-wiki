@@ -59,11 +59,11 @@ Note: _Hyprland is not available for Leap, as most libraries (and compiler) that
 {{< /tab >}}
 {{< tab "Fedora" >}}<https://github.com/hyprwm/Hyprland/discussions/284>{{< /tab >}}
 {{< tab "Gentoo" >}}
-The hyprland package is available in the [wayland-desktop](https://github.com/bsd-ac/wayland-desktop) overlay.
+The hyprland package is available in the [guru](https://wiki.gentoo.org/wiki/Project:GURU) overlay.
 
 ```sh
-eselect repository enable wayland-desktop
-emaint sync -r wayland-desktop
+eselect repository enable guru
+emaint sync -r guru
 emerge --ask --verbose hyprland
 ```
 
