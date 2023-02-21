@@ -6,6 +6,8 @@ A group is like i3wm’s “tabbed” container. It takes the space of one windo
 
 When creating the group, a group will be made from the current active window. The new group’s border colors are configurable with the appropriate col. settings in the config section below.
 
+Groups can be used on any layout: tiled, floating, dwindle and master.
+
 By default, when you create a group filling a workspace, new windows will enter the group automatically. Locking a group makes the group unable to take more windows. With a locked group you are able to manage new windows around the group. For example, you could open a new window beside the group window.
 
 # Config
