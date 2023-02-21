@@ -52,6 +52,8 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 | gaps_out | gaps between windows and monitor edges | int | 20 |
 | col.inactive_border | border color for inactive windows | gradient | 0xffffffff |
 | col.active_border | border color for the active window | gradient | 0xff444444 |
+| col.group_border | inactive (out of focus) group border color | gradient | 0x66777700 |
+| col.group_border_active | active group border color | gradient | 0x66ffff00 |
 | cursor_inactive_timeout | in seconds, after how many seconds of cursor's inactivity to hide it. Set to `0` for never. | int | 0 |
 | layout | which layout to use. (Available: `dwindle`, `master`) | str | dwindle |
 | no_cursor_warps | if true, will not warp the cursor in many cases (focusing, keybinds, etc) | bool | false |
