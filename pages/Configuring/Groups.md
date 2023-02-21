@@ -6,7 +6,7 @@ A group is like i3wm’s “tabbed” container. It takes the space of one windo
 
 When creating the group, a group will be made from the current active window. The new group’s border colors are configurable with the appropriate col. settings in the config section below.
 
-Locking a group let you manage windows in the same workspace as the group.
+Locking a group let you manage new windows in the same workspace as the group window.
 
 # Config
 
