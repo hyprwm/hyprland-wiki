@@ -58,6 +58,7 @@ layout pages (See the sidebar).
 | bringactivetotop | Brings the current window to the top of the stack | none |
 | togglespecialworkspace | toggles a special workspace on/off | none (for the first) or name for named (name has to be a special workspace's name) |
 | focusurgentorlast | Focuses the urgent window or the last window | none |
+| focuscurrentorlast | Switch focus from current to previously focused window | none |
 | lockgroups | Locks the groups (groups will not accept new windows) | `lock` for locking, `unlock` for unlocking |
 
 {{< hint type=warning >}}
