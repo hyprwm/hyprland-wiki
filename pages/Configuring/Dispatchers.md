@@ -60,6 +60,7 @@ layout pages (See the sidebar).
 | focusurgentorlast | Focuses the urgent window or the last window | none |
 | togglegroup | toggles the current active window into a group | none |
 | changegroupactive | switches to the next window in a group. | b - back, f - forward. |
+| focuscurrentorlast | Switch focus from current to previously focused window | none |
 | lockgroups | Locks the groups (groups will not accept new windows) | `lock` for locking, `unlock` for unlocking |
 
 {{< hint type=warning >}}
