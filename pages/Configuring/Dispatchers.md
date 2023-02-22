@@ -70,6 +70,22 @@ bind = MOD,KEY,exec,sleep 1 && hyprctl dispatch dpms off
 
 {{< /hint >}}
 
+{{< hint type=info >}}
+
+## Grouped (tabbed) windows
+
+Hyprland allows you to make a group with the `togglegroup` bind dispatcher.
+
+A group is like i3wm’s “tabbed” container. It takes the space of one window, and you can change the window to the next one in the tabbed “group” with the `changegroupactive` bind dispatcher.
+
+When creating the group, a group will be made from the current active window. Groups can be tiled, floating, and can be used in dwindle and master layouts.
+
+The new group’s border colors are configurable with the appropriate col. settings in the general config section.
+
+You can lock a group with the `lockgroups` bind dispatcher for an improved window management.
+
+{{< /hint >}}
+
 # Workspaces
 
 You have eight choices:
