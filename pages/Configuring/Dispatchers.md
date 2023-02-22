@@ -58,7 +58,22 @@ layout pages (See the sidebar).
 | bringactivetotop | Brings the current window to the top of the stack | none |
 | togglespecialworkspace | toggles a special workspace on/off | none (for the first) or name for named (name has to be a special workspace's name) |
 | focusurgentorlast | Focuses the urgent window or the last window | none |
+| togglegroup | toggles the current active window into a group | none |
+| changegroupactive | switches to the next window in a group. | b - back, f - forward. |
 | lockgroups | Locks the groups (groups will not accept new windows) | `lock` for locking, `unlock` for unlocking |
+
+{{< hint type=info >}}
+## Grouped (tabbed) windows
+
+Hyprland allows you to make a group from the current active window with the `togglegroup` bind dispatcher.
+
+A group is like i3wm’s “tabbed” container. It takes the space of one window, and you can change the window to the next one in the tabbed “group” with the `changegroupactive` bind dispatcher.
+
+The new group’s border colors are configurable with the appropriate col. settings in the general config section.
+
+You can lock a group with the `lockgroups` bind dispatcher for fine window management.
+
+{{< /hint >}}
 
 {{< hint type=warning >}}
 it is NOT recommended to set DPMS with a keybind directly, as it
@@ -67,22 +82,6 @@ might cause undefined behavior. Instead, consider something like
 ```ini
 bind = MOD,KEY,exec,sleep 1 && hyprctl dispatch dpms off
 ```
-
-{{< /hint >}}
-
-{{< hint type=info >}}
-
-## Grouped (tabbed) windows
-
-Hyprland allows you to make a group with the `togglegroup` bind dispatcher.
-
-A group is like i3wm’s “tabbed” container. It takes the space of one window, and you can change the window to the next one in the tabbed “group” with the `changegroupactive` bind dispatcher.
-
-When creating the group, a group will be made from the current active window. Groups can be tiled, floating, and can be used in dwindle and master layouts.
-
-The new group’s border colors are configurable with the appropriate col. settings in the general config section.
-
-You can lock a group with the `lockgroups` bind dispatcher for an improved window management.
 
 {{< /hint >}}
 
