@@ -62,19 +62,6 @@ layout pages (See the sidebar).
 | changegroupactive | switches to the next window in a group. | b - back, f - forward. |
 | lockgroups | Locks the groups (groups will not accept new windows) | `lock` for locking, `unlock` for unlocking |
 
-{{< hint type=info >}}
-## Grouped (tabbed) windows
-
-Hyprland allows you to make a group from the current active window with the `togglegroup` bind dispatcher.
-
-A group is like i3wm’s “tabbed” container. It takes the space of one window, and you can change the window to the next one in the tabbed “group” with the `changegroupactive` bind dispatcher.
-
-The new group’s border colors are configurable with the appropriate col. settings in the general config section.
-
-You can lock a group with the `lockgroups` bind dispatcher for fine window management.
-
-{{< /hint >}}
-
 {{< hint type=warning >}}
 it is NOT recommended to set DPMS with a keybind directly, as it
 might cause undefined behavior. Instead, consider something like
@@ -85,6 +72,15 @@ bind = MOD,KEY,exec,sleep 1 && hyprctl dispatch dpms off
 
 {{< /hint >}}
 
+## Grouped (tabbed) windows
+
+Hyprland allows you to make a group from the current active window with the `togglegroup` bind dispatcher.
+
+A group is like i3wm’s “tabbed” container. It takes the space of one window, and you can change the window to the next one in the tabbed “group” with the `changegroupactive` bind dispatcher.
+
+The new group’s border colors are configurable with the appropriate `col.` settings in the general config section.
+
+You can lock a group with the `lockgroups` bind dispatcher in order to stop new windows from entering groups.
 # Workspaces
 
 You have eight choices:
