@@ -88,6 +88,13 @@ Try changing the mode in your config. If your preferred one doesn't work, try a
 lower one. A good way to list all modes is to get `wlr-randr` and do a
 `wlr-randr --dryrun`
 
+# My monitor has flickering brightness when I turn on VRR
+
+Change the VRR option to `2` (fullscreen), so that it is only used in games.
+This happens because the brightness on some monitors can depends on the refresh
+rate, and rapidly changing refresh rates (for example, when the screen momentarily
+updates after pressing a key) will cause rapid changes in brightness.
+
 # How do I update?
 
 Open a terminal where you cloned the repo.
