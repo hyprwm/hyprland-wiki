@@ -87,7 +87,7 @@ bindr=SUPERALT,Alt_L,exec,amongus
 
 ## Mouse wheel
 
-You can also bind the mouse wheel with `mouse_up` and `mouse_down`:
+You can also bind the mouse wheel with `mouse_up` and `mouse_down` (or `mouse_left` and `mouse_right` if your wheel supports horizontal scrolling):
 
 ```ini
 bind=SUPER,mouse_down,workspace,e-1
