@@ -149,13 +149,16 @@ If you really want to blur them, use `blurls=`
 
 ```ini
 blurls=NAMESPACE
+# or
+blurls=address:0x<ADDRESS>
 ```
 
-where `NAMESPACE` is the namespace of the layerSurface. (You can get it from
-`hyprctl layers`)
+you can get the namespace / address from `hyprctl layers`.
 
-To remove a namespace from being blurred (useful in dynamic situations) use:
+To remove a blurls rule (useful in dynamic situations) use:
 
 ```ini
 blurls=remove,NAMESPACE
+# or
+blurls=remove,0x<ADDRESS>
 ```
