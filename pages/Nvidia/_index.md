@@ -38,7 +38,11 @@ export GBM_BACKEND=nvidia-drm
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export WLR_NO_HARDWARE_CURSORS=1
 ```
+
 {{< hint >}}If you encounter crashes in Firefox, remove the line `export GBM_BACKEND=nvidia-drm` from your launcher.
+{{< /hint >}}
+
+{{< hint >}}If you face problems with Discord windows not displaying or screen sharing not working in Zoom, remove or comment the line `export __GLX_VENDOR_LIBRARY_NAME=nvidia` from your launcher.
 {{< /hint >}}
 
 Install `qt5-wayland`, `qt5ct` and `libva`. Additionally
