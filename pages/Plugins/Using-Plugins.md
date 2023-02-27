@@ -1,3 +1,4 @@
+This page will tell you how to use plugins.
 
 {{< toc >}}
 
