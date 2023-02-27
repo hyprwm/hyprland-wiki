@@ -58,7 +58,7 @@ ask the plugin's maintainer to fix it.
 Yes. `hyprctl plugin unload /path/to/plugin.so`
 
 ### How do I make my own plugin?
-See [here](../Development/Getting-Started.md).
+See [here](../Development/Getting-Started).
 
 ### Where do I find plugins?
 Try looking around [here](https://duckduckgo.com).
