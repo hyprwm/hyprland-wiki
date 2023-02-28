@@ -52,7 +52,7 @@ Now bind the `clipman` like this:
 
 # For `rofi` users
 ```ini
-bind = SUPER, V, clipman pick -t wofi
+bind = SUPER, V, clipman pick -t rofi
 ```
 
 # For `dmenu` users
