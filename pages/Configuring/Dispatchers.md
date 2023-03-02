@@ -61,7 +61,7 @@ layout pages (See the sidebar).
 | togglegroup | toggles the current active window into a group | none |
 | changegroupactive | switches to the next window in a group. | b - back, f - forward. |
 | focuscurrentorlast | Switch focus from current to previously focused window | none |
-| lockgroups | Locks the groups (groups will not accept new windows) | `lock` for locking, `unlock` for unlocking |
+| lockgroups | Locks the groups (groups will not accept new windows) | `lock` for locking, `unlock` for unlocking, `toggle` for toggle |
 | moveintogroup | Moves the active window into a group in a specified direction. No-op if there is no group in the specified direction. | direction |
 | moveoutofgroup | Moves the active window out of a group. No-op if not in a group | none |
 
