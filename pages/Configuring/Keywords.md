@@ -162,3 +162,19 @@ blurls=remove,NAMESPACE
 # or
 blurls=remove,0x<ADDRESS>
 ```
+
+# Setting the environment
+
+{{< hint type=note >}}
+The `env` keyword works just like `exec-once`, meaning it will only fire once on Hyprland's launch.
+{{< /hint >}}
+
+You can use the `env` keyword to set environment variables at Hyprland's start, e.g.:
+```ini
+env = XCURSOR_SIZE,24
+```
+
+You can also add a `d` flag if you want the env var to be exported to D-Bus (systemd only)
+```ini
+envd = XCURSOR_SIZE,24
+```
