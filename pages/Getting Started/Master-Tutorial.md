@@ -29,62 +29,9 @@ otherwise Hyprland ***will not work***.
 You can also passthru a GPU to make it work.
 
 Please bear in mind 3D accel in VMs may be pretty slow.
+## Launching Hyprland
 
-## Launching Hyprland, part 1
-We recommend you set up a wrapper. A wrapper will be your executable to launch
-Hyprland with envvars.
-
-Make an executable file somewhere in your `PATH`, for example `~/.local/bin/`,
-called (for example) `wrappedhl`.
-
-In it, put:
-
-```bash
-#!/bin/sh
-
-cd ~
-
-# Log WLR errors and logs to the hyprland log. Recommended
-export HYPRLAND_LOG_WLR=1
-
-# Tell XWayland to use a cursor theme
-export XCURSOR_THEME=Bibata-Modern-Classic
-
-# Set a cursor size
-export XCURSOR_SIZE=24
-
-# Example IME Support: fcitx
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
-export SDL_IM_MODULE=fcitx
-export GLFW_IM_MODULE=ibus
-
-exec Hyprland
-```
-
-You can add as many exported envvars as you need (Nvidia users might need a
-lot)
-
-The shown envvars are examples.
-
-You should now launch Hyprland with `wrappedhl` instead of `Hyprland`. Make sure
-to copy your `.desktop` file in `/usr/share/wayland-sessions/` and edit it if you use a
-login manager! You might need to put the full path in it, as login managers are
-usually not ran through the user account.
-
-{{< hint type=important >}}
-Hyprland, by default on most distros, will place `hyprland.desktop` inside 
-`/usr/share/wayland-sessions`. Login managers generally pick this file up and add 
-a session to their settings. It is highly recommended to make a copy of this 
-desktop file and name it something like `hyprland-wrapped.desktop` The new desktop
-file will also be picked up by login managers, and provide you an extra session with 
-the environment variables applied to your session. 
-{{< /hint >}}
-
-## Launching Hyprland, part 2
-
-Now, with your wrapper, you can just execute it in your tty.
+Now, you can just execute `Hyprland` in your tty.
 
 **!IMPORTANT**: Do **not** launch Hyprland with `root` permissions (don't
 `sudo`)
