@@ -120,7 +120,7 @@ After that, add `exec-once=hyprctl setcursor [THEME] [SIZE]` to your config and
 restart Hyprland.
 
 For QT applications, Hyprland exports XCURSOR_SIZE as 24, which is the default. 
-You can overwrite this by exporting XCURSOR_SIZE to a different value in your wrapper.
+You can overwrite this by exporting XCURSOR_SIZE to a different value with `env`.
 
 Alternatively, change the config files manually according to the
 [XDG specification (Arch Wiki link)](https://wiki.archlinux.org/title/Cursor_themes#Configuration).

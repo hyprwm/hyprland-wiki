@@ -27,22 +27,20 @@ use that one instead. Note that on a laptop, it could cause problems with the su
 {{< hint >}}To get multi monitor to work properly on a hybrid graphics device (a laptop with both an Intel and an Nvidia GPU), you will need to remove the `optimus-manager` package if installed (disabling the service does not work). You also need to change your BIOS settings from hybrid graphics to discrete graphics.
 {{< /hint >}}
 
-Following the wrapping instructions found on
-[the Quick Start page](../Getting-Started/Quick-start#wrapping-the-launcher-recommended),
-wrap the launcher and additionally export these:
+Export these variables in your config:
 
 ```sh
-export LIBVA_DRIVER_NAME=nvidia
-export XDG_SESSION_TYPE=wayland
-export GBM_BACKEND=nvidia-drm
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
-export WLR_NO_HARDWARE_CURSORS=1
+env = LIBVA_DRIVER_NAME,nvidia
+env = XDG_SESSION_TYPE,wayland
+env = GBM_BACKEND,nvidia-drm
+env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+env = WLR_NO_HARDWARE_CURSORS,1
 ```
 
-{{< hint >}}If you encounter crashes in Firefox, remove the line `export GBM_BACKEND=nvidia-drm` from your launcher.
+{{< hint >}}If you encounter crashes in Firefox, remove the line `env = GBM_BACKEND,nvidia-drm`.
 {{< /hint >}}
 
-{{< hint >}}If you face problems with Discord windows not displaying or screen sharing not working in Zoom, remove or comment the line `export __GLX_VENDOR_LIBRARY_NAME=nvidia` from your launcher.
+{{< hint >}}If you face problems with Discord windows not displaying or screen sharing not working in Zoom, remove or comment the line `env = __GLX_VENDOR_LIBRARY_NAME,nvidia`.
 {{< /hint >}}
 
 Install `qt5-wayland`, `qt5ct` and `libva`. Additionally
@@ -51,7 +49,7 @@ applications, such as Unity Hub.
 
 Reboot your computer
 
-Launch Hyprland with the wrapper.
+Launch Hyprland.
 
 It _should_ work now.
 

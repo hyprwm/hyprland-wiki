@@ -16,9 +16,8 @@ distros' repositories.
 _If not using an NVIDIA card, skip this step_
 
 Please take a look at
-[The Nvidia page](../../Nvidia) before launching. You should **first** make a
-wrapper, as described in a section a bit below, then follow the instructions from
-the Nvidia page, and then continue on with sections below.
+[The Nvidia page](../../Nvidia) before launching. It has a lot of info regarding the needed
+environment and tweaks.
 
 ## VM?
 _If not using a VM, skip this step_

@@ -1,7 +1,8 @@
-As [aforementioned](../../Getting-Started/Master-Tutorial/#launching-hyprland-part-1), it's 
-useful using a wrapper to launch Hyprland. Whether you start Hyprland through TTY or a Display 
-Manager, it is always suggested to use one. As such, you can pass certain environment 
-variables to improve Wayland compatibility, or simply change certain aspects of your desktop.
+You can use the `env` keyword to set environment variables prior to the initialization of
+the Display Server, e.g.:
+```ini
+env = GTK_THEME,Nord
+```
 
 Please avoid putting those environment variables in /etc/environment. That will cause all
 sessions (including Xorg ones) to pick up your wayland-specific environment on traditional
@@ -14,7 +15,7 @@ Linux distros.
 - `XDG_SESSION_DESKTOP=Hyprland`
 
 XDG specific environment variables are often detected through portals and applications that may
-set those for you, however it is a good idea to provide them in your wrapper script as a fail-safe.
+set those for you, however it is not a bad idea to set them explicitly.
 
 # QT Variables
 
