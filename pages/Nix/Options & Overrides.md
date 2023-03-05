@@ -48,12 +48,12 @@ exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOB
 ```
 
 This will make XWayland programs look as if they were unscaled. To fix this, you
-have to export different environment variables to make the specific toolkits
-render at the proper scaling. For example
+have to set different environment variables to make the specific toolkits
+render at the proper scaling. For example, add this to your `hyprland.conf`:
 
-```sh
-export GDK_SCALE=2
-export XCURSOR_SIZE=48
+```ini
+env = GDK_SCALE,2
+env = XCURSOR_SIZE,48
 ```
 
 {{< hint >}}

@@ -5,9 +5,11 @@ compositors.
 
 XWayland currently looks pixelated/blurry on HiDPI screens, due to Xorg's
 inability to scale.
-There are attempts to add a standard scaling mechanism, such as [MR 733](https://gitlab.freedesktop.org/xorg/xserver/-/merge_requests/733).
+There are attempts to add a standard scaling mechanism, such as
+[MR 733](https://gitlab.freedesktop.org/xorg/xserver/-/merge_requests/733).
 
 You can use this MR's wlroots implementation in Hyprland by making a few changes.
+
 {{< hint >}}
 The following instructions assume you know how to patch programs, either
 manually or using your favourite package manager.
@@ -21,22 +23,20 @@ and [Pacman patching](https://wiki.archlinux.org/title/Patching_packages).
     (based on the MR's implementation, but updated).
 
 2. Make sure you have the required Hyprland `wlroots`, patched with
-    [the HiDPI xwayland patch](https://gitlab.freedesktop.org/lilydjwg/wlroots/-/commit/6c5ffcd1fee9e44780a6a8792f74ecfbe24a1ca7)
+    [the HiDPI xwayland patch](https://github.com/hyprwm/Hyprland/blob/main/nix/wlroots-hidpi.patch)
     and [this commit](https://gitlab.freedesktop.org/wlroots/wlroots/-/commit/18595000f3a21502fd60bf213122859cc348f9af)
-    **reverted**. This is important, as not reverting it will make opening XWayland
-    programs crash Hyprland.
+    **reverted**. This is important, as not reverting it will make opening
+    XWayland programs crash Hyprland.
 
-3. Add this line to your configuration:
+3. Add these lines to your configuration:
 
     ```ini
+    # sets xwayland scale
     exec-once=xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
-    ```
 
-    and configure toolkits to scale using their specific mechanisms, such as
-
-    ```sh
-    export GDK_SCALE=2
-    export XCURSOR_SIZE=32
+    # toolkit-specific scale
+    env = GDK_SCALE,2
+    env = XCURSOR_SIZE,32
     ```
 
     {{< hint >}}
