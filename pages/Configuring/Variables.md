@@ -37,7 +37,7 @@ legacy, e.g. `0xeeb3ff1a` -> ARGB order
 SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 ```
 
-The left or right variant of a mod can be specified by appending "_L" or "_R" to the mod.
+The left or right variant of a mod can be specified by appending "_L" or "_R".
 
 ```ini
 SHIFT_L SHIFT_R CTRL_L CTRL_R ALT_L ALT_R
