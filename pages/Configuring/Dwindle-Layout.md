@@ -20,6 +20,7 @@ category name: `dwindle`
 | split_width_multiplier | specifies the auto-split width multiplier | float | 1.0 |
 | no_gaps_when_only | whether to apply gaps when there is only one window on a workspace, aka. smart gaps. | bool | false |
 | use_active_for_splits | whether to prefer the active window or the mouse position for splits | bool | true |
+| default_split_ratio | the default split ratio on window open. 1 means even 50/50 split. 0.1 - 1.9 | float | 1.0 |
 
 # Bind Dispatchers
 
