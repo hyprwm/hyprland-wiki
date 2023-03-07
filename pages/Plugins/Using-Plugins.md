@@ -2,37 +2,7 @@ This page will tell you how to use plugins.
 
 {{< toc >}}
 
-## Getting plugins
-
-Plugins come as _shared objects_, aka. `.so` files.
-
-Hyprland does not have any "default" plugins, so any plugin you may want
-to use you will have to find yourself.
-
-## Installing / Using plugins
-
-Clone and compile plugin(s) of your choice.
-
-{{< hint type=tip >}}
-Due to the fact that plugins share C++ objects, your plugins must be
-compiled with the same compiler as Hyprland, and on the same architecture.
-
-In rare cases, they might even need to be compiled on the same machine.
-
-Official releases are always compiled with `gcc`.
-{{< /hint >}}
-
-Place them somewhere on your system.
-
-In hyprland, run in a terminal:
-```sh
-hyprctl plugin load /path/to/the/plugin.so
-```
-
-You can also add this to an `exec-once`:
-```ini
-exec-once = hyprctl plugin load /my/epic/plugin.so
-```
+## Plugin Disclaimers
 
 {{< hint type=warning >}}
 Plugins are written in C++ and will run as a part of Hyprland.
@@ -44,6 +14,64 @@ Writing a plugin to wipe your computer is easy.
 
 ***Never*** trust random `.so` files you receive from other people.
 {{< /hint >}}
+
+## Getting plugins
+
+Plugins come as _shared objects_, aka. `.so` files.
+
+Hyprland does not have any "default" plugins, so any plugin you may want
+to use you will have to find yourself.
+
+## Installing / Using plugins
+
+{{< hint type=tip >}}
+Due to the fact that plugins share C++ objects, your plugins must be
+compiled with the same compiler as Hyprland, and on the same architecture.
+
+In rare cases, they might even need to be compiled on the same machine.
+
+Official releases are always compiled with `gcc`.
+{{< /hint >}}
+
+It is recommended to create a Hyprland-Plugins directory, then clone
+the Hyprland repository.
+```sh
+mkdir Hyprland-Plugins && cd Hyprland-Plugins
+git clone --recursive https://github.com/hyprwm/Hyprland
+```
+
+The official Hyprland plugins are hosted in a repo [here.](https://github.com/hyprwm/hyprland-plugins)
+For the simplicity of this guide, you can clone this repository in your 
+Hyprland-Plugins directory.
+```sh
+git clone https://github.com/hyprwm/hyprland-plugins.git
+```
+
+Before compiling any plugins, you will need to run make protocols in the 
+Hyprland repository. 
+(These commands assume you are in the Hyprland-Plugins directory)
+```sh
+cd Hyprland && make protocols
+```
+
+You will also need to set the HYPRLAND_HEADERS env variable to the path 
+of the cloned Hyprland repository (not the Hyprland-Plugins directory).
+You are now ready to compile a plugin! 
+
+Example compilation of borders-plus-plus Hyprland plugin:
+```sh
+cd hyprland-plugins/borders-plus-plus && make
+```
+
+In hyprland, run in a terminal:
+```sh
+hyprctl plugin load /path/to/the/plugin.so
+```
+
+You can also add this to an `exec-once`:
+```ini
+exec-once = hyprctl plugin load /my/epic/plugin.so
+```
 
 ## FAQ About Plugins
 
