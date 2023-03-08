@@ -114,24 +114,16 @@ Use a wayland-compatible locking utility using WLR protocols, e.g. `swaylock`.
 
 # How do I change me mouse cursor?
 
-Use a tool like for example `lxappearance` to change the GTK cursor.
+Set the GTK cursor using [nwg-look](https://github.com/nwg-piotr/nwg-look). Alternatively, change the config files according to the 
+[XDG specification (Arch Wiki link)](https://wiki.archlinux.org/title/Cursor_themes#Configuration). 
+Make sure to also edit `~/.config/gtk-4.0/settings.ini` and `~/.gtkrc-2.0` if _not_ using a tool 
+(like `nwg-look`).
 
-After that, add `exec-once=hyprctl setcursor [THEME] [SIZE]` to your config and
-restart Hyprland.
+Add `exec-once=hyprctl setcursor [THEME] [SIZE]` to your config and restart Hyprland.
 
-For QT applications, Hyprland exports XCURSOR_SIZE as 24, which is the default. 
-You can overwrite this by exporting XCURSOR_SIZE to a different value with `env`.
+If using flatpak, `flatpak override --env=~/.themes:ro --env=~/.icons:ro --user` and put your themes/icons/cursors both in `/usr/share/themes`/`/usr/share/icons` and `~/.themes`/`~/.icons`.
 
-Alternatively, change the config files manually according to the
-[XDG specification (Arch Wiki link)](https://wiki.archlinux.org/title/Cursor_themes#Configuration).
-
-Make sure to also edit `~/.config/gtk-4.0/settings.ini` and `~/.gtkrc-2.0` if
-_not_ using a tool (like `lxappearance`).
-
-Then, do a `gsettings set $gnome-schema cursor-theme 'theme-name'` and you're
-all good!
-
-If it still doesn't work...
+You can also try running `gsettings set org.gnome.desktop.interface cursor-theme 'theme-name'` or adding it after `exec-once=` in your config.
 
 # GTK Settings no work / whatever
 
