@@ -8,7 +8,7 @@ Possible causes:
 
 > Your themes are not set up properly, making apps crash.
 
-Use something like `qt5ct` (QT) and `lxappearance` (GTK) (\*for GTK you can also
+Use something like `qt6ct` (QT) and `nwg-look` (GTK) (\*for GTK you can also
 set up themes with envvars) to set up your themes.
 
 > Your PC is very, _very_ old.
@@ -114,24 +114,20 @@ Use a wayland-compatible locking utility using WLR protocols, e.g. `swaylock`.
 
 # How do I change me mouse cursor?
 
-Use a tool like for example `lxappearance` to change the GTK cursor.
+1. Set the GTK cursor using [nwg-look](https://github.com/nwg-piotr/nwg-look).
+2. Add `exec-once=hyprctl setcursor [THEME] [SIZE]` to your config and restart Hyprland.
 
-After that, add `exec-once=hyprctl setcursor [THEME] [SIZE]` to your config and
-restart Hyprland.
+If using flatpak, run `flatpak override --env=~/.themes:ro --env=~/.icons:ro --user` and put your themes in both `/usr/share/themes` and `~/.themes`, and put your icons and cursors in both `/usr/share/icons` and `~/.icons`.
 
 For QT applications, Hyprland exports XCURSOR_SIZE as 24, which is the default. 
 You can overwrite this by exporting XCURSOR_SIZE to a different value with `env`.
 
-Alternatively, change the config files manually according to the
-[XDG specification (Arch Wiki link)](https://wiki.archlinux.org/title/Cursor_themes#Configuration).
+You can also try running `gsettings set org.gnome.desktop.interface cursor-theme 'theme-name'` or adding it after `exec-once=` in your config.
 
-Make sure to also edit `~/.config/gtk-4.0/settings.ini` and `~/.gtkrc-2.0` if
-_not_ using a tool (like `lxappearance`).
-
-Then, do a `gsettings set $gnome-schema cursor-theme 'theme-name'` and you're
-all good!
-
-If it still doesn't work...
+If you do not want to install a GTK settings editor, change the config files according to the 
+[XDG specification (Arch Wiki link)](https://wiki.archlinux.org/title/Cursor_themes#Configuration). 
+Make sure to also edit `~/.config/gtk-4.0/settings.ini` and `~/.gtkrc-2.0` if _not_ using a tool 
+(like `nwg-look`).
 
 # GTK Settings no work / whatever
 
