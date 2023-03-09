@@ -52,12 +52,12 @@ Now bind the `clipman` like this:
 
 # For `rofi` users
 ```ini
-bind = SUPER, V, clipman pick -t rofi
+bind = SUPER, V, exec, clipman pick -t rofi
 ```
 
 # For `dmenu` users
 ```ini
-bind = SUPER, V, clipman pick -t dmenu
+bind = SUPER, V, exec, clipman pick -t dmenu
 ```
 
 So on and so forth. For further information, please refer to the repository mentioned above
