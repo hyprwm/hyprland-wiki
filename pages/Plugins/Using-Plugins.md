@@ -2,6 +2,19 @@ This page will tell you how to use plugins.
 
 {{< toc >}}
 
+## Disclaimers
+
+{{< hint type=warning >}}
+Plugins are written in C++ and will run as a part of Hyprland.
+
+Make sure to _always_ read the source code of the plugins you are going to use
+and to trust the source.
+
+Writing a plugin to wipe your computer is easy.
+
+***Never*** trust random `.so` files you receive from other people.
+{{< /hint >}}
+
 ## Getting plugins
 
 Plugins come as _shared objects_, aka. `.so` files.
@@ -34,16 +47,53 @@ You can also add this to an `exec-once`:
 exec-once = hyprctl plugin load /my/epic/plugin.so
 ```
 
-{{< hint type=warning >}}
-Plugins are written in C++ and will run as a part of Hyprland.
+## Compiling official plugins
 
-Make sure to _always_ read the source code of the plugins you are going to use
-and to trust the source.
+Official plugins can be found at [hyprwm/hyprland-plugins](https://github.com/hyprwm/hyprland-plugins).
 
-Writing a plugin to wipe your computer is easy.
+Clone the repo and enter it:
+```sh
+git clone https://github.com/hyprwm/hyprland-plugins && cd hyprland-plugins
+```
 
-***Never*** trust random `.so` files you receive from other people.
+Inside the repo, clone Hyprland and enter it:
+```sh
+git clone --recursive https://github.com/hyprwm/Hyprland && cd Hyprland
+```
+
+If you are using a release version of Hyprland, checkout it: (in this example it's `v0.23.0beta`, adjust to your release ver)
+```sh
+git checkout tags/v0.23.0beta
+```
+
+{{< hint type=note >}}
+If you are using hyprland-git, make _sure_ the commit you use matches the cloned sources.
+
+You can check the commit you are running with `hyprctl version`, and change the commit in the sources
+with `git reset --hard <hash>`. Make sure to remove the `dirty` at the end of the hash from `hyprctl version`
+or else git will reject it.
+
+If you build Hyprland manually, you can skip cloning Hyprland and instead point the
+`HYPRLAND_HEADERS` envvar (as used later) to your Hyprland sources.
 {{< /hint >}}
+
+Prepare Hyprland sources:
+```sh
+make pluginenv
+```
+
+Now, enter your plugin of choice's directory, for example:
+```sh
+cd ../borders-plus-plus
+```
+
+Compile it:
+```sh
+HYPRLAND_HEADERS="../Hyprland" make all
+```
+
+Congratulations! A file called `plugin_name.so` should now be in your current directory.
+Copy it wherever you please to keep it organized and load with `hyprctl plugin load <path>`.
 
 ## FAQ About Plugins
 
