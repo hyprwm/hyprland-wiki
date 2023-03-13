@@ -93,3 +93,36 @@ The app indicator probably won't show, so you'll have to `killall -9 java` to ki
 {{< /hint >}}
 
 ![Demo GIF of Spamton Shimeji](https://media.discordapp.net/attachments/810799100940255260/1032846469855727656/ezgif.com-gif-maker19.gif)
+
+# Toggle animations/blur/etc hotkey
+
+For increased performance in games, or for less distractions at a keypress
+
+1. create file `~/.config/hypr/gamemode.sh && chmod +x ~/.config/hypr/gamemode.sh` and add:
+
+```bash
+#!/usr/bin/env sh
+HYPRGAMEMODE=$(hyprctl getoption animations:enabled | sed -n '2p' | awk '{print $2}')
+if [ $HYPRGAMEMODE = 1 ] ; then
+    hyprctl --batch "\
+        keyword animations:enabled 0;\
+        keyword decoration:drop_shadow 0;\
+        keyword decoration:blur 0;\
+        keyword general:gaps_in 0;\
+        keyword general:gaps_out 0;\
+        keyword general:border_size 1;\
+        keyword decoration:rounding 0"
+    exit
+fi
+hyprctl reload
+```
+
+Edit to your liking of course. If animations are enabled, it disables all the pretty stuff. Otherwise, the script reloads your config to grab your defaults.
+
+2. Add this to your `hyprland.conf`:
+
+```ini
+bind = WIN, F1, exec, ~/.config/hypr/gamemode.sh
+```
+
+The hotkey toggle will be WIN+F1, but you can change this to whatever you want.
