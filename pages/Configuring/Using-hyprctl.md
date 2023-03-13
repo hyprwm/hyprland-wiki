@@ -125,11 +125,32 @@ device:my-epic-keyboard-v1 {
 
 You can use this command to switch between them.
 
-```
+```sh
 hyprctl switchxkblayout [DEVICE] [CMD]
 ```
 where `CMD` is either `next` for next, `prev` for previous, or `ID`
-for a specific one (in the above case, `us`: 0, `pl`: 1, `de`: 2)
+for a specific one (in the above case, `us`: 0, `pl`: 1, `de`: 2). 
+You can find the `DEVICE` using `hyprctl devices` command.
+
+example command for a typical keyboard:
+
+```sh
+hyprctl switchxkblayout at-translated-set-2-keyboard next
+```
+
+{{< hint >}}
+
+If you want a single variant ie. pl/dvorak on one layout but us/qwerty on the other, xkb parameters can still be blank, however the amount of comma-separated parameters have to match. Alternatively, a single parameter can be specified for it to apply to all three.
+
+```ini
+input {
+    kb_layout = pl,us,ru
+    kb_variant = dvorak,,
+    kb_options = caps:ctrl_modifier
+}
+```
+
+{{< /hint >}}
 
 ### seterror
 
