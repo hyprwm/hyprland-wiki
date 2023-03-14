@@ -51,7 +51,7 @@ To force GBM as a backend, set the following environment variables:
 
 - `SDL_VIDEODRIVER=wayland` - Run SDL2 applications on Wayland. Remove or set to x11 if games that provide older versions of SDL cause
   compatibility issues
-- `_JAVA_AWT_WM_NONEREPARENTING=1` - Fix possibly broken Java applications. Set to 1 until Wakefield is available.
+- `_JAVA_AWT_WM_NONREPARENTING=1` - Fix possibly broken Java applications. Set to 1 until Wakefield is available.
 - `CLUTTER_BACKEND="wayland"` - Clutter package already has wayland enabled, this variable will force Clutter applications
   to try and use the Wayland backend
 
