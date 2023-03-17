@@ -145,12 +145,12 @@ More can be found in [Useful Utilities](../../Useful-Utilities).
 LayerSurfaces are not windows. These are for example: Your wallpapers,
 notification overlays, bars, etc.
 
-If you really want to blur them, use `blurls=`
+If you really want to blur them, use a layerrule:
 
 ```ini
-blurls=NAMESPACE
+layerrule = blur,NAMESPACE
 # or
-blurls=address:0x<ADDRESS>
+layerrule = blur,address:0x<ADDRESS>
 ```
 
 you can get the namespace / address from `hyprctl layers`.
@@ -158,9 +158,7 @@ you can get the namespace / address from `hyprctl layers`.
 To remove a blurls rule (useful in dynamic situations) use:
 
 ```ini
-blurls=remove,NAMESPACE
-# or
-blurls=remove,0x<ADDRESS>
+layerrule = unset,<whatever you used before>
 ```
 
 # Setting the environment

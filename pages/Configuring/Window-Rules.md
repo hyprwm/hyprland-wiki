@@ -146,8 +146,11 @@ Those have specific rules separate from windows:
 
 ```ini
 layerrule = rule, namespace
+# or
+layerrule = rule, address
 ```
 where `rule` is the rule and `namespace` is the namespace regex (find namespaces in `hyprctl layers`)
+or `address` is an address in the form of `address:0x[hex]`
 
 ## Rules
 
