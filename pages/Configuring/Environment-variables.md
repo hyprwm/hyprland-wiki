@@ -4,6 +4,20 @@ the Display Server, e.g.:
 env = GTK_THEME,Nord
 ```
 
+{{< hint type=important >}}
+Hyprland puts the raw string to the envvar with the `env` keyword. You should _not_ add quotes around the values.
+
+e.g.:
+```ini
+env = QT_QPA_PLATFORM,wayland
+```
+
+and ***NOT***
+```ini
+env = QT_QPA_PLATFORM,"wayland"
+```
+{{< /hint >}}
+
 Please avoid putting those environment variables in /etc/environment. That will cause all
 sessions (including Xorg ones) to pick up your wayland-specific environment on traditional
 Linux distros.
@@ -21,7 +35,7 @@ set those for you, however it is not a bad idea to set them explicitly.
 
 - `QT_AUTO_SCREEN_SCALE_FACTOR=1` - [(From the QT documentation)](https://doc.qt.io/qt-5/highdpi.html)
 enables automatic scaling, based on the monitor's pixel density
-- `QT_QPA_PLATFORM="wayland;xcb"` - Tell QT applications to use the Wayland backend, and fall back to x11 if Wayland is unavailable
+- `QT_QPA_PLATFORM=wayland;xcb` - Tell QT applications to use the Wayland backend, and fall back to x11 if Wayland is unavailable
 - `QT_WAYLAND_DISABLE_WINDOWDECORATION=1` - Disables window decorations on QT applications
 - `QT_QPA_PLATFORMTHEME=qt5ct` - Tells QT based applications to pick your theme from qt5ct, use with Kvantum.
 
@@ -52,7 +66,7 @@ To force GBM as a backend, set the following environment variables:
 - `SDL_VIDEODRIVER=wayland` - Run SDL2 applications on Wayland. Remove or set to x11 if games that provide older versions of SDL cause
   compatibility issues
 - `_JAVA_AWT_WM_NONREPARENTING=1` - Fix possibly broken Java applications. Set to 1 until Wakefield is available.
-- `CLUTTER_BACKEND="wayland"` - Clutter package already has wayland enabled, this variable will force Clutter applications
+- `CLUTTER_BACKEND=wayland` - Clutter package already has wayland enabled, this variable will force Clutter applications
   to try and use the Wayland backend
 
 - `GDK_BACKEND` - Force backend for wayland-enabled GTK3 and GTK4 backends. Available options are "wayland" or "x11". If GTK XWayland

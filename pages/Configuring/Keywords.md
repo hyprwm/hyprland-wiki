@@ -178,3 +178,17 @@ You can also add a `d` flag if you want the env var to be exported to D-Bus (sys
 ```ini
 envd = XCURSOR_SIZE,24
 ```
+
+{{< hint type=important >}}
+Hyprland puts the raw string to the envvar. You should _not_ add quotes around the values.
+
+e.g.:
+```ini
+env = QT_QPA_PLATFORM,wayland
+```
+
+and ***NOT***
+```ini
+env = QT_QPA_PLATFORM,"wayland"
+```
+{{< /hint >}}
