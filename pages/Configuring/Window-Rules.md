@@ -154,3 +154,5 @@ where `rule` is the rule and `namespace` is the namespace regex (find namespaces
 | rule | description |
 | --- | --- |
 | noanim | disables animations |
+| blur | enables blur for the layer |
+| ignorezero | makes blur ignore fully transparent pixels of the layer |
