@@ -73,7 +73,7 @@ you can use `hyprctl clients`.
 | maxsize \[x\] \[y\] | sets the maximum size on creation (x,y -> int) | |
 | center | if the window is floating, will center it on the monitor | |
 | pseudo | pseudotiles a window | |
-| monitor \[id\] | sets the monitor on which a window should open | |
+| monitor \[id\] | sets the monitor on which a window should open. `id` can be either id or name (either e.g. `1` or e.g. `DP-1`) | |
 | workspace \[w\] | sets the workspace on which a window should open (for workspace syntax, see [dispatchers->workspaces](../Dispatchers#workspaces)). You can also make \[w\] to `unset`, will unset all previous workspace rules applied to this window. You can also add `silent` after the workspace to make the window open silently. | |
 | opacity \[a\] | additional opacity multiplier. Options for a: `float` -> sets an opacity OR `float float` -> sets activeopacity and inactiveopacity respectively. You can also add `override` after an opacity to make it override instead of a multiplier. (e.g. `1.0 override 0.5 override`) |&check;|
 | opaque | forces the window to be opaque (can be toggled with the toggleopaque dispatcher) |&check;|
