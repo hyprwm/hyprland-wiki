@@ -31,6 +31,13 @@ submap=clean
 bind=MOD,KEY,submap,reset
 submap=reset
 ```
+# Remap Caps-Lock to Ctrl
+
+```
+input {
+    kb_options = ctrl:nocaps
+}
+```
 
 # Minimize Steam instead of killing
 
