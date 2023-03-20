@@ -197,6 +197,33 @@ hyprctl setprop address:0x13371337 forcenoanims 1 lock  # with locking
 hyprctl setprop address:0x13371337 nomaxsize 0          # without locking
 ```
 
+### notify
+
+Sends a notification using the built-in Hyprland notification system.
+
+```sh
+hyprctl notify [ICON] [TIME_MS] [COLOR] [MESSAGE]
+```
+
+For example:
+```sh
+hyprctl notify -1 10000 "rgb(ff1ea3)" "Hello everyone!"
+```
+
+Icon of `-1` means "No icon"
+
+Color of `0` means "Default color for icon"
+
+Icon list:
+```
+WARNING = 0
+INFO = 1
+HINT = 2
+ERROR = 3
+CONFUSED = 4
+OK = 5
+```
+
 ## Info
 
 ```plain
