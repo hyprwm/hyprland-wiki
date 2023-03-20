@@ -112,6 +112,7 @@ See [here](../Development/Getting-Started).
 
 ### Where do I find plugins?
 Try looking around [here](https://duckduckgo.com).
+You can also see a list at [awesome-hyprland](https://github.com/hyprland-community/awesome-hyprland#plugins). Note it may not be complete.
 
 ### Are plugins safe?
 As long as you read the source code of your plugin(s) and can see there's nothing bad going on,
