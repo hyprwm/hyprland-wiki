@@ -111,7 +111,7 @@ Yes. `hyprctl plugin unload /path/to/plugin.so`
 See [here](../Development/Getting-Started).
 
 ### Where do I find plugins?
-Try looking around [here](https://duckduckgo.com).
+Try looking around [here](https://github.com/hyprwm/hyprland-plugins).
 
 ### Are plugins safe?
 As long as you read the source code of your plugin(s) and can see there's nothing bad going on,
