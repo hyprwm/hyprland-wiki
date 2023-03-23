@@ -39,11 +39,11 @@ written in all lowercase.
 If you are unsure of what your key's name is, you can
 use `xev` or `wev` to find that information.
 
-If you want to bind by a keycode, you can just input it in the KEY position,
+If you want to bind by a keycode, you can just input it in the KEY position with a `code:` prefix,
 e.g.:
 
 ```ini
-bind=SUPER,28,exec,amongus
+bind=SUPER,code:28,exec,amongus
 ```
 
 Will bind <key>SUPER</key> + <key>T</key>. (<key>T</key> is keycode 28.) - You
