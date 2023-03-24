@@ -148,8 +148,8 @@ m -> mouse, see below
 Example Usage:
 
 ```ini
-# Example volume button that allows press and hold
-binde=, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+# Example volume button that allows press and hold, volume limited to 150%
+binde=, XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
 
 # Example volume button that will activate even while an input inhibitor is active
 bindl=, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
