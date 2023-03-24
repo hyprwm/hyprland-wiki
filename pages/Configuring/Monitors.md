@@ -178,3 +178,16 @@ workspace = DP-2, name:work
 
 Please remember only one default workspace can be created per monitor, subsequent sets for
 the same monitor will overwrite the previous.
+
+## Binding workspaces to a monitor
+A workspace can be bound to a monitor, meaning by default it will ALWAYS open
+on the selected monitor. You can do this with
+```
+wsbind=WORKSPACE,MONITOR
+```
+
+for example:
+```
+wsbind=5,DP-1
+wsbind=name:secret,DP-2
+```
