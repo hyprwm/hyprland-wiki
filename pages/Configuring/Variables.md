@@ -275,6 +275,7 @@ Only for developers.
 | disable_logs | disable logging | bool | false |
 | disable_time | disables time logging | bool | true |
 | damage_tracking | redraw only the needed bits of the display. Do **not** change. (default: full - 2) monitor - 1, none - 0 | int | 2 |
+| enable_stdout_logs | enables logging to stdout | bool | false |
 
 # More
 
