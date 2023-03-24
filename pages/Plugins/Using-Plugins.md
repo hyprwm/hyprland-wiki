@@ -47,6 +47,10 @@ You can also add this to an `exec-once`:
 exec-once = hyprctl plugin load /my/epic/plugin.so
 ```
 
+{{< hint type=important >}}
+The plugin path has to be absolute. (starting from the root of the filesystem)
+{{< /hint >}}
+
 ## Compiling official plugins
 
 Official plugins can be found at [hyprwm/hyprland-plugins](https://github.com/hyprwm/hyprland-plugins).
