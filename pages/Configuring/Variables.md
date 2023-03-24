@@ -247,7 +247,7 @@ Described [here](../Keywords#per-device-input-configs).
 | hide_cursor_on_touch | Hides the cursor when the last input was a touch input until a mouse input is done. | bool | true |
 | mouse_move_focuses_monitor | Whether mouse moving into a different monitor should focus it | bool | true |
 | suppress_portal_warnings | disables warnings about incompatible portal implementations. | bool | false |
-| render_ahead_of_time | starts rendering _before_ your monitor displays a frame in order to lower latency | bool | false |
+| render_ahead_of_time | [Warning: buggy] starts rendering _before_ your monitor displays a frame in order to lower latency | bool | false |
 | render_ahead_safezone | how many ms of safezone to add to rendering ahead of time. Recommended 1-2. | int | 1 |
 
 # Binds
