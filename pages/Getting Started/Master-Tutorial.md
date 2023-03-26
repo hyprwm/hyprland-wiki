@@ -90,4 +90,6 @@ where possible. Chromium-based browsers also should have a toggle in `chrome://f
 For most electron apps, you should put the above in `~/.config/electron-flags.conf`. VSCode is known 
 to not work with that though.
 
+A few more environment variables for forcing Wayland mode are documented [here](../../Configuring/Environment-variables).
+
 You can check whether an app is running in xwayland or not with `hyprctl clients`.
