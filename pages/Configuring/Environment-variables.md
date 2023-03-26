@@ -22,6 +22,14 @@ Please avoid putting those environment variables in /etc/environment. That will 
 sessions (including Xorg ones) to pick up your wayland-specific environment on traditional
 Linux distros.
 
+# Toolkit Backend Variables
+- `GDK_BACKEND=wayland,x11` - GTK: Use wayland if available, fall back to x11 if not.
+- `QT_QPA_PLATFORM="wayland;xcb"` - QT: Use wayland if available, fall back to x11 if not.
+- `SDL_VIDEODRIVER=wayland` - Run SDL2 applications on Wayland. Remove or set to `x11` if games that provide older versions of SDL cause
+  compatibility issues
+- `CLUTTER_BACKEND=wayland` - Clutter package already has wayland enabled, this variable will force Clutter applications
+  to try and use the Wayland backend
+
 # XDG Specifications
 
 - `XDG_CURRENT_DESKTOP=Hyprland`
@@ -60,17 +68,6 @@ To force GBM as a backend, set the following environment variables:
 - `__GL_VRR_ALLOWED` - Controls if Adaptive Sync should be used. Recommended to set as "0" to avoid having problems on some games.
 
 - `WLR_DRM_NO_ATOMIC=1` - use legacy DRM interface instead of atomic mode setting. Might fix flickering issues.
-
-# Toolkit Backend Variables
-
-- `SDL_VIDEODRIVER=wayland` - Run SDL2 applications on Wayland. Remove or set to x11 if games that provide older versions of SDL cause
-  compatibility issues
-- `_JAVA_AWT_WM_NONREPARENTING=1` - Fix possibly broken Java applications. Set to 1 until Wakefield is available.
-- `CLUTTER_BACKEND=wayland` - Clutter package already has wayland enabled, this variable will force Clutter applications
-  to try and use the Wayland backend
-
-- `GDK_BACKEND` - Force backend for wayland-enabled GTK3 and GTK4 backends. Available options are "wayland" or "x11". If GTK XWayland
-  applications cause issues when set to "wayland", try "wayland,x11"
 
 # Theming Related Variables
 
