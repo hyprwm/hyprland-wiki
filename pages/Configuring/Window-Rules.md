@@ -77,6 +77,7 @@ you can use `hyprctl clients`.
 | workspace \[w\] | sets the workspace on which a window should open (for workspace syntax, see [dispatchers->workspaces](../Dispatchers#workspaces)). You can also make \[w\] to `unset`, will unset all previous workspace rules applied to this window. You can also add `silent` after the workspace to make the window open silently. | |
 | opacity \[a\] | additional opacity multiplier. Options for a: `float` -> sets an opacity OR `float float` -> sets activeopacity and inactiveopacity respectively. You can also add `override` after an opacity to make it override instead of a multiplier. (e.g. `1.0 override 0.5 override`) |&check;|
 | opaque | forces the window to be opaque (can be toggled with the toggleopaque dispatcher) |&check;|
+| forcergbx | makes hyprland ignore the alpha channel of all the window's surfaces, effectively making it _actually, fully 100% opaque_ | &check; |
 | animation \[style\] (\[opt\]) | forces an animation onto a window, with a selected opt. Opt is optional. |&check;|
 | rounding \[x\] | forces the application to have X pixels of rounding, ignoring the set default (in `decoration:rounding`). Has to be an int. |&check;|
 | noblur | disables blur for the window |&check;|
