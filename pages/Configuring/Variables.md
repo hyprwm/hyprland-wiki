@@ -11,7 +11,7 @@ the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 | type | description |
 |---|---|
 | int | integer |
-| bool | boolean, `true` or `false` (`yes` or `no`, `on` or `off`, `0` or `1`) - any numerical value that is not `0` or `1` will cause undefined behaviour. |
+| bool | boolean, `true` or `false` (`yes` or `no`, `on` or `off`, `0` or `1`) - any numerical value that is not `0` or `1` will cause undefined behavior. |
 | float | floating point number |
 | color | color (see hint below for color info) |
 | vec2 | vector with 2 values (float), separated by a space (e.g. `0 0` or `-10.9 99.1`) |

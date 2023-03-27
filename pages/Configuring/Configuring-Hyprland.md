@@ -55,6 +55,6 @@ To configure the "options" of Hyprland, animations, styling, etc. see
 # Advanced configuring
 
 Some keywords (binds, curves, execs, monitors, etc.) are not variables but define
-special behaviour.
+special behavior.
 
 See all of them in [Keywords](../Keywords) and the sidebar.

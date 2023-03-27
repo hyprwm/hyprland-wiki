@@ -4,7 +4,7 @@
 
 # Window Rules V1
 
-You can set window rules to achieve different behaviours from the active container.
+You can set window rules to achieve different behaviors from the active container.
 
 ## Syntax
 
