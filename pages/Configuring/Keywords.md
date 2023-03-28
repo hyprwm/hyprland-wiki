@@ -130,6 +130,11 @@ device:royuan-akko-multi-modes-keyboard-b {
 
 _remember about the space after the end of the device's name (before the `{`)!_
 
+{{< hint type=info >}}
+Per-device layouts will not alter the keybind keymap, so for example with a global keymap of `us`
+and a per-device one of `fr`, the keybinds will still act as if you were on `us`.
+{{< /hint >}}
+
 # Wallpapers
 
 The hyprland background you see when you first start Hyprland is **NOT A
