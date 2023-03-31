@@ -79,7 +79,8 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle) {
 }
 ```
 
-For private functions or members, you will need to use the signature, for example for `CInputManager::processMouseDownNormal`:
+For private functions or members, you can use the `findFunctionsByName` API entry to list all functions matching your query,
+for example:
 ```cpp
 typedef void (*origMouseDownNormal)(void*, wlr_pointer_button_event*);
 
@@ -93,8 +94,8 @@ void hkProcessMouseDownNormal(void* thisptr, wlr_pointer_button_event* e) {
 APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle) {
     // stuff...
     
-    g_pMouseDownHook = HyprlandAPI::createFunctionHook(
-        PHANDLE, HyprlandAPI::getFunctionAddressFromSignature(PHANDLE, "_ZN13CInputManager22processMouseDownNormalEP24wlr_pointer_button_event"), (void*)&hkProcessMouseDownNormal);
+    static const auto METHODS = HyprlandAPI::findFunctionsByName(PHANDLE, "processMouseDownNormal");
+    g_pMouseDownHook          = HyprlandAPI::createFunctionHook(PHANDLE, METHODS[0].address, (void*)&hkProcessMouseDownNormal);
 
     g_pMouseDownHook->hook();
 
@@ -102,21 +103,9 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle) {
 }
 ```
 
-To get the signature, compile Hyprland and run `objdump -D ./path/to/Hyprland | grep "functionName"`
-
-When it finally spits out something, you can stop it with `ctrl+C`.
-
-Example output:
-```
-  9710b9:       eb 01                   jmp    9710bc <_ZN13CInputManager22processMouseDownNormalEP24wlr_pointer_button_event+0xed8>
-  9710c3:       74 37                   je     9710fc <_ZN13CInputManager22processMouseDownNormalEP24wlr_pointer_button_event+0xf18>
-  9710fa:       eb 1f                   jmp    97111b <_ZN13CInputManager22processMouseDownNormalEP24wlr_pointer_button_event+0xf37>
-  971128:       74 05                   je     97112f <_ZN13CInputManager22processMouseDownNormalEP24wlr_pointer_button_event+0xf4b>
-```
-From this, we can see the signature is `_ZN13CInputManager22processMouseDownNormalEP24wlr_pointer_button_event`.
-
 {{< hint type=warning >}}
-Please note signatures may and most likely will differ between compilers. (gcc/clang)
+Please note method lookups are slow and should not be used often. The entries _will not_ change during runtime, so it's a good idea
+to make the lookups `static`.
 {{</ hint >}}
 
 ## Using the config
