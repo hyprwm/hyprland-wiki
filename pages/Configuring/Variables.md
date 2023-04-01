@@ -241,7 +241,7 @@ Described [here](../Keywords#per-device-input-configs).
 | animate_mouse_windowdragging | If true, will animate windows being dragged by mouse, note that this can cause weird behavior on some curves | bool | false |
 | disable_autoreload | If true, the config will not reload automatically on save, and instead needs to be reloaded with `hyprctl reload`. Might save on battery. | bool | false |
 | enable_swallow | Enable window swallowing | bool | false |
-| swallow_regex | The *class* regex to be used for windows that should be swallowed (usually, a terminal) | str | \[EMPTY\] |
+| swallow_regex | The *class* regex to be used for windows that should be swallowed (usually, a terminal). To know more about the list of regex which can be used [use this cheatsheet](https://github.com/ziishaned/learn-regex/blob/master/README.md). | str | \[EMPTY\] |
 | focus_on_activate | Whether Hyprland should focus an app that requests to be focused (an `activate` request) | bool | false |
 | no_direct_scanout | Disables direct scanout. Direct scanout attempts to reduce lag when there is only one fullscreen application on a screen (e.g. game). It is also recommended to set this to true if the fullscreen application shows graphical glitches. | bool | false |
 | hide_cursor_on_touch | Hides the cursor when the last input was a touch input until a mouse input is done. | bool | true |
