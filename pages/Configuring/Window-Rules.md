@@ -13,7 +13,7 @@ windowrule=RULE,WINDOW
 ```
 
 - `RULE` is a [rule](#rules) (and a param if applicable)
-- `WINDOW` is a RegEx, either:
+- `WINDOW` is a [RegEx](https://en.wikipedia.org/wiki/Regular_expression), either:
   - plain RegEx (for matching a window class);
   - `title:` followed by a regex (for matching a window's title)
 
