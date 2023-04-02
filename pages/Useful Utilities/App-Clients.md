@@ -19,7 +19,7 @@ Spotify's GUI client is [spotify-tui](https://github.com/Rigellute/spotify-tui) 
 launched in a terminal with a custom class. While limited in functionality, it is quite
 powerful and could be preferred over the GUI client. Another alternative is [ncspot](https://github.com/hrkfdn/ncspot), a powerful cross-platform ncurses Spotify client written in Rust.
 
-Some users have also reported [installing spotifywm](https://github.com/amurzeau/spotifywm) has resolved
+Some users have also reported [installing spotifywm](https://github.com/dasJ/spotifywm) has resolved
 the issue.
 
 After following the installation paragraph on the README, start Spotify with:
