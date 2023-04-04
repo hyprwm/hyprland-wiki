@@ -276,6 +276,7 @@ Only for developers.
 | disable_time | disables time logging | bool | true |
 | damage_tracking | redraw only the needed bits of the display. Do **not** change. (default: full - 2) monitor - 1, none - 0 | int | 2 |
 | enable_stdout_logs | enables logging to stdout | bool | false |
+| manual_crash | set to 1 and then back to 0 to crash Hyprland. | int | 0 |
 
 # More
 
