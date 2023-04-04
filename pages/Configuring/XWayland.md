@@ -31,6 +31,10 @@ and [Pacman patching](https://wiki.archlinux.org/title/Patching_packages).
 3. Add these lines to your configuration:
 
     ```ini
+
+    # change monitor to hires, the last argument is the scale factor
+    monitor=,highres,auto,2
+
     # sets xwayland scale
     exec-once=xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
 
