@@ -2,7 +2,7 @@
 
 Waybar is a GTK status bar made specifically for wlroots compositors.
 
-To use it, it's recommended to use the AUR package `waybar-hyprland-git`.
+To use it, it's recommended to use your distro's package by searching `waybar-hyprland`.
 
 ## Compiling Manually
 
@@ -11,7 +11,7 @@ To compile manually:
 Clone the source, cd into it, then do:
 
 ```bash
-sed -i 's/zext_workspace_handle_v1_activate(workspace_handle_);/const std::string command = "hyprctl dispatch workspace " + name_;\n\tsystem(command.c_str());/g' src/modules/wlr/workspace_manager.cpp
+sed -i -e 's/zext_workspace_handle_v1_activate(workspace_handle_);/const std::string command = "hyprctl dispatch workspace " + name_;\n\tsystem(command.c_str());/g' src/modules/wlr/workspace_manager.cpp
 meson --prefix=/usr --buildtype=plain --auto-features=enabled --wrap-mode=nodownload build
 meson configure -Dexperimental=true build
 sudo ninja -C build install
