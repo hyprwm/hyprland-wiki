@@ -31,13 +31,10 @@ from source first.
 
 {{< tabs "uniqueid" >}}
 
-{{< tab "Arch Linux" >}} _If you're on Arch Linux, I_ **_heavily_** _recommend
-you use the AUR._
-
+{{< tab "Arch Linux" >}}
 ```plain
-hyprland-git - compiles from latest source
-hyprland - compiles from latest release source
-hyprland-bin - compiled latest release, prone to breaking on ARM devices as Hyprland binary is compiled for x86
+hyprland-git (AUR) - compiles from latest source
+hyprland - binary x86 tagged release
 ```
 
 {{< /tab >}}
