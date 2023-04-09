@@ -128,6 +128,14 @@ will send it to the currently active _real_ workspace.
 You can define multiple named special workspaces, but the amount of those is limited to 97 at a time.
 {{< /hint >}}
 
+For example, to move a window/application to a special workspace you can use the following syntax:
+
+```
+bind = SUPER, C, movetoworkspace, special
+#The above syntax will move the window to a special workspace upon pressing 'SUPER'+'C'.
+#To see the hidden window you can use the togglespecialworkspace dispatcher mentioned above.
+```
+
 # Workspace options
 
 ```txt
