@@ -8,6 +8,8 @@ Some common ones used are `copyq`, `clipman` and `cliphist`.
 
 `cliphist` - Utilizes Wayland with `wl-clipboard` and can store both images and text [Github](https://github.com/sentriz/cliphist) 
 
+`wl-clip-persists` - When we copy something on Wayland and close the application we copied from, the copied data disappears from the clipboard and we cannot paste it anymore. So to fix this problem we can use a program called as `wl-clip-persists` which will preserve the data in the clipboard after the application is closed. [Github](https://github.com/Linus789/wl-clip-persist)
+
 ## cliphist
 
 Start by adding the following lines to your `~/.config/hypr/hyprland.conf`
