@@ -5,12 +5,46 @@ graphics drivers, fonts, dconf, xwayland, and adding a proper Desktop Entry to
 your Display Manager.
 
 Make sure to check out the options of the
-[NixOS module](https://github.com/hyprwm/Hyprland/blob/main/nix/module.nix).
+[NixOS module](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=hyprland).
 
-Note that the Nixpkgs Hyprland package is not actively maintained, and may be outdated.
-As such, installation using the Flake is recommended.
+## From Nixpkgs
 
-## With flakes
+```nix
+# configuration.nix
+
+{pkgs, ...}: {
+  programs.hyprland.enable = true;
+}
+```
+
+### Using unstable Hyprland
+
+In case you want to use the module from Nixpkgs, but also want the development
+version of Hyprland, you can add it like this:
+
+```nix
+# flake.nix
+
+{
+  inputs.hyprland.url = "github:hyprwm/Hyprland";
+  # ...
+
+  outputs = {nixpkgs, ...} @ inputs: {
+    nixosConfigurations.HOSTNAME = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;}; # this is the important part
+      modules = [./configuration.nix];
+    };
+  } 
+}
+
+# configuration.nix
+
+{inputs, pkgs, ...}: {
+  programs.hyprland.package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+}
+```
+
+## From the Flake
 
 ```nix
 # flake.nix
@@ -22,7 +56,6 @@ As such, installation using the Flake is recommended.
 
   outputs = {nixpkgs, hyprland, ...}: {
     nixosConfigurations.HOSTNAME = nixpkgs.lib.nixosSystem {
-      # ...
       modules = [
         hyprland.nixosModules.default
         {programs.hyprland.enable = true;}
@@ -35,7 +68,7 @@ As such, installation using the Flake is recommended.
 
 Don't forget to replace `HOSTNAME` with your hostname!
 
-## Without flakes
+## From the Flake, on Nix stable
 
 {{< hint >}}
 If you're using Hyprland through an overlay, set
@@ -63,7 +96,7 @@ in {
 
     xwayland = {
       enable = true;
-      hidpi = true;
+      hidpi = false;
     };
 
     nvidiaPatches = false;
