@@ -203,6 +203,7 @@ bindr=ALT,Alt_L,exec,amongus
 
 # Global Keybinds
 
+## Classic
 Yes, you heard this right, Hyprland does support global keybinds for ALL apps,
 including OBS, Discord, Firefox, etc.
 
@@ -238,6 +239,22 @@ _Side note_: **OBS** on Wayland really dislikes keybinds with modifiers. If
 they don't work, try removing mods and binding them to e.g. <key>F1</key>.
 Combining this with a submap should yield neat and usable results.
 {{< /hint >}}
+
+## DBus Global Shortcuts
+Some applications may already support the GlobalShortcuts portal in xdg-desktop-portal.
+
+If that's the case, then it's recommended to use this method instead of `pass`.
+
+Open your desired app and issue `hyprctl globalshortcuts`. This will give you a list
+of currently registered shortcuts with their description(s).
+
+Choose whichever you like, for example `coolApp:myToggle`
+
+Bind it to whatever you want with the `global` dispatcher:
+
+```
+bind = SUPERSHIFT, A, global, coolApp:myToggle
+```
 
 # Submaps
 

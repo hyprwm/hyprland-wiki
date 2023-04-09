@@ -64,6 +64,7 @@ layout pages (See the sidebar).
 | lockgroups | Locks the groups (groups will not accept new windows) | `lock` for locking, `unlock` for unlocking, `toggle` for toggle |
 | moveintogroup | Moves the active window into a group in a specified direction. No-op if there is no group in the specified direction. | direction |
 | moveoutofgroup | Moves the active window out of a group. No-op if not in a group | none |
+| global | Executes a Global Shortcut using the GlobalShortcuts portal. See [here](../Binds/#global-keybinds) | name |
 
 {{< hint type=warning >}}
 it is NOT recommended to set DPMS with a keybind directly, as it
