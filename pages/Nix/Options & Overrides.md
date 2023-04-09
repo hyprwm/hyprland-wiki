@@ -9,7 +9,7 @@ can be changed by setting the appropriate option to `true`/`false`.
 ### Package
 
 ```nix
-(inputs.hyprland.packages.${pkgs.hostPlatform.system}.default.override {
+(pkgs.hyprland.override { # or inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.default
   enableXWayland = true;
   hidpiXWayland = true;
   nvidiaPatches = false;

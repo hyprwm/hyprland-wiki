@@ -1,17 +1,13 @@
-First of all, it is a good idea to set up [Cachix](./Cachix) before continuing
-with installing Hyprland. 
+Hyprland on Nix can be installed either from Nixpkgs (release version) or from
+the [flake](https://github.com/hyprwm/Hyprland/blob/main/flake.nix) (directly
+from the main branch).
 
-After getting Cachix working, you have a few options ahead:
+If you use the flake, it is a good idea to set up [Cachix](./Cachix) before
+continuing with installing Hyprland. 
+
+The methods of installation are described below:
 
 ## NixOS + Home Manager (recommended)
-
-{{< hint type=warning >}}
-
-Hyprland is NOT supported on NixOS stable. It may (not) compile or
-work as intended. Please use the
-[flake](https://github.com/hyprwm/Hyprland/blob/main/flake.nix).
-
-{{< /hint >}}
 
 If you're on NixOS and also use HM, it is a good idea to use Hyprland modules
 for both. Make sure the package options are the same for both modules.
