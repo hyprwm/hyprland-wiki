@@ -35,6 +35,9 @@ Now, you can just execute `Hyprland` in your tty.
 **!IMPORTANT**: Do **not** launch Hyprland with `root` permissions (don't
 `sudo`)
 
+You can see some launch flags by doing `Hyprland -h`, these include setting the config
+path, ignoring a check for the above, etc.
+
 Login managers are not officially supported, but here's a short compatibility
 list:
 
