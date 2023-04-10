@@ -234,13 +234,10 @@ XWayland is a bit wonky. Make sure that what you're passing is a "global Xorg
 keybind", otherwise passing from a different XWayland app may not work.
 
 It works flawlessly with all native Wayland applications though.
-
-_Side note_: **OBS** on Wayland really dislikes keybinds with modifiers. If
-they don't work, try removing mods and binding them to e.g. <key>F1</key>.
-Combining this with a submap should yield neat and usable results.
 {{< /hint >}}
 
 ## DBus Global Shortcuts
+
 Some applications may already support the GlobalShortcuts portal in xdg-desktop-portal.
 
 If that's the case, then it's recommended to use this method instead of `pass`.
@@ -255,6 +252,10 @@ Bind it to whatever you want with the `global` dispatcher:
 ```
 bind = SUPERSHIFT, A, global, coolApp:myToggle
 ```
+
+{{< hint type=tip >}}
+Please note that this function will _only_ work with [XDPH](../../Useful-Utilities/Hyprland-desktop-portal).
+{{</ hint >}}
 
 # Submaps
 
