@@ -36,6 +36,7 @@ layout pages (See the sidebar).
 | pin | pins a window (i.e. show it on all workspaces) *note: floating only* | left empty / `active` for current, or `window` for a specific window |
 | movefocus | moves the focus in a direction | direction |
 | movewindow | moves the active window in a direction or to a monitor | direction or `mon:` and a monitor |
+| swapwindow | swaps the active window another window in the given direction | direction |
 | centerwindow | center the active window *note: floating only* | none |
 | resizeactive | resizes the active window | resizeparams |
 | moveactive | moves the active window | resizeparams |
