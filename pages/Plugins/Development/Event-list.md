@@ -1,4 +1,6 @@
 
+These are all the events that can be listened to using Event Hooks.
+
 ## Complete list
 
 | name | description | argument(s) |
