@@ -20,6 +20,19 @@ For example: `us,ua` -> config binds would be e.g. `SUPER, A`, while on `ua,us` 
 You can also bind a key to execute `hyprctl switchxkblayout` for more keybind freedom.
 See [Using hyprctl](../Using-hyprctl).
 
+To find the valid layouts and `kb_options`, you can check out the `/usr/share/X11/xkb/rules/base.lst`. For example:
+
+To get the layout name of a language:
+```sh
+grep -i 'persian' /usr/share/X11/xkb/rules/base.lst
+```
+
+To get the list of keyboard shortcuts you can put in the `kb_options` to toggle keyboard layouts:
+
+```sh
+grep 'grp:.*toggle' /usr/share/X11/xkb/rules/base.lst
+```
+
 # Disabling keybinds with one master keybind
 
 If you want to disable all keybinds with another keybind (make a keybind toggle
