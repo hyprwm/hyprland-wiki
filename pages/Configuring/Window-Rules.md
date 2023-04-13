@@ -65,6 +65,7 @@ you can use `hyprctl clients`.
 | float | floats a window | |
 | tile | tiles a window | |
 | fullscreen | fullscreens a window | |
+| fakefullscreen | fakefullscreens a window | |
 | maximize | maximizes a window | |
 | nofullscreenrequest | prevents windows from requesting fullscreen mode, you can still manually toggle fullscreen. | |
 | move \[x\] \[y\] | moves a floating window (x,y -> int or %, e.g. 20% or 100. You are also allowed to do `100%-` for the right/bottom anchor, e.g. `100%-20`) Additionally, you can also do `cursor [x] [y]` where x and y are either pixels or percent. Percent is calculated from the window's size. | |
