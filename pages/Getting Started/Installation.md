@@ -40,14 +40,13 @@ hyprland - binary x86 tagged release
 {{< /tab >}}
 {{< tab "Nix" >}}Read the [Nix page](../../Nix).{{< /tab >}}
 {{< tab "openSUSE" >}}
-There are [precompiled packages of Hyprland](https://build.opensuse.org/package/show/X11:Wayland/hyprland)
-available in the [X11:Wayland](https://build.opensuse.org/project/show/X11:Wayland) project on OBS.
-
-To install them, follow the instructions at [software.opensuse.org/download.html?project=X11:Wayland&package=hyprland](https://software.opensuse.org//download.html?project=X11%3AWayland&package=hyprland) or use [OPI](https://github.com/openSUSE/opi) to install it.
+Hyprland is part of factory, starting with snapshot 20230411. To install it simply use zypper
 
 ```sh
-opi hyprland
+sudo zypper in hyprland
 ```
+
+or install the "hyprland" package via YaST2 Software.
 
 Alternatively, you can also follow the instructions under ["Manual (Manual Build)"](#manual-manual-build)
 to build Hyprland yourself.
