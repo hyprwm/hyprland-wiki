@@ -37,7 +37,8 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle) {
     // stuff...
 
     // create the hook
-    g_pMonitorFrameHook = HyprlandAPI::createFunctionHook(handle, (void*)&Events::listener_monitorFrame, (void*)&hkMonitorFrame);
+    static const auto METHODS = HyprlandAPI::findFunctionsByName(PHANDLE, "listener_monitorFrame");
+    g_pMonitorFrameHook = HyprlandAPI::createFunctionHook(handle, METHODS[0].address, (void*)&hkMonitorFrame);
 
     // init the hook
     g_pMonitorFrameHook->hook();
@@ -53,11 +54,9 @@ This way, you can run code before / after the function, modify the inputs or res
 
 `CFunctionHook` can also be unhooked whenever you please. Just run `unhook()`. It can be rehooked later by calling `hook()` again.
 
-### The three horsemen of function hooking
+### Member functions
 
-The first type of functions we have hooked above. It's a public non-member.
-
-For public members, e.g. `CCompositor::focusWindow(CWindow*, wlr_surface*)` you will also need to add the thisptr argument to your hook:
+For members, e.g. `CCompositor::focusWindow(CWindow*, wlr_surface*)` you will also need to add the thisptr argument to your hook:
 
 ```cpp
 typedef void (*origFocusWindow)(void*, CWindow*, wlr_surface*);
@@ -72,32 +71,9 @@ void hkFocusWindow(void* thisptr, CWindow* pWindow, wlr_surface* pSurface) {
 APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle) {
     // stuff...
 
-    g_pFocusWindowHook = HyprlandAPI::createFunctionHook(handle, (void*)&CCompositor::focusWindow, (void*)&hkFocusWindow);
+    static const auto METHODS = HyprlandAPI::findFunctionsByName(PHANDLE, "focusWindow");
+    g_pFocusWindowHook = HyprlandAPI::createFunctionHook(handle, METHODS[0].address, (void*)&hkFocusWindow);
     g_pFocusWindowHook->hook();
-
-    // further stuff...
-}
-```
-
-For private functions or members, you can use the `findFunctionsByName` API entry to list all functions matching your query,
-for example:
-```cpp
-typedef void (*origMouseDownNormal)(void*, wlr_pointer_button_event*);
-
-void hkProcessMouseDownNormal(void* thisptr, wlr_pointer_button_event* e) {
-    // stuff...
-
-    // and if you want to call the original...
-    (*(origMouseDownNormal)g_pMouseDownHook->m_pOriginal)(thisptr, e);
-}
-
-APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle) {
-    // stuff...
-    
-    static const auto METHODS = HyprlandAPI::findFunctionsByName(PHANDLE, "processMouseDownNormal");
-    g_pMouseDownHook          = HyprlandAPI::createFunctionHook(PHANDLE, METHODS[0].address, (void*)&hkProcessMouseDownNormal);
-
-    g_pMouseDownHook->hook();
 
     // further stuff...
 }
@@ -107,6 +83,14 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle) {
 Please note method lookups are slow and should not be used often. The entries _will not_ change during runtime, so it's a good idea
 to make the lookups `static`.
 {{</ hint >}}
+
+### Why use findFunctionsByName?
+
+Why use that instead of e.g. `&CCompositor::focusWindow`? Two reasons:
+
+1 - less breakage. Whenever someone updates hyprland, that address might become invalid. findFunctionsByName is more resilient. As long as the function exists, it will be found.
+
+2 - error handling. The method array contains, besides the address, the signatures. You can verify those to make 100% sure you got the right function, or throw an error if it was not found.
 
 ## Using the config
 You can register config values in the `PLUGIN_INIT` function:
