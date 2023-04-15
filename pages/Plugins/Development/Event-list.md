@@ -29,3 +29,4 @@ These are all the events that can be listened to using Event Hooks.
 | mouseButton | fired on a mouse button press | wlr_pointer_button_event* |
 | activeLayout | fired on a keyboard layout change. String pointer temporary, not guaranteed after execution of the handler finishes. | std::vector<void*>{SKeyboard*, std::string*} |
 | preRender | fired before a frame for a monitor is about to be rendered | CMonitor* |
+| screencopy | fired when the screencopy state of a client changes. Keep in mind there might be multiple separate clients. | std::vector<uint64_t>{state, framesInHalfSecond, owner} |
