@@ -23,12 +23,12 @@ Do note that any of the above lines can be disabled based on your needs
 
 To bind `cliphist` to a hotkey and display it under `rofi` or `dmenu`, again head over to `~/.config/hypr/hyprland.conf`
 
-# For `rofi` users
+### For `rofi` users
 ```ini
 bind = SUPER, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
 ```
 
-# For `dmenu` users
+### For `dmenu` users
 ```ini
 bind = SUPER, V, exec, cliphist list | dmenu | cliphist decode | wl-copy
 ```
@@ -52,12 +52,12 @@ And also make sure to create a file named `clipman-primary.json` in `~/.local/sh
 
 Now bind the `clipman` like this:
 
-# For `rofi` users
+### For `rofi` users
 ```ini
 bind = SUPER, V, exec, clipman pick -t rofi
 ```
 
-# For `dmenu` users
+### For `dmenu` users
 ```ini
 bind = SUPER, V, exec, clipman pick -t dmenu
 ```
