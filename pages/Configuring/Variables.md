@@ -251,6 +251,8 @@ Described [here](../Keywords#per-device-input-configs).
 | suppress_portal_warnings | disables warnings about incompatible portal implementations. | bool | false |
 | render_ahead_of_time | [Warning: buggy] starts rendering _before_ your monitor displays a frame in order to lower latency | bool | false |
 | render_ahead_safezone | how many ms of safezone to add to rendering ahead of time. Recommended 1-2. | int | 1 |
+| cursor_zoom_factor | the factor to zoom by around the cursor. AKA. Magnifying glass. Minimum 1.0 (meaning no zoom) | float | 1.0 |
+| curzor_zoom_rigid | whether the zoom should follow the cursor rigidly (cursor is always centered if it can be) or loosely | bool | false |
 
 # Binds
 
