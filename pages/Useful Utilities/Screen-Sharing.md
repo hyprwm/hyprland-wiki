@@ -5,8 +5,6 @@ Screensharing is done through PipeWire on Wayland.
 Make sure you have `pipewire` and `wireplumber` installed, enabled and running
 if you don't have them yet.
 
-Also install `slurp` for monitor selection.
-
 ## Screensharing
 
 Read
