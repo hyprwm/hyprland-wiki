@@ -1,3 +1,7 @@
+# Table of contents
+
+{{< toc >}}
+
 # Waybar
 
 Waybar is a GTK status bar made specifically for wlroots compositors.
