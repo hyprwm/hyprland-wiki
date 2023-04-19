@@ -157,7 +157,7 @@ input {
 Sets the hyprctl error string. Will reset when Hyprland's config is reloaded.
 
 ```sh
-hyprctl seterror rgba(66ee66ff) hello world this is my problem
+hyprctl seterror 'rgba(66ee66ff)' hello world this is my problem
 ```
 
 or disable:

@@ -139,7 +139,7 @@ fi
 ```sh
 #!/bin/bash
 hyprctl monitors -j | jq --raw-output .[0].activeWorkspace.id
-socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | stdbuf -o0 grep '^workspace>>' | stdbuf -o0 awk -F '>>|,' '{print $2}'
+socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | stdbuf -o0 awk -F '>>|,' '/^workspace>>/{print $2}'
 ```
 
 ### `~/.config/eww/scripts/get-workspaces`
@@ -163,13 +163,13 @@ done
 <details>
 <summary>Active window title widget</summary>
 
-This widget simply displays the title of the active window. It requires [bash](https://linux.die.net/man/1/bash), [awk](https://linux.die.net/man/1/awk), [stdbuf](https://linux.die.net/man/1/stdbuf), [grep](https://linux.die.net/man/1/grep), [socat](https://linux.die.net/man/1/socat), and [jq](https://stedolan.github.io/jq/).
+This widget simply displays the title of the active window. It requires [awk](https://linux.die.net/man/1/awk), [stdbuf](https://linux.die.net/man/1/stdbuf), [socat](https://linux.die.net/man/1/socat), and [jq](https://stedolan.github.io/jq/).
 
 ### `~/.config/eww/eww.yuck`
 
 ```lisp
 ...
-(deflisten window :initial "..." "bash ~/.config/eww/scripts/get-window-title")
+(deflisten window :initial "..." "sh ~/.config/eww/scripts/get-window-title")
 (defwidget window_w []
   (box
     (label :text "${window}"
@@ -181,9 +181,9 @@ This widget simply displays the title of the active window. It requires [bash](h
 ### `~/.config/eww/scripts/get-window-title`
 
 ```sh
-#!/bin/bash
+#!/bin/sh
 hyprctl activewindow -j | jq --raw-output .title
-socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | stdbuf -o0 grep '^activewindow>>' | stdbuf -o0 awk -F '>>|,' '{print $3}'
+socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | stdbuf -o0 awk -F '>>|,' '/^activewindow>>/{print $3}'
 ```
 
 </details>

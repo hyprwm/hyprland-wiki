@@ -12,8 +12,8 @@ to react to different events. See its description
 This bash script will change the outer gaps to 20 if the currently focused
 monitor is DP-1, and 30 otherwise.
 
-```sh
-#!/bin/sh
+```bash
+#!/bin/bash
 
 function handle {
   if [[ ${1:0:10} == "focusedmon" ]]; then
@@ -25,5 +25,5 @@ function handle {
   fi
 }
 
-socat - UNIX-CONNECT:/tmp/hypr/$(echo $HYPRLAND_INSTANCE_SIGNATURE)/.socket2.sock | while read line; do handle $line; done
+socat - "UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock" | while read -r line; do handle "$line"; done
 ```
