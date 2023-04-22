@@ -10,15 +10,19 @@ Nevertheless, it's recommended to at least try this tutorial.
 
 ## How to get Hyprland to possibly work on Nvidia
 
-Install the `nvidia-dkms` driver and add it to your initramfs & kernel
-parameters. Follow the information available here:
-[https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting](https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting)
+Install the `nvidia-dkms` driver and add it to your initramfs & kernel parameters.  
+For people using [systemd-boot](https://wiki.archlinux.org/title/systemd-boot) you can do this adding `nvidia_drm.modeset=1` to the end of `/boot/loader/entries/arch.conf`.
+For people using [grub](https://wiki.archlinux.org/title/GRUB) you can do this by adding `nvidia_drm.modeset=1` to the end of `GRUB_CMDLINE_LINUX_DEFAULT=` in `/etc/default/grub`, then run `# grub-mkconfig -o /boot/grub/grub.cfg`
+For others check out [kernal parameters](https://wiki.archlinux.org/title/Kernel_parameters) and how to add `nvidia_drm.modeset=1` to your specific bootloader.
 
 in `/etc/mkinitcpio.conf` add `nvidia nvidia_modeset nvidia_uvm nvidia_drm` to your `MODULES`
 
 run `# mkinitcpio --config /etc/mkinitcpio.conf --generate /boot/initramfs-custom.img`
 
 add a new line to `/etc/modprobe.d/nvidia.conf` (make it if it does not exist) and add the line `options nvidia-drm modeset=1`
+
+More information is available here:
+[https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting](https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting)
 
 {{< hint >}}If your GPU is listed as supported by the `nvidia-open-dkms` driver,
 use that one instead. Note that on a laptop, it could cause problems with the suspended state when closing the lid, so you might be better off with `nvidia-dkms`.
