@@ -194,19 +194,19 @@ exec-once=handle_monitor_connect.sh
 
 where `handle_monitor_connect.sh` is: (example)
 
-```bash
+```sh
 #!/bin/sh
 
-function handle {
-  if [[ ${1:0:12} == "monitoradded" ]]; then
+handle() {
+  case $1 in monitoradded*)
     hyprctl dispatch moveworkspacetomonitor "1 1"
     hyprctl dispatch moveworkspacetomonitor "2 1"
     hyprctl dispatch moveworkspacetomonitor "4 1"
     hyprctl dispatch moveworkspacetomonitor "5 1"
-  fi
+  esac
 }
 
-socat - UNIX-CONNECT:/tmp/hypr/.socket2.sock | while read line; do handle $line; done
+socat - UNIX-CONNECT:/tmp/hypr/.socket2.sock | while read -r line; do handle "$line"; done
 ```
 
 if you want workspaces 1 2 4 5 to go to monitor 1 when connecting it.

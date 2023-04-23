@@ -66,7 +66,7 @@ the dump. See the instructions below for more info about `coredumpctl`.
 You can also use the amazing command
 
 ```sh
-watch -n 0.1 "cat /tmp/hypr/$(echo $HYPRLAND_INSTANCE_SIGNATURE)/hyprland.log | grep -v \"arranged\" | tail -n 40"
+watch -n 0.1 "grep -v \"arranged\" /tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/hyprland.log | tail -n 40"
 ```
 
 for live logs. (replace `hyprland` with `hyprlandd` for debug builds)

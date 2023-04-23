@@ -63,11 +63,12 @@ example script using socket2 events with bash and `socat`:
 ```sh
 #!/bin/sh
 
-function handle {
-  if [[ ${1:0:12} == "monitoradded" ]]; then
-    # do_something
-  fi
+handle() {
+  case $1 in
+    monitoradded*) do_something ;;
+    focusedmon*) do_something_else ;;
+  esac
 }
 
-socat -U - UNIX-CONNECT:/tmp/hypr/$(echo $HYPRLAND_INSTANCE_SIGNATURE)/.socket2.sock | while read line; do handle $line; done
+socat -U - UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r line; do handle "$line"; done
 ```

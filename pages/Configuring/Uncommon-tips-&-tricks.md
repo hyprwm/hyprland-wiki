@@ -58,8 +58,8 @@ Steam will exit entirely when it's last window is closed using the `killactive` 
 To minimize Steam to tray, use the following script to close applications:
 
 ```sh
-if [[ $(hyprctl activewindow -j | jq -r ".class") == "Steam" ]]; then
-    xdotool windowunmap $(xdotool getactivewindow)
+if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
+    xdotool getactivewindow windowunmap
 else
     hyprctl dispatch killactive ""
 fi
@@ -122,8 +122,8 @@ For increased performance in games, or for less distractions at a keypress
 
 ```bash
 #!/usr/bin/env sh
-HYPRGAMEMODE=$(hyprctl getoption animations:enabled | sed -n '2p' | awk '{print $2}')
-if [ $HYPRGAMEMODE = 1 ] ; then
+HYPRGAMEMODE=$(hyprctl getoption animations:enabled | awk 'NR==2{print $2}')
+if [ "$HYPRGAMEMODE" = 1 ] ; then
     hyprctl --batch "\
         keyword animations:enabled 0;\
         keyword decoration:drop_shadow 0;\

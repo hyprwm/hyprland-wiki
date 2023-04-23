@@ -78,7 +78,7 @@ patch wlroots.
 If you're using Nix (and not NixOS or Home Manager) and you want to override,
 you can do it like this
 
-```sh
+```console
 $ nix repl
 nix-repl> :lf "github:hyprwm/Hyprland"
 nix-repl> :bl outputs.packages.x86_64-linux.hyprland.override {nvidiaPatches = true;} # option = value
