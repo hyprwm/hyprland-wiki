@@ -95,7 +95,7 @@ Prefer using `input:sensitivity` over `general:sensitivity` to avoid bugs, espec
 | dim_strength | how much inactive windows should be dimmed, 0.0 - 1.0 | float | 0.5 |
 | dim_special | how much to dim the rest of the screen by when a special workspace is open. 0.0 - 1.0 | float | 0.2 |
 | dim_around | how much the `dimaround` window rule should dim by. 0.0 - 1.0 | float | 0.4 |
-| screen_shader | a path to a custom shader to be applied at the end of rendering. See `examples/screenShader.frag` for an example. | str | \[EMPTY\] |
+| screen_shader | a path to a custom shader to be applied at the end of rendering. See `examples/screenShader.frag` for an example. | str | \[\[Empty\]\] |
 
 {{< hint type=info >}}
 
@@ -126,20 +126,20 @@ _[More about Animations](../Animations)._
 
 | name | description | type | default |
 |---|---|---|---|
-| kb_model | Appropriate XKB keymap parameter. See the note below. | str | \[EMPTY\] |
+| kb_model | Appropriate XKB keymap parameter. See the note below. | str | \[\[Empty\]\] |
 | kb_layout | Appropriate XKB keymap parameter | str | us |
-| kb_variant | Appropriate XKB keymap parameter | str | \[EMPTY\] |
-| kb_options | Appropriate XKB keymap parameter | str | \[EMPTY\] |
-| kb_rules | Appropriate XKB keymap parameter | str | \[EMPTY\] |
-| kb_file | If you prefer, you can use a path to your custom .xkb file. | str | \[EMPTY\] |
+| kb_variant | Appropriate XKB keymap parameter | str | \[\[Empty\]\] |
+| kb_options | Appropriate XKB keymap parameter | str | \[\[Empty\]\] |
+| kb_rules | Appropriate XKB keymap parameter | str | \[\[Empty\]\] |
+| kb_file | If you prefer, you can use a path to your custom .xkb file. | str | \[\[Empty\]\] |
 | numlock_by_default | Engage numlock by default. | bool | false |
 | repeat_rate | The repeat rate for held-down keys, in repeats per second. | int | 25 |
 | repeat_delay | Delay before a held-down key is repeated, in milliseconds. | int | 600 |
 | sensitivity | Sets the mouse input sensitivity. Value will be clamped to the range -1.0 to 1.0. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) | float | 0.0 |
-| accel_profile | Sets the cursor acceleration profile. Can be one of `adaptive`, `flat`. Leave empty to use `libinput`'s default mode for your input device. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) | str | \[EMPTY\]
+| accel_profile | Sets the cursor acceleration profile. Can be one of `adaptive`, `flat`. Leave empty to use `libinput`'s default mode for your input device. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) | str | \[\[Empty\]\]
 | force_no_accel | Force no cursor acceleration. This bypasses most of your pointer settings to get as raw of a signal as possible. **Enabling this is not recommended due to potential cursor desynchronization.** | bool | false |
 | left_handed | Switches RMB and LMB | bool | false |
-| scroll_method | Sets the scroll method. Can be one of `2fg` (2 fingers), `edge`, `on_button_down`, `no_scroll`. [libinput#scrolling](https://wayland.freedesktop.org/libinput/doc/latest/scrolling.html) | str | \[EMPTY\]
+| scroll_method | Sets the scroll method. Can be one of `2fg` (2 fingers), `edge`, `on_button_down`, `no_scroll`. [libinput#scrolling](https://wayland.freedesktop.org/libinput/doc/latest/scrolling.html) | str | \[\[Empty\]\]
 | scroll_button | Sets the scroll button. Has to be an int, cannot be a string. Check `wev` if you have any doubts regarding the ID. 0 means default. | int | 0 |
 | natural_scroll | Inverts scrolling direction. When enabled, scrolling moves content directly instead of manipulating a scrollbar. | bool | false |
 | follow_mouse | (0/1/2/3) Specify if and how cursor movement should affect window focus. See the note below. | int | 1 |
@@ -176,7 +176,7 @@ _Subcategory `input:touchpad:`_
 | natural_scroll | Inverts scrolling direction. When enabled, scrolling moves content directly instead of manipulating a scrollbar. | bool | false |
 | scroll_factor | Multiplier applied to the amount of scroll movement. | float | 1.0
 | middle_button_emulation | Sending LMB and RMB simultaneously will be interpreted as a middle click. This disables any touchpad area that would normally send a middle click based on location. [libinput#middle-button-emulation](https://wayland.freedesktop.org/libinput/doc/latest/middle-button-emulation.html) | bool | false |
-| tap_button_map | Sets the tap button mapping for touchpad button emulation. Can be one of `lrm` (default) or `lmr` (Left, Middle, Right Buttons). | str | \[EMPTY\] |
+| tap_button_map | Sets the tap button mapping for touchpad button emulation. Can be one of `lrm` (default) or `lmr` (Left, Middle, Right Buttons). | str | \[\[Empty\]\] |
 | clickfinger_behavior | Button presses with 1, 2, or 3 fingers will be mapped to LMB, RMB, and MMB respectively. This disables interpretation of clicks based on location on the touchpad. [libinput#clickfinger-behavior](https://wayland.freedesktop.org/libinput/doc/latest/clickpad-softbuttons.html#clickfinger-behavior) | bool | false |
 | tap-to-click | Tapping on the touchpad with 1, 2, or 3 fingers will send LMB, RMB, and MMB respectively. | bool | true |
 | drag_lock | When enabled, lifting the finger off for a short time while dragging will not drop the dragged item. [libinput#tap-and-drag](https://wayland.freedesktop.org/libinput/doc/latest/tapping.html#tap-and-drag) | bool | false |
@@ -206,7 +206,7 @@ _Subcategory `input:touchdevice:`_
 | name | description | type | default |
 |---|---|---|---|
 | transform | transform the input from touchdevices. The possible transformations are the same as [those of the monitors](../Monitors/#rotating-and-the-default-workspace) | int | 0 |
-| output | the output to bind touch devices. Empty means unset and will use the current / autodetected. | string | \[EMPTY\] |
+| output | the output to bind touch devices. Empty means unset and will use the current / autodetected. | string | \[\[Empty\]\] |
 
 ## Per-device input config
 
@@ -242,8 +242,8 @@ Described [here](../Keywords#per-device-input-configs).
 | animate_mouse_windowdragging | If true, will animate windows being dragged by mouse, note that this can cause weird behavior on some curves | bool | false |
 | disable_autoreload | If true, the config will not reload automatically on save, and instead needs to be reloaded with `hyprctl reload`. Might save on battery. | bool | false |
 | enable_swallow | Enable window swallowing | bool | false |
-| swallow_regex | The *class* regex to be used for windows that should be swallowed (usually, a terminal). To know more about the list of regex which can be used [use this cheatsheet](https://github.com/ziishaned/learn-regex/blob/master/README.md). | str | \[EMPTY\] |
-| swallow_exception_regex | The *title* regex to be used for windows that should *not* be swallowed by the windows specified in swallow_regex  (e.g. wev). The regex is matched against the parent (e.g. Kitty) window's title on the assumption that it changes to whatever process it's running. | str | \[EMPTY\] |
+| swallow_regex | The *class* regex to be used for windows that should be swallowed (usually, a terminal). To know more about the list of regex which can be used [use this cheatsheet](https://github.com/ziishaned/learn-regex/blob/master/README.md). | str | \[\[Empty\]\] |
+| swallow_exception_regex | The *title* regex to be used for windows that should *not* be swallowed by the windows specified in swallow_regex  (e.g. wev). The regex is matched against the parent (e.g. Kitty) window's title on the assumption that it changes to whatever process it's running. | str | \[\[Empty\]\] |
 | focus_on_activate | Whether Hyprland should focus an app that requests to be focused (an `activate` request) | bool | false |
 | no_direct_scanout | Disables direct scanout. Direct scanout attempts to reduce lag when there is only one fullscreen application on a screen (e.g. game). It is also recommended to set this to true if the fullscreen application shows graphical glitches. | bool | true |
 | hide_cursor_on_touch | Hides the cursor when the last input was a touch input until a mouse input is done. | bool | true |
