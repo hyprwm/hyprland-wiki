@@ -370,7 +370,8 @@ installed._
 ### Meson
 
 ```plain
-meson subprojects update --reset
+git clone --recursive https://github.com/hyprwm/Hyprland
+cd Hyprland
 meson setup build
 meson compile -C build
 meson install -C build --skip-subprojects
