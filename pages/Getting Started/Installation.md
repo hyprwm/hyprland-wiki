@@ -218,7 +218,8 @@ _CMake is always recommended as it's the intended way Hyprland should be install
 ### Meson
 
 ```plain
-meson subprojects update --reset
+git clone --recursive https://github.com/hyprwm/Hyprland
+cd Hyprland
 meson setup build
 meson compile -C build
 meson install -C build --skip-subprojects
