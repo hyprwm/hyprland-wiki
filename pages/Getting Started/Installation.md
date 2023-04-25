@@ -220,8 +220,8 @@ _CMake is always recommended as it's the intended way Hyprland should be install
 ```plain
 meson subprojects update --reset
 meson setup build
-ninja -C build
-ninja -C build install --tags runtime,man
+meson compile -C build
+meson install -C build --skip-subprojects
 ```
 
 Refer to [Debugging](../../Contributing-and-Debugging) to see how to build &
