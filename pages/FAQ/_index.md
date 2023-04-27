@@ -276,6 +276,12 @@ Alternatively, you can simply intercept the middle-click action all together, vi
 I assume you already have `damage_tracking` on full. If you don't, change it.
 It's heavily advised to use `full` regardless of anything.
 
+# How do I get information about windows like the class on wayland? xprop no worky.
+
+Hyprland has it's own build in utility for that: `hyprctl activewindow`
+This will output information about the currently active window, which is probably your terminal emulator. 
+You can get informationen from other windows by issueing this command in the shell `sleep 5 && hyprctl activewindow`, focusing the window you want info about waiting until the five seconds are over. 
+
 **_Useful Optimizations_**:
 
 * `decoration:blur_new_optimizations = true`, to use new optimizations for
