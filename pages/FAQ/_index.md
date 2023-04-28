@@ -278,9 +278,8 @@ It's heavily advised to use `full` regardless of anything.
 
 # How do I get information about windows like the class on wayland? xprop no worky.
 
-Hyprland has it's own build in utility for that: `hyprctl activewindow`
-This will output information about the currently active window, which is probably your terminal emulator. 
-You can get informationen from other windows by issueing this command in the shell `sleep 5 && hyprctl activewindow`, focusing the window you want info about waiting until the five seconds are over. 
+Hyprctl can list available information about all open windows with the command `hyprctl clients`
+To list only information about a single selected windows, Hyprctl has the command `hyprctl activewindow`. This will output information about the currently active window, which is probably your terminal emulator. You can get informationen from other windows by issueing this command in the shell `sleep 5 && hyprctl activewindow`, focusing the window you want info about and waiting until the five seconds are over. 
 
 **_Useful Optimizations_**:
 
