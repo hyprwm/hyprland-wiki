@@ -17,7 +17,7 @@ For others check out [kernal parameters](https://wiki.archlinux.org/title/Kernel
 
 in `/etc/mkinitcpio.conf` add `nvidia nvidia_modeset nvidia_uvm nvidia_drm` to your `MODULES`
 
-run `# mkinitcpio --config /etc/mkinitcpio.conf --generate /boot/initramfs-custom.img`
+run `# mkinitcpio --config /etc/mkinitcpio.conf --generate /boot/initramfs-custom.img` (make sure you have the `linux-headers` package installed first)
 
 add a new line to `/etc/modprobe.d/nvidia.conf` (make it if it does not exist) and add the line `options nvidia-drm modeset=1`
 
