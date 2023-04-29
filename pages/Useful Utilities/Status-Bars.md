@@ -30,7 +30,7 @@ For more info regarding configuration, see
 
 ## How to launch
 
-After getting everything set up, you might want to check If Waybar is configured to your liking, to launch it, simply type `waybar` into your terminal.
+After getting everything set up, you might want to check If Waybar is configured to your liking. To launch it, simply type `waybar` into your terminal.
 If you would like to set Waybar to launch alongside Hyprland, you can do this by going to `~/.config/hypr/hyprland.conf` and adding a line that reads `exec-once=waybar`
 
 ## Waybar popups render behind the windows
