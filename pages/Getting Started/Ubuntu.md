@@ -38,6 +38,8 @@ meson wget build-essential ninja-build cmake-extras cmake gettext gettext-base f
 ## Building libs from source
 as in the offitial repos most of our dependencies are in the required version and building these three from source won't damage the system 
 
+we need to vuild these libraries as in the base system a previous non usefull version is installed
+
 first get all of our sources for building and extarct them
 
 
