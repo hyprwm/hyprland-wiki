@@ -28,6 +28,11 @@ all the references to `sway/workspaces` with `wlr/workspaces`.
 For more info regarding configuration, see
 [The Waybar Wiki](https://github.com/Alexays/Waybar/wiki).
 
+## How to launch
+
+After getting everything set up, you might want to check if Waybar is configured to your liking. To launch it, simply type `waybar` into your terminal.
+If you would like waybar to launch alongside hyprland, you can do this by adding a line to your hyprland configuration that reads `exec-once=waybar`
+
 ## Waybar popups render behind the windows
 
 In `~/.config/waybar/config`, make sure that you have the `layer` configuration
@@ -197,6 +202,11 @@ You can install it from the AUR by the name `hybrid-bar`.
 ## Configuration
 
 The configuration is done through JSON, more information is available [here](https://github.com/vars1ty/HybridBar).
+
+## How to launch
+
+After configuring HybridBar, you can launch it by typing `hybrid-bar` into your terminal to try it out.
+It is also possible to set it to launch at start, to do this you can add a line to your hyprland configuration that reads `exec-once=hybrid-bar`
 
 ### Blur
 
