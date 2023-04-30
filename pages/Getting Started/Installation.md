@@ -12,6 +12,8 @@ Arch, NixOS and openSUSE Tumbleweed are very supported. For any other distro
 since Hyprland is extremely bleeding-edge, distros like Pop!\_OS, Ubuntu, etc.
 might have **major** issues running Hyprland.
 
+tough is possible to build it in ubuntu 23.04
+
 ## Installation
 
 Installing Hyprland is very easy. Either you install it from your local package
@@ -117,6 +119,12 @@ _FreeBSD dependencies_:
 pkg install git pkgconf gmake gcc evdev-proto cmake wayland-protocols wayland libglvnd libxkbcommon libinput cairo pango pixman libxcb
 pkg install meson jq `pkg rquery %dn wlroots` hwdata libdisplay-info libliftoff
 export CC=gcc CXX=g++ LDFLAGS="-static-libstdc++ -static-libgcc"
+```
+
+_Ubuntu 23.04 dependencies_:
+refer to the [ubuntu guide](../Ubuntu) for build instructions
+```plain
+sudo apt-get install -y meson wget build-essential ninja-build cmake-extras cmake gettext gettext-base fontconfig libfontconfig-dev libffi-dev libxml2-dev libdrm-dev libxkbcommon-x11-dev libxkbregistry-dev libxkbcommon-dev libpixman-1-dev libudev-dev libseat-dev seatd libxcb-dri3-dev libvulkan-dev libvulkan-volk-dev  vulkan-validationlayers-dev libvkfft-dev libgulkan-dev libegl-dev libgles2 libegl1-mesa-dev glslang-tools libinput-bin libinput-dev libxcb-composite0-dev libavutil-dev libavcodec-dev libavformat-dev libxcb-ewmh2 libxcb-ewmh-dev libxcb-present-dev libxcb-icccm4-dev libxcb-render-util0-dev libxcb-res0-dev libxcb-xinput-dev xdg-desktop-portal-wlr
 ```
 
 Please note Hyprland builds `wlroots`. Make sure you have the dependencies of
