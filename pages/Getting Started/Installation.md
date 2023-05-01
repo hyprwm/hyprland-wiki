@@ -73,23 +73,23 @@ Hyprland and related are in the default repository:
 - [xdg-desktop-portal-hyprland](https://www.freshports.org/x11/xdg-desktop-portal-hyprland)
 - [Other Wayland stuff](https://www.freshports.org/wayland/)
 {{</ tab >}}
-
-{{</ tab >}}
 {{< tab "Ubuntu 23.04" >}}
 Build Dependencies:
 ```bash
 sudo apt-get install -y meson wget build-essential ninja-build cmake-extras cmake gettext gettext-base fontconfig libfontconfig-dev libffi-dev libxml2-dev libdrm-dev libxkbcommon-x11-dev libxkbregistry-dev libxkbcommon-dev libpixman-1-dev libudev-dev libseat-dev seatd libxcb-dri3-dev libvulkan-dev libvulkan-volk-dev  vulkan-validationlayers-dev libvkfft-dev libgulkan-dev libegl-dev libgles2 libegl1-mesa-dev glslang-tools libinput-bin libinput-dev libxcb-composite0-dev libavutil-dev libavcodec-dev libavformat-dev libxcb-ewmh2 libxcb-ewmh-dev libxcb-present-dev libxcb-icccm4-dev libxcb-render-util0-dev libxcb-res0-dev libxcb-xinput-dev xdg-desktop-portal-wlr
 ```
-you will also need to build wayland 1.22.0, wayland-protocols 1.31.0, libdisplay-info 0.1.1 from source
+you will also need to build the latest wayland, wayland-protocols, and libdisplay-info tagged releases from source
 
-for more info refor to the [Ubuntu Guide For Installing And Building Hyprland Gist](https://gist.github.com/Vertecedoc4545/3b077301299c20c5b9b4db00f4ca6000)
+for more info refer to the [Ubuntu Guide For Installing And Building Hyprland Gist](https://gist.github.com/Vertecedoc4545/3b077301299c20c5b9b4db00f4ca6000)
 
-**WARNING**
-> **Hyprland does not support the ubunutu pipelines**, what means is that it's
-> not warranteed by the proyect to be buildable in ubuntu also that the proyect 
-> can start using at any given time build deps that are not supported or 
-> can not be installed in ubuntu
-> in case of that happening, the latest buildable release will be specified here and in the [guide](https://gist.github.com/Vertecedoc4545/3b077301299c20c5b9b4db00f4ca6000)
+{{< hint type=warning >}}
+
+Please note that since Ubuntu is generally behind with dependencies, it's not guaranteed
+that the build process will work at all. Even if it is, it's likely that it will break at some point in the future.
+
+Refer to the gist if anything fails.
+
+{{< /hint >}}
 
 {{</ tab >}}
 
@@ -140,7 +140,7 @@ export CC=gcc CXX=g++ LDFLAGS="-static-libstdc++ -static-libgcc"
 ```
 
 _Ubuntu 23.04 dependencies_:
-refer to the **ubuntu tab** above 
+refer to the Ubuntu tab above 
 
 Please note Hyprland builds `wlroots`. Make sure you have the dependencies of
 wlroots installed, you can make sure you have them by installing wlroots
