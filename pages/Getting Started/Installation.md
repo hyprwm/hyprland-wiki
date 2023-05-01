@@ -12,7 +12,6 @@ Arch, NixOS and openSUSE Tumbleweed are very supported. For any other distro
 since Hyprland is extremely bleeding-edge, distros like Pop!\_OS, Ubuntu, etc.
 might have **major** issues running Hyprland.
 
-tough is possible to build it in ubuntu 23.04 
 ## Installation
 
 Installing Hyprland is very easy. Either you install it from your local package
