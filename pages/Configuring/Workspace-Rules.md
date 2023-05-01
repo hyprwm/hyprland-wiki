@@ -24,13 +24,13 @@ workspace=DP-1,3,rounding:false,bordersize:0
 ## Rules
 | Rule | Description | type|
 | ---- | ----------- | ----|
-| gapsin:[x] | Set the gaps between windows (equivalent to [General->gaps_in](../Variables#general)) | int
-| gapsout:[x] | Set the gaps between windows and monitor edges (equivalent to [General->gaps_out](../Variables#general)) | int
-| bordersize:[x] | Set the border size around windows (equivalent to [General->border_size](../Variables#general)) | int
-| border:[b]| Whether to draw borders or not| bool 
-| rounding:[b] |Whether to draw rounded windows or not | bool
-| decorate:[b] | Whether to draw window decorations or not | bool
-| monitor:[m] | Monitor identifier. This is equivalent to the first MONITOR argument. See [syntax](#syntax) and [Monitors](../Monitors).| string
+| gapsin:[x] | Set the gaps between windows (equivalent to [General->gaps_in](../Variables#general)) | int |
+| gapsout:[x] | Set the gaps between windows and monitor edges (equivalent to [General->gaps_out](../Variables#general)) | int |
+| bordersize:[x] | Set the border size around windows (equivalent to [General->border_size](../Variables#general)) | int |
+| border:[b]| Whether to draw borders or not| bool |
+| rounding:[b] |Whether to draw rounded windows or not | bool |
+| decorate:[b] | Whether to draw window decorations or not | bool |
+| monitor:[m] | Monitor identifier. This is equivalent to the first MONITOR argument. See [syntax](#syntax) and [Monitors](../Monitors).| string |
 
 ### Example Rules
 ```ini
