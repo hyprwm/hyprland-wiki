@@ -12,7 +12,7 @@ with window managers and compositors. It is also not entirely possible, nor reco
 to try and use all Xorg applications on Wayland. See [this page](../Useful-Utilities) for a
 list of recommended Wayland native/compatible programs.
 
-Wayland **compositors** should not be confused with Xorg **window managers**.
+Wayland **compositors** should not be confused with Xorg **window managers** (WM).
 
 ## IMPORTANT
 
