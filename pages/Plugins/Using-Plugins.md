@@ -59,15 +59,26 @@ Clone the repo and enter it:
 ```sh
 git clone https://github.com/hyprwm/hyprland-plugins && cd hyprland-plugins
 ```
+{{< hint type=tip >}}
+If you build Hyprland manually and install using `sudo make install` (NOT meson) you can completely skip
+this next step of getting the sources and checking them out.
+{{< /hint >}}
+
+### Preparing Hyprland sources for plugins
 
 Inside the repo, clone Hyprland and enter it:
 ```sh
 git clone --recursive https://github.com/hyprwm/Hyprland && cd Hyprland
 ```
 
-If you are using a release version of Hyprland, checkout it: (in this example it's `v0.23.0beta`, adjust to your release ver)
+If you are using a release version of Hyprland, checkout it: (in this example it's `v0.24.1`, adjust to your release ver)
 ```sh
-git checkout tags/v0.23.0beta
+git checkout tags/v0.24.1
+```
+
+Prepare Hyprland sources:
+```sh
+make pluginenv
 ```
 
 {{< hint type=note >}}
@@ -76,15 +87,9 @@ If you are using hyprland-git, make _sure_ the commit you use matches the cloned
 You can check the commit you are running with `hyprctl version`, and change the commit in the sources
 with `git reset --hard <hash>`. Make sure to remove the `dirty` at the end of the hash from `hyprctl version`
 or else git will reject it.
-
-If you build Hyprland manually, you can skip cloning Hyprland and instead point the
-`HYPRLAND_HEADERS` envvar (as used later) to your Hyprland sources.
 {{< /hint >}}
 
-Prepare Hyprland sources:
-```sh
-make pluginenv
-```
+### Building
 
 Now, enter your plugin of choice's directory, for example:
 ```sh
@@ -93,7 +98,7 @@ cd ../borders-plus-plus
 
 Compile it:
 ```sh
-HYPRLAND_HEADERS="../Hyprland" make all
+make all
 ```
 
 Congratulations! A file called `plugin_name.so` should now be in your current directory.
