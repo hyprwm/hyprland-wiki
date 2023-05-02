@@ -41,11 +41,11 @@ In hyprland, run in a terminal:
 ```sh
 hyprctl plugin load /path/to/the/plugin.so
 ```
-
-You can also add this to an `exec-once`:
+You can also use a plugin entry in your configuration file.
 ```ini
-exec-once = hyprctl plugin load /my/epic/plugin.so
+plugin = /my/epic/plugin.so
 ```
+Plugins added to your configuration file will be unloaded if you remove their entries.
 
 {{< hint type=important >}}
 The plugin path has to be absolute. (starting from the root of the filesystem)
