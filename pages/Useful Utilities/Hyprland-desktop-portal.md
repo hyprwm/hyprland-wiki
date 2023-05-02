@@ -38,10 +38,10 @@ yay -S xdg-desktop-portal-hyprland-git
 ## Unmask dependencies
 ### /etc/portage/profile/package.unmask
 ```plain
-=dev-qt/qtbase-6.4.0
-=dev-qt/qtwayland-6.4.0
-=dev-qt/qtdeclarative-6.4.0
-=dev-qt/qtshadertools-6.4.0
+dev-qt/qtbase
+dev-qt/qtwayland
+dev-qt/qtdeclarative
+dev-qt/qtshadertools
 ```
 
 ## Apply necessary useflags
@@ -49,7 +49,6 @@ yay -S xdg-desktop-portal-hyprland-git
 ```plain
 dev-qt/qtbase opengl egl eglfs gles2-only
 dev-qt/qtdeclarative opengl
-gui-libs/xdg-desktop-portal-hyprland select-window select-region
 sys-apps/xdg-desktop-portal screencast
 ```
 
@@ -57,20 +56,18 @@ sys-apps/xdg-desktop-portal screencast
 ### /etc/portage/package.accept_keywords
 ```plain
 gui-libs/xdg-desktop-portal-hyprland **
-=dev-qt/qtbase-6.4.0
-=dev-qt/qtwayland-6.4.0
-=dev-qt/qtdeclarative-6.4.0
-=dev-qt/qtshadertools-6.4.0
+dev-qt/qtbase
+dev-qt/qtwayland
+dev-qt/qtdeclarative
+dev-qt/qtshadertools
 ```
 
-btw those are the useflags that I have tested, you could also test others. Also if the gentoo devs update the qt ebuilds without marking them as stable you'll need to check the ebuild version and update it on '/etc/portage/package.accept_keywords' and '/etc/portage/profile/package.unmask'
-
-example: '=dev-qt/qtbase-6.5.0'
+btw those are the useflags that I have tested, you could also test others.
 
 ## Installation
 ```sh
-eselect repository add useless-overlay git https://github.com/Wa1t5/useless-overlay
-emaint sync -r useless-overlay
+eselect repository enable guru
+emaint sync -r guru
 emerge --ask --verbose gui-libs/xdg-desktop-portal-hyprland
 ```
 
