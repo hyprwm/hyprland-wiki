@@ -158,6 +158,9 @@ cd Hyprland
 sudo make install
 ```
 
+_CMake is always recommended as it's the intended way Hyprland should be installed._
+_Meson might have some imperfections, like e.g. overwriting wlroots headers or not installing Hyprland headers properly for plugin support_
+
 ### Meson
 
 ```plain
