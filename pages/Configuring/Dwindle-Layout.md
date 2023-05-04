@@ -28,3 +28,4 @@ category name: `dwindle`
 |---|---|---|
 | togglesplit | toggles the split (top/side) of the current window. `preserve_split` must be enabled for toggling to work. | none |
 | pseudo | toggles the focused window's pseudo mode | none |
+| preselect | A onetime override for the split direction | direction

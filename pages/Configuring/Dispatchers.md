@@ -34,7 +34,6 @@ layout pages (See the sidebar).
 | fakefullscreen | toggles the focused window's internal fullscreen state without altering the geometry | none |
 | dpms | sets all monitors' DPMS status. Do not use with a keybind directly. | `on` or `off`, for specific monitor add monitor name after a space |
 | pin | pins a window (i.e. show it on all workspaces) *note: floating only* | left empty / `active` for current, or `window` for a specific window |
-| preselect | A onetime override for the split direction | direction
 | movefocus | moves the focus in a direction | direction |
 | movewindow | moves the active window in a direction or to a monitor | direction or `mon:` and a monitor |
 | swapwindow | swaps the active window with another window in the given direction | direction |
