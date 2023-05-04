@@ -230,10 +230,11 @@ OK = 5
 version - prints the hyprland version, meaning flags, commit and branch of build.
 monitors - lists all the outputs with their properties
 workspaces - lists all workspaces with their properties
+activeworkspace - gets the active window name and it's properties
 clients - lists all windows with their properties
 devices - lists all connected keyboards and mice
 binds - lists all registered binds
-activewindow - gets the active window name
+activewindow - gets the active window name and it's properties
 layers - lists all the layers
 splash - prints the current random splash
 getoption [option] - gets the config option status (values)
