@@ -136,7 +136,7 @@ _[More about Animations](../Animations)._
 | repeat_rate | The repeat rate for held-down keys, in repeats per second. | int | 25 |
 | repeat_delay | Delay before a held-down key is repeated, in milliseconds. | int | 600 |
 | sensitivity | Sets the mouse input sensitivity. Value will be clamped to the range -1.0 to 1.0. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) | float | 0.0 |
-| accel_profile | Sets the cursor acceleration profile. Can be one of `adaptive`, `flat`. Leave empty to use `libinput`'s default mode for your input device. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) | str | \[\[Empty\]\]
+| accel_profile | Sets the cursor acceleration profile. Can be one of `adaptive`, `flat`. Can also be `custom`, see below. Leave empty to use `libinput`'s default mode for your input device. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) | str | \[\[Empty\]\]
 | force_no_accel | Force no cursor acceleration. This bypasses most of your pointer settings to get as raw of a signal as possible. **Enabling this is not recommended due to potential cursor desynchronization.** | bool | false |
 | left_handed | Switches RMB and LMB | bool | false |
 | scroll_method | Sets the scroll method. Can be one of `2fg` (2 fingers), `edge`, `on_button_down`, `no_scroll`. [libinput#scrolling](https://wayland.freedesktop.org/libinput/doc/latest/scrolling.html) | str | \[\[Empty\]\]
@@ -163,6 +163,15 @@ For switchable keyboard configurations, take a look at [the uncommon tips & tric
 - 1 - Cursor movement will always change focus to the window under the cursor.
 - 2 - Cursor focus will be detached from keyboard focus. Clicking on a window will move keyboard focus to that window.
 - 3 - Cursor focus will be completely separate from keyboard focus. Clicking on a window will not change keyboard focus.
+
+## Custom accel profiles
+
+`custom [step] [points...]`
+
+for example `custom 200 0.0 0.5`
+
+See [the libinput doc](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html) for more insights on
+how it works.
 
   {{< /hint >}}
 
