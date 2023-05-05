@@ -55,7 +55,7 @@ sys-apps/xdg-desktop-portal screencast
 ## Unmask dependencies and xdph
 ### /etc/portage/package.accept_keywords
 ```plain
-gui-libs/xdg-desktop-portal-hyprland **
+gui-libs/xdg-desktop-portal-hyprland 
 dev-qt/qtbase
 dev-qt/qtwayland
 dev-qt/qtdeclarative

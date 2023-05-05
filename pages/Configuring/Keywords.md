@@ -160,10 +160,16 @@ layerrule = blur,address:0x<ADDRESS>
 
 you can get the namespace / address from `hyprctl layers`.
 
-To remove a blurls rule (useful in dynamic situations) use:
+To remove a layer rule (useful in dynamic situations) use:
 
 ```ini
 layerrule = unset,<whatever you used before>
+```
+
+For example:
+
+```ini
+layerrule = unset,NAMESPACE
 ```
 
 # Setting the environment

@@ -109,7 +109,7 @@ You have eight choices:
 
 {{< hint type=warning >}}
 `special` is supported ONLY on
-`movetoworkspace`. Any other dispatcher will result in undocumented behavior.
+`movetoworkspace` and `movetoworkspacesilent`. Any other dispatcher will result in undocumented behavior.
 {{< /hint >}}
 
 {{< hint type=important >}}

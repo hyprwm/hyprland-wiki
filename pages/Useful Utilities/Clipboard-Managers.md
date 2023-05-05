@@ -10,6 +10,15 @@ Some common ones used are `copyq`, `clipman` and `cliphist`.
 
 `wl-clip-persists` - When we copy something on Wayland (using wl-clipboard) and close the application we copied from, the copied data disappears from the clipboard and we cannot paste it anymore. So to fix this problem we can use a program called as `wl-clip-persists` which will preserve the data in the clipboard after the application is closed. [Github](https://github.com/Linus789/wl-clip-persist)
 
+## copyq
+
+Start by adding the following lines to your `~/.config/hypr/hyprland.conf`
+
+```ini
+exec-once = copyq --start-server
+```
+If your `copyq`'s main window cannot close/hide properly, try to enable its "Hide main window" option in Layout configuration tab in Preferences dialog.
+
 ## cliphist
 
 Start by adding the following lines to your `~/.config/hypr/hyprland.conf`
