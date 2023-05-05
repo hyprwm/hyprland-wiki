@@ -17,7 +17,7 @@ Start by adding the following lines to your `~/.config/hypr/hyprland.conf`
 ```ini
 exec-once = copyq --start-server
 ```
-To make `copyq`'s main window close/hide properly, you need to enable its "Hide main window" option in Layout configuration tab in Preferences dialog.
+If your `copyq`'s main window cannot close/hide properly, try to enable its "Hide main window" option in Layout configuration tab in Preferences dialog.
 
 ## cliphist
 
