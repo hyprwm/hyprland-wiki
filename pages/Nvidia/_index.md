@@ -57,6 +57,11 @@ Launch Hyprland.
 
 It _should_ work now.
 
+## Fixing screensharing / screenshots
+Apply nvidia patches to the wlroots in `subprojects/wlroots` before building.
+See [patch](https://aur.archlinux.org/cgit/aur.git/tree/nvidia.patch?h=hyprland-nvidia-git)
+and [hyprland-nvidia-git's PKGBUILD](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=hyprland-nvidia-git#n72).
+
 ## Fixing random flickering, method 1
 
 If you take a look at the wlroots patches in the [nix flake](https://github.com/hyprwm/Hyprland/blob/main/nix/wlroots.nix)
