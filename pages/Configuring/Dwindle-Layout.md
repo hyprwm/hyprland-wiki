@@ -16,6 +16,7 @@ category name: `dwindle`
 | pseudotile | enable pseudotiling. Pseudotiled windows retain their floating size when tiled. | bool | false |
 | force_split | 0 -> split follows mouse, 1 -> always split to the left (new = left or top) 2 -> always split to the right (new = right or bottom) | int | 0 |
 | preserve_split | if enabled, the split (side/top) will not change regardless of what happens to the container. | bool | false |
+| permanent_direction_override | if enabled, makes the preselect direction persist until either this mode is turned off, another direction is specified, or a non-direction is specified (anything other than l,r,u/t,d/b)  | bool | false | 
 | special_scale_factor | 0 - 1 -> specifies the scale factor of windows on the special workspace | float | 0.8 |
 | split_width_multiplier | specifies the auto-split width multiplier | float | 1.0 |
 | no_gaps_when_only | whether to apply gaps when there is only one window on a workspace, aka. smart gaps. | bool | false |
@@ -28,3 +29,4 @@ category name: `dwindle`
 |---|---|---|
 | togglesplit | toggles the split (top/side) of the current window. `preserve_split` must be enabled for toggling to work. | none |
 | pseudo | toggles the focused window's pseudo mode | none |
+| preselect | A onetime override for the split direction. (valid for the next window to be opened, only works on tiled windows) | direction |
