@@ -14,8 +14,3 @@ for a great tutorial.
 ## Better screensharing
 
 See [the hyprland portal page](../Hyprland-desktop-portal)
-
-## Caveats
-
-You cannot screenshare separate windows with Hyprland, yet. Only entire
-monitors.
