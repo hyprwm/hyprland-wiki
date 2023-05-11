@@ -68,6 +68,21 @@ to wlroots), you can do so by either using the `hyprland-no-hidpi` package,
 or by passing the `hidpiXWayland = false;` flag, the same way as
 [disabling XWayland](#package).
 
+### Plugins
+
+Hyprland plugins can be added through the home manager module.
+
+```nix
+wayland.windowManager.hyprland = {
+  plugins = [
+    inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
+    "/absolute/path/to/plugin.so"
+  ];
+};
+```
+
+For examples on how to build hyprland plugins using nix see the [offical plugins](https://github.com/hyprwm/hyprland-plugins).
+
 ### Nvidia Patches
 
 Nvidia is notorious for not working by default with wlroots. That's why we
