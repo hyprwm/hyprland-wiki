@@ -29,9 +29,6 @@ programs.hyprland = { # or wayland.windowManager.hyprland
 };
 ```
 
-The plugins array accepts both plugin derivations and paths to plugin artifacts.
-The provided plugins will be added as [`plugin = ` entries](../Plugins/Using-Plugins#installing--using-plugins).
-
 ## Options descriptions
 
 ### XWayland
