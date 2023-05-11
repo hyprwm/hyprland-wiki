@@ -29,14 +29,6 @@ programs.hyprland = { # or wayland.windowManager.hyprland
 };
 ```
 
-### HM module
-
-```nix
-wayland.windowManager.hyprland = {
-  plugins = [ /* ... */ ];
-};
-```
-
 The plugins array accepts both plugin derivations and paths to plugin artifacts.
 The provided plugins will be added as [`plugin = ` entries](../Plugins/Using-Plugins#installing--using-plugins).
 
@@ -78,6 +70,21 @@ If you _do_ insist on disabling it though (e.g. for adding your own patches
 to wlroots), you can do so by either using the `hyprland-no-hidpi` package,
 or by passing the `hidpiXWayland = false;` flag, the same way as
 [disabling XWayland](#package).
+
+### Plugins
+
+Hyprland plugins can be added through the home manager module.
+
+```nix
+wayland.windowManager.hyprland = {
+  plugins = [
+    inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
+    "/absolute/path/to/plugin.so"
+  ];
+};
+```
+
+For examples on how to build hyprland plugins using nix see the [offical plugins](https://github.com/hyprwm/hyprland-plugins).
 
 ### Nvidia Patches
 
