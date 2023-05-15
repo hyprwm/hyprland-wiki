@@ -27,6 +27,18 @@ category name: `dwindle`
 
 | dispatcher | description | params |
 |---|---|---|
-| togglesplit | toggles the split (top/side) of the current window. `preserve_split` must be enabled for toggling to work. | none |
 | pseudo | toggles the focused window's pseudo mode | none |
+
+# Layout messages
+
+Dispatcher `layoutmsg` params:
+
+| param | description | args |
+|---|---|---|
+| togglesplit | toggles the split (top/side) of the current window. `preserve_split` must be enabled for toggling to work. | none |
 | preselect | A onetime override for the split direction. (valid for the next window to be opened, only works on tiled windows) | direction |
+
+e.g.:
+```ini
+bind = SUPER, A, layoutmsg, preselect l
+```
