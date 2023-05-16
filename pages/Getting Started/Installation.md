@@ -159,14 +159,14 @@ sudo make install
 ```
 
 _CMake is always recommended as it's the intended way Hyprland should be installed._
-_Meson might have some imperfections, like e.g. overwriting wlroots headers or not installing Hyprland headers properly for plugin support_
 
 ### Meson
 
 ```plain
-meson _build
-ninja -C _build
-ninja -C _build install --tags runtime,man
+meson subprojects update --reset
+meson setup build
+ninja -C build
+ninja -C build install --tags runtime,man
 ```
 
 Refer to [Debugging](../../Contributing-and-Debugging) to see how to build &
