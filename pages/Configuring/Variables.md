@@ -267,6 +267,7 @@ Described [here](../Keywords#per-device-input-configs).
 | allow_session_lock_restore | if true, will allow you to restart a lockscreen app in case it crashes (red screen of death) | bool | false |
 | render_titles_in_groupbar | whether to render titles in the group bar decoration | bool | true |
 | groupbar_titles_font_size | font size for the above | int | 8 |
+| groupbar_gradients | whether to draw gradients under the titles of the above | bool | true |
 
 # Binds
 
