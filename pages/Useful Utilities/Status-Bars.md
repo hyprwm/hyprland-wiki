@@ -62,6 +62,22 @@ the `sed` command used before building Waybar: the default way to select a works
 clicking uses the `swaymsg`'s way, and thus it is required to edit
 this function to make it work with `hyprctl`.
 
+## Window title is missing
+
+Follow the above instructions to make sure everything is working.
+The prefix for the window module that provides the title is `hyprland` not `wlr`.
+In your waybar config, insert this module:
+```json
+"modules-center": ["hyprland/window"],
+```
+If you are using a multiple monitors, you may want to also insert this module configuration:
+```json
+"hyprland/window": {
+    "max-length": 200,
+    "separate-outputs": true
+},
+```
+
 # Eww
 
 In order to use [Eww](https://github.com/elkowar/eww), you first have to install
