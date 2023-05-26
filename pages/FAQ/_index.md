@@ -246,19 +246,12 @@ launched with `exec-once` should fix all issues. Adjust the sleep durations to t
 
 # How do I export envvars for Hyprland?
 
-As with any Display Server, Xorg included, you should probably make a script to
-launch it, for example:
+See [Environment Variables](../Configuring/Environment-variables.md)
 
-```bash
-export AMONG_US=1
-exec Hyprland
+The `env` keyword is used for this purpose. For example:
+```ini
+env = XDG_CURRENT_DESKTOP,Hyprland
 ```
-
-and launch that.
-
-For Display Manager users, you can replace the `exec` entry in
-the `.desktop` file to point to your script. You are recommended
-to use absolute paths, such as `/home/username/Script` instead of `~/Script`
 
 # How to disable middle-click paste?
 
