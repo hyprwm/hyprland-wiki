@@ -246,7 +246,7 @@ launched with `exec-once` should fix all issues. Adjust the sleep durations to t
 
 # How do I export envvars for Hyprland?
 
-See [Environment Variables](../Configuring/Environment-variables.md)
+See [Environment Variables](../Configuring/Environment-variables)
 
 The `env` keyword is used for this purpose. For example:
 ```ini
