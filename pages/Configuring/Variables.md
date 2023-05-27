@@ -268,6 +268,7 @@ Described [here](../Keywords#per-device-input-configs).
 | render_titles_in_groupbar | whether to render titles in the group bar decoration | bool | true |
 | groupbar_titles_font_size | font size for the above | int | 8 |
 | groupbar_gradients | whether to draw gradients under the titles of the above | bool | true |
+| groupbar_text_color | controls the group bar text color | bool | true |
 
 # Binds
 
