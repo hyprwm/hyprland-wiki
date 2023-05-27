@@ -21,7 +21,7 @@ If your screensharing application is running under XWayland (like Discord, Skype
 
 The KDE-team has implemented a workaround for this called [xwaylandvideobridge](https://invent.kde.org/system/xwaylandvideobridge). There is currently an issue preventing it from working with Hyprland by default, but you can fix that by applying [this patch](https://aur.archlinux.org/cgit/aur.git/plain/cursor-mode.patch?h=xwaylandvideobridge-cursor-mode-2-git) or by using [this AUR package](https://aur.archlinux.org/packages/xwaylandvideobridge-cursor-mode-2-git).
 
-Note that Hyprland currently doesn't support the way it tries to hide the main window, so you will have to create some window-rules to archive the same effect. See [this issue](https://invent.kde.org/system/xwaylandvideobridge/-/issues/1) for more information. For example:
+Note that Hyprland currently doesn't support the way it tries to hide the main window, so you will have to create some window-rules to achieve the same effect. See [this issue](https://invent.kde.org/system/xwaylandvideobridge/-/issues/1) for more information. For example:
 ```ini
 windowrulev2 = opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$
 windowrulev2 = noanim,class:^(xwaylandvideobridge)$
