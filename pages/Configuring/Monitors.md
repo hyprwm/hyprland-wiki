@@ -121,6 +121,12 @@ only use one of these rules per monitor in the config.
 
 # Extra args
 
+You can combine extra arguments at the end of the monitor rule, examples:
+```ini
+monitor=eDP-1,2880x1800@90,0x0,1,transform,1,mirror,DP-2,bitdepth,10
+```
+See bellow for more detail about each argument.
+
 ## Mirrored displays
 
 If you want to mirror a display, add a `,mirror,[NAME]` at the end of the monitor
