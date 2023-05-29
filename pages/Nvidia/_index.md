@@ -8,6 +8,20 @@ Every card seems to be random, and might work perfectly, or not work at all.
 
 Nevertheless, it's recommended to at least try this tutorial.
 
+## Hyprland Nvidia Patch (Arch only) (Unofficial)
+```sh
+hyprland-nvidia (AUR)
+hyprland-nvidia-git (AUR)
+```
+{{< hint type=warning >}}
+Hyprland Nvidia Patch is **NOT** an official patch and is not maintained by us.
+If you have any concerns (updates, broken pkgbuild, etc), you should contact the maintainer.
+{{< /hint >}}
+
+{{< hint type=important >}}
+`nvidia-dkms` is still **required** to run this patch, Install the `nvidia-dkms` driver and add it to your initramfs & kernel parameters before running. You should still however read the content below to make sure the patch is properly working and to avoid any bugs/crashes.
+{{< /hint >}}
+
 ## How to get Hyprland to possibly work on Nvidia
 
 Install the `nvidia-dkms` driver and add it to your initramfs & kernel parameters.  
