@@ -18,8 +18,8 @@ Hyprland Nvidia Patch is **NOT** an official patch and is not maintained by us.
 If you have any concerns (updates, broken pkgbuild, etc), you should contact the maintainer.
 {{< /hint >}}
 
-{{< hint type=tip >}}
-Hyprland Nvidia Patch at the end, is simply Hyprland with some modifications, if this package doesn't work for you or you have any issues (eg. flickering), keep reading below, you may still have a chance.
+{{< hint type=important >}}
+`nvidia-dkms` is still **required** to run this patch, Install the `nvidia-dkms` driver and add it to your initramfs & kernel parameters before running. You should still however read the content below to make sure the patch is properly working and to avoid any bugs/crashes.
 {{< /hint >}}
 
 ## How to get Hyprland to possibly work on Nvidia
