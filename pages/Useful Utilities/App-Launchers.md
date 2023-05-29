@@ -15,16 +15,8 @@ bemenu is a Wayland-native replacement for dmenu.
 
 ## fuzzel
 
-fuzzel is an application launcher for wlroots based Wayland compositors, similar to rofi's `drun` mode.
+Fuzzel is an application launcher for wlroots based Wayland compositors, similar to rofi's `drun` mode.
 [Codeberg](https://codeberg.org/dnkl/fuzzel)
-
-## tofi
-
-tofi is an extremely fast and simple dmenu / rofi replacement for wlroots-based Wayland compositors such as Hyprland.
-
-When configured correctly, tofi can get on screen within a single frame.
-[Github](https://github.com/philj56/tofi)
-
 
 For a more comprehensive list of launchers, check
 [awesome-hyprland](https://github.com/hyprland-community/awesome-hyprland#runners-menus-and-application-launchers).
