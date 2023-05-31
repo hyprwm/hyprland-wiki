@@ -181,6 +181,7 @@ Prop List:
 | forceallowsinput | 0/1, forceinput rule |
 | forcenoanims | 0/1 |
 | forcenoborder | 0/1 |
+| forcenodim | 0/1 |
 | forcenoshadow | 0/1 |
 | windowdancecompat | 0/1 |
 | nomaxsize | 0/1 |
