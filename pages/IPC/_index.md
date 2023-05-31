@@ -48,7 +48,7 @@ e.g.: `workspace>>2`
 | changefloatingmode | emitted when a window changes its floating mode. `FLOATING` is either 0 or 1. | `WINDOWADDRESS`,`FLOATING` |
 | urgent | emitted when a window requests an `urgent` state | `WINDOWADDRESS` |
 | minimize | emitted when a window requests a change to its minimized state. `MINIMIZED` is either 0 or 1. | `WINDOWADDRESS,MINIMIZED` |
-| screencopy | emitted when a screencopy state of a client changes. Keep in mind there might be multiple separate clients. State is 0/1, owner is 0 - monitor share, 1 - window share | `STATE,OWNER` |
+| screencast | emitted when a screencopy state of a client changes. Keep in mind there might be multiple separate clients. State is 0/1, owner is 0 - monitor share, 1 - window share | `STATE,OWNER` |
 
 {{< hint type=warning >}}
 A fullscreen event is not guaranteed to fire on/off once in succession.
