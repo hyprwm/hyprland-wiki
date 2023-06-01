@@ -4,7 +4,7 @@ The best option would be through [Home Manager](../Hyprland-on-Home-Manager).
 
 However, if Home Manager is not for you, you can use it as a normal package.
 
-## From Nixpgks
+## From Nixpkgs
 
 The easiest method is to get Hyprland directly from Nixpkgs:
 
