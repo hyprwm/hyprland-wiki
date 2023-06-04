@@ -235,7 +235,7 @@ In such cases, a script like this:
 ```bash
 #!/bin/bash
 sleep 4
-killall xdg-desktop-portal-wlr
+killall -e xdg-desktop-portal-wlr
 killall xdg-desktop-portal
 /usr/lib/xdg-desktop-portal-wlr &
 sleep 4
