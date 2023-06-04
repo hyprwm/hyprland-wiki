@@ -175,6 +175,7 @@ Prop List:
 | --- | --- |
 | animationstyle | string, cannot be locked |
 | rounding | int, -1 means not overriden |
+| bordersize | int, -1 means not overriden |
 | forcenoblur | 0/1 |
 | forceopaque | 0/1|
 | forceopaqueoverriden | 0/1 |
