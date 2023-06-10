@@ -86,7 +86,7 @@ git checkout tags/v0.24.1
 
 Prepare Hyprland sources:
 ```sh
-make pluginenv
+sudo make pluginenv
 ```
 
 {{< hint type=note >}}
