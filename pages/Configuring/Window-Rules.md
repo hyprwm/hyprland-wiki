@@ -163,4 +163,5 @@ or `address` is an address in the form of `address:0x[hex]`
 | unset | removes all layerRules previously set for a select namespace regex. Please note it has to match _exactly_ |
 | noanim | disables animations |
 | blur | enables blur for the layer |
-| ignorezero | makes blur ignore fully transparent pixels of the layer |
+| ignorealpha \[a\] | makes blur ignore pixels with opacity of `a` or lower. `a` is float value from 0 to 1. `a = 0` if unspecified. |
+| ignorezero | makes blur ignore fully transparent pixels. Same as `ignorealpha 0`. |
