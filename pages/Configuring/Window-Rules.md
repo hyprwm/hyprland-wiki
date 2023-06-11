@@ -164,4 +164,4 @@ or `address` is an address in the form of `address:0x[hex]`
 | noanim | disables animations |
 | blur | enables blur for the layer |
 | ignorealpha \[a\] | makes blur ignore pixels with opacity of `a` or lower. `a` is float value from 0 to 1. `a = 0` if unspecified. |
-| ignorezero | same as `ignorealpha`. Available only to not break configs having this rule set earlier. |
+| ignorezero | makes blur ignore fully transparent pixels. Same as `ignorealpha 0`. |
