@@ -280,6 +280,12 @@ Described [here](../Keywords#per-device-input-configs).
 | allow_workspace_cycles | If enabled, workspaces don't forget their previous workspace, so cycles can be created by switching to the first workspace in a sequence, then endlessly going to the previous workspace. | bool | false |
 | focus_preferred_method | sets the preferred focus finding method when using `focuswindow`/`movewindow`/etc with a direction. 0 - history (recent have priority), 1 - length (longer shared edges have priority) | int | 0 |
 
+# XWayland
+
+| name | description | type | default |
+|---|---|---|---|
+| use_nearest_neighbor | uses the nearest neigbor filtering for xwayland apps, making them pixelated rather than blurry | bool | true |
+
 # Debug
 
 {{< hint type=warning >}}
