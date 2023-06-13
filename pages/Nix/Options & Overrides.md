@@ -11,7 +11,7 @@ can be changed by setting the appropriate option to `true`/`false`.
 ```nix
 (pkgs.hyprland.override { # or inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.default
   enableXWayland = true;
-  hidpiXWayland = true;
+  hidpiXWayland = false;
   nvidiaPatches = false;
 })
 ```
@@ -23,7 +23,7 @@ programs.hyprland = { # or wayland.windowManager.hyprland
   enable = true;
   xwayland = {
     enable = true;
-    hidpi = true;
+    hidpi = false;
   };
   nvidiaPatches = false;
 };
@@ -38,10 +38,15 @@ in the package itself, or through the module options.
 
 ### XWayland HiDPI
 
-By default, the Nix package includes a patched wlroots that can render HiDPI
-XWayland windows.
+The `hyprland-hidpi` Nix package includes a patched wlroots that can render
+HiDPI XWayland windows.
 
-In order to enable the functionality, you have to add:
+In order to enable HiDPI when using the NixOS or Home Manager modules, you can
+set `programs.hyprland.xwayland.hidpi = true`, or
+`wayland.windowManager.hyprland.xwayland.hidpi = true`, respectively.
+
+Now that the required package to achieve HiDPI is installed, an XWayland
+instruction is needed to set the scale:
 
 ```toml
 exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
@@ -60,33 +65,28 @@ env = XCURSOR_SIZE,48
 The GDK_SCALE variable won't conflict with wayland-native GTK programs.
 {{< /hint >}}
 
-Usually, there's no reason to disable this functionality, as it won't affect
-people who don't have HiDPI screens.
-
-If you _do_ insist on disabling it though (e.g. for adding your own patches
-to wlroots), you can do so by either using the `hyprland-no-hidpi` package,
-or by passing the `hidpiXWayland = false;` flag, the same way as
-[disabling XWayland](#package).
-
 ### Plugins
 
 Hyprland plugins can be added through the home manager module.
 
 ```nix
-wayland.windowManager.hyprland = {
-  plugins = [
-    inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
-    "/absolute/path/to/plugin.so"
-  ];
-};
+wayland.windowManager.hyprland.plugins = [
+  inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
+  "/absolute/path/to/plugin.so"
+];
 ```
 
-For examples on how to build hyprland plugins using nix see the [offical plugins](https://github.com/hyprwm/hyprland-plugins).
+For examples on how to build hyprland plugins using nix see the
+[official plugins](https://github.com/hyprwm/hyprland-plugins).
 
 ### Nvidia Patches
 
 Nvidia is notorious for not working by default with wlroots. That's why we
 patch wlroots.
+
+In the NixOS and Home Manager modules, you can enable the Nvidia patches using
+`programs.hyprland.nvidiaPatches` and `wayland.windowManager.hyprland.nvidiaPatches`,
+respectively.
 
 ## Using Nix repl
 

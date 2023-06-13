@@ -1,3 +1,8 @@
+{{< hint >}}
+This page only applies to the flake package. You can safely skip this if you use
+the Nixpkgs package.
+{{< /hint >}}
+
 Hyprland is not built by Hydra and cached in `cache.nixos.org`, like the rest
 of the Nixpkgs packages.
 
