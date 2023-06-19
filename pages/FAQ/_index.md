@@ -288,3 +288,11 @@ Read [this trick](../Configuring/Uncommon-tips--tricks/#window-dancing).
 See [The XDPH Page](../Useful-Utilities/Hyprland-desktop-portal).
 
 You most likely have multiple portal impls / an impl is failing to launch.
+
+# My screenshot utilities won't work with multiple screens
+Some programs like flameshot (currently) has limited wayland support so on most Wayland compositors, you will have to do few tweaks.
+For Hyprland, you can add these window rules to your config to make said programs work with both of your screens.
+```windowrulev2=float,title:^(flameshot)
+windowrulev2=move 0 0,title:^(flameshot)
+windowrulev2=nofullscreenrequest,title:^(flameshot)
+```
