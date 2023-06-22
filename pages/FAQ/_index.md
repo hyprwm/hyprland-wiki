@@ -206,7 +206,7 @@ handle() {
   esac
 }
 
-socat - UNIX-CONNECT:/tmp/hypr/.socket2.sock | while read -r line; do handle "$line"; done
+socat - "UNIX-CONNECT:/tmp/hypr/${HYPRLAND_INSTANCE_SIGNATURE}/.socket2.sock" | while read -r line; do handle "$line"; done
 ```
 
 if you want workspaces 1 2 4 5 to go to monitor 1 when connecting it.
