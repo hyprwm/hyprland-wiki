@@ -37,7 +37,7 @@ For a list of available options, check the
 Don't forget to replace `user@hostname` with your username and hostname!
 
 ## Without flakes
-
+### Impure evaluation 
 ```nix
 # home config
 
@@ -58,6 +58,40 @@ in {
     extraConfig = ''
       bind = SUPER, Return, exec, kitty
       # ...
+    '';
+  };
+}
+```
+### Pure evaluation
+```nix
+{ pkgs, ... }:
+let
+  flake-compat = builtins.fetchGit {
+    name = "flake-compat";
+    url = "https://github.com/edolstra/flake-compat";
+    ref = "refs/heads/master";
+    rev = "35bb57c0c8d8b62bbfd284272c928ceb64ddbde9";
+  };
+
+  hyprland = (import flake-compat {
+    src = builtins.fetchGit {
+      name = "hyprland";
+      url = "https://github.com/hyprwm/Hyprland";
+      ref = "refs/heads/master";
+      rev = "738ec900f4d5c5e2b00f90e71221ca380555b874";
+    };
+  }).defaultNix;
+
+in {
+  imports = [
+    hyprland.homeManagerModules.default
+  ];
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    extraConfig = ''
+      monitor=,highres,0x0,1
+      ...
     '';
   };
 }
