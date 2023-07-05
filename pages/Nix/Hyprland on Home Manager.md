@@ -66,22 +66,16 @@ in {
 ```nix
 { pkgs, ... }:
 let
-  flake-compat = builtins.fetchGit {
-    name = "flake-compat";
-    url = "https://github.com/edolstra/flake-compat";
-    ref = "refs/heads/master";
-    rev = "35bb57c0c8d8b62bbfd284272c928ceb64ddbde9";
+  flake-compat = builtins.fetchTarball {
+    url = "https://github.com/edolstra/flake-compat/archive/35bb57c0c8d8b62bbfd284272c928ceb64ddbde9.tar.gz";
+    sha256 = "1prd9b1xx8c0sfwnyzkspplh30m613j42l1k789s521f4kv4c2z2";
   };
-
   hyprland = (import flake-compat {
-    src = builtins.fetchGit {
-      name = "hyprland";
-      url = "https://github.com/hyprwm/Hyprland";
-      ref = "refs/heads/master";
-      rev = "738ec900f4d5c5e2b00f90e71221ca380555b874";
+    src = builtins.fetchTarball {
+      url = "https://github.com/hyprwm/Hyprland/archive/86e487e003490195f88b8deaf2b1f4baa75b0058.tar.gz";
+      sha256 = "14nd1jafgmpkbsgdchyh30rvnclxi83r6p16bbysg4hzry3f1iik";
     };
   }).defaultNix;
-
 in {
   imports = [
     hyprland.homeManagerModules.default
