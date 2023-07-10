@@ -16,6 +16,7 @@ category name: `dwindle`
 | pseudotile | enable pseudotiling. Pseudotiled windows retain their floating size when tiled. | bool | false |
 | force_split | 0 -> split follows mouse, 1 -> always split to the left (new = left or top) 2 -> always split to the right (new = right or bottom) | int | 0 |
 | preserve_split | if enabled, the split (side/top) will not change regardless of what happens to the container. | bool | false |
+| smart_split | if enabled, allows a more precise control over the window split direction based on the cursor's position. The window is conceptually divided into four parts, and cursor's quadrant determines the split direction. This feature also turns on preserve_split. | bool | false |
 | permanent_direction_override | if enabled, makes the preselect direction persist until either this mode is turned off, another direction is specified, or a non-direction is specified (anything other than l,r,u/t,d/b)  | bool | false | 
 | special_scale_factor | 0 - 1 -> specifies the scale factor of windows on the special workspace | float | 0.8 |
 | split_width_multiplier | specifies the auto-split width multiplier | float | 1.0 |
