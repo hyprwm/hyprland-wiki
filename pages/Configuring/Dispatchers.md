@@ -67,6 +67,7 @@ layout pages (See the sidebar).
 | lockactivegroup | Lock the focused group (the current group will not accept new windows or be moved to other groups) | `lock` for locking, `unlock` for unlocking, `toggle` for toggle |
 | moveintogroup | Moves the active window into a group in a specified direction. No-op if there is no group in the specified direction. | direction |
 | moveoutofgroup | Moves the active window out of a group. No-op if not in a group | none |
+| movegroupwindow | Swaps the active window with the next or previous in a group | `b` for back, anything else for forward |
 | global | Executes a Global Shortcut using the GlobalShortcuts portal. See [here](../Binds/#global-keybinds) | name |
 | submap | Change the current mapping group. See [Submaps](../Binds/#submaps) | `reset` or name |
 
