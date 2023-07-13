@@ -125,18 +125,39 @@ device:my-epic-keyboard-v1 {
 
 You can use this command to switch between them.
 
-```
+```sh
 hyprctl switchxkblayout [DEVICE] [CMD]
 ```
 where `CMD` is either `next` for next, `prev` for previous, or `ID`
-for a specific one (in the above case, `us`: 0, `pl`: 1, `de`: 2)
+for a specific one (in the above case, `us`: 0, `pl`: 1, `de`: 2). 
+You can find the `DEVICE` using `hyprctl devices` command.
+
+example command for a typical keyboard:
+
+```sh
+hyprctl switchxkblayout at-translated-set-2-keyboard next
+```
+
+{{< hint >}}
+
+If you want a single variant ie. pl/dvorak on one layout but us/qwerty on the other, xkb parameters can still be blank, however the amount of comma-separated parameters have to match. Alternatively, a single parameter can be specified for it to apply to all three.
+
+```ini
+input {
+    kb_layout = pl,us,ru
+    kb_variant = dvorak,,
+    kb_options = caps:ctrl_modifier
+}
+```
+
+{{< /hint >}}
 
 ### seterror
 
 Sets the hyprctl error string. Will reset when Hyprland's config is reloaded.
 
 ```sh
-hyprctl seterror rgba(66ee66ff) hello world this is my problem
+hyprctl seterror 'rgba(66ee66ff)' hello world this is my problem
 ```
 
 or disable:
@@ -154,12 +175,14 @@ Prop List:
 | --- | --- |
 | animationstyle | string, cannot be locked |
 | rounding | int, -1 means not overriden |
+| bordersize | int, -1 means not overriden |
 | forcenoblur | 0/1 |
 | forceopaque | 0/1|
 | forceopaqueoverriden | 0/1 |
 | forceallowsinput | 0/1, forceinput rule |
 | forcenoanims | 0/1 |
 | forcenoborder | 0/1 |
+| forcenodim | 0/1 |
 | forcenoshadow | 0/1 |
 | windowdancecompat | 0/1 |
 | nomaxsize | 0/1 |
@@ -176,16 +199,44 @@ hyprctl setprop address:0x13371337 forcenoanims 1 lock  # with locking
 hyprctl setprop address:0x13371337 nomaxsize 0          # without locking
 ```
 
+### notify
+
+Sends a notification using the built-in Hyprland notification system.
+
+```sh
+hyprctl notify [ICON] [TIME_MS] [COLOR] [MESSAGE]
+```
+
+For example:
+```sh
+hyprctl notify -1 10000 "rgb(ff1ea3)" "Hello everyone!"
+```
+
+Icon of `-1` means "No icon"
+
+Color of `0` means "Default color for icon"
+
+Icon list:
+```
+WARNING = 0
+INFO = 1
+HINT = 2
+ERROR = 3
+CONFUSED = 4
+OK = 5
+```
+
 ## Info
 
 ```plain
 version - prints the hyprland version, meaning flags, commit and branch of build.
 monitors - lists all the outputs with their properties
 workspaces - lists all workspaces with their properties
+activeworkspace - gets the active window name and it's properties
 clients - lists all windows with their properties
 devices - lists all connected keyboards and mice
 binds - lists all registered binds
-activewindow - gets the active window name
+activewindow - gets the active window name and it's properties
 layers - lists all the layers
 splash - prints the current random splash
 getoption [option] - gets the config option status (values)

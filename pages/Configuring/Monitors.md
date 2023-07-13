@@ -19,6 +19,12 @@ monitor=DP-1,1920x1080@144,0x0,1
 will tell Hyprland to make the monitor on `DP-1` a `1920x1080` display, at 144Hz,
 `0x0` off from the top left corner, with a scale of 1 (unscaled).
 
+To list available monitors:
+
+```shell
+hyprctl monitors
+```
+
 Monitors are positioned on a virtual "layout". The `position` is the position of 
 said display in the layout. (calculated from the top-left corner)
 
@@ -61,7 +67,7 @@ monitor=,preferred,auto,1
 Will make any monitor that was not specified with an explicit rule automatically
 placed on the right of the other(s) with its preferred resolution.
 
-Alternatively you can use the `highrr` or `highres` rules in order to get the
+Alternatively you can use the `highres` or `highrr` rules in order to get the
 best possible resolution or refreshrate mix.
 
 for a focus on refreshrate use this:
@@ -115,6 +121,12 @@ only use one of these rules per monitor in the config.
 
 # Extra args
 
+You can combine extra arguments at the end of the monitor rule, examples:
+```ini
+monitor=eDP-1,2880x1800@90,0x0,1,transform,1,mirror,DP-2,bitdepth,10
+```
+See bellow for more detail about each argument.
+
 ## Mirrored displays
 
 If you want to mirror a display, add a `,mirror,[NAME]` at the end of the monitor
@@ -141,45 +153,15 @@ monitor=eDP-1,2880x1800@90,0x0,1,bitdepth,10
 Please be aware that colors registered in Hyprland (e.g. the border color) do _not_
 support 10 bit.
 
-# Rotating and the default workspace
+# Rotating
 
-{{< hint type=important >}}
-
-The monitor transform and workspace keywords depend on a monitor rule set
-specifically for the targeted monitor, and **_MUST_** be after it.
-
-e.g.:
+If you want to rotate a monitor, add a `,transform,X` at the end
+of the monitor rule, where `X` corresponds to a transform number, e.g.:
 ```ini
-monitor=,preferred,auto,1
-workspace=DP-3,1 # invalid
-
-monitor=DP-3,preferred,auto,1
-workspace=DP-3,1 # valid
+monitor=eDP-1,2880x1800@90,0x0,1,transform,1
 ```
 
-{{< /hint >}}
-
-```ini
-workspace=name,number
-```
-
-for example:
-
-```ini
-workspace=DP-1,1
-```
-
-will tell Hyprland to make the default workspace on DP-1 a number 1.
-
-If you want to rotate a monitor, use
-
-```ini
-monitor=NAME,transform,TRANSFORM
-```
-
-where `NAME` is the name, and `TRANSFORM` is an integer, from 0 to 7,
-corresponding to your transform of choice.
-
+Transform list:
 ```ini
 normal (no transforms) -> 0
 90 degrees -> 1
@@ -191,18 +173,10 @@ flipped + 180 degrees -> 6
 flipped + 270 degrees -> 7
 ```
 
-# Binding workspaces to a monitor
+# Default workspace
 
-A workspace can be bound to a monitor, meaning by default it will ALWAYS open
-on the selected monitor. You can do this with
+See [Workspace Rules](../Workspace-Rules).
 
-```ini
-wsbind=WORKSPACE,MONITOR
-```
+## Binding workspaces to a monitor
 
-for example:
-
-```ini
-wsbind=5,DP-1
-wsbind=name:secret,DP-2
-```
+See [Workspace Rules](../Workspace-Rules).

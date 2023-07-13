@@ -101,7 +101,7 @@ The `name` can be easily obtained by doing `hyprctl devices`.
 Inside of it, put your config options. All options from the `input` category
 (and all subcategories, e.g. `input:touchpad`) can be put inside, **EXCEPT**:
 
-force_no_accel, follow_mouse, float_switch_override_focus
+force_no_accel, follow_mouse, float_switch_override_focus, scroll_factor
 
 Properties that change names:
 
@@ -130,6 +130,11 @@ device:royuan-akko-multi-modes-keyboard-b {
 
 _remember about the space after the end of the device's name (before the `{`)!_
 
+{{< hint type=info >}}
+Per-device layouts will not alter the keybind keymap, so for example with a global keymap of `us`
+and a per-device one of `fr`, the keybinds will still act as if you were on `us`.
+{{< /hint >}}
+
 # Wallpapers
 
 The hyprland background you see when you first start Hyprland is **NOT A
@@ -145,17 +150,54 @@ More can be found in [Useful Utilities](../../Useful-Utilities).
 LayerSurfaces are not windows. These are for example: Your wallpapers,
 notification overlays, bars, etc.
 
-If you really want to blur them, use `blurls=`
+If you really want to blur them, use a layerrule:
 
 ```ini
-blurls=NAMESPACE
+layerrule = blur,NAMESPACE
+# or
+layerrule = blur,address:0x<ADDRESS>
 ```
 
-where `NAMESPACE` is the namespace of the layerSurface. (You can get it from
-`hyprctl layers`)
+you can get the namespace / address from `hyprctl layers`.
 
-To remove a namespace from being blurred (useful in dynamic situations) use:
+To remove a layer rule (useful in dynamic situations) use:
 
 ```ini
-blurls=remove,NAMESPACE
+layerrule = unset,<whatever you used before>
 ```
+
+For example:
+
+```ini
+layerrule = unset,NAMESPACE
+```
+
+# Setting the environment
+
+{{< hint type=note >}}
+The `env` keyword works just like `exec-once`, meaning it will only fire once on Hyprland's launch.
+{{< /hint >}}
+
+You can use the `env` keyword to set environment variables at Hyprland's start, e.g.:
+```ini
+env = XCURSOR_SIZE,24
+```
+
+You can also add a `d` flag if you want the env var to be exported to D-Bus (systemd only)
+```ini
+envd = XCURSOR_SIZE,24
+```
+
+{{< hint type=important >}}
+Hyprland puts the raw string to the envvar. You should _not_ add quotes around the values.
+
+e.g.:
+```ini
+env = QT_QPA_PLATFORM,wayland
+```
+
+and ***NOT***
+```ini
+env = QT_QPA_PLATFORM,"wayland"
+```
+{{< /hint >}}

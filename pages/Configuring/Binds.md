@@ -39,11 +39,11 @@ written in all lowercase.
 If you are unsure of what your key's name is, you can
 use `xev` or `wev` to find that information.
 
-If you want to bind by a keycode, you can just input it in the KEY position,
+If you want to bind by a keycode, you can just input it in the KEY position with a `code:` prefix,
 e.g.:
 
 ```ini
-bind=SUPER,28,exec,amongus
+bind=SUPER,code:28,exec,amongus
 ```
 
 Will bind <key>SUPER</key> + <key>T</key>. (<key>T</key> is keycode 28.) - You
@@ -87,7 +87,7 @@ bindr=SUPERALT,Alt_L,exec,amongus
 
 ## Mouse wheel
 
-You can also bind the mouse wheel with `mouse_up` and `mouse_down`:
+You can also bind the mouse wheel with `mouse_up` and `mouse_down` (or `mouse_left` and `mouse_right` if your wheel supports horizontal scrolling):
 
 ```ini
 bind=SUPER,mouse_down,workspace,e-1
@@ -139,17 +139,18 @@ bindrl=MOD,KEY,exec,amongus
 Flags:
 
 ```ini
-l -> locked, aka. works also when an input inhibitor (e.g. a lockscreen) is active
-r -> release, will trigger on release of a key
+l -> locked, aka. works also when an input inhibitor (e.g. a lockscreen) is active.
+r -> release, will trigger on release of a key.
 e -> repeat, will repeat when held.
+n -> non-consuming, key/mouse events will be passed to the active window in addition to triggering the dispatcher.
 m -> mouse, see below
 ```
 
 Example Usage:
 
 ```ini
-# Example volume button that allows press and hold
-binde=, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+# Example volume button that allows press and hold, volume limited to 150%
+binde=, XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
 
 # Example volume button that will activate even while an input inhibitor is active
 bindl=, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
@@ -203,6 +204,7 @@ bindr=ALT,Alt_L,exec,amongus
 
 # Global Keybinds
 
+## Classic
 Yes, you heard this right, Hyprland does support global keybinds for ALL apps,
 including OBS, Discord, Firefox, etc.
 
@@ -233,11 +235,28 @@ XWayland is a bit wonky. Make sure that what you're passing is a "global Xorg
 keybind", otherwise passing from a different XWayland app may not work.
 
 It works flawlessly with all native Wayland applications though.
-
-_Side note_: **OBS** on Wayland really dislikes keybinds with modifiers. If
-they don't work, try removing mods and binding them to e.g. <key>F1</key>.
-Combining this with a submap should yield neat and usable results.
 {{< /hint >}}
+
+## DBus Global Shortcuts
+
+Some applications may already support the GlobalShortcuts portal in xdg-desktop-portal.
+
+If that's the case, then it's recommended to use this method instead of `pass`.
+
+Open your desired app and issue `hyprctl globalshortcuts`. This will give you a list
+of currently registered shortcuts with their description(s).
+
+Choose whichever you like, for example `coolApp:myToggle`
+
+Bind it to whatever you want with the `global` dispatcher:
+
+```
+bind = SUPERSHIFT, A, global, coolApp:myToggle
+```
+
+{{< hint type=tip >}}
+Please note that this function will _only_ work with [XDPH](../../Useful-Utilities/Hyprland-desktop-portal).
+{{</ hint >}}
 
 # Submaps
 

@@ -48,6 +48,8 @@ e.g.: `workspace>>2`
 | changefloatingmode | emitted when a window changes its floating mode. `FLOATING` is either 0 or 1. | `WINDOWADDRESS`,`FLOATING` |
 | urgent | emitted when a window requests an `urgent` state | `WINDOWADDRESS` |
 | minimize | emitted when a window requests a change to its minimized state. `MINIMIZED` is either 0 or 1. | `WINDOWADDRESS,MINIMIZED` |
+| screencast | emitted when a screencopy state of a client changes. Keep in mind there might be multiple separate clients. State is 0/1, owner is 0 - monitor share, 1 - window share | `STATE,OWNER` |
+| windowtitle | emitted when a window title changes. | `WINDOWADDRESS` |
 
 {{< hint type=warning >}}
 A fullscreen event is not guaranteed to fire on/off once in succession.
@@ -62,11 +64,12 @@ example script using socket2 events with bash and `socat`:
 ```sh
 #!/bin/sh
 
-function handle {
-  if [[ ${1:0:12} == "monitoradded" ]]; then
-    # do_something
-  fi
+handle() {
+  case $1 in
+    monitoradded*) do_something ;;
+    focusedmon*) do_something_else ;;
+  esac
 }
 
-socat - UNIX-CONNECT:/tmp/hypr/$(echo $HYPRLAND_INSTANCE_SIGNATURE)/.socket2.sock | while read line; do handle $line; done
+socat -U - UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r line; do handle "$line"; done
 ```

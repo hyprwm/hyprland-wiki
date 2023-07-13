@@ -2,6 +2,10 @@ This page houses links to a few repositories with beautiful Hyprland configurati
 for you to get inspired from or learn how to configure Hyprland from
 a more tangible example.
 
+### end_4
+![](https://camo.githubusercontent.com/5ca3a06db6bcbec4b51448a6989c941d76b4dcac2e150452a45ae913793adfe9/68747470733a2f2f63646e2e646973636f72646170702e636f6d2f6174746163686d656e74732f313039313536393837323533353831343138352f313130373637353836363130313732333237372f73637265656e73686f742d73756d6d65722e706e67)
+[https://github.com/end-4/dots-hyprland/tree/summer-gruv](https://github.com/end-4/dots-hyprland/tree/summer-gruv)
+
 ### fufexan
 ![](https://user-images.githubusercontent.com/36706276/192147190-cf9cf4df-94cb-4a3b-b9d8-137ed0c2538f.png)
 

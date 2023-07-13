@@ -1,8 +1,12 @@
+# Table of contents
+
+{{< toc >}}
+
 # Waybar
 
 Waybar is a GTK status bar made specifically for wlroots compositors.
 
-To use it, it's recommended to use the AUR package `waybar-hyprland-git`.
+To use it, it's recommended to use your distro's package by searching `waybar-hyprland`.
 
 ## Compiling Manually
 
@@ -11,18 +15,23 @@ To compile manually:
 Clone the source, cd into it, then do:
 
 ```bash
-sed -i 's/zext_workspace_handle_v1_activate(workspace_handle_);/const std::string command = "hyprctl dispatch workspace " + name_;\n\tsystem(command.c_str());/g' src/modules/wlr/workspace_manager.cpp
+sed -i -e 's/zext_workspace_handle_v1_activate(workspace_handle_);/const std::string command = "hyprctl dispatch workspace " + name_;\n\tsystem(command.c_str());/g' src/modules/wlr/workspace_manager.cpp
 meson --prefix=/usr --buildtype=plain --auto-features=enabled --wrap-mode=nodownload build
 meson configure -Dexperimental=true build
 sudo ninja -C build install
 ```
 
 If you want to use the workspaces module, first, copy the configuration files from
-`/etc/xdg/waybar/` into `~/.config/waybar/`. Then, in `~/.config/waybar/conf/` replace
+`/etc/xdg/waybar/` into `~/.config/waybar/`. Then, in `~/.config/waybar/config` replace
 all the references to `sway/workspaces` with `wlr/workspaces`.
 
 For more info regarding configuration, see
 [The Waybar Wiki](https://github.com/Alexays/Waybar/wiki).
+
+## How to launch
+
+After getting everything set up, you might want to check if Waybar is configured to your liking. To launch it, simply type `waybar` into your terminal.
+If you would like waybar to launch alongside hyprland, you can do this by adding a line to your hyprland configuration that reads `exec-once=waybar`
 
 ## Waybar popups render behind the windows
 
@@ -52,6 +61,22 @@ On the `wlr/workspaces` module, add `"on-click": "activate"`. That's the purpose
 the `sed` command used before building Waybar: the default way to select a workspace by 
 clicking uses the `swaymsg`'s way, and thus it is required to edit
 this function to make it work with `hyprctl`.
+
+## Window title is missing
+
+Follow the above instructions to make sure everything is working.
+The prefix for the window module that provides the title is `hyprland` not `wlr`.
+In your waybar config, insert this module:
+```json
+"modules-center": ["hyprland/window"],
+```
+If you are using a multiple monitors, you may want to also insert this module configuration:
+```json
+"hyprland/window": {
+    "max-length": 200,
+    "separate-outputs": true
+},
+```
 
 # Eww
 
@@ -89,6 +114,7 @@ This widget displays a list of workspaces 1-10. Each workspace can be clicked on
 (defwidget workspaces []
   (eventbox :onscroll "bash ~/.config/eww/scripts/change-active-workspace {} ${current_workspace}" :class "workspaces-widget"
     (box :space-evenly true
+      (label :text "${workspaces}${current_workspace}" :visible false)
       (for workspace in workspaces
         (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
           (box :class "workspace-entry ${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
@@ -132,9 +158,12 @@ fi
 ### `~/.config/eww/scripts/get-active-workspace`
 
 ```sh
-#!/bin/bash
-hyprctl monitors -j | jq --raw-output .[0].activeWorkspace.id
-socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | stdbuf -o0 grep '^workspace>>' | stdbuf -o0 awk -F '>>|,' '{print $2}'
+#!/usr/bin/env bash
+
+hyprctl monitors -j | jq '.[] | select(.focused) | .activeWorkspace.id'
+
+socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - |
+  stdbuf -o0 awk -F '>>|,' -e '/^workspace>>/ {print $2}' -e '/^focusedmon>>/ {print $3}'
 ```
 
 ### `~/.config/eww/scripts/get-workspaces`
@@ -158,13 +187,13 @@ done
 <details>
 <summary>Active window title widget</summary>
 
-This widget simply displays the title of the active window. It requires [bash](https://linux.die.net/man/1/bash), [awk](https://linux.die.net/man/1/awk), [stdbuf](https://linux.die.net/man/1/stdbuf), [grep](https://linux.die.net/man/1/grep), [socat](https://linux.die.net/man/1/socat), and [jq](https://stedolan.github.io/jq/).
+This widget simply displays the title of the active window. It requires [awk](https://linux.die.net/man/1/awk), [stdbuf](https://linux.die.net/man/1/stdbuf), [socat](https://linux.die.net/man/1/socat), and [jq](https://stedolan.github.io/jq/).
 
 ### `~/.config/eww/eww.yuck`
 
 ```lisp
 ...
-(deflisten window :initial "..." "bash ~/.config/eww/scripts/get-window-title")
+(deflisten window :initial "..." "sh ~/.config/eww/scripts/get-window-title")
 (defwidget window_w []
   (box
     (label :text "${window}"
@@ -176,9 +205,9 @@ This widget simply displays the title of the active window. It requires [bash](h
 ### `~/.config/eww/scripts/get-window-title`
 
 ```sh
-#!/bin/bash
+#!/bin/sh
 hyprctl activewindow -j | jq --raw-output .title
-socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | stdbuf -o0 grep '^activewindow>>' | stdbuf -o0 awk -F '>>|,' '{print $3}'
+socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | stdbuf -o0 awk -F '>>|,' '/^activewindow>>/{print $3}'
 ```
 
 </details>
@@ -192,6 +221,11 @@ You can install it from the AUR by the name `hybrid-bar`.
 ## Configuration
 
 The configuration is done through JSON, more information is available [here](https://github.com/vars1ty/HybridBar).
+
+## How to launch
+
+After configuring HybridBar, you can launch it by typing `hybrid-bar` into your terminal to try it out.
+It is also possible to set it to launch at start, to do this you can add a line to your hyprland configuration that reads `exec-once=hybrid-bar`
 
 ### Blur
 

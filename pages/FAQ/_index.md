@@ -8,7 +8,7 @@ Possible causes:
 
 > Your themes are not set up properly, making apps crash.
 
-Use something like `qt5ct` (QT) and `lxappearance` (GTK) (\*for GTK you can also
+Use something like `qt6ct` (QT) and `nwg-look` (GTK) (\*for GTK you can also
 set up themes with envvars) to set up your themes.
 
 > Your PC is very, _very_ old.
@@ -61,7 +61,7 @@ GitHub pages).
 For a more complete utility, try our own screenshotting utility:
 [Grimblast](https://github.com/hyprwm/contrib).
 
-For recording videos, [wf-recorder](https://github.com/ammen99/wf-recorder) or [OBS Studio](https://obsproject.com/) could be used.
+For recording videos, [wf-recorder](https://github.com/ammen99/wf-recorder), [wl-screenrec](https://github.com/russelltg/wl-screenrec) or [OBS Studio](https://obsproject.com/) could be used.
 
 # Screenshare / OBS no worky
 
@@ -88,6 +88,13 @@ Try changing the mode in your config. If your preferred one doesn't work, try a
 lower one. A good way to list all modes is to get `wlr-randr` and do a
 `wlr-randr --dryrun`
 
+# My monitor has flickering brightness when I turn on VRR
+
+Change the VRR option to `2` (fullscreen), so that it is only used in games.
+This happens because the brightness on some monitors can depends on the refresh
+rate, and rapidly changing refresh rates (for example, when the screen momentarily
+updates after pressing a key) will cause rapid changes in brightness.
+
 # How do I update?
 
 Open a terminal where you cloned the repo.
@@ -107,24 +114,20 @@ Use a wayland-compatible locking utility using WLR protocols, e.g. `swaylock`.
 
 # How do I change me mouse cursor?
 
-Use a tool like for example `lxappearance` to change the GTK cursor.
+1. Set the GTK cursor using [nwg-look](https://github.com/nwg-piotr/nwg-look).
+2. Add `exec-once=hyprctl setcursor [THEME] [SIZE]` to your config and restart Hyprland.
 
-After that, add `exec-once=hyprctl setcursor [THEME] [SIZE]` to your config and
-restart Hyprland.
+If using flatpak, run `flatpak override --env=~/.themes:ro --env=~/.icons:ro --user` and put your themes in both `/usr/share/themes` and `~/.themes`, and put your icons and cursors in both `/usr/share/icons` and `~/.icons`.
 
 For QT applications, Hyprland exports XCURSOR_SIZE as 24, which is the default. 
-You can overwrite this by exporting XCURSOR_SIZE to a different value in your wrapper.
+You can overwrite this by exporting XCURSOR_SIZE to a different value with `env`.
 
-Alternatively, change the config files manually according to the
-[XDG specification (Arch Wiki link)](https://wiki.archlinux.org/title/Cursor_themes#Configuration).
+You can also try running `gsettings set org.gnome.desktop.interface cursor-theme 'theme-name'` or adding it after `exec-once=` in your config.
 
-Make sure to also edit `~/.config/gtk-4.0/settings.ini` and `~/.gtkrc-2.0` if
-_not_ using a tool (like `lxappearance`).
-
-Then, do a `gsettings set $gnome-schema cursor-theme 'theme-name'` and you're
-all good!
-
-If it still doesn't work...
+If you do not want to install a GTK settings editor, change the config files according to the 
+[XDG specification (Arch Wiki link)](https://wiki.archlinux.org/title/Cursor_themes#Configuration). 
+Make sure to also edit `~/.config/gtk-4.0/settings.ini` and `~/.gtkrc-2.0` if _not_ using a tool 
+(like `nwg-look`).
 
 # GTK Settings no work / whatever
 
@@ -191,19 +194,19 @@ exec-once=handle_monitor_connect.sh
 
 where `handle_monitor_connect.sh` is: (example)
 
-```bash
+```sh
 #!/bin/sh
 
-function handle {
-  if [[ ${1:0:12} == "monitoradded" ]]; then
+handle() {
+  case $1 in monitoradded*)
     hyprctl dispatch moveworkspacetomonitor "1 1"
     hyprctl dispatch moveworkspacetomonitor "2 1"
     hyprctl dispatch moveworkspacetomonitor "4 1"
     hyprctl dispatch moveworkspacetomonitor "5 1"
-  fi
+  esac
 }
 
-socat - UNIX-CONNECT:/tmp/hypr/.socket2.sock | while read line; do handle $line; done
+socat - "UNIX-CONNECT:/tmp/hypr/${HYPRLAND_INSTANCE_SIGNATURE}/.socket2.sock" | while read -r line; do handle "$line"; done
 ```
 
 if you want workspaces 1 2 4 5 to go to monitor 1 when connecting it.
@@ -232,7 +235,7 @@ In such cases, a script like this:
 ```bash
 #!/bin/bash
 sleep 4
-killall xdg-desktop-portal-wlr
+killall -e xdg-desktop-portal-wlr
 killall xdg-desktop-portal
 /usr/lib/xdg-desktop-portal-wlr &
 sleep 4
@@ -243,28 +246,23 @@ launched with `exec-once` should fix all issues. Adjust the sleep durations to t
 
 # How do I export envvars for Hyprland?
 
-As with any Display Server, Xorg included, you should probably make a script to
-launch it, for example:
+See [Environment Variables](../Configuring/Environment-variables)
 
-```bash
-export AMONG_US=1
-exec Hyprland
+The `env` keyword is used for this purpose. For example:
+```ini
+env = XDG_CURRENT_DESKTOP,Hyprland
 ```
-
-and launch that.
-
-For Display Manager users, you can replace the `exec` entry in
-the `.desktop` file to point to your script. You are recommended
-to use absolute paths, such as `/home/username/Script` instead of `~/Script`
 
 # How to disable middle-click paste?
 
-In your config, add this bind: `bind = , mouse:274, exec, ;`. Note that the
-exact bindcode may vary, so you may want to check it with `wev` first.
+The middle-click paste action pastes from a separate buffer (primary buffer) than what the regular clipboard uses (clipboard buffer). Since the primary buffer is unrelated to the clipboard buffer, it's easy to simply keep the primary buffer empty, allowing the middle-click action to retain the rest of its functionality without having anything to paste. Run the following command (in your config with `exec-once`, for example) to achieve this:
 
-Note that some software, like `kitty`, intercepts middle-click events and binds
-them to paste from primary on their own. Their configurations will need to be
-changed to account for that.
+`wl-paste -p --watch wl-copy -pc` (`wl-paste -p --watch` watches for changes to the primary buffer, `wl-copy -pc` clears the primary buffer)
+
+
+Alternatively, you can simply intercept the middle-click action all together, via hyprland binds for example. The drawbacks to this solution are that 1. it disables the rest of the functionality of the middle-click action, such as auto scroll, closing browser tabs, etc., and 2. many applications (such as kitty) manually intercept the middle-click events and bind them to paste from the primary buffer themselves, bypassing the solution altogether. For this solution, add this bind to your config:
+
+`bind = , mouse:274, exec, ;`. Note that the exact bindcode may vary, so you may want to check it with `wev` first.
 
 # How do I make Hyprland draw as little power as possible on my laptop?
 
@@ -284,3 +282,17 @@ It's heavily advised to use `full` regardless of anything.
 # How to fix games with window dancing?
 
 Read [this trick](../Configuring/Uncommon-tips--tricks/#window-dancing).
+
+# My apps take a long time to start / can't screenshare
+
+See [The XDPH Page](../Useful-Utilities/Hyprland-desktop-portal).
+
+You most likely have multiple portal impls / an impl is failing to launch.
+
+# My screenshot utilities won't work with multiple screens
+Some programs like flameshot (currently) has limited wayland support so on most Wayland compositors, you will have to do few tweaks.
+For Hyprland, you can add these window rules to your config to make said programs work with both of your screens.
+```windowrulev2=float,title:^(flameshot)
+windowrulev2=move 0 0,title:^(flameshot)
+windowrulev2=nofullscreenrequest,title:^(flameshot)
+```

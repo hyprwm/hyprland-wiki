@@ -31,26 +31,22 @@ from source first.
 
 {{< tabs "uniqueid" >}}
 
-{{< tab "Arch Linux" >}} _If you're on Arch Linux, I_ **_heavily_** _recommend
-you use the AUR._
-
+{{< tab "Arch Linux" >}}
 ```plain
-hyprland-git - compiles from latest source
-hyprland - compiles from latest release source
-hyprland-bin - compiled latest release, prone to breaking on ARM devices as Hyprland binary is compiled for x86
+hyprland-git (AUR) - compiles from latest source
+hyprland - binary x86 tagged release
 ```
 
 {{< /tab >}}
 {{< tab "Nix" >}}Read the [Nix page](../../Nix).{{< /tab >}}
 {{< tab "openSUSE" >}}
-There are [precompiled packages of Hyprland](https://build.opensuse.org/package/show/X11:Wayland/hyprland)
-available in the [X11:Wayland](https://build.opensuse.org/project/show/X11:Wayland) project on OBS.
-
-To install them, follow the instructions at [software.opensuse.org/download.html?project=X11:Wayland&package=hyprland](https://software.opensuse.org//download.html?project=X11%3AWayland&package=hyprland) or use [OPI](https://github.com/openSUSE/opi) to install it.
+Hyprland is part of factory, starting with snapshot 20230411. To install it simply use zypper
 
 ```sh
-opi hyprland
+sudo zypper in hyprland
 ```
+
+or install the "hyprland" package via YaST2 Software.
 
 Alternatively, you can also follow the instructions under ["Manual (Manual Build)"](#manual-manual-build)
 to build Hyprland yourself.
@@ -59,11 +55,11 @@ Note: _Hyprland is not available for Leap, as most libraries (and compiler) that
 {{< /tab >}}
 {{< tab "Fedora" >}}<https://github.com/hyprwm/Hyprland/discussions/284>{{< /tab >}}
 {{< tab "Gentoo" >}}
-The hyprland package is available in the [wayland-desktop](https://github.com/bsd-ac/wayland-desktop) overlay.
+The hyprland package is available in the [guru](https://wiki.gentoo.org/wiki/Project:GURU) overlay.
 
 ```sh
-eselect repository enable wayland-desktop
-emaint sync -r wayland-desktop
+eselect repository enable guru
+emaint sync -r guru
 emerge --ask --verbose hyprland
 ```
 
@@ -76,6 +72,35 @@ Hyprland and related are in the default repository:
 - [xdg-desktop-portal-hyprland](https://www.freshports.org/x11/xdg-desktop-portal-hyprland)
 - [Other Wayland stuff](https://www.freshports.org/wayland/)
 {{</ tab >}}
+{{< tab "Ubuntu 23.04" >}}
+Build Dependencies:
+```bash
+sudo apt-get install -y meson wget build-essential ninja-build cmake-extras cmake gettext gettext-base fontconfig libfontconfig-dev libffi-dev libxml2-dev libdrm-dev libxkbcommon-x11-dev libxkbregistry-dev libxkbcommon-dev libpixman-1-dev libudev-dev libseat-dev seatd libxcb-dri3-dev libvulkan-dev libvulkan-volk-dev  vulkan-validationlayers-dev libvkfft-dev libgulkan-dev libegl-dev libgles2 libegl1-mesa-dev glslang-tools libinput-bin libinput-dev libxcb-composite0-dev libavutil-dev libavcodec-dev libavformat-dev libxcb-ewmh2 libxcb-ewmh-dev libxcb-present-dev libxcb-icccm4-dev libxcb-render-util0-dev libxcb-res0-dev libxcb-xinput-dev xdg-desktop-portal-wlr
+```
+you will also need to build the latest wayland, wayland-protocols, and libdisplay-info tagged releases from source
+
+for more info refer to the [Ubuntu Guide For Installing And Building Hyprland Gist](https://gist.github.com/Vertecedoc4545/3b077301299c20c5b9b4db00f4ca6000)
+
+{{< hint type=warning >}}
+
+Please note that since Ubuntu is generally behind with dependencies, it's not guaranteed
+that the build process will work at all. Even if it is, it's likely that it will break at some point in the future.
+
+Refer to the gist if anything fails.
+
+{{< /hint >}}
+
+{{</ tab >}}
+{{< tab "Void Linux" >}}
+Hyprland is not available for Void Linux from the official repositories [as Hyprland does build against tagged wlroots](https://github.com/void-linux/void-packages/issues/37544),
+however template files are available [from a third party](https://github.com/Makrennel/hyprland-void) which can build Hyprland [using xbps-src](https://github.com/void-linux/void-packages).
+
+For further instructions on building with the third party resource, refer to the [README](https://github.com/Makrennel/hyprland-void/blob/master/README.md).
+
+{{< hint type=warning >}}
+As always, when using third party scripts exercise caution and understand what the script does.
+{{< /hint>}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -102,7 +127,7 @@ libwlroots), you don't need to update anything else.
 _Arch dependencies_:
 
 ```plain
-yay -S gdb ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite xorg-xinput libxrender pixman wayland-protocols cairo pango seatd libxkbcommon xcb-util-wm xorg-xwayland libinput
+yay -S gdb ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite xorg-xinput libxrender pixman wayland-protocols cairo pango seatd libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio
 ```
 
 _(Please make a pull request or open an issue if any packages are missing from the list)_
@@ -118,10 +143,13 @@ zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig
 _FreeBSD dependencies_:
 
 ```plain
-pkg install git pkgconf gmake gcc evdev-proto cmake wayland-protocols wayland libglvnd libxkbcommon libinput cairo pixman libxcb
-pkg install meson `pkg rquery %dn wlroots`
+pkg install git pkgconf gmake gcc evdev-proto cmake wayland-protocols wayland libglvnd libxkbcommon libinput cairo pango pixman libxcb
+pkg install meson jq `pkg rquery %dn wlroots` hwdata libdisplay-info libliftoff
 export CC=gcc CXX=g++ LDFLAGS="-static-libstdc++ -static-libgcc"
 ```
+
+_Ubuntu 23.04 dependencies_:
+refer to the Ubuntu tab above
 
 Please note Hyprland builds `wlroots`. Make sure you have the dependencies of
 wlroots installed, you can make sure you have them by installing wlroots
@@ -140,12 +168,15 @@ cd Hyprland
 sudo make install
 ```
 
+_CMake is always recommended as it's the intended way Hyprland should be installed._
+
 ### Meson
 
 ```plain
-meson _build
-ninja -C _build
-ninja -C _build install --tags runtime,man
+meson subprojects update --reset
+meson setup build
+ninja -C build
+ninja -C build install --tags runtime,man
 ```
 
 Refer to [Debugging](../../Contributing-and-Debugging) to see how to build &

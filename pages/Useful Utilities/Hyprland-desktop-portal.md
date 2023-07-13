@@ -26,24 +26,22 @@ will be disabled)
 
 {{< tab "Arch Linux" >}}
 ```plain
+pacman -S xdg-desktop-portal-hyprland
+```
+or, for -git:
+```plain
 yay -S xdg-desktop-portal-hyprland-git
 ```
-
-{{< hint type=warning >}}
-`paru` has an issue with searching for implementations in the AUR, and will falsely ask you to install
-an additional implementation. Installing any other than `-gtk` alongside XDPH will cause it to most likely
-not work.
-{{</ hint >}}
 
 {{< /tab >}}
 {{< tab "Gentoo" >}}
 ## Unmask dependencies
 ### /etc/portage/profile/package.unmask
 ```plain
-=dev-qt/qtbase-6.4.0
-=dev-qt/qtwayland-6.4.0
-=dev-qt/qtdeclarative-6.4.0
-=dev-qt/qtshadertools-6.4.0
+dev-qt/qtbase
+dev-qt/qtwayland
+dev-qt/qtdeclarative
+dev-qt/qtshadertools
 ```
 
 ## Apply necessary useflags
@@ -51,28 +49,25 @@ not work.
 ```plain
 dev-qt/qtbase opengl egl eglfs gles2-only
 dev-qt/qtdeclarative opengl
-gui-libs/xdg-desktop-portal-hyprland select-window select-region
 sys-apps/xdg-desktop-portal screencast
 ```
 
 ## Unmask dependencies and xdph
 ### /etc/portage/package.accept_keywords
 ```plain
-gui-libs/xdg-desktop-portal-hyprland **
-=dev-qt/qtbase-6.4.0
-=dev-qt/qtwayland-6.4.0
-=dev-qt/qtdeclarative-6.4.0
-=dev-qt/qtshadertools-6.4.0
+gui-libs/xdg-desktop-portal-hyprland 
+dev-qt/qtbase
+dev-qt/qtwayland
+dev-qt/qtdeclarative
+dev-qt/qtshadertools
 ```
 
-btw those are the useflags that I have tested, you could also test others. Also if the gentoo devs update the qt ebuilds without marking them as stable you'll need to check the ebuild version and update it on '/etc/portage/package.accept_keywords' and '/etc/portage/profile/package.unmask'
-
-example: '=dev-qt/qtbase-6.5.0'
+btw those are the useflags that I have tested, you could also test others.
 
 ## Installation
 ```sh
-eselect repository add useless-overlay git https://github.com/Wa1t5/useless-overlay
-emaint sync -r useless-overlay
+eselect repository enable guru
+emaint sync -r guru
 emerge --ask --verbose gui-libs/xdg-desktop-portal-hyprland
 ```
 
@@ -88,6 +83,8 @@ See [The Github repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hypr
 It's recommended to uninstall any other portal implementations to avoid conflicts with the `-hyprland` or `-wlr` ones.
 
 `-kde` and `-gnome` are known to cause issues.
+
+`-kde` is unfortunately a hard dep of `plasma-integration` in Arch Linux, so if using that, you'll need to `pacman -Rnsdd xdg-desktop-portal-kde`.
 
 both `-wlr` and `-hyprland` installed at once will also cause conflicts. Choose one and uninstall the other.
 {{< /hint >}}
@@ -109,11 +106,22 @@ For a nuclear option, you can use this script and `exec-once` it:
 ```sh
 #!/bin/bash
 sleep 1
-killall xdg-desktop-portal-hyprland
-killall xdg-desktop-portal-wlr
+killall -e xdg-desktop-portal-hyprland
+killall -e xdg-desktop-portal-wlr
 killall xdg-desktop-portal
 /usr/lib/xdg-desktop-portal-hyprland &
 sleep 2
 /usr/lib/xdg-desktop-portal &
 ```
 adjust the paths if incorrect.
+
+## Debugging
+
+If you get long app launch times, or screensharing does not work, consult the logs.
+
+`systemctl --user status xdg-desktop-portal-hyprland`
+
+if you see a crash, it's most likely you are missing `qt6-wayland` and/or `qt5-wayland`.
+
+if you don't, make _sure_ you don't have `-kde` or `-gnome` installed. Only `-gtk`
+will work with `-hyprland` or `-wlr` on Hyprland.

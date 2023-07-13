@@ -1,11 +1,34 @@
-As [aforementioned](../../Getting-Started/Master-Tutorial/#launching-hyprland-part-1), it's 
-useful using a wrapper to launch Hyprland. Whether you start Hyprland through TTY or a Display 
-Manager, it is always suggested to use one. As such, you can pass certain environment 
-variables to improve Wayland compatibility, or simply change certain aspects of your desktop.
+You can use the `env` keyword to set environment variables prior to the initialization of
+the Display Server, e.g.:
+```ini
+env = GTK_THEME,Nord
+```
+
+{{< hint type=important >}}
+Hyprland puts the raw string to the envvar with the `env` keyword. You should _not_ add quotes around the values.
+
+e.g.:
+```ini
+env = QT_QPA_PLATFORM,wayland
+```
+
+and ***NOT***
+```ini
+env = QT_QPA_PLATFORM,"wayland"
+```
+{{< /hint >}}
 
 Please avoid putting those environment variables in /etc/environment. That will cause all
 sessions (including Xorg ones) to pick up your wayland-specific environment on traditional
 Linux distros.
+
+# Toolkit Backend Variables
+- `GDK_BACKEND=wayland,x11` - GTK: Use wayland if available, fall back to x11 if not.
+- `QT_QPA_PLATFORM="wayland;xcb"` - QT: Use wayland if available, fall back to x11 if not.
+- `SDL_VIDEODRIVER=wayland` - Run SDL2 applications on Wayland. Remove or set to `x11` if games that provide older versions of SDL cause
+  compatibility issues
+- `CLUTTER_BACKEND=wayland` - Clutter package already has wayland enabled, this variable will force Clutter applications
+  to try and use the Wayland backend
 
 # XDG Specifications
 
@@ -14,13 +37,13 @@ Linux distros.
 - `XDG_SESSION_DESKTOP=Hyprland`
 
 XDG specific environment variables are often detected through portals and applications that may
-set those for you, however it is a good idea to provide them in your wrapper script as a fail-safe.
+set those for you, however it is not a bad idea to set them explicitly.
 
 # QT Variables
 
 - `QT_AUTO_SCREEN_SCALE_FACTOR=1` - [(From the QT documentation)](https://doc.qt.io/qt-5/highdpi.html)
 enables automatic scaling, based on the monitor's pixel density
-- `QT_QPA_PLATFORM="wayland;xcb"` - Tell QT applications to use the Wayland backend, and fall back to x11 if Wayland is unavailable
+- `QT_QPA_PLATFORM=wayland;xcb` - Tell QT applications to use the Wayland backend, and fall back to x11 if Wayland is unavailable
 - `QT_WAYLAND_DISABLE_WINDOWDECORATION=1` - Disables window decorations on QT applications
 - `QT_QPA_PLATFORMTHEME=qt5ct` - Tells QT based applications to pick your theme from qt5ct, use with Kvantum.
 
@@ -45,17 +68,6 @@ To force GBM as a backend, set the following environment variables:
 - `__GL_VRR_ALLOWED` - Controls if Adaptive Sync should be used. Recommended to set as "0" to avoid having problems on some games.
 
 - `WLR_DRM_NO_ATOMIC=1` - use legacy DRM interface instead of atomic mode setting. Might fix flickering issues.
-
-# Toolkit Backend Variables
-
-- `SDL_VIDEODRIVER=wayland` - Run SDL2 applications on Wayland. Remove or set to x11 if games that provide older versions of SDL cause
-  compatibility issues
-- `_JAVA_AWT_WM_NONEREPARENTING=1` - Fix possibly broken Java applications. Set to 1 until Wakefield is available.
-- `CLUTTER_BACKEND="wayland"` - Clutter package already has wayland enabled, this variable will force Clutter applications
-  to try and use the Wayland backend
-
-- `GDK_BACKEND` - Force backend for wayland-enabled GTK3 and GTK4 backends. Available options are "wayland" or "x11". If GTK XWayland
-  applications cause issues when set to "wayland", try "wayland,x11"
 
 # Theming Related Variables
 

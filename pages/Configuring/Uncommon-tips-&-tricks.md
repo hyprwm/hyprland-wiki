@@ -20,6 +20,19 @@ For example: `us,ua` -> config binds would be e.g. `SUPER, A`, while on `ua,us` 
 You can also bind a key to execute `hyprctl switchxkblayout` for more keybind freedom.
 See [Using hyprctl](../Using-hyprctl).
 
+To find the valid layouts and `kb_options`, you can check out the `/usr/share/X11/xkb/rules/base.lst`. For example:
+
+To get the layout name of a language:
+```sh
+grep -i 'persian' /usr/share/X11/xkb/rules/base.lst
+```
+
+To get the list of keyboard shortcuts you can put in the `kb_options` to toggle keyboard layouts:
+
+```sh
+grep 'grp:.*toggle' /usr/share/X11/xkb/rules/base.lst
+```
+
 # Disabling keybinds with one master keybind
 
 If you want to disable all keybinds with another keybind (make a keybind toggle
@@ -31,6 +44,13 @@ submap=clean
 bind=MOD,KEY,submap,reset
 submap=reset
 ```
+# Remap Caps-Lock to Ctrl
+
+```
+input {
+    kb_options = ctrl:nocaps
+}
+```
 
 # Minimize Steam instead of killing
 
@@ -38,8 +58,8 @@ Steam will exit entirely when it's last window is closed using the `killactive` 
 To minimize Steam to tray, use the following script to close applications:
 
 ```sh
-if [[ $(hyprctl activewindow -j | jq -r ".class") == "Steam" ]]; then
-    xdotool windowunmap $(xdotool getactivewindow)
+if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
+    xdotool getactivewindow windowunmap
 else
     hyprctl dispatch killactive ""
 fi
@@ -93,3 +113,36 @@ The app indicator probably won't show, so you'll have to `killall -9 java` to ki
 {{< /hint >}}
 
 ![Demo GIF of Spamton Shimeji](https://media.discordapp.net/attachments/810799100940255260/1032846469855727656/ezgif.com-gif-maker19.gif)
+
+# Toggle animations/blur/etc hotkey
+
+For increased performance in games, or for less distractions at a keypress
+
+1. create file `~/.config/hypr/gamemode.sh && chmod +x ~/.config/hypr/gamemode.sh` and add:
+
+```bash
+#!/usr/bin/env sh
+HYPRGAMEMODE=$(hyprctl getoption animations:enabled | awk 'NR==2{print $2}')
+if [ "$HYPRGAMEMODE" = 1 ] ; then
+    hyprctl --batch "\
+        keyword animations:enabled 0;\
+        keyword decoration:drop_shadow 0;\
+        keyword decoration:blur 0;\
+        keyword general:gaps_in 0;\
+        keyword general:gaps_out 0;\
+        keyword general:border_size 1;\
+        keyword decoration:rounding 0"
+    exit
+fi
+hyprctl reload
+```
+
+Edit to your liking of course. If animations are enabled, it disables all the pretty stuff. Otherwise, the script reloads your config to grab your defaults.
+
+2. Add this to your `hyprland.conf`:
+
+```ini
+bind = WIN, F1, exec, ~/.config/hypr/gamemode.sh
+```
+
+The hotkey toggle will be WIN+F1, but you can change this to whatever you want.

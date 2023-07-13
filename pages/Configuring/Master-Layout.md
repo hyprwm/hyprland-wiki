@@ -10,12 +10,16 @@ _category name `master`_
 
 | name | description | type | default |
 |---|---|---|---|
+| allow_small_split | enable adding additional master windows in a horizontal split style | bool | false |
 | special_scale_factor | (0.0 - 1.0) the scale of the special workspace windows | float | 0.8 |
+| mfact | (0.0 - 1.0) master split factor, the ratio of master split| float | 0.55 |
 | new_is_master | whether a newly open window should replace the master or join the slaves. | bool | true |
 | new_on_top | whether a newly open window should be on the top of the stack | bool | false |
 | no_gaps_when_only | whether to apply gaps when there is only one window on a workspace, aka. smart gaps. | bool | false |
-| orientation | default placement of the master area, can be left, right, top or bottom | string | left |
+| orientation | default placement of the master area, can be left, right, top, bottom or center | string | left |
 | inherit_fullscreen | inherit fullscreen status when cycling/swapping to another window (e.g. monocle layout) | bool | true |
+| always_center_master | when using orientation=center, keep the master window centered, even when it is the only window in the workspace. | bool | false |
+
 
 # Dispatchers
 
@@ -35,6 +39,7 @@ _category name `master`_
 | orientationright | sets the orientation for the current workspace to right (master area right, slave windows to the left, vertically stacked) | none |
 | orientationtop | sets the orientation for the current workspace to top (master area top, slave windows to the bottom, horizontally stacked) | none |
 | orientationbottom | sets the orientation for the current workspace to bottom (master area bottom, slave windows to the top, horizontally stacked) | none |
+| orientationcenter | sets the orientation for the current workspace to center (master area center, slave windows alternate to the left and right, vertically stacked) | none |
 | orientationnext | cycle to the next orientation for the current workspace (clockwise) | none |
 | orientationprev | cycle to the previous orientation for the current workspace (counter-clockwise) | none |
 

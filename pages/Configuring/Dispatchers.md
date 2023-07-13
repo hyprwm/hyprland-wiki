@@ -22,6 +22,7 @@ layout pages (See the sidebar).
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
 | exec | executes a shell command | command (supports rules, see below) |
+| execr | executes a raw shell command (will not append any additional envvars like `exec` does, does not support rules) | command |
 | pass | passes the key (with mods) to a specified window. Can be used as a workaround to global keybinds not working on Wayland. | window |
 | killactive | closes (not kills) the active window | none |
 | closewindow | closes a specified window | window |
@@ -35,6 +36,7 @@ layout pages (See the sidebar).
 | pin | pins a window (i.e. show it on all workspaces) *note: floating only* | left empty / `active` for current, or `window` for a specific window |
 | movefocus | moves the focus in a direction | direction |
 | movewindow | moves the active window in a direction or to a monitor | direction or `mon:` and a monitor |
+| swapwindow | swaps the active window with another window in the given direction | direction |
 | centerwindow | center the active window *note: floating only* | none |
 | resizeactive | resizes the active window | resizeparams |
 | moveactive | moves the active window | resizeparams |
@@ -47,6 +49,7 @@ layout pages (See the sidebar).
 | splitratio | changes the split ratio | floatvalue |
 | toggleopaque | toggles the current window to always be opaque. Will override the `opaque` window rules. | none |
 | movecursortocorner | moves the cursor to the corner of the active window | direction, 0 - 3, bottom left - 0, bottom right - 1, top right - 2, top left - 3 |
+| movecursor | moves the cursor to a specified position | `x,y` |
 | workspaceopt | toggles a workspace option for the active workspace. | workspaceopt |
 | renameworkspace | rename a workspace | `id name`, e.g. `2 work` |
 | exit | exits the compositor with no questions asked. | none |
@@ -57,6 +60,16 @@ layout pages (See the sidebar).
 | bringactivetotop | Brings the current window to the top of the stack | none |
 | togglespecialworkspace | toggles a special workspace on/off | none (for the first) or name for named (name has to be a special workspace's name) |
 | focusurgentorlast | Focuses the urgent window or the last window | none |
+| togglegroup | toggles the current active window into a group | none |
+| changegroupactive | switches to the next window in a group. | b - back, f - forward. |
+| focuscurrentorlast | Switch focus from current to previously focused window | none |
+| lockgroups | Locks the groups (all groups will not accept new windows) | `lock` for locking, `unlock` for unlocking, `toggle` for toggle |
+| lockactivegroup | Lock the focused group (the current group will not accept new windows or be moved to other groups) | `lock` for locking, `unlock` for unlocking, `toggle` for toggle |
+| moveintogroup | Moves the active window into a group in a specified direction. No-op if there is no group in the specified direction. | direction |
+| moveoutofgroup | Moves the active window out of a group. No-op if not in a group | none |
+| movegroupwindow | Swaps the active window with the next or previous in a group | `b` for back, anything else for forward |
+| global | Executes a Global Shortcut using the GlobalShortcuts portal. See [here](../Binds/#global-keybinds) | name |
+| submap | Change the current mapping group. See [Submaps](../Binds/#submaps) | `reset` or name |
 
 {{< hint type=warning >}}
 it is NOT recommended to set DPMS with a keybind directly, as it
@@ -68,6 +81,15 @@ bind = MOD,KEY,exec,sleep 1 && hyprctl dispatch dpms off
 
 {{< /hint >}}
 
+## Grouped (tabbed) windows
+
+Hyprland allows you to make a group from the current active window with the `togglegroup` bind dispatcher.
+
+A group is like i3wm’s “tabbed” container. It takes the space of one window, and you can change the window to the next one in the tabbed “group” with the `changegroupactive` bind dispatcher.
+
+The new group’s border colors are configurable with the appropriate `col.` settings in the general config section.
+
+You can lock a group with the `lockgroups` bind dispatcher in order to stop new windows from entering groups.
 # Workspaces
 
 You have eight choices:
@@ -77,6 +99,8 @@ You have eight choices:
 - Relative ID: e.g. `+1`, `-3` or `+100`
 
 - Relative workspace on monitor: e.g. `m+1`, `m-1` or `m+3`
+
+- Relative workspace on monitor including empty workspaces: e.g. `r+1` or `r-3`
 
 - Relative open workspace: e.g. `e+1` or `e-10`
 
@@ -90,7 +114,7 @@ You have eight choices:
 
 {{< hint type=warning >}}
 `special` is supported ONLY on
-`movetoworkspace`. Any other dispatcher will result in undocumented behavior.
+`movetoworkspace` and `movetoworkspacesilent`. Any other dispatcher will result in undocumented behavior.
 {{< /hint >}}
 
 {{< hint type=important >}}
@@ -111,6 +135,14 @@ will send it to the currently active _real_ workspace.
 
 You can define multiple named special workspaces, but the amount of those is limited to 97 at a time.
 {{< /hint >}}
+
+For example, to move a window/application to a special workspace you can use the following syntax:
+
+```
+bind = SUPER, C, movetoworkspace, special
+#The above syntax will move the window to a special workspace upon pressing 'SUPER'+'C'.
+#To see the hidden window you can use the togglespecialworkspace dispatcher mentioned above.
+```
 
 # Workspace options
 
