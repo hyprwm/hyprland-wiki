@@ -12,7 +12,7 @@ This setup is very common in the likes of gaming laptops, GPU-passthrough(withou
 
 For this case, the writer is taking the example of their laptop. Here are some of the details for the same
 
-Upon running `lspci | grep VGA`, I can list all the video devices installed on this laptop
+Upon running `lspci | grep -E 'VGA|3D'`, I can list all the video devices installed on this laptop
 
 ```
 01:00.0 VGA compatible controller: NVIDIA Corporation TU117M [GeForce GTX 1650 Mobile / Max-Q] (rev a1)
