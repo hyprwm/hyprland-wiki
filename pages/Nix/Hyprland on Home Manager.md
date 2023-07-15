@@ -84,7 +84,27 @@ Once the module is enabled, you can use it to declaratively configure Hyprland:
 # home.nix
 {config, pkgs, ...}: {
   wayland.windowManager.hyprland.extraConfig = ''
-    % TODO add some examples that add string interpolation or something cool
+    $mod = SUPER
+
+    bind = $mod, F, exec, firefox
+    bind = , Print, exec, grimblast copy area
+
+    # workspaces
+    # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
+    ${builtins.concatStringsSep "\n" (builtins.genList (
+        x: let
+          ws = let
+            c = (x + 1) / 10;
+          in
+            builtins.toString (x + 1 - (c * 10));
+        in ''
+          bind = $mod, ${ws}, workspace, ${toString (x + 1)}
+          bind = $mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}
+        ''
+      )
+      10)}
+
+    # ...
   '';
 }
 ```
