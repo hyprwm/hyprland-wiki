@@ -39,7 +39,7 @@ hyprland - binary x86 tagged release
 
 {{< /tab >}}
 {{< tab "Nix" >}}Read the [Nix page](../../Nix).{{< /tab >}}
-{{< tab "openSUSE" >}}
+{{< tab "openSUSE*" >}}
 Hyprland is part of factory, starting with snapshot 20230411. To install it simply use zypper
 
 ```sh
@@ -53,8 +53,8 @@ to build Hyprland yourself.
 
 Note: _Hyprland is not available for Leap, as most libraries (and compiler) that Hyprland needs are too old._
 {{< /tab >}}
-{{< tab "Fedora" >}}<https://github.com/hyprwm/Hyprland/discussions/284>{{< /tab >}}
-{{< tab "Gentoo" >}}
+{{< tab "Fedora*" >}}<https://github.com/hyprwm/Hyprland/discussions/284>{{< /tab >}}
+{{< tab "Gentoo*" >}}
 The hyprland package is available in the [guru](https://wiki.gentoo.org/wiki/Project:GURU) overlay.
 
 ```sh
@@ -64,7 +64,7 @@ emerge --ask --verbose hyprland
 ```
 
 {{</ tab >}}
-{{< tab "FreeBSD" >}}
+{{< tab "FreeBSD*" >}}
 Hyprland and related are in the default repository:
 - [hyprland](https://www.freshports.org/x11-wm/hyprland)
 - [hyprpaper](https://www.freshports.org/x11/hyprpaper)
@@ -72,7 +72,7 @@ Hyprland and related are in the default repository:
 - [xdg-desktop-portal-hyprland](https://www.freshports.org/x11/xdg-desktop-portal-hyprland)
 - [Other Wayland stuff](https://www.freshports.org/wayland/)
 {{</ tab >}}
-{{< tab "Ubuntu 23.04" >}}
+{{< tab "Ubuntu 23.04*" >}}
 Build Dependencies:
 ```bash
 sudo apt-get install -y meson wget build-essential ninja-build cmake-extras cmake gettext gettext-base fontconfig libfontconfig-dev libffi-dev libxml2-dev libdrm-dev libxkbcommon-x11-dev libxkbregistry-dev libxkbcommon-dev libpixman-1-dev libudev-dev libseat-dev seatd libxcb-dri3-dev libvulkan-dev libvulkan-volk-dev  vulkan-validationlayers-dev libvkfft-dev libgulkan-dev libegl-dev libgles2 libegl1-mesa-dev glslang-tools libinput-bin libinput-dev libxcb-composite0-dev libavutil-dev libavcodec-dev libavformat-dev libxcb-ewmh2 libxcb-ewmh-dev libxcb-present-dev libxcb-icccm4-dev libxcb-render-util0-dev libxcb-res0-dev libxcb-xinput-dev xdg-desktop-portal-wlr
@@ -91,7 +91,7 @@ Refer to the gist if anything fails.
 {{< /hint >}}
 
 {{</ tab >}}
-{{< tab "Void Linux" >}}
+{{< tab "Void Linux*" >}}
 Hyprland is not available for Void Linux from the official repositories [as Hyprland does build against tagged wlroots](https://github.com/void-linux/void-packages/issues/37544),
 however template files are available [from a third party](https://github.com/Makrennel/hyprland-void) which can build Hyprland [using xbps-src](https://github.com/void-linux/void-packages).
 
@@ -103,6 +103,8 @@ As always, when using third party scripts exercise caution and understand what t
 {{< /tab >}}
 
 {{< /tabs >}}
+
+***\* Unofficial, no official support is provided. These instructions are community-driven, and no guarantee is provided for their validity.***
 
 ### Manual (Releases, Linux-only)
 
