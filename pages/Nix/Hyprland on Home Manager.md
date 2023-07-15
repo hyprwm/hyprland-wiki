@@ -6,7 +6,9 @@ For a list of available options, check the
 
 ## Installation
 
-The following snippets of code try to show how to bring the Hyprland flake from the flake input and import it into the module system. Feel free to make any adjustment for your setup.
+The following snippets of code try to show how to bring the Hyprland flake from
+the flake input and import it into the module system. Feel free to make any
+adjustment for your setup.
 
 {{< tabs "uniqueid" >}}
 
@@ -85,3 +87,18 @@ Once the module is enabled, you can use it to declaratively configure Hyprland:
     % TODO add some examples that add string interpolation or something cool
   '';
 }
+```
+
+## Plugins
+
+Hyprland plugins can be added through an option:
+
+```nix
+wayland.windowManager.hyprland.plugins = [
+  inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
+  "/absolute/path/to/plugin.so"
+];
+```
+
+For examples on how to build hyprland plugins using nix see the
+[official plugins](https://github.com/hyprwm/hyprland-plugins).

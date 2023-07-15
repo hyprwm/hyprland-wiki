@@ -20,6 +20,7 @@ The module is now upstreamed into Nixpkgs, which means all you need in your conf
 For more options, see
 [module options](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=hyprland).
 
+For other NixOS options, see [Hyprland on NixOS](./Hyprland-on-NixOS).
 
 ## Home-manager module
 

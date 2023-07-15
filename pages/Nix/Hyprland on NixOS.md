@@ -7,7 +7,9 @@ your Display Manager.
 Make sure to check out the options of the
 [NixOS module](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=hyprland).
 
-## From Nixpkgs
+{{< tabs "uniqueid" >}}
+
+{{< tab "Nixpkgs" >}}
 
 ```nix
 # configuration.nix
@@ -17,10 +19,19 @@ Make sure to check out the options of the
 }
 ```
 
-### Using unstable Hyprland
+This will use the Hyprland version that Nixpkgs has.
 
-In case you want to use the module from Nixpkgs, but also want the development
-version of Hyprland, you can add it like this:
+{{< /tab >}}
+
+{{< tab "Flake package" >}}
+
+{{< hint >}}
+Please enable [Cachix](../Cachix) before using the flake package, so you don't
+have to compile Hyprland yourself.
+{{< /hint >}}
+
+In case you want to use the development version of Hyprland, you can add it
+like this:
 
 ```nix
 # flake.nix
@@ -31,8 +42,10 @@ version of Hyprland, you can add it like this:
 
   outputs = {nixpkgs, ...} @ inputs: {
     nixosConfigurations.HOSTNAME = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;}; # this is the important part
-      modules = [./configuration.nix];
+      specialArgs = { inherit inputs; }; # this is the important part
+      modules = [
+        ./configuration.nix
+      ];
     };
   } 
 }
@@ -40,40 +53,21 @@ version of Hyprland, you can add it like this:
 # configuration.nix
 
 {inputs, pkgs, ...}: {
-  programs.hyprland.package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-}
-```
-
-## From the Flake
-
-```nix
-# flake.nix
-{
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    hyprland.url = "github:hyprwm/Hyprland";
-  };
-
-  outputs = {nixpkgs, hyprland, ...}: {
-    nixosConfigurations.HOSTNAME = nixpkgs.lib.nixosSystem {
-      modules = [
-        hyprland.nixosModules.default
-        {programs.hyprland.enable = true;}
-        # ...
-      ];
-    };
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
 }
 ```
+Don't forget to change the `HOSTNAME` to your actual hostname!
 
-Don't forget to replace `HOSTNAME` with your hostname!
+{{< /tab >}}
 
-## From the Flake, on Nix stable
+{{< tab "Flake package, Nix stable" >}}
 
 {{< hint >}}
-If you're using Hyprland through an overlay, set
-`programs.hyprland.package = pkgs.hyprland;`. This also means the `xwayland`
-and `nvidiaPatches` options no longer apply.
+Please enable [Cachix](../Cachix) before using the flake package, so you don't
+have to compile Hyprland yourself.
 {{< /hint >}}
 
 ```nix
@@ -82,24 +76,16 @@ and `nvidiaPatches` options no longer apply.
 {pkgs, ...}: let
   flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
 
-  hyprland = (import flake-compat {
+  hyprland-flake = (import flake-compat {
     src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/master.tar.gz";
   }).defaultNix;
 in {
-  imports = [hyprland.nixosModules.default];
-
   programs.hyprland = {
     enable = true;
-
-    # default options, you don't need to set them
-    package = hyprland.packages.${pkgs.system}.default;
-
-    xwayland = {
-      enable = true;
-      hidpi = false;
-    };
-
-    nvidiaPatches = false;
+    package = hyprland-flake.packages.${pkgs.system}.hyprland;
   };
 }
 ```
+
+{{< /tab >}}
+{{< /tabs >}}
