@@ -1,5 +1,5 @@
-NOTE: This page only applies to the flake package. You can safely skip this if you use
-the Nixpkgs package.
+NOTE: This page only applies to the flake package. You can safely skip this if
+you use the Nixpkgs package.
 
 Hyprland is not built by Hydra and cached in `cache.nixos.org`, like the rest
 of the Nixpkgs packages.
@@ -13,13 +13,7 @@ The [Hyprland Cachix](https://app.cachix.org/cache/hyprland) exists to cache the
 
 {{< hint >}}
 In order for Nix to take advantage of the cache, it has to be enabled **before**
-enabling the Hyprland module(s) or adding the package.
-{{< /hint >}}
-
-{{< hint type=important >}}
-Overriding Hyprland's `nixpkgs` input
-(`inputs.hyprland.inputs.nixpkgs.follows = "nixpkgs";`) will make the cache
-useless, since you're building from a different Nixpkgs commit.
+enabling the Hyprland flake package.
 {{< /hint >}}
 
 ```nix
@@ -31,3 +25,12 @@ useless, since you're building from a different Nixpkgs commit.
   };
 }
 ```
+
+{{< hint type=important >}}
+Do **not** override Hyprland's `nixpkgs` input unless you know what you are
+doing.
+
+Doing so will make the cache useless, since you're building from a different
+Nixpkgs commit.
+{{< /hint >}}
+

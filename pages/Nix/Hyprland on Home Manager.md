@@ -3,7 +3,18 @@ You can use the Home Manager module by adding it to your configuration:
 For a list of available options, check the
 [module file](https://github.com/hyprwm/Hyprland/blob/main/nix/hm-module.nix).
 
-## With flakes
+
+## Installation
+
+The following snippets of code try to show how to bring the Hyprland flake from
+the flake input and import it into the module system. Feel free to make any
+adjustment for your setup.
+
+{{< tabs "uniqueid" >}}
+
+{{< tab "Flakes" >}}
+
+Don't forget to replace `user@hostname` with your username and hostname!
 
 ```nix
 # flake.nix
@@ -33,11 +44,9 @@ For a list of available options, check the
   };
 }
 ```
+{{< /tab >}}
 
-Don't forget to replace `user@hostname` with your username and hostname!
-
-## Without flakes
-
+{{< tab "No flakes (with flake-compat)" >}}
 ```nix
 # home config
 
@@ -62,3 +71,54 @@ in {
   };
 }
 ```
+{{< /tab >}}
+
+{{< /tabs >}}
+
+
+## Usage
+
+Once the module is enabled, you can use it to declaratively configure Hyprland:
+
+```nix
+# home.nix
+{config, pkgs, ...}: {
+  wayland.windowManager.hyprland.extraConfig = ''
+    $mod = SUPER
+
+    bind = $mod, F, exec, firefox
+    bind = , Print, exec, grimblast copy area
+
+    # workspaces
+    # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
+    ${builtins.concatStringsSep "\n" (builtins.genList (
+        x: let
+          ws = let
+            c = (x + 1) / 10;
+          in
+            builtins.toString (x + 1 - (c * 10));
+        in ''
+          bind = $mod, ${ws}, workspace, ${toString (x + 1)}
+          bind = $mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}
+        ''
+      )
+      10)}
+
+    # ...
+  '';
+}
+```
+
+## Plugins
+
+Hyprland plugins can be added through an option:
+
+```nix
+wayland.windowManager.hyprland.plugins = [
+  inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
+  "/absolute/path/to/plugin.so"
+];
+```
+
+For examples on how to build hyprland plugins using nix see the
+[official plugins](https://github.com/hyprwm/hyprland-plugins).

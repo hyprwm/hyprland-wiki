@@ -38,8 +38,19 @@ hyprland - binary x86 tagged release
 ```
 
 {{< /tab >}}
-{{< tab "Nix" >}}Read the [Nix page](../../Nix).{{< /tab >}}
+{{< tab "Nix" >}}
+
+Enable Hyprland in your NixOS configuration:
+
+```nix
+programs.hyprland.enable = true;
+```
+
+For more details, read the [Nix page](../../Nix).
+
+{{< /tab >}}
 {{< tab "openSUSE*" >}}
+>>>>>>> b147dc5 (clear-up nixos installation)
 Hyprland is part of factory, starting with snapshot 20230411. To install it simply use zypper
 
 ```sh

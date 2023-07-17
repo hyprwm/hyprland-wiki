@@ -1,5 +1,5 @@
 You can override the package through `.override` or `.overrideAttrs`. This is
-easily achievable through NixOS or Home Manager.
+easily achievable through [NixOS](../Hyprland-on-NixOS) or [Home Manager](../Hyprland-on-Home-Manager).
 
 ## Package options
 
@@ -9,7 +9,7 @@ can be changed by setting the appropriate option to `true`/`false`.
 ### Package
 
 ```nix
-(pkgs.hyprland.override { # or inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.default
+(pkgs.hyprland.override { # or inputs.hyprland.packages.${pkgs.system}.hyprland
   enableXWayland = true;
   hidpiXWayland = false;
   nvidiaPatches = false;
@@ -62,22 +62,8 @@ env = XCURSOR_SIZE,48
 ```
 
 {{< hint >}}
-The GDK_SCALE variable won't conflict with wayland-native GTK programs.
+The `GDK_SCALE` environment variable won't conflict with Wayland-native GTK programs.
 {{< /hint >}}
-
-### Plugins
-
-Hyprland plugins can be added through the home manager module.
-
-```nix
-wayland.windowManager.hyprland.plugins = [
-  inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
-  "/absolute/path/to/plugin.so"
-];
-```
-
-For examples on how to build hyprland plugins using nix see the
-[official plugins](https://github.com/hyprwm/hyprland-plugins).
 
 ### Nvidia Patches
 
