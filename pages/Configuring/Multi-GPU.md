@@ -101,32 +101,5 @@ Here, we tell Hyprland to set priorities. If `card1` isn't available for
 whatever reason, use `card0`. So if the AMD GPU isn't available, use NVIDIA. The
 colon is for setting priorities, essentially.
 
-After setting this, now we confirm whether the settings applied actually work or
-not.
-
-To test whether the NVIDIA card is rendering anything, lets check the output of
-`nvidia-smi`
-
-``` 
-Fri Jul 14 01:14:46 2023
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 525.125.06   Driver Version: 525.125.06   CUDA Version: 1 2.0     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|                               |                      |               MIG M. |
-|===============================+======================+======================|
-|   0  NVIDIA GeForce ...  Off  | 00000000:01:00.0 Off |                  N/A |
-| N/A   52C    P8     2W /  30W |      3MiB /  4096MiB |      0%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-+-----------------------------------------------------------------------------+
-| Processes:                                                                  |
-|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
-|        ID   ID                                                   Usage      |
-|=============================================================================|
-|    0   N/A  N/A      2869      G   /usr/bin/Hyprland                   1MiB |
-```
-
-This is with running a browser and some other stuff. So Nvidia is not rendering
-Hyprland afterall
+You shuld now be able to use a primary GPU for lesser GPU intensive tasks 
+including Hyprland.
