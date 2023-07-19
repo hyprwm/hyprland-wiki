@@ -97,6 +97,7 @@ you can use `hyprctl clients`.
 | nofocus | disables focus to the window | |
 | noinitialfocus | disables the initial focus to the window | |
 | noborder | disables borders for the window |&check;|
+| bordersize \[size\] | sets the border size |&check;|
 | nodim | disables window dimming for the window |&check;|
 | noshadow | disables shadows for the window |&check;|
 | forceinput | forces an XWayland window to receive input, even if it requests not to do so. (Might fix issues like e.g. Game Launchers not receiving focus for some reason) | |

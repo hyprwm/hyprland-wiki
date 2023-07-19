@@ -1,30 +1,27 @@
-Hyprland on Nix can be installed either from Nixpkgs (release version) or from
-the [flake](https://github.com/hyprwm/Hyprland/blob/main/flake.nix) (directly
-from the main branch).
+To install Hyprland on NixOS, we provide a NixOS and a Home Manager module.
 
-If you use the flake, it is a good idea to set up [Cachix](./Cachix) before
-continuing with installing Hyprland. 
+{{< hint title=note >}}
+- *(Required) NixOS Module*: enables critical components needed to run Hyprland properly
+- *(Optional) Home-manager module*: lets you declaratively configure Hyprland
+{{< /hint >}}
 
-The methods of installation are described below:
+## NixOS module
 
-## NixOS + Home Manager (recommended)
+The module is now upstreamed into Nixpkgs, which means all you need in your configuration is:
 
-If you're on NixOS and also use HM, it is a good idea to use Hyprland modules
-for both. Make sure the package options are the same for both modules.
+```nix
+{config, pkgs, ...}: {
+  programs.hyprland.enable = true;
+  # Optional, hint electron apps to use wayland:
+  # environment.sessionVariables.NIXOS_OZONE_WL = "1";
+}
+```
 
-Read [Hyprland on NixOS](./Hyprland-on-NixOS) and
-[Hyprland on Home Manager](./Hyprland-on-Home-Manager).
+For more options, see
+[module options](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=hyprland).
 
-## Home Manager only
+For other NixOS options, see [Hyprland on NixOS](./Hyprland-on-NixOS).
 
-If you do not plan on using the NixOS module, but want to use the HM module, you
-will have to enable all the options the NixOS module enables.
+## Home-manager module
 
 Read [Hyprland on Home Manager](./Hyprland-on-Home-Manager).
-
-## On your own
-
-If you don't plan on using any module, manually enable all the options that the
-modules have set.
-
-Read [the sources](https://github.com/hyprwm/Hyprland/tree/main/nix).
