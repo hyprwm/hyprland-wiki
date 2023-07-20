@@ -101,5 +101,5 @@ Here, we tell Hyprland to set priorities. If `card1` isn't available for
 whatever reason, use `card0`. So if the AMD GPU isn't available, use NVIDIA. The
 colon is for setting priorities, essentially.
 
-You shuld now be able to use a primary GPU for lesser GPU intensive tasks 
-including Hyprland.
+You should now be able to use a primary GPU for for lighter GPU loads, including
+Hyprland.
