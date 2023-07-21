@@ -13,15 +13,6 @@ This setup is very common in the likes of gaming laptops,
 GPU-passthrough(without VFIO) capable hosts, and if you have multiple GPUs in
 general.
 
-If your host machine uses multiple GPUs, you may want to primarily use a GPU for
-rendering all the elements for Hyprland including windows, animations, hardware
-acceleration for certain applications, etc.
-
-This setup is very common in the likes of gaming laptops,
-GPU-passthrough(without VFIO) capable hosts, and if you have multiple GPUs in
-general.
-
-
 # Detecting GPUs
 
 For this case, the writer is taking the example of their laptop.
@@ -35,19 +26,6 @@ available.
 Devices, Inc. [AMD/ATI] Cezanne [Radeon Vega Series / Radeon Vega Mobile Series]
 (rev c6) ```
 ```
-Here it is clear that 2 GPUs are available, the dedicated NVIDIA GTX 1650 Mobile
-/ Max-Q and the integrated AMD Cezanne Radeon Vega Series GPU.
-
-Upon running `lspci | grep -E 'VGA|3D'`, One can list all the video devices
-available.
-
-```
-01:00.0 VGA compatible controller: NVIDIA Corporation TU117M [GeForce GTX
-1650 Mobile / Max-Q] (rev a1) 06:00.0 VGA compatible controller: Advanced Micro
-Devices, Inc. [AMD/ATI] Cezanne [Radeon Vega Series / Radeon Vega Mobile Series]
-(rev c6)
-```
-
 Here it is clear that 2 GPUs are available, the dedicated NVIDIA GTX 1650 Mobile
 / Max-Q and the integrated AMD Cezanne Radeon Vega Series GPU.
 
