@@ -24,7 +24,7 @@ available.
 01:00.0 VGA compatible controller: NVIDIA Corporation TU117M [GeForce GTX
 1650 Mobile / Max-Q] (rev a1) 06:00.0 VGA compatible controller: Advanced Micro
 Devices, Inc. [AMD/ATI] Cezanne [Radeon Vega Series / Radeon Vega Mobile Series]
-(rev c6) ```
+(rev c6)
 ```
 Here it is clear that 2 GPUs are available, the dedicated NVIDIA GTX 1650 Mobile
 / Max-Q and the integrated AMD Cezanne Radeon Vega Series GPU.
