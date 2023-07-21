@@ -65,13 +65,25 @@ Note: _Hyprland is not available for Leap, as most libraries (and compiler) that
 {{< /tab >}}
 {{< tab "Fedora*" >}}<https://github.com/hyprwm/Hyprland/discussions/284>{{< /tab >}}
 {{< tab "Gentoo*" >}}
-The hyprland package is available in the [guru](https://wiki.gentoo.org/wiki/Project:GURU) overlay.
+The hyprland and xdg-desktop-portal-hyprland packages are available in the main tree:
+
+```sh
+emerge --ask gui-wm/hyprland
+emerge --ask gui-libs/xdg-desktop-portal-hyprland
+```
+
+Additional packages like hyprland-plugins, hyprpaper and hyprpicker are available in the [GURU](https://wiki.gentoo.org/wiki/Project:GURU) overlay. Community-contributed scripts are also available in GURU as part of the hyprland-contrib package.
 
 ```sh
 eselect repository enable guru
 emaint sync -r guru
-emerge --ask --verbose hyprland
+emerge --ask gui-apps/hyprland-plugins
+emerge --ask gui-apps/hyprpaper
+emerge --ask gui-apps/hyprpicker
+emerge --ask gui-wm/hyprland-contrib
 ```
+
+For USE flags and more details, read the [Gentoo wiki page](https://wiki.gentoo.org/wiki/Hyprland) about Hyprland.
 
 {{</ tab >}}
 {{< tab "FreeBSD*" >}}
