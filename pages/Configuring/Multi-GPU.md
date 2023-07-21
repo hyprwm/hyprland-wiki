@@ -5,12 +5,12 @@
 # General
 
 
-If your host machine uses multiple GPUs, you may want to primarily use a GPU for
-rendering all the elements for Hyprland including windows, animations, hardware
-acceleration for certain applications, etc.
+If your host machine uses multiple GPUs, you may want to primarily use one GPU
+for rendering all the elements for Hyprland including windows, animations, and
+another for hardware acceleration for certain applications, etc.
 
-This setup is very common in the likes of gaming laptops,
-GPU-passthrough(without VFIO) capable hosts, and if you have multiple GPUs in
+This setup is very common in the likes of gaming laptops, 
+GPU-passthrough (without VFIO) capable hosts, and if you have multiple GPUs in
 general.
 
 # Detecting GPUs
