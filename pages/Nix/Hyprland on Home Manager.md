@@ -1,7 +1,5 @@
-You can use the Home Manager module by adding it to your configuration:
-
 For a list of available options, check the
-[module file](https://github.com/hyprwm/Hyprland/blob/main/nix/hm-module.nix).
+[Home Manager options](https://nix-community.github.io/home-manager/options.html#opt-wayland.windowManager.hyprland.enable).
 
 {{< hint title=Note >}}
 - *(Required) NixOS Module*: enables critical components needed to run Hyprland properly
@@ -10,13 +8,24 @@ For a list of available options, check the
 
 ## Installation
 
-The following snippets of code try to show how to bring the Hyprland flake from
-the flake input and import it into the module system. Feel free to make any
-adjustment for your setup.
-
 {{< tabs "uniqueid" >}}
 
+{{< tab "Home Manager" >}}
+
+Home Manager has options for Hyprland without needing to import the Flake module.
+
+```nix
+{
+  wayland.windowManager.hyprland.enable = true;
+}
+```
+
+{{< /tab >}}
 {{< tab "Flakes" >}}
+
+The following snippet of code tries to show how to bring the Hyprland flake from
+the flake input and import it into the module system. Feel free to make any
+adjustment for your setup.
 
 Don't forget to replace `user@hostname` with your username and hostname!
 
@@ -51,6 +60,12 @@ Don't forget to replace `user@hostname` with your username and hostname!
 {{< /tab >}}
 
 {{< tab "No flakes (with flake-compat)" >}}
+
+The following snippet of code tries to show how to bring the Hyprland flake from
+the flake input and import it into the module system. Feel free to make any
+adjustment for your setup.
+
+
 ```nix
 # home config
 
@@ -82,11 +97,40 @@ in {
 
 ## Usage
 
-Once the module is enabled, you can use it to declaratively configure Hyprland:
+Once the module is enabled, you can use it to declaratively configure Hyprland.
+Here is an example config, made to work with either the upstream Home Manager
+module, or the Flake-based Home Manager module.
 
 ```nix
 # home.nix
 {config, pkgs, ...}: {
+  # hyprland module from HM
+  wayland.windowManager.hyprland.settings = {
+    "$mod" = "SUPER";
+    bind =
+      [
+        "$mod, F, exec, firefox"
+        ", Print, exec, grimblast copy area"
+      ]
+      ++ (
+        # workspaces
+        # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
+        builtins.concatLists (builtins.genList (
+            x: let
+              ws = let
+                c = (x + 1) / 10;
+              in
+                builtins.toString (x + 1 - (c * 10));
+            in [
+              "$mod, ${ws}, workspace, ${toString (x + 1)}"
+              "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+            ]
+          )
+          10)
+      );
+  };
+
+  # hyprland module from the flake
   wayland.windowManager.hyprland.extraConfig = ''
     $mod = SUPER
 
