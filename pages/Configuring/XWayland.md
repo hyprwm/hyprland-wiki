@@ -19,11 +19,11 @@ and [Pacman patching](https://wiki.archlinux.org/title/Patching_packages).
 {{< /hint >}}
 
 1. Have the latest `xwayland` package patched with at least
-    [the HiDPI patch](https://github.com/hyprwm/Hyprland/blob/main/nix/xwayland-hidpi.patch)
+    [the HiDPI patch](https://github.com/hyprwm/Hyprland/blob/main/nix/patches/xwayland-hidpi.patch)
     (based on the MR's implementation, but updated).
 
 2. Make sure you have the required Hyprland `wlroots`, patched with
-    [the HiDPI xwayland patch](https://github.com/hyprwm/Hyprland/blob/main/nix/wlroots-hidpi.patch)
+    [the HiDPI xwayland patch](https://github.com/hyprwm/Hyprland/blob/main/nix/patches/wlroots-hidpi.patch)
     and [this commit](https://gitlab.freedesktop.org/wlroots/wlroots/-/commit/18595000f3a21502fd60bf213122859cc348f9af)
     **reverted**. This is important, as not reverting it will make opening
     XWayland programs crash Hyprland.
