@@ -15,7 +15,7 @@ _category name `master`_
 | mfact | (0.0 - 1.0) master split factor, the ratio of master split| float | 0.55 |
 | new_is_master | whether a newly open window should replace the master or join the slaves. | bool | true |
 | new_on_top | whether a newly open window should be on the top of the stack | bool | false |
-| no_gaps_when_only | whether to apply gaps when there is only one window on a workspace, aka. smart gaps. | bool | false |
+| no_gaps_when_only | whether to apply gaps when there is only one window on a workspace, aka. smart gaps. (default: disabled - 0) no border - 1, with border - 2 | int | 0 |
 | orientation | default placement of the master area, can be left, right, top, bottom or center | string | left |
 | inherit_fullscreen | inherit fullscreen status when cycling/swapping to another window (e.g. monocle layout) | bool | true |
 | always_center_master | when using orientation=center, keep the master window centered, even when it is the only window in the workspace. | bool | false |
