@@ -261,6 +261,7 @@ Described [here](../Keywords#per-device-input-configs).
 | swallow_exception_regex | The *title* regex to be used for windows that should *not* be swallowed by the windows specified in swallow_regex  (e.g. wev). The regex is matched against the parent (e.g. Kitty) window's title on the assumption that it changes to whatever process it's running. | str | \[\[Empty\]\] |
 | focus_on_activate | Whether Hyprland should focus an app that requests to be focused (an `activate` request) | bool | false |
 | no_direct_scanout | Disables direct scanout. Direct scanout attempts to reduce lag when there is only one fullscreen application on a screen (e.g. game). It is also recommended to set this to true if the fullscreen application shows graphical glitches. | bool | true |
+| moveintogroup_lock_check | Enable to check if groups are locked before moving window/group to target group. | bool | false |
 | hide_cursor_on_touch | Hides the cursor when the last input was a touch input until a mouse input is done. | bool | true |
 | mouse_move_focuses_monitor | Whether mouse moving into a different monitor should focus it | bool | true |
 | suppress_portal_warnings | disables warnings about incompatible portal implementations. | bool | false |
