@@ -32,7 +32,7 @@ layout pages (See the sidebar).
 | togglefloating | toggles the current window's floating state | left empty / `active` for current, or `window` for a specific window |
 | fullscreen | toggles the focused window's fullscreen state | 0 - fullscreen (takes your entire screen), 1 - maximize (keeps gaps and bar(s)) |
 | fakefullscreen | toggles the focused window's internal fullscreen state without altering the geometry | none |
-| dpms | sets all monitors' DPMS status. Do not use with a keybind directly. | `on` or `off`, for specific monitor add monitor name after a space |
+| dpms | sets all monitors' DPMS status. Do not use with a keybind directly. | `on`, `off`, or `toggle`. For specific monitor add monitor name after a space |
 | pin | pins a window (i.e. show it on all workspaces) *note: floating only* | left empty / `active` for current, or `window` for a specific window |
 | movefocus | moves the focus in a direction | direction |
 | movewindow | moves the active window in a direction or to a monitor | direction or `mon:` and a monitor |
