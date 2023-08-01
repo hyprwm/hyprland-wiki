@@ -1,48 +1,33 @@
 XWayland is the bridging mechanism between legacy Xorg programs and Wayland
 compositors.
 
-# HiDPI XWayland
+## HiDPI XWayland
 
-XWayland currently looks pixelated/blurry on HiDPI screens, due to Xorg's
-inability to scale.
-There are attempts to add a standard scaling mechanism, such as
-[MR 733](https://gitlab.freedesktop.org/xorg/xserver/-/merge_requests/733).
+XWayland currently looks pixelated on HiDPI screens, due to Xorg's inability to
+scale.
 
-You can use this MR's wlroots implementation in Hyprland by making a few changes.
+This problem is mitigated by the [`xwayland:force_zero_scaling`](../../Configuring/Variables/#xwayland)
+option, which forces XWayland windows not to be scaled.
 
-{{< hint >}}
-The following instructions assume you know how to patch programs, either
-manually or using your favourite package manager.
+This will get rid of the pixelated look, but will not scale applications
+properly. To do this, each toolkit has its own mechanism.
 
-See instructions for [manual patching](https://www.howtogeek.com/415442/how-to-apply-a-patch-to-a-file-and-create-patches-in-linux/)
-and [Pacman patching](https://wiki.archlinux.org/title/Patching_packages).
-{{< /hint >}}
+```ini
+# change monitor to high resolution, the last argument is the scale factor
+monitor=,highres,auto,2
 
-1. Have the latest `xwayland` package patched with at least
-    [the HiDPI patch](https://github.com/hyprwm/Hyprland/blob/main/nix/patches/xwayland-hidpi.patch)
-    (based on the MR's implementation, but updated).
+# unscale XWayland
+xwayland {
+  force_zero_scaling = true
+}
 
-2. Make sure you have the required Hyprland `wlroots`, patched with
-    [the HiDPI xwayland patch](https://github.com/hyprwm/Hyprland/blob/main/nix/patches/wlroots-hidpi.patch)
-    and [this commit](https://gitlab.freedesktop.org/wlroots/wlroots/-/commit/18595000f3a21502fd60bf213122859cc348f9af)
-    **reverted**. This is important, as not reverting it will make opening
-    XWayland programs crash Hyprland.
+# toolkit-specific scale
+env = GDK_SCALE,2
+env = XCURSOR_SIZE,32
+```
 
-3. Add these lines to your configuration:
+The GDK_SCALE variable won't conflict with Wayland-native GTK programs.
 
-    ```ini
-
-    # change monitor to hires, the last argument is the scale factor
-    monitor=,highres,auto,2
-
-    # sets xwayland scale
-    exec-once=xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
-
-    # toolkit-specific scale
-    env = GDK_SCALE,2
-    env = XCURSOR_SIZE,32
-    ```
-
-    {{< hint >}}
-    The GDK_SCALE variable won't conflict with wayland-native GTK programs.
-    {{< /hint >}}
+{{< hint type="important" >}}
+XWayland HiDPI patches are no longer supported. Do not use them.
+{{</ hint >}}

@@ -11,7 +11,6 @@ can be changed by setting the appropriate option to `true`/`false`.
 ```nix
 (pkgs.hyprland.override { # or inputs.hyprland.packages.${pkgs.system}.hyprland
   enableXWayland = true;
-  hidpiXWayland = false;
   nvidiaPatches = false;
 })
 ```
@@ -23,7 +22,6 @@ programs.hyprland = { # or wayland.windowManager.hyprland
   enable = true;
   xwayland = {
     enable = true;
-    hidpi = false;
   };
   nvidiaPatches = false;
 };
@@ -38,32 +36,7 @@ in the package itself, or through the module options.
 
 ### XWayland HiDPI
 
-The `hyprland-hidpi` Nix package includes a patched wlroots that can render
-HiDPI XWayland windows.
-
-In order to enable HiDPI when using the NixOS or Home Manager modules, you can
-set `programs.hyprland.xwayland.hidpi = true`, or
-`wayland.windowManager.hyprland.xwayland.hidpi = true`, respectively.
-
-Now that the required package to achieve HiDPI is installed, an XWayland
-instruction is needed to set the scale:
-
-```toml
-exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
-```
-
-This will make XWayland programs look as if they were unscaled. To fix this, you
-have to set different environment variables to make the specific toolkits
-render at the proper scaling. For example, add this to your `hyprland.conf`:
-
-```ini
-env = GDK_SCALE,2
-env = XCURSOR_SIZE,48
-```
-
-{{< hint >}}
-The `GDK_SCALE` environment variable won't conflict with Wayland-native GTK programs.
-{{< /hint >}}
+See [XWayland](../../Configuring/XWayland).
 
 ### Nvidia Patches
 
