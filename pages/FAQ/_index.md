@@ -145,41 +145,18 @@ Waybar has a set of caveats or settings that you need to be aware of. See
 
 # How do I autostart my favorite apps?
 
-Using the window rules to assign apps to workspace you can setup a session start
-script to open a bunch of applications on various workspaces. The following
-method will start these apps silently (i.e. without the flickering from
-workspace to workspace) and deassign the rule so that subsequent start of this
-app will not start it on the initially assigned workspace (which could be a drag
-if e.g. you want kitty to be started on ws 1 while you need kitty to open on any
-workspace subsequently).
+Using the window rules to assign apps to workspace you can open a bunch of
+applications on various workspaces. The following method will start these apps
+silently (i.e.  without the flickering from workspace to workspace).
 
 Put the following in your `hyprland.conf`: (example)
 
 ```ini
-windowrule=workspace 1 silent,kitty
-windowrule=workspace 1 silent,Subl
-windowrule=workspace 3 silent,Mailspring
-windowrule=workspace 4 silent,firefox
-[...]
-exec-once=kitty
-exec-once=subl
-exec-once=mailspring
-exec-once=firefox
-[...]
-exec-once=cleanup_after_start.sh
+exec-once=[workspace 1 silent] kitty
+exec-once=[workspace 1 silent] subl
+exec-once=[workspace 3 silent] mailspring
+exec-once=[workspace 4 silent] firefox
 ```
-
-where `cleanup_after_start.sh` script contains:
-
-```bash
-sleep 10
-hyprctl keyword windowrule "workspace unset,kitty"
-hyprctl keyword windowrule "workspace unset,Subl"
-hyprctl keyword windowrule "workspace unset,Mailspring"
-hyprctl keyword windowrule "workspace unset,firefox"
-```
-
-in `sleep 10`, the 10 seconds is of course only a suggestion.
 
 # How do I move my favorite workspaces to a new monitor when I plug it in?
 
