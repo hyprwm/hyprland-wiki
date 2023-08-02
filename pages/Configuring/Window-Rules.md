@@ -41,8 +41,8 @@ windowrulev2 = float,class:(kitty),title:(kitty)
 {{< hint type=tip >}}
 In the case of dynamic window titles such as browser windows keep in mind how powerful regex is.
 
-for example a window rule of: `windowrule=opacity 0.3 override 0.3 override,title:(Zizaran - Twitch)(.*)$` will match 
-*any* window that contains a string of "Zizaran - Twitch" before any other text. This could be multiple browser windows 
+for example a window rule of: `windowrule=opacity 0.3 override 0.3 override,title:(.*)(- Youtube)$` will match 
+*any* window that contains a string of "- Youtube" after any other text. This could be multiple browser windows 
 or other applications that contain the string for any reason. 
 
 
@@ -59,6 +59,7 @@ xwayland - 0/1
 floating - 0/1
 fullscreen - 0/1
 pinned - 0/1
+workspace - id or name: and name
 ```
 
 Keep in mind that you _have_ to declare at least one field, but not all.
