@@ -40,7 +40,7 @@ set to `top` and not `bottom`.
 
 ## Active workspace doesn't show up
 
-Replace `#workspaces button.focused` with `#workspaces button.active` in `~/.config/style.css`.
+Replace `#workspaces button.focused` with `#workspaces button.active` in `~/.config/waybar/style.css`.
 
 ## Scrolling through workspaces
 
