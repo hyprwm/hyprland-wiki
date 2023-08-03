@@ -118,6 +118,10 @@ Copy it wherever you please to keep it organized and load with `hyprctl plugin l
 Oops. Make sure your plugin is compiled on the same machine as Hyprland. If that doesn't help,
 ask the plugin's maintainer to fix it.
 
+### My plugin no longer works after updating Hyprland!
+Make sure to re-compile the plugin after each Hyprland update.
+Every hyprland version change (even from one commit to another) requires plugins to be re-compiled.
+
 ### How do I list my loaded plugins?
 `hyprctl plugin list`
 
