@@ -79,12 +79,6 @@ Prefer using `input:sensitivity` over `general:sensitivity` to avoid bugs, espec
 | active_opacity | opacity of active windows. (0.0 - 1.0) | float | 1.0 |
 | inactive_opacity | opacity of inactive windows. (0.0 - 1.0) | float | 1.0 |
 | fullscreen_opacity | opacity of fullscreen windows. (0.0 - 1.0) | float | 1.0 |
-| blur | enable kawase window background blur | bool | true |
-| blur_size | blur size (distance) | int | 8 |
-| blur_passes | the amount of passes to perform | int | 1 |
-| blur_ignore_opacity | make the blur layer ignore the opacity of the window | bool | false |
-| blur_new_optimizations | whether to enable further optimizations to the blur. Recommended to leave on, as it will massively improve performance. | bool | true |
-| blur_xray | if enabled, floating windows will ignore tiled windows in their blur. Only available if blur_new_optimizations is true. Will reduce overhead on floating blur significantly. | bool | false |
 | drop_shadow | enable drop shadows on windows | bool | true |
 | shadow_range | Shadow range ("size") in layout px | int | 4 |
 | shadow_render_power | (1 - 4), in what power to render the falloff (more power, the faster the falloff) | int | 3 |
@@ -99,14 +93,45 @@ Prefer using `input:sensitivity` over `general:sensitivity` to avoid bugs, espec
 | dim_around | how much the `dimaround` window rule should dim by. 0.0 - 1.0 | float | 0.4 |
 | screen_shader | a path to a custom shader to be applied at the end of rendering. See `examples/screenShader.frag` for an example. | str | \[\[Empty\]\] |
 
+## Blur
+_subcategory decoration:blur:_
+
+| name | description | type | default |
+|---|---|---|---|
+| enabled | enable kawase window background blur | bool | true |
+| size | blur size (distance) | int | 8 |
+| passes | the amount of passes to perform | int | 1 |
+| ignore_opacity | make the blur layer ignore the opacity of the window | bool | false |
+| new_optimizations | whether to enable further optimizations to the blur. Recommended to leave on, as it will massively improve performance. | bool | true |
+| xray | if enabled, floating windows will ignore tiled windows in their blur. Only available if blur_new_optimizations is true. Will reduce overhead on floating blur significantly. | bool | false |
+| noise | how much noise to apply. 0.0 - 1.0 | float | 0.0117 |
+| contrast | contrast modulation for blur. 0.0 - 2.0 | float | 0.8916 |
+| brightness | brightness modulation for blur. 0.0 - 2.0 | float | 0.8172 |
+
+{{< hint type=important >}}
+A subcategory is a nested category:
+
+```ini
+decoration {
+    # ...
+    # ...
+
+    blur {
+        # ...
+        # ...
+    }
+}
+```
+
+Doing `decoration:blur {` is **invalid**!
+{{< /hint >}}
+
 {{< hint type=info >}}
 
-`blur_size` and `blur_passes` have to be at least 1.
+`blur:size` and `blur:passes` have to be at least 1.
 
-Increasing `blur_passes` is necessary to prevent blur looking wrong on higher `blur_size` values,
-but remember that higher `blur_passes` will require more strain on the GPU.
-
-It will, however, cause zero overhead on tiled windows if using `blur_new_optimizations`.
+Increasing `blur:passes` is necessary to prevent blur looking wrong on higher `blur:size` values,
+but remember that higher `blur:passes` will require more strain on the GPU.
 
 {{< /hint >}}
 
@@ -193,24 +218,6 @@ _Subcategory `input:touchpad:`_
 | tap-to-click | Tapping on the touchpad with 1, 2, or 3 fingers will send LMB, RMB, and MMB respectively. | bool | true |
 | drag_lock | When enabled, lifting the finger off for a short time while dragging will not drop the dragged item. [libinput#tap-and-drag](https://wayland.freedesktop.org/libinput/doc/latest/tapping.html#tap-and-drag) | bool | false |
 | tap-and-drag | Sets the tap and drag mode for the touchpad | bool | false |
-
-{{< hint type=important >}}
-A subcategory is a nested category:
-
-```ini
-input {
-    # ...
-    # ...
-
-    touchpad {
-        # ...
-        # ...
-    }
-}
-```
-
-Doing `input:touchpad {` is **invalid**!
-{{< /hint >}}
 
 ## Touchdevice
 
