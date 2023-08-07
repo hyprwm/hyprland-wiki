@@ -187,6 +187,7 @@ Prop List:
 | windowdancecompat | 0/1 |
 | nomaxsize | 0/1 |
 | dimaround | 0/1 |
+| keepaspectratio | 0/1 |
 | alphaoverride | 0/1, makes the next setting be override instead of multiply |
 | alpha | float 0.0 - 1.0 |
 | alphainactiveoverride | 0/1, makes the next setting be override instead of multiply |
