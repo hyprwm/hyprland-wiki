@@ -281,4 +281,5 @@ flag list:
 
 ```txt
 j -> output in JSON
+i -> select instance (id or index in hyprctl instances)
 ```
