@@ -242,6 +242,7 @@ splash - prints the current random splash
 getoption [option] - gets the config option status (values)
 cursorpos - gets the current cursor pos in global layout coordinates
 animations - gets the current config'd info about animations and beziers
+instances - lists all running instances of hyprland with their info
 ```
 
 For the getoption command, the option name should be written as `section:option`,
