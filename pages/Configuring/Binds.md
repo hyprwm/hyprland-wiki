@@ -178,7 +178,7 @@ _Available mouse binds_:
 | Name | Description | Params |
 | -----|------------ |--------|
 | movewindow   | moves the active window   | none |
-| resizewindow | resizes the active window | 1 - resize and keep window aspect ratio, 2 - resize and ignore `keepaspectratio` window rule/prop, anything else for normal resize |
+| resizewindow | resizes the active window | 1 - resize and keep window aspect ratio, 2 - resize and ignore `keepaspectratio` window rule/prop, none or anything else for normal resize |
 
 _Common mouse buttons' codes:_
 
