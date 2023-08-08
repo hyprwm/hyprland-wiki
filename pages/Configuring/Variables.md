@@ -282,6 +282,7 @@ Described [here](../Keywords#per-device-input-configs).
 | groupbar_titles_font_size | font size for the above | int | 8 |
 | groupbar_gradients | whether to draw gradients under the titles of the above | bool | true |
 | groupbar_text_color | controls the group bar text color | color | 0xffffffff |
+| background_color | change the background color. (requires enabled `disable_hyprland_logo`) | color | 0x111111 |
 
 # Binds
 
