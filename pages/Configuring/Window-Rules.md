@@ -113,6 +113,7 @@ you can use `hyprctl clients`.
 | nomaxsize | removes max size limitations. Especially useful with windows that report invalid max sizes (e.g. winecfg) | |
 | dimaround | dims everything around the window . Please note this rule is meant for floating windows and using it on tiled ones may result in strange behavior. | &check; |
 | stayfocused | forces focus on the window as long as it's visible |  |
+| xray \[on\] | sets blur xray mode for the window (0 for off, 1 for on, unset for default) | &check; | 
 
 ### Example Rules
 
@@ -182,3 +183,4 @@ or `address` is an address in the form of `address:0x[hex]`
 | blur | enables blur for the layer |
 | ignorealpha \[a\] | makes blur ignore pixels with opacity of `a` or lower. `a` is float value from 0 to 1. `a = 0` if unspecified. |
 | ignorezero | makes blur ignore fully transparent pixels. Same as `ignorealpha 0`. |
+| xray \[on\] | sets the blur xray mode for a layer. 0 for off, 1 for on, unset for default. |
