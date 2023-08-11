@@ -37,7 +37,7 @@ layout pages (See the sidebar).
 | movefocus | moves the focus in a direction | direction |
 | movewindow | moves the active window in a direction or to a monitor | direction or `mon:` and a monitor |
 | swapwindow | swaps the active window with another window in the given direction | direction |
-| centerwindow | center the active window *note: floating only* | none |
+| centerwindow | center the active window *note: floating only* | none (for monitor center) or 1 (to respect monitor reserved area) |
 | resizeactive | resizes the active window | resizeparams |
 | moveactive | moves the active window | resizeparams |
 | resizewindowpixel | resizes a selected window | `resizeparams,window`, e.g. `100 100,^(kitty)$` |
