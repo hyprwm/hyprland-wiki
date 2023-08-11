@@ -82,11 +82,59 @@ See [The Github repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hypr
 {{< hint type=important >}}
 It's recommended to uninstall any other portal implementations to avoid conflicts with the `-hyprland` or `-wlr` ones.
 
-`-kde` and `-gnome` are known to cause issues.
+`-kde` and `-gnome` portals are known to cause issues.
 
-`-kde` is unfortunately a hard dep of `plasma-integration` in Arch Linux, so if using that, you'll need to `pacman -Rnsdd xdg-desktop-portal-kde`.
+The `-kde` portal is unfortunately a hard dependency of `plasma-integration` in Arch Linux. To uninstall it,
+run the command `pacman -Rnsdd xdg-desktop-portal-kde`, which skips all dependency checks.
 
-both `-wlr` and `-hyprland` installed at once will also cause conflicts. Choose one and uninstall the other.
+Both `-wlr` and `-hyprland` installed at once will also cause conflicts. Choose one and uninstall the other.
+
+To keep any incompatible portal installed the relvant `.portal` file can be moved out of
+'/usr/share/xdg-desktop-portal/portals/' to temporarily disable the portal. A script and the `exec-once`
+directive can be used to automate this process at startup:
+
+```bash
+#!/bin/sh
+# usage: $0 portal-name [enable/disable]
+# args:
+#     portal-name: the name of the .portal file in /usr/share/xdg-desktop-portal/portals/ without the extension
+#     [enable/disable]: optional - whether to move the file into $ENABLED_PORTAL_DIR to enable it,
+#                              or to move it into $DISABLED_PORTAL_DIR to disable it. The portal will be toggled
+#                              if this argument is omitted.
+
+ENABLED_PORTAL_DIR="/usr/share/xdg-desktop-portal/portals"
+# needs to be created manually
+DISABLED_PORTAL_DIR="/usr/share/xdg-desktop-portal/disabled-portals"
+
+function is_enabled {
+  [ -f "$ENABLED_PORTAL_DIR/$1.portal" ]
+}
+
+function is_disabled {
+  [ -f "$DISABLED_PORTAL_DIR/$1.portal" ]
+}
+
+function enable {
+  mv "$DISABLED_PORTAL_DIR/$1.portal" "$ENABLED_PORTAL_DIR/$1.portal"
+}
+
+function disable {
+  mv "$ENABLED_PORTAL_DIR/$1.portal" "$DISABLED_PORTAL_DIR/$1.portal"
+}
+
+PORTAL=$1
+ENABLE=${2:-$(is_enabled $PORTAL && echo "disable" || echo "enable")}
+
+if [ $ENABLE = "enable" ]; then
+  is_disabled $PORTAL && enable $PORTAL
+else
+  is_enabled $PORTAL && disable $PORTAL
+fi
+```
+
+The incompatible portal can then be re-enabled with the same script inside the autostart mechanisim of the intented
+environment. Keep in mind that the directory for disabled portals needs to be created manually and this script needs
+to have access to /usr/share/xdg-desktop-portal/portals/ and the disabled directory.
 {{< /hint >}}
 
 ## Usage
