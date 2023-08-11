@@ -106,29 +106,29 @@ ENABLED_PORTAL_DIR="/usr/share/xdg-desktop-portal/portals"
 # needs to be created manually
 DISABLED_PORTAL_DIR="/usr/share/xdg-desktop-portal/disabled-portals"
 
-function is_enabled {
+is_portal_enabled() {
   [ -f "$ENABLED_PORTAL_DIR/$1.portal" ]
 }
 
-function is_disabled {
+is_portal_disabled() {
   [ -f "$DISABLED_PORTAL_DIR/$1.portal" ]
 }
 
-function enable {
+enable_portal() {
   mv "$DISABLED_PORTAL_DIR/$1.portal" "$ENABLED_PORTAL_DIR/$1.portal"
 }
 
-function disable {
+disable_portal() {
   mv "$ENABLED_PORTAL_DIR/$1.portal" "$DISABLED_PORTAL_DIR/$1.portal"
 }
 
 PORTAL=$1
-ENABLE=${2:-$(is_enabled $PORTAL && echo "disable" || echo "enable")}
+ENABLE=${2:-$(is_portal_enabled "$PORTAL" && echo "disable" || echo "enable")}
 
-if [ $ENABLE = "enable" ]; then
-  is_disabled $PORTAL && enable $PORTAL
+if [ "$ENABLE" = "enable" ]; then
+  is_portal_disabled "$PORTAL" && enable_portal "$PORTAL"
 else
-  is_enabled $PORTAL && disable $PORTAL
+  is_portal_enabled "$PORTAL" && disable_portal "$PORTAL"
 fi
 ```
 
