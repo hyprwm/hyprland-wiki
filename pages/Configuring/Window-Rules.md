@@ -86,7 +86,7 @@ you can use `hyprctl clients`.
 | size \[x\] \[y\] | resizes a floating window (x,y -> int or %, e.g. 20% or 100) | |
 | minsize \[x\] \[y\] | sets the minimum size on creation (x,y -> int) | |
 | maxsize \[x\] \[y\] | sets the maximum size on creation (x,y -> int) | |
-| center ([opt]) | if the window is floating, will center it on the monitor. Set opt as 1 to respect monitor reserved area | |
+| center (\[opt\]) | if the window is floating, will center it on the monitor. Set opt as 1 to respect monitor reserved area | |
 | pseudo | pseudotiles a window | |
 | monitor \[id\] | sets the monitor on which a window should open. `id` can be either id or name (either e.g. `1` or e.g. `DP-1`) | |
 | workspace \[w\] | sets the workspace on which a window should open (for workspace syntax, see [dispatchers->workspaces](../Dispatchers#workspaces)). You can also make \[w\] to `unset`, will unset all previous workspace rules applied to this window. You can also add `silent` after the workspace to make the window open silently. | |
