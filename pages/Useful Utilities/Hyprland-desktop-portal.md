@@ -89,7 +89,7 @@ run the command `pacman -Rnsdd xdg-desktop-portal-kde`, which skips all dependen
 
 Both `-wlr` and `-hyprland` installed at once will also cause conflicts. Choose one and uninstall the other.
 
-If you want to keep any incompatible portal installed you can try moving the relvant `.portal` file out of
+To keep any incompatible portal installed the relvant `.portal` file can be moved out of
 '/usr/share/xdg-desktop-portal/portals/' to temporarily disable the portal. A script and the `exec-once`
 directive can be used to automate this process at startup:
 
