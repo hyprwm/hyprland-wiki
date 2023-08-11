@@ -84,8 +84,8 @@ It's recommended to uninstall any other portal implementations to avoid conflict
 
 `-kde` and `-gnome` portals are known to cause issues.
 
-The `-kde` portal is unfortunately a hard dep of `plasma-integration` in Arch Linux, so to uninstall it,
-you'll need to `pacman -Rnsdd xdg-desktop-portal-kde`, which skips all dependency checks.
+The `-kde` portal is unfortunately a hard dependency of `plasma-integration` in Arch Linux. To uninstall it,
+run the command `pacman -Rnsdd xdg-desktop-portal-kde`, which skips all dependency checks.
 
 Both `-wlr` and `-hyprland` installed at once will also cause conflicts. Choose one and uninstall the other.
 
@@ -95,12 +95,12 @@ directive can be used to automate this process at startup:
 
 ```bash
 #!/bin/sh
-# usage: script-path portal-name [en/disable]
-#   args:
+# usage: $0 portal-name [enable/disable]
+# args:
 #     portal-name: the name of the .portal file in /usr/share/xdg-desktop-portal/portals/ without the extension
-#     [en/disable]: optional - wheter to move the file into $ENABLED_PORTAL_DIR to enable it,
+#     [enable/disable]: optional - whether to move the file into $ENABLED_PORTAL_DIR to enable it,
 #                              or to move it into $DISABLED_PORTAL_DIR to disable it. The portal will be toggled
-#                              if this argument is ommited.
+#                              if this argument is omitted.
 
 ENABLED_PORTAL_DIR="/usr/share/xdg-desktop-portal/portals"
 # needs to be created manually
@@ -132,7 +132,7 @@ else
 fi
 ```
 
-The incompatible portal can then be re-enabled with the same script instide the autostart mechanisim of the intented
+The incompatible portal can then be re-enabled with the same script inside the autostart mechanisim of the intented
 environment. Keep in mind that the directory for disabled portals needs to be created manually and this script needs
 to have access to /usr/share/xdg-desktop-portal/portals/ and the disabled directory.
 {{< /hint >}}
