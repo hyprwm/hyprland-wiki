@@ -29,6 +29,7 @@ workspace=DP-1,3,rounding:false,bordersize:0
 | gapsout:[x] | Set the gaps between windows and monitor edges (equivalent to [General->gaps_out](../Variables#general)) | int |
 | bordersize:[x] | Set the border size around windows (equivalent to [General->border_size](../Variables#general)) | int |
 | border:[b]| Whether to draw borders or not| bool |
+| shadow:[b]| Whether to draw shadows or not| bool |
 | rounding:[b] | Whether to draw rounded windows or not | bool |
 | decorate:[b] | Whether to draw window decorations or not | bool |
 
