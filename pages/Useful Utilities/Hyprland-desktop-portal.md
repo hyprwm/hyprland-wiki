@@ -122,11 +122,21 @@ disable_portal() {
   mv "$ENABLED_PORTAL_DIR/$1.portal" "$DISABLED_PORTAL_DIR/$1.portal"
 }
 
+remove_disabled_portal() {
+  rm "$DISABLED_PORTAL_DIR/$1.portal"
+}
+
 PORTAL=$1
 ENABLE=${2:-$(is_portal_enabled "$PORTAL" && echo "disable" || echo "enable")}
 
 if [ "$ENABLE" = "enable" ]; then
-  is_portal_disabled "$PORTAL" && enable_portal "$PORTAL"
+  if is_portal_enabled "$PORTAL"; then
+    # remove disabled portal if enabled portal exists as well,
+    # as the enabled portal is most likely a newly installed version
+    is_portal_disabled "$PORTAL" && remove_disabled_portal "$PORTAL"
+  else
+    is_portal_disabled "$PORTAL" && enable_portal "$PORTAL"
+  fi
 else
   is_portal_enabled "$PORTAL" && disable_portal "$PORTAL"
 fi
