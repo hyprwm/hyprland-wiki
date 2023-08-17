@@ -30,7 +30,7 @@ exec-once = wl-paste --type image --watch cliphist store #Stores only image data
 ```
 Do note that any of the above lines can be disabled based on your needs
 
-To bind `cliphist` to a hotkey and display it under `rofi` or `dmenu`, again head over to `~/.config/hypr/hyprland.conf`
+To bind `cliphist` to a hotkey and display it under `rofi` or `dmenu` or `wofi`, again head over to `~/.config/hypr/hyprland.conf`
 
 ### For `rofi` users
 ```ini
@@ -40,6 +40,11 @@ bind = SUPER, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
 ### For `dmenu` users
 ```ini
 bind = SUPER, V, exec, cliphist list | dmenu | cliphist decode | wl-copy
+```
+
+### For `wofi` users
+```ini
+bind = SUPER, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy
 ```
 The binds mention above correspond to SUPER+V to access the clipboard history
 
@@ -71,6 +76,10 @@ bind = SUPER, V, exec, clipman pick -t rofi
 bind = SUPER, V, exec, clipman pick -t dmenu
 ```
 
+### For `wofi` users
+```ini
+bind = SUPER, V, exec, clipman pick -t wofi
+```
 So on and so forth. For further information, please refer to the repository mentioned above
 
 
