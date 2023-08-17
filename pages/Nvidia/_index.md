@@ -62,7 +62,7 @@ env = WLR_NO_HARDWARE_CURSORS,1
 {{< /hint >}}
 
 Install `qt5-wayland`, `qt5ct` and `libva`. Additionally
-`nvidia-vaapi-driver-git` (AUR) to fix crashes in some Electron-based
+`libva-nvidia-driver-git` (AUR) to fix crashes in some Electron-based
 applications, such as Unity Hub.
 
 Reboot your computer
