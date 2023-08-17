@@ -46,7 +46,7 @@ global
     ↳ fadeDim - the easing of the dimming of inactive windows
   ↳ border - for animating the border's color switch speed
   ↳ borderangle - for animating the border's gradient angle - styles: once (default), loop
-  ↳ workspaces - styles: slide, slidevert, fade
+  ↳ workspaces - styles: slide, slidevert, fade, slidefade, slidefadevert
     ↳ specialWorkspace - styles: same as workspaces
 ```
 
@@ -72,10 +72,16 @@ bezier=overshot,0.05,0.9,0.1,1.1
 # Extras
 
 For animation style `popin` in `windows`, you can specify a minimum percentage
-to start from. For example:
+to start from. For example, the following will make the animation 80% -> 100% of the size:
 
 ```ini
 animation=windows,1,8,default,popin 80%
 ```
 
-will make the animation 80% -> 100% of the size.
+For animation styles `slidefade` and `slidefadevert` in `windows`, you can specify a movement 
+percentage. For example, the following will make windows move 20% of the screen width:
+
+```ini
+animation=windows,1,8,default,slidefade 20%
+```
+
