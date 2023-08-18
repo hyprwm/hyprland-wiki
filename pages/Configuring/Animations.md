@@ -82,6 +82,6 @@ For animation styles `slidefade` and `slidefadevert` in `windows`, you can speci
 percentage. For example, the following will make windows move 20% of the screen width:
 
 ```ini
-animation=windows,1,8,default,slidefade 20%
+animation=workspaces,1,8,default,slidefade 20%
 ```
 
