@@ -78,7 +78,7 @@ to start from. For example, the following will make the animation 80% -> 100% of
 animation=windows,1,8,default,popin 80%
 ```
 
-For animation styles `slidefade` and `slidefadevert` in `windows`, you can specify a movement 
+For animation styles `slidefade` and `slidefadevert` in `workspaces`, you can specify a movement 
 percentage. For example, the following will make windows move 20% of the screen width:
 
 ```ini
