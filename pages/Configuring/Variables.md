@@ -268,7 +268,6 @@ Described [here](../Keywords#per-device-input-configs).
 | swallow_exception_regex | The *title* regex to be used for windows that should *not* be swallowed by the windows specified in swallow_regex  (e.g. wev). The regex is matched against the parent (e.g. Kitty) window's title on the assumption that it changes to whatever process it's running. | str | \[\[Empty\]\] |
 | focus_on_activate | Whether Hyprland should focus an app that requests to be focused (an `activate` request) | bool | false |
 | no_direct_scanout | Disables direct scanout. Direct scanout attempts to reduce lag when there is only one fullscreen application on a screen (e.g. game). It is also recommended to set this to true if the fullscreen application shows graphical glitches. | bool | true |
-| moveintogroup_lock_check | Enable to check if groups are locked before moving window/group to target group. | bool | false |
 | hide_cursor_on_touch | Hides the cursor when the last input was a touch input until a mouse input is done. | bool | true |
 | mouse_move_focuses_monitor | Whether mouse moving into a different monitor should focus it | bool | true |
 | suppress_portal_warnings | disables warnings about incompatible portal implementations. | bool | false |
@@ -278,6 +277,7 @@ Described [here](../Keywords#per-device-input-configs).
 | cursor_zoom_rigid | whether the zoom should follow the cursor rigidly (cursor is always centered if it can be) or loosely | bool | false |
 | allow_session_lock_restore | if true, will allow you to restart a lockscreen app in case it crashes (red screen of death) | bool | false |
 | group_insert_after_current | whether new windows in a group spawn after current or at group tail | bool | true |
+| group_focus_removed_window | whether Hyprland should focus on the window that has just been moved out of the group | bool | true |
 | render_titles_in_groupbar | whether to render titles in the group bar decoration | bool | true |
 | groupbar_titles_font_size | font size for the above | int | 8 |
 | groupbar_gradients | whether to draw gradients under the titles of the above | bool | true |
@@ -293,6 +293,7 @@ Described [here](../Keywords#per-device-input-configs).
 | workspace_back_and_forth | If enabled, an attempt to switch to the currently focused workspace will instead switch to the previous workspace. Akin to i3's *auto_back_and_forth*. | bool | false |
 | allow_workspace_cycles | If enabled, workspaces don't forget their previous workspace, so cycles can be created by switching to the first workspace in a sequence, then endlessly going to the previous workspace. | bool | false |
 | focus_preferred_method | sets the preferred focus finding method when using `focuswindow`/`movewindow`/etc with a direction. 0 - history (recent have priority), 1 - length (longer shared edges have priority) | int | 0 |
+| ignore_group_lock | If enabled, dispatchers like `moveintogroup`, `moveoutofgroup` and `movewindoworgroup` will ignore lock per group. | bool | false |
 
 # XWayland
 
