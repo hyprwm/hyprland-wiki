@@ -27,3 +27,9 @@ A neat mpv wrapper to play a video as your wallpaper.
 An efficient animated wallpaper daemon for wayland, controlled at runtime,
 which means you can change wallpapers without even needing to restart.
 [GitHub](https://github.com/Horus645/swww)
+
+## waypaper
+
+GUI wallpaper manager that allows to visually choose the static or animated
+wallpapers, and supports `swaybg` and `swww` as backends on wayland.
+[GitHub](https://github.com/anufrievroman/waypaper)
