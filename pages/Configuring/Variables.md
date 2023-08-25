@@ -107,6 +107,7 @@ _subcategory decoration:blur:_
 | noise | how much noise to apply. 0.0 - 1.0 | float | 0.0117 |
 | contrast | contrast modulation for blur. 0.0 - 2.0 | float | 0.8916 |
 | brightness | brightness modulation for blur. 0.0 - 2.0 | float | 0.8172 |
+| special | whether to blur behind the special workspace | bool | true |
 
 {{< hint type=important >}}
 A subcategory is a nested category:
