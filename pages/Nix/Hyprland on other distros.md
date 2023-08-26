@@ -32,13 +32,13 @@ nix profile install github:hyprwm/Hyprland
 Since you're using Hyprland outside of NixOS, it won't be able to find graphics
 drivers. To get around that, you can use [nixGL](https://github.com/guibou/nixGL).
 
-First, install it, in the same manner you installed Hyprland:
+First, install it:
 
 ```sh
 nix profile install github:guibou/nixGL --impure
 ```
 
-Impure is needed due to `nixGL`'s reliance on hardware information.
+`--impure` is needed due to `nixGL`'s reliance on hardware information.
 
 From now on, you can run Hyprland by invoking it with nixGL
 

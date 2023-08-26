@@ -1,19 +1,19 @@
 NOTE: This page only applies to the flake package. You can safely skip this if
 you use the Nixpkgs package.
 
-Hyprland is not built by Hydra and cached in `cache.nixos.org`, like the rest
-of the Nixpkgs packages.
+The Hyprland flake is not built by Hydra, so it is not cached in
+[cache.nixos.org], like the rest of Nixpkgs.
 
 Instead of requiring you to build Hyprland (and its dependencies, which may
 include `mesa`, `ffmpeg`, etc), we provide a Cachix cache that you can add to
 your Nix configuration.
 
 The [Hyprland Cachix](https://app.cachix.org/cache/hyprland) exists to cache the
-`hyprland` packages and any dependencies not found in `cache.nixos.org`.
+`hyprland` packages and any dependencies not found in [cache.nixos.org].
 
 {{< hint >}}
 In order for Nix to take advantage of the cache, it has to be enabled **before**
-enabling the Hyprland flake package.
+using the Hyprland flake package.
 {{< /hint >}}
 
 ```nix
@@ -34,3 +34,4 @@ Doing so will make the cache useless, since you're building from a different
 Nixpkgs commit.
 {{< /hint >}}
 
+[cache.nixos.org]: https://cache.nixos.org
