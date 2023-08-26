@@ -79,75 +79,8 @@ See [The Github repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hypr
 
 {{< /tabs >}}
 
-{{< hint type=important >}}
-It's recommended to uninstall any other portal implementations to avoid conflicts with the `-hyprland` or `-wlr` ones.
-
-`-kde` and `-gnome` portals are known to cause issues.
-
-The `-kde` portal is unfortunately a hard dependency of `plasma-integration` in Arch Linux. To uninstall it,
-run the command `pacman -Rnsdd xdg-desktop-portal-kde`, which skips all dependency checks.
-
-Both `-wlr` and `-hyprland` installed at once will also cause conflicts. Choose one and uninstall the other.
-
-Please note that `-hyprland` does not implement a file picker, for that, I recommend installing `xdg-desktop-portal-gtk`,
-which will not cause conflicts.
-
-To keep any incompatible portal installed the relvant `.portal` file can be moved out of
-'/usr/share/xdg-desktop-portal/portals/' to temporarily disable the portal. A script and the `exec-once`
-directive can be used to automate this process at startup:
-
-```bash
-#!/bin/sh
-# usage: $0 portal-name [enable/disable]
-# args:
-#     portal-name: the name of the .portal file in /usr/share/xdg-desktop-portal/portals/ without the extension
-#     [enable/disable]: optional - whether to move the file into $ENABLED_PORTAL_DIR to enable it,
-#                              or to move it into $DISABLED_PORTAL_DIR to disable it. The portal will be toggled
-#                              if this argument is omitted.
-
-ENABLED_PORTAL_DIR="/usr/share/xdg-desktop-portal/portals"
-# needs to be created manually
-DISABLED_PORTAL_DIR="/usr/share/xdg-desktop-portal/disabled-portals"
-
-is_portal_enabled() {
-  [ -f "$ENABLED_PORTAL_DIR/$1.portal" ]
-}
-
-is_portal_disabled() {
-  [ -f "$DISABLED_PORTAL_DIR/$1.portal" ]
-}
-
-enable_portal() {
-  mv "$DISABLED_PORTAL_DIR/$1.portal" "$ENABLED_PORTAL_DIR/$1.portal"
-}
-
-disable_portal() {
-  mv "$ENABLED_PORTAL_DIR/$1.portal" "$DISABLED_PORTAL_DIR/$1.portal"
-}
-
-remove_disabled_portal() {
-  rm "$DISABLED_PORTAL_DIR/$1.portal"
-}
-
-PORTAL=$1
-ENABLE=${2:-$(is_portal_enabled "$PORTAL" && echo "disable" || echo "enable")}
-
-if [ "$ENABLE" = "enable" ]; then
-  if is_portal_enabled "$PORTAL"; then
-    # remove disabled portal if enabled portal exists as well,
-    # as the enabled portal is most likely a newly installed version
-    is_portal_disabled "$PORTAL" && remove_disabled_portal "$PORTAL"
-  else
-    is_portal_disabled "$PORTAL" && enable_portal "$PORTAL"
-  fi
-else
-  is_portal_enabled "$PORTAL" && disable_portal "$PORTAL"
-fi
-```
-
-The incompatible portal can then be re-enabled with the same script inside the autostart mechanisim of the intented
-environment. Keep in mind that the directory for disabled portals needs to be created manually and this script needs
-to have access to /usr/share/xdg-desktop-portal/portals/ and the disabled directory.
+{{< hint type=tip >}}
+XDPH doesn't implement a file picker. For that, I recommend installing `xdg-desktop-portal-gtk` alongside XDPH.
 {{< /hint >}}
 
 ## Usage
@@ -183,6 +116,3 @@ If you get long app launch times, or screensharing does not work, consult the lo
 `systemctl --user status xdg-desktop-portal-hyprland`
 
 if you see a crash, it's most likely you are missing `qt6-wayland` and/or `qt5-wayland`.
-
-if you don't, make _sure_ you don't have `-kde` or `-gnome` installed. Only `-gtk`
-will work with `-hyprland` or `-wlr` on Hyprland.
