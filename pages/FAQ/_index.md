@@ -8,7 +8,7 @@ Possible causes:
 
 > Your themes are not set up properly, making apps crash.
 
-Use something like `qt6ct` (QT) and `nwg-look` (GTK) (\*for GTK you can also
+Use something like `qt6ct` (Qt) and `nwg-look` (GTK) (\*for GTK you can also
 set up themes with envvars) to set up your themes.
 
 > Your PC is very, _very_ old.
@@ -115,7 +115,7 @@ Use a wayland-compatible locking utility using WLR protocols, e.g. `swaylock`.
 
 If using flatpak, run `flatpak override --env=~/.themes:ro --env=~/.icons:ro --user` and put your themes in both `/usr/share/themes` and `~/.themes`, and put your icons and cursors in both `/usr/share/icons` and `~/.icons`.
 
-For QT applications, Hyprland exports XCURSOR_SIZE as 24, which is the default. 
+For Qt applications, Hyprland exports XCURSOR_SIZE as 24, which is the default.
 You can overwrite this by exporting XCURSOR_SIZE to a different value with `env`.
 
 You can also try running `gsettings set org.gnome.desktop.interface cursor-theme 'theme-name'` or adding it after `exec-once=` in your config.
