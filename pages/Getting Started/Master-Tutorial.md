@@ -83,7 +83,7 @@ If your cursor does not appear, then see [this FAQ entry](../../FAQ#me-cursor-no
 ## Themes
 Since this is not a full fledged Desktop Environment, you will need to use tools such as 
 `lxappearance` and `nwg-look` (recommended) for GTK, and `qt5ct` / `qt6ct` for their
-respective QT versions. Some older applications may also require `qt4ct`.
+respective Qt versions. Some older applications may also require `qt4ct`.
 
 
 ## Force apps to use Wayland
