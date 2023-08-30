@@ -281,7 +281,7 @@ Described [here](../Keywords#per-device-input-configs).
 | cursor_zoom_rigid | whether the zoom should follow the cursor rigidly (cursor is always centered if it can be) or loosely | bool | false |
 | allow_session_lock_restore | if true, will allow you to restart a lockscreen app in case it crashes (red screen of death) | bool | false |
 | group_insert_after_current | whether new windows in a group spawn after current or at group tail | bool | true |
-| groupbar_scrolling | whether scrolling in groupbar changes group active window | bool | true |
+| groupbar_scrolling | whether scrolling in the groupbar changes group active window | bool | true |
 | render_titles_in_groupbar | whether to render titles in the group bar decoration | bool | true |
 | groupbar_titles_font_size | font size for the above | int | 8 |
 | groupbar_gradients | whether to draw gradients under the titles of the above | bool | true |
