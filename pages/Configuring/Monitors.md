@@ -161,6 +161,10 @@ monitor=eDP-1,2880x1800@90,0x0,1,bitdepth,10
 Please be aware that colors registered in Hyprland (e.g. the border color) do _not_
 support 10 bit.
 
+## VRR
+
+Per-display VRR can be done by adding `,vrr,X` where `X` is the mode from the [variables page](../Variables).
+
 # Rotating
 
 If you want to rotate a monitor, add a `,transform,X` at the end
