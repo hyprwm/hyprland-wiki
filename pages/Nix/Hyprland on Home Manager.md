@@ -3,6 +3,10 @@ You can use the Home Manager module by adding it to your configuration:
 For a list of available options, check the
 [module file](https://github.com/hyprwm/Hyprland/blob/main/nix/hm-module.nix).
 
+{{< hint title=Note >}}
+- *(Required) NixOS Module*: enables critical components needed to run Hyprland properly
+- *(Optional) Home-manager module*: lets you declaratively configure Hyprland
+{{< /hint >}}
 
 ## Installation
 

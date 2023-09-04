@@ -7,6 +7,11 @@ your Display Manager.
 Make sure to check out the options of the
 [NixOS module](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=hyprland).
 
+{{< hint title=Note >}}
+- *(Required) NixOS Module*: enables critical components needed to run Hyprland properly
+- *(Optional) Home-manager module*: lets you declaratively configure Hyprland
+{{< /hint >}}
+
 {{< tabs "uniqueid" >}}
 
 {{< tab "Nixpkgs" >}}
