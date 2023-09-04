@@ -48,6 +48,25 @@ meaning you'll be unable to build any other wlroots compositor
 without a wlroots reinstall.
 {{< /hint >}}
 
+### Meson
+
+```console
+meson setup build -Dbuildtype=debug
+ninja -C build
+```
+
+### Nix
+
+To build the package in debug mode, you have to override it like this:
+
+```nix
+hyprland.override {
+  debug = true;
+};
+```
+
+This code can go in the `package` attribute of the NixOS/Home Manager modules.
+
 ## Running
 
 when running Hyprland in Debug mode, the config is
