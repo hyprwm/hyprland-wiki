@@ -4,9 +4,9 @@
 
 # Waybar
 
-Waybar is a GTK status bar made specifically for wlroots compositors.
-
-To use it, it's recommended to use your distro's package by searching `waybar-hyprland`.
+Waybar is a GTK status bar made specifically for wlroots compositors and
+supports Hyprland by default. To use it, it's recommended to use your distro's
+package.
 
 ## Compiling Manually
 
@@ -23,10 +23,10 @@ sudo ninja -C build install
 
 If you want to use the workspaces module, first, copy the configuration files from
 `/etc/xdg/waybar/` into `~/.config/waybar/`. Then, in `~/.config/waybar/config` replace
-all the references to `sway/workspaces` with `wlr/workspaces`.
+all the references to `sway/workspaces` with `hyprland/workspaces`.
 
 For more info regarding configuration, see
-[The Waybar Wiki](https://github.com/Alexays/Waybar/wiki).
+[The Waybar Wiki](https://github.com/Alexays/Waybar/wiki/Module:-Hyprland).
 
 ## How to launch
 
@@ -48,7 +48,7 @@ Since there a lot of configuration options from `sway/workspaces` are missing, y
 should deduce some of them by yourself. In the case of scrolling, it should look like this:
 
 ```json
-"wlr/workspaces": {
+"hyprland/workspaces": {
      "format": "{icon}",
      "on-scroll-up": "hyprctl dispatch workspace e+1",
      "on-scroll-down": "hyprctl dispatch workspace e-1"
@@ -57,7 +57,7 @@ should deduce some of them by yourself. In the case of scrolling, it should look
 
 ## Clicking on a workspace icon does not work!
 
-On the `wlr/workspaces` module, add `"on-click": "activate"`. That's the purpose of
+On the `hyprland/workspaces` module, add `"on-click": "activate"`. That's the purpose of
 the `sed` command used before building Waybar: the default way to select a workspace by 
 clicking uses the `swaymsg`'s way, and thus it is required to edit
 this function to make it work with `hyprctl`.
