@@ -123,7 +123,7 @@ For further instructions on building with the third party resource, refer to the
 As always, when using third party scripts exercise caution and understand what the script does.
 {{< /hint>}}
 {{< /tab >}}
-{{< tab "Slackware" >}}
+{{< tab "Slackware*" >}}
 ```plain
 hyprland-bin (SlackBuilds) - Prebuilt release for Slackware ready for install
 ```
