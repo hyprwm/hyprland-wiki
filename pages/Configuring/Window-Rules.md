@@ -130,7 +130,7 @@ windowrule = rounding 10,^(kitty)$ # set rounding to 10 for kitty
 
 ### Notes
 
-Rules that are marked as _Dynamic_ will be reevaluated if the matching property of the window changes. For instance, if a rule is defined that changes the bordercolor of a window when it is floating, then the bordercolor will change to the requested color when it is set to floating, and revert to the default color when it is tiled again. Dynamic matching properties are _title_, _floating_, _fullscreen_ and _pinned_.
+Rules that are marked as _Dynamic_ will be reevaluated if the matching property of the window changes. For instance, if a rule is defined that changes the bordercolor of a window when it is floating, then the bordercolor will change to the requested color when it is set to floating, and revert to the default color when it is tiled again.
 
 Rules will be processed from top to bottom, where the _last_ match will take precedence.
 i.e.
