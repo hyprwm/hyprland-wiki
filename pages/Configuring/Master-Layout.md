@@ -19,6 +19,7 @@ _category name `master`_
 | orientation | default placement of the master area, can be left, right, top, bottom or center | string | left |
 | inherit_fullscreen | inherit fullscreen status when cycling/swapping to another window (e.g. monocle layout) | bool | true |
 | always_center_master | when using orientation=center, keep the master window centered, even when it is the only window in the workspace. | bool | false |
+| smart_resizing | if enabled, resizing direction will be determined by the mouse's position on the window (nearest to which corner). Else, it is based on the window's tiling position. | bool | true |
 
 
 # Dispatchers
