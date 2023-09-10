@@ -13,7 +13,7 @@ layout pages (See the sidebar).
 | workspace | see below. |
 | direction | `l` `r` `u` `d` left right up down |
 | monitor | One of: direction, ID, name, `current`, relative (e.g. `+1` or `-1`) |
-| resizeparams | Pixel delta vec2 (e.g. `10 -10`) or `exact` followed by exact vec2 (e.g. `exact 1280 720`) |
+| resizeparams | relative pixel delta vec2 (e.g. `10 -10`), optionally a percentage of the window size (e.g. `20 25%`) or `exact` followed by an exact vec2 (e.g. `exact 1280 720`), optionally a percentage of the screen size (e.g. `exact 50% 50%`) |
 | floatvalue | a relative float delta (e.g `-0.2` or `+0.2`) or `exact` followed by a the exact float value (e.g. `exact 0.5`) |
 | workspaceopt | see below. |
 
