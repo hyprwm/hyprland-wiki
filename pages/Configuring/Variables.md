@@ -289,9 +289,9 @@ Described [here](../Keywords#per-device-input-configs).
 | groupbar_text_color | controls the group bar text color | color | 0xffffffff |
 | background_color | change the background color. (requires enabled `disable_hyprland_logo`) | color | 0x111111 |
 | close_special_on_empty | close the special workspace if the last window is removed | bool | true |
-| snap_floating | Enable floating windows to snap to either the windows or the monitor's edge (values: `monitor` or `windows`) | str | [[Empty]] |
+| snap_floating | enable floating windows to snap to either the windows or the monitor's edge (values: `monitor` or `windows`) | str | [[Empty]] |
 | snap_floating_strength | determines the distance at which snapping occurs | int | 50 |
-| snap_floating_outside | When `false`, windows will only snap to the inside of windows. When `true`, windows will snap inside and outside. Setting this to `true` might require adjusting your gaps size to play nice. | bool | false |
+| snap_floating_outside | when `false`, windows will only snap to the inside of windows. When `true`, windows will snap inside and outside. Setting this to `true` might require adjusting your gaps size to play nice. | bool | false |
 
 
 # Binds
