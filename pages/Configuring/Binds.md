@@ -270,6 +270,35 @@ with escape, do it like this:
 # will switch to a submap called resize
 bind=ALT,R,submap,resize
 
+# will configure a submap called "resize"
+submap resize {
+  # use reset to go back to the global submap, at least one reset must be set
+  reset = ,escape
+
+  # Reset can be set multiple times
+  reset = ALT, Q
+
+  # When false, the submap will close when ONE binding from the submap is used
+  persist = true # Default is true
+
+  # When true, any keys not in the submap will be blocked
+  consume = false # Default is false
+
+  # sets repeatable binds for resizing the active window
+  binde=,right,resizeactive,10 0
+  binde=,left,resizeactive,-10 0
+  binde=,up,resizeactive,0 -10
+  binde=,down,resizeactive,0 10
+}
+
+```
+
+### Submaps (Legacy syntax)
+
+```ini
+# will switch to a submap called resize
+bind=ALT,R,submap,resize
+
 # will start a submap called "resize"
 submap=resize
 
@@ -288,7 +317,7 @@ submap=reset
 # keybinds further down will be global again...
 ```
 
-**IMPORTANT:** do not forget a keybind to reset the keymap while inside it! (In
+**IMPORTANT (Legacy syntax):** do not forget a keybind to reset the keymap while inside it! (In
 this case, `escape`)
 
 If you get stuck inside a keymap, you can use `hyprctl dispatch submap reset` to
