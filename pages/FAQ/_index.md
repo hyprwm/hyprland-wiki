@@ -8,7 +8,7 @@ Possible causes:
 
 > Your themes are not set up properly, making apps crash.
 
-Use something like `qt6ct` (QT) and `nwg-look` (GTK) (\*for GTK you can also
+Use something like `qt6ct` (Qt) and `nwg-look` (GTK) (\*for GTK you can also
 set up themes with envvars) to set up your themes.
 
 > Your PC is very, _very_ old.
@@ -115,7 +115,7 @@ Use a wayland-compatible locking utility using WLR protocols, e.g. `swaylock`.
 
 If using flatpak, run `flatpak override --env=~/.themes:ro --env=~/.icons:ro --user` and put your themes in both `/usr/share/themes` and `~/.themes`, and put your icons and cursors in both `/usr/share/icons` and `~/.icons`.
 
-For QT applications, Hyprland exports XCURSOR_SIZE as 24, which is the default. 
+For Qt applications, Hyprland exports XCURSOR_SIZE as 24, which is the default.
 You can overwrite this by exporting XCURSOR_SIZE to a different value with `env`.
 
 You can also try running `gsettings set org.gnome.desktop.interface cursor-theme 'theme-name'` or adding it after `exec-once=` in your config.
@@ -230,7 +230,7 @@ env = XDG_CURRENT_DESKTOP,Hyprland
 
 The middle-click paste action pastes from a separate buffer (primary buffer) than what the regular clipboard uses (clipboard buffer). Since the primary buffer is unrelated to the clipboard buffer, it's easy to simply keep the primary buffer empty, allowing the middle-click action to retain the rest of its functionality without having anything to paste. Run the following command (in your config with `exec-once`, for example) to achieve this:
 
-`wl-paste -p --watch wl-copy -pc` (`wl-paste -p --watch` watches for changes to the primary buffer, `wl-copy -pc` clears the primary buffer)
+`wl-paste -p --watch wl-copy -p ''` (`wl-paste -p --watch` watches for changes to the primary buffer, `wl-copy -p ''` clears the primary buffer)
 
 
 Alternatively, you can simply intercept the middle-click action all together, via hyprland binds for example. The drawbacks to this solution are that 1. it disables the rest of the functionality of the middle-click action, such as auto scroll, closing browser tabs, etc., and 2. many applications (such as kitty) manually intercept the middle-click events and bind them to paste from the primary buffer themselves, bypassing the solution altogether. For this solution, add this bind to your config:

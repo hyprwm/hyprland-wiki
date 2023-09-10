@@ -104,7 +104,7 @@ you can use `hyprctl clients`.
 | noshadow | disables shadows for the window |&check;|
 | forceinput | forces an XWayland window to receive input, even if it requests not to do so. (Might fix issues like e.g. Game Launchers not receiving focus for some reason) | |
 | windowdance | forces an XWayland window to never refocus, used for games/applications like Rhythm Doctor | |
-| pin | pins the window *note: floating only* | |
+| pin | pins the window  (i.e. show it on all workspaces) *note: floating only* | |
 | noanim | disables the animations for the window |&check;|
 | keepaspectratio | forces aspect ratio when resizing window with the mouse |&check;|
 | bordercolor \[c\] | force the bordercolor of the window. Options for c: `color` -> sets the active border color OR `color color` -> sets the active and inactive border color of the window. See [variables->colors](../Variables#variable_types) for color definition. |&check;|
@@ -130,7 +130,7 @@ windowrule = rounding 10,^(kitty)$ # set rounding to 10 for kitty
 
 ### Notes
 
-Rules that are marked as _Dynamic_ will be reevaluated if the matching property of the window changes. For instance, if a rule is defined that changes the bordercolor of a window when it is floating, then the bordercolor will change to the requested color when it is set to floating, and revert to the default color when it is tiled again. Dynamic matching properties are _title_, _floating_, _fullscreen_ and _pinned_.
+Rules that are marked as _Dynamic_ will be reevaluated if the matching property of the window changes. For instance, if a rule is defined that changes the bordercolor of a window when it is floating, then the bordercolor will change to the requested color when it is set to floating, and revert to the default color when it is tiled again.
 
 Rules will be processed from top to bottom, where the _last_ match will take precedence.
 i.e.

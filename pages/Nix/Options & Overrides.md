@@ -1,5 +1,6 @@
-You can override the package through `.override` or `.overrideAttrs`. This is
-easily achievable through [NixOS](../Hyprland-on-NixOS) or [Home Manager](../Hyprland-on-Home-Manager).
+You can override the package through `.override` or `.overrideAttrs`. This
+is easily achievable on [NixOS](../Hyprland-on-NixOS) or
+[Home Manager](../Hyprland-on-Home-Manager).
 
 ## Package options
 
@@ -11,7 +12,7 @@ can be changed by setting the appropriate option to `true`/`false`.
 ```nix
 (pkgs.hyprland.override { # or inputs.hyprland.packages.${pkgs.system}.hyprland
   enableXWayland = true;
-  nvidiaPatches = false;
+  enableNvidiaPatches = false;
 })
 ```
 
@@ -20,10 +21,8 @@ can be changed by setting the appropriate option to `true`/`false`.
 ```nix
 programs.hyprland = { # or wayland.windowManager.hyprland
   enable = true;
-  xwayland = {
-    enable = true;
-  };
-  nvidiaPatches = false;
+  xwayland.enable = true;
+  enableNvidiaPatches = false;
 };
 ```
 
@@ -43,19 +42,19 @@ See [XWayland](../../Configuring/XWayland).
 Nvidia is notorious for not working by default with wlroots. That's why we
 patch wlroots.
 
-In the NixOS and Home Manager modules, you can enable the Nvidia patches using
-`programs.hyprland.nvidiaPatches` and `wayland.windowManager.hyprland.nvidiaPatches`,
-respectively.
+In the NixOS and Home Manager modules, you can enable the
+Nvidia patches using `programs.hyprland.enableNvidiaPatches` and
+`wayland.windowManager.hyprland.enableNvidiaPatches`, respectively.
 
 ## Using Nix repl
 
 If you're using Nix (and not NixOS or Home Manager) and you want to override,
 you can do it like this
 
-```console
+```nix
 $ nix repl
 nix-repl> :lf "github:hyprwm/Hyprland"
-nix-repl> :bl outputs.packages.x86_64-linux.hyprland.override {nvidiaPatches = true;} # option = value
+nix-repl> :bl outputs.packages.x86_64-linux.hyprland.override {enableNvidiaPatches = true;} # option = value
 ```
 
 Then you can run Hyprland from the built path.

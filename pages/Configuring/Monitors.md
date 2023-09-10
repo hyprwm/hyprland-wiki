@@ -91,6 +91,14 @@ monitor=desc:SDC 0x4154,preferred,auto,1.5
 
 remember to remove the (portname)!
 
+## Custom modelines
+
+You can set up a custom modeline by changing the resolution field to a modeline, for example:
+
+```
+monitor = DP-1, modeline 1071.101 3840 3848 3880 3920 2160 2263 2271 2277 +hsync -vsync, 0x0, 1
+```
+
 ## Disabling a monitor
 
 To disable a monitor, use
@@ -152,6 +160,10 @@ monitor=eDP-1,2880x1800@90,0x0,1,bitdepth,10
 
 Please be aware that colors registered in Hyprland (e.g. the border color) do _not_
 support 10 bit.
+
+## VRR
+
+Per-display VRR can be done by adding `,vrr,X` where `X` is the mode from the [variables page](../Variables).
 
 # Rotating
 

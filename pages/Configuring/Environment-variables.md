@@ -24,7 +24,7 @@ Linux distros.
 
 # Toolkit Backend Variables
 - `GDK_BACKEND=wayland,x11` - GTK: Use wayland if available, fall back to x11 if not.
-- `QT_QPA_PLATFORM="wayland;xcb"` - QT: Use wayland if available, fall back to x11 if not.
+- `QT_QPA_PLATFORM="wayland;xcb"` - Qt: Use wayland if available, fall back to x11 if not.
 - `SDL_VIDEODRIVER=wayland` - Run SDL2 applications on Wayland. Remove or set to `x11` if games that provide older versions of SDL cause
   compatibility issues
 - `CLUTTER_BACKEND=wayland` - Clutter package already has wayland enabled, this variable will force Clutter applications
@@ -39,13 +39,13 @@ Linux distros.
 XDG specific environment variables are often detected through portals and applications that may
 set those for you, however it is not a bad idea to set them explicitly.
 
-# QT Variables
+# Qt Variables
 
-- `QT_AUTO_SCREEN_SCALE_FACTOR=1` - [(From the QT documentation)](https://doc.qt.io/qt-5/highdpi.html)
+- `QT_AUTO_SCREEN_SCALE_FACTOR=1` - [(From the Qt documentation)](https://doc.qt.io/qt-5/highdpi.html)
 enables automatic scaling, based on the monitor's pixel density
-- `QT_QPA_PLATFORM=wayland;xcb` - Tell QT applications to use the Wayland backend, and fall back to x11 if Wayland is unavailable
-- `QT_WAYLAND_DISABLE_WINDOWDECORATION=1` - Disables window decorations on QT applications
-- `QT_QPA_PLATFORMTHEME=qt5ct` - Tells QT based applications to pick your theme from qt5ct, use with Kvantum.
+- `QT_QPA_PLATFORM=wayland;xcb` - Tell Qt applications to use the Wayland backend, and fall back to x11 if Wayland is unavailable
+- `QT_WAYLAND_DISABLE_WINDOWDECORATION=1` - Disables window decorations on Qt applications
+- `QT_QPA_PLATFORMTHEME=qt5ct` - Tells Qt based applications to pick your theme from qt5ct, use with Kvantum.
 
 # NVIDIA Specific
 

@@ -107,6 +107,7 @@ _subcategory decoration:blur:_
 | noise | how much noise to apply. 0.0 - 1.0 | float | 0.0117 |
 | contrast | contrast modulation for blur. 0.0 - 2.0 | float | 0.8916 |
 | brightness | brightness modulation for blur. 0.0 - 2.0 | float | 0.8172 |
+| special | whether to blur behind the special workspace (note: expensive) | bool | false |
 
 {{< hint type=important >}}
 A subcategory is a nested category:
@@ -168,6 +169,7 @@ _[More about Animations](../Animations)._
 | left_handed | Switches RMB and LMB | bool | false |
 | scroll_method | Sets the scroll method. Can be one of `2fg` (2 fingers), `edge`, `on_button_down`, `no_scroll`. [libinput#scrolling](https://wayland.freedesktop.org/libinput/doc/latest/scrolling.html) | str | \[\[Empty\]\]
 | scroll_button | Sets the scroll button. Has to be an int, cannot be a string. Check `wev` if you have any doubts regarding the ID. 0 means default. | int | 0 |
+| scroll_button_lock | If the scroll button lock is enabled, the button does not need to be held down. Pressing and releasing the button once enables the button lock, the button is now considered logically held down. Pressing and releasing the button a second time logically releases the button. While the button is logically held down, motion events are converted to scroll events. | bool | 0 |
 | natural_scroll | Inverts scrolling direction. When enabled, scrolling moves content directly instead of manipulating a scrollbar. | bool | false |
 | follow_mouse | (0/1/2/3) Specify if and how cursor movement should affect window focus. See the note below. | int | 1 |
 | mouse_refocus | If disabled and `follow_mouse=1` then mouse focus will not switch to the hovered window unless the mouse crosses a window boundary. | bool | true |
@@ -243,6 +245,8 @@ Described [here](../Keywords#per-device-input-configs).
 | workspace_swipe_min_speed_to_force | minimum speed in px per timepoint to force the change ignoring `cancel_ratio`. Setting to `0` will disable this mechanic. | int | 30 |
 | workspace_swipe_cancel_ratio | (0.0 - 1.0) how much the swipe has to proceed in order to commence it. (0.7 -> if > 0.7 * distance, switch, if less, revert) | float | 0.5 |
 | workspace_swipe_create_new | whether a swipe right on the last workspace should create a new one. | bool | true |
+| workspace_swipe_direction_lock | if enabled, switching direction will be locked when you swipe past the `direction_lock_threshold`. | bool | true |
+| workspace_swipe_direction_lock_threshold | in px, the distance to swipe before direction lock activates. | int | 10 |
 | workspace_swipe_forever | if enabled, swiping will not clamp at the neighboring workspaces but continue to the further ones. | bool | false |
 | workspace_swipe_numbered | if enabled, swiping will swipe on consecutive numbered workspaces. | bool | false |
 | workspace_swipe_use_r | if enabled, swiping will use the `r` prefix instead of the `m` prefix for finding workspaces. (requires disabled `workspace_swipe_numbered`) | bool | false |
@@ -278,11 +282,13 @@ Described [here](../Keywords#per-device-input-configs).
 | allow_session_lock_restore | if true, will allow you to restart a lockscreen app in case it crashes (red screen of death) | bool | false |
 | group_insert_after_current | whether new windows in a group spawn after current or at group tail | bool | true |
 | group_focus_removed_window | whether Hyprland should focus on the window that has just been moved out of the group | bool | true |
+| groupbar_scrolling | whether scrolling in the groupbar changes group active window | bool | true |
 | render_titles_in_groupbar | whether to render titles in the group bar decoration | bool | true |
 | groupbar_titles_font_size | font size for the above | int | 8 |
 | groupbar_gradients | whether to draw gradients under the titles of the above | bool | true |
 | groupbar_text_color | controls the group bar text color | color | 0xffffffff |
 | background_color | change the background color. (requires enabled `disable_hyprland_logo`) | color | 0x111111 |
+| close_special_on_empty | close the special workspace if the last window is removed | bool | true |
 
 # Binds
 
@@ -319,6 +325,7 @@ Only for developers.
 | damage_tracking | redraw only the needed bits of the display. Do **not** change. (default: full - 2) monitor - 1, none - 0 | int | 2 |
 | enable_stdout_logs | enables logging to stdout | bool | false |
 | manual_crash | set to 1 and then back to 0 to crash Hyprland. | int | 0 |
+| suppress_errors| if true, do not display config file parsing errors. | bool | false |
 
 # More
 

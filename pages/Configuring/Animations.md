@@ -12,7 +12,7 @@ or
 animation=NAME,ONOFF,SPEED,CURVE
 ```
 
-`ONOFF` can be either 0 or 1, 0 to disable, 1 to enable.
+`ONOFF` can be either 0 or 1, 0 to disable, 1 to enable. _note:_ if it's 0, you can omit further args.
 
 `SPEED` is the amount of ds (1ds = 100ms) the animation will take
 
@@ -28,6 +28,7 @@ parent's values. See [the animation tree](#animation-tree).
 ```ini
 animation=workspaces,1,8,default
 animation=windows,1,10,myepiccurve,slide
+animation=fade,0
 ```
 
 ## Animation tree

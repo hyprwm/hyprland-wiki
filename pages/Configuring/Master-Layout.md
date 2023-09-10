@@ -19,6 +19,7 @@ _category name `master`_
 | orientation | default placement of the master area, can be left, right, top, bottom or center | string | left |
 | inherit_fullscreen | inherit fullscreen status when cycling/swapping to another window (e.g. monocle layout) | bool | true |
 | always_center_master | when using orientation=center, keep the master window centered, even when it is the only window in the workspace. | bool | false |
+| smart_resizing | if enabled, resizing direction will be determined by the mouse's position on the window (nearest to which corner). Else, it is based on the window's tiling position. | bool | true |
 
 
 # Dispatchers
@@ -42,6 +43,7 @@ _category name `master`_
 | orientationcenter | sets the orientation for the current workspace to center (master area center, slave windows alternate to the left and right, vertically stacked) | none |
 | orientationnext | cycle to the next orientation for the current workspace (clockwise) | none |
 | orientationprev | cycle to the previous orientation for the current workspace (counter-clockwise) | none |
+| orientationcycle | cycle to the next orientation from the provided list, for the current workspace | allowed values: `left`, `top`, `right`, `bottom`, or `center`. The values have to be separated by a space. If left empty, it will work like `orientationnext` |
 
 params for the commands are separated by a single space
 

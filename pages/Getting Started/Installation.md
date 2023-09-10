@@ -123,6 +123,15 @@ For further instructions on building with the third party resource, refer to the
 As always, when using third party scripts exercise caution and understand what the script does.
 {{< /hint>}}
 {{< /tab >}}
+{{< tab "Slackware*" >}}
+```plain
+hyprland-bin (SlackBuilds) - Prebuilt release for Slackware ready for install
+```
+Hyprland is not installed by default on the current release of Slackware.
+
+For detailed instructions on installing this build see [here](https://slackbuilds.org/repository/15.0/desktop/hyprland-bin/)
+
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -180,7 +189,7 @@ wlroots installed, you can make sure you have them by installing wlroots
 separately (Hyprland doesn't mind)
 
 Also note that Hyprland uses the C++23 standard, so both your compiler
-and your C++ library has to support that (`gcc>=12.1.0` or `clang>=15`).
+and your C++ library has to support that (`gcc>=13.0.0` or `clang>=15`).
 On Clang-based systems libc++ may be used by default, so until libc++
 supports C++23 you have to pass `-stdlib=libstdc++` or switch to GCC.
 

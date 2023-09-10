@@ -21,16 +21,15 @@ Open your favorite code editor.
 
 Make a new directory, in this example we will use `MyPlugin`.
 
-***→ If you have the Hyprland source already cloned***
+***→ If you have the Hyprland headers***
 
-Make sure you have ran `make pluginenv` in the source.
-If you use the source to build hyprland, `make install` and `make config` will
-already do that for you, so there is no need.
+If you install with `make install`, you should have the headers. In that case, no further action
+is required.
 
 ***→ If you don't have the Hyprland source cloned***
 
 Clone the Hyprland source code to a subdirectory, in our example `MyPlugin/Hyprland`.
-Run `cd Hyprland && make pluginenv && cd ..`.
+Run `cd Hyprland && sudo make pluginenv && cd ..`.
 
 Now that you have the Hyprland sources set up, copy the contents of `example/examplePlugin/` to your working directory.
 
@@ -42,7 +41,7 @@ This plugin has quite a few examples of the things you can do, but we will focus
 
 Starting from the top, you will have to include the plugin API:
 ```cpp
-#include <src/plugins/PluginAPI.hpp>
+#include <hyprland/src/plugins/PluginAPI.hpp>
 ```
 Feel free to take a look at the header. It contains a bunch of useful comments.
 
