@@ -35,7 +35,7 @@ layout pages (See the sidebar).
 | dpms | sets all monitors' DPMS status. Do not use with a keybind directly. | `on`, `off`, or `toggle`. For specific monitor add monitor name after a space |
 | pin | pins a window (i.e. show it on all workspaces) *note: floating only* | left empty / `active` for current, or `window` for a specific window |
 | movefocus | moves the focus in a direction | direction |
-| movewindow | moves the active window in a direction or to a monitor | direction or `mon:` and a monitor |
+| movewindow | moves the active window in a direction or to a monitor. For floating windows, moves the window to the screen edge in that direction | direction or `mon:` and a monitor |
 | swapwindow | swaps the active window with another window in the given direction | direction |
 | centerwindow | center the active window *note: floating only* | none (for monitor center) or 1 (to respect monitor reserved area) |
 | resizeactive | resizes the active window | resizeparams |
