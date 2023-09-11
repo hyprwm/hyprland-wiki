@@ -58,7 +58,7 @@ layout pages (See the sidebar).
 | movecurrentworkspacetomonitor | Moves the active workspace to a monitor | monitor |
 | moveworkspacetomonitor | Moves a workspace to a monitor | workspace and a monitor separated by a space |
 | swapactiveworkspaces | Swaps the active workspaces between two monitors | two monitors separated by a space |
-| bringactivetotop | Brings the current window to the top of the stack | none |
+| bringactivetotop | *Deprecated* in favor of alterzorder.  Brings the current window to the top of the stack | none |
 | alterzorder | Modify the window stack order of the active or specified window  | zheight[,window] |
 | togglespecialworkspace | toggles a special workspace on/off | none (for the first) or name for named (name has to be a special workspace's name) |
 | focusurgentorlast | Focuses the urgent window or the last window | none |
