@@ -82,7 +82,7 @@ you can use `hyprctl clients`.
 | maximize | maximizes a window | |
 | nofullscreenrequest | prevents windows from requesting fullscreen mode, you can still manually toggle fullscreen. | |
 | nomaximizerequest | prevents windows from requesting maximized mode, you can still manually toggle maximize. | |
-| move \[x\] \[y\] | moves a floating window (x,y -> int or %, e.g. 20% or 100. You are also allowed to do `100%-` for the right/bottom anchor, e.g. `100%-20`) Additionally, you can also do `cursor [x] [y]` where x and y are either pixels or percent. Percent is calculated from the window's size. | |
+| move \[x\] \[y\] | moves a floating window (x,y -> int or %, e.g. 20% or 100. You are also allowed to do `100%-` for the right/bottom anchor, e.g. `100%-20`). Additionally, you can also do `cursor [x] [y]` where x and y are either pixels or percent. Percent is calculated from the window's size. Specify `onscreen` before other parameters to force the window into the screen (e.g. `move onscreen cursor 50% 50%`) | |
 | size \[x\] \[y\] | resizes a floating window (x,y -> int or %, e.g. 20% or 100) | |
 | minsize \[x\] \[y\] | sets the minimum size on creation (x,y -> int) | |
 | maxsize \[x\] \[y\] | sets the maximum size on creation (x,y -> int) | |
