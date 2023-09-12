@@ -32,6 +32,7 @@ workspace=DP-1,3,rounding:false,bordersize:0
 | shadow:[b]| Whether to draw shadows or not| bool |
 | rounding:[b] | Whether to draw rounded windows or not | bool |
 | decorate:[b] | Whether to draw window decorations or not | bool |
+| maxclients:[x] | Max number of clients allowed in workspace, supports [silent]  | int |
 
 ### Example Rules
 ```ini
@@ -39,4 +40,5 @@ workspace = 3, rounding:false, decorate:false
 workspace = name:coding, rounding:false, decorate:false, gapsin:0, gapsout:0, border:false, decorate:false, monitor:DP-1
 workspace = 8,bordersize:8
 workspace = name:Hello, monitor:DP-1, default:true
+workspace = special:file_manager, maxclients:1 silent
 ```
