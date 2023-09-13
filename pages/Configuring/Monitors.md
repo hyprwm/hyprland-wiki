@@ -157,9 +157,9 @@ end of the monitor rule, e.g.:
 ```ini
 monitor=eDP-1,2880x1800@90,0x0,1,bitdepth,10
 ```
+**NOTE** Colors registered in Hyprland (e.g. the border color) do _not_support 10 bit.
 
-Please be aware that colors registered in Hyprland (e.g. the border color) do _not_
-support 10 bit.
+**NOTE** Some applications do _not_support screen capture with 10 bit enabled.
 
 ## VRR
 
