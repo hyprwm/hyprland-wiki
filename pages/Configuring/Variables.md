@@ -227,7 +227,7 @@ _Subcategory `input:touchdevice:`_
 
 | name | description | type | default |
 |---|---|---|---|
-| transform | transform the input from touchdevices. The possible transformations are the same as [those of the monitors](../Monitors/#rotating-and-the-default-workspace) | int | 0 |
+| transform | transform the input from touchdevices. The possible transformations are the same as [those of the monitors](../Monitors/#rotating) | int | 0 |
 | output | the output to bind touch devices. Empty means unset and will use the current / autodetected. | string | \[\[Empty\]\] |
 
 ## Per-device input config
