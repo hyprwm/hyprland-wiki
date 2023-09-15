@@ -269,3 +269,10 @@ For Hyprland, you can add these window rules to your config to make said program
 windowrulev2=move 0 0,title:^(flameshot)
 windowrulev2=nofullscreenrequest,title:^(flameshot)
 ```
+# I cannot bind SUPER as my mod key on my laptop
+
+Many laptops have a built in function to toggle `SUPER` between single key press mode and hold mode, this is usually indicated by a padlock on the `SUPER` key.
+
+First install and run `WEV` then press `SUPER`, if you see a key press event followed by an instant key release event then its likely you're `SUPER` key is set to single press mode.
+
+On most laptops this can be fixed by pressing `FN+SUPER` and verified in `WEV`, you should be able to hold `SUPER` and not see an instant release event. In case `FN+SUPER` doesn't work consult your laptops manual.
