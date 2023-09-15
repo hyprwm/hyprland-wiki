@@ -44,6 +44,7 @@ _category name `master`_
 | orientationnext | cycle to the next orientation for the current workspace (clockwise) | none |
 | orientationprev | cycle to the previous orientation for the current workspace (counter-clockwise) | none |
 | orientationcycle | cycle to the next orientation from the provided list, for the current workspace | allowed values: `left`, `top`, `right`, `bottom`, or `center`. The values have to be separated by a space. If left empty, it will work like `orientationnext` |
+| mfact | change mfact, the master split ratio | the new split ratio, a float between 0.0 and 1.0 |
 
 params for the commands are separated by a single space
 
