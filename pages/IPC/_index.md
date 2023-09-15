@@ -52,7 +52,8 @@ e.g.: `workspace>>2`
 | minimize | emitted when a window requests a change to its minimized state. `MINIMIZED` is either 0 or 1. | `WINDOWADDRESS,MINIMIZED` |
 | screencast | emitted when a screencopy state of a client changes. Keep in mind there might be multiple separate clients. State is 0/1, owner is 0 - monitor share, 1 - window share | `STATE,OWNER` |
 | windowtitle | emitted when a window title changes. | `WINDOWADDRESS` |
-| ignoregrouplock | emitted when ignoregrouplock is toggled. | `0/1` |
+| ignoregrouplock | emitted when `ignoregrouplock` is toggled. | `0/1` |
+| lockgroups | emitted when `lockgroups` is toggled. | `0/1` |
 
 {{< hint type=warning >}}
 A fullscreen event is not guaranteed to fire on/off once in succession.

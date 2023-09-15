@@ -91,7 +91,10 @@ A group is like i3wm’s “tabbed” container. It takes the space of one windo
 
 The new group’s border colors are configurable with the appropriate `col.` settings in the general config section.
 
-You can lock a group with the `lockgroups` bind dispatcher in order to stop new windows from entering groups.
+You can lock a group with the `lockactivegroup` dispatcher in order to stop new window from entering this group.
+In addition, the `lockgroups` dispatcher can be used to toggle an independent global group lock that will prevent
+new window from entering any groups, regardless of their local group lock stat.
+
 # Workspaces
 
 You have eight choices:
