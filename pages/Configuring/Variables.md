@@ -255,7 +255,7 @@ Described [here](../Keywords#per-device-input-configs).
 
 | name | description | type | default |
 |---|---|---|---|
-| disable_hyprland_logo | disables the hyprland logo background. :( | bool | false |
+| disable_hyprland_logo | disables the random hyprland logo / anime girl background. :( | bool | false |
 | disable_splash_rendering | disables the hyprland splash rendering. (requires a monitor reload to take effect) | bool | false |
 | force_hypr_chan | makes the background always have hypr-chan, the hyprland mascot | bool | false |
 | vfr | controls the VFR status of hyprland. Heavily recommended to leave on true to conserve resources. | bool | true |
