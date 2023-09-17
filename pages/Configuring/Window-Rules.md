@@ -125,10 +125,13 @@ you can use `hyprctl clients`.
 - `lock` \[`always`\] - Lock the group that added this window. Use with `set` or `new` (i.e. `new lock`) to create a new locked group.
 - `barred` - Do not add the window to the focused group. By default, a window with a `group set` rule will be added to an active group if possible.
 - `deny` - Do not allow window to be toggled as or added to group (see `denywindowfromgroup` dispatcher).
+- `invade` - Force open window in the locked group.
 - `override` \[other options\] - Override other `group` rules, e.g. You can make all windows in a particular workspace open as a group, and use `group override barred` to make windows with specific titles open as normal windows.
 - `unset` - Clear all `group` rules.
 
-The `group` rule without options is a shorthand for `group set`
+The `group` rule without options is a shorthand for `group set`.
+
+By default, `set` and `lock` only affect new windows once. The `always` qualifier makes them always effective.
 
 {{< /hint >}}
 
