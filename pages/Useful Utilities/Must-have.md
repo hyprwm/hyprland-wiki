@@ -14,7 +14,7 @@ Use e.g. `dunst`, `mako`, etc.
 ### Pipewire
 _Starting method:_ automatic
 
-Pipewire is not necessairly required, but screensharing will not work
+Pipewire is not necessarily required, but screensharing will not work
 without it.
 
 Install `pipewire` and `wireplumber` (**not** `pipewire-media-session`)
