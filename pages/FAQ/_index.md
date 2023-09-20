@@ -276,3 +276,22 @@ Many laptops have a built in function to toggle `SUPER` between single key press
 First install and run `wev` then press `SUPER`, if you see a key press event followed by an instant key release event then its likely you're `SUPER` key is set to single press mode.
 
 On most laptops this can be fixed by pressing `FN+SUPER` and verified in `wev`, you should be able to hold `SUPER` and not see an instant release event. In case `FN+SUPER` doesn't work consult your laptops manual.
+
+# My VM doesn't receive keybinds I have set in Hyprland
+
+This is expected, as Hyprland takes precedence.
+
+A simple fix is to create an empty "passthrough" submap:
+
+```ini
+bind = MOD,KEY,submap,passthru
+submap = passthru
+bind = SUPER,Escape,submap,reset
+submap = reset
+```
+
+set `MOD` and `KEY` to desired values.
+
+By pressing the selected combo you will enter a mode where hyprland ignores your keybinds and passes them on to the vm.
+
+Then, pressing `SUPER + Escape` will leave that mode.
