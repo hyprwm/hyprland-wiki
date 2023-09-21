@@ -16,6 +16,7 @@ layout pages (See the sidebar).
 | resizeparams | relative pixel delta vec2 (e.g. `10 -10`), optionally a percentage of the window size (e.g. `20 25%`) or `exact` followed by an exact vec2 (e.g. `exact 1280 720`), optionally a percentage of the screen size (e.g. `exact 50% 50%`) |
 | floatvalue | a relative float delta (e.g `-0.2` or `+0.2`) or `exact` followed by a the exact float value (e.g. `exact 0.5`) |
 | workspaceopt | see below. |
+| zheight | `top` or `bottom` |
 
 # List of Dispatchers
 
@@ -57,7 +58,8 @@ layout pages (See the sidebar).
 | movecurrentworkspacetomonitor | Moves the active workspace to a monitor | monitor |
 | moveworkspacetomonitor | Moves a workspace to a monitor | workspace and a monitor separated by a space |
 | swapactiveworkspaces | Swaps the active workspaces between two monitors | two monitors separated by a space |
-| bringactivetotop | Brings the current window to the top of the stack | none |
+| bringactivetotop | *Deprecated* in favor of alterzorder.  Brings the current window to the top of the stack | none |
+| alterzorder | Modify the window stack order of the active or specified window  | zheight[,window] |
 | togglespecialworkspace | toggles a special workspace on/off | none (for the first) or name for named (name has to be a special workspace's name) |
 | focusurgentorlast | Focuses the urgent window or the last window | none |
 | togglegroup | toggles the current active window into a group | none |
