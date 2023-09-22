@@ -71,6 +71,7 @@ layout pages (See the sidebar).
 | moveoutofgroup | Moves the active window out of a group. No-op if not in a group | none |
 | movewindoworgroup | Behaves as `moveintogroup` if there is a group in the given direction. Behaves as `moveoutofgroup` if there is no group in the given direction relative to the active group. Otherwise behaves like `movewindow`. | direction |
 | movegroupwindow | Swaps the active window with the next or previous in a group | `b` for back, anything else for forward |
+| denywindowfromgroup | Prohibit the active window from becoming or being inserted into group | `on`, `off` or, `toggle` |
 | setignoregrouplock | Temporarily enable or disable binds:ignore_group_lock | `on`, `off`, or `toggle` |
 | global | Executes a Global Shortcut using the GlobalShortcuts portal. See [here](../Binds/#global-keybinds) | name |
 | submap | Change the current mapping group. See [Submaps](../Binds/#submaps) | `reset` or name |
@@ -96,6 +97,9 @@ The new group’s border colors are configurable with the appropriate `col.` set
 You can lock a group with the `lockactivegroup` dispatcher in order to stop new window from entering this group.
 In addition, the `lockgroups` dispatcher can be used to toggle an independent global group lock that will prevent
 new window from entering any groups, regardless of their local group lock stat.
+
+You can prevent a window from being added to group or becoming a group with the `denywindowfromgroup` dispatcher.
+`movewindoworgroup` will behave like `movewindow` if current active window or window in direction has this property set.
 
 # Workspaces
 

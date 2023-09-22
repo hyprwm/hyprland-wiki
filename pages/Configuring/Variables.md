@@ -52,6 +52,8 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 | gaps_out | gaps between windows and monitor edges | int | 20 |
 | col.inactive_border | border color for inactive windows | gradient | 0xffffffff |
 | col.active_border | border color for the active window | gradient | 0xff444444 |
+| col.nogroup_border | inactive border color for window that cannot be added to a group (see `denywindowfromgroup` dispatcher) | gradient | 0xffffaaff |
+| col.nogroup_border_active | active border color for window that cannot be added to a group | gradient | 0xffff00ff |
 | col.group_border | inactive (out of focus) group border color | gradient | 0x66777700 |
 | col.group_border_active | active group border color | gradient | 0x66ffff00 |
 | col.group_border_locked | inactive locked group border color | gradient | 0x66775500 |

@@ -114,6 +114,26 @@ you can use `hyprctl clients`.
 | dimaround | dims everything around the window . Please note this rule is meant for floating windows and using it on tiled ones may result in strange behavior. | &check; |
 | stayfocused | forces focus on the window as long as it's visible |  |
 | xray \[on\] | sets blur xray mode for the window (0 for off, 1 for on, unset for default) | &check; | 
+| group \[options\] | set window group properties. See the note below. | |
+
+{{< hint type=info >}}
+
+## `group` window rule options
+
+- `set` \[`always`\] - Open window as a group.
+- `new` - Shorthand of `barred set`.
+- `lock` \[`always`\] - Lock the group that added this window. Use with `set` or `new` (i.e. `new lock`) to create a new locked group.
+- `barred` - Do not add the window to the focused group. By default, a window with a `group set` rule will be added to an active group if possible.
+- `deny` - Do not allow window to be toggled as or added to group (see `denywindowfromgroup` dispatcher).
+- `invade` - Force open window in the locked group.
+- `override` \[other options\] - Override other `group` rules, e.g. You can make all windows in a particular workspace open as a group, and use `group override barred` to make windows with specific titles open as normal windows.
+- `unset` - Clear all `group` rules.
+
+The `group` rule without options is a shorthand for `group set`.
+
+By default, `set` and `lock` only affect new windows once. The `always` qualifier makes them always effective.
+
+{{< /hint >}}
 
 ### Example Rules
 
