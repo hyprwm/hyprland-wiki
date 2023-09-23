@@ -61,7 +61,7 @@ layout pages (See the sidebar).
 | togglespecialworkspace | toggles a special workspace on/off | none (for the first) or name for named (name has to be a special workspace's name) |
 | focusurgentorlast | Focuses the urgent window or the last window | none |
 | togglegroup | toggles the current active window into a group | none |
-| changegroupactive | switches to the next window in a group. | b - back, f - forward. |
+| changegroupactive | switches to the next window in a group. | b - back, f - forward, or index start at 1  |
 | focuscurrentorlast | Switch focus from current to previously focused window | none |
 | lockgroups | Locks the groups (all groups will not accept new windows) | `lock` for locking, `unlock` for unlocking, `toggle` for toggle |
 | lockactivegroup | Lock the focused group (the current group will not accept new windows or be moved to other groups) | `lock` for locking, `unlock` for unlocking, `toggle` for toggle |
