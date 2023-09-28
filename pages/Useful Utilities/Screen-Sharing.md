@@ -1,6 +1,6 @@
 Screensharing is done through PipeWire on Wayland.
 
-## Prerequsities
+## Prerequisites
 
 Make sure you have `pipewire` and `wireplumber` installed, enabled and running
 if you don't have them yet.
