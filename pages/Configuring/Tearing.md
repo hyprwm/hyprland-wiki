@@ -30,14 +30,24 @@ See the likely culprits below.
 
 ## Common issues
 
+### No tearing at all
+Make sure your windowrules are matching and you have the master toggle enabled.
+
+### Apps that should tear, freeze
+Almost definitely means your GPU driver does not support tearing, like e.g. Intel's.
+
+Please _do not_ report issues if this is the culprit.
+
 ### Graphical artifacts (random colorful pixels, etc)
-Likely issue with your graphics driver. Please note, afaik, intel's iGPUs do not support tearing at all.
+Likely issue with your graphics driver.
 
 Please _do not_ report issues if this is the culprit. Unfortunately, it's most likely your GPU driver's fault.
 
 Could be the below as well
 
 ### Other graphical issues 
+or
+### Hyprland instantly crashes on launch
 Likely issue with `WLR_DRM_NO_ATOMIC`.
 
 NO_ATOMIC forces the use of a legacy, less tested drm API.
