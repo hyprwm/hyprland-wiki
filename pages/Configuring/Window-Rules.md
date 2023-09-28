@@ -115,6 +115,7 @@ you can use `hyprctl clients`.
 | stayfocused | forces focus on the window as long as it's visible |  |
 | xray \[on\] | sets blur xray mode for the window (0 for off, 1 for on, unset for default) | &check; | 
 | group \[options\] | set window group properties. See the note below. | |
+| immediate | forces the window to allow to be torn. See [the Tearing page](../Tearing). | &check; |
 
 {{< hint type=info >}}
 
