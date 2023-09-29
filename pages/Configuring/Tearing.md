@@ -4,7 +4,7 @@ Screen tearing is used to reduce latency and/or jitter in games.
 
 To enable tearing:
  - Set `general:allow_tearing` to `true`. This is a "master toggle"
- - Add `env = WLR_DRM_NO_ATOMIC,1` to your Hyprland config. This disables the usage of a newer DRM API that doesn't support tearing yet.
+ - Add `env = WLR_DRM_NO_ATOMIC,1` to your Hyprland config. This disables the usage of a newer kernel DRM API that doesn't support tearing yet.
  - Add an `immediate` windowrule to your game of choice. This makes sure that Hyprland will tear it.
 
 {{< hint type=note >}}
@@ -32,6 +32,9 @@ See the likely culprits below.
 
 ### No tearing at all
 Make sure your windowrules are matching and you have the master toggle enabled.
+
+Also make sure nothing except for your game is showing on your monitor. No notifications, overlays, lockscreens,
+bars, other windows, etc. (on a different monitor is fine)
 
 ### Apps that should tear, freeze
 Almost definitely means your GPU driver does not support tearing, like e.g. Intel's.
