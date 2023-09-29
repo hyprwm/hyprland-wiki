@@ -341,6 +341,7 @@ Only for developers.
 | enable_stdout_logs | enables logging to stdout | bool | false |
 | manual_crash | set to 1 and then back to 0 to crash Hyprland. | int | 0 |
 | suppress_errors| if true, do not display config file parsing errors. | bool | false |
+| watchdog_timeout | sets the timeout in seconds for watchdog to abort processing of a signal of the main thread. Set to 0 to disable. | int | 5 |
 
 # More
 
