@@ -104,3 +104,24 @@ options nvidia NVreg_RegistryDwords="PowerMizerEnable=0x1; PerfLevelSrc=0x2222; 
 ```
 
 Reboot your computer and it should be working.
+
+## Fixing suspend/wakeup issues
+
+Enable the services `nvidia-suspend.service`, `nvidia-hibernate.service` and `nvidia-resume.service`, they will be started by systemd when needed.
+
+Add `nvidia.NVreg_PreserveVideoMemoryAllocations=1` to your kernel parameters if you don't have it already.
+
+{{< hint type=important >}} Suspend functions are currently broken on `nvidia-open-dkms` [due to a bug](https://github.com/NVIDIA/open-gpu-kernel-modules/issues/472), so make sure you're on `nvidia-dkms`. {{< /hint >}}
+
+For Nix users, the equivalent of the above is
+```nix
+# configuration.nix
+
+boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
+
+hardware.nvidia.powerManagement.enabled = true
+
+# Making sure to use the proprietary drivers until the issue above is fixed upstream
+hardware.nvidia.open = false 
+
+```
