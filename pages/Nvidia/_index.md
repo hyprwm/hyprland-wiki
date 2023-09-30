@@ -8,6 +8,8 @@ Every card seems to be random, and might work perfectly, or not work at all.
 
 Nevertheless, it's recommended to at least try this tutorial.
 
+_Note: if you have problems with Nvidia's drivers, try with the [Nouveau driver](https://wiki.archlinux.org/title/Nouveau). This driver might be more stable, however, its performance and feature set might be worse._
+
 ## Hyprland Nvidia Patch (Arch only) (Unofficial)
 ```sh
 hyprland-nvidia (AUR)
