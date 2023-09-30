@@ -271,7 +271,7 @@ windowrulev2=nofullscreenrequest,title:^(flameshot)
 ```
 # I cannot bind SUPER as my mod key on my laptop
 
-Many laptops have a built in function to toggle `SUPER` between single key press mode and hold mode, this is usually indicated by a padlock on the `SUPER` key.
+Many laptops have a built-in function to toggle `SUPER` between single key press mode and hold mode. This is usually indicated by a padlock on the `SUPER` key.
 
 First install and run `wev` then press `SUPER`, if you see a key press event followed by an instant key release event then its likely your `SUPER` key is set to single press mode.
 
