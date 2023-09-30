@@ -272,7 +272,7 @@ Described [here](../Keywords#per-device-input-configs).
 | disable_hyprland_logo | disables the random hyprland logo / anime girl background. :( | bool | false |
 | disable_splash_rendering | disables the hyprland splash rendering. (requires a monitor reload to take effect) | bool | false |
 | force_hypr_chan | makes the background always have hypr-chan, the hyprland mascot | bool | false |
-| force_default_wallpaper | Enforce any of the 3 default wallpapers | int | -1 |
+| force_default_wallpaper | Enforce any of the 3 default wallpapers. Setting this to 0 disables the anime background. | int | -1 |
 | vfr | controls the VFR status of hyprland. Heavily recommended to leave on true to conserve resources. | bool | true |
 | vrr | controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on, 2 - fullscreen only | int | 0 |
 | mouse_move_enables_dpms | If DPMS is set to off, wake up the monitors if the mouse moves. | bool | false |
