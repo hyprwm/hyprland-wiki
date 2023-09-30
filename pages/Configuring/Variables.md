@@ -78,7 +78,6 @@ Prefer using `input:sensitivity` over `general:sensitivity` to avoid bugs, espec
 | name | description | type | default |
 |---|---|---|---|
 | rounding | rounded corners' radius (in layout px) | int | 0 |
-| multisample_edges | enable antialiasing (no-jaggies) for rounded corners | bool | true |
 | active_opacity | opacity of active windows. (0.0 - 1.0) | float | 1.0 |
 | inactive_opacity | opacity of inactive windows. (0.0 - 1.0) | float | 1.0 |
 | fullscreen_opacity | opacity of fullscreen windows. (0.0 - 1.0) | float | 1.0 |
