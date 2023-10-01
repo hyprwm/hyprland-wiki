@@ -271,11 +271,11 @@ windowrulev2=nofullscreenrequest,title:^(flameshot)
 ```
 # I cannot bind SUPER as my mod key on my laptop
 
-Many laptops have a built in function to toggle `SUPER` between single key press mode and hold mode, this is usually indicated by a padlock on the `SUPER` key.
+Many laptops have a built-in function to toggle `SUPER` between single key press mode and hold mode. This is usually indicated by a padlock on the `SUPER` key.
 
-First install and run `wev` then press `SUPER`, if you see a key press event followed by an instant key release event then its likely you're `SUPER` key is set to single press mode.
+First, install and run `wev`, then press `SUPER`. If you see a key press event followed by an instant key release event, then it's likely your `SUPER` key is set to single press mode.
 
-On most laptops this can be fixed by pressing `FN+SUPER` and verified in `wev`, you should be able to hold `SUPER` and not see an instant release event. In case `FN+SUPER` doesn't work consult your laptops manual.
+On most laptops this can be fixed by pressing `FN+SUPER` and verified in `wev`. You should be able to hold `SUPER` and not see an instant release event. In case `FN+SUPER` doesn't work, consult your laptop's manual.
 
 # My VM doesn't receive keybinds I have set in Hyprland
 
