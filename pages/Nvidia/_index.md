@@ -1,14 +1,12 @@
 # Foreword
 
-There is no _official_ support for Nvidia. Unfortunately, their drivers are so
-messy, and their products so random, that it's impossible for us to help if
-these instructions don't work fully.
+There is no _official_ Hyprland support for Nvidia hardware. However, you might make it work properly following this page. 
 
-Every card seems to be random, and might work perfectly, or not work at all.
+You can choose between the proprietary [Nvidia driver](https://wiki.archlinux.org/title/NVIDIA) or the open source [Nouveau driver](https://wiki.archlinux.org/title/Nouveau). 
 
-Nevertheless, it's recommended to at least try this tutorial.
+You may want to use the proprietary Nvidia driver in some cases, for example: if you have a new Nvidia GPU model, if you want more performance, if you want to play video games, if you need a wider feature set (for example, better power consumption on recent GPUs), etc. However, keep in mind that if the proprietary Nvidia driver doesn't work properly on your computer, the Nouveau driver might work fine while not having as much features or performance.
 
-_Note: if you have problems with Nvidia's drivers, try with the [Nouveau driver](https://wiki.archlinux.org/title/Nouveau). This driver might be more stable, however, its performance and feature set might be worse._
+Below are some tips to try to make the proprietary Nvidia driver work with Hyprland properly:
 
 ## Hyprland Nvidia Patch (Arch only) (Unofficial)
 ```sh
