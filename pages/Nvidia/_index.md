@@ -1,14 +1,12 @@
 # Foreword
 
-There is no _official_ support for Nvidia. Unfortunately, their drivers are so
-messy, and their products so random, that it's impossible for us to help if
-these instructions don't work fully.
+There is no _official_ Hyprland support for Nvidia hardware. However, you might make it work properly following this page. 
 
-Every card seems to be random, and might work perfectly, or not work at all.
+You can choose between the proprietary [Nvidia drivers](https://wiki.archlinux.org/title/NVIDIA) or the open source [Nouveau driver](https://wiki.archlinux.org/title/Nouveau). Under the proprietary Nvidia drivers category, there are 3 of them: the current driver named 'nvidia' (or 'nvidia-dkms' to use with custom linux kernels) which is under active development, the legacy drivers 'nvidia-3xxxx' for older cards which Nvidia no longer actively supports, and the 'nvidia-open' driver which is currently an alpha stage attempt to open source a part of their close source driver for newer cards.
 
-Nevertheless, it's recommended to at least try this tutorial.
+You may want to use the proprietary Nvidia drivers in some cases, for example: if you have a new Nvidia GPU model, if you want more performance, if you want to play video games, if you need a wider feature set (for example, better power consumption on recent GPUs), etc. However, keep in mind that if the proprietary Nvidia drivers do not work properly on your computer, the Nouveau driver might work fine while not having as much features or performance. For [older cards](https://wiki.archlinux.org/title/NVIDIA#Unsupported_drivers), in order to use Hyprland, you will probably need to use the Nouveau driver which actively supports them.
 
-_Note: if you have problems with Nvidia's drivers, try with the [Nouveau driver](https://wiki.archlinux.org/title/Nouveau). This driver might be more stable, however, its performance and feature set might be worse._
+Below are some tips to try to make the proprietary Nvidia driver work with Hyprland properly:
 
 ## Hyprland Nvidia Patch (Arch only) (Unofficial)
 ```sh
