@@ -96,7 +96,7 @@ Prefer using `input:sensitivity` over `general:sensitivity` to avoid bugs, espec
 | screen_shader | a path to a custom shader to be applied at the end of rendering. See `examples/screenShader.frag` for an example. | str | \[\[Empty\]\] |
 
 ## Blur
-_subcategory `decoration:blur:`_
+_Subcategory `decoration:blur:`_
 
 | name | description | type | default |
 |---|---|---|---|
