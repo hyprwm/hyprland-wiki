@@ -41,3 +41,56 @@ First of all, **_READ THE [FAQ PAGE](../FAQ)_**
 
 If your bug is not listed there, you can ask on the Discord server or open an
 issue on GitHub.
+
+# Building the Wayland stack with ASan
+
+If requested, this is the deepest level of memory issue debugging possible.
+
+Prepare yourself mentally, and then:
+
+recommended to do in tty
+
+clone wayland (`git clone --recursive https://gitlab.freedesktop.org/wayland/wayland`)
+clone hyprland (`git clone --recursive https://github.com/hyprwm/Hyprland`)
+
+edit your config to have a terminal that will launch:
+```
+bind = SUPER, Q, exec, LD_PRELOAD=/usr/lib/libasan.so kitty
+```
+(I put kitty, on `SUPER+Q` can be anything)
+
+add this env to reset ASAN_OPTIONS for children:
+```
+env = ASAN_OPTIONS,
+```
+
+wayland:
+```
+meson ./build --prefix=/usr --buildtype=debug -Db_sanitize=address
+sudo ninja -C build install
+```
+
+hyprland:
+```
+sudo make configdebug && make debug
+```
+
+Exit Hyprland to a TTY, cd to the cloned hyprland, and launch it:
+```
+ASAN_OPTIONS="detect_odr_violation=0,log_path=asan.log" ./build/Hyprland -c ~/.config/hypr/hyprland.conf
+```
+
+open your terminal
+
+to open any app just add `LD_PRELOAD=/usr/lib/libasan.so` to the beginning of the cmd
+
+Do whatever you used to do in order to crash the compositor.
+
+Go to `~` or `cwd` and look for `asan.log.XXXXX` files. Zip all and attach to the issue.
+
+once you are done, to revert your horribleness of no app opening without the ld preload just go to the cloned wayland and do
+```
+sudo rm -rf ./build
+meson ./build --prefix=/usr --buildtype=release
+sudo ninja -C build install
+```
