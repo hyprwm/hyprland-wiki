@@ -109,6 +109,16 @@ sleep 2
 ```
 adjust the paths if incorrect.
 
+## Share picker doesn't use the system theme
+
+Try one or both:
+```sh
+dbus-update-activation-environment --systemd --all
+systemctl --user import-environment QT_QPA_PLATFORMTHEME
+```
+
+If it works, add it to your config in an `exec-once`.
+
 ## Debugging
 
 If you get long app launch times, or screensharing does not work, consult the logs.
