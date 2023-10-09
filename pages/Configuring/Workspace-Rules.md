@@ -25,7 +25,6 @@ workspace=DP-1,3,rounding:false,bordersize:0
 | ---- | ----------- | ---- |
 | monitor:[m] | Binds a workspace to a monitor See [syntax](#syntax) and [Monitors](../Monitors).| string |
 | default:[b] | Whether this workspace should be the default workspace for the given monitor | bool |
-| persistent:[b] | Keep this workspace alive even if empty and inactive | bool |
 | gapsin:[x] | Set the gaps between windows (equivalent to [General->gaps_in](../Variables#general)) | int |
 | gapsout:[x] | Set the gaps between windows and monitor edges (equivalent to [General->gaps_out](../Variables#general)) | int |
 | bordersize:[x] | Set the border size around windows (equivalent to [General->border_size](../Variables#general)) | int |
@@ -33,6 +32,7 @@ workspace=DP-1,3,rounding:false,bordersize:0
 | shadow:[b]| Whether to draw shadows or not| bool |
 | rounding:[b] | Whether to draw rounded windows or not | bool |
 | decorate:[b] | Whether to draw window decorations or not | bool |
+| persistent:[b] | Keep this workspace alive even if empty and inactive | bool |
 
 ### Example Rules
 ```ini
