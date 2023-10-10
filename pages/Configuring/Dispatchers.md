@@ -92,7 +92,7 @@ Hyprland allows you to make a group from the current active window with the `tog
 
 A group is like i3wm’s “tabbed” container. It takes the space of one window, and you can change the window to the next one in the tabbed “group” with the `changegroupactive` bind dispatcher.
 
-The new group’s border colors are configurable with the appropriate `col.` settings in the general config section.
+The new group’s border colors are configurable with the appropriate `col.` settings in the `group` config section.
 
 You can lock a group with the `lockactivegroup` dispatcher in order to stop new window from entering this group.
 In addition, the `lockgroups` dispatcher can be used to toggle an independent global group lock that will prevent

@@ -280,10 +280,10 @@ _Subcategory `group:groupbar:`_
 | render_titles | whether to render titles in the group bar decoration | bool | true |
 | scrolling | whether scrolling in the groupbar changes group active window | bool | true |
 | text_color | controls the group bar text color | color | 0xffffffff |
-| col.border_active | active group border color | gradient | 0x66ffff00 |
-| col.border_inactive | inactive (out of focus) group border color | gradient | 0x66777700 |
-| col.border_locked_active | active locked group border color | gradient | 0x66ff5500 |
-| col.border_locked_inactive | inactive locked group border color | gradient | 0x66775500 |
+| col.active | active group border color | gradient | 0x66ffff00 |
+| col.inactive | inactive (out of focus) group border color | gradient | 0x66777700 |
+| col.locked_active | active locked group border color | gradient | 0x66ff5500 |
+| col.locked_inactive | inactive locked group border color | gradient | 0x66775500 |
 
 # Misc
 
