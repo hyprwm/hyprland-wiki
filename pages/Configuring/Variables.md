@@ -54,10 +54,6 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 | col.active_border | border color for the active window | gradient | 0xff444444 |
 | col.nogroup_border | inactive border color for window that cannot be added to a group (see `denywindowfromgroup` dispatcher) | gradient | 0xffffaaff |
 | col.nogroup_border_active | active border color for window that cannot be added to a group | gradient | 0xffff00ff |
-| col.group_border | inactive (out of focus) group border color | gradient | 0x66777700 |
-| col.group_border_active | active group border color | gradient | 0x66ffff00 |
-| col.group_border_locked | inactive locked group border color | gradient | 0x66775500 |
-| col.group_border_locked_active | active locked group border color | gradient | 0x66ff5500 |
 | cursor_inactive_timeout | in seconds, after how many seconds of cursor's inactivity to hide it. Set to `0` for never. | int | 0 |
 | layout | which layout to use. (Available: `dwindle`, `master`) | str | dwindle |
 | no_cursor_warps | if true, will not warp the cursor in many cases (focusing, keybinds, etc) | bool | false |
@@ -264,6 +260,31 @@ Described [here](../Keywords#per-device-input-configs).
 | workspace_swipe_numbered | if enabled, swiping will swipe on consecutive numbered workspaces. | bool | false |
 | workspace_swipe_use_r | if enabled, swiping will use the `r` prefix instead of the `m` prefix for finding workspaces. (requires disabled `workspace_swipe_numbered`) | bool | false |
 
+# Group
+| name | description | type | default |
+|---|---|---|---|
+| insert_after_current | whether new windows in a group spawn after current or at group tail | bool | true |
+| focus_removed_window | whether Hyprland should focus on the window that has just been moved out of the group | bool | true |
+| col.border_active | active group border color | gradient | 0x66ffff00 |
+| col.border_inactive | inactive (out of focus) group border color | gradient | 0x66777700 |
+| col.border_locked_active | active locked group border color | gradient | 0x66ff5500 |
+| col.border_locked_inactive | inactive locked group border color | gradient | 0x66775500 |
+
+# Groupbar
+_Subcategory `group:groupbar:`_
+
+| name | description | type | default |
+|---|---|---|---|
+| font_size | font size for the above | int | 8 |
+| gradients | whether to draw gradients under the titles of the above | bool | true |
+| render_titles | whether to render titles in the group bar decoration | bool | true |
+| scrolling | whether scrolling in the groupbar changes group active window | bool | true |
+| text_color | controls the group bar text color | color | 0xffffffff |
+| col.border_active | active group border color | gradient | 0x66ffff00 |
+| col.border_inactive | inactive (out of focus) group border color | gradient | 0x66777700 |
+| col.border_locked_active | active locked group border color | gradient | 0x66ff5500 |
+| col.border_locked_inactive | inactive locked group border color | gradient | 0x66775500 |
+
 # Misc
 
 | name | description | type | default |
@@ -294,13 +315,6 @@ Described [here](../Keywords#per-device-input-configs).
 | cursor_zoom_factor | the factor to zoom by around the cursor. AKA. Magnifying glass. Minimum 1.0 (meaning no zoom) | float | 1.0 |
 | cursor_zoom_rigid | whether the zoom should follow the cursor rigidly (cursor is always centered if it can be) or loosely | bool | false |
 | allow_session_lock_restore | if true, will allow you to restart a lockscreen app in case it crashes (red screen of death) | bool | false |
-| group_insert_after_current | whether new windows in a group spawn after current or at group tail | bool | true |
-| group_focus_removed_window | whether Hyprland should focus on the window that has just been moved out of the group | bool | true |
-| groupbar_scrolling | whether scrolling in the groupbar changes group active window | bool | true |
-| render_titles_in_groupbar | whether to render titles in the group bar decoration | bool | true |
-| groupbar_titles_font_size | font size for the above | int | 8 |
-| groupbar_gradients | whether to draw gradients under the titles of the above | bool | true |
-| groupbar_text_color | controls the group bar text color | color | 0xffffffff |
 | background_color | change the background color. (requires enabled `disable_hyprland_logo`) | color | 0x111111 |
 | close_special_on_empty | close the special workspace if the last window is removed | bool | true |
 | new_window_takes_over_fullscreen | if there is a fullscreen window, whether a new tiled window opened should replace the fullscreen one or stay behind. 0 - behind, 1 - takes over, 2 - unfullscreen the current fullscreen window | int | 0 |
