@@ -244,7 +244,7 @@ It's heavily advised to use `full` regardless of anything.
 
 **_Useful Optimizations_**:
 
-* `decoration:blur_new_optimizations = true`, to use new optimizations for
+* `decoration:blur:new_optimizations = true`, to use new optimizations for
    blurring.
 
 * `decoration:blur = false` and `decoration:drop_shadow = false` to disable
