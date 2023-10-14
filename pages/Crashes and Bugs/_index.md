@@ -72,7 +72,8 @@ sudo ninja -C build install
 
 hyprland:
 ```
-sudo make configdebug && make debug
+cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Debug -DWITH_ASAN:STRING=True -S . -B ./build -G Ninja
+cmake --build ./build --config Debug --target all -j`nproc 2>/dev/null || getconf NPROCESSORS_CONF`
 ```
 
 Exit Hyprland to a TTY, cd to the cloned hyprland, and launch it:

@@ -35,19 +35,6 @@ With that, you can build in debug, go to the debugging tab and hit
 
 attach and profile in your preferred way.
 
-{{< hint >}}
-For all ways, make sure to `sudo make clear` to clear any root-owned files.
-Also, before the first build (or after some updates, possibly)
-`sudo make config`. (If you get any `missing header file "...-protocol.h"`, you
-need to `make config`.)
-{{< /hint >}}
-
-{{< hint type=warning >}}
-`make config` will overwrite wlroots headers in `/usr/`,
-meaning you'll be unable to build any other wlroots compositor
-without a wlroots reinstall.
-{{< /hint >}}
-
 ### Meson
 
 ```console

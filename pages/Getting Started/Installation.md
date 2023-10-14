@@ -198,7 +198,7 @@ supports C++23 you have to pass `-stdlib=libstdc++` or switch to GCC.
 ```Plain
 git clone --recursive https://github.com/hyprwm/Hyprland
 cd Hyprland
-sudo make install
+make all && sudo make install
 ```
 
 _CMake is always recommended as it's the intended way Hyprland should be installed._
@@ -226,7 +226,7 @@ cd into the hyprland repo.
 for legacy renderer:
 
 ```plain
-sudo make clear && sudo make config && make protocols && make legacyrenderer && sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
+make legacyrenderer && sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
 ```
 
 _please note the legacy renderer may not support some graphical features._
@@ -234,7 +234,7 @@ _please note the legacy renderer may not support some graphical features._
 `debug` `legacyrenderer` `legacyrendererdebug`)
 
 ```plain
-sudo make clear && sudo make config && make protocols && make [PRESET] && sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
+make [PRESET] && sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
 ```
 
 ## Custom Build flags
@@ -251,12 +251,6 @@ NO_SYSTEMD - Removes systemd dependencies
 How to?
 
 Go to the root repo.
-
-Clean before everything and config the root:
-
-```plain
-make clear && sudo make config && make protocols
-```
 
 Then, configure CMake:
 

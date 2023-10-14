@@ -29,7 +29,7 @@ is required.
 ***→ If you don't have the Hyprland source cloned***
 
 Clone the Hyprland source code to a subdirectory, in our example `MyPlugin/Hyprland`.
-Run `cd Hyprland && sudo make pluginenv && cd ..`.
+Run `cd Hyprland && make all && sudo make installheaders && cd ..`.
 
 Now that you have the Hyprland sources set up, copy the contents of `example/examplePlugin/` to your working directory.
 
@@ -100,7 +100,7 @@ in the exit method. Hyprland will do that for you.
 ### Setting up a development environment
 In order to make your life easier, it's a good idea to work on a nested debug Hyprland session.
 
-Enter your Hyprland directory and run `sudo make config && make protocols && make debug`
+Enter your Hyprland directory and run `make debug`
 
 Make a copy of your config in `~/.config/hypr` called `hyprlandd.conf`.
 

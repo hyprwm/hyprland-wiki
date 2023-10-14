@@ -96,8 +96,7 @@ updates after pressing a key) will cause rapid changes in brightness.
 Open a terminal where you cloned the repo.
 ```bash
 git pull 
-sudo make clear 
-sudo make install
+make all && sudo make install
 ```
 
 If you are using the AUR (hyprland-git) package, you
