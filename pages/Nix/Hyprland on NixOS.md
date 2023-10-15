@@ -97,10 +97,14 @@ in {
 
 ## Fixing problems with themes
 
-If your themes for mouse cursor, icons and window theme don't load correctly, try setting them with `home-manager`. `home-manager` enables a bunch of compatibility options that should make the themes load in all situations.
+If your themes for mouse cursor, icons or windows don't load correctly, try setting them with `home-manager`. `home-manager` enables a bunch of compatibility options that should make the themes load in all situations.
 
 Example configuration:
 ```
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+
     users._username_ = {
       home = {
         stateVersion = "23.05";
@@ -129,4 +133,5 @@ Example configuration:
       };
     };
   };
+   
 ```
