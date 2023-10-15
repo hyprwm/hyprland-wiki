@@ -105,7 +105,7 @@ Example configuration:
     useGlobalPkgs = true;
     useUserPackages = true;
 
-    users._username_ = {
+    users.username = {
       home = {
         stateVersion = "23.05";
         pointerCursor = {
