@@ -97,41 +97,4 @@ in {
 
 ## Fixing problems with themes
 
-If your themes for mouse cursor, icons or windows don't load correctly, try setting them with `home-manager`. `home-manager` enables a bunch of compatibility options that should make the themes load in all situations.
-
-Example configuration:
-```
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-
-    users.username = {
-      home = {
-        stateVersion = "23.05";
-        pointerCursor = {
-          gtk.enable = true;
-          # x11.enable = true;
-          package = pkgs.bibata-cursors;
-          name = "Bibata-Modern-Amber";
-          size = 32;
-        };
-      };
-      gtk = {
-        enable = true;
-        theme = {
-          package = pkgs.flat-remix-gtk;
-          name = "Flat-Remix-GTK-Grey-Darkest";
-        };
-        iconTheme = {
-          package = pkgs.libsForQt5.breeze-icons;
-          name = "breeze-dark";
-        };
-        font = {
-          name = "Sans";
-          size = 11;
-        };
-      };
-    };
-  };
-   
-```
+If your themes for mouse cursor, icons or windows don't load correctly, see the relevant section in [[Hyprland on Home Manager|Hyprland on Home Manager]].
