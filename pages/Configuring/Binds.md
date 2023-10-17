@@ -145,6 +145,7 @@ e -> repeat, will repeat when held.
 n -> non-consuming, key/mouse events will be passed to the active window in addition to triggering the dispatcher.
 m -> mouse, see below
 t -> transparent, cannot be shadowed by other binds.
+i -> ignore mods, will ignore modifiers.
 ```
 
 Example Usage:
