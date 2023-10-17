@@ -94,3 +94,7 @@ in {
 
 {{< /tab >}}
 {{< /tabs >}}
+
+## Fixing problems with themes
+
+If your themes for mouse cursor, icons or windows don't load correctly, see the relevant section in [Hyprland on Home Manager](./Hyprland-on-Home-Manager).
