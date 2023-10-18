@@ -6,8 +6,6 @@ etc. see the sidebar. For anything else, see [Keywords](../Keywords).
 Please keep in mind some options that are layout-specific will be documented in
 the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 
-# Table of contents
-
 {{< toc >}}
 
 # Variable types
