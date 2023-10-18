@@ -58,7 +58,7 @@ This code can go in the `package` attribute of the NixOS/Home Manager modules.
 
 when running Hyprland in Debug mode, the config is
 `~/.config/hypr/hyprlandd.conf` and the logs can be found at
-`/tmp/hypr/[INSTANCE SIGNATURE]/hyprlandd.conf`.
+`/tmp/hypr/[INSTANCE SIGNATURE]/hyprlandd.log`.
 
 ## Logs, dumps, etc
 
