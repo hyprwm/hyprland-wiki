@@ -95,7 +95,7 @@ Prefer using `input:sensitivity` over `general:sensitivity` to avoid bugs, espec
 | dim_around | how much the `dimaround` window rule should dim by. 0.0 - 1.0 | float | 0.4 |
 | screen_shader | a path to a custom shader to be applied at the end of rendering. See `examples/screenShader.frag` for an example. | str | \[\[Empty\]\] |
 
-## Blur
+### Blur
 _Subcategory `decoration:blur:`_
 
 | name | description | type | default |
@@ -138,7 +138,7 @@ but remember that higher `blur:passes` will require more strain on the GPU.
 
 {{< /hint >}}
 
-# Animations
+## Animations
 
 | name | description | type | default |
 |---|---|---|---|
@@ -149,8 +149,6 @@ but remember that higher `blur:passes` will require more strain on the GPU.
 _[More about Animations](../Animations)._
 
 {{< /hint >}}
-
-# Input
 
 ## Input
 
@@ -207,7 +205,7 @@ how it works.
   {{< /hint >}}
 
 
-## Touchpad
+### Touchpad
 
 _Subcategory `input:touchpad:`_
 
@@ -223,7 +221,7 @@ _Subcategory `input:touchpad:`_
 | drag_lock | When enabled, lifting the finger off for a short time while dragging will not drop the dragged item. [libinput#tap-and-drag](https://wayland.freedesktop.org/libinput/doc/latest/tapping.html#tap-and-drag) | bool | false |
 | tap-and-drag | Sets the tap and drag mode for the touchpad | bool | false |
 
-## Touchdevice
+### Touchdevice
 
 _Subcategory `input:touchdevice:`_
 
@@ -232,7 +230,7 @@ _Subcategory `input:touchdevice:`_
 | transform | transform the input from touchdevices. The possible transformations are the same as [those of the monitors](../Monitors/#rotating) | int | 0 |
 | output | the output to bind touch devices. Empty means unset and will use the current / autodetected. | string | \[\[Empty\]\] |
 
-## Tablet
+### Tablet
 
 _Subcategory `input:tablet:`_
 
@@ -247,7 +245,7 @@ _Subcategory `input:tablet:`_
 
 Described [here](../Keywords#per-device-input-configs).
 
-# Gestures
+## Gestures
 
 | name | description | type | default |
 |---|---|---|---|
@@ -264,7 +262,7 @@ Described [here](../Keywords#per-device-input-configs).
 | workspace_swipe_numbered | if enabled, swiping will swipe on consecutive numbered workspaces. | bool | false |
 | workspace_swipe_use_r | if enabled, swiping will use the `r` prefix instead of the `m` prefix for finding workspaces. (requires disabled `workspace_swipe_numbered`) | bool | false |
 
-# Group
+## Group
 | name | description | type | default |
 |---|---|---|---|
 | insert_after_current | whether new windows in a group spawn after current or at group tail | bool | true |
@@ -274,7 +272,7 @@ Described [here](../Keywords#per-device-input-configs).
 | col.border_locked_active | active locked group border color | gradient | 0x66ff5500 |
 | col.border_locked_inactive | inactive locked group border color | gradient | 0x66775500 |
 
-# Groupbar
+### Groupbar
 _Subcategory `group:groupbar:`_
 
 | name | description | type | default |
@@ -289,7 +287,7 @@ _Subcategory `group:groupbar:`_
 | col.locked_active | active locked group border color | gradient | 0x66ff5500 |
 | col.locked_inactive | inactive locked group border color | gradient | 0x66775500 |
 
-# Misc
+## Misc
 
 | name | description | type | default |
 |---|---|---|---|
@@ -323,7 +321,7 @@ _Subcategory `group:groupbar:`_
 | close_special_on_empty | close the special workspace if the last window is removed | bool | true |
 | new_window_takes_over_fullscreen | if there is a fullscreen window, whether a new tiled window opened should replace the fullscreen one or stay behind. 0 - behind, 1 - takes over, 2 - unfullscreen the current fullscreen window | int | 0 |
 
-# Binds
+## Binds
 
 | name | description | type | default |
 |---|---|---|---|
@@ -335,14 +333,14 @@ _Subcategory `group:groupbar:`_
 | focus_preferred_method | sets the preferred focus finding method when using `focuswindow`/`movewindow`/etc with a direction. 0 - history (recent have priority), 1 - length (longer shared edges have priority) | int | 0 |
 | ignore_group_lock | If enabled, dispatchers like `moveintogroup`, `moveoutofgroup` and `movewindoworgroup` will ignore lock per group. | bool | false |
 
-# XWayland
+## XWayland
 
 | name | description | type | default |
 |---|---|---|---|
 | use_nearest_neighbor | uses the nearest neigbor filtering for xwayland apps, making them pixelated rather than blurry | bool | true |
 | force_zero_scaling | forces a scale of 1 on xwayland windows on scaled displays. | bool | false |
 
-# Debug
+## Debug
 
 {{< hint type=warning >}}
 
@@ -362,7 +360,7 @@ Only for developers.
 | suppress_errors| if true, do not display config file parsing errors. | bool | false |
 | watchdog_timeout | sets the timeout in seconds for watchdog to abort processing of a signal of the main thread. Set to 0 to disable. | int | 5 |
 
-# More
+## More
 
 There are more config options described in other pages, which are layout- or
 circumstance-specific. See the sidebar for more pages.
