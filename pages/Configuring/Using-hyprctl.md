@@ -234,6 +234,7 @@ version - prints the hyprland version, meaning flags, commit and branch of build
 monitors - lists all the outputs with their properties
 workspaces - lists all workspaces with their properties
 activeworkspace - gets the active workspace and its properties
+workspacerules - gets the list of defined workspace rules
 clients - lists all windows with their properties
 devices - lists all connected keyboards and mice
 binds - lists all registered binds
