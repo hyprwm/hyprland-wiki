@@ -147,10 +147,10 @@ copy hyprctl to `/usr/bin/`.
 
 copy the wlroots .so (`libwlroots.so.XX032`) to `/usr/lib/`.
 
-copy the desktop entry (`examples/hyprland.desktop`) to
+copy the desktop entry (`example/hyprland.desktop`) to
 `/usr/share/wayland-sessions/`
 
-the example config is in `examples/hyprland.conf`.
+the example config is in `example/hyprland.conf`.
 
 For updating later on, you can overwrite the binaries (hyprctl, hyprland and
 libwlroots), you don't need to update anything else.
