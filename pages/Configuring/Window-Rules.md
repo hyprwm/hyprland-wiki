@@ -116,6 +116,7 @@ you can use `hyprctl clients`.
 | xray \[on\] | sets blur xray mode for the window (0 for off, 1 for on, unset for default) | &check; | 
 | group \[options\] | set window group properties. See the note below. | |
 | immediate | forces the window to allow to be torn. See [the Tearing page](../Tearing). | &check; |
+| nearestneighbor | forces the window to use the nearest neigbor filtering. | &check; |
 
 {{< hint type=info >}}
 
