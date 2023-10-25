@@ -106,7 +106,12 @@ _Subcategory `decoration:blur:`_
 | xray | if enabled, floating windows will ignore tiled windows in their blur. Only available if blur_new_optimizations is true. Will reduce overhead on floating blur significantly. | bool | false |
 | noise | how much noise to apply. 0.0 - 1.0 | float | 0.0117 |
 | contrast | contrast modulation for blur. 0.0 - 2.0 | float | 0.8916 |
-| brightness | brightness modulation for blur. 0.0 - 2.0 | float | 0.8172 |
+| base_brightness | brightness modulation applied before blurring. 0.0 - 2.0 | float | 1.0 |
+| boost_colors | Whether to boost blurred colors. | bool  | true |
+| saturation_boost | Increase saturation of blurred colors. 0.0 - 1.0 | float | 0.1 |
+| brightness_boost  | Increase brightness of blurred colors. 0.0 - 1.0 | float | 0.0 |
+| min_brightness | Increase the minimum brightness after blurring. 0.0 - 1.0 | float | 0.0 |
+| max_brightness    | Decrease the maximum brightness after blurring. 0.0 - 1.0 | float | 1.0 |
 | special | whether to blur behind the special workspace (note: expensive) | bool | false |
 
 {{< hint type=important >}}
