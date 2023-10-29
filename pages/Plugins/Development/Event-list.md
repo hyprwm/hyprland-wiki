@@ -33,3 +33,4 @@ These are all the events that can be listened to using Event Hooks.
 | render | fired at various stages of rendering to allow your plugin to render stuff. See `src/SharedDefs.hpp` for a list with explanations | eRenderStage | ✕ |
 | windowtitle | emitted when a window title changes. | CWindow* | ✕ |
 | configReloaded | emitted after the config is reloaded | nullptr | ✕ |
+| preConfigReload | emitted before a config reload | nullptr | ✕ |
