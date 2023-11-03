@@ -291,3 +291,6 @@ set `MOD` and `KEY` to desired values.
 By pressing the selected combo you will enter a mode where hyprland ignores your keybinds and passes them on to the vm.
 
 Then, pressing `SUPER + Escape` will leave that mode.
+
+# Low FPS/stutter/FPS drops on intel iGPU with TLP (mainly laptops)
+The TLP defaults are rather agressive, setting `INTEL_GPU_MIN_FREQ_ON_AC` and/or `INTEL_GPU_MIN_FREQ_ON_BAT` in `/etc/tlp.conf` to something slightly higer (e.g. to 500 from 300) will reduce stutter significantly or in the best case remove it completly.
