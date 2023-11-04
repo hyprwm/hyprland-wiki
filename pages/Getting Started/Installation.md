@@ -114,7 +114,7 @@ Refer to the gist if anything fails.
 
 {{</ tab >}}
 {{< tab "Void Linux*" >}}
-Hyprland is not available for Void Linux from the official repositories [as Hyprland does build against tagged wlroots](https://github.com/void-linux/void-packages/issues/37544),
+Hyprland is not available for Void Linux from the official repositories [as Hyprland doesn't build against tagged wlroots](https://github.com/void-linux/void-packages/issues/37544),
 however template files are available [from a third party](https://github.com/Makrennel/hyprland-void) which can build Hyprland [using xbps-src](https://github.com/void-linux/void-packages).
 
 For further instructions on building with the third party resource, refer to the [README](https://github.com/Makrennel/hyprland-void/blob/master/README.md).
