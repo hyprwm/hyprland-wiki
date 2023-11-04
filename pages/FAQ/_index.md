@@ -2,6 +2,14 @@
 
 {{< toc format=html >}}
 
+# My apps are pixelated
+
+This just means they are running through XWayland, which physically cannot scale by fractional amounts.
+
+To force them to run in wayland-native mode, see [the Master Tutorial](../../Getting-Started/Master-Tutorial/#force-apps-to-use-wayland).
+
+If they can't, see [the XWayland page](../../Configuring/XWayland).
+
 # Nothing renders / screen is empty / crash on opening first app
 
 Possible causes:
