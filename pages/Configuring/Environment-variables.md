@@ -29,6 +29,7 @@ Linux distros.
   compatibility issues
 - `CLUTTER_BACKEND=wayland` - Clutter package already has wayland enabled, this variable will force Clutter applications
   to try and use the Wayland backend
+- `_JAVA_AWT_WM_NONREPARENTING=1` - Make Java AWT accept redraw/input events without waiting for a reparenting event.
 
 # XDG Specifications
 
@@ -74,3 +75,8 @@ To force GBM as a backend, set the following environment variables:
 - `GTK_THEME` - Set a GTK theme manually, for those who want to avoid appearance tools such as lxappearance or nwg-look
 - `XCURSOR_THEME` - Set your cursor theme. The theme needs to be installed and readable by your user.
 - `XCURSOR_SIZE` - Set cursor size. See [here](../../FAQ/) for why you might want this variable set.
+
+# Application Specific Variables
+
+- `MOZ_ENABLE_WAYLAND,1` - Firefox: Use Wayland instead of XWayland (avoids stale buffer re-use bug)
+- `OBSIDIAN_USE_WAYLAND,1` - Obsidian: Use proper electron settings to avoid crashing
