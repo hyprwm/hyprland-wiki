@@ -29,7 +29,6 @@ Linux distros.
   compatibility issues
 - `CLUTTER_BACKEND=wayland` - Clutter package already has wayland enabled, this variable will force Clutter applications
   to try and use the Wayland backend
-- `_JAVA_AWT_WM_NONREPARENTING=1` - Make Java AWT accept redraw/input events without waiting for a reparenting event.
 
 # XDG Specifications
 
@@ -77,6 +76,10 @@ To force GBM as a backend, set the following environment variables:
 - `XCURSOR_SIZE` - Set cursor size. See [here](../../FAQ/) for why you might want this variable set.
 
 # Application Specific Variables
+- `OBSIDIAN_USE_WAYLAND,1` - Obsidian: Pass appropriate arguments to electron to avoid crashing
 
-- `MOZ_ENABLE_WAYLAND,1` - Firefox: Use Wayland instead of XWayland (avoids stale buffer re-use bug)
-- `OBSIDIAN_USE_WAYLAND,1` - Obsidian: Use proper electron settings to avoid crashing
+# Already Set By Hyprland
+The following environment variables are already set by Hyprland and don't require manual configuration:
+
+- `_JAVA_AWT_WM_NONREPARENTING=1` - Make Java AWT accept redraw/input events without waiting for a reparenting event.
+- `MOZ_ENABLE_WAYLAND,1` - Firefox: Use Wayland instead of XWayland (avoids stale buffer re-use bug).
