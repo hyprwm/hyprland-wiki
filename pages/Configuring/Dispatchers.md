@@ -9,7 +9,7 @@ layout pages (See the sidebar).
 
 | Param type | Description |
 | ---------- | ----------- |
-| window | a window. Any of the following: Class regex, `title:` and a title regex, `pid:` and the pid, `address:` and the address |
+| window | a window. Any of the following: Class regex, `title:` and a title regex, `pid:` and the pid, `address:` and the address, `floating`, `tiled` |
 | workspace | see below. |
 | direction | `l` `r` `u` `d` left right up down |
 | monitor | One of: direction, ID, name, `current`, relative (e.g. `+1` or `-1`) |
