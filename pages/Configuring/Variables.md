@@ -275,6 +275,7 @@ _Subcategory `group:groupbar:`_
 
 | name | description | type | default |
 |---|---|---|---|
+| font_family | font used to display groupbar titles | string | Sans |
 | font_size | font size for the above | int | 8 |
 | gradients | whether to draw gradients under the titles of the above | bool | true |
 | render_titles | whether to render titles in the group bar decoration | bool | true |
