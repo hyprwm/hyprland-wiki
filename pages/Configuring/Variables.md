@@ -107,6 +107,8 @@ _Subcategory `decoration:blur:`_
 | noise | how much noise to apply. 0.0 - 1.0 | float | 0.0117 |
 | contrast | contrast modulation for blur. 0.0 - 2.0 | float | 0.8916 |
 | brightness | brightness modulation for blur. 0.0 - 2.0 | float | 0.8172 |
+| vibrancy | Increase saturation of blurred colors. 0.0 - 1.0 | float | 0.0 |
+| vibrancy_darkness | How strong the effect of `vibrancy` is on dark areas . 0.0 - 1.0 | float | 0.0 |
 | special | whether to blur behind the special workspace (note: expensive) | bool | false |
 
 {{< hint type=important >}}
