@@ -63,6 +63,34 @@ env = WLR_NO_HARDWARE_CURSORS,1
 {{< hint >}}If you face problems with Discord windows not displaying or screen sharing not working in Zoom, remove or comment the line `env = __GLX_VENDOR_LIBRARY_NAME,nvidia`.
 {{< /hint >}}
 
+Run `lspci | grep VGA`.
+The returned line will start with some digits in the form `00:00.0`.
+Run `ls -l /dev/dri/by-path`.
+You should see at least one file with a filename like `pci-0000:00:00.0-card`.
+The one matching the earlier pci entry should be a symbolic link to `card0`, `card1` or `card2`.
+Set the environment variable `WLR_DRM_DEVICES` to that filepath.
+
+For example, if I run `lspci | grep VGA` and get
+
+```shell
+01:00.0 VGA compatible controller: NVIDIA Corporation GM107 [GeForce GTX 750 Ti] (rev a2)
+```
+
+and when I run `ls -l /dev/dri/by-path` I see
+
+```ls
+lrwxrwxrwx 1 root root  8 Nov  7 07:02 pci-0000:01:00.0-card -> ../card0
+lrwxrwxrwx 1 root root 13 Nov  7 07:02 pci-0000:01:00.0-render -> ../renderD128
+```
+
+I would add
+
+```sh
+env = WLR_DRM_DEVICES,/dev/dri/card0
+```
+
+to my hyprland config.
+
 Install `qt5-wayland`, `qt5ct` and `libva`. Additionally
 `libva-nvidia-driver-git` (AUR) to fix crashes in some Electron-based
 applications, such as Unity Hub.
