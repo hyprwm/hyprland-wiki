@@ -1,7 +1,6 @@
-# Foreword
-
 There is no _official_ Hyprland support for Nvidia hardware. However, you might make it work properly following this page.
 
+## Drivers
 You can choose between the proprietary [Nvidia drivers](https://wiki.archlinux.org/title/NVIDIA) or the open source [Nouveau driver](https://wiki.archlinux.org/title/Nouveau). Under the proprietary Nvidia drivers category, there are 3 of them: the current driver named 'nvidia' (or 'nvidia-dkms' to use with custom linux kernels) which is under active development, the legacy drivers 'nvidia-3xxxx' for older cards which Nvidia no longer actively supports, and the 'nvidia-open' driver which is currently an alpha stage attempt to open source a part of their close source driver for newer cards.
 
 You may want to use the proprietary Nvidia drivers in some cases, for example: if you have a new Nvidia GPU model, if you want more performance, if you want to play video games, if you need a wider feature set (for example, better power consumption on recent GPUs), etc. However, keep in mind that if the proprietary Nvidia drivers do not work properly on your computer, the Nouveau driver might work fine while not having as much features or performance. For [older cards](https://wiki.archlinux.org/title/NVIDIA#Unsupported_drivers), in order to use Hyprland, you will probably need to use the Nouveau driver which actively supports them.
@@ -22,8 +21,7 @@ If you have any concerns (updates, broken pkgbuild, etc), you should contact the
 `nvidia-dkms` is still **required** to run this patch, Install the `nvidia-dkms` driver and add it to your initramfs & kernel parameters before running. You should still however read the content below to make sure the patch is properly working and to avoid any bugs/crashes.
 {{< /hint >}}
 
-## How to get Hyprland to possibly work on Nvidia
-
+## Kernel Parameters
 Install the `nvidia-dkms` driver and add it to your initramfs & kernel parameters.
 For people using [systemd-boot](https://wiki.archlinux.org/title/systemd-boot) you can do this adding `nvidia_drm.modeset=1` to the end of `/boot/loader/entries/arch.conf`.
 For people using [grub](https://wiki.archlinux.org/title/GRUB) you can do this by adding `nvidia_drm.modeset=1` to the end of `GRUB_CMDLINE_LINUX_DEFAULT=` in `/etc/default/grub`, then run `# grub-mkconfig -o /boot/grub/grub.cfg`
@@ -47,6 +45,7 @@ use that one instead. Note that on a laptop, it could cause problems with the su
 {{< hint >}}To get multi monitor to work properly on a hybrid graphics device (a laptop with both an Intel and an Nvidia GPU), you will need to remove the `optimus-manager` package if installed (disabling the service does not work). You also need to change your BIOS settings from hybrid graphics to discrete graphics.
 {{< /hint >}}
 
+## Environment
 Export these variables in your hyprland config:
 
 ```sh
@@ -91,15 +90,13 @@ env = WLR_DRM_DEVICES,/dev/dri/card0
 
 to my hyprland config.
 
+## Additional packages
 Install `qt5-wayland`, `qt5ct` and `libva`. Additionally
 `libva-nvidia-driver-git` (AUR) to fix crashes in some Electron-based
 applications, such as Unity Hub.
 
-Reboot your computer
 
-Launch Hyprland.
-
-It _should_ work now.
+After completing all of the above Hyprland should _at least_ be able to boot.
 
 ## Fixing screensharing / screenshots
 Apply nvidia patches to the wlroots in `subprojects/wlroots` before building.
