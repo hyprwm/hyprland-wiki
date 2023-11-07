@@ -303,3 +303,7 @@ Then, pressing `SUPER + Escape` will leave that mode.
 # Low FPS/stutter/FPS drops on Intel iGPU with TLP (mainly laptops)
 
 The TLP defaults are rather aggressive, setting `INTEL_GPU_MIN_FREQ_ON_AC` and/or `INTEL_GPU_MIN_FREQ_ON_BAT` in `/etc/tlp.conf` to something slightly higher (e.g. to 500 from 300) will reduce stutter significantly or, in the best case, remove it completely.
+
+# Hyprland crashes on startup after updating packages (Nvidia)
+
+Run `sudo mkinitcpio -P` and reboot. If that fixes the problem, make sure you have followed [this step](../../Nvidia/#kernel-parameters), specifically the bit about adding a [pacman hook](https://wiki.archlinux.org/title/NVIDIA#pacman_hook)
