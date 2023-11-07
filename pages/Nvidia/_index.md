@@ -1,6 +1,6 @@
 # Foreword
 
-There is no _official_ Hyprland support for Nvidia hardware. However, you might make it work properly following this page. 
+There is no _official_ Hyprland support for Nvidia hardware. However, you might make it work properly following this page.
 
 You can choose between the proprietary [Nvidia drivers](https://wiki.archlinux.org/title/NVIDIA) or the open source [Nouveau driver](https://wiki.archlinux.org/title/Nouveau). Under the proprietary Nvidia drivers category, there are 3 of them: the current driver named 'nvidia' (or 'nvidia-dkms' to use with custom linux kernels) which is under active development, the legacy drivers 'nvidia-3xxxx' for older cards which Nvidia no longer actively supports, and the 'nvidia-open' driver which is currently an alpha stage attempt to open source a part of their close source driver for newer cards.
 
@@ -24,7 +24,7 @@ If you have any concerns (updates, broken pkgbuild, etc), you should contact the
 
 ## How to get Hyprland to possibly work on Nvidia
 
-Install the `nvidia-dkms` driver and add it to your initramfs & kernel parameters.  
+Install the `nvidia-dkms` driver and add it to your initramfs & kernel parameters.
 For people using [systemd-boot](https://wiki.archlinux.org/title/systemd-boot) you can do this adding `nvidia_drm.modeset=1` to the end of `/boot/loader/entries/arch.conf`.
 For people using [grub](https://wiki.archlinux.org/title/GRUB) you can do this by adding `nvidia_drm.modeset=1` to the end of `GRUB_CMDLINE_LINUX_DEFAULT=` in `/etc/default/grub`, then run `# grub-mkconfig -o /boot/grub/grub.cfg`
 For others check out [kernel parameters](https://wiki.archlinux.org/title/Kernel_parameters) and how to add `nvidia_drm.modeset=1` to your specific bootloader.
@@ -57,7 +57,7 @@ env = __GLX_VENDOR_LIBRARY_NAME,nvidia
 env = WLR_NO_HARDWARE_CURSORS,1
 ```
 
-{{< hint >}}If you encounter crashes in Firefox, remove the line `env = GBM_BACKEND,nvidia-drm`.
+{{< hint >}}If hyprland crashes on start or you encounter crashes in Firefox, you may want to try removing the line `env = GBM_BACKEND,nvidia-drm`.
 {{< /hint >}}
 
 {{< hint >}}If you face problems with Discord windows not displaying or screen sharing not working in Zoom, remove or comment the line `env = __GLX_VENDOR_LIBRARY_NAME,nvidia`.
@@ -152,6 +152,6 @@ boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
 hardware.nvidia.powerManagement.enabled = true
 
 # Making sure to use the proprietary drivers until the issue above is fixed upstream
-hardware.nvidia.open = false 
+hardware.nvidia.open = false
 
 ```
