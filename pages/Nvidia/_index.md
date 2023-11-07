@@ -33,6 +33,8 @@ in `/etc/mkinitcpio.conf` add `nvidia nvidia_modeset nvidia_uvm nvidia_drm` to y
 
 run `# mkinitcpio --config /etc/mkinitcpio.conf --generate /boot/initramfs-custom.img` (make sure you have the `linux-headers` package installed first)
 
+add the [pacman_hook](https://wiki.archlinux.org/title/NVIDIA#pacman_hook) to ensure mkinitcpio is regenerated when nvidia drivers are updated (arch only)
+
 add a new line to `/etc/modprobe.d/nvidia.conf` (make it if it does not exist) and add the line `options nvidia-drm modeset=1`
 
 More information is available here:
