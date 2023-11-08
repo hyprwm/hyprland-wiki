@@ -50,7 +50,7 @@ layout pages (See the sidebar).
 | splitratio | changes the split ratio | floatvalue |
 | toggleopaque | toggles the current window to always be opaque. Will override the `opaque` window rules. | none |
 | movecursortocorner | moves the cursor to the corner of the active window | direction, 0 - 3, bottom left - 0, bottom right - 1, top right - 2, top left - 3 |
-| movecursor | moves the cursor to a specified position | `x,y` |
+| movecursor | moves the cursor to a specified position | `x y` |
 | workspaceopt | toggles a workspace option for the active workspace. | workspaceopt |
 | renameworkspace | rename a workspace | `id name`, e.g. `2 work` |
 | exit | exits the compositor with no questions asked. | none |
