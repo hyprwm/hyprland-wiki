@@ -89,7 +89,7 @@ Install `qt5-wayland`, `qt5ct` and `libva`. Additionally
 applications, such as Unity Hub.
 
 
-After completing all of the above Hyprland should _at least_ be able to boot.
+After completing all of the above, Hyprland should _at least_ be able to start.
 
 ## Fixing screensharing / screenshots
 Apply nvidia patches to the wlroots in `subprojects/wlroots` before building.
