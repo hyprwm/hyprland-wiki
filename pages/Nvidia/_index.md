@@ -58,10 +58,9 @@ env = WLR_NO_HARDWARE_CURSORS,1
 
 Run `lspci | grep VGA`.
 The returned line will start with some digits in the form `00:00.0`.
-Run `ls -l /dev/dri/by-path`.
+Run `ls /dev/dri/by-path`.
 You should see at least one file with a filename like `pci-0000:00:00.0-card`.
-The one matching the earlier pci entry should be a symbolic link to `card0`, `card1` or `card2`.
-Set the environment variable `WLR_DRM_DEVICES` to that filepath.
+Set the environment variable `WLR_DRM_DEVICES` to the filepath with number matching the earlier pci entry.
 
 For example, if I run `lspci | grep VGA` and get
 
@@ -69,17 +68,17 @@ For example, if I run `lspci | grep VGA` and get
 01:00.0 VGA compatible controller: NVIDIA Corporation GM107 [GeForce GTX 750 Ti] (rev a2)
 ```
 
-and when I run `ls -l /dev/dri/by-path` I see
+and when I run `ls -1 /dev/dri/by-path` I see
 
 ```ls
-lrwxrwxrwx 1 root root  8 Nov  7 07:02 pci-0000:01:00.0-card -> ../card0
-lrwxrwxrwx 1 root root 13 Nov  7 07:02 pci-0000:01:00.0-render -> ../renderD128
+pci-0000:01:00.0-card
+pci-0000:01:00.0-render
 ```
 
 I would add
 
 ```sh
-env = WLR_DRM_DEVICES,/dev/dri/card0
+env = WLR_DRM_DEVICES,/dev/dri/by-path/pci-0000:01:00.0-card
 ```
 
 to my hyprland config.
