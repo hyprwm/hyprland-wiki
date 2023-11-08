@@ -50,38 +50,14 @@ env = __GLX_VENDOR_LIBRARY_NAME,nvidia
 env = WLR_NO_HARDWARE_CURSORS,1
 ```
 
-{{< hint >}}If hyprland crashes on start or you encounter crashes in Firefox, you may want to try removing the line `env = GBM_BACKEND,nvidia-drm`.
+{{< hint >}}If Hyprland crashes on start or you encounter crashes in Firefox, you may want to try removing the line `env = GBM_BACKEND,nvidia-drm`.
 {{< /hint >}}
 
 {{< hint >}}If you face problems with Discord windows not displaying or screen sharing not working in Zoom, remove or comment the line `env = __GLX_VENDOR_LIBRARY_NAME,nvidia`.
 {{< /hint >}}
 
-Run `lspci | grep VGA`.
-The returned line will start with some digits in the form `00:00.0`.
-Run `ls /dev/dri/by-path`.
-You should see at least one file with a filename like `pci-0000:00:00.0-card`.
-Set the environment variable `WLR_DRM_DEVICES` to the filepath with number matching the earlier pci entry.
-
-For example, if I run `lspci | grep VGA` and get
-
-```shell
-01:00.0 VGA compatible controller: NVIDIA Corporation GM107 [GeForce GTX 750 Ti] (rev a2)
-```
-
-and when I run `ls -1 /dev/dri/by-path` I see
-
-```ls
-pci-0000:01:00.0-card
-pci-0000:01:00.0-render
-```
-
-I would add
-
-```sh
-env = WLR_DRM_DEVICES,/dev/dri/by-path/pci-0000:01:00.0-card
-```
-
-to my hyprland config.
+{{< hint >}}If you have problems starting Hyprland or animations and such are sluggish, you may need to follow the steps in [Multi GPI](../../Configuring/Multi-GPU), even if you don't have multiple GPUs.
+{{< /hint >}}
 
 ## Additional packages
 Install `qt5-wayland`, `qt5ct` and `libva`. Additionally
