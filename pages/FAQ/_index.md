@@ -62,6 +62,8 @@ Use a keybind (or execute) `grim -g "$(slurp)"`, select a region. A screenshot
 will pop into your `~/Pictures/` (You can configure grim and slurp, see their
 GitHub pages).
 
+If you want those screenshots to go directly to your clipboard, consider using `wl-copy`, from [`wl-clipboard`](https://github.com/bugaevc/wl-clipboard). Here's an example binding:
+`bind = , Print, exec, grim -g "$(slurp -d)" - | wl-copy`
 For a more complete utility, try our own screenshotting utility:
 [Grimblast](https://github.com/hyprwm/contrib).
 
