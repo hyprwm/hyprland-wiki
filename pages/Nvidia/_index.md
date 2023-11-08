@@ -5,8 +5,6 @@ You can choose between the proprietary [Nvidia drivers](https://wiki.archlinux.o
 
 You may want to use the proprietary Nvidia drivers in some cases, for example: if you have a new Nvidia GPU model, if you want more performance, if you want to play video games, if you need a wider feature set (for example, better power consumption on recent GPUs), etc. However, keep in mind that if the proprietary Nvidia drivers do not work properly on your computer, the Nouveau driver might work fine while not having as much features or performance. For [older cards](https://wiki.archlinux.org/title/NVIDIA#Unsupported_drivers), in order to use Hyprland, you will probably need to use the Nouveau driver which actively supports them.
 
-Below are some tips to try to make the proprietary Nvidia driver work with Hyprland properly:
-
 ## Hyprland Nvidia Patch (Arch only) (Unofficial)
 ```sh
 hyprland-nvidia (AUR)
@@ -17,12 +15,8 @@ Hyprland Nvidia Patch is **NOT** an official patch and is not maintained by us.
 If you have any concerns (updates, broken pkgbuild, etc), you should contact the maintainer.
 {{< /hint >}}
 
-{{< hint type=important >}}
-`nvidia-dkms` is still **required** to run this patch, Install the `nvidia-dkms` driver and add it to your initramfs & kernel parameters before running. You should still however read the content below to make sure the patch is properly working and to avoid any bugs/crashes.
-{{< /hint >}}
-
 ## Kernel Parameters
-Install the `nvidia-dkms` driver and add it to your initramfs & kernel parameters.
+Install one of the above drivers and add it to your initramfs & kernel parameters.
 For people using [systemd-boot](https://wiki.archlinux.org/title/systemd-boot) you can do this adding `nvidia_drm.modeset=1` to the end of `/boot/loader/entries/arch.conf`.
 For people using [grub](https://wiki.archlinux.org/title/GRUB) you can do this by adding `nvidia_drm.modeset=1` to the end of `GRUB_CMDLINE_LINUX_DEFAULT=` in `/etc/default/grub`, then run `# grub-mkconfig -o /boot/grub/grub.cfg`
 For others check out [kernel parameters](https://wiki.archlinux.org/title/Kernel_parameters) and how to add `nvidia_drm.modeset=1` to your specific bootloader.
