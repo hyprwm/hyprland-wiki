@@ -101,3 +101,8 @@ sudo rm -rf ./build
 meson ./build --prefix=/usr --buildtype=release
 sudo ninja -C build install
 ```
+
+To revert the changes to hyprland and wlroots, do inside the cloned hyprland:
+```
+make all && sudo make install
+```
