@@ -74,6 +74,11 @@ hyprland:
 ```
 cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Debug -DWITH_ASAN:STRING=True -S . -B ./build -G Ninja
 cmake --build ./build --config Debug --target all -j`nproc 2>/dev/null || getconf NPROCESSORS_CONF`
+cd ./subprojects/wlroots
+rm -rf ./build
+meson ./build --prefix=/usr --buildtype=debug -Db_sanitize=address
+ninja -C build
+cd ../..
 sudo make install
 ```
 
