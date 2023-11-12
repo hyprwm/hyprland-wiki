@@ -19,6 +19,7 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 | `[client]` |  Identifies a client. If none is specified then it defaults to `current` or `focused`. If specified, can be any of the following: Class regex, `title:` and a title regex, `pid:` and the pid, `address:` and the address, `floating`, `tiled`  |
 | `[direction]` | One of `l` `r` `u` `d` or `left` `right` `up` `down`. |
 | `[m:monitor]` | Specified monitor by one of: direction, ID, name, `current`, relative (e.g. `+1` or `-1`) |
+| `[corner]` | Designates a position on a client for cursor movement. Of : `topleft`\|`topright`\|`bottomleft`\|`bottomright`\|`center`. |
 | `[ws:]` | Identifies a workspace by it's name. If none is specified then it defaults to `current` of `focused`. |
 | `command` | A shell command to execute |
 | `false` or `true`  | Boolean of 0 and 1 |
@@ -37,7 +38,6 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 | `toggle` | Toggle between boolean values. |
 | `togglefake` | Toogle between values `fullscreen` and `fake`. |
 | `toggleignore` | Toggle between `ignore` state and `lock` state | 
-| `topleft`\|`topright`\|`bottomleft`\|`bottomright`\|`center` | Designates a position on a client for cursor movement. |
 | `workspaceopt` | See below FIXME:AT. |
 | `wsname` | A workspace name : `id name`, e.g. `2 work` |
 
@@ -61,8 +61,8 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
 | clientMoveDir | Moves a client or a group of clients in workspace following `direction`. Can jump to next monitor unless specified. <sub>Deprecates : movewindow, movewindoworgroup</sub> | `[client]` dir:`[direction]` opt:(`nojump`\|`jump`) opt:`orgroup` |
-| clientMoveTo | Moves a client to a workspace or monitor. <sub>Deprecates: movetoworkspace, movetoworkspacesilent</sub> | `[client]` ([`ws:workspace`] \| [`m:monitor` ]) opt:(`nofocus`\|`keepfocus`) |
-| clientSwapCycle | Swaps the client with the next client on a workspace or in a group. <sub>Deprecates: swapnext, movegroupwindow </sub> | `[client]` [(`prev`\|`next`)] opt:(`ingroup`) |
+| clientMoveTo | Moves a client to a workspace or monitor. <sub>Deprecates: movetoworkspace, movetoworkspacesilent</sub> | `[client]` [(`ws:workspace` \| `m:monitor`)] opt:(`nofocus`\|`keepfocus`) |
+| clientSwapCycle | Swaps the client with the next client on a workspace or in a group. <sub>Deprecates: swapnext, movegroupwindow </sub> | `[client]` opt:(`prev`\|`next`) opt:(`ingroup`) |
 | clientSwapDir | Swaps the client with another client in the given `direction`. Will swap with client on a adjacent monitor if option specified. Focus can be stay at originap place or be keept by client that currently has it.<sub>Deprecates: swapwindow</sub> | `[client]` dir:`[direction]` opt:(`nojump`\|`dojump`) opt:(`nofocus`\|`keepfocus`) |
 
 ## Client groups
@@ -79,7 +79,7 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 | ---------- | ----------- | ------ |
 | clientClose | Closes the client. <sub>Deprecates: killactive, closewindow</sub> | `[client]` |
 | clientSendGlobalkey | Executes a Global Shortcut using the GlobalShortcuts portal. See [here](../Binds/#global-keybinds) <sub>Deprecates: global </sub> | `[client]` `key` |
-| clientSendPassKey | Passes the key (with mods) to a specified client. Can be used as a workaround to global keybinds not working on Wayland. <sub>Deprecates: pass </sub> | `[client]` `key` |
+| clientSendPassKey | Passes the key (with mods) to a specified client. Can be used as a workaround to global keybinds not working on Wayland. <sub>Deprecates: pass </sub> | `[client]` |
 | clientSetPos | Moves a selected window. <sub>Deprecates: moveactive, movewindowpixel</sub> | `[client]` `resizeparams` |
 | clientSetSize | Resizes the client geometry. <sub>Deprecates: resizeactive, resizewindowpixel</sub> | `[client]` `resizeparams` |
 
@@ -91,14 +91,14 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 | clientSetFullscreen | Sets the client's fullscreen state. A fake fullscreen will set internal fullscreen state without altering the geometry. <sub>Deprecates: fullscreen, fakefullscreen</sub> | `[client]` opt:(`true`\|`false`\|`toggle`\|`fake`\|`togglefake`) |
 | clientSetOpaque | Toggles the window to always be opaque. Will override the `opaque` window rules. <sub>Deprecates: toggleopaque</sub> | `[client]` opt:(`true`\|`false`\|`toggle`) |
 | clientSetPin | pins a client (i.e. show it on all workspaces) *note: floating only* <sub>Deprecates: pin</sub> | `[client]` opt:(`true`\|`false`\|`toggle`) |
-| clientSetStack | Modify the client stack order of the client. Note: this cannot be used to move a floating client behind a tiled one. <sub>Deprecates:alterzorder, bringactivetotop</sub> | `[client]` [(`bottom`\|`top`)] |
+| clientSetStack | Modify the client stack order of the client. Note: this cannot be used to move a floating client behind a tiled one. <sub>Deprecates:alterzorder, bringactivetotop</sub> | `[client]` opt:(`bottom`\|`top`) |
 | clientSetSplitRatio | Changes the split ratio of a client. <sub>Deprecates: splitratio</sub> | `[client]` `floatvalue` |
 
 ## Cursor 
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
 | cursorMovePos | Moves the cursor to a specified position relative to total geometry or specified monitor. Note : may not have implemented monitor selection. <sub>Deprecates: movecursor</sub> | `[m:]` `x` `y` |
-| cursorMoveTo | Moves the cursor to the corner of a client. <sub>Deprecates: movecursortocorner</sub> | `[client]` opt:(`topleft`\|`topright`\|`bottomleft`\|`bottomright`\|`center`) |
+| cursorMoveTo | Moves the cursor to the corner of a client. <sub>Deprecates: movecursortocorner</sub> | `[client]` opt:`[corner]` |
 
 ## Focus
 | Dispatcher | Description | Params |
