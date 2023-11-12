@@ -6,11 +6,14 @@ Please keep in mind some layout-specific dispatchers will be listed in the
 layout pages (See the sidebar).
 
 Dispatchers have been reviewed and renamed for version 2 of it's API. Depricated and discontinued functions will still work until further end of life notice.
+Version 1 and 2 of the API will be supported by `hyprctl dispatch @dispatcherfunction`.
 
-Dispatchers actions are : `Exec`, `Exit`, `Close`, `Move`, `Reload`, `Rename`, `Send`, `Set` and `Swap`. 
+New dispatchers actions are : `Exec`, `Exit`, `Close`, `Move`, `Reload`, `Rename`, `Send`, `Set` and `Swap`. 
 <sub>Discontinued: alter, bring, center, change, cycle, deny, force, focus, kill, lock (unlock), pass, pin, resize</sub>.
 
-Dispatchers names are not case sensitive and uppercase is only use for easier reading.
+Dispatcher's names are not case sensitive and uppercase is only use for easier reading. 
+
+Dispatcher's name may only be seperated by a space when called from `hyprctl` and must remain unseparated for `bind`.
 
 
 # Parameter explanation
@@ -45,7 +48,7 @@ TODO: Decide if `opt:` should be mandatory for parameters so it's easier to pars
 | `togglefake` | Toogle between values `fullscreen` and `fake`. |
 | `toggleignore` | Toggle between states, like `ignore` state and `enforce` state | 
 | `unlock` or `lock` | Unlocked or locked state |
-| `workspaceopt` | See below FIXME:AT. |
+| `workspaceopt` | See below FIXME:link. |
 | `wsname` | A workspace name : `id name`, e.g. `2 work` |
 
 # List of Dispatchers
