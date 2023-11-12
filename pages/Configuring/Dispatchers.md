@@ -30,6 +30,7 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 | `orgroup` | When moving a client, performs different directionnal move : if in a group, will move out of it; if not in group, will move in; if neither, will just move the client. |
 | `out` | Move out of a group but keeps group flag active. |
 | `prev` or `next` | Select previous or next element in a sequence. |
+| `reset` | Used to exit a `Submap` |
 | `resizeparams` | relative pixel delta vec2 (e.g. `10 -10`), optionally a percentage of the window size (e.g. `20 25%`) or `exact` followed by an exact vec2 (e.g. `exact 1280 720`), optionally a percentage of the screen size (e.g. `exact 50% 50%`) |
 | `stack` | Move to the stack `top` or `bottom`. |
 | `submapname` | A name for a submap. |
@@ -47,7 +48,7 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 | ---------- | ----------- | ------ |
 | compositorExit | Exits the compositor with no questions asked. <sub>Deprecates: exit</sub> | `none` |
 | compositorReloadRenderer | Forces the renderer to reload all resources and outputs. <sub>Deprecates: forcerendererreload</sub> | `none` |
-| compositorSetDpms | Sets all monitors' DPMS status unless specific monitor specified. Do not use with a keybind directly. <sub>Deprecates: dpms</sub> | [m:] opt:`true`|`false`|`toggle` |
+| compositorSetDpms | Sets all monitors' DPMS status unless specific monitor specified. Do not use with a keybind directly. <sub>Deprecates: dpms</sub> | `[m:]` opt:(`true`\|`false`\|`toggle`) |
 
 ## Execute and submap
 | Dispatcher | Description | Params |
@@ -59,15 +60,15 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 ## Client movement
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
-| clientMoveDir | Moves a client or a group of clients in workspace following `direction`. Can jump to next monitor unless specified. <sub>Deprecates : movewindow, movewindoworgroup</sub> | `[client]` `[direction]` opt:(`nojump`\|`jump`) opt:`orgroup` |
-| clientMoveTo | Moves a client to a workspace or monitor. <sub>Deprecates: movetoworkspace, movetoworkspacesilent</sub> | `[client]` ([`ws:workspace` \| `m:monitor` ]) opt:`nofocus`\|`keepfocus` |
-| clientSwapCycle | Swaps the client with the next client on a workspace or in a group. <sub>Deprecates: swapnext, movegroupwindow </sub> | `[client]` ([`prev`\|`next`]) opt:`ingroup` |
-| clientSwapDir | Swaps the client with another client in the given `direction`. Will swap with client on a adjacent monitor if option specified. Focus can be stay at originap place or be keept by client that currently has it.<sub>Deprecates: swapwindow</sub> | `[client]` `[direction]` opt:(`nojump`\|`dojump`) opt:(`nofocus`\|`keepfocus`) |
+| clientMoveDir | Moves a client or a group of clients in workspace following `direction`. Can jump to next monitor unless specified. <sub>Deprecates : movewindow, movewindoworgroup</sub> | `[client]` dir:`[direction]` opt:(`nojump`\|`jump`) opt:`orgroup` |
+| clientMoveTo | Moves a client to a workspace or monitor. <sub>Deprecates: movetoworkspace, movetoworkspacesilent</sub> | `[client]` ([`ws:workspace`] \| [`m:monitor` ]) opt:(`nofocus`\|`keepfocus`) |
+| clientSwapCycle | Swaps the client with the next client on a workspace or in a group. <sub>Deprecates: swapnext, movegroupwindow </sub> | `[client]` [(`prev`\|`next`)] opt:(`ingroup`) |
+| clientSwapDir | Swaps the client with another client in the given `direction`. Will swap with client on a adjacent monitor if option specified. Focus can be stay at originap place or be keept by client that currently has it.<sub>Deprecates: swapwindow</sub> | `[client]` dir:`[direction]` opt:(`nojump`\|`dojump`) opt:(`nofocus`\|`keepfocus`) |
 
 ## Client groups
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
-| clientMoveGroupDir | Moves a client into a group or out in a specified direction. No-op if there is no group in the specified direction. <sub>Deprecates: moveintogroup, moveoutofgroup</sub> | `[client]` `[direction]` opt:(`in`\|`out`\|`toggle`) |
+| clientMoveGroupDir | Moves a client into a group or out in a specified direction. No-op if there is no group in the specified direction. <sub>Deprecates: moveintogroup, moveoutofgroup</sub> | `[client]` dir:`[direction]` opt:(`in`\|`out`\|`toggle`) |
 | clientSetDenyGroup | Prohibit a client from becoming or being inserted into group. <sub>Deprecates: denywindowfromgroup</sub> | `[client]` opt:(`true`\|`false`\|`toggle`) |
 | clientSetGroup | Toggles the client window into a group state. <sub>Deprecates: togglegroup, moveoutofgroup</sub> | `[client]` opt:(`true`\|`false`\|`toggle`\|`out`) |
 | clientSetGrouplock | Lock the group of a client (the current group will not accept new clients or be moved to other groups) <sub>Deprecates: lockactivegroup</sub> | `[client]` opt:(`unlock`\|`lock`\|`toggle`) |
@@ -86,11 +87,11 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
 | clientSetCentered | Centers the client on screen *note: floating only*. May or may not respect reserved monitor reserved area. <sub>Deprecates: centerwindow</sub> | `[client]` opt:(`ignore`) |
-| clientSetFloating | Sets the client's floating state. <sub>Deprecates: togglefloating</sub>  | `[client]` opt:`true`\|`false`\|`toggle` |
+| clientSetFloating | Sets the client's floating state. <sub>Deprecates: togglefloating</sub>  | `[client]` opt:(`true`\|`false`\|`toggle`) |
 | clientSetFullscreen | Sets the client's fullscreen state. A fake fullscreen will set internal fullscreen state without altering the geometry. <sub>Deprecates: fullscreen, fakefullscreen</sub> | `[client]` opt:(`true`\|`false`\|`toggle`\|`fake`\|`togglefake`) |
 | clientSetOpaque | Toggles the window to always be opaque. Will override the `opaque` window rules. <sub>Deprecates: toggleopaque</sub> | `[client]` opt:(`true`\|`false`\|`toggle`) |
 | clientSetPin | pins a client (i.e. show it on all workspaces) *note: floating only* <sub>Deprecates: pin</sub> | `[client]` opt:(`true`\|`false`\|`toggle`) |
-| clientSetStack | Modify the client stack order of the client. Note: this cannot be used to move a floating client behind a tiled one. <sub>Deprecates:alterzorder, bringactivetotop</sub> | `[client]` `stack` |
+| clientSetStack | Modify the client stack order of the client. Note: this cannot be used to move a floating client behind a tiled one. <sub>Deprecates:alterzorder, bringactivetotop</sub> | `[client]` [(`bottom`\|`top`)] |
 | clientSetSplitRatio | Changes the split ratio of a client. <sub>Deprecates: splitratio</sub> | `[client]` `floatvalue` |
 
 ## Cursor 
@@ -102,8 +103,8 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 ## Focus
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
-| focusMoveDir | Moves the focus in a direction to an other client. <sub>Deprecates: movefocus</sub> | `[client]` `[direction]` opt:`nojump`\|`dojump`|
-| focusMoveCycle | Set focuse on the next client on a workspace <sub>Deprecates: cyclenext</sub> | `[client]` opt:`[direction]` |
+| focusMoveDir | Moves the focus in a direction to an other client. <sub>Deprecates: movefocus</sub> | `[client]` dir:`[direction]` opt:(`nojump`\|`dojump`)|
+| focusMoveCycle | Set focuse on the next client on a workspace <sub>Deprecates: cyclenext</sub> | `[client]` dir:`[direction]` |
 | focusMoveTo | Set focuse on : the first matching client, on a workspace or on a monitor. Options works only if unspecified target for urgent client, last client, urgent or last client. <sub>Deprecates: focuswindow, workspace, focusmonitor,focusurgentorlast</sub> | (`[client]`\|`[ws:]`\|`[m:]`) opt:`urgent`\|`last`\|`urgentorlast` |
 | focusCycleGroup | Switches to the next client in a group. <sub>Deprecates: changegroupactive</sub> | `[client]` opt:`[prev\|next]` |
 | focusMoveHistory |  Switch focus from current to previously focused client and forward to the original. Note `next` may not be implemented. <sub>Deprecates: focuscurrentorlast</sub> | [`prev`\|`next`] |
