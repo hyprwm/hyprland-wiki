@@ -14,7 +14,7 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 
 
 # Parameter explanation
-
+<sub>Discontinued: `silent` </sub>
 | Param type | Description |
 | ---------- | ----------- |
 | `[client]` |  Identifies a client. If none is specified then it defaults to `current` or `focused`. If specified, can be any of the following: Class regex, `title:` and a title regex, `pid:` and the pid, `address:` and the address, `floating`, `tiled`  |
@@ -25,7 +25,7 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 | `command` | A shell command to execute |
 | `false` or `true`  | Boolean of 0 and 1 |
 | `floatvalue` | a relative float delta (e.g `-0.2` or `+0.2`) or `exact` followed by a the exact float value (e.g. `exact 0.5`) |
-| `ignore` | Ignore a state, a flag, a lock or a reserved area. |
+| `ignore` or `enforce` | Ignore or enforce a state, a flag, a lock or a reserved area. |
 | `nofocus` or `keepfocus` | Do not focus or do keep focus on a client or workspace that was sent elsewhere. <sub>Deprecates: silent</sub> |
 | `nojump` or `jump` | When moving to the edge of the monitor, allow or not jumping to next monitor in a given direction. | 
 | `none` | No optional parameter required or taken. | 
@@ -38,7 +38,7 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 | `submapname` | A name for a submap. |
 | `toggle` | Toggle between boolean values. |
 | `togglefake` | Toogle between values `fullscreen` and `fake`. |
-| `toggleignore` | Toggle between `ignore` state and `lock` state | 
+| `toggleignore` | Toggle between states, like `ignore` state and `enforce` state | 
 | `workspaceopt` | See below FIXME:AT. |
 | `wsname` | A workspace name : `id name`, e.g. `2 work` |
 
@@ -61,7 +61,7 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 ## Client movement
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
-| clientMoveDir | Moves a client or a group of clients in workspace following `direction`. Can jump to next monitor unless specified. <sub>Deprecates : movewindow, movewindoworgroup</sub> Note `orgroup` : When moving a client, performs differently : if in a group, will move out of it; if not in group, will move in; if neither, will just move the client.| `[client]` dir:`[direction]` opt:(`nojump`\|`jump`) opt:`orgroup` |
+| clientMoveDir | Moves a client or a group of clients in workspace following `direction`. Can jump to next monitor unless specified. <sub>Deprecates : movewindow, movewindoworgroup</sub> | `[client]` dir:`[direction]` opt:(`nojump`\|`jump`) opt:`orgroup` |
 | clientMoveTo | Moves a client to a workspace or monitor. <sub>Deprecates: movetoworkspace, movetoworkspacesilent</sub> | `[client]` [(`ws:workspace` \| `m:monitor`)] opt:(`nofocus`\|`keepfocus`) |
 | clientSwapCycle | Swaps the client with the next client on a workspace or in a group. <sub>Deprecates: swapnext, movegroupwindow </sub> | `[client]` opt:(`prev`\|`next`) opt:(`ingroup`) |
 | clientSwapDir | Swaps the client with another client in the given `direction`. Will swap with client on a adjacent monitor if option specified. Focus can be stay at originap place or be keept by client that currently has it.<sub>Deprecates: swapwindow</sub> | `[client]` dir:`[direction]` opt:(`nojump`\|`dojump`) opt:(`nofocus`\|`keepfocus`) |
@@ -73,7 +73,7 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 | clientSetDenyGroup | Prohibit a client from becoming or being inserted into group. <sub>Deprecates: denywindowfromgroup</sub> | `[client]` opt:(`true`\|`false`\|`toggle`) |
 | clientSetGroup | Toggles the client into a group state. <sub>Deprecates: togglegroup, moveoutofgroup</sub> | `[client]` opt:(`true`\|`false`\|`toggle`\|`out`) |
 | clientSetGrouplock | Lock the group of a client (the current group will not accept new clients or be moved to other groups) <sub>Deprecates: lockactivegroup</sub> | `[client]` opt:(`unlock`\|`lock`\|`toggle`) |
-| clientSetGrouplocks | Locks all the groups (all groups will not accept new clients). <sub>Deprecates: lockgroups,setignoregrouplock</sub> | opt:(`unlock`\|`lock`\|`toggle`\|`ignore`) |
+| clientSetGrouplocks | Locks all the groups (all groups will not accept new clients). <sub>Deprecates: lockgroups,setignoregrouplock</sub> | opt:(`unlock`\|`lock`\|`toggle`\|`ignore`\|`enforce`\|`toggleignore`) |
 
 ## Client interaction
 | Dispatcher | Description | Params |
@@ -105,7 +105,7 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
 | focusMoveDir | Moves the focus in a direction to an other client. <sub>Deprecates: movefocus</sub> | `[client]` dir:`[direction]` opt:(`nojump`\|`dojump`)|
-| focusMoveCycle | Set focuse on the next client on a workspace <sub>Deprecates: cyclenext, changegroupactive</sub> | `[client]` opt:`(prev\|next)` opt:(`orgroup`) |
+| focusMoveCycle | Set focuse on the next client on a workspace <sub>Deprecates: cyclenext, changegroupactive</sub> | `[client]` opt:`(prev\|next)` opt:(`orgroup`\|`onlygroup`) |
 | focusMoveTo | Set focuse on : the first matching client, on a workspace or on a monitor. Options works only if unspecified target for urgent client, last client, urgent or last client. <sub>Deprecates: focuswindow, workspace, focusmonitor,focusurgentorlast</sub> | (`[client]`\|`[ws:]`\|`[m:]`) opt:`urgent`\|`last`\|`urgentorlast` |
 | focusMoveHistory |  Switch focus from current to previously focused client and forward to the original. Note `next` may not be implemented. <sub>Deprecates: focuscurrentorlast</sub> | opt:(`prev`\|`next`) |
 
@@ -135,15 +135,51 @@ bind = MOD,KEY,exec,sleep 1 && hyprctl dispatch compositorSetDpms off
 Hyprland allows you to make a group from the current active clients with the `clientSetGroup` bind dispatcher.
 
 A group is like i3wm’s “tabbed” container. It takes the space of one client, and you can change the focus to the next one in the tabbed “group” with the `focusMoveCycle opt:(orgroup\|onlygroup)` bind dispatcher.
+The parameter `orgroup` will move the focus on next client if curent client is not in a group or if it's alone NOTE: check about alone. 
+While the opt:`onlygroup` parameter will not change focus if selected client is not in a group with an other member.
+
+To create a group, you must first enable a client to be a group on it's own with `clientSetGroup`.
+Once you have a group, you can move an other client adjacent to it by a `clientMoveGroupDir opt:in`.
+You can also get a selected client out of a group with `clientMoveGroupDir opt:out`.
+If you want to move a client in or out of a group, you can use the opt:`toggle` and it will act accordingly to the case of `in` or `out`.
+
+```txt
+bind = SUPERCTRL, G, clientSetGroup, opt:toggle
+
+bind = SUPERCTRLSHIFT, LEFT, clientMoveGroupDir, left opt:in
+bind = SUPERCTRLSHIFT, RIGHT, clientMoveGroupDir, right opt:in
+bind = SUPERCTRLSHIFT, UP, clientMoveGroupDir, up opt:in
+bind = SUPERCTRLSHIFT, DOWN, clientMoveGroupDir, down opt:in
+# Move a client inside a group, do nothing if there's no group in that direction
+```
+
+To change the focus to an other member of a group in a cycle without cycling all other clients not in the group on the workspace.
+
+```txt
+bind = SUPERCTRL, TAB, focusMoveCycle opt:next opt:onlygroup
+bind = SUPERCTRLSHIFT, TAB, focusMoveCycle opt:prev opt:onlygroup
+# Will only cycle focus on clients if they are in a groupe and they are not alone
+```
 
 The new group’s border colors are configurable with the appropriate `col.` settings in the `group` config section.
 
 You can lock a group with the `clientSetGrouplock` dispatcher in order to stop new client from entering this group.
 In addition, the `clientSetGrouplocks` dispatcher can be used to toggle an independent global group lock that will prevent
-new client from entering any groups, regardless of their local group lock stat.
+new client from entering (FIXME:or leaving?) any groups, regardless of their local group lock stat.
+
+```txt
+bind = SUPERCTRLSHIFT, L, clientSetGrouplock, opt:toggle
+#Stop new client from entering this focused group
+bind = SUPERCTRLSHIFTALT, L, clientSetGrouplocks, opt:ignoretoggle
+#Ignore all group locks while this is set to ignore without disabling the individual group locks.
+bind = SUPERCTRLSHIFTALT, F12, clientSetGrouplocks, opt:toggle
+#Disable or enable locks on all groups
+```
 
 You can prevent a client from being added to group or becoming a group with the `clientSetDenyGroup` dispatcher.
 `clientMoveDir opt:orgroup` will behave like `clientMoveDir` but move the whole group in a given direction.
+
+For `clientMoveDir [direction] opt:orgroup` : When moving a client, it performs differently : if the focused client is in a group, it will move out of it; if the client is not in group, will move in an adjacent group if it exist; if neither worked, will just move the client in `[direction]`.
 
 # Workspaces
 
@@ -193,13 +229,15 @@ You can define multiple named special workspaces as `special:wsname`, but the am
 
 For example, to move a client/application to a special workspace you can use the following syntax:
 
-```
+```txt
 bind = SUPER, C, clientMoveTo, special
-bind = SUPERALT, C, workspaceSetVisible, special opt:toggle
+bind = SUPERALT, C, workspaceSetVisible, special, opt:toggle
 #The above syntax will move the active client to a special workspace upon pressing 'SUPER'+'C'.
 #To see the hidden client you can use the `opt:toggle` dispatcher mentioned above.
-bind = SUPER, H, clientMoveTo, special:hidden opt:nofocus # Do not keep focus on the client, sends it silently
-bind = SUPERALT, H, workspaceSetVisible, special:hidden opt:toggle
+bind = SUPER, S, clientMoveTo, special:secret, opt:nofocus 
+bind = SUPERALT, S, workspaceSetVisible, special:secret, opt:toggle
+#Same as previous, but 'SUPER'+'S' and do not keep focus on the client, sends it silently to special:secret workspace.
+#To see the hidden client on the special workspace named secret.
 ```
 
 # Workspace options
@@ -223,4 +261,5 @@ bind = mod, key, exec, [rules...] command
 For example:
 ```
 bind = SUPER, E, exec, [ws:2 nofocus;float;noanim] kitty
+#Will launch kitty on workspace 2 without giving it focus, so if you are on ws:1, you will stay there.
 ```
