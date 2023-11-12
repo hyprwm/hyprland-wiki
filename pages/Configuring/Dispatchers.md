@@ -7,7 +7,8 @@ layout pages (See the sidebar).
 
 Dispatchers have been reviewed and renamed for version 2 of it's API. Depricated and discontinued functions will still work until further end of life notice.
 
-Dispatchers actions are : `Exec`, `Exit`, `Close`, `Cycle`, `Move`, `Reload`, `Rename`, `Send`, `Set` and `Swap`. <sub>Discontinued: alter, bring, center, change, deny, force, focus, kill, lock (unlock), pass, pin, resize</sub>.
+Dispatchers actions are : `Exec`, `Exit`, `Close`, `Cycle`, `Move`, `Reload`, `Rename`, `Send`, `Set` and `Swap`. 
+<sub>Discontinued: alter, bring, center, change, deny, force, focus, kill, lock (unlock), pass, pin, resize</sub>.
 
 Dispatchers names are not case sensitive and uppercase is only use for easier reading.
 
@@ -104,9 +105,8 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
 | focusMoveDir | Moves the focus in a direction to an other client. <sub>Deprecates: movefocus</sub> | `[client]` dir:`[direction]` opt:(`nojump`\|`dojump`)|
-| focusMoveCycle | Set focuse on the next client on a workspace <sub>Deprecates: cyclenext</sub> | `[client]` dir:`[direction]` |
+| focusMoveCycle | Set focuse on the next client on a workspace <sub>Deprecates: cyclenext, changegroupactive</sub> | `[client]` opt:`(prev\|next)` opt:(`orgroup`) |
 | focusMoveTo | Set focuse on : the first matching client, on a workspace or on a monitor. Options works only if unspecified target for urgent client, last client, urgent or last client. <sub>Deprecates: focuswindow, workspace, focusmonitor,focusurgentorlast</sub> | (`[client]`\|`[ws:]`\|`[m:]`) opt:`urgent`\|`last`\|`urgentorlast` |
-| focusCycleGroup | Switches to the next client in a group. <sub>Deprecates: changegroupactive</sub> | `[client]` opt:`(prev\|next)` |
 | focusMoveHistory |  Switch focus from current to previously focused client and forward to the original. Note `next` may not be implemented. <sub>Deprecates: focuscurrentorlast</sub> | opt:(`prev`\|`next`) |
 
 ## Workspace
@@ -134,7 +134,7 @@ bind = MOD,KEY,exec,sleep 1 && hyprctl dispatch compositorSetDpms off
 
 Hyprland allows you to make a group from the current active clients with the `clientSetGroup` bind dispatcher.
 
-A group is like i3wm’s “tabbed” container. It takes the space of one client, and you can change the clien to the next one in the tabbed “group” with the `focusCycleGroup` bind dispatcher.
+A group is like i3wm’s “tabbed” container. It takes the space of one client, and you can change the focus to the next one in the tabbed “group” with the `focusMoveCycle opt:orgroup` bind dispatcher.
 
 The new group’s border colors are configurable with the appropriate `col.` settings in the `group` config section.
 
