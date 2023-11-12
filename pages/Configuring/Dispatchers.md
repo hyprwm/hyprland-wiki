@@ -5,7 +5,7 @@
 Please keep in mind some layout-specific dispatchers will be listed in the
 layout pages (See the sidebar).
 
-Dispatchers actions are : Exec, Exit, Close, Cycle, Move, Reload, Rename, Send, Set, Swap. <sub>Discontinued: alter, bring, center, change, deny, force, kill, lock (unlock), pass, pin, resize</sub>.
+Dispatchers actions are : Exec, Exit, Close, Cycle, Move, Reload, Rename, Send, Set, Swap. <sub>Discontinued: alter, bring, center, change, deny, force, focus, kill, lock (unlock), pass, pin, resize</sub>.
 Dispatchers ames are not case sensitive and uppercase is only use for easier reading.
 
 
@@ -37,83 +37,85 @@ Dispatchers ames are not case sensitive and uppercase is only use for easier rea
 | ws:workspace | Specified workspace by ... |
 | ignore | |
 | `none` | No optional parameter required or taken. | 
+| `submapname` | A name for a submap. |
+| `command` | A shell command to execute |
 
 # List of Dispatchers
 
 ## Compositor
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
-| CompositorExit | Exits the compositor with no questions asked. <sub>Deprecates: exit</sub> | `none` |
-| CompositorReloadRenderer | Forces the renderer to reload all resources and outputs. <sub>Deprecates: forcerendererreload</sub> | `none` |
-| CompositorSetDpms | Sets all monitors' DPMS status unless specific monitor specified. Do not use with a keybind directly. <sub>Deprecates: dpms</sub> [m:] opt:`true`|`false`|`toggle`
+| compositorExit | Exits the compositor with no questions asked. <sub>Deprecates: exit</sub> | `none` |
+| compositorReloadRenderer | Forces the renderer to reload all resources and outputs. <sub>Deprecates: forcerendererreload</sub> | `none` |
+| compositorSetDpms | Sets all monitors' DPMS status unless specific monitor specified. Do not use with a keybind directly. <sub>Deprecates: dpms</sub> [m:] opt:`true`|`false`|`toggle`
 
 ## Execute and submap
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
-| Exec | Executes a shell command. (supports rules, see [below]({{< relref "#executing with rules" >}})) | `command`  |
-| Execr | Executes a raw shell command (will not append any additional envvars like `exec` does, does not support rules) | `command` |
-| SetSubmap | Change the current mapping group. See [Submaps](../Binds/#submaps) | `reset` or name |
+| exec | Executes a shell command. (supports rules, see [below]({{< relref "#executing with rules" >}})) | `command`  |
+| execr | Executes a raw shell command (will not append any additional envvars like `exec` does, does not support rules) | `command` |
+| setSubmap | Change the current mapping group. See [Submaps](../Binds/#submaps) | `reset` or `submapname` |
 
 ## Client movement
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
-| ClientMoveDir | Moves a client or a group of clients in workspace following `direction`. Can jump to next monitor unless specified. <sub>Deprecates : movewindow, movewindoworgroup</sub> | `[client]` `[direction]` opt:`nojump`\|`jump` opt:`orgroup` |
-| ClientMoveTo | Moves a client to a workspace or monitor. <sub>Deprecates: movetoworkspace, movetoworkspacesilent</sub> | `[client]` [`ws:workspace` \| `m:monitor` ] opt:`nofocus`\|`keepfocus` |
-| ClientSwapCycle | Swaps the client with the next client on a workspace or in a group. <sub>Deprecates: swapnext, movegroupwindow </sub> | `[client]` [`prev`\|`next`] opt:`ingroup` |
-| ClientSwapDir | Swaps the client with another client in the given `direction`. Will swap with client on a adjacent monitor if option specified. Focus can be stay at originap place or be keept by client that currently has it.<sub>Deprecates: swapwindow</sub> | `[client]` `[direction]` opt:`nojump`\|`dojump` opt:`nofocus`\|`keepfocus` |
+| clientMoveDir | Moves a client or a group of clients in workspace following `direction`. Can jump to next monitor unless specified. <sub>Deprecates : movewindow, movewindoworgroup</sub> | `[client]` `[direction]` opt:`nojump`\|`jump` opt:`orgroup` |
+| clientMoveTo | Moves a client to a workspace or monitor. <sub>Deprecates: movetoworkspace, movetoworkspacesilent</sub> | `[client]` [`ws:workspace` \| `m:monitor` ] opt:`nofocus`\|`keepfocus` |
+| clientSwapCycle | Swaps the client with the next client on a workspace or in a group. <sub>Deprecates: swapnext, movegroupwindow </sub> | `[client]` [`prev`\|`next`] opt:`ingroup` |
+| clientSwapDir | Swaps the client with another client in the given `direction`. Will swap with client on a adjacent monitor if option specified. Focus can be stay at originap place or be keept by client that currently has it.<sub>Deprecates: swapwindow</sub> | `[client]` `[direction]` opt:`nojump`\|`dojump` opt:`nofocus`\|`keepfocus` |
 
 ## Client groups
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
-| ClientMoveGroupDir | Moves a client into a group or out in a specified direction. No-op if there is no group in the specified direction. <sub>Deprecates: moveintogroup, moveoutofgroup</sub> | `[client]` `[direction]` opt:`in`\|`out`\|`toggle` |
-| ClientSetDenyGroup | Prohibit a client from becoming or being inserted into group. <sub>Deprecates: denywindowfromgroup</sub> | `[client]` opt:`true`\|`false`\|`toggle` |
-| ClientSetGroup | Toggles the client window into a group state. <sub>Deprecates: togglegroup, moveoutofgroup</sub> | `[client]` opt:`true`\|`false`\|`toggle`\|`out` |
-| ClientSetGrouplock | Lock the group of a client (the current group will not accept new clients or be moved to other groups) <sub>Deprecates: lockactivegroup</sub> | `[client]` opt:`unlock`\|`lock`\|`toggle` |
-| ClientSetGrouplocks | Locks all the groups (all groups will not accept new clients). <sub>Deprecates: lockgroups,setignoregrouplock</sub> | opt:`unlock`\|`lock`\|`toggle`\|`ignore` |
+| clientMoveGroupDir | Moves a client into a group or out in a specified direction. No-op if there is no group in the specified direction. <sub>Deprecates: moveintogroup, moveoutofgroup</sub> | `[client]` `[direction]` opt:`in`\|`out`\|`toggle` |
+| clientSetDenyGroup | Prohibit a client from becoming or being inserted into group. <sub>Deprecates: denywindowfromgroup</sub> | `[client]` opt:`true`\|`false`\|`toggle` |
+| clientSetGroup | Toggles the client window into a group state. <sub>Deprecates: togglegroup, moveoutofgroup</sub> | `[client]` opt:`true`\|`false`\|`toggle`\|`out` |
+| clientSetGrouplock | Lock the group of a client (the current group will not accept new clients or be moved to other groups) <sub>Deprecates: lockactivegroup</sub> | `[client]` opt:`unlock`\|`lock`\|`toggle` |
+| clientSetGrouplocks | Locks all the groups (all groups will not accept new clients). <sub>Deprecates: lockgroups,setignoregrouplock</sub> | opt:`unlock`\|`lock`\|`toggle`\|`ignore` |
 
 ## Client interaction
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
-| ClientClose | Closes the client. <sub>Deprecates: killactive, closewindow</sub> | `[client]` |
-| ClientSendGlobalkey | Executes a Global Shortcut using the GlobalShortcuts portal. See [here](../Binds/#global-keybinds) <sub>Deprecates: global </sub> | `[client]` `key` |
-| ClientSendPassKey | Passes the key (with mods) to a specified client. Can be used as a workaround to global keybinds not working on Wayland. <sub>Deprecates: pass </sub> | `[client]` `key` |
-| ClientSetPos | Moves a selected window. <sub>Deprecates: moveactive, movewindowpixel</sub> | `[client]` `resizeparams` |
-| ClientSetSize | Resizes the client geometry. <sub>Deprecates: resizeactive, resizewindowpixel</sub> | `[client]` `resizeparams` |
+| clientClose | Closes the client. <sub>Deprecates: killactive, closewindow</sub> | `[client]` |
+| clientSendGlobalkey | Executes a Global Shortcut using the GlobalShortcuts portal. See [here](../Binds/#global-keybinds) <sub>Deprecates: global </sub> | `[client]` `key` |
+| clientSendPassKey | Passes the key (with mods) to a specified client. Can be used as a workaround to global keybinds not working on Wayland. <sub>Deprecates: pass </sub> | `[client]` `key` |
+| clientSetPos | Moves a selected window. <sub>Deprecates: moveactive, movewindowpixel</sub> | `[client]` `resizeparams` |
+| clientSetSize | Resizes the client geometry. <sub>Deprecates: resizeactive, resizewindowpixel</sub> | `[client]` `resizeparams` |
 
 ## Client states
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
-| ClientSetCentered | Centers the client on screen *note: floating only*. May or may not respect reserved monitor reserved area. <sub>Deprecates: centerwindow</sub> | `[client]` opt:`noreserved`\|`reserved` |
-| ClientSetFloating | Sets the client's floating state. <sub>Deprecates: togglefloating</sub>  | `[client]` opt:`true`\|`false`\|`toggle` |
-| ClientSetFullscreen | Sets the client's fullscreen state. A fake fullscreen will set internal fullscreen state without altering the geometry. <sub>Deprecates: fullscreen, fakefullscreen</sub> | `[client]` opt:`true`\|`false`\|`toggle`\|`fake`\|`togglefake` |
-| ClientSetOpaque | Toggles the window to always be opaque. Will override the `opaque` window rules. <sub>Deprecates: toggleopaque</sub> | `[client]` opt:`true`\|`false`\|`toggle` |
-| ClientSetPin | pins a client (i.e. show it on all workspaces) *note: floating only* <sub>Deprecates: pin</sub> | `[client]` opt:`true`\|`false`\|`toggle` |
-| ClientSetStack | Modify the client stack order of the client. Note: this cannot be used to move a floating client behind a tiled one. <sub>Deprecates:alterzorder, bringactivetotop</sub> | [client] `stack` |
-| ClientSetSplitRatio | Changes the split ratio of a client. <sub>Deprecates: splitratio</sub> | `[client]` `floatvalue` |
+| clientSetCentered | Centers the client on screen *note: floating only*. May or may not respect reserved monitor reserved area. <sub>Deprecates: centerwindow</sub> | `[client]` opt:`noreserved`\|`reserved` |
+| clientSetFloating | Sets the client's floating state. <sub>Deprecates: togglefloating</sub>  | `[client]` opt:`true`\|`false`\|`toggle` |
+| clientSetFullscreen | Sets the client's fullscreen state. A fake fullscreen will set internal fullscreen state without altering the geometry. <sub>Deprecates: fullscreen, fakefullscreen</sub> | `[client]` opt:`true`\|`false`\|`toggle`\|`fake`\|`togglefake` |
+| clientSetOpaque | Toggles the window to always be opaque. Will override the `opaque` window rules. <sub>Deprecates: toggleopaque</sub> | `[client]` opt:`true`\|`false`\|`toggle` |
+| clientSetPin | pins a client (i.e. show it on all workspaces) *note: floating only* <sub>Deprecates: pin</sub> | `[client]` opt:`true`\|`false`\|`toggle` |
+| clientSetStack | Modify the client stack order of the client. Note: this cannot be used to move a floating client behind a tiled one. <sub>Deprecates:alterzorder, bringactivetotop</sub> | [client] `stack` |
+| clientSetSplitRatio | Changes the split ratio of a client. <sub>Deprecates: splitratio</sub> | `[client]` `floatvalue` |
 
 ## Cursor 
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
-| CursorMovePos | Moves the cursor to a specified position relative to total geometry or specified monitor. Note : may not have implemented monitor selection. <sub>Deprecates: movecursor</sub> | `[m:]` `x` `y` |
-| CursorMoveTo | Moves the cursor to the corner of a client. <sub>Deprecates: movecursortocorner</sub> | `[client]` [`topleft`\|`topright`\|`bottomleft`\|`bottomright`\|`center`] |
+| cursorMovePos | Moves the cursor to a specified position relative to total geometry or specified monitor. Note : may not have implemented monitor selection. <sub>Deprecates: movecursor</sub> | `[m:]` `x` `y` |
+| cursorMoveTo | Moves the cursor to the corner of a client. <sub>Deprecates: movecursortocorner</sub> | `[client]` [`topleft`\|`topright`\|`bottomleft`\|`bottomright`\|`center`] |
 
 ## Focus
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
-| FocusMoveDir | Moves the focus in a direction to an other client. <sub>Deprecates: movefocus</sub> | `[client]` `[direction]` opt:`nojump`\|`dojump`|
-| FocusMoveCycle | Set focuse on the next client on a workspace <sub>Deprecates: cyclenext</sub> | `[client]` opt:`[direction]` |
-| FocusMoveTo | Set focuse on : the first matching client, on a workspace or on a monitor. Options works only if unspecified target for urgent client, last client, urgent or last client. <sub>Deprecates: focuswindow, workspace, focusmonitor,focusurgentorlast</sub> | `[client]`\|`[ws:]`\|`[m:]` opt:`urgent`\|`last`\|`urgentorlast` |
-| FocusCycleGroup | Switches to the next client in a group. <sub>Deprecates: changegroupactive</sub> | `[client]` opt:`[prev\|next]` |
-| FocusMoveHistory |  Switch focus from current to previously focused client. Note `newer` may not be implemented. <sub>Deprecates: focuscurrentorlast</sub> | [`older`\|`newer`] |
+| focusMoveDir | Moves the focus in a direction to an other client. <sub>Deprecates: movefocus</sub> | `[client]` `[direction]` opt:`nojump`\|`dojump`|
+| focusMoveCycle | Set focuse on the next client on a workspace <sub>Deprecates: cyclenext</sub> | `[client]` opt:`[direction]` |
+| focusMoveTo | Set focuse on : the first matching client, on a workspace or on a monitor. Options works only if unspecified target for urgent client, last client, urgent or last client. <sub>Deprecates: focuswindow, workspace, focusmonitor,focusurgentorlast</sub> | `[client]`\|`[ws:]`\|`[m:]` opt:`urgent`\|`last`\|`urgentorlast` |
+| focusCycleGroup | Switches to the next client in a group. <sub>Deprecates: changegroupactive</sub> | `[client]` opt:`[prev\|next]` |
+| focusMoveHistory |  Switch focus from current to previously focused client. Note `newer` may not be implemented. <sub>Deprecates: focuscurrentorlast</sub> | [`older`\|`newer`] |
 
 ## Workspace
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
-| WorkspaceMoveTo | Moves the a workspace to a monitor. Note: Currently can't reorder workspaces on a monitor. <sub>Deprecates: movecurrentworkspacetomonitor,moveworkspacetomonitor</sub> | `[ws:]` `[m:]` |
-| WorkspaceRename | Rename a workspace. <sub>Deprecates: renameworkspace</sub> | `[ws:]` `[wsname]` |
-| WorkspaceSetOpt | Toggles a workspace option a workspace. <sub>Deprecates: workspaceopt</sub> | `[ws:]` `[opt]` | 
-| WorkspaceSetSpecial | Toggles a special workspace on/off <sub>Deprecates: togglespecialworkspace</sub> | `[ws:]` opt:`true`\|`false`\|`toggle` |
-| WorkspaceSwap | Swaps workspaces between two monitors. Can specify specific workspaces or monitor to swap it's active workspace. Note: Currently can't reorder workspaces on a monitor. <sub>Deprecates: swapactiveworkspaces</sub> | `[ws:]`\|`[m:]` `[ws:]`\|`[m:]` opt:`nofocus`\|`dofocus` |
+| workspaceMoveTo | Moves the a workspace to a monitor. Note: Currently can't reorder workspaces on a monitor. <sub>Deprecates: movecurrentworkspacetomonitor,moveworkspacetomonitor</sub> | `[ws:]` `[m:]` |
+| workspaceRename | Rename a workspace. <sub>Deprecates: renameworkspace</sub> | `[ws:]` `[wsname]` |
+| workspaceSetOpt | Toggles a workspace option a workspace. <sub>Deprecates: workspaceopt</sub> | `[ws:]` `[opt]` | 
+| workspaceSetSpecial | Toggles a special workspace on/off <sub>Deprecates: togglespecialworkspace</sub> | `[ws:]` opt:`true`\|`false`\|`toggle` |
+| workspaceSwap | Swaps workspaces between two monitors. Can specify specific workspaces or monitor to swap it's active workspace. Note: Currently can't reorder workspaces on a monitor. <sub>Deprecates: swapactiveworkspaces</sub> | `[ws:]`\|`[m:]` `[ws:]`\|`[m:]` opt:`nofocus`\|`dofocus` |
 
 
 
