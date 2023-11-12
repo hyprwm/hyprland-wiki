@@ -26,19 +26,25 @@ Dispatchers ames are not case sensitive and uppercase is only use for easier rea
 | ---------- | ----------- |
 | `[client]` |  Identifies a client. If none is specified then it defaults to `current` of `focused`. If specified, can be any of the following: Class regex, `title:` and a title regex, `pid:` and the pid, `address:` and the address, `floating`, `tiled`  |
 | `stack` | `top` or `bottom` |
-| jump or nojump | When moving a client to the edge of the monitor, allow or not jumping to next monitor in a given direction | 
-| nofocus or keepfocus | Do not focus or do keep focus on a client or workspace that was sent elsewhere |
-| m:monitor | Specified monitor by one of: direction, ID, name, `current`, relative (e.g. `+1` or `-1`) |
-| orgroup | Behaves as `moveintogroup` if there is a group in the given direction. Behaves as `moveoutofgroup` if there is no group in the given direction relative to the active group. Otherwise behaves like `movewindow`|
-| `out` | Mouve out of a group but keeps group flag active |
-| toggle | Toggle between boolean values |
-| togglefake | Toogle between boolean values `fullscreen` and `fake` |
+| `nojump` or `jump` | When moving a client to the edge of the monitor, allow or not jumping to next monitor in a given direction | 
+| `nofocus` or `keepfocus` | Do not focus or do keep focus on a client or workspace that was sent elsewhere |
+| `m:monitor` | Specified monitor by one of: direction, ID, name, `current`, relative (e.g. `+1` or `-1`) |
+| `orgroup` | Behaves as `moveintogroup` if there is a group in the given direction. Behaves as `moveoutofgroup` if there is no group in the given direction relative to the active group. Otherwise behaves like `movewindow`|
+| `out` | Mouve out of a group but keeps group flag active. |
+| `toggle` | Toggle between boolean values. |
+| `togglefake` | Toogle between boolean values `fullscreen` and `fake`. |
 | `wsname` | A workspace name : `id name`, e.g. `2 work` |
-| ws:workspace | Specified workspace by ... |
-| ignore | |
+| `ws:` | Identifies a workspace by it's name. If none is specified then it defaults to `current` of `focused`. |
+| `ignore` | Ignore a state, a flag, a lock or a reserved area. |
+| `toggleignore` | Toggle between ignore state and lock state | 
 | `none` | No optional parameter required or taken. | 
 | `submapname` | A name for a submap. |
 | `command` | A shell command to execute |
+| [topleft\|topright\|bottomleft\|bottomright\|center] | |
+| `prev` or `next` | Select previous or next element in a sequence. Boolean of 0 and 1 |
+| `false` or `true`  | Boolean of 0 and 1 |
+
+
 
 # List of Dispatchers
 
@@ -85,12 +91,12 @@ Dispatchers ames are not case sensitive and uppercase is only use for easier rea
 ## Client states
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
-| clientSetCentered | Centers the client on screen *note: floating only*. May or may not respect reserved monitor reserved area. <sub>Deprecates: centerwindow</sub> | `[client]` opt:`noreserved`\|`reserved` |
+| clientSetCentered | Centers the client on screen *note: floating only*. May or may not respect reserved monitor reserved area. <sub>Deprecates: centerwindow</sub> | `[client]` opt:`ignore` |
 | clientSetFloating | Sets the client's floating state. <sub>Deprecates: togglefloating</sub>  | `[client]` opt:`true`\|`false`\|`toggle` |
 | clientSetFullscreen | Sets the client's fullscreen state. A fake fullscreen will set internal fullscreen state without altering the geometry. <sub>Deprecates: fullscreen, fakefullscreen</sub> | `[client]` opt:`true`\|`false`\|`toggle`\|`fake`\|`togglefake` |
 | clientSetOpaque | Toggles the window to always be opaque. Will override the `opaque` window rules. <sub>Deprecates: toggleopaque</sub> | `[client]` opt:`true`\|`false`\|`toggle` |
 | clientSetPin | pins a client (i.e. show it on all workspaces) *note: floating only* <sub>Deprecates: pin</sub> | `[client]` opt:`true`\|`false`\|`toggle` |
-| clientSetStack | Modify the client stack order of the client. Note: this cannot be used to move a floating client behind a tiled one. <sub>Deprecates:alterzorder, bringactivetotop</sub> | [client] `stack` |
+| clientSetStack | Modify the client stack order of the client. Note: this cannot be used to move a floating client behind a tiled one. <sub>Deprecates:alterzorder, bringactivetotop</sub> | `[client]` `stack` |
 | clientSetSplitRatio | Changes the split ratio of a client. <sub>Deprecates: splitratio</sub> | `[client]` `floatvalue` |
 
 ## Cursor 
@@ -104,16 +110,16 @@ Dispatchers ames are not case sensitive and uppercase is only use for easier rea
 | ---------- | ----------- | ------ |
 | focusMoveDir | Moves the focus in a direction to an other client. <sub>Deprecates: movefocus</sub> | `[client]` `[direction]` opt:`nojump`\|`dojump`|
 | focusMoveCycle | Set focuse on the next client on a workspace <sub>Deprecates: cyclenext</sub> | `[client]` opt:`[direction]` |
-| focusMoveTo | Set focuse on : the first matching client, on a workspace or on a monitor. Options works only if unspecified target for urgent client, last client, urgent or last client. <sub>Deprecates: focuswindow, workspace, focusmonitor,focusurgentorlast</sub> | `[client]`\|`[ws:]`\|`[m:]` opt:`urgent`\|`last`\|`urgentorlast` |
+| focusMoveTo | Set focuse on : the first matching client, on a workspace or on a monitor. Options works only if unspecified target for urgent client, last client, urgent or last client. <sub>Deprecates: focuswindow, workspace, focusmonitor,focusurgentorlast</sub> | (`[client]`\|`[ws:]`\|`[m:]`) opt:`urgent`\|`last`\|`urgentorlast` |
 | focusCycleGroup | Switches to the next client in a group. <sub>Deprecates: changegroupactive</sub> | `[client]` opt:`[prev\|next]` |
-| focusMoveHistory |  Switch focus from current to previously focused client. Note `newer` may not be implemented. <sub>Deprecates: focuscurrentorlast</sub> | [`older`\|`newer`] |
+| focusMoveHistory |  Switch focus from current to previously focused client and forward to the original. Note `next` may not be implemented. <sub>Deprecates: focuscurrentorlast</sub> | [`prev`\|`next`] |
 
 ## Workspace
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
 | workspaceMoveTo | Moves the a workspace to a monitor. Note: Currently can't reorder workspaces on a monitor. <sub>Deprecates: movecurrentworkspacetomonitor,moveworkspacetomonitor</sub> | `[ws:]` `[m:]` |
-| workspaceRename | Rename a workspace. <sub>Deprecates: renameworkspace</sub> | `[ws:]` `[wsname]` |
-| workspaceSetOpt | Toggles a workspace option a workspace. <sub>Deprecates: workspaceopt</sub> | `[ws:]` `[opt]` | 
+| workspaceRename | Renames a workspace. <sub>Deprecates: renameworkspace</sub> | `[ws:]` `[wsname]` |
+| workspaceSetOpt | Sets workspace option. <sub>Deprecates: workspaceopt</sub> | `[ws:]` `[opt]` | 
 | workspaceSetSpecial | Toggles a special workspace on/off <sub>Deprecates: togglespecialworkspace</sub> | `[ws:]` opt:`true`\|`false`\|`toggle` |
 | workspaceSwap | Swaps workspaces between two monitors. Can specify specific workspaces or monitor to swap it's active workspace. Note: Currently can't reorder workspaces on a monitor. <sub>Deprecates: swapactiveworkspaces</sub> | `[ws:]`\|`[m:]` `[ws:]`\|`[m:]` opt:`nofocus`\|`dofocus` |
 
