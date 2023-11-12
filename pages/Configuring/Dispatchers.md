@@ -7,8 +7,8 @@ layout pages (See the sidebar).
 
 Dispatchers have been reviewed and renamed for version 2 of it's API. Depricated and discontinued functions will still work until further end of life notice.
 
-Dispatchers actions are : `Exec`, `Exit`, `Close`, `Cycle`, `Move`, `Reload`, `Rename`, `Send`, `Set` and `Swap`. 
-<sub>Discontinued: alter, bring, center, change, deny, force, focus, kill, lock (unlock), pass, pin, resize</sub>.
+Dispatchers actions are : `Exec`, `Exit`, `Close`, `Move`, `Reload`, `Rename`, `Send`, `Set` and `Swap`. 
+<sub>Discontinued: alter, bring, center, change, cycle, deny, force, focus, kill, lock (unlock), pass, pin, resize</sub>.
 
 Dispatchers names are not case sensitive and uppercase is only use for easier reading.
 
@@ -29,7 +29,7 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 | `nofocus` or `keepfocus` | Do not focus or do keep focus on a client or workspace that was sent elsewhere. <sub>Deprecates: silent</sub> |
 | `nojump` or `jump` | When moving to the edge of the monitor, allow or not jumping to next monitor in a given direction. | 
 | `none` | No optional parameter required or taken. | 
-| `orgroup` | When moving a client, performs different directionnal move : if in a group, will move out of it; if not in group, will move in; if neither, will just move the client. |
+| `orgroup` or `onlygroup` | Dispatcher will act differently, `orgroup` will have same action if focus is on a group or a client; `onlygroup` action will be performed only if focus is on a client in a group |
 | `out` | Move out of a group but keeps group flag active. |
 | `prev` or `next` | Select previous or next element in a sequence. |
 | `reset` | Used to exit a `Submap` |
@@ -61,7 +61,7 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 ## Client movement
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
-| clientMoveDir | Moves a client or a group of clients in workspace following `direction`. Can jump to next monitor unless specified. <sub>Deprecates : movewindow, movewindoworgroup</sub> | `[client]` dir:`[direction]` opt:(`nojump`\|`jump`) opt:`orgroup` |
+| clientMoveDir | Moves a client or a group of clients in workspace following `direction`. Can jump to next monitor unless specified. <sub>Deprecates : movewindow, movewindoworgroup</sub> Note `orgroup` : When moving a client, performs differently : if in a group, will move out of it; if not in group, will move in; if neither, will just move the client.| `[client]` dir:`[direction]` opt:(`nojump`\|`jump`) opt:`orgroup` |
 | clientMoveTo | Moves a client to a workspace or monitor. <sub>Deprecates: movetoworkspace, movetoworkspacesilent</sub> | `[client]` [(`ws:workspace` \| `m:monitor`)] opt:(`nofocus`\|`keepfocus`) |
 | clientSwapCycle | Swaps the client with the next client on a workspace or in a group. <sub>Deprecates: swapnext, movegroupwindow </sub> | `[client]` opt:(`prev`\|`next`) opt:(`ingroup`) |
 | clientSwapDir | Swaps the client with another client in the given `direction`. Will swap with client on a adjacent monitor if option specified. Focus can be stay at originap place or be keept by client that currently has it.<sub>Deprecates: swapwindow</sub> | `[client]` dir:`[direction]` opt:(`nojump`\|`dojump`) opt:(`nofocus`\|`keepfocus`) |
@@ -134,7 +134,7 @@ bind = MOD,KEY,exec,sleep 1 && hyprctl dispatch compositorSetDpms off
 
 Hyprland allows you to make a group from the current active clients with the `clientSetGroup` bind dispatcher.
 
-A group is like i3wm’s “tabbed” container. It takes the space of one client, and you can change the focus to the next one in the tabbed “group” with the `focusMoveCycle opt:orgroup` bind dispatcher.
+A group is like i3wm’s “tabbed” container. It takes the space of one client, and you can change the focus to the next one in the tabbed “group” with the `focusMoveCycle opt:(orgroup\|onlygroup)` bind dispatcher.
 
 The new group’s border colors are configurable with the appropriate `col.` settings in the `group` config section.
 
