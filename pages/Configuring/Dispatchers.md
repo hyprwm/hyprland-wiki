@@ -14,23 +14,28 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 
 
 # Parameter explanation
-<sub>Discontinued: `silent` </sub>
+TODO: Decide if `opt:` should be mandatory for parameters so it's easier to parse them or if we should just go away with it.
+
+<sub>Discontinued: `b`, `f`, `silent`, `zheight` </sub>
 | Param type | Description |
 | ---------- | ----------- |
 | `[client]` |  Identifies a client. If none is specified then it defaults to `current` or `focused`. If specified, can be any of the following: Class regex, `title:` and a title regex, `pid:` and the pid, `address:` and the address, `floating`, `tiled`  |
+| `[corner]` | Designates a position on a client for cursor movement. Of : `topleft`\|`topright`\|`bottomleft`\|`bottomright`\|`center`. |
 | `[direction]` | One of `l` `r` `u` `d` or `left` `right` `up` `down`. |
 | `[m:monitor]` | Specified monitor by one of: direction, ID, name, `current`, relative (e.g. `+1` or `-1`) |
-| `[corner]` | Designates a position on a client for cursor movement. Of : `topleft`\|`topright`\|`bottomleft`\|`bottomright`\|`center`. |
 | `[ws:]` | Identifies a workspace by it's name. If none is specified then it defaults to `current` of `focused`. |
+| `active` or `current` | Depending on the function, will be the selected or focused : `client`, `group`, `monitor` or `workspace`. |
 | `command` | A shell command to execute |
+| `fake` | A state for clients to be in a fullscreen mode without having a whole monitor. |
 | `false` or `true`  | Boolean of 0 and 1 |
 | `floatvalue` | a relative float delta (e.g `-0.2` or `+0.2`) or `exact` followed by a the exact float value (e.g. `exact 0.5`) |
 | `ignore` or `enforce` | Ignore or enforce a state, a flag, a lock or a reserved area. |
+| `in` or `out` | Move in of a group or out of a group but keeps group flag active. |
 | `nofocus` or `keepfocus` | Do not focus or do keep focus on a client or workspace that was sent elsewhere. <sub>Deprecates: silent</sub> |
 | `nojump` or `jump` | When moving to the edge of the monitor, allow or not jumping to next monitor in a given direction. | 
 | `none` | No optional parameter required or taken. | 
+| `off` or `on`  | Same as `false` or `true` |
 | `orgroup` or `onlygroup` | Dispatcher will act differently, `orgroup` will have same action if focus is on a group or a client; `onlygroup` action will be performed only if focus is on a client in a group |
-| `out` | Move out of a group but keeps group flag active. |
 | `prev` or `next` | Select previous or next element in a sequence. |
 | `reset` | Used to exit a `Submap` |
 | `resizeparams` | relative pixel delta vec2 (e.g. `10 -10`), optionally a percentage of the window size (e.g. `20 25%`) or `exact` followed by an exact vec2 (e.g. `exact 1280 720`), optionally a percentage of the screen size (e.g. `exact 50% 50%`) |
@@ -39,6 +44,7 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 | `toggle` | Toggle between boolean values. |
 | `togglefake` | Toogle between values `fullscreen` and `fake`. |
 | `toggleignore` | Toggle between states, like `ignore` state and `enforce` state | 
+| `unlock` or `lock` | Unlocked or locked state |
 | `workspaceopt` | See below FIXME:AT. |
 | `wsname` | A workspace name : `id name`, e.g. `2 work` |
 
@@ -61,7 +67,7 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 ## Client movement
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
-| clientMoveDir | Moves a client or a group of clients in workspace following `direction`. Can jump to next monitor unless specified. <sub>Deprecates : movewindow, movewindoworgroup</sub> | `[client]` dir:`[direction]` opt:(`nojump`\|`jump`) opt:`orgroup` |
+| clientMoveDir | Moves a client or a group of clients in workspace following `direction`. Can jump to next monitor unless specified. <sub>Deprecates : movewindow, movewindoworgroup</sub> | `[client]` dir:`[direction]` opt:(`nojump`\|`jump`) opt:(`orgroup`) |
 | clientMoveTo | Moves a client to a workspace or monitor. <sub>Deprecates: movetoworkspace, movetoworkspacesilent</sub> | `[client]` [(`ws:workspace` \| `m:monitor`)] opt:(`nofocus`\|`keepfocus`) |
 | clientSwapCycle | Swaps the client with the next client on a workspace or in a group. <sub>Deprecates: swapnext, movegroupwindow </sub> | `[client]` opt:(`prev`\|`next`) opt:(`ingroup`) |
 | clientSwapDir | Swaps the client with another client in the given `direction`. Will swap with client on a adjacent monitor if option specified. Focus can be stay at originap place or be keept by client that currently has it.<sub>Deprecates: swapwindow</sub> | `[client]` dir:`[direction]` opt:(`nojump`\|`dojump`) opt:(`nofocus`\|`keepfocus`) |
@@ -92,7 +98,7 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 | clientSetFullscreen | Sets the client's fullscreen state. A fake fullscreen will set internal fullscreen state without altering the geometry. <sub>Deprecates: fullscreen, fakefullscreen</sub> | `[client]` opt:(`true`\|`false`\|`toggle`\|`fake`\|`togglefake`) |
 | clientSetOpaque | Toggles the client to always be opaque. Will override the `opaque` window rules. <sub>Deprecates: toggleopaque</sub> | `[client]` opt:(`true`\|`false`\|`toggle`) |
 | clientSetPin | pins a client (i.e. show it on all workspaces) *note: floating only* <sub>Deprecates: pin</sub> | `[client]` opt:(`true`\|`false`\|`toggle`) |
-| clientSetStack | Modify the client stack order of the client. Note: this cannot be used to move a floating client behind a tiled one. <sub>Deprecates:alterzorder, bringactivetotop</sub> | `[client]` opt:(`bottom`\|`top`) |
+| clientSetStack | Modify the client stack order of the client. Note: this cannot be used to move a floating client behind a tiled one. <sub>Deprecates: alterzorder, bringactivetotop</sub> | `[client]` opt:(`bottom`\|`top`) |
 | clientSetSplitRatio | Changes the split ratio of a client. <sub>Deprecates: splitratio</sub> | `[client]` `floatvalue` |
 
 ## Cursor 
@@ -116,7 +122,7 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 | workspaceRename | Renames a workspace. <sub>Deprecates: renameworkspace</sub> | `[ws:]` `[wsname]` |
 | workspaceSetOpt | Sets workspace option. <sub>Deprecates: workspaceopt</sub> | `[ws:]` `[opt]` | 
 | workspaceSetVisible | Toggles a special workspace on/off <sub>Deprecates: togglespecialworkspace</sub> | `[ws:]` opt:(`true`\|`false`\|`toggle`) |
-| workspaceSwap | Swaps workspaces between two monitors. Can specify specific workspaces or monitor to swap it's active workspace. Note: Currently can't reorder workspaces on a monitor. <sub>Deprecates: swapactiveworkspaces</sub> | `[ws:]`\|`[m:]` `[ws:]`\|`[m:]` opt:(`nofocus`\|`dofocus`) |
+| workspaceSwap | Swaps workspaces between two monitors. Can specify specific workspaces or monitor to swap it's active workspace. Note: Currently can't reorder workspaces on a monitor. <sub>Deprecates: swapactiveworkspaces</sub> | (`[ws:]`\|`[m:]`) (`[ws:]`\|`[m:]`) opt:(`nofocus`\|`dofocus`) |
 
 
 
@@ -134,13 +140,18 @@ bind = MOD,KEY,exec,sleep 1 && hyprctl dispatch compositorSetDpms off
 
 Hyprland allows you to make a group from the current active clients with the `clientSetGroup` bind dispatcher.
 
-A group is like i3wm’s “tabbed” container. It takes the space of one client, and you can change the focus to the next one in the tabbed “group” with the `focusMoveCycle opt:(orgroup\|onlygroup)` bind dispatcher.
-The parameter `orgroup` will move the focus on next client if curent client is not in a group or if it's alone NOTE: check about alone. 
+A group is like i3wm’s “tabbed” container. 
+
+It takes the space of one client, and you can change the focus to the next one in the tabbed “group” with the `focusMoveCycle opt:(orgroup\|onlygroup)` bind dispatcher.
+The parameter `orgroup` will move the focus on next client if curent client is not in a group or if it's alone. NOTE: check about alone. 
 While the opt:`onlygroup` parameter will not change focus if selected client is not in a group with an other member.
 
 To create a group, you must first enable a client to be a group on it's own with `clientSetGroup`.
+
 Once you have a group, you can move an other client adjacent to it by a `clientMoveGroupDir opt:in`.
+
 You can also get a selected client out of a group with `clientMoveGroupDir opt:out`.
+
 If you want to move a client in or out of a group, you can use the opt:`toggle` and it will act accordingly to the case of `in` or `out`.
 
 ```txt
@@ -153,17 +164,19 @@ bind = SUPERCTRLSHIFT, DOWN, clientMoveGroupDir, down opt:in
 # Move a client inside a group, do nothing if there's no group in that direction
 ```
 
-To change the focus to an other member of a group in a cycle without cycling all other clients not in the group on the workspace.
+To change the focus to an other member of a group in a cycle. Without cycling all other clients not in the group on the workspace.
 
 ```txt
 bind = SUPERCTRL, TAB, focusMoveCycle opt:next opt:onlygroup
 bind = SUPERCTRLSHIFT, TAB, focusMoveCycle opt:prev opt:onlygroup
-# Will only cycle focus on clients if they are in a groupe and they are not alone
+#Will only cycle focus on clients if they are in a groupe and they are not alone
+#If you don't care about group only cycling, use opt:orgroup and it will cycle to clients outside of the group after it reached it's last one. 
 ```
 
 The new group’s border colors are configurable with the appropriate `col.` settings in the `group` config section.
 
 You can lock a group with the `clientSetGrouplock` dispatcher in order to stop new client from entering this group.
+
 In addition, the `clientSetGrouplocks` dispatcher can be used to toggle an independent global group lock that will prevent
 new client from entering (FIXME:or leaving?) any groups, regardless of their local group lock stat.
 
