@@ -25,7 +25,7 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 | `false` or `true`  | Boolean of 0 and 1 |
 | `floatvalue` | a relative float delta (e.g `-0.2` or `+0.2`) or `exact` followed by a the exact float value (e.g. `exact 0.5`) |
 | `ignore` | Ignore a state, a flag, a lock or a reserved area. |
-| `nofocus` or `keepfocus` | Do not focus or do keep focus on a client or workspace that was sent elsewhere. |
+| `nofocus` or `keepfocus` | Do not focus or do keep focus on a client or workspace that was sent elsewhere. <sub>Deprecates: silent</sub> |
 | `nojump` or `jump` | When moving to the edge of the monitor, allow or not jumping to next monitor in a given direction. | 
 | `none` | No optional parameter required or taken. | 
 | `orgroup` | When moving a client, performs different directionnal move : if in a group, will move out of it; if not in group, will move in; if neither, will just move the client. |
@@ -70,7 +70,7 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 | ---------- | ----------- | ------ |
 | clientMoveGroupDir | Moves a client into a group or out in a specified direction. No-op if there is no group in the specified direction. <sub>Deprecates: moveintogroup, moveoutofgroup</sub> | `[client]` dir:`[direction]` opt:(`in`\|`out`\|`toggle`) |
 | clientSetDenyGroup | Prohibit a client from becoming or being inserted into group. <sub>Deprecates: denywindowfromgroup</sub> | `[client]` opt:(`true`\|`false`\|`toggle`) |
-| clientSetGroup | Toggles the client window into a group state. <sub>Deprecates: togglegroup, moveoutofgroup</sub> | `[client]` opt:(`true`\|`false`\|`toggle`\|`out`) |
+| clientSetGroup | Toggles the client into a group state. <sub>Deprecates: togglegroup, moveoutofgroup</sub> | `[client]` opt:(`true`\|`false`\|`toggle`\|`out`) |
 | clientSetGrouplock | Lock the group of a client (the current group will not accept new clients or be moved to other groups) <sub>Deprecates: lockactivegroup</sub> | `[client]` opt:(`unlock`\|`lock`\|`toggle`) |
 | clientSetGrouplocks | Locks all the groups (all groups will not accept new clients). <sub>Deprecates: lockgroups,setignoregrouplock</sub> | opt:(`unlock`\|`lock`\|`toggle`\|`ignore`) |
 
@@ -80,7 +80,7 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 | clientClose | Closes the client. <sub>Deprecates: killactive, closewindow</sub> | `[client]` |
 | clientSendGlobalkey | Executes a Global Shortcut using the GlobalShortcuts portal. See [here](../Binds/#global-keybinds) <sub>Deprecates: global </sub> | `[client]` `key` |
 | clientSendPassKey | Passes the key (with mods) to a specified client. Can be used as a workaround to global keybinds not working on Wayland. <sub>Deprecates: pass </sub> | `[client]` |
-| clientSetPos | Moves a selected window. <sub>Deprecates: moveactive, movewindowpixel</sub> | `[client]` `resizeparams` |
+| clientSetPos | Moves a selected client. <sub>Deprecates: moveactive, movewindowpixel</sub> | `[client]` `resizeparams` |
 | clientSetSize | Resizes the client geometry. <sub>Deprecates: resizeactive, resizewindowpixel</sub> | `[client]` `resizeparams` |
 
 ## Client states
@@ -89,7 +89,7 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 | clientSetCentered | Centers the client on screen *note: floating only*. May or may not respect reserved monitor reserved area. <sub>Deprecates: centerwindow</sub> | `[client]` opt:(`ignore`) |
 | clientSetFloating | Sets the client's floating state. <sub>Deprecates: togglefloating</sub>  | `[client]` opt:(`true`\|`false`\|`toggle`) |
 | clientSetFullscreen | Sets the client's fullscreen state. A fake fullscreen will set internal fullscreen state without altering the geometry. <sub>Deprecates: fullscreen, fakefullscreen</sub> | `[client]` opt:(`true`\|`false`\|`toggle`\|`fake`\|`togglefake`) |
-| clientSetOpaque | Toggles the window to always be opaque. Will override the `opaque` window rules. <sub>Deprecates: toggleopaque</sub> | `[client]` opt:(`true`\|`false`\|`toggle`) |
+| clientSetOpaque | Toggles the client to always be opaque. Will override the `opaque` window rules. <sub>Deprecates: toggleopaque</sub> | `[client]` opt:(`true`\|`false`\|`toggle`) |
 | clientSetPin | pins a client (i.e. show it on all workspaces) *note: floating only* <sub>Deprecates: pin</sub> | `[client]` opt:(`true`\|`false`\|`toggle`) |
 | clientSetStack | Modify the client stack order of the client. Note: this cannot be used to move a floating client behind a tiled one. <sub>Deprecates:alterzorder, bringactivetotop</sub> | `[client]` opt:(`bottom`\|`top`) |
 | clientSetSplitRatio | Changes the split ratio of a client. <sub>Deprecates: splitratio</sub> | `[client]` `floatvalue` |
@@ -115,7 +115,7 @@ Dispatchers names are not case sensitive and uppercase is only use for easier re
 | workspaceMoveTo | Moves the a workspace to a monitor. Note: Currently can't reorder workspaces on a monitor. <sub>Deprecates: movecurrentworkspacetomonitor,moveworkspacetomonitor</sub> | `[ws:]` `[m:]` |
 | workspaceRename | Renames a workspace. <sub>Deprecates: renameworkspace</sub> | `[ws:]` `[wsname]` |
 | workspaceSetOpt | Sets workspace option. <sub>Deprecates: workspaceopt</sub> | `[ws:]` `[opt]` | 
-| workspaceSetSpecial | Toggles a special workspace on/off <sub>Deprecates: togglespecialworkspace</sub> | `[ws:]` opt:(`true`\|`false`\|`toggle`) |
+| workspaceSetVisible | Toggles a special workspace on/off <sub>Deprecates: togglespecialworkspace</sub> | `[ws:]` opt:(`true`\|`false`\|`toggle`) |
 | workspaceSwap | Swaps workspaces between two monitors. Can specify specific workspaces or monitor to swap it's active workspace. Note: Currently can't reorder workspaces on a monitor. <sub>Deprecates: swapactiveworkspaces</sub> | `[ws:]`\|`[m:]` `[ws:]`\|`[m:]` opt:(`nofocus`\|`dofocus`) |
 
 
@@ -125,25 +125,25 @@ it is NOT recommended to set DPMS with a keybind directly, as it
 might cause undefined behavior. Instead, consider something like
 
 ```ini
-bind = MOD,KEY,exec,sleep 1 && hyprctl dispatch dpms off
+bind = MOD,KEY,exec,sleep 1 && hyprctl dispatch compositorSetDpms off
 ```
 
 {{< /hint >}}
 
-## Grouped (tabbed) windows
+## Grouped (tabbed) clients
 
-Hyprland allows you to make a group from the current active window with the `togglegroup` bind dispatcher.
+Hyprland allows you to make a group from the current active clients with the `clientSetGroup` bind dispatcher.
 
-A group is like i3wm’s “tabbed” container. It takes the space of one window, and you can change the window to the next one in the tabbed “group” with the `changegroupactive` bind dispatcher.
+A group is like i3wm’s “tabbed” container. It takes the space of one client, and you can change the clien to the next one in the tabbed “group” with the `focusCycleGroup` bind dispatcher.
 
 The new group’s border colors are configurable with the appropriate `col.` settings in the `group` config section.
 
-You can lock a group with the `lockactivegroup` dispatcher in order to stop new window from entering this group.
-In addition, the `lockgroups` dispatcher can be used to toggle an independent global group lock that will prevent
-new window from entering any groups, regardless of their local group lock stat.
+You can lock a group with the `clientSetGrouplock` dispatcher in order to stop new client from entering this group.
+In addition, the `clientSetGrouplocks` dispatcher can be used to toggle an independent global group lock that will prevent
+new client from entering any groups, regardless of their local group lock stat.
 
-You can prevent a window from being added to group or becoming a group with the `denywindowfromgroup` dispatcher.
-`movewindoworgroup` will behave like `movewindow` if current active window or window in direction has this property set.
+You can prevent a client from being added to group or becoming a group with the `clientSetDenyGroup` dispatcher.
+`clientMoveDir opt:orgroup` will behave like `clientMoveDir` but move the whole group in a given direction.
 
 # Workspaces
 
@@ -169,7 +169,7 @@ You have eight choices:
 
 {{< hint type=warning >}}
 `special` is supported ONLY on
-`movetoworkspace` and `movetoworkspacesilent`. Any other dispatcher will result in undocumented behavior.
+`clientMoveTo` and `clientMoveTo opt:(nofocus|keepfocus)`. Any other dispatcher will result in undocumented behavior.
 {{< /hint >}}
 
 {{< hint type=important >}}
@@ -185,31 +185,35 @@ A special workspace is what is called a "scratchpad" in some other places. A
 workspace that you can toggle on/off on any monitor.
 
 {{< hint >}}
-You cannot have floating windows in a Special workspace. Making a window floating
+You cannot have floating clients in a Special workspace. Making a client floating with `clientSetFloating`
 will send it to the currently active _real_ workspace.
 
-You can define multiple named special workspaces, but the amount of those is limited to 97 at a time.
+You can define multiple named special workspaces as `special:wsname`, but the amount of those is limited to 97 at a time.
 {{< /hint >}}
 
-For example, to move a window/application to a special workspace you can use the following syntax:
+For example, to move a client/application to a special workspace you can use the following syntax:
 
 ```
-bind = SUPER, C, movetoworkspace, special
-#The above syntax will move the window to a special workspace upon pressing 'SUPER'+'C'.
-#To see the hidden window you can use the togglespecialworkspace dispatcher mentioned above.
+bind = SUPER, C, clientMoveTo, special
+bind = SUPERALT, C, workspaceSetVisible, special opt:toggle
+#The above syntax will move the active client to a special workspace upon pressing 'SUPER'+'C'.
+#To see the hidden client you can use the `opt:toggle` dispatcher mentioned above.
+bind = SUPER, H, clientMoveTo, special:hidden opt:nofocus # Do not keep focus on the client, sends it silently
+bind = SUPERALT, H, workspaceSetVisible, special:hidden opt:toggle
 ```
 
 # Workspace options
 
+Possible `workspaceopt` are :
 ```txt
-allfloat -> makes all new windows floating (also floats/unfloats windows on toggle)
-allpseudo -> makes all new windows pseudo (also pseudos/unpseudos on toggle)
+allfloat -> makes all new clients floating (also floats/unfloats clients on toggle)
+allpseudo -> makes all new clients pseudo (also pseudos/unpseudos on toggle) FIXME:DEFINE PSEUDO
 ```
 
 # Executing with rules
-The `exec` dispatcher supports adding rules. Please note some windows might work better, some
+The `exec` dispatcher supports adding rules. Please note some clients might work better, some
 worse. It records the PID of the spawned process and uses that. If your process e.g. forks and then
-the fork opens a window, this will not work.
+the fork opens a clients, this will not work.
 
 The syntax is:
 ```
@@ -218,5 +222,5 @@ bind = mod, key, exec, [rules...] command
 
 For example:
 ```
-bind = SUPER, E, exec, [workspace 2 silent;float;noanim] kitty
+bind = SUPER, E, exec, [ws:2 nofocus;float;noanim] kitty
 ```
