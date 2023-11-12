@@ -8,7 +8,7 @@ layout pages (See the sidebar).
 Dispatchers have been reviewed and renamed for version 2 of it's API. Depricated and discontinued functions will still work until further end of life notice.
 Version 1 and 2 of the API will be supported by `hyprctl dispatch @dispatcherfunction`.
 
-New dispatchers actions are : `Exec`, `Exit`, `Close`, `Move`, `Reload`, `Rename`, `Send`, `Set` and `Swap`. 
+Dispatchers actions for revised API are : `Exec`, `Exit`, `Close`, `Move`, `Reload`, `Rename`, `Send`, `Set` and `Swap`. 
 <sub>Discontinued: alter, bring, center, change, cycle, deny, force, focus, kill, lock (unlock), pass, pin, resize</sub>.
 
 Dispatcher's names are not case sensitive and uppercase is only use for easier reading. 
@@ -72,7 +72,7 @@ TODO: Decide if `opt:` should be mandatory for parameters so it's easier to pars
 | ---------- | ----------- | ------ |
 | clientMoveDir | Moves a client or a group of clients in workspace following `direction`. Can jump to next monitor unless specified. <sub>Deprecates : movewindow, movewindoworgroup</sub> | `[client]` dir:`[direction]` opt:(`nojump`\|`jump`) opt:(`orgroup`) |
 | clientMoveTo | Moves a client to a workspace or monitor. <sub>Deprecates: movetoworkspace, movetoworkspacesilent</sub> | `[client]` [(`ws:workspace` \| `m:monitor`)] opt:(`nofocus`\|`keepfocus`) |
-| clientSwapCycle | Swaps the client with the next client on a workspace or in a group. <sub>Deprecates: swapnext, movegroupwindow </sub> | `[client]` opt:(`prev`\|`next`) opt:(`ingroup`) |
+| clientSwapCycle | Swaps the client with the next client on a workspace or in a group. <sub>Deprecates: swapnext, movegroupwindow </sub> | `[client]` opt:(`prev`\|`next`) opt:(`onlygroup`\|`orgroup`) |
 | clientSwapDir | Swaps the client with another client in the given `direction`. Will swap with client on a adjacent monitor if option specified. Focus can be stay at originap place or be keept by client that currently has it.<sub>Deprecates: swapwindow</sub> | `[client]` dir:`[direction]` opt:(`nojump`\|`dojump`) opt:(`nofocus`\|`keepfocus`) |
 
 ## Client groups
@@ -82,7 +82,7 @@ TODO: Decide if `opt:` should be mandatory for parameters so it's easier to pars
 | clientSetDenyGroup | Prohibit a client from becoming or being inserted into group. <sub>Deprecates: denywindowfromgroup</sub> | `[client]` opt:(`true`\|`false`\|`toggle`) |
 | clientSetGroup | Toggles the client into a group state. <sub>Deprecates: togglegroup, moveoutofgroup</sub> | `[client]` opt:(`true`\|`false`\|`toggle`\|`out`) |
 | clientSetGrouplock | Lock the group of a client (the current group will not accept new clients or be moved to other groups) <sub>Deprecates: lockactivegroup</sub> | `[client]` opt:(`unlock`\|`lock`\|`toggle`) |
-| clientSetGrouplocks | Locks all the groups (all groups will not accept new clients). <sub>Deprecates: lockgroups,setignoregrouplock</sub> | opt:(`unlock`\|`lock`\|`toggle`\|`ignore`\|`enforce`\|`toggleignore`) |
+| clientSetGrouplocks | Locks all the groups (all groups will not accept new clients). <sub>Deprecates: lockgroups,setignoregrouplock</sub> | opt:(`unlock`\|`lock`\|`toggle`) opt:(`ignore`\|`enforce`\|`toggleignore`) |
 
 ## Client interaction
 | Dispatcher | Description | Params |
@@ -98,7 +98,7 @@ TODO: Decide if `opt:` should be mandatory for parameters so it's easier to pars
 | ---------- | ----------- | ------ |
 | clientSetCentered | Centers the client on screen *note: floating only*. May or may not respect reserved monitor reserved area. <sub>Deprecates: centerwindow</sub> | `[client]` opt:(`ignore`) |
 | clientSetFloating | Sets the client's floating state. <sub>Deprecates: togglefloating</sub>  | `[client]` opt:(`true`\|`false`\|`toggle`) |
-| clientSetFullscreen | Sets the client's fullscreen state. A fake fullscreen will set internal fullscreen state without altering the geometry. <sub>Deprecates: fullscreen, fakefullscreen</sub> | `[client]` opt:(`true`\|`false`\|`toggle`\|`fake`\|`togglefake`) |
+| clientSetFullscreen | Sets the client's fullscreen state. A fake fullscreen will set internal fullscreen state without altering the geometry. <sub>Deprecates: fullscreen, fakefullscreen</sub> | `[client]` opt:(`true`\|`false`\|`toggle`) opt:(`true`\|`fake`\|`togglefake`) |
 | clientSetOpaque | Toggles the client to always be opaque. Will override the `opaque` window rules. <sub>Deprecates: toggleopaque</sub> | `[client]` opt:(`true`\|`false`\|`toggle`) |
 | clientSetPin | pins a client (i.e. show it on all workspaces) *note: floating only* <sub>Deprecates: pin</sub> | `[client]` opt:(`true`\|`false`\|`toggle`) |
 | clientSetStack | Modify the client stack order of the client. Note: this cannot be used to move a floating client behind a tiled one. <sub>Deprecates: alterzorder, bringactivetotop</sub> | `[client]` opt:(`bottom`\|`top`) |
@@ -115,7 +115,7 @@ TODO: Decide if `opt:` should be mandatory for parameters so it's easier to pars
 | ---------- | ----------- | ------ |
 | focusMoveDir | Moves the focus in a direction to an other client. <sub>Deprecates: movefocus</sub> | `[client]` dir:`[direction]` opt:(`nojump`\|`dojump`)|
 | focusMoveCycle | Set focuse on the next client on a workspace <sub>Deprecates: cyclenext, changegroupactive</sub> | `[client]` opt:`(prev\|next)` opt:(`orgroup`\|`onlygroup`) |
-| focusMoveTo | Set focuse on : the first matching client, on a workspace or on a monitor. Options works only if unspecified target for urgent client, last client, urgent or last client. <sub>Deprecates: focuswindow, workspace, focusmonitor,focusurgentorlast</sub> | (`[client]`\|`[ws:]`\|`[m:]`) opt:`urgent`\|`last`\|`urgentorlast` |
+| focusMoveTo | Set focuse on : the first matching client, on a workspace or on a monitor. Options works only if unspecified target for urgent client, last client, urgent or last client. <sub>Deprecates: focuswindow, workspace, focusmonitor,focusurgentorlast</sub> | (`[client]`\|`[ws:]`\|`[m:]`) opt:(`urgent`\|`last`\|`urgentorlast`) |
 | focusMoveHistory |  Switch focus from current to previously focused client and forward to the original. Note `next` may not be implemented. <sub>Deprecates: focuscurrentorlast</sub> | opt:(`prev`\|`next`) |
 
 ## Workspace
