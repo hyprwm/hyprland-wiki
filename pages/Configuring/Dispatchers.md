@@ -129,8 +129,8 @@ You have eight choices:
 {{< /hint >}}
 
 {{< hint type=important >}}
-Numerical workspaces (e.g. `1`, `2`, `127634934729`) are allowed
-**ONLY** between 1 and 9223372036854775806 (inclusive)
+Numerical workspaces (e.g. `1`, `2`, `13371337`) are allowed
+**ONLY** between 1 and 2147483647 (inclusive)
 
 Neither `0` nor negative numbers are allowed.
 {{< /hint >}}
