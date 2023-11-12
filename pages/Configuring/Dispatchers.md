@@ -5,8 +5,8 @@
 Please keep in mind some layout-specific dispatchers will be listed in the
 layout pages (See the sidebar).
 
-Dispatchers actions are : Exec, Exit, Close, Cycle, Move, Reload, Rename, Send, Set, Swap. <sub>Discontinued: alter, bring, center, change, deny, force, focus, kill, lock (unlock), pass, pin, resize</sub>.
-Dispatchers ames are not case sensitive and uppercase is only use for easier reading.
+Dispatchers actions are : `Exec`, `Exit`, `Close`, `Cycle`, `Move`, `Reload`, `Rename`, `Send`, `Set` and `Swap`. <sub>Discontinued: alter, bring, center, change, deny, force, focus, kill, lock (unlock), pass, pin, resize</sub>.
+Dispatchers names are not case sensitive and uppercase is only use for easier reading.
 
 
 
@@ -14,35 +14,29 @@ Dispatchers ames are not case sensitive and uppercase is only use for easier rea
 
 | Param type | Description |
 | ---------- | ----------- |
-| client | a wayland client, otherwise known as window. Any of the following: Class regex, `title:` and a title regex, `pid:` and the pid, `address:` and the address, `floating`, `tiled` |
-| workspace | see below. |
-| direction | `l` `r` `u` `d` left right up down |
-| monitor | One of: direction, ID, name, `current`, relative (e.g. `+1` or `-1`) |
-| resizeparams | relative pixel delta vec2 (e.g. `10 -10`), optionally a percentage of the window size (e.g. `20 25%`) or `exact` followed by an exact vec2 (e.g. `exact 1280 720`), optionally a percentage of the screen size (e.g. `exact 50% 50%`) |
-| floatvalue | a relative float delta (e.g `-0.2` or `+0.2`) or `exact` followed by a the exact float value (e.g. `exact 0.5`) |
-| workspaceopt | see below. |
-
-| Param type | Description |
-| ---------- | ----------- |
-| `[client]` |  Identifies a client. If none is specified then it defaults to `current` of `focused`. If specified, can be any of the following: Class regex, `title:` and a title regex, `pid:` and the pid, `address:` and the address, `floating`, `tiled`  |
+| `[client]` |  Identifies a client. If none is specified then it defaults to `current` or `focused`. If specified, can be any of the following: Class regex, `title:` and a title regex, `pid:` and the pid, `address:` and the address, `floating`, `tiled`  |
+| `[direction]` | One of `l` `r` `u` `d` or `left` `right` `up` `down`. |
+| `[m:monitor]` | Specified monitor by one of: direction, ID, name, `current`, relative (e.g. `+1` or `-1`) |
+| `[ws:]` | Identifies a workspace by it's name. If none is specified then it defaults to `current` of `focused`. |
+| `command` | A shell command to execute |
+| `false` or `true`  | Boolean of 0 and 1 |
+| `ignore` | Ignore a state, a flag, a lock or a reserved area. |
+| `nofocus` or `keepfocus` | Do not focus or do keep focus on a client or workspace that was sent elsewhere. |
+| `nojump` or `jump` | When moving to the edge of the monitor, allow or not jumping to next monitor in a given direction. | 
+| `none` | No optional parameter required or taken. | 
+| `orgroup` | When moving a client, performs different directionnal move : if in a group, will move out of it; if not in group, will move in; if neither, will just move the client. |
+| `out` | Move out of a group but keeps group flag active. |
+| `prev` or `next` | Select previous or next element in a sequence. Boolean of 0 and 1 |
 | `stack` | `top` or `bottom` |
-| `nojump` or `jump` | When moving a client to the edge of the monitor, allow or not jumping to next monitor in a given direction | 
-| `nofocus` or `keepfocus` | Do not focus or do keep focus on a client or workspace that was sent elsewhere |
-| `m:monitor` | Specified monitor by one of: direction, ID, name, `current`, relative (e.g. `+1` or `-1`) |
-| `orgroup` | Behaves as `moveintogroup` if there is a group in the given direction. Behaves as `moveoutofgroup` if there is no group in the given direction relative to the active group. Otherwise behaves like `movewindow`|
-| `out` | Mouve out of a group but keeps group flag active. |
+| `submapname` | A name for a submap. |
 | `toggle` | Toggle between boolean values. |
 | `togglefake` | Toogle between boolean values `fullscreen` and `fake`. |
-| `wsname` | A workspace name : `id name`, e.g. `2 work` |
-| `ws:` | Identifies a workspace by it's name. If none is specified then it defaults to `current` of `focused`. |
-| `ignore` | Ignore a state, a flag, a lock or a reserved area. |
 | `toggleignore` | Toggle between ignore state and lock state | 
-| `none` | No optional parameter required or taken. | 
-| `submapname` | A name for a submap. |
-| `command` | A shell command to execute |
-| [topleft\|topright\|bottomleft\|bottomright\|center] | |
-| `prev` or `next` | Select previous or next element in a sequence. Boolean of 0 and 1 |
-| `false` or `true`  | Boolean of 0 and 1 |
+| `topleft`\|`topright`\|`bottomleft`\|`bottomright`\|`center` | Designates a position on a client for cursor movement. |
+| `wsname` | A workspace name : `id name`, e.g. `2 work` |
+| floatvalue | a relative float delta (e.g `-0.2` or `+0.2`) or `exact` followed by a the exact float value (e.g. `exact 0.5`) |
+| resizeparams | relative pixel delta vec2 (e.g. `10 -10`), optionally a percentage of the window size (e.g. `20 25%`) or `exact` followed by an exact vec2 (e.g. `exact 1280 720`), optionally a percentage of the screen size (e.g. `exact 50% 50%`) |
+| workspaceopt | see below. |
 
 
 
