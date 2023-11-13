@@ -29,9 +29,10 @@ TODO: Decide if `opt:` should be mandatory for parameters so it's easier to pars
 | `[ws:]` | Identifies a workspace by it's name. If none is specified then it defaults to `current` of `focused`. |
 | `active` or `current` | Depending on the function, will be the selected or focused : `client`, `group`, `monitor` or `workspace`. |
 | `command` | A shell command to execute |
-| `fake` | A state for clients to be in a fullscreen mode without having a whole monitor. |
+| `fake` and `fakefullscreen` | A state for clients to be in a fullscreen mode without having a whole monitor. |
 | `false` or `true`  | Boolean of 0 and 1 |
 | `floatvalue` | a relative float delta (e.g `-0.2` or `+0.2`) or `exact` followed by a the exact float value (e.g. `exact 0.5`) |
+| `full` and `fullscreen` | Fullscreen state for clients |
 | `ignore` or `enforce` | Ignore or enforce a state, a flag, a lock or a reserved area. |
 | `in` or `out` | Move in of a group or out of a group but keeps group flag active. |
 | `nofocus` or `keepfocus` | Do not focus or do keep focus on a client or workspace that was sent elsewhere. <sub>Deprecates: silent</sub> |
@@ -170,8 +171,8 @@ bind = SUPERCTRLSHIFT, DOWN, clientMoveGroupDir, down opt:in
 To change the focus to an other member of a group in a cycle. Without cycling all other clients not in the group on the workspace.
 
 ```txt
-bind = SUPERCTRL, TAB, focusMoveCycle opt:next opt:onlygroup
-bind = SUPERCTRLSHIFT, TAB, focusMoveCycle opt:prev opt:onlygroup
+bind = SUPERCTRL, TAB, focusMoveCycle, opt:next, opt:onlygroup
+bind = SUPERCTRLSHIFT, TAB, focusMoveCycle, opt:prev opt:onlygroup
 #Will only cycle focus on clients if they are in a groupe and they are not alone
 #If you don't care about group only cycling, use opt:orgroup and it will cycle to clients outside of the group after it reached it's last one. 
 ```
