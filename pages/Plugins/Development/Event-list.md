@@ -27,6 +27,9 @@ These are all the events that can be listened to using Event Hooks.
 | submap | fired on a submap change | std::string | ✕ |
 | mouseMove | fired when the cursor moves. Param is coords. | const Vector2D | ✔ |
 | mouseButton | fired on a mouse button press | wlr_pointer_button_event* | ✔ |
+| touchDown | fired on a touch down event | wlr_touch_down_event* | ✔ |
+| touchUp | fired on a touch up event | wlr_touch_up_event* | ✔ |
+| touchMove | fired on a touch motion event | wlr_touch_motion_event* | ✔ |
 | activeLayout | fired on a keyboard layout change. String pointer temporary, not guaranteed after execution of the handler finishes. | std::vector<void*>{SKeyboard*, std::string*} | ✕ |
 | preRender | fired before a frame for a monitor is about to be rendered | CMonitor* | ✕ |
 | screencast | fired when the screencopy state of a client changes. Keep in mind there might be multiple separate clients. | std::vector<uint64_t>{state, framesInHalfSecond, owner} | ✕ |
