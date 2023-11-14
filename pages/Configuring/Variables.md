@@ -354,7 +354,7 @@ Only for developers.
 |---|---|---|---|
 | overlay | print the debug performance overlay. Disable VFR for accurate results. | bool | false |
 | damage_blink | (epilepsy warning!) flash areas updated with damage tracking | bool | false |
-| disable_logs | disable logging | bool | false |
+| disable_logs | disable logging to a file | bool | true |
 | disable_time | disables time logging | bool | true |
 | damage_tracking | redraw only the needed bits of the display. Do **not** change. (default: full - 2) monitor - 1, none - 0 | int | 2 |
 | enable_stdout_logs | enables logging to stdout | bool | false |
