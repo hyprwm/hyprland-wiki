@@ -19,10 +19,10 @@ monitor=DP-1,1920x1080@144,0x0,1
 will tell Hyprland to make the monitor on `DP-1` a `1920x1080` display, at 144Hz,
 `0x0` off from the top left corner, with a scale of 1 (unscaled).
 
-To list available monitors:
+To list all available monitors (active and inactive):
 
 ```shell
-hyprctl monitors
+hyprctl monitors all
 ```
 
 Monitors are positioned on a virtual "layout". The `position` is the position of 

@@ -231,7 +231,7 @@ OK = 5
 
 ```plain
 version - prints the hyprland version, meaning flags, commit and branch of build.
-monitors - lists all the outputs with their properties
+monitors - lists active outputs with their properties, 'monitors all' lists active and inactive outputs
 workspaces - lists all workspaces with their properties
 activeworkspace - gets the active workspace and its properties
 workspacerules - gets the list of defined workspace rules
