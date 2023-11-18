@@ -143,6 +143,8 @@ but remember that higher `blur:passes` will require more strain on the GPU.
 | name | description | type | default |
 |---|---|---|---|
 | enabled | enable animations | bool | true |
+| workspace_gap | Gap between workspaces in workspace switching animation | int | 0 |
+
 
 {{< hint type=info >}}
 
