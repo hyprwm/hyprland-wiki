@@ -141,9 +141,6 @@ A special workspace is what is called a "scratchpad" in some other places. A
 workspace that you can toggle on/off on any monitor.
 
 {{< hint >}}
-You cannot have floating windows in a Special workspace. Making a window floating
-will send it to the currently active _real_ workspace.
-
 You can define multiple named special workspaces, but the amount of those is limited to 97 at a time.
 {{< /hint >}}
 
