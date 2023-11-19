@@ -52,6 +52,7 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 | no_border_on_floating | disable borders for floating windows | bool | false |
 | gaps_in | gaps between windows | int | 5 |
 | gaps_out | gaps between windows and monitor edges | int | 20 |
+| gaps_workspaces | gaps between workspaces. Stacks with gaps_out. | int | 0 |
 | col.inactive_border | border color for inactive windows | gradient | 0xffffffff |
 | col.active_border | border color for the active window | gradient | 0xff444444 |
 | col.nogroup_border | inactive border color for window that cannot be added to a group (see `denywindowfromgroup` dispatcher) | gradient | 0xffffaaff |
@@ -143,6 +144,7 @@ but remember that higher `blur:passes` will require more strain on the GPU.
 | name | description | type | default |
 |---|---|---|---|
 | enabled | enable animations | bool | true |
+
 
 {{< hint type=info >}}
 
