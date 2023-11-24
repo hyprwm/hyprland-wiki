@@ -144,6 +144,7 @@ but remember that higher `blur:passes` will require more strain on the GPU.
 | name | description | type | default |
 |---|---|---|---|
 | enabled | enable animations | bool | true |
+| first_launch_animation | enable first launch animation | bool | true |
 
 
 {{< hint type=info >}}
