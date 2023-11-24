@@ -22,7 +22,7 @@ layout pages (See the sidebar).
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
 | exec | executes a shell command | command (supports rules, see [below]({{< relref "#executing-with-rules" >}})) |
-| execr | executes a raw shell command (will not append any additional envvars like `exec` does, does not support rules) | command |
+| execr | executes a raw shell command (does not support rules) | command |
 | pass | passes the key (with mods) to a specified window. Can be used as a workaround to global keybinds not working on Wayland. | window |
 | killactive | closes (not kills) the active window | none |
 | closewindow | closes a specified window | window |
