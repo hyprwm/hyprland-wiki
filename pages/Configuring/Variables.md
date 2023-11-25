@@ -1,4 +1,4 @@
-For basic syntax info, see [Configuring Hyprland](../Configuring-Hyprland).
+For basic syntax info, see [Configuring Hyprland](..).
 
 This page documents all the "options" of Hyprland. For binds, monitors, animations,
 etc. see the sidebar. For anything else, see [Keywords](../Keywords).
