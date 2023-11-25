@@ -2,6 +2,12 @@
 
 {{< toc >}}
 
+# Disclaimers
+
+{{< hint type=warning >}}
+Window rules (both V1 and V2) are **case sensitive**. (e.g. `firefox` ≠ `Firefox`)
+{{< /hint >}}
+
 # Window Rules V1
 
 You can set window rules to achieve different behaviors from the active container.
