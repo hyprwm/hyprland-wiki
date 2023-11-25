@@ -205,6 +205,20 @@ flipped + 180 degrees -> 6
 flipped + 270 degrees -> 7
 ```
 
+{{< hint type=note >}}
+If you're using a touchscreen, you'll also have to rotate its digitizer to match: 
+
+```ini
+input {
+    touchdevice {
+        transform = 1
+    }
+}
+```
+
+This will be done automatically when [#3544](https://github.com/hyprwm/Hyprland/pull/3544) lands.
+{{< /hint >}}
+
 # Default workspace
 
 See [Workspace Rules](../Workspace-Rules).
