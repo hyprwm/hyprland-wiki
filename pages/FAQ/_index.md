@@ -79,10 +79,6 @@ Also install `qt6-wayland` if you plan to use obs.
 
 See [Wallpapers](../Useful-Utilities/Wallpapers).
 
-# My games work poorly, especially proton ones
-
-Use `gamescope`, tends to fix any and all issues with wayland/Hyprland.
-
 # How heavy is this?
 
 Not that much heavier than Xorg. If you want maximum performance, consider
@@ -246,18 +242,6 @@ Alternatively, you can simply intercept the middle-click action all together, vi
 
 `bind = , mouse:274, exec, ;`. Note that the exact bindcode may vary, so you may want to check it with `wev` first.
 
-# How do I make Hyprland draw as little power as possible on my laptop?
-
-I assume you already have `damage_tracking` on full. If you don't, change it.
-It's heavily advised to use `full` regardless of anything.
-
-**_Useful Optimizations_**:
-
-* `decoration:blur = false` and `decoration:drop_shadow = false` to disable
-   fancy but battery hungry effects.
-
-* `misc:vfr = true`, since it'll lower the amount of sent frames when nothing is happening on-screen.
-
 # How to fix games with window dancing?
 
 Read [this trick](../Configuring/Uncommon-tips--tricks/#window-dancing).
@@ -301,7 +285,3 @@ set `MOD` and `KEY` to desired values.
 By pressing the selected combo you will enter a mode where hyprland ignores your keybinds and passes them on to the vm.
 
 Then, pressing `SUPER + Escape` will leave that mode.
-
-# Low FPS/stutter/FPS drops on Intel iGPU with TLP (mainly laptops)
-
-The TLP defaults are rather aggressive, setting `INTEL_GPU_MIN_FREQ_ON_AC` and/or `INTEL_GPU_MIN_FREQ_ON_BAT` in `/etc/tlp.conf` to something slightly higher (e.g. to 500 from 300) will reduce stutter significantly or, in the best case, remove it completely.
