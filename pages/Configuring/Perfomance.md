@@ -10,9 +10,6 @@ The TLP defaults are rather aggressive, setting `INTEL_GPU_MIN_FREQ_ON_AC` and/o
 
 # How do I make Hyprland draw as little power as possible on my laptop?
 
-I assume you already have `damage_tracking` on full. If you don't, change it.
-It's heavily advised to use `full` regardless of anything.
-
 **_Useful Optimizations_**:
 
 * `decoration:blur = false` and `decoration:drop_shadow = false` to disable
