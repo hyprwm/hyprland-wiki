@@ -242,6 +242,18 @@ Alternatively, you can simply intercept the middle-click action all together, vi
 
 `bind = , mouse:274, exec, ;`. Note that the exact bindcode may vary, so you may want to check it with `wev` first.
 
+# How do I make Hyprland draw as little power as possible on my laptop?
+
+I assume you already have `damage_tracking` on full. If you don't, change it.
+It's heavily advised to use `full` regardless of anything.
+
+**_Useful Optimizations_**:
+
+* `decoration:blur = false` and `decoration:drop_shadow = false` to disable
+   fancy but battery hungry effects.
+
+* `misc:vfr = true`, since it'll lower the amount of sent frames when nothing is happening on-screen.
+
 # How to fix games with window dancing?
 
 Read [this trick](../Configuring/Uncommon-tips--tricks/#window-dancing).
