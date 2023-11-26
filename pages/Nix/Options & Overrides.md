@@ -12,7 +12,6 @@ can be changed by setting the appropriate option to `true`/`false`.
 ```nix
 (pkgs.hyprland.override { # or inputs.hyprland.packages.${pkgs.system}.hyprland
   enableXWayland = true;
-  enableNvidiaPatches = false;
 })
 ```
 
@@ -22,7 +21,6 @@ can be changed by setting the appropriate option to `true`/`false`.
 programs.hyprland = { # or wayland.windowManager.hyprland
   enable = true;
   xwayland.enable = true;
-  enableNvidiaPatches = false;
 };
 ```
 
@@ -37,15 +35,6 @@ in the package itself, or through the module options.
 
 See [XWayland](../../Configuring/XWayland).
 
-### Nvidia Patches
-
-Nvidia is notorious for not working by default with wlroots. That's why we
-patch wlroots.
-
-In the NixOS and Home Manager modules, you can enable the
-Nvidia patches using `programs.hyprland.enableNvidiaPatches` and
-`wayland.windowManager.hyprland.enableNvidiaPatches`, respectively.
-
 ## Using Nix repl
 
 If you're using Nix (and not NixOS or Home Manager) and you want to override,
@@ -54,7 +43,7 @@ you can do it like this
 ```nix
 $ nix repl
 nix-repl> :lf "github:hyprwm/Hyprland"
-nix-repl> :bl outputs.packages.x86_64-linux.hyprland.override {enableNvidiaPatches = true;} # option = value
+nix-repl> :bl outputs.packages.x86_64-linux.hyprland.override
 ```
 
 Then you can run Hyprland from the built path.
