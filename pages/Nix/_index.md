@@ -27,3 +27,7 @@ For other NixOS options, see [Hyprland on NixOS](./Hyprland-on-NixOS).
 ## Home-manager module
 
 Read [Hyprland on Home Manager](./Hyprland-on-Home-Manager).
+
+## Options and overrides
+
+Read [Options & Overrides](./Options-Overrides).

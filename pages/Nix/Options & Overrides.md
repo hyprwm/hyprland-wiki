@@ -11,7 +11,9 @@ can be changed by setting the appropriate option to `true`/`false`.
 
 ```nix
 (pkgs.hyprland.override { # or inputs.hyprland.packages.${pkgs.system}.hyprland
-  enableXWayland = true;
+  enableXWayland = true;  # whether to enable XWayland
+  legacyRenderer = false; # whether to use the legacy renderer (for old GPUs)
+  withSystemd = true;     # whether to build with systemd support
 })
 ```
 
@@ -43,7 +45,7 @@ you can do it like this
 ```nix
 $ nix repl
 nix-repl> :lf "github:hyprwm/Hyprland"
-nix-repl> :bl outputs.packages.x86_64-linux.hyprland.override
+nix-repl> :bl outputs.packages.x86_64-linux.hyprland.override { /* flag here */ }
 ```
 
 Then you can run Hyprland from the built path.
