@@ -3,6 +3,11 @@ These are all the events that can be listened to using Event Hooks.
 
 ## Complete list
 
+{{< hint type=note >}}
+M: means std::unordered_map<std::string, std::any>
+following props are members.
+{{</ hint >}}
+
 | name | description | argument(s) | cancellable |
 | --- | --- | --- | --- |
 | tick | fired on a tick, meaning once per (1000 / highestMonitorHz) ms | nullptr | ✕ |
@@ -27,6 +32,7 @@ These are all the events that can be listened to using Event Hooks.
 | submap | fired on a submap change | std::string | ✕ |
 | mouseMove | fired when the cursor moves. Param is coords. | const Vector2D | ✔ |
 | mouseButton | fired on a mouse button press | wlr_pointer_button_event* | ✔ |
+| mouseAxis | fired on a mouse axis event | M: `event`:`wlr_pointer_axis_event*` | ✔ |
 | touchDown | fired on a touch down event | wlr_touch_down_event* | ✔ |
 | touchUp | fired on a touch up event | wlr_touch_up_event* | ✔ |
 | touchMove | fired on a touch motion event | wlr_touch_motion_event* | ✔ |
@@ -37,3 +43,4 @@ These are all the events that can be listened to using Event Hooks.
 | windowtitle | emitted when a window title changes. | CWindow* | ✕ |
 | configReloaded | emitted after the config is reloaded | nullptr | ✕ |
 | preConfigReload | emitted before a config reload | nullptr | ✕ |
+| keyPress | emitted on a key press | M: `event`:`wlr_keyboard_key_event*`, `keyboard`:`SKeyboard*` | ✔ |
