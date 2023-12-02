@@ -59,3 +59,17 @@ bind=MOD,KEY,layoutmsg,swapwithmaster master
 ```
 
 {{< /hint >}}
+
+
+# Workspace Rules
+
+`layoutopt` rules:
+| rule | description | type |
+| --- | --- | --- |
+| orientation:[o] | Sets the orientation of a workspace. For available orientations, see [Config->orientation](#config) | string |
+
+Example usage:
+
+```ini
+workspace = 2, layoutopt:orientation:top
+```
