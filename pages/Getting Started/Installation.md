@@ -63,7 +63,15 @@ to build Hyprland yourself.
 
 Note: _Hyprland is not available for Leap, as most libraries (and compiler) that Hyprland needs are too old._
 {{< /tab >}}
-{{< tab "Fedora*" >}}<https://github.com/hyprwm/Hyprland/discussions/284>{{< /tab >}}
+{{< tab "Fedora*" >}}
+On Fedora 39 and Rawhide, run:
+
+```sh
+sudo dnf install hyprland
+```
+
+If you are on an older version of Fedora, you can also compile it yourself by following the instructions [here](https://github.com/hyprwm/Hyprland/discussions/284) 
+{{< /tab >}}
 {{< tab "Gentoo*" >}}
 The hyprland and xdg-desktop-portal-hyprland packages are available in the main tree:
 
