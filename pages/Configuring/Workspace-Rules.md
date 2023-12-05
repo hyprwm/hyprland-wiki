@@ -18,7 +18,7 @@ workspace=WORKSPACE,RULES
 ### Examples
 ```ini
 workspace=name:myworkspace,gapsin:0,gapsout:0
-workspace=DP-1,3,rounding:false,bordersize:0
+workspace=3,rounding:false,bordersize:0
 ```
 
 ## Rules
