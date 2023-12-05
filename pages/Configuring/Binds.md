@@ -33,8 +33,7 @@ _The dispatcher list can be found in [Dispatchers](../Dispatchers/#list-of-dispa
 
 See the
 [xkbcommon-keysyms.h header](https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h)
-for all the keysyms. The name you should use is the one after `XKB_KEY_`,
-written in all lowercase.
+for all the keysyms. The name you should use is the segment after `XKB_KEY_`.
 
 If you are unsure of what your key's name is, you can
 use `xev` or `wev` to find that information.
