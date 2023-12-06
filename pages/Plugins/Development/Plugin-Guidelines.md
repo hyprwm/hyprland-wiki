@@ -2,6 +2,50 @@ This page documents the recommended guidelines for making a stable and neat plug
 
 {{< toc >}}
 
+## Making your plugin compatible with hyprpm
+In order for your plugin to be installable by hyprpm, you need a manifest.
+
+Make a file in the root of your repository called `hyprpm.toml`.
+
+### Repository metadata
+At the beginning, put some metadata about your plugin:
+```toml
+[repository]
+name = "MyPlugin"
+authors = ["Me"]
+commit_pins = [
+    ["3bb9c7c5cf4f2ee30bf821501499f2308d616f94", "efee74a7404495dbda70205824d6e9fc923ccdae"],
+    ["d74607e414dcd16911089a6d4b6aeb661c880923", "efee74a7404495dbda70205824d6e9fc923ccdae"]
+]
+```
+`name` and `authors` are required. `commit_pins` are optional. See a bit below for what commit pins are.
+
+### Plugins
+For each plugin, make a category like this:
+```toml
+[plugin-name]
+description = "An epic plugin that will change the world!"
+authors = ["Me"]
+output = "plugin.so"
+build = [
+    "make all"
+]
+```
+`description`, `authors` are optional. `output` and `build` are required.
+`build` are the commands that hyprpm will run in the root of the repo to build the plugin.
+Every command will reset the cwd to the repo root.
+`output` is the path to the output `.so` file from the root of the repo.
+
+### Commit pins
+Commit pins allow you to manage versioning of your plugin. they are pairs of `hash,hash`, where the first
+hash is the hyprland hash, and the second is your plugin's hash.
+
+For example, in the manifest above, `d74607e414dcd16911089a6d4b6aeb661c880923` corresponds to hyprland's `0.33.1`
+release, which means that if someone is running `0.33.1`, hyprpm will reset your plugin to commit hash
+`efee74a7404495dbda70205824d6e9fc923ccdae`.
+
+It's recommended you add a pin for each hyprland release. If no pin matches, latest git will be used.
+
 ## Formatting
 Although Hyprland plugins obviously are not _required_ to follow Hyprland's formatting, naming conventions, etc.
 it might be a good idea to keep your code consistent. See `.clang-format` in the Hyprland repo.

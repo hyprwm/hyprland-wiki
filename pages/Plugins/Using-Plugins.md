@@ -24,110 +24,44 @@ to use you will have to find yourself.
 
 ## Installing / Using plugins
 
-Clone and compile plugin(s) of your choice.
+It is _highly_ recommended you use the Hyprland Plugin Manager, `hyprpm`. For manual instructions, see a bit below.
 
-{{< hint type=tip >}}
-Due to the fact that plugins share C++ objects, your plugins must be
-compiled with the same compiler as Hyprland, and on the same architecture.
+### hyprpm
 
-In rare cases, they might even need to be compiled on the same machine.
+Find a repository you want to install plugins from. As an example, we will use [hyprland-plugins](https://github.com/hyprwm/hyprland-plugins).
 
-Official releases are always compiled with `gcc`.
-{{< /hint >}}
-
-Place them somewhere on your system.
-
-In hyprland, run in a terminal:
 ```sh
-hyprctl plugin load /path/to/the/plugin.so
+hyprpm add https://github.com/hyprwm/hyprland-plugins
 ```
-You can also use a plugin entry in your configuration file.
-```ini
-plugin = /my/epic/plugin.so
-```
-Plugins added to your configuration file will be unloaded if you remove their entries.
 
-{{< hint type=important >}}
-The plugin path has to be absolute. (starting from the root of the filesystem)
-{{< /hint >}}
-
-## Compiling official plugins
-
-Official plugins can be found at [hyprwm/hyprland-plugins](https://github.com/hyprwm/hyprland-plugins).
-
-Clone the repo and enter it:
+once it finishes, you can list your installed plugins with
 ```sh
-git clone https://github.com/hyprwm/hyprland-plugins && cd hyprland-plugins
-```
-{{< hint type=tip >}}
-If you build Hyprland manually and install using `sudo make install` (NOT meson) you can completely skip
-this next step of getting the sources and checking them out.
-{{< /hint >}}
-
-### Preparing Hyprland sources for plugins
-
-{{< hint type=note >}}
-
-This step is not required if any of those apply to you:
- - You use the Arch official `hyprland` package
- - You install manually with `sudo make install`
-
-{{< /hint >}}
-
-Inside the repo, clone Hyprland and enter it:
-```sh
-git clone --recursive https://github.com/hyprwm/Hyprland && cd Hyprland
+hyprpm list
 ```
 
-If you are using a release version of Hyprland, checkout it: (in this example it's `v0.24.1`, adjust to your release ver)
-```sh
-git checkout tags/v0.24.1
-```
+and enable or disable them via `hyprpm enable name` and `hyprpm disable name`.
 
-Prepare Hyprland sources:
-```sh
-make all
-sudo make installheaders
-```
+In order for the plugins to be loaded into hyprland, run `hyprpm reload`.
 
-{{< hint type=note >}}
-If you are using hyprland-git, make _sure_ the commit you use matches the cloned sources.
+You can add `exec-once = hyprpm reload` to your hyprland config to have plugins loaded at startup.
 
-You can check the commit you are running with `hyprctl version`, and change the commit in the sources
-with `git reset --hard <hash>`. Make sure to remove the `dirty` at the end of the hash from `hyprctl version`
-or else git will reject it.
-{{< /hint >}}
+In order update your plugins, run `hyprpm update`.
 
-### Building
+### Manual
 
-Now, enter your plugin of choice's directory, for example:
-```sh
-cd ../borders-plus-plus
-```
+Different plugins may have different build methods, refer to their instructions.
 
-Compile it:
-```sh
-make all
-```
+If you don't have hyprland headers installed, clone hyprland, checkout to your version,
+build hyprland, and run `sudo make installheaders`. Then build your plugin(s).
 
-Congratulations! A file called `plugin_name.so` should now be in your current directory.
-Copy it wherever you please to keep it organized and load with `hyprctl plugin load <path>`.
+To load plugins manually, use `hyprctl plugin load path` !NOTE: Path HAS TO BE ABSOLUTE!
+
+You can unload plugins with `hyprctl plugin unload path`.
 
 ## FAQ About Plugins
 
-### My plugin crashes Hyprland!
-Oops. Make sure your plugin is compiled on the same machine as Hyprland. If that doesn't help,
-ask the plugin's maintainer to fix it.
-
-### My plugin no longer works after updating Hyprland!
-Make sure to re-compile the plugin after each Hyprland update.
-Every hyprland version change (even from one commit to another) requires plugins to be re-compiled.
-
 ### How do I list my loaded plugins?
 `hyprctl plugin list`
-
-### Can I unload a plugin?
-Yes. `hyprctl plugin unload /path/to/plugin.so`
 
 ### How do I make my own plugin?
 See [here](../Development/Getting-Started).
