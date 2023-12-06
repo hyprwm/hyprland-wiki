@@ -47,6 +47,8 @@ You can add `exec-once = hyprpm reload` to your hyprland config to have plugins 
 
 In order update your plugins, run `hyprpm update`.
 
+For all options of `hyprpm`, run `hyprpm -h`.
+
 ### Manual
 
 Different plugins may have different build methods, refer to their instructions.
