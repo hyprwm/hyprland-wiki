@@ -5,6 +5,9 @@ This page documents the recommended guidelines for making a stable and neat plug
 ## Making your plugin compatible with hyprpm
 In order for your plugin to be installable by hyprpm, you need a manifest.
 
+hyprpm will parse hyprload manifests just fine, but it's recommended to use the more
+powerful hyprpm manifest.
+
 Make a file in the root of your repository called `hyprpm.toml`.
 
 ### Repository metadata
