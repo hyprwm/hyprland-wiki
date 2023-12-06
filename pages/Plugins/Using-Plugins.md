@@ -43,7 +43,8 @@ and enable or disable them via `hyprpm enable name` and `hyprpm disable name`.
 
 In order for the plugins to be loaded into hyprland, run `hyprpm reload`.
 
-You can add `exec-once = hyprpm reload` to your hyprland config to have plugins loaded at startup.
+You can add `exec-once = hyprpm reload -n` to your hyprland config to have plugins loaded at startup.
+`-n` will make hyprpm send a notification if anything goes wrong (e.g. update needed)
 
 In order update your plugins, run `hyprpm update`.
 
