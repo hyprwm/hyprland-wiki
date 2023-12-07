@@ -68,9 +68,12 @@ On Fedora 39 and Rawhide, run:
 
 ```sh
 sudo dnf install hyprland
+sudo dnf install hyprland-devel # If you want to build plugins
 ```
 
-If you are on an older version of Fedora, you can also compile it yourself by following the instructions [here](https://github.com/hyprwm/Hyprland/discussions/284) 
+Builds for Fedora 38 and additional packages are available in the [solopasha/hyprland](https://copr.fedorainfracloud.org/coprs/solopasha/hyprland) Copr repository.
+
+If you are on an older version of Fedora, you can also compile it yourself by following the instructions [here](https://github.com/hyprwm/Hyprland/discussions/284)
 {{< /tab >}}
 {{< tab "Gentoo*" >}}
 The hyprland and xdg-desktop-portal-hyprland packages are available in the main tree:
