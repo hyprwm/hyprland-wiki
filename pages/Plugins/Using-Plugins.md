@@ -63,6 +63,9 @@ You can unload plugins with `hyprctl plugin unload path`.
 
 ## FAQ About Plugins
 
+### My Hyprland crashes!
+Oh no. Oopsie. Usually means a plugin is broken. `hyprpm disable` it.
+
 ### How do I list my loaded plugins?
 `hyprctl plugin list`
 
