@@ -231,7 +231,7 @@ _Subcategory `input:touchdevice:`_
 | name | description | type | default |
 |---|---|---|---|
 | transform | transform the input from touchdevices. The possible transformations are the same as [those of the monitors](../Monitors/#rotating) | int | 0 |
-| output | the output to bind touch devices. Empty means unset and will use the current / autodetected. | string | \[\[Empty\]\] |
+| output | the monitor to bind touch devices. Empty means unset and will use the current / autodetected. | string | \[\[Empty\]\] |
 
 ### Tablet
 
@@ -240,8 +240,8 @@ _Subcategory `input:tablet:`_
 | name | description | type | default |
 |---|---|---|---|
 | transform | transform the input from tablets. The possible transformations are the same as [those of the monitors](../Monitors/#rotating) | int | 0 |
-| output | the output to bind tablets. Empty means unset and will use the current / autodetected. | string | \[\[Empty\]\] |
-| region_position | position of the mapped region in output layout. | vec2 | [0, 0] |
+| output | the monitor to bind tablets. Empty means unset and will use the current / autodetected. | string | \[\[Empty\]\] |
+| region_position | position of the mapped region in monitor layout. | vec2 | [0, 0] |
 | region_size | size of the mapped region. When this variable is set, tablet input will be mapped to the region. [0, 0] or invalid size means unset. | vec2 | [0, 0] |
 
 ## Per-device input config
