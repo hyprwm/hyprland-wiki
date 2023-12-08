@@ -65,6 +65,7 @@ xwayland - 0/1
 floating - 0/1
 fullscreen - 0/1
 pinned - 0/1
+focus - 0/1
 workspace - id or name: and name
 ```
 
