@@ -243,6 +243,7 @@ _Subcategory `input:tablet:`_
 | output | the monitor to bind tablets. Empty means unset and will use the current / autodetected. | string | \[\[Empty\]\] |
 | region_position | position of the mapped region in monitor layout. | vec2 | [0, 0] |
 | region_size | size of the mapped region. When this variable is set, tablet input will be mapped to the region. [0, 0] or invalid size means unset. | vec2 | [0, 0] |
+| relative_input | whether the input should be relative | bool | false |
 
 ## Per-device input config
 
