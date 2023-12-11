@@ -294,3 +294,31 @@ set `MOD` and `KEY` to desired values.
 By pressing the selected combo you will enter a mode where hyprland ignores your keybinds and passes them on to the vm.
 
 Then, pressing `SUPER + Escape` will leave that mode.
+
+# Some of my drop-down/pop-up windows in apps disappear
+
+In some apps like Steam or VSCode, the drop-down windows may disappear if you hover over them. This can be fixed with window rules.
+
+First, find the title and class of the pop-up window with `hyprctl clients`. You can try something like `sleep 3 && hyprctl clients` so you have time to open the pop-up. It should look something like this:
+
+```bash
+Window 55d794495400 -> :
+	...
+	class: [CLASS here]
+	title: [TITLE here]
+	...
+```
+
+If the pop-up disappears as you hover over it, you can add to your config:
+
+```ini
+windowrulev2 = stayfocused, title:^(TITLE)$, class:^(CLASS)$
+```
+
+This has a downside of not being able to click on anything in the main UI until you've interacted with the pop-up.
+
+If the pop-up disappears immediately, you can use:
+
+```ini
+windowrulev2 = minsize 1 1, title:^(TITLE)$, class:^(CLASS)$
+```
