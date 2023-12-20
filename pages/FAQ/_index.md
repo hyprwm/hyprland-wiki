@@ -297,8 +297,6 @@ Then, pressing `SUPER + Escape` will leave that mode.
 
 # Some of my drop-down/pop-up windows in apps disappear
 
-The TLP defaults are rather aggressive, setting `INTEL_GPU_MIN_FREQ_ON_AC` and/or `INTEL_GPU_MIN_FREQ_ON_BAT` in `/etc/tlp.conf` to something slightly higher (e.g. to 500 from 300) will reduce stutter significantly or, in the best case, remove it completely.
-
 In some apps like Steam or VSCode, the drop-down windows may disappear if you hover over them. This can be fixed with window rules.
 
 First, find the title and class of the pop-up window with `hyprctl clients`. You can try something like `sleep 3 && hyprctl clients` so you have time to open the pop-up. It should look something like this:
