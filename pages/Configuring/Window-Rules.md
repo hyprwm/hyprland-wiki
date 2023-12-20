@@ -67,6 +67,7 @@ fullscreen - 0/1
 pinned - 0/1
 focus - 0/1
 workspace - id or name: and name
+onworkspace (how many windows are on the workspace) - int 
 ```
 
 Keep in mind that you _have_ to declare at least one field, but not all.
