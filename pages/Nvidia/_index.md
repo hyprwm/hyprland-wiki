@@ -9,18 +9,6 @@ You may want to use the proprietary Nvidia drivers in some cases, for example: i
 All of the tips are intended to work with `nvidia`, `nvidia-open` or `nvidia-dkms` and do not work with the legacy or Nouveau drivers.
 {{< /hind >}}
 
-## Hyprland Nvidia Patch (Arch only) (Unofficial)
-```sh
-hyprland-nvidia (AUR)
-hyprland-nvidia-git (AUR)
-```
-{{< hint type=warning >}}
-Hyprland Nvidia Patch is **NOT** an official patch and is not maintained by us.
-If you have any concerns (updates, broken pkgbuild, etc), you should contact the maintainer.
-{{< /hint >}}
-
-## Kernel Parameters
-Install one of the above drivers and add it to your initramfs & kernel parameters.
 For people using [systemd-boot](https://wiki.archlinux.org/title/systemd-boot) you can do this adding `nvidia_drm.modeset=1` to the end of `/boot/loader/entries/arch.conf`.
 For people using [grub](https://wiki.archlinux.org/title/GRUB) you can do this by adding `nvidia_drm.modeset=1` to the end of `GRUB_CMDLINE_LINUX_DEFAULT=` in `/etc/default/grub`, then run `# grub-mkconfig -o /boot/grub/grub.cfg`
 For others check out [kernel parameters](https://wiki.archlinux.org/title/Kernel_parameters) and how to add `nvidia_drm.modeset=1` to your specific bootloader.
@@ -71,25 +59,7 @@ applications, such as Unity Hub.
 
 After completing all of the above, Hyprland should _at least_ be able to start.
 
-## Fixing screensharing / screenshots
-Apply nvidia patches to the wlroots in `subprojects/wlroots` before building.
-See [patch](https://aur.archlinux.org/cgit/aur.git/tree/nvidia.patch?h=hyprland-nvidia-git)
-and [hyprland-nvidia-git's PKGBUILD](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=hyprland-nvidia-git#n72).
-
-## Fixing random flickering, method 1
-
-If you take a look at the wlroots patches in the [nix flake](https://github.com/hyprwm/Hyprland/blob/main/nix/wlroots.nix)
-you will find a one-line patch:
-
-```sh
-substituteInPlace render/gles2/renderer.c --replace "glFlush();" "glFinish();"
-```
-
-What this means, for non-nix users, is you have to (before building) go to
-`subprojects/wlroots/render/gles2/renderer.c` and replace all occurrences of `glFlush()`
-with `glFinish()`, and then compile Hyprland as usual.
-
-## Fixing random flickering, method 2 (nuclear)
+## Fixing random flickering, (nuclear method)
 
 Do note though that this forces performance mode to be active, resulting in
 increased power-consumption (from 22W idle on a RTX 3070TI, to 74W).

@@ -5,6 +5,7 @@
 # Workspace Rules
 You can set workspace rules to achieve workspace-specific behaviors. For instance, you can define a workspace where all windows are drawn without borders or gaps.
 
+For layout-specific rules, see the specific layout page. For example: [Master Layout->Workspace Rules](../Master-Layout#workspace-rules)
 
 ## Syntax
 ```ini
@@ -17,7 +18,7 @@ workspace=WORKSPACE,RULES
 ### Examples
 ```ini
 workspace=name:myworkspace,gapsin:0,gapsout:0
-workspace=DP-1,3,rounding:false,bordersize:0
+workspace=3,rounding:false,bordersize:0
 ```
 
 ## Rules

@@ -15,7 +15,6 @@ layout pages (See the sidebar).
 | monitor | One of: direction, ID, name, `current`, relative (e.g. `+1` or `-1`) |
 | resizeparams | relative pixel delta vec2 (e.g. `10 -10`), optionally a percentage of the window size (e.g. `20 25%`) or `exact` followed by an exact vec2 (e.g. `exact 1280 720`), optionally a percentage of the screen size (e.g. `exact 50% 50%`) |
 | floatvalue | a relative float delta (e.g `-0.2` or `+0.2`) or `exact` followed by a the exact float value (e.g. `exact 0.5`) |
-| workspaceopt | see below. |
 | zheight | `top` or `bottom` |
 
 # List of Dispatchers
@@ -23,7 +22,7 @@ layout pages (See the sidebar).
 | Dispatcher | Description | Params |
 | ---------- | ----------- | ------ |
 | exec | executes a shell command | command (supports rules, see [below]({{< relref "#executing-with-rules" >}})) |
-| execr | executes a raw shell command (will not append any additional envvars like `exec` does, does not support rules) | command |
+| execr | executes a raw shell command (does not support rules) | command |
 | pass | passes the key (with mods) to a specified window. Can be used as a workaround to global keybinds not working on Wayland. | window |
 | killactive | closes (not kills) the active window | none |
 | closewindow | closes a specified window | window |
@@ -50,8 +49,7 @@ layout pages (See the sidebar).
 | splitratio | changes the split ratio | floatvalue |
 | toggleopaque | toggles the current window to always be opaque. Will override the `opaque` window rules. | none |
 | movecursortocorner | moves the cursor to the corner of the active window | direction, 0 - 3, bottom left - 0, bottom right - 1, top right - 2, top left - 3 |
-| movecursor | moves the cursor to a specified position | `x,y` |
-| workspaceopt | toggles a workspace option for the active workspace. | workspaceopt |
+| movecursor | moves the cursor to a specified position | `x y` |
 | renameworkspace | rename a workspace | `id name`, e.g. `2 work` |
 | exit | exits the compositor with no questions asked. | none |
 | forcerendererreload | forces the renderer to reload all resources and outputs | none |
@@ -129,8 +127,8 @@ You have eight choices:
 {{< /hint >}}
 
 {{< hint type=important >}}
-Numerical workspaces (e.g. `1`, `2`, `127634934729`) are allowed
-**ONLY** between 1 and 9223372036854775806 (inclusive)
+Numerical workspaces (e.g. `1`, `2`, `13371337`) are allowed
+**ONLY** between 1 and 2147483647 (inclusive)
 
 Neither `0` nor negative numbers are allowed.
 {{< /hint >}}
@@ -141,9 +139,6 @@ A special workspace is what is called a "scratchpad" in some other places. A
 workspace that you can toggle on/off on any monitor.
 
 {{< hint >}}
-You cannot have floating windows in a Special workspace. Making a window floating
-will send it to the currently active _real_ workspace.
-
 You can define multiple named special workspaces, but the amount of those is limited to 97 at a time.
 {{< /hint >}}
 
@@ -153,13 +148,6 @@ For example, to move a window/application to a special workspace you can use the
 bind = SUPER, C, movetoworkspace, special
 #The above syntax will move the window to a special workspace upon pressing 'SUPER'+'C'.
 #To see the hidden window you can use the togglespecialworkspace dispatcher mentioned above.
-```
-
-# Workspace options
-
-```txt
-allfloat -> makes all new windows floating (also floats/unfloats windows on toggle)
-allpseudo -> makes all new windows pseudo (also pseudos/unpseudos on toggle)
 ```
 
 # Executing with rules

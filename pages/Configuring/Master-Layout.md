@@ -11,7 +11,7 @@ _category name `master`_
 | name | description | type | default |
 |---|---|---|---|
 | allow_small_split | enable adding additional master windows in a horizontal split style | bool | false |
-| special_scale_factor | (0.0 - 1.0) the scale of the special workspace windows | float | 0.8 |
+| special_scale_factor | (0.0 - 1.0) the scale of the special workspace windows | float | 1 |
 | mfact | (0.0 - 1.0) master split factor, the ratio of master split| float | 0.55 |
 | new_is_master | whether a newly open window should replace the master or join the slaves. | bool | true |
 | new_on_top | whether a newly open window should be on the top of the stack | bool | false |
@@ -59,3 +59,17 @@ bind=MOD,KEY,layoutmsg,swapwithmaster master
 ```
 
 {{< /hint >}}
+
+
+# Workspace Rules
+
+`layoutopt` rules:
+| rule | description | type |
+| --- | --- | --- |
+| orientation:[o] | Sets the orientation of a workspace. For available orientations, see [Config->orientation](#config) | string |
+
+Example usage:
+
+```ini
+workspace = 2, layoutopt:orientation:top
+```

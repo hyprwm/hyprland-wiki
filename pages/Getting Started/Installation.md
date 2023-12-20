@@ -63,7 +63,18 @@ to build Hyprland yourself.
 
 Note: _Hyprland is not available for Leap, as most libraries (and compiler) that Hyprland needs are too old._
 {{< /tab >}}
-{{< tab "Fedora*" >}}<https://github.com/hyprwm/Hyprland/discussions/284>{{< /tab >}}
+{{< tab "Fedora*" >}}
+On Fedora 39 and Rawhide, run:
+
+```sh
+sudo dnf install hyprland
+sudo dnf install hyprland-devel # If you want to build plugins
+```
+
+Builds for Fedora 38 and additional packages are available in the [solopasha/hyprland](https://copr.fedorainfracloud.org/coprs/solopasha/hyprland) Copr repository.
+
+If you are on an older version of Fedora, you can also compile it yourself by following the instructions [here](https://github.com/hyprwm/Hyprland/discussions/284)
+{{< /tab >}}
 {{< tab "Gentoo*" >}}
 The hyprland and xdg-desktop-portal-hyprland packages are available in the main tree:
 
@@ -97,7 +108,7 @@ Hyprland and related are in the default repository:
 {{< tab "Ubuntu 23.04*" >}}
 Build Dependencies:
 ```bash
-sudo apt-get install -y meson wget build-essential ninja-build cmake-extras cmake gettext gettext-base fontconfig libfontconfig-dev libffi-dev libxml2-dev libdrm-dev libxkbcommon-x11-dev libxkbregistry-dev libxkbcommon-dev libpixman-1-dev libudev-dev libseat-dev seatd libxcb-dri3-dev libegl-dev libgles2 libegl1-mesa-dev glslang-tools libinput-bin libinput-dev libxcb-composite0-dev libavutil-dev libavcodec-dev libavformat-dev libxcb-ewmh2 libxcb-ewmh-dev libxcb-present-dev libxcb-icccm4-dev libxcb-render-util0-dev libxcb-res0-dev libxcb-xinput-dev xdg-desktop-portal-wlr
+sudo apt-get install -y meson wget build-essential ninja-build cmake-extras cmake gettext gettext-base fontconfig libfontconfig-dev libffi-dev libxml2-dev libdrm-dev libxkbcommon-x11-dev libxkbregistry-dev libxkbcommon-dev libpixman-1-dev libudev-dev libseat-dev seatd libxcb-dri3-dev libegl-dev libgles2 libegl1-mesa-dev glslang-tools libinput-bin libinput-dev libxcb-composite0-dev libavutil-dev libavcodec-dev libavformat-dev libxcb-ewmh2 libxcb-ewmh-dev libxcb-present-dev libxcb-icccm4-dev libxcb-render-util0-dev libxcb-res0-dev libxcb-xinput-dev xdg-desktop-portal-wlr libtomlplusplus3
 ```
 you will also need to build the latest wayland, wayland-protocols, and libdisplay-info tagged releases from source
 
@@ -160,7 +171,7 @@ libwlroots), you don't need to update anything else.
 _Arch dependencies_:
 
 ```plain
-yay -S gdb ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite xorg-xinput libxrender pixman wayland-protocols cairo pango seatd libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio
+yay -S gdb ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite xorg-xinput libxrender pixman wayland-protocols cairo pango seatd libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio tomlplusplus
 ```
 
 _(Please make a pull request or open an issue if any packages are missing from the list)_

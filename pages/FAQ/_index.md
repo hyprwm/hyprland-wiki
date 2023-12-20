@@ -62,6 +62,8 @@ Use a keybind (or execute) `grim -g "$(slurp)"`, select a region. A screenshot
 will pop into your `~/Pictures/` (You can configure grim and slurp, see their
 GitHub pages).
 
+If you want those screenshots to go directly to your clipboard, consider using `wl-copy`, from [`wl-clipboard`](https://github.com/bugaevc/wl-clipboard). Here's an example binding:
+`bind = , Print, exec, grim -g "$(slurp -d)" - | wl-copy`
 For a more complete utility, try our own screenshotting utility:
 [Grimblast](https://github.com/hyprwm/contrib).
 
@@ -76,10 +78,6 @@ Also install `qt6-wayland` if you plan to use obs.
 # How do I change my wallpaper?
 
 See [Wallpapers](../Useful-Utilities/Wallpapers).
-
-# My games work poorly, especially proton ones
-
-Use `gamescope`, tends to fix any and all issues with wayland/Hyprland.
 
 # How heavy is this?
 
@@ -246,9 +244,6 @@ Alternatively, you can simply intercept the middle-click action all together, vi
 
 # How do I make Hyprland draw as little power as possible on my laptop?
 
-I assume you already have `damage_tracking` on full. If you don't, change it.
-It's heavily advised to use `full` regardless of anything.
-
 **_Useful Optimizations_**:
 
 * `decoration:blur = false` and `decoration:drop_shadow = false` to disable
@@ -300,10 +295,35 @@ By pressing the selected combo you will enter a mode where hyprland ignores your
 
 Then, pressing `SUPER + Escape` will leave that mode.
 
-# Low FPS/stutter/FPS drops on Intel iGPU with TLP (mainly laptops)
+# Some of my drop-down/pop-up windows in apps disappear
 
 The TLP defaults are rather aggressive, setting `INTEL_GPU_MIN_FREQ_ON_AC` and/or `INTEL_GPU_MIN_FREQ_ON_BAT` in `/etc/tlp.conf` to something slightly higher (e.g. to 500 from 300) will reduce stutter significantly or, in the best case, remove it completely.
 
+In some apps like Steam or VSCode, the drop-down windows may disappear if you hover over them. This can be fixed with window rules.
+
+First, find the title and class of the pop-up window with `hyprctl clients`. You can try something like `sleep 3 && hyprctl clients` so you have time to open the pop-up. It should look something like this:
+
+```bash
+Window 55d794495400 -> :
+	...
+	class: [CLASS here]
+	title: [TITLE here]
+	...
+```
+
+If the pop-up disappears as you hover over it, you can add to your config:
+
+```ini
+windowrulev2 = stayfocused, title:^(TITLE)$, class:^(CLASS)$
+```
+
+This has a downside of not being able to click on anything in the main UI until you've interacted with the pop-up.
+
+If the pop-up disappears immediately, you can use:
+
+```ini
+windowrulev2 = minsize 1 1, title:^(TITLE)$, class:^(CLASS)$
+```
 # Hyprland crashes on startup after updating packages (Nvidia)
 
 Run `sudo mkinitcpio -P` and reboot. If that fixes the problem, make sure you have followed [this step](../../Nvidia/#kernel-parameters), specifically the bit about adding a [pacman hook](https://wiki.archlinux.org/title/NVIDIA#pacman_hook)

@@ -52,6 +52,7 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 | no_border_on_floating | disable borders for floating windows | bool | false |
 | gaps_in | gaps between windows | int | 5 |
 | gaps_out | gaps between windows and monitor edges | int | 20 |
+| gaps_workspaces | gaps between workspaces. Stacks with gaps_out. | int | 0 |
 | col.inactive_border | border color for inactive windows | gradient | 0xffffffff |
 | col.active_border | border color for the active window | gradient | 0xff444444 |
 | col.nogroup_border | inactive border color for window that cannot be added to a group (see `denywindowfromgroup` dispatcher) | gradient | 0xffffaaff |
@@ -107,7 +108,7 @@ _Subcategory `decoration:blur:`_
 | noise | how much noise to apply. 0.0 - 1.0 | float | 0.0117 |
 | contrast | contrast modulation for blur. 0.0 - 2.0 | float | 0.8916 |
 | brightness | brightness modulation for blur. 0.0 - 2.0 | float | 0.8172 |
-| vibrancy | Increase saturation of blurred colors. 0.0 - 1.0 | float | 0.0 |
+| vibrancy | Increase saturation of blurred colors. 0.0 - 1.0 | float | 0.1696 |
 | vibrancy_darkness | How strong the effect of `vibrancy` is on dark areas . 0.0 - 1.0 | float | 0.0 |
 | special | whether to blur behind the special workspace (note: expensive) | bool | false |
 
@@ -143,6 +144,8 @@ but remember that higher `blur:passes` will require more strain on the GPU.
 | name | description | type | default |
 |---|---|---|---|
 | enabled | enable animations | bool | true |
+| first_launch_animation | enable first launch animation | bool | true |
+
 
 {{< hint type=info >}}
 
@@ -164,9 +167,10 @@ _[More about Animations](../Animations)._
 | repeat_rate | The repeat rate for held-down keys, in repeats per second. | int | 25 |
 | repeat_delay | Delay before a held-down key is repeated, in milliseconds. | int | 600 |
 | sensitivity | Sets the mouse input sensitivity. Value will be clamped to the range -1.0 to 1.0. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) | float | 0.0 |
-| accel_profile | Sets the cursor acceleration profile. Can be one of `adaptive`, `flat`. Can also be `custom`, see below. Leave empty to use `libinput`'s default mode for your input device. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) | str | \[\[Empty\]\]
+| accel_profile | Sets the cursor acceleration profile. Can be one of `adaptive`, `flat`. Can also be `custom`, see [below](#custom-accel-profiles). Leave empty to use `libinput`'s default mode for your input device. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) | str | \[\[Empty\]\]
 | force_no_accel | Force no cursor acceleration. This bypasses most of your pointer settings to get as raw of a signal as possible. **Enabling this is not recommended due to potential cursor desynchronization.** | bool | false |
 | left_handed | Switches RMB and LMB | bool | false |
+| scroll_points | Sets the scroll acceleration profile, when `accel_profile` is set to `custom`. Has to be in the form `<step> <points>`. Leave empty to have a flat scroll curve. | str | \[\[Empty\]\]
 | scroll_method | Sets the scroll method. Can be one of `2fg` (2 fingers), `edge`, `on_button_down`, `no_scroll`. [libinput#scrolling](https://wayland.freedesktop.org/libinput/doc/latest/scrolling.html) | str | \[\[Empty\]\]
 | scroll_button | Sets the scroll button. Has to be an int, cannot be a string. Check `wev` if you have any doubts regarding the ID. 0 means default. | int | 0 |
 | scroll_button_lock | If the scroll button lock is enabled, the button does not need to be held down. Pressing and releasing the button once enables the button lock, the button is now considered logically held down. Pressing and releasing the button a second time logically releases the button. While the button is logically held down, motion events are converted to scroll events. | bool | 0 |
@@ -195,14 +199,26 @@ For switchable keyboard configurations, take a look at [the uncommon tips & tric
 
 ## Custom accel profiles
 
-`custom [step] [points...]`
+### `accel_profile`
+
+`custom <step> <points...>`
 
 for example `custom 200 0.0 0.5`
+
+### `scroll_points`
+
+NOTE: Only works when `accel_profile` is set to `custom`.
+
+`<step> <points...>`
+
+For example `0.2 0.0 0.5 1 1.2 1.5`
+
+To mimic the Windows acceleration curves, take a look at [this script](https://gist.github.com/fufexan/de2099bc3086f3a6c83d61fc1fcc06c9).
 
 See [the libinput doc](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html) for more insights on
 how it works.
 
-  {{< /hint >}}
+{{< /hint >}}
 
 
 ### Touchpad
@@ -228,7 +244,7 @@ _Subcategory `input:touchdevice:`_
 | name | description | type | default |
 |---|---|---|---|
 | transform | transform the input from touchdevices. The possible transformations are the same as [those of the monitors](../Monitors/#rotating) | int | 0 |
-| output | the output to bind touch devices. Empty means unset and will use the current / autodetected. | string | \[\[Empty\]\] |
+| output | the monitor to bind touch devices. Empty means unset and will use the current / autodetected. | string | \[\[Empty\]\] |
 
 ### Tablet
 
@@ -237,9 +253,10 @@ _Subcategory `input:tablet:`_
 | name | description | type | default |
 |---|---|---|---|
 | transform | transform the input from tablets. The possible transformations are the same as [those of the monitors](../Monitors/#rotating) | int | 0 |
-| output | the output to bind tablets. Empty means unset and will use the current / autodetected. | string | \[\[Empty\]\] |
-| region_position | position of the mapped region in output layout. | vec2 | [0, 0] |
+| output | the monitor to bind tablets. Empty means unset and will use the current / autodetected. | string | \[\[Empty\]\] |
+| region_position | position of the mapped region in monitor layout. | vec2 | [0, 0] |
 | region_size | size of the mapped region. When this variable is set, tablet input will be mapped to the region. [0, 0] or invalid size means unset. | vec2 | [0, 0] |
+| relative_input | whether the input should be relative | bool | false |
 
 ## Per-device input config
 
@@ -354,7 +371,7 @@ Only for developers.
 |---|---|---|---|
 | overlay | print the debug performance overlay. Disable VFR for accurate results. | bool | false |
 | damage_blink | (epilepsy warning!) flash areas updated with damage tracking | bool | false |
-| disable_logs | disable logging | bool | false |
+| disable_logs | disable logging to a file | bool | true |
 | disable_time | disables time logging | bool | true |
 | damage_tracking | redraw only the needed bits of the display. Do **not** change. (default: full - 2) monitor - 1, none - 0 | int | 2 |
 | enable_stdout_logs | enables logging to stdout | bool | false |

@@ -2,6 +2,12 @@
 
 {{< toc >}}
 
+# Disclaimers
+
+{{< hint type=warning >}}
+Window rules (both V1 and V2) are **case sensitive**. (e.g. `firefox` ≠ `Firefox`)
+{{< /hint >}}
+
 # Window Rules V1
 
 You can set window rules to achieve different behaviors from the active container.
@@ -59,6 +65,7 @@ xwayland - 0/1
 floating - 0/1
 fullscreen - 0/1
 pinned - 0/1
+focus - 0/1
 workspace - id or name: and name
 ```
 
@@ -108,7 +115,7 @@ you can use `hyprctl clients`.
 | noanim | disables the animations for the window |&check;|
 | keepaspectratio | forces aspect ratio when resizing window with the mouse |&check;|
 | bordercolor \[c\] | force the bordercolor of the window. Options for c: `color` -> sets the active border color OR `color color` -> sets the active and inactive border color of the window. See [variables->colors](../Variables#variable_types) for color definition. |&check;|
-| idleinhibit \[mode\] | sets an idle inhibit rule for the window. If active, apps like `swayidle` will not fire. Modes: `none`, `always`, `focus`, `fullscreen` | |
+| idleinhibit \[mode\] | sets an idle inhibit rule for the window. If active, apps like `swayidle` will not fire. Modes: `none`, `always`, `focus`, `fullscreen` | &check; |
 | unset | removes all previously set rules for the given parameters. Please note it has to match EXACTLY. | |
 | nomaxsize | removes max size limitations. Especially useful with windows that report invalid max sizes (e.g. winecfg) | |
 | dimaround | dims everything around the window . Please note this rule is meant for floating windows and using it on tiled ones may result in strange behavior. | &check; |

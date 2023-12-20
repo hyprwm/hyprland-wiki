@@ -9,7 +9,7 @@ _Starting method:_ most likely manual (`exec-once`)
 
 Many apps (e.g. Discord) may freeze without one running.
 
-Use e.g. `dunst`, `mako`, etc.
+Use e.g. `dunst`, `mako`, `swaync`, etc.
 
 ### Pipewire
 _Starting method:_ automatic

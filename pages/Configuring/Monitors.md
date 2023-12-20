@@ -19,10 +19,10 @@ monitor=DP-1,1920x1080@144,0x0,1
 will tell Hyprland to make the monitor on `DP-1` a `1920x1080` display, at 144Hz,
 `0x0` off from the top left corner, with a scale of 1 (unscaled).
 
-To list available monitors:
+To list all available monitors (active and inactive):
 
 ```shell
-hyprctl monitors
+hyprctl monitors all
 ```
 
 Monitors are positioned on a virtual "layout". The `position` is the position of 
@@ -40,19 +40,26 @@ monitor=DP-2, 1920x1080, 0x0, 1
 ```
 will tell hyprland to make DP-1 on the _right_.
 
+The `position` may contain _negative_ values, so the above example could also be
+written as
+```ini
+monitor=DP-1, 1920x1080, 0x0, 1
+monitor=DP-2, 1920x1080, -1920x0, 1
+```
+
 {{< hint type=tip >}}
 
 The position is calculated with the scaled (and transformed) resolution, meaning if
 you want your 4K monitor with scale 2 to the left of your 1080p one, you'd use
 the position `1920x0` for the second screen. (3840 / 2)
-If the monitor is also rotated 90 degrees (vertical) you'd use `1080x0`.
+If the monitor is also rotated 90 degrees (vertical), you'd use `1080x0`.
 
 {{</ hint >}}
 
 Leaving the name empty will define a fallback rule to use when no other rules
 match.
 
-You can use `preferred` as a resolution to use the display's preferred size, and
+You can use `preferred` as a resolution to use the display's preferred size and
 `auto` as a position to let Hyprland decide on a position for you.
 
 You can also use `auto` as a scale to let Hyprland decide on a scale for you. These
@@ -67,7 +74,7 @@ monitor=,preferred,auto,1
 Will make any monitor that was not specified with an explicit rule automatically
 placed on the right of the other(s) with its preferred resolution.
 
-Alternatively you can use the `highres` or `highrr` rules in order to get the
+Alternatively, you can use the `highres` or `highrr` rules in order to get the
 best possible resolution or refreshrate mix.
 
 for a focus on refreshrate use this:
@@ -83,13 +90,26 @@ monitor=,highres,auto,1
 ```
 
 For more specific rules, you can also use the output's description
-(see `hyprctl monitors`) like this:
+(see `hyprctl monitors` for more details).
+If the output of `hyprctl monitors` looks like the following:
 
 ```
-monitor=desc:SDC 0x4154,preferred,auto,1.5
+Monitor eDP-1 (ID 0):
+        1920x1080@60.00100 at 0x0
+        description: Chimei Innolux Corporation 0x150C (eDP-1)
+        make: Chimei Innolux Corporation
+        model: 0x150C
+        [...]
 ```
 
-remember to remove the (portname)!
+then the `description` value up to the portname `(eDP-1)` can be used
+to specify the monitor:
+
+```
+monitor=desc:Chimei Innolux Corporation 0x150C,preferred,auto,1.5
+```
+
+Remember to remove the `(portname)`!
 
 ## Custom modelines
 
