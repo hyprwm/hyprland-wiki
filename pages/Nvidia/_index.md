@@ -54,7 +54,7 @@ env = __GLX_VENDOR_LIBRARY_NAME,nvidia
 env = WLR_NO_HARDWARE_CURSORS,1
 ```
 
-{{< hint >}}If Hyprland crashes on start or you encounter crashes in Firefox, you may want to try removing the line `env = GBM_BACKEND,nvidia-drm`.
+{{< hint >}}If Hyprland crashes on start or you encounter crashes in Firefox, try removing the line `env = GBM_BACKEND,nvidia-drm`.
 {{< /hint >}}
 
 {{< hint >}}If you face problems with Discord windows not displaying or screen sharing not working in Zoom, remove or comment the line `env = __GLX_VENDOR_LIBRARY_NAME,nvidia`.
