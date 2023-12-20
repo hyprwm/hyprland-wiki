@@ -326,4 +326,8 @@ windowrulev2 = minsize 1 1, title:^(TITLE)$, class:^(CLASS)$
 ```
 # Hyprland crashes on startup after updating packages (Nvidia)
 
-Run `sudo mkinitcpio -P` and reboot. If that fixes the problem, make sure you have followed [this step](../../Nvidia/#kernel-parameters), specifically the bit about adding a [pacman hook](https://wiki.archlinux.org/title/NVIDIA#pacman_hook)
+Most likely mkinitcpio wasn't run to regenerate initramfs after update.
+
+Try running `sudo mkinitcpio -P` and reboot.
+
+If Hyprland starts properly after doing so, make sure you have followed [this step](../../Nvidia/#kernel-parameters), specifically the bit about adding a [pacman hook](https://wiki.archlinux.org/title/NVIDIA#pacman_hook), and mkinitcpio will be run any time pacman updates your drivers. 
