@@ -22,6 +22,11 @@ Please avoid putting those environment variables in /etc/environment. That will 
 sessions (including Xorg ones) to pick up your wayland-specific environment on traditional
 Linux distros.
 
+# Hyprland Environment Variables
+- `HYPRLAND_LOG_WLR=1` - Enables more verbose logging of wlroots.
+- `HYPRLAND_NO_RT=1` - Disables realtime priority setting by Hyprland.
+- `HYPRLAND_NO_SD_NOTIFY=1` - If systemd, disables the `sd_notify` calls.
+
 # Toolkit Backend Variables
 - `GDK_BACKEND=wayland,x11` - GTK: Use wayland if available, fall back to x11 if not.
 - `QT_QPA_PLATFORM="wayland;xcb"` - Qt: Use wayland if available, fall back to x11 if not.
