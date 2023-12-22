@@ -46,6 +46,8 @@ _category name `master`_
 | orientationprev | cycle to the previous orientation for the current workspace (counter-clockwise) | none |
 | orientationcycle | cycle to the next orientation from the provided list, for the current workspace | allowed values: `left`, `top`, `right`, `bottom`, or `center`. The values have to be separated by a space. If left empty, it will work like `orientationnext` |
 | mfact | change mfact, the master split ratio | the new split ratio, a float between 0.0 and 1.0 |
+| rollnext | rotate the next window in stack to be the master, while keeping the focus on master | none |
+| rollprev | rotate the previous window in stack to be the master, while keeping the focus on master | none |
 
 params for the commands are separated by a single space
 
