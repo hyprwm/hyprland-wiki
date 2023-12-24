@@ -113,7 +113,7 @@ has been problematic with updating before, use Yay.
 
 Use a wayland-compatible locking utility using WLR protocols, e.g. `swaylock`.
 
-# How do I change me mouse cursor?
+# How do I change my mouse cursor?
 
 1. Set the GTK cursor using [nwg-look](https://github.com/nwg-piotr/nwg-look).
 2. Add `exec-once=hyprctl setcursor [THEME] [SIZE]` to your config and restart Hyprland.
