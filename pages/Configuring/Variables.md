@@ -111,6 +111,7 @@ _Subcategory `decoration:blur:`_
 | vibrancy | Increase saturation of blurred colors. 0.0 - 1.0 | float | 0.1696 |
 | vibrancy_darkness | How strong the effect of `vibrancy` is on dark areas . 0.0 - 1.0 | float | 0.0 |
 | special | whether to blur behind the special workspace (note: expensive) | bool | false |
+| popups | whether to blur popups (e.g. right-click menus) | bool | false | 
 
 {{< hint type=important >}}
 A subcategory is a nested category:
