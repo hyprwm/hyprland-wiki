@@ -61,6 +61,8 @@ For now, the supported fields are:
 ```ini
 class - class regex 
 title - title regex
+initialClass - initialClass regex
+initialTitle - initialTitle regex
 xwayland - 0/1
 floating - 0/1
 fullscreen - 0/1
