@@ -102,7 +102,7 @@ In order to make your life easier, it's a good idea to work on a nested debug Hy
 
 Enter your Hyprland directory and run `make debug`
 
-Make a copy of your config in `~/.config/hypr` called `hyprlandd.conf`.
+Make a copy of your config in `~/.config/hypr` called `hyprland.conf`.
 
 Remove _all_ `exec=` or `exec-once=` directives from your config.
 
