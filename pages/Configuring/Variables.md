@@ -360,6 +360,12 @@ _Subcategory `group:groupbar:`_
 | use_nearest_neighbor | uses the nearest neigbor filtering for xwayland apps, making them pixelated rather than blurry | bool | true |
 | force_zero_scaling | forces a scale of 1 on xwayland windows on scaled displays. | bool | false |
 
+## OpenGL
+
+| name | description | type | default |
+|---|---|---|---|
+| nvidia_anti_flicker | reduces flickering on nvidia at the cost of possible frame drops on lower-end GPUs. On non-nvidia, this is ignored. | bool | true |
+
 ## Debug
 
 {{< hint type=warning >}}
