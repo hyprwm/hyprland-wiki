@@ -237,6 +237,7 @@ activeworkspace - gets the active workspace and its properties
 workspacerules - gets the list of defined workspace rules
 clients - lists all windows with their properties
 devices - lists all connected keyboards and mice
+decorations [window]- lists all decorations and their info
 binds - lists all registered binds
 activewindow - gets the active window name and its properties
 layers - lists all the layers
