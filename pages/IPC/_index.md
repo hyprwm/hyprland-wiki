@@ -54,6 +54,7 @@ e.g.: `workspace>>2`
 | windowtitle | emitted when a window title changes. | `WINDOWADDRESS` |
 | ignoregrouplock | emitted when `ignoregrouplock` is toggled. | `0/1` |
 | lockgroups | emitted when `lockgroups` is toggled. | `0/1` |
+| configreloaded | emitted when the config is done reloading | empty |
 
 {{< hint type=warning >}}
 A fullscreen event is not guaranteed to fire on/off once in succession.
