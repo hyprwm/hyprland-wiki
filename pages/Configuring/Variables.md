@@ -112,6 +112,7 @@ _Subcategory `decoration:blur:`_
 | vibrancy_darkness | How strong the effect of `vibrancy` is on dark areas . 0.0 - 1.0 | float | 0.0 |
 | special | whether to blur behind the special workspace (note: expensive) | bool | false |
 | popups | whether to blur popups (e.g. right-click menus) | bool | false | 
+| popups_ignorealpha | works like ignorealpha in layer rules. If pixel opacity is below set value, will not blur. 0.0 - 1.0 | float | 0.2 | 
 
 {{< hint type=important >}}
 A subcategory is a nested category:
