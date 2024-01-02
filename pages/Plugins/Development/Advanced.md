@@ -116,6 +116,6 @@ static auto* const MYVAR      = &HyprlandAPI::getConfigValue(PHANDLE, "plugin:my
 ```
 
 ## Further
-Read the API at `src/plugins/PluginAPI.hpp` and check out the examplePlugin in `examples/`.
+Read the API at `src/plugins/PluginAPI.hpp`, check out the [official plugins](https://github.com/hyprwm/hyprland-plugins).
 
 And, most importantly, have fun!

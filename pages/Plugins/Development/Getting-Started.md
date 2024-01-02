@@ -31,11 +31,9 @@ is required.
 Clone the Hyprland source code to a subdirectory, in our example `MyPlugin/Hyprland`.
 Run `cd Hyprland && make all && sudo make installheaders && cd ..`.
 
-Now that you have the Hyprland sources set up, copy the contents of `example/examplePlugin/` to your working directory.
-
-Your `MyPlugin` directory now should contain `main.cpp`, `globals.hpp`, `exampleLayout.cpp`, etc.
-
-This plugin has quite a few examples of the things you can do, but we will focus on the basics for now.
+Now that you have the Hyprland sources set up, you can either start from scratch if you know how,
+or take a look at some simple plugins in the [official plugins repo](https://github.com/hyprwm/hyprland-plugins)
+like for example `csgo-vulkan-fix` or `hyprwinwrap`.
 
 ### The basic parts of the plugin
 
