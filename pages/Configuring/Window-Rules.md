@@ -117,7 +117,7 @@ you can use `hyprctl clients`.
 | pin | pins the window  (i.e. show it on all workspaces) *note: floating only* | |
 | noanim | disables the animations for the window |&check;|
 | keepaspectratio | forces aspect ratio when resizing window with the mouse |&check;|
-| bordercolor \[c\] | force the bordercolor of the window. Options for c: `color` -> sets the active border color OR `color color` -> sets the active and inactive border color of the window. See [variables->colors](../Variables#variable_types) for color definition. |&check;|
+| bordercolor \[c\] | force the bordercolor of the window. Options for c: `color`/`color ... color angle` -> sets the active border color/gradient OR `color color`/`color ... color angle color ... color [angle]` -> sets the active and inactive border color/gradient of the window. See [variables->colors](../Variables#variable_types) for color definition. |&check;|
 | idleinhibit \[mode\] | sets an idle inhibit rule for the window. If active, apps like `swayidle` will not fire. Modes: `none`, `always`, `focus`, `fullscreen` | &check; |
 | unset | removes all previously set rules for the given parameters. Please note it has to match EXACTLY. | |
 | nomaxsize | removes max size limitations. Especially useful with windows that report invalid max sizes (e.g. winecfg) | |
