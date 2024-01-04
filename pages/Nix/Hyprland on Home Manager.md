@@ -1,5 +1,5 @@
 For a list of available options, check the
-[Home Manager options](https://nix-community.github.io/home-manager/options.html#opt-wayland.windowManager.hyprland.enable).
+[Home Manager options](https://nix-community.github.io/home-manager/options.xhtml#opt-wayland.windowManager.hyprland.enable).
 
 {{< hint title=Note >}}
 
