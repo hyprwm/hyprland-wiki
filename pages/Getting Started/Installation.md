@@ -326,9 +326,8 @@ zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig
 {{% details title="FreeBSD" closed="true" %}}
 
 ```plain
-pkg install git pkgconf gmake gcc14 evdev-proto cmake wayland-protocols wayland libglvnd libxkbcommon libinput cairo pango pixman tomlplusplus libxcb
+pkg install git pkgconf gmake evdev-proto cmake wayland-protocols wayland libglvnd libxkbcommon libinput cairo pango pixman tomlplusplus libxcb
 pkg install meson jq hwdata
-export CC=gcc14 CXX=g++14 LDFLAGS="-static-libstdc++ -static-libgcc"
 ```
 
 {{% /details %}}
