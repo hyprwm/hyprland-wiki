@@ -185,12 +185,12 @@ zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig
 
 (this should also work on RHEL/Fedora if you remove `Mesa-libGLESv3-devel` and `pkgconfig(xcb-errors)`)
 
-_FreeBSD dependencies_:
+_FreeBSD >= 13.3/14.0 dependencies_:
 
 ```plain
-pkg install git pkgconf gmake gcc13 evdev-proto cmake wayland-protocols wayland libglvnd libxkbcommon libinput cairo pango pixman tomlplusplus libxcb
+pkg install git pkgconf gmake evdev-proto cmake wayland-protocols wayland libglvnd libxkbcommon libinput cairo pango pixman tomlplusplus libxcb
 pkg install meson jq `pkg rquery %dn wlroots` hwdata
-export CC=gcc13 CXX=g++13 LDFLAGS="-static-libstdc++ -static-libgcc"
+export CXXFLAGS=-fexperimental-library
 ```
 
 _Ubuntu 23.04 dependencies_:
