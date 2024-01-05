@@ -327,7 +327,7 @@ zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig
 
 ```plain
 pkg install git pkgconf gmake gcc evdev-proto cmake wayland-protocols wayland libglvnd libxkbcommon libinput cairo pango pixman libxcb
-pkg install meson jq hwdata libdisplay-info libliftoff
+pkg install meson jq hwdata
 export CC=gcc CXX=g++ LDFLAGS="-static-libstdc++ -static-libgcc"
 ```
 
