@@ -87,7 +87,7 @@ For Nix users, the equivalent of the above is
 
 boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
 
-hardware.nvidia.powerManagement.enabled = true
+hardware.nvidia.powerManagement.enable = true
 
 # Making sure to use the proprietary drivers until the issue above is fixed upstream
 hardware.nvidia.open = false 
