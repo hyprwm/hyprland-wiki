@@ -82,7 +82,7 @@ The hyprland package is available in the main tree:
 emerge --ask gui-wm/hyprland
 ```
 
-Additional packages like xdg-desktop-portal-hyprland, hyprland-plugins, hyprpaper and hyprpicker are available in the [GURU](https://wiki.gentoo.org/wiki/Project:GURU) overlay. Community-contributed scripts are also available in GURU as part of the hyprland-contrib package.
+Additional packages like xdg-desktop-portal-hyprland, hyprland-plugins, hyprpaper and hyprpicker are available in the [GURU](https://wiki.gentoo.org/wiki/Project:GURU) overlay, as well as community-contributed scripts from the hyprland-contrib package. Some plugins like [split-monitor-workspaces](https://github.com/Duckonaut/split-monitor-workspaces) can be installed from this overlay too.
 
 ```sh
 eselect repository enable guru
