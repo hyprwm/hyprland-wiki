@@ -24,6 +24,5 @@ Note that Hyprland currently doesn't support the way it tries to hide the main w
 ```ini
 windowrulev2 = opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$
 windowrulev2 = noanim,class:^(xwaylandvideobridge)$
-windowrulev2 = nofocus,class:^(xwaylandvideobridge)$
 windowrulev2 = noinitialfocus,class:^(xwaylandvideobridge)$
 ```
