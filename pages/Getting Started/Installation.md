@@ -288,3 +288,5 @@ Now, of course, install manually.
 ```plain
 sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
 ```
+
+Lastly, copy hyprctl and wlroots as mentioned [here](#manual-releases-linux-only)
