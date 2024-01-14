@@ -58,7 +58,7 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 | col.nogroup_border | inactive border color for window that cannot be added to a group (see `denywindowfromgroup` dispatcher) | gradient | 0xffffaaff |
 | col.nogroup_border_active | active border color for window that cannot be added to a group | gradient | 0xffff00ff |
 | cursor_inactive_timeout | in seconds, after how many seconds of cursor's inactivity to hide it. Set to `0` for never. | int | 0 |
-| layout | which layout to use. (Available: `dwindle`, `master`) | str | dwindle |
+| layout | which layout to use. [dwindle/master] | str | dwindle |
 | no_cursor_warps | if true, will not warp the cursor in many cases (focusing, keybinds, etc) | bool | false |
 | no_focus_fallback | if true, will not fall back to the next available window when moving focus in a direction where no window was found | bool | false |
 | apply_sens_to_raw | if on, will also apply the sensitivity to raw mouse output (e.g. sensitivity in games) **NOTICE:** ***really*** not recommended. | bool | false |
@@ -77,21 +77,21 @@ Prefer using `input:sensitivity` over `general:sensitivity` to avoid bugs, espec
 | name | description | type | default |
 |---|---|---|---|
 | rounding | rounded corners' radius (in layout px) | int | 0 |
-| active_opacity | opacity of active windows. (0.0 - 1.0) | float | 1.0 |
-| inactive_opacity | opacity of inactive windows. (0.0 - 1.0) | float | 1.0 |
-| fullscreen_opacity | opacity of fullscreen windows. (0.0 - 1.0) | float | 1.0 |
+| active_opacity | opacity of active windows. [0.0 - 1.0] | float | 1.0 |
+| inactive_opacity | opacity of inactive windows. [0.0 - 1.0] | float | 1.0 |
+| fullscreen_opacity | opacity of fullscreen windows. [0.0 - 1.0] | float | 1.0 |
 | drop_shadow | enable drop shadows on windows | bool | true |
 | shadow_range | Shadow range ("size") in layout px | int | 4 |
-| shadow_render_power | (1 - 4), in what power to render the falloff (more power, the faster the falloff) | int | 3 |
+| shadow_render_power | in what power to render the falloff (more power, the faster the falloff) [1 - 4] | int | 3 |
 | shadow_ignore_window | if true, the shadow will not be rendered behind the window itself, only around it. | bool | true |
 | col.shadow | shadow's color. Alpha dictates shadow's opacity. | color | 0xee1a1a1a |
 | col.shadow_inactive | inactive shadow color. (if not set, will fall back to col.shadow) | color | unset |
 | shadow_offset | shadow's rendering offset. | vec2 | [0, 0] |
-| shadow_scale | shadow's scale. 0.0 - 1.0 | float | 1.0 |
+| shadow_scale | shadow's scale. [0.0 - 1.0] | float | 1.0 |
 | dim_inactive | enables dimming of inactive windows | bool | false |
-| dim_strength | how much inactive windows should be dimmed, 0.0 - 1.0 | float | 0.5 |
-| dim_special | how much to dim the rest of the screen by when a special workspace is open. 0.0 - 1.0 | float | 0.2 |
-| dim_around | how much the `dimaround` window rule should dim by. 0.0 - 1.0 | float | 0.4 |
+| dim_strength | how much inactive windows should be dimmed [0.0 - 1.0] | float | 0.5 |
+| dim_special | how much to dim the rest of the screen by when a special workspace is open. [0.0 - 1.0] | float | 0.2 |
+| dim_around | how much the `dimaround` window rule should dim by. [0.0 - 1.0] | float | 0.4 |
 | screen_shader | a path to a custom shader to be applied at the end of rendering. See `examples/screenShader.frag` for an example. | str | \[\[Empty\]\] |
 
 ### Blur
@@ -105,14 +105,14 @@ _Subcategory `decoration:blur:`_
 | ignore_opacity | make the blur layer ignore the opacity of the window | bool | false |
 | new_optimizations | whether to enable further optimizations to the blur. Recommended to leave on, as it will massively improve performance. | bool | true |
 | xray | if enabled, floating windows will ignore tiled windows in their blur. Only available if blur_new_optimizations is true. Will reduce overhead on floating blur significantly. | bool | false |
-| noise | how much noise to apply. 0.0 - 1.0 | float | 0.0117 |
-| contrast | contrast modulation for blur. 0.0 - 2.0 | float | 0.8916 |
-| brightness | brightness modulation for blur. 0.0 - 2.0 | float | 0.8172 |
-| vibrancy | Increase saturation of blurred colors. 0.0 - 1.0 | float | 0.1696 |
-| vibrancy_darkness | How strong the effect of `vibrancy` is on dark areas . 0.0 - 1.0 | float | 0.0 |
+| noise | how much noise to apply. [0.0 - 1.0] | float | 0.0117 |
+| contrast | contrast modulation for blur. [0.0 - 2.0] | float | 0.8916 |
+| brightness | brightness modulation for blur. [0.0 - 2.0] | float | 0.8172 |
+| vibrancy | Increase saturation of blurred colors. [0.0 - 1.0] | float | 0.1696 |
+| vibrancy_darkness | How strong the effect of `vibrancy` is on dark areas . [0.0 - 1.0] | float | 0.0 |
 | special | whether to blur behind the special workspace (note: expensive) | bool | false |
 | popups | whether to blur popups (e.g. right-click menus) | bool | false | 
-| popups_ignorealpha | works like ignorealpha in layer rules. If pixel opacity is below set value, will not blur. 0.0 - 1.0 | float | 0.2 | 
+| popups_ignorealpha | works like ignorealpha in layer rules. If pixel opacity is below set value, will not blur. [0.0 - 1.0] | float | 0.2 | 
 
 {{< hint type=important >}}
 A subcategory is a nested category:
@@ -169,15 +169,15 @@ _[More about Animations](../Animations)._
 | repeat_rate | The repeat rate for held-down keys, in repeats per second. | int | 25 |
 | repeat_delay | Delay before a held-down key is repeated, in milliseconds. | int | 600 |
 | sensitivity | Sets the mouse input sensitivity. Value will be clamped to the range -1.0 to 1.0. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) | float | 0.0 |
-| accel_profile | Sets the cursor acceleration profile. Can be one of `adaptive`, `flat`. Can also be `custom`, see [below](#custom-accel-profiles). Leave empty to use `libinput`'s default mode for your input device. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) | str | \[\[Empty\]\]
+| accel_profile | Sets the cursor acceleration profile. Can be one of `adaptive`, `flat`. Can also be `custom`, see [below](#custom-accel-profiles). Leave empty to use `libinput`'s default mode for your input device. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) [adaptive/flat/custom]| str | \[\[Empty\]\]
 | force_no_accel | Force no cursor acceleration. This bypasses most of your pointer settings to get as raw of a signal as possible. **Enabling this is not recommended due to potential cursor desynchronization.** | bool | false |
 | left_handed | Switches RMB and LMB | bool | false |
 | scroll_points | Sets the scroll acceleration profile, when `accel_profile` is set to `custom`. Has to be in the form `<step> <points>`. Leave empty to have a flat scroll curve. | str | \[\[Empty\]\]
-| scroll_method | Sets the scroll method. Can be one of `2fg` (2 fingers), `edge`, `on_button_down`, `no_scroll`. [libinput#scrolling](https://wayland.freedesktop.org/libinput/doc/latest/scrolling.html) | str | \[\[Empty\]\]
+| scroll_method | Sets the scroll method. Can be one of `2fg` (2 fingers), `edge`, `on_button_down`, `no_scroll`. [libinput#scrolling](https://wayland.freedesktop.org/libinput/doc/latest/scrolling.html) [2fg/edge/on_button_down/no_scroll] | str | \[\[Empty\]\]
 | scroll_button | Sets the scroll button. Has to be an int, cannot be a string. Check `wev` if you have any doubts regarding the ID. 0 means default. | int | 0 |
 | scroll_button_lock | If the scroll button lock is enabled, the button does not need to be held down. Pressing and releasing the button once enables the button lock, the button is now considered logically held down. Pressing and releasing the button a second time logically releases the button. While the button is logically held down, motion events are converted to scroll events. | bool | 0 |
 | natural_scroll | Inverts scrolling direction. When enabled, scrolling moves content directly instead of manipulating a scrollbar. | bool | false |
-| follow_mouse | (0/1/2/3) Specify if and how cursor movement should affect window focus. See the note below. | int | 1 |
+| follow_mouse | Specify if and how cursor movement should affect window focus. See the note below. [0/1/2/3] | int | 1 |
 | mouse_refocus | If disabled and `follow_mouse=1` then mouse focus will not switch to the hovered window unless the mouse crosses a window boundary. | bool | true |
 | float_switch_override_focus | If enabled (1 or 2), focus will change to the window under the cursor when changing from tiled-to-floating and vice versa. If 2, focus will also follow mouse on float-to-float switches. | int | 1 |
 | special_fallthrough | if enabled, having only floating windows in the special workspace will not block focusing windows in the regular workspace. | bool | false |
@@ -234,7 +234,7 @@ _Subcategory `input:touchpad:`_
 | natural_scroll | Inverts scrolling direction. When enabled, scrolling moves content directly instead of manipulating a scrollbar. | bool | false |
 | scroll_factor | Multiplier applied to the amount of scroll movement. | float | 1.0
 | middle_button_emulation | Sending LMB and RMB simultaneously will be interpreted as a middle click. This disables any touchpad area that would normally send a middle click based on location. [libinput#middle-button-emulation](https://wayland.freedesktop.org/libinput/doc/latest/middle-button-emulation.html) | bool | false |
-| tap_button_map | Sets the tap button mapping for touchpad button emulation. Can be one of `lrm` (default) or `lmr` (Left, Middle, Right Buttons). | str | \[\[Empty\]\] |
+| tap_button_map | Sets the tap button mapping for touchpad button emulation. Can be one of `lrm` (default) or `lmr` (Left, Middle, Right Buttons). [lrm/lmr] | str | \[\[Empty\]\] |
 | clickfinger_behavior | Button presses with 1, 2, or 3 fingers will be mapped to LMB, RMB, and MMB respectively. This disables interpretation of clicks based on location on the touchpad. [libinput#clickfinger-behavior](https://wayland.freedesktop.org/libinput/doc/latest/clickpad-softbuttons.html#clickfinger-behavior) | bool | false |
 | tap-to-click | Tapping on the touchpad with 1, 2, or 3 fingers will send LMB, RMB, and MMB respectively. | bool | true |
 | drag_lock | When enabled, lifting the finger off for a short time while dragging will not drop the dragged item. [libinput#tap-and-drag](https://wayland.freedesktop.org/libinput/doc/latest/tapping.html#tap-and-drag) | bool | false |
@@ -274,7 +274,7 @@ Described [here](../Keywords#per-device-input-configs).
 | workspace_swipe_distance | in px, the distance of the gesture | int | 300 |
 | workspace_swipe_invert | invert the direction | bool | true |
 | workspace_swipe_min_speed_to_force | minimum speed in px per timepoint to force the change ignoring `cancel_ratio`. Setting to `0` will disable this mechanic. | int | 30 |
-| workspace_swipe_cancel_ratio | (0.0 - 1.0) how much the swipe has to proceed in order to commence it. (0.7 -> if > 0.7 * distance, switch, if less, revert) | float | 0.5 |
+| workspace_swipe_cancel_ratio | how much the swipe has to proceed in order to commence it. (0.7 -> if > 0.7 * distance, switch, if less, revert) [0.0 - 1.0] | float | 0.5 |
 | workspace_swipe_create_new | whether a swipe right on the last workspace should create a new one. | bool | true |
 | workspace_swipe_direction_lock | if enabled, switching direction will be locked when you swipe past the `direction_lock_threshold`. | bool | true |
 | workspace_swipe_direction_lock_threshold | in px, the distance to swipe before direction lock activates. | int | 10 |
@@ -317,9 +317,9 @@ _Subcategory `group:groupbar:`_
 | disable_hyprland_logo | disables the random hyprland logo / anime girl background. :( | bool | false |
 | disable_splash_rendering | disables the hyprland splash rendering. (requires a monitor reload to take effect) | bool | false |
 | force_hypr_chan | makes the background always have hypr-chan, the hyprland mascot | bool | false |
-| force_default_wallpaper | Enforce any of the 3 default wallpapers. Setting this to `0` disables the anime background. `-1` means "random" | int | -1 |
+| force_default_wallpaper | Enforce any of the 3 default wallpapers. Setting this to `0` disables the anime background. `-1` means "random" [-1 - 3] | int | -1 |
 | vfr | controls the VFR status of hyprland. Heavily recommended to leave on true to conserve resources. | bool | true |
-| vrr | controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on, 2 - fullscreen only | int | 0 |
+| vrr | controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on, 2 - fullscreen only [0/1/2] | int | 0 |
 | mouse_move_enables_dpms | If DPMS is set to off, wake up the monitors if the mouse moves. | bool | false |
 | key_press_enables_dpms | If DPMS is set to off, wake up the monitors if a key is pressed. | bool | false |
 | always_follow_on_dnd | Will make mouse focus follow the mouse when drag and dropping. Recommended to leave it enabled, especially for people using focus follows mouse at 0. | bool | true |
@@ -342,7 +342,7 @@ _Subcategory `group:groupbar:`_
 | allow_session_lock_restore | if true, will allow you to restart a lockscreen app in case it crashes (red screen of death) | bool | false |
 | background_color | change the background color. (requires enabled `disable_hyprland_logo`) | color | 0x111111 |
 | close_special_on_empty | close the special workspace if the last window is removed | bool | true |
-| new_window_takes_over_fullscreen | if there is a fullscreen window, whether a new tiled window opened should replace the fullscreen one or stay behind. 0 - behind, 1 - takes over, 2 - unfullscreen the current fullscreen window | int | 0 |
+| new_window_takes_over_fullscreen | if there is a fullscreen window, whether a new tiled window opened should replace the fullscreen one or stay behind. 0 - behind, 1 - takes over, 2 - unfullscreen the current fullscreen window [0/1/2] | int | 0 |
 
 ## Binds
 
