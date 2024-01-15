@@ -54,6 +54,7 @@ layout pages (See the sidebar).
 | exit | exits the compositor with no questions asked. | none |
 | forcerendererreload | forces the renderer to reload all resources and outputs | none |
 | movecurrentworkspacetomonitor | Moves the active workspace to a monitor | monitor |
+| focusworkspaceoncurrentmonitor | Focuses the requested workspace on the current monitor, swapping the current workspace to a different monitor if necessary. If you want XMonad/Qtile-style workspace switching, replace `workspace` in your config with this. | workspace |
 | moveworkspacetomonitor | Moves a workspace to a monitor | workspace and a monitor separated by a space |
 | swapactiveworkspaces | Swaps the active workspaces between two monitors | two monitors separated by a space |
 | bringactivetotop | *Deprecated* in favor of alterzorder.  Brings the current window to the top of the stack | none |
