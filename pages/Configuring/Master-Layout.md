@@ -11,11 +11,11 @@ _category name `master`_
 | name | description | type | default |
 |---|---|---|---|
 | allow_small_split | enable adding additional master windows in a horizontal split style | bool | false |
-| special_scale_factor | (0.0 - 1.0) the scale of the special workspace windows | float | 1 |
-| mfact | (0.0 - 1.0) master split factor, the ratio of master split| float | 0.55 |
+| special_scale_factor | the scale of the special workspace windows. [0.0 - 1.0] | float | 1 |
+| mfact | master split factor, the ratio of master split [0.0 - 1.0] | float | 0.55 |
 | new_is_master | whether a newly open window should replace the master or join the slaves. | bool | true |
 | new_on_top | whether a newly open window should be on the top of the stack | bool | false |
-| no_gaps_when_only | whether to apply gaps when there is only one window on a workspace, aka. smart gaps. (default: disabled - 0) no border - 1, with border - 2 | int | 0 |
+| no_gaps_when_only | whether to apply gaps when there is only one window on a workspace, aka. smart gaps. (default: disabled - 0) no border - 1, with border - 2 [0/1/2] | int | 0 |
 | orientation | default placement of the master area, can be left, right, top, bottom or center | string | left |
 | inherit_fullscreen | inherit fullscreen status when cycling/swapping to another window (e.g. monocle layout) | bool | true |
 | always_center_master | when using orientation=center, keep the master window centered, even when it is the only window in the workspace. | bool | false |
