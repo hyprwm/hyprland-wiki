@@ -300,7 +300,8 @@ _Subcategory `group:groupbar:`_
 | enabled | enables groupbars | bool | true |
 | font_family | font used to display groupbar titles | string | Sans |
 | font_size | font size for the above | int | 8 |
-| gradients | whether to draw gradients under the titles of the above | bool | true |
+| gradients | enables gradients | bool | true |
+| height | height of the groupbar | int | 14 |
 | priority | sets the decoration priority for groupbars | int | 3 |
 | render_titles | whether to render titles in the group bar decoration | bool | true |
 | scrolling | whether scrolling in the groupbar changes group active window | bool | true |
