@@ -4,7 +4,7 @@ Clipboard Managers are useful tools that allows one to manage their copied items
 
 Some common ones used are `copyq`, `clipman` and `cliphist`.
 
-`clipman` - Utilizes Wayland  with `wl-clipboard` support and stores text only [Github](https://github.com/yory8/clipman)
+`clipman` - Utilizes Wayland  with `wl-clipboard` support and stores text only [Github](https://github.com/chmouel/clipman)
 
 `cliphist` - Utilizes Wayland with `wl-clipboard` and can store both images and text [Github](https://github.com/sentriz/cliphist) 
 
