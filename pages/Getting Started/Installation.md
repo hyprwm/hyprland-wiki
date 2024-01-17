@@ -157,6 +157,8 @@ copy the binary (Hyprland) to `/usr/bin/`.
 
 copy hyprctl to `/usr/bin/`.
 
+copy hyprpm to `/usr/bin/`.
+
 copy the wlroots .so (`libwlroots.so.XX032`) to `/usr/lib/`.
 
 copy the desktop entry (`example/hyprland.desktop`) to
@@ -288,3 +290,5 @@ Now, of course, install manually.
 ```plain
 sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
 ```
+
+Lastly, copy hyprctl, hyprpm, and wlroots as mentioned [here](#manual-releases-linux-only)
