@@ -53,16 +53,12 @@ recommended to do in tty
 clone wayland (`git clone --recursive https://gitlab.freedesktop.org/wayland/wayland`)
 clone hyprland (`git clone --recursive https://github.com/hyprwm/Hyprland`)
 
-edit your config to have a terminal that will launch:
+add these envs to reset ASAN_OPTIONS for children and set LD_PRELOAD:
 ```
-bind = SUPER, Q, exec, LD_PRELOAD=/usr/lib/libasan.so kitty
+env = ASAN_OPTIONS,detect_odr_violation=0
+env = LD_PRELOAD,/usr/lib/libasan.so.8.0.0
 ```
-(I put kitty, on `SUPER+Q` can be anything)
-
-add this env to reset ASAN_OPTIONS for children:
-```
-env = ASAN_OPTIONS,
-```
+_Please note to check the asan .so version on your system with `ls /usr/lib | grep libasan`_
 
 wayland:
 ```
@@ -89,11 +85,11 @@ ASAN_OPTIONS="detect_odr_violation=0,log_path=asan.log" ./build/Hyprland -c ~/.c
 
 open your terminal
 
-to open any app just add `LD_PRELOAD=/usr/lib/libasan.so` to the beginning of the cmd
-
 Do whatever you used to do in order to crash the compositor.
 
-Go to `~` or `cwd` and look for `asan.log.XXXXX` files. Zip all and attach to the issue.
+Please note many apps will refuse to launch. Notably complex applications, like e.g. browsers.
+
+Once it crashes, go to `~` or `cwd` and look for `asan.log.XXXXX` files. Zip all and attach to the issue.
 
 once you are done, to revert your horribleness of no app opening without the ld preload just go to the cloned wayland and do
 ```
