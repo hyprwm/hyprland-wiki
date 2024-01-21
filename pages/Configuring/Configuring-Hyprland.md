@@ -14,7 +14,7 @@ The default config is not complete and does not list all the options / features 
 Please refer to this wiki page and the pages
 linked further down here for full configuration instructions.
 
-**Make sure to read the "[Variables](../Variables)" page as well**. It covers all the
+**Make sure to read the [Variables](../Variables) page as well**. It covers all the
 toggleable / numerical options.
 {{< /hint >}}
 
