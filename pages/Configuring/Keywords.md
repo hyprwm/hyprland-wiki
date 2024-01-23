@@ -115,7 +115,7 @@ use the name of the `Tablet` and not `Tablet Pad` or `Tablet tool`.
 
 Additional properties only present in per-device configs:
 ```plain
-enabled -> (only for mice / touchpads / keyboards) enables / disables the device (connects / disconnects from the on-screen cursor) - default: Enabled
+enabled -> (only for mice / touchpads / touchdevices / keyboards) enables / disables the device (connects / disconnects from the on-screen cursor) - default: Enabled
 ```
 
 Example config section:
