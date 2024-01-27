@@ -22,6 +22,14 @@ env = WLR_DRM_NO_ATOMIC,1
 windowrulev2 = immediate, class:^(cs2)$
 ```
 
+{{< hint type=note >}}
+`env = WLR_DRM_NO_ATOMIC,1` is not recommended. If your kernel ver is >= 6.8, you can remove it.
+
+For kernels < 6.8, this env is required.
+
+Check your kernel version with `uname -r`.
+{{< /hint >}}
+
 {{< hint type=warning >}}
 If you experience graphical issues, you may be out of luck. Tearing support is experimental.
 
