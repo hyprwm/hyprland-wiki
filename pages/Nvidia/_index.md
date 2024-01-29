@@ -73,6 +73,11 @@ options nvidia NVreg_RegistryDwords="PowerMizerEnable=0x1; PerfLevelSrc=0x2222; 
 
 Reboot your computer and it should be working.
 
+If it does not, try:
+- lowering your monitors' refresh rate, as this can stop the flickering altogether
+- using the [Nouveau driver](https://wiki.archlinux.org/title/Nouveau) as mentioned above
+- using an AMD GPU
+
 ## Fixing suspend/wakeup issues
 
 Enable the services `nvidia-suspend.service`, `nvidia-hibernate.service` and `nvidia-resume.service`, they will be started by systemd when needed.
