@@ -244,6 +244,8 @@ You can simply intercept the middle-click action all together, via hyprland bind
 
   `wl-paste -p --watch wl-copy -p ''` (`wl-paste -p --watch` watches for changes to the primary buffer, `wl-copy -p ''` clears the primary buffer)
 
+  **As you can see, however, this causes an infinite recursion (found copied text -> copy -> found copied text...). Therefore this method is not recommended.**
+
 </details>
 
 # How do I make Hyprland draw as little power as possible on my laptop?
