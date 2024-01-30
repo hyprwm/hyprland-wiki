@@ -75,8 +75,9 @@ Reboot your computer and it should be working.
 
 If it does not, try:
 - lowering your monitors' refresh rate, as this can stop the flickering altogether
+- installing the 535xx versions of the drivers, as later (545, 550) can cause flickering with XWayland
+  - these are available for arch via [the AUR here](https://aur.archlinux.org/packages?O=0&K=535xx)
 - using the [Nouveau driver](https://wiki.archlinux.org/title/Nouveau) as mentioned above
-- using an AMD GPU
 
 ## Fixing suspend/wakeup issues
 
