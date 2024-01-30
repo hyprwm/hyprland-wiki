@@ -233,14 +233,20 @@ env = XDG_CURRENT_DESKTOP,Hyprland
 
 # How to disable middle-click paste?
 
-The middle-click paste action pastes from a separate buffer (primary buffer) than what the regular clipboard uses (clipboard buffer). Since the primary buffer is unrelated to the clipboard buffer, it's easy to simply keep the primary buffer empty, allowing the middle-click action to retain the rest of its functionality without having anything to paste. Run the following command (in your config with `exec-once`, for example) to achieve this:
-
-`wl-paste -p --watch wl-copy -p ''` (`wl-paste -p --watch` watches for changes to the primary buffer, `wl-copy -p ''` clears the primary buffer)
-
-
-Alternatively, you can simply intercept the middle-click action all together, via hyprland binds for example. The drawbacks to this solution are that 1. it disables the rest of the functionality of the middle-click action, such as auto scroll, closing browser tabs, etc., and 2. many applications (such as kitty) manually intercept the middle-click events and bind them to paste from the primary buffer themselves, bypassing the solution altogether. For this solution, add this bind to your config:
+You can simply intercept the middle-click action all together, via hyprland binds for example. The drawbacks to this solution are that 1. it disables the rest of the functionality of the middle-click action, such as auto scroll, closing browser tabs, etc., and 2. many applications (such as kitty) manually intercept the middle-click events and bind them to paste from the primary buffer themselves, bypassing the solution altogether. For this solution, add this bind to your config:
 
 `bind = , mouse:274, exec, ;`. Note that the exact bindcode may vary, so you may want to check it with `wev` first.
+
+<details>
+  <summary> Alternative method using wl-paste (warning: major power consumption)</summary>
+	
+  The middle-click paste action pastes from a separate buffer (primary buffer) than what the regular clipboard uses (clipboard buffer). Since the primary buffer is unrelated to the clipboard buffer, it's easy to simply keep the primary buffer empty, allowing the middle-click action to retain the rest of its functionality without having anything to paste. Run the following command (in your config with `exec-once`, for example) to achieve this:
+
+  `wl-paste -p --watch wl-copy -p ''` (`wl-paste -p --watch` watches for changes to the primary buffer, `wl-copy -p ''` clears the primary buffer)
+
+  **As you can see, however, this creates an endless loop (found copied text -> copy -> found copied text...). Therefore this method is not recommended.**
+
+</details>
 
 # How do I make Hyprland draw as little power as possible on my laptop?
 
