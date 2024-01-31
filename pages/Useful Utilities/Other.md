@@ -9,6 +9,9 @@ Here you will find links to some other projects that may not fit into any of the
 ### IPC wrappers
 [hyprland-rs](https://github.com/yavko/hyprland-rs) by _yavko_: A neat wrapper for Hyprland's IPC written in Rust
 
+### Screen shaders/color temperature
+[hyprshade](https://github.com/loqusion/hyprshade) by _loqusion_: Utility for swapping and scheduling screen shaders; also functions as an [automatic color temperature shifter](https://en.wikipedia.org/wiki/F.lux). (Useful for Nvidia users for whom other color temperature shifting apps do not work.)
+
 ### Automatically Mounting Using `udiskie`
 
 _Starting method:_ manual ('exec-once')
