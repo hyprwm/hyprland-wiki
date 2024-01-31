@@ -223,6 +223,9 @@ cd Hyprland
 meson setup build
 meson compile -C build
 meson install -C build --skip-subprojects
+PREFIX=/usr/local
+cd subprojects/wlroots/include && find . -name '*.h*' -print0 | cpio --quiet -0dump ${PREFIX}/include/hyprland/wlroots && cd ../../..
+cd build/subprojects/wlroots/include && find . -name '*.h*' -print0 | cpio --quiet -0dump ${PREFIX}/include/hyprland/wlroots && cd ../../../..
 ```
 
 Refer to [Debugging](../../Contributing-and-Debugging) to see how to build &
