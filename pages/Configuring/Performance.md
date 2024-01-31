@@ -1,4 +1,4 @@
-This page documents known tricks and fixes to boost perfomance if by any chance you stumble upon problems or you do not care that much about animations.
+This page documents known tricks and fixes to boost performance if by any chance you stumble upon problems or you do not care that much about animations.
 
 # Fractional scaling
 
