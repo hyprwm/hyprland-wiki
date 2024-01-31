@@ -7,7 +7,7 @@ You may want to use the proprietary Nvidia drivers in some cases, for example: i
 
 {{< hint type=warning >}}
 All of the tips are intended to work with `nvidia`, `nvidia-open` or `nvidia-dkms` and do not work with the legacy or Nouveau drivers.
-{{< /hind >}}
+{{< /hint >}}
 
 For people using [systemd-boot](https://wiki.archlinux.org/title/systemd-boot) you can do this adding `nvidia_drm.modeset=1` to the end of `/boot/loader/entries/arch.conf`.
 For people using [grub](https://wiki.archlinux.org/title/GRUB) you can do this by adding `nvidia_drm.modeset=1` to the end of `GRUB_CMDLINE_LINUX_DEFAULT=` in `/etc/default/grub`, then run `# grub-mkconfig -o /boot/grub/grub.cfg`
