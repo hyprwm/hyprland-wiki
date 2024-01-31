@@ -48,7 +48,7 @@ env = WLR_NO_HARDWARE_CURSORS,1
 {{< hint >}}If you face problems with Discord windows not displaying or screen sharing not working in Zoom, remove or comment the line `env = __GLX_VENDOR_LIBRARY_NAME,nvidia`.
 {{< /hint >}}
 
-{{< hint >}}If you have problems starting Hyprland or animations are sluggish, try following the steps in [Multi GPI](../../Configuring/Multi-GPU), even if you don't have multiple GPUs.
+{{< hint >}}If you have problems starting Hyprland or animations are sluggish, try following the steps in [Multi GPU](../../Configuring/Multi-GPU), even if you don't have multiple GPUs.
 {{< /hint >}}
 
 ## Additional packages
