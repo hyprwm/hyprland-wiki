@@ -28,6 +28,8 @@ It is _highly_ recommended you use the Hyprland Plugin Manager, `hyprpm`. For ma
 
 ### hyprpm
 
+Make sure you have the required dependencies: `cpio`, `meson`, `cmake`.
+
 Find a repository you want to install plugins from. As an example, we will use [hyprland-plugins](https://github.com/hyprwm/hyprland-plugins).
 
 ```sh
