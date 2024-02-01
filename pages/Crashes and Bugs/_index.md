@@ -53,7 +53,7 @@ recommended to do in tty
 clone wayland (`git clone --recursive https://gitlab.freedesktop.org/wayland/wayland`)
 clone hyprland (`git clone --recursive https://github.com/hyprwm/Hyprland`)
 
-add these envs to reset ASAN_OPTIONS for children and set LD_PRELOAD:
+add these envs to your Hyprland config to reset ASAN_OPTIONS for children and set LD_PRELOAD:
 ```
 env = ASAN_OPTIONS,detect_odr_violation=0
 env = LD_PRELOAD,/usr/lib/libasan.so.8.0.0
@@ -65,6 +65,9 @@ wayland:
 meson ./build --prefix=/usr --buildtype=debug -Db_sanitize=address
 sudo ninja -C build install
 ```
+
+The Wayland build will likely fail citing missing dependencies such as Doxygen, these
+dependencies will likely be available from your distros package manager.
 
 hyprland:
 ```
