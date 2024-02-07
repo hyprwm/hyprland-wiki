@@ -51,7 +51,8 @@ input {
     kb_options = ctrl:nocaps
 }
 ```
-# Remap Caps-Lock to Escape
+
+# Swap Caps-Lock and Escape
 
 ```
 input {
