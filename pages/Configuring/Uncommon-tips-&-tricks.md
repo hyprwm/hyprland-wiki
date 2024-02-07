@@ -51,6 +51,13 @@ input {
     kb_options = ctrl:nocaps
 }
 ```
+# Remap Caps-Lock to Escape
+
+```
+input {
+    kb_options = caps:swapescape
+}
+```
 
 # Minimize Steam instead of killing
 
