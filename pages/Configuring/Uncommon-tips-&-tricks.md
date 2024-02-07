@@ -52,6 +52,14 @@ input {
 }
 ```
 
+# Swap Caps-Lock and Escape
+
+```
+input {
+    kb_options = caps:swapescape
+}
+```
+
 # Minimize Steam instead of killing
 
 Steam will exit entirely when it's last window is closed using the `killactive` dispatcher.
