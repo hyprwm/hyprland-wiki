@@ -1,4 +1,3 @@
-
 This page documents software that is critical / very important to have running for a smooth
 Wayland / Hyprland experience.
 
@@ -14,8 +13,7 @@ Use e.g. `dunst`, `mako`, `swaync`, etc.
 ### Pipewire
 _Starting method:_ automatic
 
-Pipewire is not necessarily required, but screensharing will not work
-without it.
+Pipewire is not necessarily required, but screensharing will not work without it.
 
 Install `pipewire` and `wireplumber` (**not** `pipewire-media-session`)
 
