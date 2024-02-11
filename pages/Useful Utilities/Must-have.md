@@ -11,7 +11,7 @@ Many apps (e.g. Discord) may freeze without one running.
 Use e.g. `dunst`, `mako`, `swaync`, etc.
 
 ### Pipewire
-_Starting method:_ automatic
+_Starting method:_ Automatic on Systemd, manual otherwise
 
 Pipewire is not necessarily required, but screensharing will not work without it.
 
