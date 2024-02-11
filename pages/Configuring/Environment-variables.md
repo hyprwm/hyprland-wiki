@@ -63,7 +63,7 @@ To force GBM as a backend, set the following environment variables:
 
 - `LIBVA_DRIVER_NAME=nvidia` - Hardware acceleration on NVIDIA GPUs
 
-> See [Archwiki Hardware Acecleration Page](https://wiki.archlinux.org/title/Hardware_video_acceleration)
+> See [Archwiki Hardware Acceleration Page](https://wiki.archlinux.org/title/Hardware_video_acceleration)
 > for details and necessary values before setting this variable.
 
 - `__GL_GSYNC_ALLOWED` - Controls if G-Sync capable monitors should use Variable Refresh Rate (VRR)
