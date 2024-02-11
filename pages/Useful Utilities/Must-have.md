@@ -1,7 +1,7 @@
-This page documents software that is critical / very important to have running for a smooth
-Wayland / Hyprland experience.
+This page documents software that is recommended to have running for a smooth Hyprland experience.
 
-DEs like KDE / Gnome will do this automatically, Hyprland will not (because you might want to use something else)
+DEs like Plasma or Gnome will take care of this automatically.
+Hyprland will not, as you might want to use something else.
 
 ### A notification daemon
 _Starting method:_ most likely manual (`exec-once`)
