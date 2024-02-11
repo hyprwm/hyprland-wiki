@@ -332,3 +332,7 @@ If the pop-up disappears immediately, you can use:
 ```ini
 windowrulev2 = minsize 1 1, title:^(TITLE)$, class:^(CLASS)$
 ```
+
+# Steam's file picker no worky
+
+On instances where you have a steam library on another drive that you have to add, the Hyprland's file picker would not normally appear when selecting a directory from steam. Steam have its own file picker, however, it's not functional. Install `xdg-desktop-portal-gtk` to show the desktop's file picker.
