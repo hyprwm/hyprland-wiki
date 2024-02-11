@@ -184,7 +184,7 @@ Prop List:
 | forcenoborder | 0/1 |
 | forcenodim | 0/1 |
 | forcenoshadow | 0/1 |
-| forcenofocus | 0/1 |
+| nofocus | 0/1 |
 | windowdancecompat | 0/1 |
 | nomaxsize | 0/1 |
 | dimaround | 0/1 |
