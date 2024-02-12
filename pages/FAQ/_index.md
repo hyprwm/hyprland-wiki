@@ -339,5 +339,5 @@ On instances where you have a steam library on another drive that you have
 to add, Hyprland's file picker would not normally appear when selecting
 a directory from steam.
 
-Steam have its own file picker, however, it's not functional. Install
+Steam has its own file picker, however, it's not functional. Install
 `xdg-desktop-portal-gtk` to show the desktop's file picker.
