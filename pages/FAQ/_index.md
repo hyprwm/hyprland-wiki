@@ -244,9 +244,9 @@ You can simply intercept the middle-click action all together, via hyprland bind
 	
   The middle-click paste action pastes from a separate buffer (primary buffer) than what the regular clipboard uses (clipboard buffer). Since the primary buffer is unrelated to the clipboard buffer, it's easy to simply keep the primary buffer empty, allowing the middle-click action to retain the rest of its functionality without having anything to paste. Run the following command (in your config with `exec-once`, for example) to achieve this:
 
-`wl-paste -p --watch wl-copy -p ''` (`wl-paste -p --watch` watches for changes to the primary buffer, `wl-copy -p ''` clears the primary buffer)
+  `wl-paste -p --watch wl-copy -p ''` (`wl-paste -p --watch` watches for changes to the primary buffer, `wl-copy -p ''` clears the primary buffer)
 
-**As you can see, however, this creates an endless loop (found copied text -> copy -> found copied text...). Therefore this method is not recommended.**
+  **As you can see, however, this creates an endless loop (found copied text -> copy -> found copied text...). Therefore this method is not recommended.**
 
 </details>
 
@@ -254,9 +254,9 @@ You can simply intercept the middle-click action all together, via hyprland bind
 
 **_Useful Optimizations_**:
 
-- `decoration:blur = false` and `decoration:drop_shadow = false` to disable fancy but battery hungry effects.
+* `decoration:blur = false` and `decoration:drop_shadow = false` to disable fancy but battery hungry effects.
 
-- `misc:vfr = true`, since it'll lower the amount of sent frames when nothing is happening on-screen.
+* `misc:vfr = true`, since it'll lower the amount of sent frames when nothing is happening on-screen.
 
 # How to fix games with window dancing?
 
