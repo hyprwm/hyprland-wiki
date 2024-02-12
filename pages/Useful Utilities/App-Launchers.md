@@ -25,3 +25,8 @@ tofi is an extremely fast and simple yet highly customizable dmenu / rofi replac
 
 For a more comprehensive list of launchers, check
 [awesome-hyprland](https://github.com/hyprland-community/awesome-hyprland#runners-menus-and-application-launchers).
+
+## Emacs
+If you are already running an emacs server you can use Emacs.
+
+For the config you can check out [DistroTube's Configuring Emacs](https://gitlab.com/dwt1/configuring-emacs/-/blob/main/07-the-final-touches/scripts/app-launchers.el?ref_type=heads) or [Sebastian Wae's `app-launcher`](https://github.com/SebastienWae/app-launcher) repositories.
