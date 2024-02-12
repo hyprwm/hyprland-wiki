@@ -53,8 +53,8 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 | gaps_in | gaps between windows | int | 5 |
 | gaps_out | gaps between windows and monitor edges | int | 20 |
 | gaps_workspaces | gaps between workspaces. Stacks with gaps_out. | int | 0 |
-| col.inactive_border | border color for inactive windows | gradient | 0xffffffff |
-| col.active_border | border color for the active window | gradient | 0xff444444 |
+| col.inactive_border | border color for inactive windows | gradient | 0xff444444 |
+| col.active_border | border color for the active window | gradient | 0xffffffff |
 | col.nogroup_border | inactive border color for window that cannot be added to a group (see `denywindowfromgroup` dispatcher) | gradient | 0xffffaaff |
 | col.nogroup_border_active | active border color for window that cannot be added to a group | gradient | 0xffff00ff |
 | cursor_inactive_timeout | in seconds, after how many seconds of cursor's inactivity to hide it. Set to `0` for never. | int | 0 |
