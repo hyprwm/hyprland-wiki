@@ -100,8 +100,9 @@ updates after pressing a key) will cause rapid changes in brightness.
 # How do I update?
 
 Open a terminal where you cloned the repo.
+
 ```bash
-git pull 
+git pull
 make all && sudo make install
 ```
 
@@ -125,9 +126,9 @@ You can overwrite this by exporting XCURSOR_SIZE to a different value with `env`
 
 You can also try running `gsettings set org.gnome.desktop.interface cursor-theme 'theme-name'` or adding it after `exec-once=` in your config.
 
-If you do not want to install a GTK settings editor, change the config files according to the 
-[XDG specification (Arch Wiki link)](https://wiki.archlinux.org/title/Cursor_themes#Configuration). 
-Make sure to also edit `~/.config/gtk-4.0/settings.ini` and `~/.gtkrc-2.0` if _not_ using a tool 
+If you do not want to install a GTK settings editor, change the config files according to the
+[XDG specification (Arch Wiki link)](https://wiki.archlinux.org/title/Cursor_themes#Configuration).
+Make sure to also edit `~/.config/gtk-4.0/settings.ini` and `~/.gtkrc-2.0` if _not_ using a tool
 (like `nwg-look`).
 
 # GTK Settings no work / whatever
@@ -148,7 +149,7 @@ Waybar has a set of caveats or settings that you need to be aware of. See
 
 Using the window rules to assign apps to workspace you can open a bunch of
 applications on various workspaces. The following method will start these apps
-silently (i.e.  without the flickering from workspace to workspace).
+silently (i.e. without the flickering from workspace to workspace).
 
 Put the following in your `hyprland.conf`: (example)
 
@@ -227,6 +228,7 @@ launched with `exec-once` should fix all issues. Adjust the sleep durations to t
 See [Environment Variables](../Configuring/Environment-variables)
 
 The `env` keyword is used for this purpose. For example:
+
 ```ini
 env = XDG_CURRENT_DESKTOP,Hyprland
 ```
@@ -252,8 +254,7 @@ You can simply intercept the middle-click action all together, via hyprland bind
 
 **_Useful Optimizations_**:
 
-* `decoration:blur = false` and `decoration:drop_shadow = false` to disable
-   fancy but battery hungry effects.
+* `decoration:blur = false` and `decoration:drop_shadow = false` to disable fancy but battery hungry effects.
 
 * `misc:vfr = true`, since it'll lower the amount of sent frames when nothing is happening on-screen.
 
@@ -268,12 +269,15 @@ See [The XDPH Page](../Useful-Utilities/Hyprland-desktop-portal).
 You most likely have multiple portal impls / an impl is failing to launch.
 
 # My screenshot utilities won't work with multiple screens
+
 Some programs like flameshot (currently) has limited wayland support so on most Wayland compositors, you will have to do few tweaks.
 For Hyprland, you can add these window rules to your config to make said programs work with both of your screens.
+
 ```windowrulev2=float,title:^(flameshot)
 windowrulev2=move 0 0,title:^(flameshot)
 windowrulev2=nofullscreenrequest,title:^(flameshot)
 ```
+
 # I cannot bind SUPER as my mod key on my laptop
 
 Many laptops have a built-in function to toggle `SUPER` between single key press mode and hold mode. This is usually indicated by a padlock on the `SUPER` key.
@@ -328,3 +332,12 @@ If the pop-up disappears immediately, you can use:
 ```ini
 windowrulev2 = minsize 1 1, title:^(TITLE)$, class:^(CLASS)$
 ```
+
+# Steam's file picker no worky
+
+On instances where you have a steam library on another drive that you have
+to add, Hyprland's file picker would not normally appear when selecting
+a directory from steam.
+
+Steam has its own file picker, however, it's not functional. Install
+`xdg-desktop-portal-gtk` to show the desktop's file picker.
