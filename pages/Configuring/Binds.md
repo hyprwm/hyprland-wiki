@@ -311,3 +311,16 @@ submap=reset
 
 This works because the binds are executed in the order they appear, and
 assigning multiple actions per bind is possible.
+
+# Example Binds
+
+## Media
+
+These binds set the expected behavior for regular keyboard media volume keys,
+including when the screen is locked:
+
+```ini
+bindl=, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindl=, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindl=, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+```
