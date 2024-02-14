@@ -111,7 +111,7 @@ Static rules are evaluated once at window open and never again.
 | nomaxsize | removes max size limitations. Especially useful with windows that report invalid max sizes (e.g. winecfg) |
 | stayfocused | forces focus on the window as long as it's visible |
 | group \[options\] | set window group properties. See the note below. |
-| ignoreevent \[types...\] | ignores specific events. Events are space separated, and can be: `fullscreen` `maximize` `activate` `activatefocus` |
+| suppressevent \[types...\] | ignores specific events from the window. Events are space separated, and can be: `fullscreen` `maximize` `activate` `activatefocus` |
 
 
 ### Dynamic rules
