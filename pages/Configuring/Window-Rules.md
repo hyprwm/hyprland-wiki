@@ -83,50 +83,61 @@ you can use `hyprctl clients`.
 
 ## Rules
 
-| Rule | Description | Dynamic |
-| ---- | ----------- | ----------- |
-| float | floats a window | |
-| tile | tiles a window | |
-| fullscreen | fullscreens a window | |
-| fakefullscreen | fakefullscreens a window | |
-| maximize | maximizes a window | |
-| nofullscreenrequest | prevents windows from requesting fullscreen mode, you can still manually toggle fullscreen. | |
-| nomaximizerequest | prevents windows from requesting maximized mode, you can still manually toggle maximize. | |
-| move \[x\] \[y\] | moves a floating window (x,y -> int or %, e.g. 20% or 100. You are also allowed to do `100%-` for the right/bottom anchor, e.g. `100%-20`). Additionally, you can also do `cursor [x] [y]` where x and y are either pixels or percent. Percent is calculated from the window's size. Specify `onscreen` before other parameters to force the window into the screen (e.g. `move onscreen cursor 50% 50%`) | |
-| size \[x\] \[y\] | resizes a floating window (x,y -> int or %, e.g. 20% or 100) | |
-| minsize \[x\] \[y\] | sets the minimum size on creation (x,y -> int) | |
-| maxsize \[x\] \[y\] | sets the maximum size on creation (x,y -> int) | |
-| center (\[opt\]) | if the window is floating, will center it on the monitor. Set opt as 1 to respect monitor reserved area | |
-| pseudo | pseudotiles a window | |
-| monitor \[id\] | sets the monitor on which a window should open. `id` can be either id or name (either e.g. `1` or e.g. `DP-1`) | |
-| workspace \[w\] | sets the workspace on which a window should open (for workspace syntax, see [dispatchers->workspaces](../Dispatchers#workspaces)). You can also make \[w\] to `unset`, will unset all previous workspace rules applied to this window. You can also add `silent` after the workspace to make the window open silently. | |
-| opacity \[a\] | additional opacity multiplier. Options for a: `float` -> sets an opacity OR `float float` -> sets activeopacity and inactiveopacity respectively. You can also add `override` after an opacity to make it override instead of a multiplier. (e.g. `1.0 override 0.5 override`) |&check;|
-| opaque | forces the window to be opaque (can be toggled with the toggleopaque dispatcher) |&check;|
-| forcergbx | makes hyprland ignore the alpha channel of all the window's surfaces, effectively making it _actually, fully 100% opaque_ | &check; |
-| animation \[style\] (\[opt\]) | forces an animation onto a window, with a selected opt. Opt is optional. |&check;|
-| rounding \[x\] | forces the application to have X pixels of rounding, ignoring the set default (in `decoration:rounding`). Has to be an int. |&check;|
-| noblur | disables blur for the window |&check;|
-| nofocus | disables focus to the window | |
-| noinitialfocus | disables the initial focus to the window | |
-| noborder | disables borders for the window |&check;|
-| bordersize \[size\] | sets the border size |&check;|
-| nodim | disables window dimming for the window |&check;|
-| noshadow | disables shadows for the window |&check;|
-| forceinput | forces an XWayland window to receive input, even if it requests not to do so. (Might fix issues like e.g. Game Launchers not receiving focus for some reason) | |
-| windowdance | forces an XWayland window to never refocus, used for games/applications like Rhythm Doctor | |
-| pin | pins the window  (i.e. show it on all workspaces) *note: floating only* | |
-| noanim | disables the animations for the window |&check;|
-| keepaspectratio | forces aspect ratio when resizing window with the mouse |&check;|
-| bordercolor \[c\] | force the bordercolor of the window. Options for c: `color`/`color ... color angle` -> sets the active border color/gradient OR `color color`/`color ... color angle color ... color [angle]` -> sets the active and inactive border color/gradient of the window. See [variables->colors](../Variables#variable_types) for color definition. |&check;|
-| idleinhibit \[mode\] | sets an idle inhibit rule for the window. If active, apps like `swayidle` will not fire. Modes: `none`, `always`, `focus`, `fullscreen` | &check; |
-| unset | removes all previously set rules for the given parameters. Please note it has to match EXACTLY. | |
-| nomaxsize | removes max size limitations. Especially useful with windows that report invalid max sizes (e.g. winecfg) | |
-| dimaround | dims everything around the window . Please note this rule is meant for floating windows and using it on tiled ones may result in strange behavior. | &check; |
-| stayfocused | forces focus on the window as long as it's visible |  |
-| xray \[on\] | sets blur xray mode for the window (0 for off, 1 for on, unset for default) | &check; | 
-| group \[options\] | set window group properties. See the note below. | |
-| immediate | forces the window to allow to be torn. See [the Tearing page](../Tearing). | &check; |
-| nearestneighbor | forces the window to use the nearest neigbor filtering. | &check; |
+### Static rules
+
+Static rules are evaluated once at window open and never again.
+
+| Rule | Description |
+| ---- | ----------- |
+| float | floats a window |
+| tile | tiles a window |
+| fullscreen | fullscreens a window |
+| fakefullscreen | fakefullscreens a window |
+| maximize | maximizes a window |
+| move \[x\] \[y\] | moves a floating window (x,y -> int or %, e.g. 20% or 100. You are also allowed to do `100%-` for the right/bottom anchor, e.g. `100%-20`). Additionally, you can also do `cursor [x] [y]` where x and y are either pixels or percent. Percent is calculated from the window's size. Specify `onscreen` before other parameters to force the window into the screen (e.g. `move onscreen cursor 50% 50%`) |
+| size \[x\] \[y\] | resizes a floating window (x,y -> int or %, e.g. 20% or 100) |
+| minsize \[x\] \[y\] | sets the minimum size on creation (x,y -> int) |
+| maxsize \[x\] \[y\] | sets the maximum size on creation (x,y -> int) |
+| center (\[opt\]) | if the window is floating, will center it on the monitor. Set opt as 1 to respect monitor reserved area |
+| pseudo | pseudotiles a window |
+| monitor \[id\] | sets the monitor on which a window should open. `id` can be either id or name (either e.g. `1` or e.g. `DP-1`) |
+| workspace \[w\] | sets the workspace on which a window should open (for workspace syntax, see [dispatchers->workspaces](../Dispatchers#workspaces)). You can also make \[w\] to `unset`, will unset all previous workspace rules applied to this window. You can also add `silent` after the workspace to make the window open silently. |
+| nofocus | disables focus to the window |
+| noinitialfocus | disables the initial focus to the window |
+| forceinput | forces an XWayland window to receive input, even if it requests not to do so. (Might fix issues like e.g. Game Launchers not receiving focus for some reason) |
+| windowdance | forces an XWayland window to never refocus, used for games/applications like Rhythm Doctor |
+| pin | pins the window  (i.e. show it on all workspaces) *note: floating only* |
+| unset | removes all previously set rules for the given parameters. Please note it has to match EXACTLY. |
+| nomaxsize | removes max size limitations. Especially useful with windows that report invalid max sizes (e.g. winecfg) |
+| stayfocused | forces focus on the window as long as it's visible |
+| group \[options\] | set window group properties. See the note below. |
+| ignoreevent \[types...\] | ignores specific events. Events are space separated, and can be: `fullscreen` `maximize` `activate` `activatefocus` |
+
+
+### Dynamic rules
+
+Dynamic rules are re-evaluated every time a property changes.
+
+| Rule | Description |
+| ---- | ----------- |
+| opacity \[a\] | additional opacity multiplier. Options for a: `float` -> sets an opacity OR `float float` -> sets activeopacity and inactiveopacity respectively. You can also add `override` after an opacity to make it override instead of a multiplier. (e.g. `1.0 override 0.5 override`) |
+| opaque | forces the window to be opaque (can be toggled with the toggleopaque dispatcher) |
+| forcergbx | makes hyprland ignore the alpha channel of all the window's surfaces, effectively making it _actually, fully 100% opaque_ |
+| animation \[style\] (\[opt\]) | forces an animation onto a window, with a selected opt. Opt is optional. |
+| rounding \[x\] | forces the application to have X pixels of rounding, ignoring the set default (in `decoration:rounding`). Has to be an int. |
+| noblur | disables blur for the window |
+| noborder | disables borders for the window |
+| bordersize \[size\] | sets the border size |
+| nodim | disables window dimming for the window |
+| noshadow | disables shadows for the window |
+| noanim | disables the animations for the window |
+| keepaspectratio | forces aspect ratio when resizing window with the mouse |
+| bordercolor \[c\] | force the bordercolor of the window. Options for c: `color`/`color ... color angle` -> sets the active border color/gradient OR `color color`/`color ... color angle color ... color [angle]` -> sets the active and inactive border color/gradient of the window. See [variables->colors](../Variables#variable_types) for color definition. |
+| idleinhibit \[mode\] | sets an idle inhibit rule for the window. If active, apps like `swayidle` will not fire. Modes: `none`, `always`, `focus`, `fullscreen` |
+| dimaround | dims everything around the window . Please note this rule is meant for floating windows and using it on tiled ones may result in strange behavior. |
+| xray \[on\] | sets blur xray mode for the window (0 for off, 1 for on, unset for default) |
+| immediate | forces the window to allow to be torn. See [the Tearing page](../Tearing). |
+| nearestneighbor | forces the window to use the nearest neigbor filtering. |
 
 {{< hint type=info >}}
 
