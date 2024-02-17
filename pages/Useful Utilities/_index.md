@@ -5,6 +5,8 @@ Hyprland working.
 
 - **[Must-Have](./Must-have)**
 
+- **[Hypr Ecosystem](./Hypr-Ecosystem)**
+
 - **[Status Bars](./Status-Bars)**
 
 - **[App Launchers](./App-Launchers)**

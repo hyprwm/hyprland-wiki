@@ -133,7 +133,7 @@ Dynamic rules are re-evaluated every time a property changes.
 | noanim | disables the animations for the window |
 | keepaspectratio | forces aspect ratio when resizing window with the mouse |
 | bordercolor \[c\] | force the bordercolor of the window. Options for c: `color`/`color ... color angle` -> sets the active border color/gradient OR `color color`/`color ... color angle color ... color [angle]` -> sets the active and inactive border color/gradient of the window. See [variables->colors](../Variables#variable_types) for color definition. |
-| idleinhibit \[mode\] | sets an idle inhibit rule for the window. If active, apps like `swayidle` will not fire. Modes: `none`, `always`, `focus`, `fullscreen` |
+| idleinhibit \[mode\] | sets an idle inhibit rule for the window. If active, apps like `hypridle` will not fire. Modes: `none`, `always`, `focus`, `fullscreen` |
 | dimaround | dims everything around the window . Please note this rule is meant for floating windows and using it on tiled ones may result in strange behavior. |
 | xray \[on\] | sets blur xray mode for the window (0 for off, 1 for on, unset for default) |
 | immediate | forces the window to allow to be torn. See [the Tearing page](../Tearing). |
