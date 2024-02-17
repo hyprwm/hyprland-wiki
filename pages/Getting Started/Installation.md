@@ -135,15 +135,6 @@ For further instructions on building with the third party resource, refer to the
 As always, when using third party scripts exercise caution and understand what the script does.
 {{< /hint>}}
 {{< /tab >}}
-{{< tab "Slackware*" >}}
-```plain
-hyprland-bin (SlackBuilds) - Prebuilt release for Slackware ready for install
-```
-Hyprland is not installed by default on the current release of Slackware.
-
-For detailed instructions on installing this build see [here](https://slackbuilds.org/repository/15.0/desktop/hyprland-bin/)
-
-{{< /tab >}}
 
 {{< /tabs >}}
 
