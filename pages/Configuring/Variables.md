@@ -147,6 +147,7 @@ but remember that higher `blur:passes` will require more strain on the GPU.
 |---|---|---|---|
 | enabled | enable animations | bool | true |
 | first_launch_animation | enable first launch animation | bool | true |
+| workspace_wraparound | Whether the workspace switch animation should wrap around when using the `workspace` dispatcher with a relative offset | bool | false |
 
 
 {{< hint type=info >}}
