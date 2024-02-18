@@ -91,8 +91,9 @@ overwritten.
 In order to apply per-device config options, make a new category like this:
 
 ```ini
-device:name {
-
+device {
+    name = ...
+    # options ...
 }
 ```
 
@@ -121,7 +122,8 @@ enabled -> (only for mice / touchpads / touchdevices / keyboards) enables / disa
 Example config section:
 
 ```ini
-device:royuan-akko-multi-modes-keyboard-b {
+device {
+    name = royuan-akko-multi-modes-keyboard-b
     repeat_rate=50
     repeat_delay=500
     middle_button_emulation=0
