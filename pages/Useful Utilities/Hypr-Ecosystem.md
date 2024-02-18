@@ -15,7 +15,7 @@ A neat color picker for your hyprland desktop.
 
 ## xdg-desktop-portal-hyprland
 
-A must-have, see [The wiki page](../Hyprland-Desktop-Portal)
+A must-have, see [The wiki page](../Hyprland-desktop-portal)
 
 ## hypridle
 
