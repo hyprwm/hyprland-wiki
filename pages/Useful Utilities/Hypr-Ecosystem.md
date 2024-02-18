@@ -23,6 +23,12 @@ An idle management daemon for hyprland, to set stuff like lockscreen or monitor 
 
 [Github link](https://github.com/hyprwm/hypridle)
 
+## hyprlock
+
+A simple, but fast, multithreaded, GPU-accelerated screen locker for hyprland.
+
+[Github link](https://github.com/hyprwm/hyprlock)
+
 ## More
 
 and more to come! :)
