@@ -52,6 +52,7 @@ input-field {
     outline_thickness = 3
     outer_color = rgb(151515)
     inner_color = rgb(200, 200, 200)
+    font_color = rgb(10, 10, 10)
     fade_on_empty = true
 
     position = 0, -20                    # position is added to the halign and valign props. For absolute, use "none" in either.
