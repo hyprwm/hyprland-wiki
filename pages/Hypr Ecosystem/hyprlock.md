@@ -53,6 +53,10 @@ input-field {
     outer_color = rgb(151515)
     inner_color = rgb(200, 200, 200)
     fade_on_empty = true
+
+    position = 0, -20                    # position is added to the halign and valign props. For absolute, use "none" in either.
+    halign = center                     # left, center, right, none
+    valign = center                     # top, center, bottom, none
 }
 ```
 
@@ -67,10 +71,10 @@ label {
     monitor =
     text = Hi there, $USER              # Supported variables: $USER
     color = rgba(200, 200, 200, 1.0)
-    position = 0, 80                    # position is added to the halign and valign props. For absolute, use "none" in either.
     font_size = 25
     font_family = Noto Sans
 
+    position = 0, 80                    # position is added to the halign and valign props. For absolute, use "none" in either.
     halign = center                     # left, center, right, none
     valign = center                     # top, center, bottom, none
 }
