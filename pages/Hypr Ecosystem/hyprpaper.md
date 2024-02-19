@@ -1,6 +1,6 @@
 hyprpaper is a fast, IPC-controlled wallpaper utility for hyprland.
 
-{{ < toc >}}
+{{< toc >}}
 
 ## Configuration
 

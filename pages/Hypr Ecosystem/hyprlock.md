@@ -1,7 +1,7 @@
 hyprlock is a simple, yet fast, multi-threaded and GPU-accelerated screen
 lock for hyprland.
 
-{{ < toc >}}
+{{< toc >}}
 
 ## Configuration
 

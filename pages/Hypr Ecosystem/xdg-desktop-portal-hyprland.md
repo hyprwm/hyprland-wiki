@@ -1,7 +1,7 @@
 xdg-desktop-portal-hyprland is Hyprland's xdg-desktop-portal implementation.
 It allows for screensharing, global shortcuts, etc.
 
-{{ < toc >}}
+{{< toc >}}
 
 ## Configuration
 

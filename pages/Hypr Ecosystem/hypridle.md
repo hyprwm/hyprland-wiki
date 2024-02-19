@@ -1,6 +1,6 @@
 hypridle is hyprland's idle management daemon.
 
-{{ < toc >}}
+{{< toc >}}
 
 ## Configuration
 

@@ -1,6 +1,6 @@
 hyprpicker is a neat utility for picking a color your screen on hyprland.
 
-{{ < toc >}}
+{{< toc >}}
 
 ## Configuration
 
