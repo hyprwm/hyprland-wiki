@@ -4,7 +4,7 @@ hyprpaper is a fast, IPC-controlled wallpaper utility for hyprland.
 
 ## Configuration
 
-The config file is located at `~/.config/hypridle.conf`. It is not required.
+The config file is located at `~/.config/hypr/hyprpaper.conf`. It is not required.
 
 Configuration is done via `preload`s, which _load_ an image into memory.
 Then, you use `wallpaper` keywords to apply the preloaded image to your
