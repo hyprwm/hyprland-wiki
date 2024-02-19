@@ -27,6 +27,11 @@ widget_name {
 
 ## Widget List
 
+### General remarks
+- All rendered text supports [pango markup](https://docs.gtk.org/Pango/pango_markup.html).
+- Positioning is done via halign, valign and position. Position is an added offset to the result of alignment.
+   - halign: `left`, `center`, `right`, `none`. valign: `top`, `center`, `bottom`, `none`
+
 ### Background
 
 Draws a background image or fills with color.
@@ -54,18 +59,17 @@ input-field {
     inner_color = rgb(200, 200, 200)
     font_color = rgb(10, 10, 10)
     fade_on_empty = true
+    placeholder-text = <i>Input Password...</i> # Text rendered in the input box when it's empty.
 
-    position = 0, -20                    # position is added to the halign and valign props. For absolute, use "none" in either.
-    halign = center                     # left, center, right, none
-    valign = center                     # top, center, bottom, none
+    position = 0, -20
+    halign = center
+    valign = center
 }
 ```
 
 ### Label
 
 Draws a label.
-
-Label text supports [pango markup](https://docs.gtk.org/Pango/pango_markup.html).
 
 ```ini
 label {
@@ -75,8 +79,8 @@ label {
     font_size = 25
     font_family = Noto Sans
 
-    position = 0, 80                    # position is added to the halign and valign props. For absolute, use "none" in either.
-    halign = center                     # left, center, right, none
-    valign = center                     # top, center, bottom, none
+    position = 0, 80
+    halign = center
+    valign = center
 }
 ```
