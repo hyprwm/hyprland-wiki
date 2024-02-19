@@ -57,6 +57,8 @@ input-field {
 
 Draws a label.
 
+Label text supports [pango markup](https://docs.gtk.org/Pango/pango_markup.html).
+
 ```ini
 label {
     monitor =
