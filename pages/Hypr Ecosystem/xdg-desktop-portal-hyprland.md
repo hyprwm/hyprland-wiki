@@ -9,4 +9,4 @@ No configuration.
 
 ## Troubleshooting
 
-See the [XDG Desktop Portal wiki page](../../Useful Utilities/Hyprland-desktop-portal).
+See the [XDG Desktop Portal wiki page](../../Useful-Utilities/Hyprland-desktop-portal).
