@@ -29,12 +29,15 @@ widget_name {
 
 ### Background
 
-Draws a background image.
+Draws a background image or fills with color.
+
+If `path` is empty or missing, will use `color`. Otherwise, the image will be used.
 
 ```ini
 background {
     monitor =
     path = /home/me/someImage.png   # only png supported for now
+    color = rgba(25, 20, 20, 1.0)
 }
 ```
 
