@@ -15,6 +15,14 @@ if you are in a Hyprland session, and you want the log of the last session, use
 cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 2 | tail -n 1)/hyprland.log
 ```
 
+# Obtaining the Hyprland Crash Report
+
+If you have `$XDG_CACHE_HOME` set, the crash report directory is `$XDG_CACHE_HOME/hyprland`. If not, it's `$HOME/.cache/hyprland`.
+
+Go to the crash report directory and you should find a file named `hyprlandCrashReport[XXXX].txt` where `[XXXX]` is the PID of the process that crashed.
+
+Attach that file to your issue.
+
 # Crashes at launch
 
 Diagnose the issue by what is in the log:
