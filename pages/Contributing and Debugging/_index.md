@@ -1,6 +1,11 @@
+---
+weight: 12
+title: Contributing and Debugging
+---
+
 # Contributing guidelines
 
-PR, code styling and code FAQs are [here](./PR-Guidelines)
+PR, code styling and code FAQs are [here](./pr-guidelines)
 
 For issues, please see
 [the guidelines](https://github.com/hyprwm/Hyprland/blob/main/docs/ISSUE_GUIDELINES.md)
@@ -23,7 +28,8 @@ _Arch_:
 
 Install the VSCode C/C++ and CMake Tools extensions and use that.
 
-I've attached a [example/launch.json](https://github.com/hyprwm/Hyprland/blob/main/example/launch.json)
+I've attached a
+[example/launch.json](https://github.com/hyprwm/Hyprland/blob/main/example/launch.json)
 that you can copy to your .vscode/ folder in the repo root.
 
 With that, you can build in debug, go to the debugging tab and hit
@@ -79,7 +85,8 @@ for live logs. (replace `hyprland` with `hyprlandd` for debug builds)
 
 ### How do I get a coredump?
 
-See [`ISSUE_GUIDELINES.md`](https://github.com/hyprwm/Hyprland/blob/main/docs/ISSUE_GUIDELINES.md).
+See
+[`ISSUE_GUIDELINES.md`](https://github.com/hyprwm/Hyprland/blob/main/docs/ISSUE_GUIDELINES.md).
 
 ## Nesting Hyprland
 
@@ -89,7 +96,9 @@ Hyprland can run nested in a window. For that, make sure you did the following:
 - removed ALL `exec=` and `exec-once=` keywords from your debug config
   (`hyprlandd.conf`)
 - set a resolution for `WL-1` and are not using `preferred`
-- made sure no keybinds overlap (use a different mod for your keybinds altogether)
+- made sure no keybinds overlap (use a different mod for your keybinds
+  altogether)
 
-Once you launch, the display might be cropped. This can be fixed by setting the resolution for `WL-1` to
-the exact dimensions of the window as reported by `hyprctl clients`.
+Once you launch, the display might be cropped. This can be fixed by setting the
+resolution for `WL-1` to the exact dimensions of the window as reported by
+`hyprctl clients`.

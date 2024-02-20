@@ -1,26 +1,31 @@
+---
+weight: 5
+title: Useful Utilities
+---
+
 This category is dedicated to short tutorials on how to get useful utilities for
 Hyprland working.
 
-# List of Pages
+## List of Pages
 
-- **[Must-Have](./Must-have)**
+- **[Must-Have](./must-have)**
 
-- **[Hypr Ecosystem](./Hypr-Ecosystem)**
+- **[Hypr Ecosystem](./hypr-ecosystem)**
 
-- **[Status Bars](./Status-Bars)**
+- **[Status Bars](./status-bars)**
 
-- **[App Launchers](./App-Launchers)**
+- **[App Launchers](./app-launchers)**
 
-- **[Wallpapers](./Wallpapers)**
+- **[Wallpapers](./wallpapers)**
 
-- **[Screen Sharing](./Screen-Sharing)**
+- **[Screen Sharing](./screen-sharing)**
 
-- **[App Clients](./App-Clients)**
+- **[App Clients](./app-clients)**
 
-- **[Color Pickers](./Color-Pickers)**
+- **[Color Pickers](./color-pickers)**
 
-- **[Clipboard Managers](./Clipboard-Managers)**
+- **[Clipboard Managers](./clipboard-managers)**
 
-- **[Hyprland Desktop Portal](./Hyprland-desktop-portal)**
+- **[Hyprland Desktop Portal](./xdg-desktop-portal-hyprland)**
 
-- **[Other](./Other)**
+- **[Other](./other)**

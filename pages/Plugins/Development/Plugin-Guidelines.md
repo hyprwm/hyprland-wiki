@@ -1,7 +1,10 @@
+---
+weight: 2
+title: Plugin guidelines
+---
+
 This page documents the recommended guidelines for making a stable and neat
 plugin.
-
-{{< toc >}}
 
 ## Making your plugin compatible with hyprpm
 

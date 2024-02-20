@@ -1,15 +1,21 @@
-The master layout makes one (or more) window(s) be the "master", taking (by default) the left part of the
-screen, and tiles the rest on the right. You can change the orientation on per-workspace basis
-if you want to use anything other than the default left/right split.
+---
+weight: 11
+title: Master Layout
+---
+
+The master layout makes one (or more) window(s) be the "master", taking (by
+default) the left part of the screen, and tiles the rest on the right. You can
+change the orientation on per-workspace basis if you want to use anything other
+than the default left/right split.
 
 ![master1](https://user-images.githubusercontent.com/43317083/179357849-321f042c-f536-44b3-9e6f-371df5321836.gif)
 
-# Config
+## Config
 
 _category name `master`_
 
 | name | description | type | default |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | allow_small_split | enable adding additional master windows in a horizontal split style | bool | false |
 | special_scale_factor | the scale of the special workspace windows. [0.0 - 1.0] | float | 1 |
 | mfact | master split factor, the ratio of master split [0.0 - 1.0] | float | 0.55 |
@@ -20,10 +26,9 @@ _category name `master`_
 | inherit_fullscreen | inherit fullscreen status when cycling/swapping to another window (e.g. monocle layout) | bool | true |
 | always_center_master | when using orientation=center, keep the master window centered, even when it is the only window in the workspace. | bool | false |
 | smart_resizing | if enabled, resizing direction will be determined by the mouse's position on the window (nearest to which corner). Else, it is based on the window's tiling position. | bool | true |
-| drop_at_cursor | when enabled, dragging and dropping windows will put them at the cursor position. Otherwise, when dropped at the stack side, they will go to the top/bottom of the stack depending on new_on_top.  | bool | true |
+| drop_at_cursor | when enabled, dragging and dropping windows will put them at the cursor position. Otherwise, when dropped at the stack side, they will go to the top/bottom of the stack depending on new_on_top. | bool | true |
 
-
-# Dispatchers
+## Dispatchers
 
 `layoutmsg` commands:
 
@@ -51,7 +56,8 @@ _category name `master`_
 
 params for the commands are separated by a single space
 
-{{< hint type=info >}}
+{{< callout type=info >}}
+
 example usage:
 
 ```ini
@@ -60,15 +66,13 @@ bind=MOD,KEY,layoutmsg,cyclenext
 bind=MOD,KEY,layoutmsg,swapwithmaster master
 ```
 
-{{< /hint >}}
+{{< /callout >}}
 
+## Workspace Rules
 
-# Workspace Rules
-
-`layoutopt` rules:
-| rule | description | type |
-| --- | --- | --- |
-| orientation:[o] | Sets the orientation of a workspace. For available orientations, see [Config->orientation](#config) | string |
+`layoutopt` rules: | rule | description | type | | --- | --- | --- | |
+orientation:[o] | Sets the orientation of a workspace. For available
+orientations, see [Config->orientation](#config) | string |
 
 Example usage:
 
