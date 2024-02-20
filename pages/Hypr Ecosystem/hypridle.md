@@ -4,7 +4,7 @@ hypridle is hyprland's idle management daemon.
 
 ## Configuration
 
-Configuration is done via the config file at `~/.config/hypridle.conf`.
+Configuration is done via the config file at `~/.config/hypr/hypridle.conf`.
 A config file is required; hypridle won't run without one.
 
 ### General
