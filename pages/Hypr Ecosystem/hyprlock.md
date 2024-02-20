@@ -5,6 +5,7 @@ lock for hyprland.
 
 ## Configuration
 
+Configuration is done via the config file at `~/.config/hypr/hyprlock.conf`. It is not required but recommended because without it locking shows current screen.
 ### General
 
 Variables in the `general` category:
