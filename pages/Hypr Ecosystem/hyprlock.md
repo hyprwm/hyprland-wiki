@@ -74,7 +74,7 @@ Draws a label.
 ```ini
 label {
     monitor =
-    text = Hi there, $USER              # Supported variables: $USER
+    text = Hi there, $USER
     color = rgba(200, 200, 200, 1.0)
     font_size = 25
     font_family = Noto Sans
@@ -84,3 +84,7 @@ label {
     valign = center
 }
 ```
+
+Available variables for `text`:
+ - `$USER` - username
+ - `$TIME` - current time (e.g. `13:37`)
