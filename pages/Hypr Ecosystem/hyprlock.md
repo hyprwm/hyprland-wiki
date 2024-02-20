@@ -62,6 +62,7 @@ input-field {
     font_color = rgb(10, 10, 10)
     fade_on_empty = true
     placeholder_text = <i>Input Password...</i> # Text rendered in the input box when it's empty.
+    hide_input = false
 
     position = 0, -20
     halign = center
