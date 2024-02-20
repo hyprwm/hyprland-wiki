@@ -29,6 +29,7 @@ widget_name {
 
 ### General remarks
 - All rendered text supports [pango markup](https://docs.gtk.org/Pango/pango_markup.html).
+   - Additionally hyprlock will parse `<br/>` for your convenience. (That's a linebreak) Remember to enable linebreaks in your spans with `allow_breaks="true"`.
 - Positioning is done via halign, valign and position. Position is an added offset to the result of alignment.
    - halign: `left`, `center`, `right`, `none`. valign: `top`, `center`, `bottom`, `none`
 
