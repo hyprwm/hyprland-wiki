@@ -1,10 +1,15 @@
+---
+weight: 4
+title: Hypr Ecosystem
+---
+
 This wiki section hosts docs for various hypr* projects. See a list bere:
 
-{{< hint type=info >}}
+{{< callout type=info >}}
 
 These docs always target latest -git branch of respective apps.
 
-{{< /hint >}}
+{{< /callout >}}
 
 ## Wiki pages
  - **[hyprpaper](./hyprpaper)**

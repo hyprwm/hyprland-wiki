@@ -1,20 +1,22 @@
-hypridle is hyprland's idle management daemon.
+---
+weight: 3
+title: hypridle
+---
 
-{{< toc >}}
+hypridle is hyprland's idle management daemon.
 
 ## Configuration
 
-Configuration is done via the config file at `~/.config/hypr/hypridle.conf`.
-A config file is required; hypridle won't run without one.
-To run hypridle at startup edit `hyprland.conf` and add:
-`exec-once = hypridle`.
+Configuration is done via the config file at `~/.config/hypr/hypridle.conf`. A
+config file is required; hypridle won't run without one. To run hypridle at
+startup edit `hyprland.conf` and add: `exec-once = hypridle`.
 
 ### General
 
 Variables in the `general` category:
 
 | variable | description | type | default |
-| -- | -- | -- | -- |
+| --- | --- | --- | --- |
 | lock_cmd | command to run when receiving a dbus lock event (e.g. `loginctl lock-session`) | string | empty |
 | unlock_cmd | command to run when receiving a dbus unlock event (e.g. `loginctl unlock-session`) | string | empty |
 | before_sleep_cmd | command to run when receiving a dbus prepare_sleep event | string | empty |
@@ -25,8 +27,9 @@ Variables in the `general` category:
 
 Hypridle uses listeners to define actions on idleness.
 
-Every listener has a _timeout_ (in seconds). After idling for _timeout_ seconds, `on-timeout` will fire.
-When action is resumed after idle, `on-resume` will fire.
+Every listener has a _timeout_ (in seconds). After idling for _timeout_ seconds,
+`on-timeout` will fire. When action is resumed after idle, `on-resume` will
+fire.
 
 Example listener:
 

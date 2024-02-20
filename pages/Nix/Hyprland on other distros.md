@@ -1,13 +1,17 @@
+---
+title: Hyprland on other distros
+---
+
 If you use Nix on distros other than NixOS, you can still use Hyprland.
 
-The best option would be through [Home Manager](../Hyprland-on-Home-Manager).
+The best option would be through [Home Manager](../hyprland-on-home-manager).
 
 However, if Home Manager is not for you, you can use it as a normal package.
 
-First, [enable flakes](https://nixos.wiki/wiki/Flakes#Enable_flakes).
-Once you have flakes working, install Hyprland through `nix profile`:
+First, [enable flakes](https://nixos.wiki/wiki/Flakes#Enable_flakes). Once you
+have flakes working, install Hyprland through `nix profile`:
 
-{{< tabs "uniqueid" >}}
+{{< tabs items="From Nixpkgs,From the Flake" >}}
 
 {{< tab "From Nixpkgs" >}}
 
@@ -18,19 +22,22 @@ nix profile install nixpkgs#hyprland
 ```
 
 {{< /tab >}}
+
 {{< tab "From the Flake" >}}
 
-NOTE: Make sure to enable [Cachix](../Cachix) first.
+NOTE: Make sure to enable [Cachix](../cachix) first.
 
 ```sh
 nix profile install github:hyprwm/Hyprland
 ```
 
 {{< /tab >}}
+
 {{< /tabs >}}
 
 Since you're using Hyprland outside of NixOS, it won't be able to find graphics
-drivers. To get around that, you can use [nixGL](https://github.com/guibou/nixGL).
+drivers. To get around that, you can use
+[nixGL](https://github.com/guibou/nixGL).
 
 First, install it:
 
@@ -59,4 +66,3 @@ nix profile upgrade '.*'
 Check the
 [nix profile](https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-profile.html)
 command documentation for other upgrade options.
-

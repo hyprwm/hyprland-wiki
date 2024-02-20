@@ -1,3 +1,8 @@
+---
+weight: 12
+title: Using hyprctl
+---
+
 `hyprctl` is a utility for controlling some parts of the compositor from a CLI
 or a script. If you install with `make install`, or any package, it should
 automatically be installed.
@@ -8,18 +13,15 @@ the terminal.
 If it's not, go to the repo root and `/hyprctl`. Issue a `make all` and then
 `sudo cp ./hyprctl /usr/bin`.
 
-# Using Hyprctl
+{{< callout type=warning >}}
 
-{{< hint type=warning >}}
+_hyprctl_ calls will be dispatched by the compositor _synchronously_, meaning
+any spam of the utility will cause slowdowns. It's recommended to use `--batch`
+for many control calls, and limiting the amount of info calls.
 
-_hyprctl_ calls will be dispatched by the compositor _synchronously_,
-meaning any spam of the utility will cause slowdowns.
-It's recommended to use `--batch` for many control calls, and
-limiting the amount of info calls.
+For live event handling, see the [socket2](../../ipc/).
 
-For live event handling, see the [socket2](../../IPC/).
-
-{{< /hint >}}
+{{< /callout >}}
 
 ## Commands
 
@@ -95,15 +97,17 @@ params: `create` or `remove` and `backend` or `name` respectively.
 
 For _create_:
 
-pass a backend name: `wayland`, `x11`, `headless` or `auto`. On a _real_ hyprland
-session, if you're looking for a VNC / RDP type thing, it's 99% going to be `headless`.
+pass a backend name: `wayland`, `x11`, `headless` or `auto`. On a _real_
+hyprland session, if you're looking for a VNC / RDP type thing, it's 99% going
+to be `headless`.
 
 For _remove_:
 
-pass the output's name, as found in `hyprctl monitors`. Please be aware you are _not_ 
-allowed to remove real displays with this command.
+pass the output's name, as found in `hyprctl monitors`. Please be aware you are
+_not_ allowed to remove real displays with this command.
 
 e.g.:
+
 ```ini
 # will create a 1920x1080 headless display, for example to use with RDP.
 hyprctl output create headless
@@ -117,6 +121,7 @@ hyprctl output remove HEADLESS-1
 Sets the xkb layout index for a keyboard.
 
 For example, if you set:
+
 ```ini
 device:my-epic-keyboard-v1 {
     kb_layout=us,pl,de
@@ -128,9 +133,10 @@ You can use this command to switch between them.
 ```sh
 hyprctl switchxkblayout [DEVICE] [CMD]
 ```
-where `CMD` is either `next` for next, `prev` for previous, or `ID`
-for a specific one (in the above case, `us`: 0, `pl`: 1, `de`: 2). 
-You can find the `DEVICE` using `hyprctl devices` command.
+
+where `CMD` is either `next` for next, `prev` for previous, or `ID` for a
+specific one (in the above case, `us`: 0, `pl`: 1, `de`: 2). You can find the
+`DEVICE` using `hyprctl devices` command.
 
 example command for a typical keyboard:
 
@@ -138,9 +144,12 @@ example command for a typical keyboard:
 hyprctl switchxkblayout at-translated-set-2-keyboard next
 ```
 
-{{< hint >}}
+{{< callout type=info >}}
 
-If you want a single variant ie. pl/dvorak on one layout but us/qwerty on the other, xkb parameters can still be blank, however the amount of comma-separated parameters have to match. Alternatively, a single parameter can be specified for it to apply to all three.
+If you want a single variant ie. pl/dvorak on one layout but us/qwerty on the
+other, xkb parameters can still be blank, however the amount of comma-separated
+parameters have to match. Alternatively, a single parameter can be specified for
+it to apply to all three.
 
 ```ini
 input {
@@ -150,7 +159,7 @@ input {
 }
 ```
 
-{{< /hint >}}
+{{< /callout >}}
 
 ### seterror
 
@@ -161,14 +170,16 @@ hyprctl seterror 'rgba(66ee66ff)' hello world this is my problem
 ```
 
 or disable:
+
 ```sh
 hyprctl seterror disable
 ```
 
 ### setprop
 
-Sets a window prop. Can be locked by adding `lock` at the end. If `lock` is not added,
-will be unlocked. Locking means a dynamic windowrule _cannot_ override this setting.
+Sets a window prop. Can be locked by adding `lock` at the end. If `lock` is not
+added, will be unlocked. Locking means a dynamic windowrule _cannot_ override
+this setting.
 
 Prop List:
 | prop | comment |
@@ -212,6 +223,7 @@ hyprctl notify [ICON] [TIME_MS] [COLOR] [MESSAGE]
 ```
 
 For example:
+
 ```sh
 hyprctl notify -1 10000 "rgb(ff1ea3)" "Hello everyone!"
 ```
@@ -221,6 +233,7 @@ Icon of `-1` means "No icon"
 Color of `0` means "Default color for icon"
 
 Icon list:
+
 ```
 WARNING = 0
 INFO = 1
@@ -270,8 +283,8 @@ instances - lists all running instances of hyprland with their info
 layouts - lists all layouts available (including plugin'd ones)
 ```
 
-For the getoption command, the option name should be written as `section:option`,
-e.g.:
+For the getoption command, the option name should be written as
+`section:option`, e.g.:
 
 ```sh
 hyprctl getoption general:border_size
@@ -280,7 +293,7 @@ hyprctl getoption general:border_size
 hyprctl getoption input:touchpad:disable_while_typing
 ```
 
-See [Variables](../Variables) for section and options you can use.
+See [Variables](../variables) for section and options you can use.
 
 ## Batch
 

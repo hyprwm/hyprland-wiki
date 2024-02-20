@@ -1,25 +1,29 @@
-# Table of contents
+---
+weight: 7
+title: Window Rules
+---
 
-{{< toc >}}
+{{< callout type=warning >}}
 
-# Disclaimers
+Window rules (both V1 and V2) are **case sensitive**. (e.g. `firefox` ≠
+`Firefox`)
 
-{{< hint type=warning >}}
-Window rules (both V1 and V2) are **case sensitive**. (e.g. `firefox` ≠ `Firefox`)
-{{< /hint >}}
+{{< /callout >}}
 
-# Window Rules V1
+## Window Rules V1
 
-You can set window rules to achieve different behaviors from the active container.
+You can set window rules to achieve different behaviors from the active
+container.
 
-## Syntax
+### Syntax
 
 ```ini
 windowrule=RULE,WINDOW
 ```
 
 - `RULE` is a [rule](#rules) (and a param if applicable)
-- `WINDOW` is a [RegEx](https://en.wikipedia.org/wiki/Regular_expression), either:
+- `WINDOW` is a [RegEx](https://en.wikipedia.org/wiki/Regular_expression),
+  either:
   - plain RegEx (for matching a window class);
   - `title:` followed by a regex (for matching a window's title)
 
@@ -30,10 +34,10 @@ windowrule=float,^(kitty)$
 windowrule=move 0 0,title:^(Firefox)(.*)$
 ```
 
-# Window Rules V2
+## Window Rules V2
 
-In order to allow more flexible rules, while retaining compatibility with the above
-rule system, window rules V2 were implemented.
+In order to allow more flexible rules, while retaining compatibility with the
+above rule system, window rules V2 were implemented.
 
 In V2, you are allowed to match multiple variables.
 
@@ -44,17 +48,22 @@ for multiple values like so:
 windowrulev2 = float,class:(kitty),title:(kitty)
 ```
 
-{{< hint type=tip >}}
-In the case of dynamic window titles such as browser windows keep in mind how powerful regex is.
+{{< callout type=info >}}
 
-for example a window rule of: `windowrule=opacity 0.3 override 0.3 override,title:(.*)(- Youtube)$` will match 
-*any* window that contains a string of "- Youtube" after any other text. This could be multiple browser windows 
-or other applications that contain the string for any reason. 
+In the case of dynamic window titles such as browser windows keep in mind how
+powerful regex is.
 
+for example a window rule of:
+`windowrule=opacity 0.3 override 0.3 override,title:(.*)(- Youtube)$` will match
+_any_ window that contains a string of "- Youtube" after any other text. This
+could be multiple browser windows or other applications that contain the string
+for any reason.
 
-for the `windowrulev2 = float,class:(kitty),title:(kitty)` example, the `class:(kitty)` `WINDOW` field is what keeps the window rule
-specific to kitty terminals. 
-{{< /hint >}}
+for the `windowrulev2 = float,class:(kitty),title:(kitty)` example, the
+`class:(kitty)` `WINDOW` field is what keeps the window rule specific to kitty
+terminals.
+
+{{< /callout >}}
 
 For now, the supported fields are:
 
@@ -69,17 +78,17 @@ fullscreen - 0/1
 pinned - 0/1
 focus - 0/1
 workspace - id or name: and name
-onworkspace (how many windows are on the workspace) - int 
+onworkspace (how many windows are on the workspace) - int
 ```
 
 Keep in mind that you _have_ to declare at least one field, but not all.
 
-{{< hint type=tip >}}
+{{< callout type=info >}}
 
-To get more information about a window's class, title, XWayland status or its size,
-you can use `hyprctl clients`.
+To get more information about a window's class, title, XWayland status or its
+size, you can use `hyprctl clients`.
 
-{{< /hint >}}
+{{< /callout >}}
 
 ## Rules
 
@@ -99,7 +108,7 @@ Static rules are evaluated once at window open and never again.
 | center (\[opt\]) | if the window is floating, will center it on the monitor. Set opt as 1 to respect monitor reserved area |
 | pseudo | pseudotiles a window |
 | monitor \[id\] | sets the monitor on which a window should open. `id` can be either id or name (either e.g. `1` or e.g. `DP-1`) |
-| workspace \[w\] | sets the workspace on which a window should open (for workspace syntax, see [dispatchers->workspaces](../Dispatchers#workspaces)). You can also make \[w\] to `unset`, will unset all previous workspace rules applied to this window. You can also add `silent` after the workspace to make the window open silently. |
+| workspace \[w\] | sets the workspace on which a window should open (for workspace syntax, see [dispatchers->workspaces](../dispatchers#workspaces)). You can also make \[w\] to `unset`, will unset all previous workspace rules applied to this window. You can also add `silent` after the workspace to make the window open silently. |
 | nofocus | disables focus to the window |
 | noinitialfocus | disables the initial focus to the window |
 | forceinput | forces an XWayland window to receive input, even if it requests not to do so. (Might fix issues like e.g. Game Launchers not receiving focus for some reason) |
@@ -132,31 +141,38 @@ Dynamic rules are re-evaluated every time a property changes.
 | noshadow | disables shadows for the window |
 | noanim | disables the animations for the window |
 | keepaspectratio | forces aspect ratio when resizing window with the mouse |
-| bordercolor \[c\] | force the bordercolor of the window. Options for c: `color`/`color ... color angle` -> sets the active border color/gradient OR `color color`/`color ... color angle color ... color [angle]` -> sets the active and inactive border color/gradient of the window. See [variables->colors](../Variables#variable_types) for color definition. |
+| bordercolor \[c\] | force the bordercolor of the window. Options for c: `color`/`color ... color angle` -> sets the active border color/gradient OR `color color`/`color ... color angle color ... color [angle]` -> sets the active and inactive border color/gradient of the window. See [variables->colors](../variables#variable_types) for color definition. |
 | idleinhibit \[mode\] | sets an idle inhibit rule for the window. If active, apps like `hypridle` will not fire. Modes: `none`, `always`, `focus`, `fullscreen` |
 | dimaround | dims everything around the window . Please note this rule is meant for floating windows and using it on tiled ones may result in strange behavior. |
 | xray \[on\] | sets blur xray mode for the window (0 for off, 1 for on, unset for default) |
-| immediate | forces the window to allow to be torn. See [the Tearing page](../Tearing). |
+| immediate | forces the window to allow to be torn. See [the Tearing page](../tearing). |
 | nearestneighbor | forces the window to use the nearest neigbor filtering. |
 
-{{< hint type=info >}}
+{{< callout type=info >}}
 
 ## `group` window rule options
 
 - `set` \[`always`\] - Open window as a group.
 - `new` - Shorthand of `barred set`.
-- `lock` \[`always`\] - Lock the group that added this window. Use with `set` or `new` (i.e. `new lock`) to create a new locked group.
-- `barred` - Do not add the window to the focused group. By default, a window with a `group set` rule will be added to an active group if possible.
-- `deny` - Do not allow window to be toggled as or added to group (see `denywindowfromgroup` dispatcher).
+- `lock` \[`always`\] - Lock the group that added this window. Use with `set` or
+  `new` (i.e. `new lock`) to create a new locked group.
+- `barred` - Do not add the window to the focused group. By default, a window
+  with a `group set` rule will be added to an active group if possible.
+- `deny` - Do not allow window to be toggled as or added to group (see
+  `denywindowfromgroup` dispatcher).
 - `invade` - Force open window in the locked group.
-- `override` \[other options\] - Override other `group` rules, e.g. You can make all windows in a particular workspace open as a group, and use `group override barred` to make windows with specific titles open as normal windows.
+- `override` \[other options\] - Override other `group` rules, e.g. You can make
+  all windows in a particular workspace open as a group, and use
+  `group override barred` to make windows with specific titles open as normal
+  windows.
 - `unset` - Clear all `group` rules.
 
 The `group` rule without options is a shorthand for `group set`.
 
-By default, `set` and `lock` only affect new windows once. The `always` qualifier makes them always effective.
+By default, `set` and `lock` only affect new windows once. The `always`
+qualifier makes them always effective.
 
-{{< /hint >}}
+{{< /callout >}}
 
 ### Example Rules
 
@@ -174,39 +190,45 @@ windowrulev2 = stayfocused, class:^(pinentry-) # fix pinentry losing focus
 
 ### Notes
 
-Rules that are marked as _Dynamic_ will be reevaluated if the matching property of the window changes. For instance, if a rule is defined that changes the bordercolor of a window when it is floating, then the bordercolor will change to the requested color when it is set to floating, and revert to the default color when it is tiled again.
+Rules that are marked as _Dynamic_ will be reevaluated if the matching property
+of the window changes. For instance, if a rule is defined that changes the
+bordercolor of a window when it is floating, then the bordercolor will change to
+the requested color when it is set to floating, and revert to the default color
+when it is tiled again.
 
-Rules will be processed from top to bottom, where the _last_ match will take precedence.
-i.e.
+Rules will be processed from top to bottom, where the _last_ match will take
+precedence. i.e.
 
 ```ini
 windowrulev2 = opacity 0.8 0.8,class:^(kitty)$
 windowrulev2 = opacity 0.5 0.5,floating:1
 ```
 
--> all kitty windows will have opacity 0.8, except if they are floating. Then they will have opacity 0.5.
--> all floating windows will have opacity 0.5.
+-> all kitty windows will have opacity 0.8, except if they are floating. Then
+they will have opacity 0.5. -> all floating windows will have opacity 0.5.
 
 ```ini
 windowrulev2 = opacity 0.5 0.5,floating:1
 windowrulev2 = opacity 0.8 0.8,class:^(kitty)$
 ```
 
--> all kitty windows will have opacity 0.8, also if they are floating.
--> all other floating windows will have opacity 0.5.
+-> all kitty windows will have opacity 0.8, also if they are floating. -> all
+other floating windows will have opacity 0.5.
 
+{{< callout type=info >}}
 
-{{< hint type=tip >}}
-
-Opacity is _always_ a PRODUCT of all opacities. E.g. `active_opacity` to
-0.5 and windowrule opacity to 0.5 will result in a total opacity 0.25. You are
-allowed to set opacities over 1, but any opacity product over 1 will cause
-graphical glitches. E.g. `0.5 * 2 = 1`, and it will be fine, `0.5 * 4` will cause
+Opacity is _always_ a PRODUCT of all opacities. E.g. `active_opacity` to 0.5 and
+windowrule opacity to 0.5 will result in a total opacity 0.25. You are allowed
+to set opacities over 1, but any opacity product over 1 will cause graphical
+glitches. E.g. `0.5 * 2 = 1`, and it will be fine, `0.5 * 4` will cause
 graphical glitches.
-{{< /hint >}}
 
-# Layer Rules
-Some things in wayland are not windows, but layers. That includes for example most launchers, your status bar or wallpaper.
+{{< /callout >}}
+
+## Layer Rules
+
+Some things in wayland are not windows, but layers. That includes for example
+most launchers, your status bar or wallpaper.
 
 Those have specific rules separate from windows:
 
@@ -215,10 +237,11 @@ layerrule = rule, namespace
 # or
 layerrule = rule, address
 ```
-where `rule` is the rule and `namespace` is the namespace regex (find namespaces in `hyprctl layers`)
-or `address` is an address in the form of `address:0x[hex]`
 
-## Rules
+where `rule` is the rule and `namespace` is the namespace regex (find namespaces
+in `hyprctl layers`) or `address` is an address in the form of `address:0x[hex]`
+
+### Rules
 
 | rule | description |
 | --- | --- |
