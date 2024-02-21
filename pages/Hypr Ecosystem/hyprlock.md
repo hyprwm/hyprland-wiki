@@ -95,3 +95,13 @@ label {
 Available variables for `text`:
  - `$USER` - username
  - `$TIME` - current time (e.g. `13:37`)
+
+`text` also supports launching commands, for example:
+```ini
+text = cmd[update:1000] echo "<span foreground='##ff2222'>$(date)</span>"
+```
+Worth noting:
+ - `update:` - time is in ms.
+ - Variables seen above are parsed _before_ the command is ran.
+
+
