@@ -103,5 +103,6 @@ text = cmd[update:1000] echo "<span foreground='##ff2222'>$(date)</span>"
 Worth noting:
  - `update:` - time is in ms.
  - Variables seen above are parsed _before_ the command is ran.
+ - **do not** run commands that never exit. This will hang the AsyncResourceGatherer and you won't have a good time.
 
 
