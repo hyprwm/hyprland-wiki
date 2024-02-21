@@ -42,11 +42,22 @@ Draws a background image or fills with color.
 
 If `path` is empty or missing, will use `color`. Otherwise, the image will be used.
 
+If `path` is `screenshot`, a screenshot of your desktop at launch will be used.
+
 ```ini
 background {
     monitor =
     path = /home/me/someImage.png   # only png supported for now
     color = rgba(25, 20, 20, 1.0)
+
+    # all these options are taken from hyprland, see https://wiki.hyprland.org/Configuring/Variables/#blur for explanations
+    blur_passes = 0 # 0 disables blurring
+    blur_size = 7
+    noise = 0.0117
+    contrast = 0.8916
+    brightness = 0.8172
+    vibrancy = 0.1696
+    vibrancy_darkness = 0.0
 }
 ```
 
