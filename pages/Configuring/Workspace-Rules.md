@@ -26,8 +26,8 @@ workspace=3,rounding:false,bordersize:0
 | ---- | ----------- | ---- |
 | monitor:[m] | Binds a workspace to a monitor See [syntax](#syntax) and [Monitors](../Monitors).| string |
 | default:[b] | Whether this workspace should be the default workspace for the given monitor | bool |
-| gapsin:[x] | Set the gaps between windows (equivalent to [General->gaps_in](../Variables#general)) | int |
-| gapsout:[x] | Set the gaps between windows and monitor edges (equivalent to [General->gaps_out](../Variables#general)) | int |
+| gapsin:[x] | Set the gaps between windows (equivalent to [General->gaps_in](../Variables#general) except for not using commas as delimiter (spaces instead)) | int |
+| gapsout:[x] | Set the gaps between windows and monitor edges (equivalent to [General->gaps_out](../Variables#general) except for not using commas as delimiter (spaces instead)) | int |
 | bordersize:[x] | Set the border size around windows (equivalent to [General->border_size](../Variables#general)) | int |
 | border:[b]| Whether to draw borders or not| bool |
 | shadow:[b]| Whether to draw shadows or not| bool |

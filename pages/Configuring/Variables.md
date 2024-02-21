@@ -50,8 +50,8 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 | sensitivity | mouse sensitivity (legacy, may cause bugs if not 1, prefer `input:sensitivity`) | float | 1.0 |
 | border_size | size of the border around windows | int | 1 |
 | no_border_on_floating | disable borders for floating windows | bool | false |
-| gaps_in | gaps between windows | int | 5 |
-| gaps_out | gaps between windows and monitor edges | int | 20 |
+| gaps_in | gaps between windows, also supports css style gaps (top, right, bottom, left -> 5,10,15,20) | int | 5 |
+| gaps_out | gaps between windows and monitor edges, also supports css style gaps (top, right, bottom, left -> 5,10,15,20) | int | 20 |
 | gaps_workspaces | gaps between workspaces. Stacks with gaps_out. | int | 0 |
 | col.inactive_border | border color for inactive windows | gradient | 0xff444444 |
 | col.active_border | border color for the active window | gradient | 0xffffffff |
