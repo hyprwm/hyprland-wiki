@@ -4,7 +4,7 @@ lock for hyprland.
 {{< toc >}}
 
 ## Configuration
-
+The config file is located at `~/.config/hypr/hyprlock.conf`
 ### General
 
 Variables in the `general` category:
