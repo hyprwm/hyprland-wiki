@@ -14,6 +14,7 @@ Variables in the `general` category:
 | disable_loading_bar | disables the loading bar on the bottom of the screen while hyprlock is booting up. | bool | false |
 | hide_cursor | hides the cursor instead of making it visible | bool | true |
 | grace | the amount of seconds for which the lockscreen will unlock on mouse movement. | int | 0 |
+| no_fade_in | disables the fadein animation | bool | false |
 
 ## Widgets
 
