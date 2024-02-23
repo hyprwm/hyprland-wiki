@@ -373,6 +373,7 @@ _Subcategory `group:groupbar:`_
 | name | description | type | default |
 |---|---|---|---|
 | nvidia_anti_flicker | reduces flickering on nvidia at the cost of possible frame drops on lower-end GPUs. On non-nvidia, this is ignored. | bool | true |
+| force_introspection | forces introspection at all times. Introspection is aimed at reducing GPU usage in certain cases, but might cause graphical glitches on nvidia. 0 - nothing, 1 - force always on, 2 - force always on if nvidia | int | 2 | 
 
 ## Debug
 
