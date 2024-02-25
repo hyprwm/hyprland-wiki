@@ -82,12 +82,14 @@ The hyprland package is available in the main tree:
 emerge --ask gui-wm/hyprland
 ```
 
-Additional packages like xdg-desktop-portal-hyprland, hyprland-plugins, hyprpaper and hyprpicker are available in the [GURU](https://wiki.gentoo.org/wiki/Project:GURU) overlay. Community-contributed scripts are also available in GURU as part of the hyprland-contrib package.
+Additional packages like hyprlock, hypridle, xdg-desktop-portal-hyprland, hyprland-plugins, hyprpaper and hyprpicker are available in the [GURU](https://wiki.gentoo.org/wiki/Project:GURU) overlay. Community-contributed scripts are also available in GURU as part of the hyprland-contrib package.
 
 ```sh
 eselect repository enable guru
 emaint sync -r guru
 
+emerge --ask gui-apps/hyprlock
+emerge --ask gui-apps/hypridle
 emerge --ask gui-libs/xdg-desktop-portal-hyprland
 emerge --ask gui-apps/hyprland-plugins
 emerge --ask gui-apps/hyprpaper
