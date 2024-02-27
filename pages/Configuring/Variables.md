@@ -166,6 +166,7 @@ _[More about Animations](../Animations)._
 | kb_rules | Appropriate XKB keymap parameter | str | \[\[Empty\]\] |
 | kb_file | If you prefer, you can use a path to your custom .xkb file. | str | \[\[Empty\]\] |
 | numlock_by_default | Engage numlock by default. | bool | false |
+| resolve_binds_by_sym | Determines how keybinds act when multiple layouts are used. If false, keybinds will always act as if the first specified layout were active. If true, keybinds specified by symbols activate if you type the respective symbol with the current layout. | bool | false |
 | repeat_rate | The repeat rate for held-down keys, in repeats per second. | int | 25 |
 | repeat_delay | Delay before a held-down key is repeated, in milliseconds. | int | 600 |
 | sensitivity | Sets the mouse input sensitivity. Value will be clamped to the range -1.0 to 1.0. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) | float | 0.0 |
