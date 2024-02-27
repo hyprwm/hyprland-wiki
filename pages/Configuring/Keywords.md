@@ -133,8 +133,11 @@ device {
 _remember about the space after the end of the device's name (before the `{`)!_
 
 {{< hint type=info >}}
-Per-device layouts will not alter the keybind keymap, so for example with a global keymap of `us`
+Per-device layouts will by default not alter the keybind keymap, so for example with a global keymap of `us`
 and a per-device one of `fr`, the keybinds will still act as if you were on `us`.
+
+You can change this behavior by setting `resolve_binds_by_sym = 1`.
+In that case you'll need to type the symbol specified in the bind to activate it.
 {{< /hint >}}
 
 # Wallpapers
