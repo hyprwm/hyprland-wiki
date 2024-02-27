@@ -34,7 +34,8 @@ workspace=3,rounding:false,bordersize:0
 | rounding:[b] | Whether to draw rounded windows or not | bool |
 | decorate:[b] | Whether to draw window decorations or not | bool |
 | persistent:[b] | Keep this workspace alive even if empty and inactive | bool |
-| on-created-empty:[c] | A command to be executed once a workspace is created empty (i.e. not created by moving a window to it). See the [command syntax](../Dispatchers#executing-with-rules) | string
+| on-created-empty:[c] | A command to be executed once a workspace is created empty (i.e. not created by moving a window to it). See the [command syntax](../Dispatchers#executing-with-rules) | string |
+| defaultName:[s] | A default name for the workspace. | string |
 
 ### Example Rules
 ```ini
