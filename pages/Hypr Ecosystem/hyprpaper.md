@@ -20,7 +20,7 @@ For wallpaper keywords:
  - leaving the first parameter (monitor) empty will act as a wildcard
  - adding `contain:` before the path (e.g. `contain:/home/me/amongus.png`) will adjust the fitting algorithm to contain.
 
-You can also `unload` preloaded images to free up memory. `unloadAll` is also a thing, does what it says.
+You can also `unload` preloaded images to free up memory. `unload all` and `unload unused` are a thing too.
 
 ### Misc options
 | variable | description | type | default |
