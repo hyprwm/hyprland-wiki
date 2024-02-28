@@ -39,12 +39,14 @@ global
     ↳ windowsIn - window open
     ↳ windowsOut - window close
     ↳ windowsMove - everything in between, moving, dragging, resizing.
+  ↳ layers - styles: slide, popin, fade
   ↳ fade
     ↳ fadeIn - fade in (open) -> layers and windows
     ↳ fadeOut - fade out (close) -> layers and windows
     ↳ fadeSwitch - fade on changing activewindow and its opacity
     ↳ fadeShadow - fade on changing activewindow for shadows
     ↳ fadeDim - the easing of the dimming of inactive windows
+    ↳ fadeLayers - for controlling fade on layers
   ↳ border - for animating the border's color switch speed
   ↳ borderangle - for animating the border's gradient angle - styles: once (default), loop
   ↳ workspaces - styles: slide, slidevert, fade, slidefade, slidefadevert
