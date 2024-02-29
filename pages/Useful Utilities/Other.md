@@ -12,6 +12,12 @@ Here you will find links to some other projects that may not fit into any of the
 ### Screen shaders/color temperature
 [hyprshade](https://github.com/loqusion/hyprshade) by _loqusion_: Utility for swapping and scheduling screen shaders; also functions as an [automatic color temperature shifter](https://en.wikipedia.org/wiki/F.lux). (Useful for Nvidia users for whom other color temperature shifting apps do not work.)
 
+### Wireless settings
+- [iwgtk](https://github.com/J-Lentz/iwgtk) by _Jesse Lentz_: WiFi settings frontend for `iwd` in GTK
+- [blueberry](https://github.com/linuxmint/blueberry) by _Linux Mint_: Bluetooth settings frontend in GTK
+- [Overskride](https://github.com/kaii-lb/overskride) by _kaii-lb_: A simple yet powerful bluetooth client in GTK4
+- [nm-applet](https://gitlab.gnome.org/GNOME/network-manager-applet) by _GNOME_: Applet for interfacing with NetworkManager in GTK
+
 ### Automatically Mounting Using `udiskie`
 
 _Starting method:_ manual ('exec-once')
