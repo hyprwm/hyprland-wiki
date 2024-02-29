@@ -1,5 +1,7 @@
 The config is located in `~/.config/hypr/hyprland.conf`.
 
+You can tell Hyprland to use a specific configuration file by using the `--config` (or `-c`) argument.
+
 Hyprland will automatically generate an example config for you if
 you don't have one. You can find an example config [here](https://github.com/hyprwm/Hyprland/blob/main/example/hyprland.conf).
 
