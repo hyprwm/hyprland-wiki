@@ -37,3 +37,32 @@ listener {
 ```
 
 You can define as many listeners as you want.
+
+Full hypridle example with hyprlock
+
+```ini
+general {
+    lock_cmd = notify-send "lock!"          # dbus/sysd lock command (loginctl lock-session) 
+    unlock_cmd = notify-send "unlock!"      # same as above, but unlock
+    before_sleep_cmd = notify-send "Zzz"    # command ran before sleep
+    after_sleep_cmd = notify-send "Awake!"  # command ran after sleep
+    ignore_dbus_inhibit = false             # whether to ignore dbus-sent idle-inhibit requests (used by e.g. firefox or steam)
+}
+
+listener {
+    timeout = 300                           # 5min
+    on-timeout = hyprlock                   # lock screen when timeout has passed
+    on-resume = notify-send "Welcome back!" # notification activity is detected after timeout has fired.
+}
+
+listener {
+    timeout = 380                           # 5.5min
+    on-timeout = hyprctl dispatch dpms off  # screen off when timeout has passed
+    on-resume = hyprctl dispatch dpms on    # screen on when activity is detected after timeout has fired.
+}
+
+listener {
+    timeout = 1800                          # 30min
+    on-timeout = systemctl suspend          # suspend pc
+}
+```
