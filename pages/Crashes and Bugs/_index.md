@@ -54,62 +54,20 @@ issue on GitHub.
 
 If requested, this is the deepest level of memory issue debugging possible.
 
-Prepare yourself mentally, and then:
+_Do this in the tty, with no Hyprland instances running_
 
-recommended to do in tty
+Clone hyprland: `git clone --recursive https://github.com/hyprwm/Hyprland`
 
-clone wayland (`git clone --recursive https://gitlab.freedesktop.org/wayland/wayland`)
-clone hyprland (`git clone --recursive https://github.com/hyprwm/Hyprland`)
+cd to it: `cd Hyprland`
 
-add these envs to your Hyprland config to reset ASAN_OPTIONS for children and set LD_PRELOAD:
-```
-env = ASAN_OPTIONS,detect_odr_violation=0
-env = LD_PRELOAD,/usr/lib/libasan.so.8.0.0
-```
-_Please note to check the asan .so version on your system with `ls /usr/lib | grep libasan`_
+`make asan`
 
-wayland:
-```
-meson ./build --prefix=/usr --buildtype=debug -Db_sanitize=address
-sudo ninja -C build install
-```
+This will compile everything and launch Hyprland.
 
-The Wayland build will likely fail citing missing dependencies such as Doxygen, these
-dependencies will likely be available from your distros package manager.
+Reproduce your crash. Hyprland will exit back to the tty.
 
-hyprland:
-```
-cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Debug -DWITH_ASAN:STRING=True -S . -B ./build -G Ninja
-cmake --build ./build --config Debug --target all -j`nproc 2>/dev/null || getconf NPROCESSORS_CONF`
-cd ./subprojects/wlroots
-rm -rf ./build
-meson ./build --prefix=/usr --buildtype=debug -Db_sanitize=address
-ninja -C build
-cd ../..
-sudo make install
-```
+You can now launch your regular Hyprland session.
 
-Exit Hyprland to a TTY, cd to the cloned hyprland, and launch it:
-```
-ASAN_OPTIONS="detect_odr_violation=0,log_path=asan.log" ./build/Hyprland -c ~/.config/hypr/hyprland.conf
-```
+Now, in either `cwd`, `~` or `./build`, search for file(s) named `asan.log.XXXXX` where XXXXX is a number.
 
-open your terminal
-
-Do whatever you used to do in order to crash the compositor.
-
-Please note many apps will refuse to launch. Notably complex applications, like e.g. browsers.
-
-Once it crashes, go to `~` or `cwd` and look for `asan.log.XXXXX` files. Zip all and attach to the issue.
-
-once you are done, to revert your horribleness of no app opening without the ld preload just go to the cloned wayland and do
-```
-sudo rm -rf ./build
-meson ./build --prefix=/usr --buildtype=release
-sudo ninja -C build install
-```
-
-To revert the changes to hyprland and wlroots, do inside the cloned hyprland:
-```
-make all && sudo make install
-```
+Zip all of them up and attach to your issue.
