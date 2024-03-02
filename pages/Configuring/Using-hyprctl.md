@@ -228,6 +228,16 @@ CONFUSED = 4
 OK = 5
 ```
 
+### dismissnotify
+
+Dismisses all or up to AMOUNT notifications.
+
+```sh
+hyprctl dismissnotify # dismiss all notifications
+hyprctl dismissnotify 2 # dismiss the oldest 2 notifications
+hyprctl dismissnotify -1 # dismiss all notifications (same as no arguments)
+```
+
 ## Info
 
 ```plain
