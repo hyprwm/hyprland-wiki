@@ -312,6 +312,15 @@ submap=reset
 This works because the binds are executed in the order they appear, and
 assigning multiple actions per bind is possible.
 
+## Catch-All
+
+You can also define a keybind via the special `catchall` keyword, which activates no matter which key is pressed.
+This can be used to prevent any keys from passing to your active application while in a submap or to exit it immediately when any unknown key is pressed:
+
+```ini
+bind=,catchall,submap,reset
+```
+
 # Example Binds
 
 ## Media
