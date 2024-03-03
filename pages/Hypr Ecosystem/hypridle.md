@@ -30,31 +30,50 @@ Example listener:
 
 ```ini
 listener {
-    timeout = 500                            # in seconds
-    on-timeout = notify-send "You are idle!" # command to run when timeout has passed
+    timeout = 500                            # in seconds.
+    on-timeout = notify-send "You are idle!" # command to run when timeout has passed.
     on-resume = notify-send "Welcome back!"  # command to run when activity is detected after timeout has fired.
 }
 ```
 
 You can define as many listeners as you want.
 
-Full hypridle example with hyprlock
+Full hypridle example with hyprlock:
 
 ```ini
+general {
+    lock_cmd = pidof hyprlock || hyprlock       # avoid starting multiple hyprlock instances.
+    before_sleep_cmd = loginctl lock-session    # lock before suspend.
+    after_sleep_cmd = hyprctl dispatch dpms on  # to avoid having to press a key twice to turn on the display.
+}
+
+# set monitor backlight to minimum
 listener {
-    timeout = 300                           # 5min
-    on-timeout = hyprlock                   # lock screen when timeout has passed
-    on-resume = notify-send "Welcome back!" # notification activity is detected after timeout has fired.
+    timeout = 150                                # 2.5min.
+    on-timeout = brightnessctl -s set 0          # monitor backlight off.
+    on-resume = brightnessctl -r                 # monitor backlight on.
+}
+
+# turn off keyboard backlight, uncomment this section if have keyboard backlight.
+#listener { 
+#    timeout = 30 
+#    on-timeout = brightnessctl -sd rgb:kbd_backlight set 0 
+#    on-resume = brightnessctl -rd rgb:kbd_backlight
+#}
+
+listener {
+    timeout = 300                                 # 5min
+    on-timeout = loginctl lock-session            # lock screen when timeout has passed
 }
 
 listener {
-    timeout = 380                           # 5.5min
-    on-timeout = hyprctl dispatch dpms off  # screen off when timeout has passed
-    on-resume = hyprctl dispatch dpms on    # screen on when activity is detected after timeout has fired.
+    timeout = 380                                 # 5.5min
+    on-timeout = hyprctl dispatch dpms off        # screen off when timeout has passed
+    on-resume = hyprctl dispatch dpms on          # screen on when activity is detected after timeout has fired.
 }
 
 listener {
-    timeout = 1800                          # 30min
-    on-timeout = systemctl suspend          # suspend pc
+    timeout = 1800                                # 30min
+    on-timeout = systemctl suspend                # suspend pc
 }
 ```
