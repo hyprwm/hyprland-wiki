@@ -6,6 +6,8 @@ hypridle is hyprland's idle management daemon.
 
 Configuration is done via the config file at `~/.config/hypr/hypridle.conf`.
 A config file is required; hypridle won't run without one.
+To run hypridle edit `hyprland.conf` and add:
+`exec-once = hypridle`.
 
 ### General
 
@@ -55,11 +57,11 @@ listener {
 }
 
 # turn off keyboard backlight, uncomment this section if have keyboard backlight.
-#listener { 
-#    timeout = 30 
-#    on-timeout = brightnessctl -sd rgb:kbd_backlight set 0 
-#    on-resume = brightnessctl -rd rgb:kbd_backlight
-#}
+listener { 
+    timeout = 150                                          # 2.5min.
+    on-timeout = brightnessctl -sd rgb:kbd_backlight set 0 # turn off keyboard backlight.
+    on-resume = brightnessctl -rd rgb:kbd_backlight        # turn on keyboard backlight.
+}
 
 listener {
     timeout = 300                                 # 5min
