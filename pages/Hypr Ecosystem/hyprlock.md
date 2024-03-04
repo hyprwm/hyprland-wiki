@@ -80,6 +80,7 @@ input-field {
     fade_on_empty = true
     placeholder_text = <i>Input Password...</i> # Text rendered in the input box when it's empty.
     hide_input = false
+    rounding = -1 # -1 means complete rounding (circle/oval)
 
     position = 0, -20
     halign = center
