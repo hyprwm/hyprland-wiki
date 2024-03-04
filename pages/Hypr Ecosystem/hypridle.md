@@ -49,11 +49,10 @@ general {
     after_sleep_cmd = hyprctl dispatch dpms on  # to avoid having to press a key twice to turn on the display.
 }
 
-# set monitor backlight to minimum
 listener {
     timeout = 150                                # 2.5min.
-    on-timeout = brightnessctl -s set 0          # monitor backlight off.
-    on-resume = brightnessctl -r                 # monitor backlight on.
+    on-timeout = brightnessctl -s set 10         # set monitor backlight to minimum, avoid 0 on OLED monitor.
+    on-resume = brightnessctl -r                 # monitor backlight restor.
 }
 
 # turn off keyboard backlight, uncomment this section if have keyboard backlight.
