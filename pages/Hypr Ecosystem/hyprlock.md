@@ -74,6 +74,7 @@ input-field {
     dots_size = 0.33 # Scale of input-field height, 0.2 - 0.8
     dots_spacing = 0.15 # Scale of dots' absolute size, 0.0 - 1.0
     dots_center = false
+    dots_rounding = -1 # -1 default circle, -2 follow input-field rounding
     outer_color = rgb(151515)
     inner_color = rgb(200, 200, 200)
     font_color = rgb(10, 10, 10)
