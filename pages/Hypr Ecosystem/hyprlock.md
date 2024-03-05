@@ -37,6 +37,16 @@ widget_name {
 - Positioning is done via halign, valign and position. Position is an added offset to the result of alignment.
    - halign: `left`, `center`, `right`, `none`. valign: `top`, `center`, `bottom`, `none`
 
+### Shadowable
+
+Some widgets are shadowable, aka. can have a shadow. For those widgets, you get:
+| variable | description | type | default |
+| -- | -- | -- | -- |
+| shadow_passes | passes for shadow, 0 to disable | int | 0 |
+| shadow_size | size for shadow | int | 3 |
+| shadow_color | shadow color | color | rgb(0,0,0) |
+| shadow_boost | boost shadow's opacity | float | 1.2 |
+
 ### Background
 
 Draws a background image or fills with color.
@@ -64,6 +74,8 @@ background {
 
 ### Input Field
 
+&check; Shadowable
+
 Draws a password input field.
 
 ```ini
@@ -90,6 +102,8 @@ input-field {
 ```
 
 ### Label
+
+&check; Shadowable
 
 Draws a label.
 
