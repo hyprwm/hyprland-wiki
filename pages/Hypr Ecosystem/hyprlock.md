@@ -91,6 +91,7 @@ input-field {
     inner_color = rgb(200, 200, 200)
     font_color = rgb(10, 10, 10)
     fade_on_empty = true
+    fade_timeout = 1000 # Milliseconds before fade_on_empty is triggered.
     placeholder_text = <i>Input Password...</i> # Text rendered in the input box when it's empty.
     hide_input = false
     rounding = -1 # -1 means complete rounding (circle/oval)
