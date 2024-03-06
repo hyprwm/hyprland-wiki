@@ -228,6 +228,14 @@ CONFUSED = 4
 OK = 5
 ```
 
+Optionally, you can specify a font size of the notification like so:
+
+```sh
+hyprctl notify -1 10000 "rgb(ff0000)" "fontsize:35 This text is big"
+```
+
+The default font-size is 13.
+
 ### dismissnotify
 
 Dismisses all or up to AMOUNT notifications.
