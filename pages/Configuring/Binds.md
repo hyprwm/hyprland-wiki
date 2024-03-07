@@ -102,9 +102,9 @@ Useful for binding e.g. the lid close/open event:
 # trigger when the switch is toggled
 bindl=,switch:[switch name],exec,swaylock
 # trigger when the switch is turning on
-bindl=,switch:on:[switch name],exec,hyprctl keyword monitor "eDP-1, 2560x1600, 0x0, 1"
+bindl=,switch:on:[switch name],exec,hyprctl keyword monitor "eDP-1, disable"
 # trigger when the switch is turning off
-bindl=,switch:off:[switch name],exec,hyprctl keyword monitor "eDP-1, disable"
+bindl=,switch:off:[switch name],exec,hyprctl keyword monitor "eDP-1, 2560x1600, 0x0, 1"
 ```
 
 check out your switches in `hyprctl devices`.
