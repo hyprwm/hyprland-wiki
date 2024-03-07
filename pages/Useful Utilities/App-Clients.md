@@ -17,3 +17,11 @@ While it does infringe on Discord's ToS, it's relatively safe and doesn't rely o
 Much like Discord, Element is known to have a lot of problems as a result of being
 based on Electron. Fractal currently doesn't support VoIP calling, but all other features
 are supported, including E2EE and cross-device verification.
+
+## Electron
+
+Electron apps have a lot of issues on their own, and it gets specially bad in wayland, in the majaority of cases you might experience flickering/rubber banding, those can be fixed by running the apps with:
+
+```bash
+--ozone-platform-hint=auto
+```
