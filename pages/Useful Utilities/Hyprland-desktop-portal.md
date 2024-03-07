@@ -98,7 +98,7 @@ XDPH will work on other wlroots compositors, but features available only on Hypr
 
 For a nuclear option, you can use this script and `exec-once` it:
 ```sh
-#!/bin/bash
+#!/usr/bin/env bash
 sleep 1
 killall -e xdg-desktop-portal-hyprland
 killall -e xdg-desktop-portal-wlr
