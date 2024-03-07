@@ -199,7 +199,7 @@ they might launch before that has happened.
 In such cases, a script like this:
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 sleep 4
 killall -e xdg-desktop-portal-wlr
 killall xdg-desktop-portal

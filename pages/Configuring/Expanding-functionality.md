@@ -13,7 +13,7 @@ This bash script will change the outer gaps to 20 if the currently focused
 monitor is DP-1, and 30 otherwise.
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 
 function handle {
   if [[ ${1:0:10} == "focusedmon" ]]; then

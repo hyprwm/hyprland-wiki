@@ -119,7 +119,7 @@ This widget displays a list of workspaces 1-10. Each workspace can be clicked on
 ### `~/.config/eww/scripts/change-active-workspace`
 
 ```sh
-#! /bin/bash
+#!/usr/bin/env bash
 function clamp {
 	min=$1
 	max=$2
@@ -156,7 +156,7 @@ socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - |
 ### `~/.config/eww/scripts/get-workspaces`
 
 ```sh
-#!/bin/bash
+#!/usr/bin/env bash
 
 spaces (){
 	WORKSPACE_WINDOWS=$(hyprctl workspaces -j | jq 'map({key: .id | tostring, value: .windows}) | from_entries')
