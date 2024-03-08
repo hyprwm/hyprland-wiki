@@ -29,6 +29,7 @@ e.g.: `workspace>>2`
 | name | description | data |
 | --- | --- | --- |
 | workspace | emitted on workspace change. Is emitted ONLY when a user requests a workspace change, and is not emitted on mouse movements (see `activemon`) | `WORKSPACENAME` |
+| workspacev2 | emitted on workspace change. Is emitted ONLY when a user requests a workspace change, and is not emitted on mouse movements (see `activemon`) | `WORKSPACEID,WORKSPACENAME` |
 | focusedmon | emitted on the active monitor being changed. | `MONNAME,WORKSPACENAME` |
 | activewindow | emitted on the active window being changed. | `WINDOWCLASS,WINDOWTITLE` |
 | activewindowv2 | emitted on the active window being changed. | `WINDOWADDRESS` |
@@ -37,14 +38,18 @@ e.g.: `workspace>>2`
 | monitoradded | emitted when a monitor is added (connected) | `MONITORNAME` |
 | monitoraddedv2 | emitted when a monitor is added (connected) | `MONITORID,MONITORNAME,MONITORDESCRIPTION` |
 | createworkspace | emitted when a workspace is created | `WORKSPACENAME` |
+| createworkspacev2 | emitted when a workspace is created | `WORKSPACEID,WORKSPACENAME` |
 | destroyworkspace | emitted when a workspace is destroyed | `WORKSPACENAME` |
+| destroyworkspacev2 | emitted when a workspace is destroyed | `WORKSPACEID,WORKSPACENAME` |
 | moveworkspace | emitted when a workspace is moved to a different monitor | `WORKSPACENAME,MONNAME` |
+| moveworkspacev2 | emitted when a workspace is moved to a different monitor | `WORKSPACEID,WORKSPACENAME,MONNAME` |
 | renameworkspace | emitted when a workspace is renamed | `WORKSPACEID,NEWNAME` |
 | activespecial | emitted when the special workspace opened in a monitor changes (closing results in an empty `WORKSPACENAME`) | `WORKSPACENAME,MONNAME` |
 | activelayout | emitted on a layout change of the active keyboard | `KEYBOARDNAME,LAYOUTNAME` |
 | openwindow | emitted when a window is opened | `WINDOWADDRESS`,`WORKSPACENAME`,`WINDOWCLASS`,`WINDOWTITLE` |
 | closewindow | emitted when a window is closed | `WINDOWADDRESS` |
 | movewindow | emitted when a window is moved to a workspace | `WINDOWADDRESS`,`WORKSPACENAME` |
+| movewindowv2 | emitted when a window is moved to a workspace | `WINDOWADDRESS`,`WORKSPACEID`,`WORKSPACENAME` |
 | openlayer | emitted when a layerSurface is mapped | `NAMESPACE` |
 | closelayer | emitted when a layerSurface is unmapped | `NAMESPACE` |
 | submap | emitted when a keybind submap changes. Empty means default. |`SUBMAPNAME` |
