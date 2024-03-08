@@ -119,6 +119,16 @@ systemctl --user import-environment QT_QPA_PLATFORMTHEME
 
 If it works, add it to your config in an `exec-once`.
 
+## Using the KDE file picker with XDPH
+
+XDPH does not implement a file picker and uses the GTK one as a fallback by default (see `/usr/share/xdg-desktop-portal/hyprland-portals.conf`). If you want to use the KDE file picker but let XDPH handle everything else, create a file `~/.config/xdg-desktop-portal/hyprland-portals.conf` with the following content:
+```properties
+[preferred]
+default=hyprland;gtk
+org.freedesktop.impl.portal.FileChooser=kde
+```
+You can read more about this in the [xdg-desktop-portal documentation in the Arch Wiki](https://wiki.archlinux.org/title/XDG_Desktop_Portal). Note that some applications like Firefox might require additional configuration to use the KDE file picker.
+
 ## Debugging
 
 If you get long app launch times, or screensharing does not work, consult the logs.
