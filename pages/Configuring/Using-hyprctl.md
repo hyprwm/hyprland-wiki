@@ -187,8 +187,8 @@ Prop List:
 | nofocus | 0/1 |
 | windowdancecompat | 0/1 |
 | nomaxsize | 0/1 |
-| minsize | vec2 (`x y` or `x, y`) |
-| maxsize | vec2 (`x y` or `x, y`) |
+| minsize | vec2 (`x y`) |
+| maxsize | vec2 (`x y`) |
 | dimaround | 0/1 |
 | keepaspectratio | 0/1 |
 | alphaoverride | 0/1, makes the next setting be override instead of multiply |
