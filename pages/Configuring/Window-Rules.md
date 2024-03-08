@@ -96,8 +96,6 @@ Static rules are evaluated once at window open and never again.
 | maximize | maximizes a window |
 | move \[x\] \[y\] | moves a floating window (x,y -> int or %, e.g. 20% or 100. You are also allowed to do `100%-` for the right/bottom anchor, e.g. `100%-20`). Additionally, you can also do `cursor [x] [y]` where x and y are either pixels or percent. Percent is calculated from the window's size. Specify `onscreen` before other parameters to force the window into the screen (e.g. `move onscreen cursor 50% 50%`) |
 | size \[x\] \[y\] | resizes a floating window (x,y -> int or %, e.g. 20% or 100) |
-| minsize \[x\] \[y\] | sets the minimum size on creation (x,y -> int) |
-| maxsize \[x\] \[y\] | sets the maximum size on creation (x,y -> int) |
 | center (\[opt\]) | if the window is floating, will center it on the monitor. Set opt as 1 to respect monitor reserved area |
 | pseudo | pseudotiles a window |
 | monitor \[id\] | sets the monitor on which a window should open. `id` can be either id or name (either e.g. `1` or e.g. `DP-1`) |
@@ -125,6 +123,8 @@ Dynamic rules are re-evaluated every time a property changes.
 | forcergbx | makes hyprland ignore the alpha channel of all the window's surfaces, effectively making it _actually, fully 100% opaque_ |
 | animation \[style\] (\[opt\]) | forces an animation onto a window, with a selected opt. Opt is optional. |
 | rounding \[x\] | forces the application to have X pixels of rounding, ignoring the set default (in `decoration:rounding`). Has to be an int. |
+| minsize \[x\] \[y\] | sets the minimum size (x,y -> int) |
+| maxsize \[x\] \[y\] | sets the maximum size (x,y -> int) |
 | noblur | disables blur for the window |
 | noborder | disables borders for the window |
 | bordersize \[size\] | sets the border size |
