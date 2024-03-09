@@ -96,7 +96,7 @@ input-field {
     hide_input = false
     rounding = -1 # -1 means complete rounding (circle/oval)
     fail_color = rgb(204, 34, 34) # if authentication failed, changes outer_color and fail message color
-    fail_text = <i>$FAIL</i> # default
+    fail_text = <i>$FAIL</i> # default, can be set to empty
     fail_transition = 300 # transition time in ms between normal outer_color and fail_color
 
     position = 0, -20
