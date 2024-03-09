@@ -349,6 +349,7 @@ _Subcategory `group:groupbar:`_
 | background_color | change the background color. (requires enabled `disable_hyprland_logo`) | color | 0x111111 |
 | close_special_on_empty | close the special workspace if the last window is removed | bool | true |
 | new_window_takes_over_fullscreen | if there is a fullscreen window, whether a new tiled window opened should replace the fullscreen one or stay behind. 0 - behind, 1 - takes over, 2 - unfullscreen the current fullscreen window [0/1/2] | int | 0 |
+| enable_hyprcursor | whether to enable hyprcursor support | bool | true |
 
 ## Binds
 
