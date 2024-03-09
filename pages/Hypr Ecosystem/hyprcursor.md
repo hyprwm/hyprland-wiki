@@ -19,3 +19,9 @@ example snippet of `hyprland.conf`:
 env = HYPRCURSOR_THEME,MyCursor
 env = HYPRCURSOR_SIZE,24
 ```
+
+## Creating / Porting Themes
+
+Go to the [hyprcursor repo](https://github.com/hyprwm/hyprcursor)
+
+See the `docs/` and `hyprcursor-util/` directories for instructions.
