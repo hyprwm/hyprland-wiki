@@ -39,3 +39,8 @@ and run `gsettings set org.gnome.desktop.interface cursor-theme 'THEME_NAME'` fo
 If the app is a flatpak, run `flatpak override --env=~/.themes:ro --env=~/.icons:ro --user` and put
 your themes in both `/usr/share/themes` and `~/.themes`, and put your
 icons and XCursors in both `/usr/share/icons` and `~/.icons`.
+
+## I don't want to use hyprcursor
+
+If you don't have any hyprcursor themes installed, hyprland will fall back to XCursor, and use
+whatever you define with `XCURSOR_THEME` and `XCURSOR_SIZE`.
