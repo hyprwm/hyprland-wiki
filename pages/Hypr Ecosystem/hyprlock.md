@@ -95,12 +95,19 @@ input-field {
     placeholder_text = <i>Input Password...</i> # Text rendered in the input box when it's empty.
     hide_input = false
     rounding = -1 # -1 means complete rounding (circle/oval)
+    fail_color = rgb(204, 34, 34) # if authentication failed, changes outer_color and fail message color
+    fail_text = <i>$FAIL <b>($ATTEMPTS)</b></i> # can be set to empty
+    fail_transition = 300 # transition time in ms between normal outer_color and fail_color
 
     position = 0, -20
     halign = center
     valign = center
 }
 ```
+
+Available variables for `fail_text`:
+ - `$FAIL` - pam fail reason
+ - `$ATTEMPTS` - number of failed authentication attempts
 
 ### Label
 
