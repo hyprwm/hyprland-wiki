@@ -11,5 +11,5 @@ These docs always target latest -git branch of respective apps.
  - **[hyprpicker](./hyprpicker)**
  - **[hypridle](./hypridle)**
  - **[hyprlock](./hyprlock)**
- - **[xdg-desktop-portal-hyprland](./xdg-desktop-portal-hyprland)**
  - **[hyprcursor](./hyprcursor)**
+ - **[xdg-desktop-portal-hyprland](./xdg-desktop-portal-hyprland)**
