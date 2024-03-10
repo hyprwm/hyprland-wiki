@@ -180,12 +180,12 @@ zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig
 
 (this should also work on RHEL/Fedora if you remove `Mesa-libGLESv3-devel` and `pkgconfig(xcb-errors)`)
 
-_FreeBSD dependencies_:
+_FreeBSD >= 13.3/14.0 dependencies_:
 
 ```plain
-pkg install git pkgconf gmake gcc evdev-proto cmake wayland-protocols wayland libglvnd libxkbcommon libinput cairo pango pixman libxcb
-pkg install meson jq `pkg rquery %dn wlroots` hwdata libdisplay-info libliftoff
-export CC=gcc CXX=g++ LDFLAGS="-static-libstdc++ -static-libgcc"
+pkg install git pkgconf gmake evdev-proto cmake wayland-protocols wayland libglvnd libxkbcommon libinput cairo pango pixman tomlplusplus libxcb
+pkg install meson jq `pkg rquery %dn wlroots` hwdata
+export CXXFLAGS=-fexperimental-library
 ```
 
 _Ubuntu 23.04 dependencies_:
@@ -196,9 +196,9 @@ wlroots installed, you can make sure you have them by installing wlroots
 separately (Hyprland doesn't mind)
 
 Also note that Hyprland uses the C++23 standard, so both your compiler
-and your C++ library has to support that (`gcc>=13.0.0` or `clang>=15`).
-On Clang-based systems libc++ may be used by default, so until libc++
-supports C++23 you have to pass `-stdlib=libstdc++` or switch to GCC.
+and your C++ library has to support that (`gcc>=13.0.0` or `clang>=17`).
+On Clang-based systems with old libc++ by default pass `-stdlib=libstdc++`
+or switch to GCC.
 
 ### CMake (recommended)
 
@@ -213,10 +213,14 @@ _CMake is always recommended as it's the intended way Hyprland should be install
 ### Meson
 
 ```plain
-meson subprojects update --reset
+git clone --recursive https://github.com/hyprwm/Hyprland
+cd Hyprland
 meson setup build
-ninja -C build
-ninja -C build install --tags runtime,man
+meson compile -C build
+meson install -C build --skip-subprojects
+PREFIX=/usr/local
+cd subprojects/wlroots/include && find . -name '*.h*' -print0 | cpio --quiet -0dump ${PREFIX}/include/hyprland/wlroots && cd ../../..
+cd build/subprojects/wlroots/include && find . -name '*.h*' -print0 | cpio --quiet -0dump ${PREFIX}/include/hyprland/wlroots && cd ../../../..
 ```
 
 Refer to [Debugging](../../Contributing-and-Debugging) to see how to build &
