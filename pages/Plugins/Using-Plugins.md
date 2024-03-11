@@ -75,8 +75,10 @@ Oh no. Oopsie. Usually means a plugin is broken. `hyprpm disable` it.
 See [here](../Development/Getting-Started).
 
 ### Where do I find plugins?
-Try looking around [here](https://duckduckgo.com).
+
+You can find our featured plugins at [hyprland.org/plugins](https://hyprland.org/plugins/).
 You can also see a list at [awesome-hyprland](https://github.com/hyprland-community/awesome-hyprland#plugins). Note it may not be complete.
+Lastly, you can try searching around github for the `"hyprland plugin"` keyword.
 
 ### Are plugins safe?
 As long as you read the source code of your plugin(s) and can see there's nothing bad going on,
