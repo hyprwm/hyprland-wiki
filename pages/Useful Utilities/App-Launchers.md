@@ -30,3 +30,10 @@ For a more comprehensive list of launchers, check
 If you are already running an emacs server you can use Emacs.
 
 For the config you can check out [DistroTube's Configuring Emacs](https://gitlab.com/dwt1/configuring-emacs/-/blob/main/07-the-final-touches/scripts/app-launchers.el?ref_type=heads) or [Sebastian Wae's `app-launcher`](https://github.com/SebastienWae/app-launcher) repositories.
+
+## Anyrun
+
+Anyrun is a wayland native krunner-like runner, made with customizability in
+mind. It is modular and extensible through plugins. It can be used as an app launcher with its Applications Plugin.
+[GitHub](https://github.com/Kirottu/anyrun)
+
