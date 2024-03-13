@@ -137,6 +137,8 @@ label {
 Available variables for `text`:
  - `$USER` - username
  - `$TIME` - current time (e.g. `13:37`)
+ - `$FAIL` - last pam fail reason
+ - `$ATTEMPTS` - failed attempts
 
 `text` also supports launching commands, for example:
 ```ini
@@ -146,6 +148,7 @@ Worth noting:
  - `update:` - time is in ms.
  - label can be forcefully updated by specifying `update:<time>:1` or `update:<time>:true` and sending `SIGUSR2` to hyprlock. `<time>` can be `0` in this case
  - Variables seen above are parsed _before_ the command is ran.
+ - `$ATTEMPTS[<string>]` format can be used to show `<string>` when there are no failed attempts. You can use pango-markup here. `<string>` can be empty to hide.
  - **do not** run commands that never exit. This will hang the AsyncResourceGatherer and you won't have a good time.
 
 
