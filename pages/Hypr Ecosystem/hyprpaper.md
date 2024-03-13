@@ -22,6 +22,9 @@ For wallpaper keywords:
 
 You can also `unload` preloaded images to free up memory. `unload all` and `unload unused` are a thing too.
 
+To run hyprpaper at startup edit `hyprland.conf` and add:
+`exec-once = hyprpaper`.
+
 ### Misc options
 | variable | description | type | default |
 | -- | -- | -- | -- |
