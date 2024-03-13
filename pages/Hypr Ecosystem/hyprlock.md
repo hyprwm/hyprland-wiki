@@ -148,4 +148,7 @@ Worth noting:
  - Variables seen above are parsed _before_ the command is ran.
  - **do not** run commands that never exit. This will hang the AsyncResourceGatherer and you won't have a good time.
 
+## User Signals
 
+- `SIGUSR1` - unlocks hyprlock. For example, you can switch to a another tty and run `pkill -USR1 hyprlock`.
+- `SIGUSR2` - updates labels. See above.
