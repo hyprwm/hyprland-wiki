@@ -1,3 +1,13 @@
+# Touchpad state toggle
+
+If one wishes to toggle the state of the touchpad on the fly, they may do so via:
+
+```ini
+bind=,XF86TouchpadToggle,exec,hyprctl keyword "device:TOUCHPAD-IDENTIFIER:enabled" true|false
+```
+
+Where `TOUCHPAD-IDENTIFIER` stands for the Identifier of the device (Eg. `syna0001:00-06cb:ce78-touchpad`). Identifier can be queried with `hyprctl devices`.
+
 # Switchable keyboard layouts
 
 The easiest way to accomplish this is to set this using XKB settings, for example:
