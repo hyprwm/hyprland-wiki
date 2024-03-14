@@ -169,6 +169,7 @@ windowrulev2 = bordercolor rgb(FF0000) rgb(880808),fullscreen:1 # set bordercolo
 windowrulev2 = bordercolor rgb(FFFF00),title:^(.*Hyprland.*)$ # set bordercolor to yellow when title contains Hyprland
 windowrule = opacity 1.0 override 0.5 override,^(kitty)$ # set opacity to 1.0 active and 0.5 inactive for kitty
 windowrule = rounding 10,^(kitty)$ # set rounding to 10 for kitty
+windowrulev2 = stayfocused, class:^(pinentry-) # fix pinentry losing focus
 ```
 
 ### Notes
