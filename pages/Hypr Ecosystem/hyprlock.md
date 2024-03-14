@@ -15,6 +15,7 @@ Variables in the `general` category:
 | hide_cursor | hides the cursor instead of making it visible | bool | true |
 | grace | the amount of seconds for which the lockscreen will unlock on mouse movement. | int | 0 |
 | no_fade_in | disables the fadein animation | bool | false |
+| no_fade_out | disables the fadeout animation | bool | false |
 
 ## Widgets
 
