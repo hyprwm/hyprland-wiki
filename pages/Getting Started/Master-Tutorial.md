@@ -88,7 +88,7 @@ repository for a more comprehensive list.
 ## Fully configure
 
 Head onto the
-[Configuring Hyprland page](../../configuring/configuring-Hyprland) to learn all
+[Configuring Hyprland page](../../configuring/configuring-hyprland) to learn all
 about configuring Hyprland to your likings.
 
 ## Cursors
