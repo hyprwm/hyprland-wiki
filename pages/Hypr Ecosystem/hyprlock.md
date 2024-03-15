@@ -85,6 +85,29 @@ background {
 }
 ```
 
+### Image
+
+&check; Shadowable
+
+Draws an image.
+
+If `path` is empty or missing, nothing will be shown.
+
+```ini
+image {
+    monitor =
+    path = /home/me/cutie.png
+    size = 150 # lesser side if not 1:1 ratio
+    rounding = -1 # negative values mean circle
+    border_size = 4
+    border_color = rgb(221, 221, 221)
+
+    position = 0, 200
+    halign = center
+    valign = center
+}
+```
+
 ### Input Field
 
 &check; Shadowable
