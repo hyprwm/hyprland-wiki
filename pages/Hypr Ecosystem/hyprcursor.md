@@ -7,6 +7,13 @@ You will need to obtain those yourself. If you are on the discord server, see `#
 
 Put your theme(s) in `~/.local/share/icons` or `~/.icons`
 
+{{< callout type=warning >}}
+
+It's not recommended to put cursor themes in system-wide `/usr/share/icons` due to
+potential permission issues.
+
+{{< /callout >}}
+
 You can set your theme with envvars, or with `hyprctl setcursor`.
 
 Env:
