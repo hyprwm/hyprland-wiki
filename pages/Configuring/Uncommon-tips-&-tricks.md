@@ -32,7 +32,7 @@ while the `fr` layout is active.
 {{< /callout >}}
 
 You can also bind a key to execute `hyprctl switchxkblayout` for more keybind
-freedom. See [Using hyprctl](../Using-hyprctl).
+freedom. See [Using hyprctl](../using-hyprctl).
 
 To find the valid layouts and `kb_options`, you can check out the
 `/usr/share/X11/xkb/rules/base.lst`. For example:
