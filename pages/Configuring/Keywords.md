@@ -1,9 +1,15 @@
-Keywords are not variables, but "commands" for more advanced configuring. On this
-page, you will be presented with some that do not deserve their own page.
+---
+weight: 3
+title: Keywords
+---
 
-See the sidebar for more keywords to control binds, animations, monitors, et cetera.
+Keywords are not variables, but "commands" for more advanced configuring. On
+this page, you will be presented with some that do not deserve their own page.
 
-{{< hint type=important >}}
+See the sidebar for more keywords to control binds, animations, monitors, et
+cetera.
+
+{{< callout >}}
 
 Please remember, that for ALL arguments separated by a comma, if you want to
 leave one of them empty, you cannot reduce the number of commas, _unless told
@@ -19,13 +25,9 @@ three_param_keyword = A, , C # OK
 three_param_keyword = A, B,  # OK
 ```
 
-{{< /hint >}}
+{{< /callout >}}
 
-# Table of contents
-
-{{< toc format=html >}}
-
-# Executing
+## Executing
 
 you can execute a shell script on startup of the compositor or on each time it's
 reloaded.
@@ -34,7 +36,7 @@ reloaded.
 
 `exec=command` will execute on each reload
 
-# Defining variables
+## Defining variables
 
 You can define your own custom variables like this:
 
@@ -60,7 +62,7 @@ You ARE allowed to do this:
 col.active_border=ff$MyRedValue1111
 ```
 
-# Sourcing (multi-file)
+## Sourcing (multi-file)
 
 Use the `source` keyword to source another file.
 
@@ -75,14 +77,14 @@ And Hyprland will enter that file and parse it like a Hyprland config.
 Please note it's LINEAR. Meaning lines above the `source=` will be parsed first,
 then lines inside `~/.config/hypr/myColors.conf`, then lines below.
 
-# Gestures
+## Gestures
 
 Use something like
 [libinput-gestures](https://github.com/bulletmark/libinput-gestures), with
 `hyprctl` if you want to expand Hyprland's gestures beyond what's offered in
-[Variables](../Variables).
+[Variables](../variables).
 
-# Per-device input configs
+## Per-device input configs
 
 Per-device config options will overwrite your options set in the `input`
 section. It's worth noting that ONLY values explicitly changed will be
@@ -111,10 +113,11 @@ touchdevice:transform -> transform
 touchdevice:output -> output
 ```
 
-You can also use the `output` setting for tablets to bind them to outputs. Remember to
-use the name of the `Tablet` and not `Tablet Pad` or `Tablet tool`.
+You can also use the `output` setting for tablets to bind them to outputs.
+Remember to use the name of the `Tablet` and not `Tablet Pad` or `Tablet tool`.
 
 Additional properties only present in per-device configs:
+
 ```plain
 enabled -> (only for mice / touchpads / touchdevices / keyboards) enables / disables the device (connects / disconnects from the on-screen cursor) - default: Enabled
 ```
@@ -130,27 +133,28 @@ device {
 }
 ```
 
-_remember about the space after the end of the device's name (before the `{`)!_
+{{< callout type=info >}}
 
-{{< hint type=info >}}
 Per-device layouts will by default not alter the keybind keymap, so for example with a global keymap of `us`
 and a per-device one of `fr`, the keybinds will still act as if you were on `us`.
 
 You can change this behavior by setting `resolve_binds_by_sym = 1`.
 In that case you'll need to type the symbol specified in the bind to activate it.
-{{< /hint >}}
 
-# Wallpapers
+{{< /callout >}}
+
+## Wallpapers
 
 The hyprland background you see when you first start Hyprland is **NOT A
 WALLPAPER**, it's the default image rendered at the bottom of the render stack.
 
 To set a wallpaper, use a wallpaper utility like
-[hyprpaper](https://github.com/hyprwm/hyprpaper) or [swaybg](https://github.com/swaywm/swaybg). 
+[hyprpaper](https://github.com/hyprwm/hyprpaper) or
+[swaybg](https://github.com/swaywm/swaybg).
 
-More can be found in [Useful Utilities](../../Useful-Utilities).
+More can be found in [Useful Utilities](../../useful-utilities).
 
-# Blurring layerSurfaces
+## Blurring layerSurfaces
 
 LayerSurfaces are not windows. These are for example: Your wallpapers,
 notification overlays, bars, etc.
@@ -177,32 +181,44 @@ For example:
 layerrule = unset,NAMESPACE
 ```
 
-# Setting the environment
+## Setting the environment
 
-{{< hint type=note >}}
-The `env` keyword works just like `exec-once`, meaning it will only fire once on Hyprland's launch.
-{{< /hint >}}
+{{< callout type=info >}}
 
-You can use the `env` keyword to set environment variables at Hyprland's start, e.g.:
+The `env` keyword works just like `exec-once`, meaning it will only fire once on
+Hyprland's launch.
+
+{{< /callout >}}
+
+You can use the `env` keyword to set environment variables at Hyprland's start,
+e.g.:
+
 ```ini
 env = XCURSOR_SIZE,24
 ```
 
-You can also add a `d` flag if you want the env var to be exported to D-Bus (systemd only)
+You can also add a `d` flag if you want the env var to be exported to D-Bus
+(systemd only)
+
 ```ini
 envd = XCURSOR_SIZE,24
 ```
 
-{{< hint type=important >}}
-Hyprland puts the raw string to the envvar. You should _not_ add quotes around the values.
+{{< callout >}}
+
+Hyprland puts the raw string to the envvar. You should _not_ add quotes around
+the values.
 
 e.g.:
+
 ```ini
 env = QT_QPA_PLATFORM,wayland
 ```
 
-and ***NOT***
+and _**NOT**_
+
 ```ini
 env = QT_QPA_PLATFORM,"wayland"
 ```
-{{< /hint >}}
+
+{{< /callout >}}

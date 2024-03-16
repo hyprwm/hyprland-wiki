@@ -1,3 +1,7 @@
+---
+title: Cachix
+---
+
 NOTE: This page only applies to the flake package. You can safely skip this if
 you use the Nixpkgs package.
 
@@ -11,10 +15,12 @@ your Nix configuration.
 The [Hyprland Cachix](https://app.cachix.org/cache/hyprland) exists to cache the
 `hyprland` packages and any dependencies not found in [cache.nixos.org].
 
-{{< hint >}}
+{{< callout >}}
+
 In order for Nix to take advantage of the cache, it has to be enabled **before**
 using the Hyprland flake package.
-{{< /hint >}}
+
+{{< /callout >}}
 
 ```nix
 # configuration.nix
@@ -26,12 +32,10 @@ using the Hyprland flake package.
 }
 ```
 
-{{< hint type=important >}}
-Do **not** override Hyprland's `nixpkgs` input unless you know what you are
-doing.
+{{< callout type=important >}} Do **not** override Hyprland's `nixpkgs` input
+unless you know what you are doing.
 
 Doing so will make the cache useless, since you're building from a different
-Nixpkgs commit.
-{{< /hint >}}
+Nixpkgs commit. {{< /callout >}}
 
 [cache.nixos.org]: https://cache.nixos.org

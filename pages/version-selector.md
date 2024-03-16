@@ -1,0 +1,40 @@
+---
+title: Version selector ⚙️
+weight: 1
+---
+
+Select your preferred wiki version below:
+
+- [Latest Git](https://wiki.hyprland.org/)
+- [v0.37.0](https://wiki.hyprland.org/0.37.0/)
+- [v0.36.0](https://wiki.hyprland.org/0.36.0/)
+- [v0.35.0](https://wiki.hyprland.org/0.35.0/)
+- [v0.34.0](https://wiki.hyprland.org/0.34.0/)
+- [v0.33.1](https://wiki.hyprland.org/0.33.0/)
+- [v0.33.0](https://wiki.hyprland.org/0.33.0/)
+- [v0.32.2](https://wiki.hyprland.org/0.32.1/)
+- [v0.32.1](https://wiki.hyprland.org/0.32.1/)
+- [v0.32.0](https://wiki.hyprland.org/0.32.0/)
+- [v0.31.0](https://wiki.hyprland.org/0.31.0/)
+- [v0.30.0](https://wiki.hyprland.org/0.30.0/)
+- [v0.29.1](https://wiki.hyprland.org/0.29.1/)
+- [v0.29.0](https://wiki.hyprland.org/0.29.0/)
+- [v0.28.0](https://wiki.hyprland.org/0.28.0/)
+- [v0.27.2](https://wiki.hyprland.org/0.27.2/)
+- [v0.27.1](https://wiki.hyprland.org/0.27.1/)
+- [v0.27.0](https://wiki.hyprland.org/0.27.0/)
+- [v0.26.0](https://wiki.hyprland.org/0.26.0/)
+- [v0.25.0](https://wiki.hyprland.org/0.25.0/)
+- [v0.24.1](https://wiki.hyprland.org/0.24.1/)
+- [v0.24.0](https://wiki.hyprland.org/0.24.0/)
+- [v0.23.0beta](https://wiki.hyprland.org/0.23.0beta/)
+- [v0.22.0beta](https://wiki.hyprland.org/0.22.0beta/)
+- [v0.21.0beta](https://wiki.hyprland.org/0.21.0beta/)
+- [v0.20.1beta](https://wiki.hyprland.org/0.20.1beta/)
+- [v0.20.0beta](https://wiki.hyprland.org/0.20.0beta/)
+- [v0.19.2beta](https://wiki.hyprland.org/0.19.2beta/)
+- [v0.19.1beta](https://wiki.hyprland.org/0.19.1beta/)
+- [v0.19.0beta](https://wiki.hyprland.org/0.19.0beta/)
+- [v0.18.0beta](https://wiki.hyprland.org/0.18.0beta/)
+- [v0.17.0beta](https://wiki.hyprland.org/0.17.0beta/)
+- [v0.16.0beta](https://wiki.hyprland.org/0.16.0beta/)

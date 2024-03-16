@@ -1,7 +1,10 @@
-xdg-desktop-portal-hyprland is Hyprland's xdg-desktop-portal implementation.
-It allows for screensharing, global shortcuts, etc.
+---
+weight: 5
+title: xdg-desktop-portal-hyprland
+---
 
-{{< toc >}}
+xdg-desktop-portal-hyprland is Hyprland's xdg-desktop-portal implementation. It
+allows for screensharing, global shortcuts, etc.
 
 ## Configuration
 
@@ -9,4 +12,5 @@ No configuration.
 
 ## Troubleshooting
 
-See the [XDG Desktop Portal wiki page](../../Useful-Utilities/Hyprland-desktop-portal).
+See the
+[XDG Desktop Portal wiki page](../../useful-utilities/xdg-desktop-portal-hyprland).

@@ -1,12 +1,17 @@
+---
+weight: 3
+title: Event list
+---
 
 These are all the events that can be listened to using Event Hooks.
 
 ## Complete list
 
-{{< hint type=note >}}
-M: means std::unordered_map<std::string, std::any>
-following props are members.
-{{</ hint >}}
+{{< callout type=info >}}
+
+M: means std::unordered_map<std::string, std::any> following props are members.
+
+{{</ callout >}}
 
 | name | description | argument(s) | cancellable |
 | --- | --- | --- | --- |

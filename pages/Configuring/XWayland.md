@@ -1,3 +1,8 @@
+---
+weight: 14
+title: XWayland
+---
+
 XWayland is the bridging mechanism between legacy Xorg programs and Wayland
 compositors.
 
@@ -6,8 +11,9 @@ compositors.
 XWayland currently looks pixelated on HiDPI screens, due to Xorg's inability to
 scale.
 
-This problem is mitigated by the [`xwayland:force_zero_scaling`](../../Configuring/Variables/#xwayland)
-option, which forces XWayland windows not to be scaled.
+This problem is mitigated by the
+[`xwayland:force_zero_scaling`](../../configuring/variables/#xwayland) option,
+which forces XWayland windows not to be scaled.
 
 This will get rid of the pixelated look, but will not scale applications
 properly. To do this, each toolkit has its own mechanism.
@@ -28,6 +34,8 @@ env = XCURSOR_SIZE,32
 
 The GDK_SCALE variable won't conflict with Wayland-native GTK programs.
 
-{{< hint type="important" >}}
+{{< callout >}}
+
 XWayland HiDPI patches are no longer supported. Do not use them.
-{{</ hint >}}
+
+{{</ callout >}}

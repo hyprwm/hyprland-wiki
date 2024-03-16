@@ -1,3 +1,7 @@
+---
+title: Hyprland on NixOS
+---
+
 The NixOS module enables critical components needed to run Hyprland properly,
 such as: polkit,
 [xdg-desktop-portal-hyprland](https://github.com/hyprwm/xdg-desktop-portal-hyprland),
@@ -7,12 +11,15 @@ your Display Manager.
 Make sure to check out the options of the
 [NixOS module](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=hyprland).
 
-{{< hint title=Note >}}
-- *(Required) NixOS Module*: enables critical components needed to run Hyprland properly
-- *(Optional) Home-manager module*: lets you declaratively configure Hyprland
-{{< /hint >}}
+{{< callout >}}
 
-{{< tabs "uniqueid" >}}
+- _(Required) NixOS Module_: enables critical components needed to run Hyprland
+  properly
+- _(Optional) Home-manager module_: lets you declaratively configure Hyprland
+
+{{< /callout >}}
+
+{{< tabs items="Nixpkgs,Flake Package, No Flakes (with flake-compat)" >}}
 
 {{< tab "Nixpkgs" >}}
 
@@ -30,13 +37,15 @@ This will use the Hyprland version that Nixpkgs has.
 
 {{< tab "Flake package" >}}
 
-{{< hint >}}
-Please enable [Cachix](../Cachix) before using the flake package, so you don't
-have to compile Hyprland yourself.
-{{< /hint >}}
+{{< callout >}}
 
-In case you want to use the development version of Hyprland, you can add it
-like this:
+Please enable [Cachix](../cachix) before using the flake package, so you don't
+have to compile Hyprland yourself.
+
+{{< /callout >}}
+
+In case you want to use the development version of Hyprland, you can add it like
+this:
 
 ```nix
 # flake.nix
@@ -64,16 +73,19 @@ like this:
   };
 }
 ```
+
 Don't forget to change the `HOSTNAME` to your actual hostname!
 
 {{< /tab >}}
 
 {{< tab "Flake package, Nix stable" >}}
 
-{{< hint >}}
-Please enable [Cachix](../Cachix) before using the flake package, so you don't
+{{< callout >}}
+
+Please enable [Cachix](../cachix) before using the flake package, so you don't
 have to compile Hyprland yourself.
-{{< /hint >}}
+
+{{< /callout >}}
 
 ```nix
 # configuration.nix
@@ -93,8 +105,10 @@ in {
 ```
 
 {{< /tab >}}
+
 {{< /tabs >}}
 
 ## Fixing problems with themes
 
-If your themes for mouse cursor, icons or windows don't load correctly, see the relevant section in [Hyprland on Home Manager](../Hyprland-on-Home-Manager).
+If your themes for mouse cursor, icons or windows don't load correctly, see the
+relevant section in [Hyprland on Home Manager](../hyprland-on-home-manager).

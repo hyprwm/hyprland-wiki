@@ -1,11 +1,17 @@
+---
+weight: 7
+title: Nix
+---
+
 To install Hyprland on NixOS, we provide a NixOS and a Home Manager module.
 
-{{< hint title=Note >}}
+{{< callout title=Note >}}
 
 - _(Required) NixOS Module_: enables critical components needed to run Hyprland
   properly
 - _(Optional) Home-manager module_: lets you declaratively configure Hyprland
-  {{< /hint >}}
+
+{{< /callout >}}
 
 ## NixOS module
 
@@ -26,11 +32,11 @@ Note that the command to run hyprland is `Hyprland` (with a capital `H`) and not
 For more options, see
 [module options](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=hyprland).
 
-For other NixOS options, see [Hyprland on NixOS](./Hyprland-on-NixOS).
+For other NixOS options, see [Hyprland on NixOS](./hyprland-on-nixos).
 
 ## Home-manager module
 
-Read [Hyprland on Home Manager](./Hyprland-on-Home-Manager).
+Read [Hyprland on Home Manager](./hyprland-on-home-manager).
 
 For the adventurous, [@spikespaz](https://github.com/spikespaz) has made a
 Hyprland module that can be used in Home Manager and NixOS. It can be found
@@ -38,4 +44,4 @@ Hyprland module that can be used in Home Manager and NixOS. It can be found
 
 ## Options and overrides
 
-Read [Options & Overrides](./Options-Overrides).
+Read [Options & Overrides](./options--overrides).

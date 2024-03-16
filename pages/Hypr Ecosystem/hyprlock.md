@@ -1,11 +1,16 @@
-hyprlock is a simple, yet fast, multi-threaded and GPU-accelerated screen
-lock for hyprland.
+---
+weight: 4
+title: hyprlock
+---
 
-{{< toc >}}
+hyprlock is a simple, yet fast, multi-threaded and GPU-accelerated screen lock
+for hyprland.
 
 ## Configuration
 
-Configuration is done via the config file at `~/.config/hypr/hyprlock.conf`. It is not required, but recommended. Without it, locking shows the current screen.
+Configuration is done via the config file at `~/.config/hypr/hyprlock.conf`. It
+is not required, but recommended. Without it, locking shows the current screen.
+
 ### General
 
 Variables in the `general` category:
@@ -15,6 +20,7 @@ Variables in the `general` category:
 | hide_cursor | hides the cursor instead of making it visible | bool | true |
 | grace | the amount of seconds for which the lockscreen will unlock on mouse movement. | int | 0 |
 | no_fade_in | disables the fadein animation | bool | false |
+| no_fade_out | disables the fadeout animation | bool | false |
 
 ## Widgets
 
@@ -32,10 +38,16 @@ widget_name {
 ## Widget List
 
 ### General remarks
-- All rendered text supports [pango markup](https://docs.gtk.org/Pango/pango_markup.html).
-   - Additionally hyprlock will parse `<br/>` for your convenience. (That's a linebreak) Remember to enable linebreaks in your spans with `allow_breaks="true"`.
-- Positioning is done via halign, valign and position. Position is an added offset to the result of alignment.
-   - halign: `left`, `center`, `right`, `none`. valign: `top`, `center`, `bottom`, `none`
+
+- All rendered text supports
+  [pango markup](https://docs.gtk.org/Pango/pango_markup.html).
+  - Additionally hyprlock will parse `<br/>` for your convenience. (That's a
+    linebreak) Remember to enable linebreaks in your spans with
+    `allow_breaks="true"`.
+- Positioning is done via halign, valign and position. Position is an added
+  offset to the result of alignment.
+  - halign: `left`, `center`, `right`, `none`. valign: `top`, `center`,
+    `bottom`, `none`
 
 ### Shadowable
 
@@ -51,7 +63,8 @@ Some widgets are shadowable, aka. can have a shadow. For those widgets, you get:
 
 Draws a background image or fills with color.
 
-If `path` is empty or missing, will use `color`. Otherwise, the image will be used.
+If `path` is empty or missing, will use `color`. Otherwise, the image will be
+used.
 
 If `path` is `screenshot`, a screenshot of your desktop at launch will be used.
 
@@ -137,15 +150,23 @@ label {
 Available variables for `text`:
  - `$USER` - username
  - `$TIME` - current time (e.g. `13:37`)
+ - `$FAIL` - last pam fail reason
+ - `$ATTEMPTS` - failed attempts
 
 `text` also supports launching commands, for example:
+
 ```ini
 text = cmd[update:1000] echo "<span foreground='##ff2222'>$(date)</span>"
 ```
+
 Worth noting:
  - `update:` - time is in ms.
  - label can be forcefully updated by specifying `update:<time>:1` or `update:<time>:true` and sending `SIGUSR2` to hyprlock. `<time>` can be `0` in this case
  - Variables seen above are parsed _before_ the command is ran.
+ - `$ATTEMPTS[<string>]` format can be used to show `<string>` when there are no failed attempts. You can use pango-markup here. `<string>` can be empty to hide.
  - **do not** run commands that never exit. This will hang the AsyncResourceGatherer and you won't have a good time.
 
+## User Signals
 
+- `SIGUSR1` - unlocks hyprlock. For example, you can switch to a another tty and run `pkill -USR1 hyprlock`.
+- `SIGUSR2` - updates labels. See above.
