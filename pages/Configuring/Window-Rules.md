@@ -108,7 +108,7 @@ Static rules are evaluated once at window open and never again.
 | center (\[opt\]) | if the window is floating, will center it on the monitor. Set opt as 1 to respect monitor reserved area |
 | pseudo | pseudotiles a window |
 | monitor \[id\] | sets the monitor on which a window should open. `id` can be either id or name (either e.g. `1` or e.g. `DP-1`) |
-| workspace \[w\] | sets the workspace on which a window should open (for workspace syntax, see [dispatchers->workspaces](../dispatchers#workspaces)). You can also make \[w\] to `unset`, will unset all previous workspace rules applied to this window. You can also add `silent` after the workspace to make the window open silently. |
+| workspace \[w\] | sets the workspace on which a window should open (for workspace syntax, see [dispatchers->workspaces](../Dispatchers#workspaces)). You can also make \[w\] to `unset`, will unset all previous workspace rules applied to this window. You can also add `silent` after the workspace to make the window open silently. |
 | nofocus | disables focus to the window |
 | noinitialfocus | disables the initial focus to the window |
 | forceinput | forces an XWayland window to receive input, even if it requests not to do so. (Might fix issues like e.g. Game Launchers not receiving focus for some reason) |
@@ -141,11 +141,11 @@ Dynamic rules are re-evaluated every time a property changes.
 | noshadow | disables shadows for the window |
 | noanim | disables the animations for the window |
 | keepaspectratio | forces aspect ratio when resizing window with the mouse |
-| bordercolor \[c\] | force the bordercolor of the window. Options for c: `color`/`color ... color angle` -> sets the active border color/gradient OR `color color`/`color ... color angle color ... color [angle]` -> sets the active and inactive border color/gradient of the window. See [variables->colors](../variables#variable_types) for color definition. |
+| bordercolor \[c\] | force the bordercolor of the window. Options for c: `color`/`color ... color angle` -> sets the active border color/gradient OR `color color`/`color ... color angle color ... color [angle]` -> sets the active and inactive border color/gradient of the window. See [variables->colors](../Variables#variable-types) for color definition. |
 | idleinhibit \[mode\] | sets an idle inhibit rule for the window. If active, apps like `hypridle` will not fire. Modes: `none`, `always`, `focus`, `fullscreen` |
 | dimaround | dims everything around the window . Please note this rule is meant for floating windows and using it on tiled ones may result in strange behavior. |
 | xray \[on\] | sets blur xray mode for the window (0 for off, 1 for on, unset for default) |
-| immediate | forces the window to allow to be torn. See [the Tearing page](../tearing). |
+| immediate | forces the window to allow to be torn. See [the Tearing page](../Tearing). |
 | nearestneighbor | forces the window to use the nearest neigbor filtering. |
 
 {{< callout type=info >}}

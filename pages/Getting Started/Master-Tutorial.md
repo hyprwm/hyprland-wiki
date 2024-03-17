@@ -12,7 +12,7 @@ necessary.
 
 ## Install Hyprland
 
-See [Installation](../installation) and come back here once you have
+See [Installation](../Installation) and come back here once you have
 successfully installed Hyprland.
 
 Install `kitty` (default terminal emulator) terminal. This is available in most
@@ -22,7 +22,7 @@ distros' repositories.
 
 _If not using an NVIDIA card, skip this step_
 
-Please take a look at [The Nvidia page](../../nvidia) before launching. It has a
+Please take a look at [The Nvidia page](../../Nvidia) before launching. It has a
 lot of info regarding the needed environment and tweaks.
 
 ## VM?
@@ -69,17 +69,17 @@ If you want the best experience with less hassle googling, keep reading.
 
 ## Critical software
 
-See the [Must-have Software page](../../useful-utilities/must-have) for the
+See the [Must-have Software page](../../Useful-Utilities/Must-have) for the
 crucial things to make Wayland / Hyprland / other apps work correctly.
 
 ## Monitors config
 
-See [Configuring Hyprland page](../../configuring/monitors) to learn all about
+See [Configuring Hyprland page](../../Configuring/Monitors) to learn all about
 configuring your displays.
 
 ## Apps / X11 replacements
 
-See the [Useful Utilities page](../../useful-utilities) and the
+See the [Useful Utilities page](../../Useful-Utilities) and the
 [Sway wiki page](https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway)
 just about that. You can also visit the
 [Awesome-Hyprland](https://github.com/hyprland-community/awesome-hyprland)
@@ -88,16 +88,16 @@ repository for a more comprehensive list.
 ## Fully configure
 
 Head onto the
-[Configuring Hyprland page](../../configuring/configuring-hyprland) to learn all
+[Configuring Hyprland page](../../Configuring/Configuring-Hyprland) to learn all
 about configuring Hyprland to your likings.
 
 ## Cursors
 
 Cursors are a notorious pain to set up when you don't know how. See
-[this FAQ entry](../../faq#how-do-i-change-me-mouse-cursor)
+[this FAQ entry](../../FAQ#how-do-i-change-me-mouse-cursor)
 
 If your cursor does not appear, then see
-[this FAQ entry](../../faq#me-cursor-no-render)
+[this FAQ entry](../../FAQ#me-cursor-no-render)
 
 ## Themes
 
@@ -118,7 +118,7 @@ For most electron apps, you should put the above in
 `~/.config/electron-flags.conf`. VSCode is known to not work with that though.
 
 A few more environment variables for forcing Wayland mode are documented
-[here](../../configuring/environment-variables).
+[here](../../Configuring/Environment-variables).
 
 You can check whether an app is running in xwayland or not with
 `hyprctl clients`.

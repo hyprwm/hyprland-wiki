@@ -108,5 +108,5 @@ To force GBM as a backend, set the following environment variables:
   tools such as lxappearance or nwg-look
 - `XCURSOR_THEME` - Set your cursor theme. The theme needs to be installed and
   readable by your user.
-- `XCURSOR_SIZE` - Set cursor size. See [here](../../faq/) for why you might
+- `XCURSOR_SIZE` - Set cursor size. See [here](../../FAQ/) for why you might
   want this variable set.

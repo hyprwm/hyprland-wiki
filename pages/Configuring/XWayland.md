@@ -12,7 +12,7 @@ XWayland currently looks pixelated on HiDPI screens, due to Xorg's inability to
 scale.
 
 This problem is mitigated by the
-[`xwayland:force_zero_scaling`](../../configuring/variables/#xwayland) option,
+[`xwayland:force_zero_scaling`](../Variables/#xwayland) option,
 which forces XWayland windows not to be scaled.
 
 This will get rid of the pixelated look, but will not scale applications

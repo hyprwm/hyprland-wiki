@@ -4,7 +4,7 @@ title: Hyprland on other distros
 
 If you use Nix on distros other than NixOS, you can still use Hyprland.
 
-The best option would be through [Home Manager](../hyprland-on-home-manager).
+The best option would be through [Home Manager](../Hyprland-on-Home-Manager).
 
 However, if Home Manager is not for you, you can use it as a normal package.
 
@@ -25,7 +25,7 @@ nix profile install nixpkgs#hyprland
 
 {{< tab "From the Flake" >}}
 
-NOTE: Make sure to enable [Cachix](../cachix) first.
+NOTE: Make sure to enable [Cachix](../Cachix) first.
 
 ```sh
 nix profile install github:hyprwm/Hyprland

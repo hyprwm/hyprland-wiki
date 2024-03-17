@@ -1,5 +1,5 @@
 ---
-weight: 5
+weight: 6
 title: xdg-desktop-portal-hyprland
 ---
 
@@ -13,4 +13,4 @@ No configuration.
 ## Troubleshooting
 
 See the
-[XDG Desktop Portal wiki page](../../useful-utilities/xdg-desktop-portal-hyprland).
+[XDG Desktop Portal wiki page](../../Useful-Utilities/xdg-desktop-portal-hyprland).

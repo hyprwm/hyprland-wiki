@@ -5,7 +5,7 @@ title: Contributing and Debugging
 
 # Contributing guidelines
 
-PR, code styling and code FAQs are [here](./pr-guidelines)
+PR, code styling and code FAQs are [here](./PR-Guidelines)
 
 For issues, please see
 [the guidelines](https://github.com/hyprwm/Hyprland/blob/main/docs/ISSUE_GUIDELINES.md)

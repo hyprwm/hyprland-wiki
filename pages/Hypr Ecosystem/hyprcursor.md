@@ -1,3 +1,7 @@
+---
+weight: 5
+title: hyprcursor
+---
 hyprcursor is a new cursor theme format that has many advantages
 over the widely used xcursor.
 

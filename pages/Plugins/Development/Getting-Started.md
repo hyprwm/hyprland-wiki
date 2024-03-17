@@ -142,12 +142,12 @@ your plugin in the nested session without worrying about nuking your actual
 session, and also being able to debug it easily.
 
 See more info in
-[the Contributing Section](https://wiki.hyprland.org/Contributing-and-Debugging/#nesting-hyprland)
+[the Contributing Section](../../Contributing-and-Debugging/#nesting-hyprland)
 
 ### More advanced stuff
 
 Take a look at the `src/plugins/PluginAPI.hpp` header. It has comments to every
 method to let you know what it is.
 
-For more explanation on a few concepts, see [Advanced](../advanced) and
-[Plugin Guidelines](../plugin-guidelines)
+For more explanation on a few concepts, see [Advanced](../Advanced) and
+[Plugin Guidelines](../Plugin-Guidelines)

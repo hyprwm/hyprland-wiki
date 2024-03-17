@@ -9,9 +9,9 @@ This just means they are running through XWayland, which physically cannot scale
 by fractional amounts.
 
 To force them to run in wayland-native mode, see
-[the Master Tutorial](../../getting-started/master-tutorial/#force-apps-to-use-wayland).
+[the Master Tutorial](../Getting-Started/Master-Tutorial/#force-apps-to-use-wayland).
 
-If they can't, see [the XWayland page](../../configuring/xwayland).
+If they can't, see [the XWayland page](../Configuring/XWayland).
 
 ### Nothing renders / screen is empty / crash on opening first app
 
@@ -24,11 +24,11 @@ up themes with envvars) to set up your themes.
 
 > Your PC is very, _very_ old.
 
-In that case, see the [Installation Page](../../getting-started/installation)
+In that case, see the [Installation Page](../Getting-Started/Installation)
 and try compiling with LEGACY_RENDERER
 
 _For more info about bugs and crashes, see this_
-_[wiki page](../../crashes-and-bugs)_
+_[wiki page](../Crashes-and-Bugs)_
 
 ### Me cursor no render?
 
@@ -81,13 +81,13 @@ For recording videos, [wf-recorder](https://github.com/ammen99/wf-recorder),
 
 ### Screenshare / OBS no worky
 
-Check [Screensharing](../useful-utilities/screen-sharing).
+Check [Screensharing](../Useful-Utilities/Screen-Sharing).
 
 Also install `qt6-wayland` if you plan to use obs.
 
 ### How do I change my wallpaper?
 
-See [Wallpapers](../useful-utilities/wallpapers).
+See [Wallpapers](../Useful-Utilities/Wallpapers).
 
 ### How heavy is this?
 
@@ -126,8 +126,7 @@ Use a wayland-compatible locking utility using WLR protocols, e.g. `swaylock`.
 
 ### How do I change me mouse cursor?
 
-See [hyprcursor](../hypr-ecosystem/hyprcursor)
-||||||| parent of 0fcc6e5 (treewide: replace hint with callout)
+See [hyprcursor](../Hypr-Ecosystem/hyprcursor)
 1. Set the GTK cursor using [nwg-look](https://github.com/nwg-piotr/nwg-look).
 2. Add `exec-once=hyprctl setcursor [THEME] [SIZE]` to your config and restart Hyprland.
 
@@ -155,7 +154,7 @@ it with the `exec-once` keyword.
 ### Waybar workspaces no worky???
 
 Waybar has a set of caveats or settings that you need to be aware of. See
-[Status bars](../useful-utilities/status-bars) for solutions.
+[Status bars](../Useful-Utilities/Status-Bars) for solutions.
 
 ### How do I autostart my favorite apps?
 
@@ -238,7 +237,7 @@ taste.
 
 ### How do I export envvars for Hyprland?
 
-See [Environment Variables](../configuring/environment-variables)
+See [Environment Variables](../Configuring/Environment-variables)
 
 The `env` keyword is used for this purpose. For example:
 
@@ -289,11 +288,11 @@ copy -> found copied text...). Therefore this method is not recommended.**
 
 ### How to fix games with window dancing?
 
-Read [this trick](../configuring/uncommon-tips--tricks/#window-dancing).
+Read [this trick](../Configuring/Uncommon-tips--tricks/#window-dancing).
 
 ### My apps take a long time to start / can't screenshare
 
-See [The XDPH Page](../useful-utilities/xdg-desktop-portal-hyprland).
+See [The XDPH Page](../Useful-Utilities/xdg-desktop-portal-hyprland).
 
 You most likely have multiple portal impls / an impl is failing to launch.
 
