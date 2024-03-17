@@ -8,24 +8,24 @@ Hyprland working.
 
 ## List of Pages
 
-- **[Must-Have](./must-have)**
+- **[Must-Have](./Must-have)**
 
-- **[Hypr Ecosystem](./hypr-ecosystem)**
+- **[Hypr Ecosystem](./Hypr-Ecosystem)**
 
-- **[Status Bars](./status-bars)**
+- **[Status Bars](./Status-Bars)**
 
-- **[App Launchers](./app-launchers)**
+- **[App Launchers](./App-Launchers)**
 
-- **[Wallpapers](./wallpapers)**
+- **[Wallpapers](./Wallpapers)**
 
-- **[Screen Sharing](./screen-sharing)**
+- **[Screen Sharing](./Screen-Sharing)**
 
-- **[App Clients](./app-clients)**
+- **[App Clients](./App-Clients)**
 
-- **[Color Pickers](./color-pickers)**
+- **[Color Pickers](./Color-Pickers)**
 
-- **[Clipboard Managers](./clipboard-managers)**
+- **[Clipboard Managers](./Clipboard-Managers)**
 
 - **[Hyprland Desktop Portal](./xdg-desktop-portal-hyprland)**
 
-- **[Other](./other)**
+- **[Other](./Other)**

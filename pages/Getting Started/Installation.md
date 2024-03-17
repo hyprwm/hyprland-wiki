@@ -7,7 +7,7 @@ title: Installation
 
 Due to their proprietary nature, Nvidia GPUs have limited compatibility with
 Hyprland. If you want to try Hyprland on Nvidia regardless (many people have
-reported successes), follow the [Nvidia page](../../nvidia) after installing
+reported successes), follow the [Nvidia page](../../Nvidia) after installing
 Hyprland.
 
 ## Distros
@@ -52,7 +52,7 @@ Enable Hyprland in your NixOS configuration:
 programs.hyprland.enable = true;
 ```
 
-For more details, read the [Nix page](../../nix).
+For more details, read the [Nix page](../../Nix).
 
 {{% /details %}}
 
@@ -278,12 +278,12 @@ ninja -C build
 ninja -C build install --tags runtime,man
 ```
 
-Refer to [Debugging](../../contributing-and-debugging) to see how to build &
+Refer to [Debugging](../../Contributing-and-Debugging) to see how to build &
 debug.
 
 ## Crash on launch
 
-See [Crashes and Bugs](../../crashes-and-bugs).
+See [Crashes and Bugs](../../Crashes-and-Bugs).
 
 ## Custom installation (legacy renderer, etc)
 

@@ -19,7 +19,7 @@ _hyprctl_ calls will be dispatched by the compositor _synchronously_, meaning
 any spam of the utility will cause slowdowns. It's recommended to use `--batch`
 for many control calls, and limiting the amount of info calls.
 
-For live event handling, see the [socket2](../../ipc/).
+For live event handling, see the [socket2](../../IPC/).
 
 {{< /callout >}}
 
@@ -293,7 +293,7 @@ hyprctl getoption general:border_size
 hyprctl getoption input:touchpad:disable_while_typing
 ```
 
-See [Variables](../variables) for section and options you can use.
+See [Variables](../Variables) for section and options you can use.
 
 ## Batch
 

@@ -39,7 +39,7 @@ This will use the Hyprland version that Nixpkgs has.
 
 {{< callout >}}
 
-Please enable [Cachix](../cachix) before using the flake package, so you don't
+Please enable [Cachix](../Cachix) before using the flake package, so you don't
 have to compile Hyprland yourself.
 
 {{< /callout >}}
@@ -82,7 +82,7 @@ Don't forget to change the `HOSTNAME` to your actual hostname!
 
 {{< callout >}}
 
-Please enable [Cachix](../cachix) before using the flake package, so you don't
+Please enable [Cachix](../Cachix) before using the flake package, so you don't
 have to compile Hyprland yourself.
 
 {{< /callout >}}
@@ -111,4 +111,4 @@ in {
 ## Fixing problems with themes
 
 If your themes for mouse cursor, icons or windows don't load correctly, see the
-relevant section in [Hyprland on Home Manager](../hyprland-on-home-manager).
+relevant section in [Hyprland on Home Manager](../Hyprland-on-Home-Manager).

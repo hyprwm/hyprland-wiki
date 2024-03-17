@@ -139,7 +139,7 @@ monitor=name,disable
 Disabling a monitor will literally remove it from the layout, moving all windows
 and workspaces to any remaining ones. If you want to disable your monitor in a
 screensaver style (just turn off the monitor) use the `dpms`
-[dispatcher](../dispatchers).
+[dispatcher](../Dispatchers).
 
 {{</ callout >}}
 
@@ -197,7 +197,7 @@ monitor=eDP-1,2880x1800@90,0x0,1,bitdepth,10
 ### VRR
 
 Per-display VRR can be done by adding `,vrr,X` where `X` is the mode from the
-[variables page](../variables).
+[variables page](../Variables).
 
 ## Rotating
 
@@ -241,8 +241,8 @@ This will be done automatically when
 
 ## Default workspace
 
-See [Workspace Rules](../workspace-rules).
+See [Workspace Rules](../Workspace-Rules).
 
 ### Binding workspaces to a monitor
 
-See [Workspace Rules](../workspace-rules).
+See [Workspace Rules](../Workspace-Rules).

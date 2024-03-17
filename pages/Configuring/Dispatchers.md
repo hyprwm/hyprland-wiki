@@ -75,8 +75,8 @@ layout pages (See the sidebar).
 | movegroupwindow | Swaps the active window with the next or previous in a group | `b` for back, anything else for forward |
 | denywindowfromgroup | Prohibit the active window from becoming or being inserted into group | `on`, `off` or, `toggle` |
 | setignoregrouplock | Temporarily enable or disable binds:ignore_group_lock | `on`, `off`, or `toggle` |
-| global | Executes a Global Shortcut using the GlobalShortcuts portal. See [here](../binds/#global-keybinds) | name |
-| submap | Change the current mapping group. See [Submaps](../binds/#submaps) | `reset` or name |
+| global | Executes a Global Shortcut using the GlobalShortcuts portal. See [here](../Binds/#global-keybinds) | name |
+| submap | Change the current mapping group. See [Submaps](../Binds/#submaps) | `reset` or name |
 
 {{< callout type=warning >}}
 

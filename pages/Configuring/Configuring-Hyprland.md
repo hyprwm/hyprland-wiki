@@ -24,7 +24,7 @@ The default config is not complete and does not list all the options / features
 of Hyprland. Please refer to this wiki page and the pages linked further down
 here for full configuration instructions.
 
-**Make sure to read the [Variables](../variables) page as well**. It covers all
+**Make sure to read the [Variables](../Variables) page as well**. It covers all
 the toggleable / numerical options.
 
 {{< /callout >}}
@@ -60,11 +60,11 @@ If you want to escape it (put an actual `#` and not start a comment) you can use
 ## Basic configuring
 
 To configure the "options" of Hyprland, animations, styling, etc. see
-[Variables](../variables).
+[Variables](../Variables).
 
 ## Advanced configuring
 
 Some keywords (binds, curves, execs, monitors, etc.) are not variables but
 define special behavior.
 
-See all of them in [Keywords](../keywords) and the sidebar.
+See all of them in [Keywords](../Keywords) and the sidebar.

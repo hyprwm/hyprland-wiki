@@ -15,7 +15,7 @@ echo $HYPRLAND_INSTANCE_SIGNATURE
 ## /tmp/hypr/\[HIS\]/.socket.sock
 
 Used for hyprctl-like requests. See the
-[Hyprctl page](../configuring/using-hyprctl) for commands.
+[Hyprctl page](../Configuring/Using-hyprctl) for commands.
 
 basically, write `[flag(s)]/command args`.
 

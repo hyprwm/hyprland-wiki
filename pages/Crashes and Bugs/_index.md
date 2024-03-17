@@ -53,7 +53,7 @@ Report an issue on GitHub or on the Discord server.
 
 ## Bugs
 
-First of all, **_READ THE [FAQ PAGE](../faq)_**
+First of all, **_READ THE [FAQ PAGE](../FAQ)_**
 
 If your bug is not listed there, you can ask on the Discord server or open an
 issue on GitHub.
