@@ -44,6 +44,17 @@ have to compile Hyprland yourself.
 
 {{< /callout >}}
 
+{{< callout >}}
+
+If you start experiencing lag and FPS drops in graphical applications such as games or programs like blender on stable NixOS when using the Hyprland flake, it most likely is a compatibility issue with mesa.
+
+Please use the latest mesa version from the unstable nixpkgs channel:
+```nix
+hardware.opengl.package = pkgs-unstable.mesa.drivers;
+hardware.opengl.package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;
+```
+See issue [#5148](https://github.com/hyprwm/Hyprland/issues/5148)
+{{< /callout >}}
 In case you want to use the development version of Hyprland, you can add it like
 this:
 
