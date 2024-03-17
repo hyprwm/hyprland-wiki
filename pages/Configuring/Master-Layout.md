@@ -70,9 +70,11 @@ bind=MOD,KEY,layoutmsg,swapwithmaster master
 
 ## Workspace Rules
 
-`layoutopt` rules: | rule | description | type | | --- | --- | --- | |
-orientation:[o] | Sets the orientation of a workspace. For available
-orientations, see [Config->orientation](#config) | string |
+`layoutopt` rules:
+
+| rule | description | type |
+| --- | --- | --- |
+| orientation:[o] | Sets the orientation of a workspace. For available orientations, see [Config->orientation](#config) | string |
 
 Example usage:
 
