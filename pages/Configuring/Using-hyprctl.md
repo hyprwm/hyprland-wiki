@@ -81,6 +81,9 @@ Kind of like xkill.
 Sets the cursor theme and reloads the cursor manager. Will set the theme for
 everything except GTK, because GTK.
 
+Please note that since 0.37.0, this only accepts hyprcursor themes. For legacy xcursor themes,
+use the `XCURSOR_THEME` and `XCURSOR_SIZE` env vars.
+
 params: theme and size
 
 e.g.:
