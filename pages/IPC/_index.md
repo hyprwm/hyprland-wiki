@@ -65,6 +65,7 @@ e.g.: `workspace>>2`
 | ignoregrouplock | emitted when `ignoregrouplock` is toggled. | `0/1` |
 | lockgroups | emitted when `lockgroups` is toggled. | `0/1` |
 | configreloaded | emitted when the config is done reloading | empty |
+| pin | emitted when a window is pinned or unpinned | `WINDOWADDRESS,PINSTATE` |
 
 {{< callout type=warning >}}
 

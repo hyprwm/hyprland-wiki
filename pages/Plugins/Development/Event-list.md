@@ -49,3 +49,4 @@ M: means std::unordered_map<std::string, std::any> following props are members.
 | configReloaded | emitted after the config is reloaded | nullptr | ✕ |
 | preConfigReload | emitted before a config reload | nullptr | ✕ |
 | keyPress | emitted on a key press | M: `event`:`wlr_keyboard_key_event*`, `keyboard`:`SKeyboard*` | ✔ |
+| pin | emitted when a window is pinned or unpinned | CWindow* | ✕ |
