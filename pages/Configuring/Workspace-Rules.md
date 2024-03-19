@@ -12,6 +12,20 @@ or gaps.
 For layout-specific rules, see the specific layout page. For example:
 [Master Layout->Workspace Rules](../Master-Layout#workspace-rules)
 
+### Workspace selectors
+
+Workspaces that have already been created can be targeted by workspace selectors,
+e.g. `r[2-4] w[t1]`
+
+Selectors have props separated by a space. No spaces are allowed inside props themselves.
+
+Props:
+ - `r[A-B]` - ID range from A to B inclusive
+ - `s[bool]` - Whether the workspace is special or not
+ - `n[bool]`, `n[s:string]`, `n[e:string]` - named actions. `n[bool]` -> whether a workspace is a named workspace, `s` and `e` are starts and ends with respectively
+ - `m[monitor]` - Monitor selector
+ - `w[(flags)A-B]`, `w[(flags)X]` - Prop for window counts on the workspace. A-B is an inclusive range, X is a specific number. Flags can be omitted, or `t` for tiled-only, or `f` for floating-only.
+
 ### Syntax
 
 ```ini
@@ -20,7 +34,8 @@ workspace=WORKSPACE,RULES
 
 - WORKSPACE is a valid workspace identifier (see
   [Dispatchers->Workspaces](../Dispatchers#workspaces)). This field is
-  mandatory;
+  mandatory. This _can be_ a workspace selector, but please note
+  workspace selectors can only match _existing_ workspaces.
 - RULES is one (or more) rule(s) as described here in [rules](#rules).
 
 ### Examples
