@@ -139,12 +139,25 @@ input-field {
     numlock_color = -1
     bothlock_color = -1 # when both locks are active. -1 means don't change outer color (same for above)
     invert_numlock = false # change color if numlock is off
+    swap_font_color = false # see below
 
     position = 0, -20
     halign = center
     valign = center
 }
 ```
+
+{{< callout type=info >}}
+
+#### Colors information
+
+When `outline_thickness` set to `0`, color of the inner box will be changed instead of outer.
+
+Behaviour of `swap_font_color` is as follows:
+ - `outline_thickness` is `0`: if set, font color will be swapped with inner one on color change events (e.g. Caps-lock on or password check).
+ - `outline_thickness` is not `0`: if set, font and inner colors will be swapped on password check and authentication failure.
+
+{{< /callout >}}
 
 Available variables for `fail_text`:
  - `$FAIL` - pam fail reason
