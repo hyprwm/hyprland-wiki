@@ -281,6 +281,7 @@ _Subcategory `input:tablet:`_
 | region_position | position of the mapped region in monitor layout. | vec2 | [0, 0] |
 | region_size | size of the mapped region. When this variable is set, tablet input will be mapped to the region. [0, 0] or invalid size means unset. | vec2 | [0, 0] |
 | relative_input | whether the input should be relative | bool | false |
+| left_handed | if enabled, the tablet will be rotated 180 degrees | bool | false |
 
 ### Per-device input config
 
