@@ -303,9 +303,10 @@ Wayland compositors, you will have to do few tweaks. For Hyprland, you can add
 these window rules to your config to make said programs work with both of your
 screens.
 
-```windowrulev2=float,title:^(flameshot)
+```ini
+windowrulev2=float,title:^(flameshot)
 windowrulev2=move 0 0,title:^(flameshot)
-windowrulev2=nofullscreenrequest,title:^(flameshot)
+windowrulev2=suppressevent fullscreen,title:^(flameshot)
 ```
 
 ### I cannot bind SUPER as my mod key on my laptop
