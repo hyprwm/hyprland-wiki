@@ -419,6 +419,7 @@ Only for developers.
 | suppress_errors | if true, do not display config file parsing errors. | bool | false |
 | watchdog_timeout | sets the timeout in seconds for watchdog to abort processing of a signal of the main thread. Set to 0 to disable. | int | 5 |
 | disable_scale_checks | disables verifying of the scale factors. Will result in pixel alignment and rounding errors. | bool | false |
+| error_limit | limits the number of displayed config file parsing errors. | int | 5 | 
 
 ### More
 
