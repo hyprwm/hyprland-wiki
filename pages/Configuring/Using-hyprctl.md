@@ -285,6 +285,7 @@ animations - gets the current config'd info about animations and beziers
 instances - lists all running instances of hyprland with their info
 layouts - lists all layouts available (including plugin'd ones)
 configerrors - lists all current config parsing errors
+rollinglog - prints tail of the log
 ```
 
 For the getoption command, the option name should be written as
