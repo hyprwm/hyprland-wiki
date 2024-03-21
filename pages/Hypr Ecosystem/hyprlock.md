@@ -188,6 +188,7 @@ Available variables for `text`:
  - `$TIME` - current time (e.g. `13:37`)
  - `$FAIL` - last pam fail reason
  - `$ATTEMPTS` - failed attempts
+ - `$LAYOUT` - current keyboard layout
 
 `text` also supports launching commands, for example:
 
@@ -197,9 +198,10 @@ text = cmd[update:1000] echo "<span foreground='##ff2222'>$(date)</span>"
 
 Worth noting:
  - `update:` - time is in ms.
- - label can be forcefully updated by specifying `update:<time>:1` or `update:<time>:true` and sending `SIGUSR2` to hyprlock. `<time>` can be `0` in this case
- - Variables seen above are parsed _before_ the command is ran.
+ - label can be forcefully updated by specifying `update:<time>:1` or `update:<time>:true` and sending `SIGUSR2` to hyprlock. `<time>` can be `0` in this case.
  - `$ATTEMPTS[<string>]` format can be used to show `<string>` when there are no failed attempts. You can use pango-markup here. `<string>` can be empty to hide.
+ - `$LAYOUT[<str0>,<str1>,...]` format is available to replace indexed layouts. You can use settings from `hyprland.conf`, e.g. `$LAYOUT[en,ru,de]`. Also, single `!` character will hide layout. E.g. `$LAYOUT[!]` will hide default (0 indexed) and show others.
+ - Variables seen above are parsed _before_ the command is ran.
  - **do not** run commands that never exit. This will hang the AsyncResourceGatherer and you won't have a good time.
 
 ## User Signals
