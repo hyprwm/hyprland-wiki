@@ -21,6 +21,7 @@ Variables in the `general` category:
 | grace | the amount of seconds for which the lockscreen will unlock on mouse movement. | int | 0 |
 | no_fade_in | disables the fadein animation | bool | false |
 | no_fade_out | disables the fadeout animation | bool | false |
+| ignore_empty_input | skips validation when empty password is provided | bool | false |
 
 ## Widgets
 
