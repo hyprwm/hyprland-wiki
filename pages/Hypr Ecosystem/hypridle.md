@@ -58,7 +58,7 @@ listener {
     on-resume = brightnessctl -r                 # monitor backlight restor.
 }
 
-# turn off keyboard backlight, uncomment this section if have keyboard backlight.
+# turn off keyboard backlight, comment out this section if you dont have a keyboard backlight.
 listener { 
     timeout = 150                                          # 2.5min.
     on-timeout = brightnessctl -sd rgb:kbd_backlight set 0 # turn off keyboard backlight.
@@ -71,7 +71,7 @@ listener {
 }
 
 listener {
-    timeout = 380                                 # 5.5min
+    timeout = 330                                 # 5.5min
     on-timeout = hyprctl dispatch dpms off        # screen off when timeout has passed
     on-resume = hyprctl dispatch dpms on          # screen on when activity is detected after timeout has fired.
 }
