@@ -27,8 +27,6 @@ for Hyprland's IPC written in Rust
 [hyprshade](https://github.com/loqusion/hyprshade) by _loqusion_: Utility for
 swapping and scheduling screen shaders; also functions as an
 [automatic color temperature shifter](https://en.wikipedia.org/wiki/F.lux).
-(Useful for Nvidia users for whom other color temperature shifting apps do not
-work.)
 
 ### Wireless settings
 - [iwgtk](https://github.com/J-Lentz/iwgtk) by _Jesse Lentz_: WiFi settings frontend for `iwd` in GTK
