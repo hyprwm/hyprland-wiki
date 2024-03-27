@@ -28,9 +28,9 @@ Install `pipewire` and `wireplumber` (**not** `pipewire-media-session`)
 
 #### Non-systemd distros
 
-Since here is no truly standardized way (outside of systemd) to load PipeWire
+Since there is no truly standardized way (outside of systemd) to load PipeWire
 when starting a graphical shell[^1] non-systemd distros like Gentoo or Artix
-provide a decicated launcher.
+provide a dedicated launcher.
 
 It can be usually found by running `whereis <distro>-pipewire-launcher`. If such
 file does not exist on your install please refer to your distro's documentation
