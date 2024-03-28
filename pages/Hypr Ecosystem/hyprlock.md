@@ -177,6 +177,7 @@ label {
     color = rgba(200, 200, 200, 1.0)
     font_size = 25
     font_family = Noto Sans
+    rotate = 0 # angle (clockwise), possible values 90, 180, 270/-90
 
     position = 0, 80
     halign = center
