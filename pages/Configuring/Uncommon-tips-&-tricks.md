@@ -10,10 +10,13 @@ example:
 
 ```
 input {
-    kb_layout = us,pl
+    kb_layout = us,cz
+    kb_variant = ,qwerty
     kb_options = grp:alt_shift_toggle
 }
 ```
+
+Variants are set per layout.
 
 {{< callout >}}
 
