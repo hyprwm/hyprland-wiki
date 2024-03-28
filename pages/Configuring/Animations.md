@@ -92,3 +92,11 @@ specify a movement percentage. For example, the following will make windows move
 ```ini
 animation=workspaces,1,8,default,slidefade 20%
 ```
+
+For animation style `slide` in windows and layers you can specify a forced side, e.g.:
+
+```ini
+animation=windows,1,8,default,slide left
+```
+
+You can use `top`, `bottom`, `left` or `right`.
