@@ -80,6 +80,16 @@ Skipping over some example handlers, we have two important functions:
 APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle) {
     PHANDLE = handle;
 
+    const std::string HASH = __hyprland_api_get_hash();
+
+    // ALWAYS add this to your plugins. It will prevent random crashes coming from
+    // mismatched header versions.
+    if (HASH != GIT_COMMIT_HASH) {
+        HyprlandAPI::addNotification(PHANDLE, "[MyPlugin] Mismatched headers! Can't proceed.",
+                                     CColor{1.0, 0.2, 0.2, 1.0}, 5000);
+        throw std::runtime_error("[MyPlugin] Version mismatch");
+    }
+
     // ...
 
     return {"MyPlugin", "An amazing plugin that is going to change the world!", "Me", "1.0"};
@@ -127,12 +137,6 @@ Make a copy of your config in `~/.config/hypr` called `hyprlandd.conf`.
 Remove _all_ `exec=` or `exec-once=` directives from your config.
 
 _recommended_: Change the modifier for your keybinds (e.g. `SUPER` -> `ALT`)
-
-Add this line:
-
-```ini
-monitor = WL-1, 1920x1080, 0x0, 1
-```
 
 Launch the output `Hyprland` binary in `./build/` _when logged into a Hyprland
 session_.
