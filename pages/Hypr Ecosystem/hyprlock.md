@@ -102,6 +102,7 @@ image {
     rounding = -1 # negative values mean circle
     border_size = 4
     border_color = rgb(221, 221, 221)
+    rotate = 0 # degrees, counter-clockwise
 
     position = 0, 200
     halign = center
@@ -177,6 +178,7 @@ label {
     color = rgba(200, 200, 200, 1.0)
     font_size = 25
     font_family = Noto Sans
+    rotate = 0 # degrees, counter-clockwise
 
     position = 0, 80
     halign = center
