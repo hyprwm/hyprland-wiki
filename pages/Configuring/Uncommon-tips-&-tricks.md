@@ -125,7 +125,7 @@ windowrule=windowdance,title:^(Rhythm Doctor)$
 
 Click the GIF below to see a full demo video
 
-[![Demo GIF of Rhythm Doctor](https://pool.jortage.com/voringme/misskey/565b9dfb-125f-4ea0-9257-b371cb4c7195.mp4)](https://pool.jortage.com/voringme/misskey/565b9dfb-125f-4ea0-9257-b371cb4c7195.mp4)
+[![Demo GIF of Rhythm Doctor](https://github.com/hyprwm/hyprland-wiki/assets/36706276/6a3d306e-366e-48df-aec2-5e16bb143625)](https://pool.jortage.com/voringme/misskey/565b9dfb-125f-4ea0-9257-b371cb4c7195.mp4)
 
 ### Shimeji
 
