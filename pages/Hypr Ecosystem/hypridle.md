@@ -55,7 +55,7 @@ general {
 listener {
     timeout = 150                                # 2.5min.
     on-timeout = brightnessctl -s set 10         # set monitor backlight to minimum, avoid 0 on OLED monitor.
-    on-resume = brightnessctl -r                 # monitor backlight restor.
+    on-resume = brightnessctl -r                 # monitor backlight restore.
 }
 
 # turn off keyboard backlight, comment out this section if you dont have a keyboard backlight.
