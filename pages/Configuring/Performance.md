@@ -33,4 +33,4 @@ case, remove it completely.
 
 ## My games work poorly, especially proton ones
 
-Use `gamescope`, tends to fix any and all issues with wayland/Hyprland.
+Using `gamescope` tends to fix any and all issues with Wayland/Hyprland.
