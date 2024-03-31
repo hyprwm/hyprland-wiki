@@ -70,8 +70,8 @@ For now, the supported fields are:
 ```ini
 class - class regex 
 title - title regex
-initialClass - initialClass regex
-initialTitle - initialTitle regex
+initialclass - initialClass regex
+initialtitle - initialTitle regex
 xwayland - 0/1
 floating - 0/1
 fullscreen - 0/1
@@ -82,6 +82,11 @@ onworkspace - id, name: and name, or workspace selector (see Workspace Rules)
 ```
 
 Keep in mind that you _have_ to declare at least one field, but not all.
+
+{{< callout type=warning >}}
+Please beware that `hyprctl clients` display the field as **initialClass** while the WINDOW field in the configuration uses `initialclass`.
+
+{{< /callout >}}
 
 {{< callout type=info >}}
 
