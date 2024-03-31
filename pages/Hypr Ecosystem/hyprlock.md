@@ -187,7 +187,8 @@ label {
 ```
 
 Available variables for `text`:
- - `$USER` - username
+ - `$USER` - username (e.g. linux-user)
+ - `$DESC` - user description (e.g. Linux User)
  - `$TIME` - current time (e.g. `13:37`)
  - `$FAIL` - last pam fail reason
  - `$ATTEMPTS` - failed attempts

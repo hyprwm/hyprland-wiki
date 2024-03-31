@@ -20,17 +20,19 @@ Variants are set per layout.
 
 {{< callout >}}
 
-The first layout defined in the input section will be the one used for binds by default.
+The first layout defined in the input section will be the one used for binds by
+default.
 
 For example: `us,ua` -> config binds would be e.g. `SUPER, A`, while on `ua,us`
 -> `SUPER, Cyrillic_ef`
 
-You can change this behavior globally or per-device by setting `resolve_binds_by_sym = 1`.
-In that case, binds will activate when the symbol typed matches the symbol specified in the bind.
+You can change this behavior globally or per-device by setting
+`resolve_binds_by_sym = 1`. In that case, binds will activate when the symbol
+typed matches the symbol specified in the bind.
 
-For example: if your layouts are `us,fr` and have a bind for `SUPER, A` you'd need to press the
-first letter on the second row while the `us` layout is active and the first letter on the first row
-while the `fr` layout is active.
+For example: if your layouts are `us,fr` and have a bind for `SUPER, A` you'd
+need to press the first letter on the second row while the `us` layout is active
+and the first letter on the first row while the `fr` layout is active.
 
 {{< /callout >}}
 
@@ -123,7 +125,7 @@ windowrule=windowdance,title:^(Rhythm Doctor)$
 
 Click the GIF below to see a full demo video
 
-[![Demo GIF of Rhythm Doctor](https://cdn.discordapp.com/attachments/810799100940255260/1032843745864986644/ezgif.com-gif-maker18.gif)](https://pool.jortage.com/voringme/misskey/565b9dfb-125f-4ea0-9257-b371cb4c7195.mp4)
+[![Demo GIF of Rhythm Doctor](https://github.com/hyprwm/hyprland-wiki/assets/36706276/6a3d306e-366e-48df-aec2-5e16bb143625)](https://pool.jortage.com/voringme/misskey/565b9dfb-125f-4ea0-9257-b371cb4c7195.mp4)
 
 ### Shimeji
 
@@ -146,7 +148,7 @@ kill them.
 
 {{< /callout >}}
 
-![Demo GIF of Spamton Shimeji](https://media.discordapp.net/attachments/810799100940255260/1032846469855727656/ezgif.com-gif-maker19.gif)
+![Demo GIF of Spamton Shimeji](https://github.com/hyprwm/hyprland-wiki/assets/36706276/261afd03-bf41-4513-b72b-3483d43d418c)
 
 ## Toggle animations/blur/etc hotkey
 

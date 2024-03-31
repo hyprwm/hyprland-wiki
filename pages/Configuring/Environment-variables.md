@@ -41,20 +41,20 @@ environment on traditional Linux distros.
 
 ## Toolkit Backend Variables
 
-- `GDK_BACKEND=wayland,x11` - GTK: Use wayland if available, fall back to x11 if
+- `env = GDK_BACKEND,wayland,x11` - GTK: Use wayland if available, fall back to x11 if
   not.
-- `QT_QPA_PLATFORM="wayland;xcb"` - Qt: Use wayland if available, fall back to
+- `env = QT_QPA_PLATFORM,wayland;xcb` - Qt: Use wayland if available, fall back to
   x11 if not.
-- `SDL_VIDEODRIVER=wayland` - Run SDL2 applications on Wayland. Remove or set to
+- `env = SDL_VIDEODRIVER,wayland` - Run SDL2 applications on Wayland. Remove or set to
   `x11` if games that provide older versions of SDL cause compatibility issues
-- `CLUTTER_BACKEND=wayland` - Clutter package already has wayland enabled, this
+- `env = CLUTTER_BACKEND,wayland` - Clutter package already has wayland enabled, this
   variable will force Clutter applications to try and use the Wayland backend
 
 ## XDG Specifications
 
-- `XDG_CURRENT_DESKTOP=Hyprland`
-- `XDG_SESSION_TYPE=wayland`
-- `XDG_SESSION_DESKTOP=Hyprland`
+- `env = XDG_CURRENT_DESKTOP,Hyprland`
+- `env = XDG_SESSION_TYPE,wayland`
+- `env = XDG_SESSION_DESKTOP,Hyprland`
 
 XDG specific environment variables are often detected through portals and
 applications that may set those for you, however it is not a bad idea to set
@@ -62,28 +62,28 @@ them explicitly.
 
 ## Qt Variables
 
-- `QT_AUTO_SCREEN_SCALE_FACTOR=1` -
+- `env = QT_AUTO_SCREEN_SCALE_FACTOR,1` -
   [(From the Qt documentation)](https://doc.qt.io/qt-5/highdpi.html) enables
   automatic scaling, based on the monitor's pixel density
-- `QT_QPA_PLATFORM=wayland;xcb` - Tell Qt applications to use the Wayland
+- `env = QT_QPA_PLATFORM,wayland;xcb` - Tell Qt applications to use the Wayland
   backend, and fall back to x11 if Wayland is unavailable
-- `QT_WAYLAND_DISABLE_WINDOWDECORATION=1` - Disables window decorations on Qt
+- `env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1` - Disables window decorations on Qt
   applications
-- `QT_QPA_PLATFORMTHEME=qt5ct` - Tells Qt based applications to pick your theme
+- `env = QT_QPA_PLATFORMTHEME,qt5ct` - Tells Qt based applications to pick your theme
   from qt5ct, use with Kvantum.
 
 ## NVIDIA Specific
 
 To force GBM as a backend, set the following environment variables:
 
-- `GBM_BACKEND=nvidia-drm`
-- `__GLX_VENDOR_LIBRARY_NAME=nvidia`
+- `env = GBM_BACKEND,nvidia-drm`
+- `env = __GLX_VENDOR_LIBRARY_NAME,nvidia`
 
 > See
 > [Archwiki Wayland Page](https://wiki.archlinux.org/title/Wayland#Requirements)
 > for more details on those variables.
 
-- `LIBVA_DRIVER_NAME=nvidia` - Hardware acceleration on NVIDIA GPUs
+- `env = LIBVA_DRIVER_NAME,nvidia` - Hardware acceleration on NVIDIA GPUs
 
 > See
 > [Archwiki Hardware Acceleration Page](https://wiki.archlinux.org/title/Hardware_video_acceleration)
@@ -99,7 +99,7 @@ To force GBM as a backend, set the following environment variables:
 - `__GL_VRR_ALLOWED` - Controls if Adaptive Sync should be used. Recommended to
   set as "0" to avoid having problems on some games.
 
-- `WLR_DRM_NO_ATOMIC=1` - use legacy DRM interface instead of atomic mode
+- `env = WLR_DRM_NO_ATOMIC,1` - use legacy DRM interface instead of atomic mode
   setting. Might fix flickering issues.
 
 ## Theming Related Variables
