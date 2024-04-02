@@ -103,6 +103,8 @@ image {
     border_size = 4
     border_color = rgb(221, 221, 221)
     rotate = 0 # degrees, counter-clockwise
+    reload_time = -1 # seconds between reloading, 0 to reload with SIGURS2
+    reload_cmd =  # command to get new path. if empty, old path will be used. don't run "follow" commands like tail -F
 
     position = 0, 200
     halign = center
@@ -211,4 +213,4 @@ Worth noting:
 ## User Signals
 
 - `SIGUSR1` - unlocks hyprlock. For example, you can switch to a another tty and run `pkill -USR1 hyprlock`.
-- `SIGUSR2` - updates labels. See above.
+- `SIGUSR2` - updates labels and images. See above.
