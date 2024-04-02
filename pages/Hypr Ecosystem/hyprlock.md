@@ -103,7 +103,7 @@ image {
     border_size = 4
     border_color = rgb(221, 221, 221)
     rotate = 0 # degrees, counter-clockwise
-    reload_time = -1 # seconds between reloading, 0 to reload with SIGURS2
+    reload_time = -1 # seconds between reloading, 0 to reload with SIGUSR2
     reload_cmd =  # command to get new path. if empty, old path will be used. don't run "follow" commands like tail -F
 
     position = 0, 200
