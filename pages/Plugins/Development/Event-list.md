@@ -50,3 +50,6 @@ M: means std::unordered_map<std::string, std::any> following props are members.
 | preConfigReload | emitted before a config reload | nullptr | ✕ |
 | keyPress | emitted on a key press | M: `event`:`wlr_keyboard_key_event*`, `keyboard`:`SKeyboard*` | ✔ |
 | pin | emitted when a window is pinned or unpinned | CWindow* | ✕ |
+| swipeBegin | emitted when a touchpad swipe is commenced | `wlr_pointer_swipe_begin_event*` | ✔ |
+| swipeUpdate | emitted when a touchpad swipe is updated | `wlr_pointer_swipe_update_event*` | ✔ |
+| swipeEnd | emitted when a touchpad swipe is ended | `wlr_pointer_swipe_end_event*` | ✔ |
