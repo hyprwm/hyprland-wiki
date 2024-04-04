@@ -32,6 +32,7 @@ To run hyprpaper at startup edit `hyprland.conf` and add:
 | --- | --- | --- | --- |
 | splash | enable rendering of the hyprland splash over the wallpaper | bool | false |
 | splash_offset | how far (in % of height) up should the splash be displayed | float | 2.0 |
+| splash_color | color to use when rendering splash | color | 55ffffff |
 | ipc | whether to enable IPC | bool | true |
 
 ## IPC
