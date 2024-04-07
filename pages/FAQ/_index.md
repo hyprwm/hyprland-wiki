@@ -32,7 +32,7 @@ _[wiki page](../Crashes-and-Bugs)_
 
 ### Me cursor no render?
 
-Are you on NVIDIA? If so, then you have been a naughty boy and haven't listened
+Are you on NVIDIA? If so, then you have been naughty and haven't listened
 to my tips on other pages. Use the `WLR_NO_HARDWARE_CURSORS=1` environment
 variable.
 

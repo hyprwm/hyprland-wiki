@@ -18,9 +18,9 @@ M: means std::unordered_map<std::string, std::any> following props are members.
 | tick | fired on a tick, meaning once per (1000 / highestMonitorHz) ms | nullptr | ✕ |
 | activeWindow | fired on active window change | CWindow* | ✕ |
 | keyboardFocus | fired on keyboard focus change. Contains the newly focused surface | wlr_surface* | ✕ |
-| moveWorkspace | fired when a workspace changes its monitor | std::vector<void*>{CWorkspace*, CMonitor*} | ✕ |
+| moveWorkspace | fired when a workspace changes its monitor | std::vector<std::any>{CWorkspace*, PHLWORKSPACE} | ✕ |
 | focusedMon | fired on monitor focus change | CMonitor* | ✕ |
-| moveWindow | fired when a window changes workspace | std::vector<void*>{CWindow*, CWorkspace*} | ✕ |
+| moveWindow | fired when a window changes workspace | std::vector<std::any>{CWindow*, PHLWORKSPACE} | ✕ |
 | openLayer | fired when a LS is mapped | CLayerSurface* | ✕ |
 | closeLayer | fired when a LS is unmapped | CLayerSurface* | ✕ |
 | openWindow | fired when a window is mapped | CWindow* | ✕ |
@@ -50,3 +50,6 @@ M: means std::unordered_map<std::string, std::any> following props are members.
 | preConfigReload | emitted before a config reload | nullptr | ✕ |
 | keyPress | emitted on a key press | M: `event`:`wlr_keyboard_key_event*`, `keyboard`:`SKeyboard*` | ✔ |
 | pin | emitted when a window is pinned or unpinned | CWindow* | ✕ |
+| swipeBegin | emitted when a touchpad swipe is commenced | `wlr_pointer_swipe_begin_event*` | ✔ |
+| swipeUpdate | emitted when a touchpad swipe is updated | `wlr_pointer_swipe_update_event*` | ✔ |
+| swipeEnd | emitted when a touchpad swipe is ended | `wlr_pointer_swipe_end_event*` | ✔ |

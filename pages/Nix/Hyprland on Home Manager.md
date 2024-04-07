@@ -195,3 +195,24 @@ gtk = {
   };
 };
 ```
+
+## Programs don't work in systemd services, but do on the terminal
+
+This problem is related to Systemd not importing the environment by default. It
+will not have knowledge of `PATH`, so it cannot run the commands in the
+services. This is the most common with user-configured services such as
+`hypridle` or `swayidle`.
+
+To fix it, add to your config:
+
+```nix
+wayland.windowManager.hyprland.systemd.variables = ["--all"];
+```
+
+This setting will produce the following entry in the Hyprland config:
+
+```ini
+exec-once = dbus-update-activation-environment --systemd --all
+```
+
+Make sure to use the above command if you do not use the Home Manager module.
