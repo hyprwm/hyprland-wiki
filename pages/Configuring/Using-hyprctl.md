@@ -126,7 +126,8 @@ Sets the xkb layout index for a keyboard.
 For example, if you set:
 
 ```ini
-device:my-epic-keyboard-v1 {
+device {
+    name=my-epic-keyboard-v1
     kb_layout=us,pl,de
 }
 ```
