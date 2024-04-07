@@ -132,7 +132,7 @@ Dynamic rules are re-evaluated every time a property changes.
 
 | Rule | Description |
 | ---- | ----------- |
-| opacity \[a\] | additional opacity multiplier. Options for a: `float` -> sets an opacity OR `float float` -> sets activeopacity and inactiveopacity respectively. You can also add `override` after an opacity to make it override instead of a multiplier. (e.g. `1.0 override 0.5 override`) |
+| opacity \[a\] | additional opacity multiplier. Options for a: `float` -> sets an overall opacity OR `float float` -> sets activeopacity and inactiveopacity respectively, OR `float float float` -> sets activeopacity, inactiveopacity and fullscreenopacity respectively. |
 | opaque | forces the window to be opaque (can be toggled with the toggleopaque dispatcher) |
 | forcergbx | makes hyprland ignore the alpha channel of all the window's surfaces, effectively making it _actually, fully 100% opaque_ |
 | animation \[style\] (\[opt\]) | forces an animation onto a window, with a selected opt. Opt is optional. |
@@ -188,7 +188,7 @@ windowrule = noblur,^(firefox)$ # disables blur for firefox
 windowrule = move cursor -50% -50%,^(kitty)$ # moves kitty to the center of the cursor
 windowrulev2 = bordercolor rgb(FF0000) rgb(880808),fullscreen:1 # set bordercolor to red if window is fullscreen
 windowrulev2 = bordercolor rgb(FFFF00),title:^(.*Hyprland.*)$ # set bordercolor to yellow when title contains Hyprland
-windowrule = opacity 1.0 override 0.5 override,^(kitty)$ # set opacity to 1.0 active and 0.5 inactive for kitty
+windowrule = opacity 1.0 override 0.5 override 0.8 override,^(kitty)$ # set opacity to 1.0 active, 0.5 inactive and 0.8 fullscreen for kitty
 windowrule = rounding 10,^(kitty)$ # set rounding to 10 for kitty
 windowrulev2 = stayfocused, class:^(pinentry-) # fix pinentry losing focus
 ```
@@ -209,8 +209,8 @@ windowrulev2 = opacity 0.8 0.8,class:^(kitty)$
 windowrulev2 = opacity 0.5 0.5,floating:1
 ```
 
--> all kitty windows will have opacity 0.8, except if they are floating. Then
-they will have opacity 0.5. -> all floating windows will have opacity 0.5.
+-> all non-fullscreen kitty windows will have opacity 0.8, except if they are floating. Then
+they will have opacity 0.5. -> all non-fullscreen floating windows will have opacity 0.5.
 
 ```ini
 windowrulev2 = opacity 0.5 0.5,floating:1
@@ -222,11 +222,17 @@ other floating windows will have opacity 0.5.
 
 {{< callout type=info >}}
 
-Opacity is _always_ a PRODUCT of all opacities. E.g. `active_opacity` to 0.5 and
+Opacity is a PRODUCT of all opacities by default. E.g. `active_opacity` to 0.5 and
 windowrule opacity to 0.5 will result in a total opacity 0.25. You are allowed
 to set opacities over 1, but any opacity product over 1 will cause graphical
 glitches. E.g. `0.5 * 2 = 1`, and it will be fine, `0.5 * 4` will cause
-graphical glitches.
+graphical glitches. You can use `override` after an opacity to make it override
+instead of a multiplier. E.g. to set active and inactive opacity to 0.8,
+and make fullscreen fully opaque regardless of other opacity rules:
+
+```ini
+windowrulev2 = opacity 0.8 override 0.8 override 1.0 override,^(kitty)$
+```
 
 {{< /callout >}}
 

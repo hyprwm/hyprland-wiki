@@ -210,6 +210,8 @@ Prop List:
 | alpha | float 0.0 - 1.0 |
 | alphainactiveoverride | 0/1, makes the next setting be override instead of multiply |
 | alphainactive | float 0.0 - 1.0 |
+| alphafullscreenoverride | 0/1, makes the next setting be override instead of multiply |
+| alphafullscreen | float 0.0 - 1.0 |
 | activebordercolor | color, -1 means not set |
 | inactivebordercolor | color, -1 means not set |
 

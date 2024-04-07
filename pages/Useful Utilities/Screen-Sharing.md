@@ -37,7 +37,7 @@ the same effect. See
 more information. For example:
 
 ```ini
-windowrulev2 = opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$
+windowrulev2 = opacity 0.0 override,class:^(xwaylandvideobridge)$
 windowrulev2 = noanim,class:^(xwaylandvideobridge)$
 windowrulev2 = noinitialfocus,class:^(xwaylandvideobridge)$
 windowrulev2 = maxsize 1 1,class:^(xwaylandvideobridge)$
