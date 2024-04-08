@@ -30,9 +30,7 @@ The following keys and key-combinations describe hyprlocks default behaviour:
 | -- | -- |
 | ESC | Clear password buffer |
 | Ctrl + u | Clear password buffer |
-| Ctrl + BackSpace | Clear password buffer |
-| Enter / Return | start authentication |
-| BackSpace | remove character from input buffer |
+| Ctrl + Backspace | Clear password buffer |
 
 ## Widgets
 
