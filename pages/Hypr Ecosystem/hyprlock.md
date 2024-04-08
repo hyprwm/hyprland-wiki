@@ -23,6 +23,15 @@ Variables in the `general` category:
 | no_fade_out | disables the fadeout animation | bool | false |
 | ignore_empty_input | skips validation when empty password is provided | bool | false |
 
+## Keyboard Shortcuts and Actions
+
+The following keys and key-combinations describe hyprlocks default behaviour:
+| input | description | 
+| -- | -- |
+| ESC | Clear password buffer |
+| Ctrl + u | Clear password buffer |
+| Ctrl + Backspace | Clear password buffer |
+
 ## Widgets
 
 The entire configuration of how hyprlock looks is done via widgets.
