@@ -22,6 +22,7 @@ Variables in the `general` category:
 | no_fade_in | disables the fadein animation | bool | false |
 | no_fade_out | disables the fadeout animation | bool | false |
 | ignore_empty_input | skips validation when empty password is provided | bool | false |
+| pam_module | sets the pam module used for authentication. If the module isn't found in `/etc/pam.d`, "su" will be used as a fallback | str | hyprlock |
 
 ## Widgets
 
@@ -162,6 +163,9 @@ Behaviour of `swap_font_color` is as follows:
  - `outline_thickness` is not `0`: if set, font and inner colors will be swapped on password check and authentication failure.
 
 {{< /callout >}}
+
+Available variables for `placeholder_text`:
+ - `$PROMPT` - prompt text provided by pam. Usually this will be "Password: ", but it depends on your pam configuration.
 
 Available variables for `fail_text`:
  - `$FAIL` - pam fail reason
