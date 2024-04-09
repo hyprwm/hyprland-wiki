@@ -212,8 +212,8 @@ Prop List:
 | alphainactive | float 0.0 - 1.0 |
 | alphafullscreenoverride | 0/1, makes the next setting be override instead of multiply |
 | alphafullscreen | float 0.0 - 1.0 |
-| activebordercolor | color, -1 means not set |
-| inactivebordercolor | color, -1 means not set |
+| activebordercolor | gradient, -1 means not set |
+| inactivebordercolor | gradient, -1 means not set |
 
 ```sh
 hyprctl setprop address:0x13371337 forcenoanims 1 lock  # with locking
