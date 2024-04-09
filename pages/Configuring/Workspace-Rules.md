@@ -24,7 +24,7 @@ Props:
  - `s[bool]` - Whether the workspace is special or not
  - `n[bool]`, `n[s:string]`, `n[e:string]` - named actions. `n[bool]` -> whether a workspace is a named workspace, `s` and `e` are starts and ends with respectively
  - `m[monitor]` - Monitor selector
- - `w[(flags)A-B]`, `w[(flags)X]` - Prop for window counts on the workspace. A-B is an inclusive range, X is a specific number. Flags can be omitted, or `t` for tiled-only, or `f` for floating-only.
+ - `w[(flags)A-B]`, `w[(flags)X]` - Prop for window counts on the workspace. A-B is an inclusive range, X is a specific number. Flags can be omitted. It can be `t` for tiled-only, `f` for floating-only, and `g` to count groups instead of windows.
 
 ### Syntax
 
@@ -43,6 +43,7 @@ workspace=WORKSPACE,RULES
 ```ini
 workspace=name:myworkspace,gapsin:0,gapsout:0
 workspace=3,rounding:false,bordersize:0
+workspace=w[tg1-4],shadow:false
 ```
 
 ## Rules
