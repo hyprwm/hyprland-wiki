@@ -206,7 +206,7 @@ envd = XCURSOR_SIZE,24
 
 {{< callout >}}
 
-Hyprland puts the raw string to the envvar. You should _not_ add quotes around
+Hyprland puts the raw string to the env var. You should _not_ add quotes around
 the values.
 
 e.g.:
