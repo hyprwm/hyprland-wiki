@@ -196,6 +196,7 @@ Available variables for `text`:
  - `$USER` - username (e.g. linux-user)
  - `$DESC` - user description (e.g. Linux User)
  - `$TIME` - current time (e.g. `13:37`)
+ - `$PROMPT` - last pam prompt
  - `$FAIL` - last pam fail reason
  - `$ATTEMPTS` - failed attempts
  - `$LAYOUT` - current keyboard layout
