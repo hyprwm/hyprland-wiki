@@ -380,7 +380,8 @@ If the pop-up doesn't open at the cursor position, try the following:
 windowrulev2 = move onscreen cursor, title:^(TITLE)$, class:^(CLASS)$
 ```
 
-There is usually no need to use the first solution if opening at the cursor position.
+This is required for apps running under xwayland only and there is usually no need
+to use the first solution if opening at the cursor position.
 
 ### Steam's file picker no worky
 
