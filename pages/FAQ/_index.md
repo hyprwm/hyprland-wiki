@@ -342,7 +342,7 @@ keybinds and passes them on to the vm.
 
 Then, pressing `SUPER + Escape` will leave that mode.
 
-### Some of my drop-down/pop-up windows in apps disappear
+### Some of my drop-down/pop-up windows in apps disappear/don't open at cursor position
 
 In some apps like Steam or VSCode, the drop-down windows may disappear if you
 hover over them. This can be fixed with window rules.
@@ -373,6 +373,15 @@ If the pop-up disappears immediately, you can use:
 ```ini
 windowrulev2 = minsize 1 1, title:^(TITLE)$, class:^(CLASS)$
 ```
+
+If the pop-up doesn't open at the cursor position, try the following:
+
+```ini
+windowrulev2 = move onscreen cursor, title:^(TITLE)$, class:^(CLASS)$
+```
+
+This is required for apps running under xwayland only and there is usually no need
+to use the first solution if opening at the cursor position.
 
 ### Steam's file picker no worky
 
