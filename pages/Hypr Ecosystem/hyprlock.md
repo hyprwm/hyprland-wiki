@@ -121,6 +121,29 @@ image {
 }
 ```
 
+### Shape
+
+&check; Shadowable
+
+Draws a shape beneath all other widgets but background.
+
+```ini
+shape {
+    monitor =
+    size = 360, 60
+    color = rgba(17, 17, 17, 1.0)
+    rounding = -1
+    border_size = 8
+    border_color = rgba(0, 207, 230, 1.0)
+    rotate = 0
+    xray = false # if true, make a "hole" in the background (rectangle of specified size, no rotation)
+
+    position = 0, 80
+    halign = center
+    valign = center
+}
+```
+
 ### Input Field
 
 &check; Shadowable
