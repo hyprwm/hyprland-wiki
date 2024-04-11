@@ -305,8 +305,7 @@ Described [here](../Keywords#per-device-input-configs).
 | workspace_swipe_direction_lock | if enabled, switching direction will be locked when you swipe past the `direction_lock_threshold` (touchpad only). | bool | true |
 | workspace_swipe_direction_lock_threshold | in px, the distance to swipe before direction lock activates (touchpad only). | int | 10 |
 | workspace_swipe_forever | if enabled, swiping will not clamp at the neighboring workspaces but continue to the further ones. | bool | false |
-| workspace_swipe_numbered | if enabled, swiping will swipe on consecutive numbered workspaces. | bool | false |
-| workspace_swipe_use_r | if enabled, swiping will use the `r` prefix instead of the `m` prefix for finding workspaces. (requires disabled `workspace_swipe_numbered`) | bool | false |
+| workspace_swipe_use_r | if enabled, swiping will use the `r` prefix instead of the `m` prefix for finding workspaces. | bool | false |
 
 ### Group
 
