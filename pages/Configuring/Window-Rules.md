@@ -262,5 +262,6 @@ in `hyprctl layers`) or `address` is an address in the form of `address:0x[hex]`
 | blurpopups | enables blur for the popups |
 | ignorealpha \[a\] | makes blur ignore pixels with opacity of `a` or lower. `a` is float value from 0 to 1. `a = 0` if unspecified. |
 | ignorezero | makes blur ignore fully transparent pixels. Same as `ignorealpha 0`. |
+| dimaround | dims everything behind the layer |
 | xray \[on\] | sets the blur xray mode for a layer. 0 for off, 1 for on, unset for default. |
 | animation \[style\] | allows you to set a specific animation style for this layer |
