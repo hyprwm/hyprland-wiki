@@ -65,7 +65,6 @@ If instead you would like to use another GPU, you must first create a symlink to
 the card from the previous section.
 
 It is not possible to use `~/.config/hypr/card` as wlroots will not expand it correctly.  
-
 You must include full path e.g `/home/<user>/.config/hypr/card` 
 ```
 ln -sf /dev/dri/pci-0000:06:00.0-card /home/<user>/.config/hypr/card
