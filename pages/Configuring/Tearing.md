@@ -67,7 +67,7 @@ monitor is fine)
 ### Apps that should tear, freeze
 
 Almost definitely means your GPU driver does not support tearing, like e.g.
-Intel's.
+Intel's, or AMD if you don't use the legacy backend with `env = WLR_DRM_NO_ATOMIC,1` or patch your kernel.
 
 Please _do not_ report issues if this is the culprit.
 
