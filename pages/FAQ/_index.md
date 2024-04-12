@@ -130,7 +130,7 @@ See [hyprcursor](../Hypr-Ecosystem/hyprcursor)
 1. Set the GTK cursor using [nwg-look](https://github.com/nwg-piotr/nwg-look).
 2. Add `exec-once=hyprctl setcursor [THEME] [SIZE]` to your config and restart Hyprland.
 
-If using flatpak, run `flatpak override --env=~/.themes:ro --env=~/.icons:ro --user` and put your themes in both `/usr/share/themes` and `~/.themes`, and put your icons and cursors in both `/usr/share/icons` and `~/.icons`.
+If using flatpak, run `flatpak override --filesystem=~/.themes:ro --filesystem=~/.icons:ro --user` and put your themes in both `/usr/share/themes` and `~/.themes`, and put your icons and cursors in both `/usr/share/icons` and `~/.icons`.
 
 For Qt applications, Hyprland exports XCURSOR_SIZE as 24, which is the default.
 You can overwrite this by exporting XCURSOR_SIZE to a different value with `env`.
