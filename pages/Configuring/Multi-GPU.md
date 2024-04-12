@@ -64,8 +64,11 @@ required. wlroots will set `WLR_DRM_DEVICES` to the integrated GPU by default.
 If instead you would like to use another GPU, you must first create a symlink to
 the card from the previous section.
 
+It is not possible to use `~/.config/hypr/card` as wlroots will not expand it correctly.  
+
+You must include full path e.g `/home/<user>/.config/hypr/card` 
 ```
-ln -sf /dev/dri/pci-0000:06:00.0-card ~/.config/hypr/card
+ln -sf /dev/dri/pci-0000:06:00.0-card /home/<user>/.config/hypr/card
 ```
 
 It is not possible to directly use the `/dev/dri/pci-0000:06:00.0-card` path,
@@ -75,15 +78,16 @@ characters will not rectify this.
 Afterwards, you must set the `WLR_DRM_DEVICES` environment variable in
 hyprland.conf to this linked card.
 
+
 ```ini
-env = WLR_DRM_DEVICES,~/.config/hypr/card
+env = WLR_DRM_DEVICES,/home/<user>/.config/hypr/card
 ```
 
 If you want to set a sequence of fallback cards, symlink another card and set
 the var as a colon separated list in order of priority.
 
 ```ini
-env = WLR_DRM_DEVICES,~/.config/hypr/card:~/.config/hypr/otherCard
+env = WLR_DRM_DEVICES,/home/<user>/.config/hypr/card:/home/<user>/.config/hypr/otherCard
 ```
 
 Here, we tell Hyprland to set priorities. If `card` isn't available for
