@@ -65,13 +65,13 @@ terminals.
 
 {{< /callout >}}
 
-For now, the supported fields are:
+For now, the supported fields for V2 are:
 
 ```ini
 class - class regex 
 title - title regex
 initialclass - initialClass regex
-initialtitle - initialTitle regex
+initialTitle - initialTitle regex
 xwayland - 0/1
 floating - 0/1
 fullscreen - 0/1
