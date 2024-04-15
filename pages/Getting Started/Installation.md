@@ -329,6 +329,7 @@ zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig
 pkg install git pkgconf gmake evdev-proto cmake wayland-protocols wayland libglvnd libxkbcommon libinput cairo pango pixman tomlplusplus
 pkg install libxcb xcb-util-errors xcb-util-wm
 pkg install meson jq hwdata
+pkg install hyprcursor hyprlang hyprutils hyprwayland-scanner
 ```
 
 {{% /details %}}
