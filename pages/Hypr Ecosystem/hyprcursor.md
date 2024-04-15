@@ -47,7 +47,7 @@ Apps that do not support server-side cursors and hyprcursor will still fall back
 For those apps, you need to export `XCURSOR_THEME` and `XCURSOR_SIZE` to a valid XCursor theme,
 and run `gsettings set org.gnome.desktop.interface cursor-theme 'THEME_NAME'` for gtk.
 
-If the app is a flatpak, run `flatpak override --env=~/.themes:ro --env=~/.icons:ro --user` and put
+If the app is a flatpak, run `flatpak override --filesystem=~/.themes:ro --filesystem=~/.icons:ro --user` and put
 your themes in both `/usr/share/themes` and `~/.themes`, and put your
 icons and XCursors in both `/usr/share/icons` and `~/.icons`.
 
