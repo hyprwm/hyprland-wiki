@@ -65,9 +65,9 @@ If instead you would like to use another GPU, you must first create a symlink to
 the card from the previous section.
 
 It is not possible to use `~/.config/hypr/card` as wlroots will not expand it correctly.  
-You must include full path e.g `/home/<user>/.config/hypr/card` 
+You must include full path e.g `$HOME/.config/hypr/card`
 ```
-ln -sf /dev/dri/by-path/pci-0000:06:00.0-card /home/<user>/.config/hypr/card
+ln -sf /dev/dri/by-path/pci-0000:06:00.0-card $HOME/.config/hypr/card
 ```
 
 It is not possible to directly use the `/dev/dri/by-path/pci-0000:06:00.0-card` path,
@@ -79,14 +79,14 @@ hyprland.conf to this linked card.
 
 
 ```ini
-env = WLR_DRM_DEVICES,/home/<user>/.config/hypr/card
+env = WLR_DRM_DEVICES,$HOME/.config/hypr/card
 ```
 
 If you want to set a sequence of fallback cards, symlink another card and set
 the var as a colon separated list in order of priority.
 
 ```ini
-env = WLR_DRM_DEVICES,/home/<user>/.config/hypr/card:/home/<user>/.config/hypr/otherCard
+env = WLR_DRM_DEVICES,$HOME/.config/hypr/card:$HOME/.config/hypr/otherCard
 ```
 
 Here, we tell Hyprland to set priorities. If `card` isn't available for
