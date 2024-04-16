@@ -346,7 +346,7 @@ _Subcategory `group:groupbar:`_
 | disable_splash_rendering | disables the hyprland splash rendering. (requires a monitor reload to take effect) | bool | false |
 | col.splash | Changes the color of the splash text (requires a monitor reload to take effect). | color | 0xffffffff |
 | splash_font_family | Changes the font used to render the splash text, selected from system fonts (requires a monitor reload to take effect). | string | Sans |
-| force_default_wallpaper | Enforce any of the 3 default wallpapers. Setting this to `0` disables the anime background. `-1` means "random" [-1 - 3] | int | -1 |
+| force_default_wallpaper | Enforce any of the 3 default wallpapers. Setting this to `0` or `1` disables the anime background. `-1` means "random". [-1/0/1/2] | int | -1 |
 | vfr | controls the VFR status of hyprland. Heavily recommended to leave on true to conserve resources. | bool | true |
 | vrr | controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on, 2 - fullscreen only [0/1/2] | int | 0 |
 | mouse_move_enables_dpms | If DPMS is set to off, wake up the monitors if the mouse moves. | bool | false |
