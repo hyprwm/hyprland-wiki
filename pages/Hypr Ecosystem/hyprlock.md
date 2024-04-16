@@ -17,7 +17,7 @@ Variables in the `general` category:
 | variable | description | type | default |
 | -- | -- | -- | -- |
 | disable_loading_bar | disables the loading bar on the bottom of the screen while hyprlock is booting up. | bool | false |
-| hide_cursor | hides the cursor instead of making it visible | bool | true |
+| hide_cursor | hides the cursor instead of making it visible | bool | false |
 | grace | the amount of seconds for which the lockscreen will unlock on mouse movement. | int | 0 |
 | no_fade_in | disables the fadein animation | bool | false |
 | no_fade_out | disables the fadeout animation | bool | false |
@@ -213,6 +213,7 @@ Draws a label.
 label {
     monitor =
     text = Hi there, $USER
+    text_align = center # center/right or any value for default left. multi-line text alignment inside label container
     color = rgba(200, 200, 200, 1.0)
     font_size = 25
     font_family = Noto Sans

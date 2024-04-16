@@ -18,7 +18,7 @@ _category name `master`_
 | --- | --- | --- | --- |
 | allow_small_split | enable adding additional master windows in a horizontal split style | bool | false |
 | special_scale_factor | the scale of the special workspace windows. [0.0 - 1.0] | float | 1 |
-| mfact | master split factor, the ratio of master split [0.0 - 1.0] | float | 0.55 |
+| mfact | master split factor, the ratio of master split, relative float delta (e.g `-0.2` or `+0.2`) or `exact` followed by a the exact float value (e.g. `exact 0.55`) [0.0 - 1.0] | floatvalue | 0.5 |
 | new_is_master | whether a newly open window should replace the master or join the slaves. | bool | true |
 | new_on_top | whether a newly open window should be on the top of the stack | bool | false |
 | no_gaps_when_only | whether to apply gaps when there is only one window on a workspace, aka. smart gaps. (default: disabled - 0) no border - 1, with border - 2 [0/1/2] | int | 0 |
@@ -50,7 +50,7 @@ _category name `master`_
 | orientationnext | cycle to the next orientation for the current workspace (clockwise) | none |
 | orientationprev | cycle to the previous orientation for the current workspace (counter-clockwise) | none |
 | orientationcycle | cycle to the next orientation from the provided list, for the current workspace | allowed values: `left`, `top`, `right`, `bottom`, or `center`. The values have to be separated by a space. If left empty, it will work like `orientationnext` |
-| mfact | change mfact, the master split ratio | the new split ratio, a float between 0.0 and 1.0 |
+| mfact | change mfact, the master split ratio | the new split ratio, a relative float delta (e.g `-0.2` or `+0.2`) or `exact` followed by a the exact float value between 0.0 and 1.0 |
 | rollnext | rotate the next window in stack to be the master, while keeping the focus on master | none |
 | rollprev | rotate the previous window in stack to be the master, while keeping the focus on master | none |
 
