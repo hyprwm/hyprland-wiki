@@ -67,10 +67,10 @@ the card from the previous section.
 It is not possible to use `~/.config/hypr/card` as wlroots will not expand it correctly.  
 You must include full path e.g `/home/<user>/.config/hypr/card` 
 ```
-ln -sf /dev/dri/pci-0000:06:00.0-card /home/<user>/.config/hypr/card
+ln -sf /dev/dri/by-path/pci-0000:06:00.0-card /home/<user>/.config/hypr/card
 ```
 
-It is not possible to directly use the `/dev/dri/pci-0000:06:00.0-card` path,
+It is not possible to directly use the `/dev/dri/by-path/pci-0000:06:00.0-card` path,
 as wlroots interprets the colon symbols in the path as separators. Escaping
 characters will not rectify this.
 
