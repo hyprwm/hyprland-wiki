@@ -7,8 +7,7 @@ You can find the site at [https://wiki.hyprland.org/](https://wiki.hyprland.org/
 ## Contributing to the Wiki
 
 Feel free to open an issue or a PR if you feel anything is necessary.
-Make sure to clearly state the reason for the changes. If you have questions regarding the wiki,
-you should consider joining our [Discord Server](https://discord.gg/hQ9XvMUjjr) instead.
+Make sure to clearly state the reason for the changes.
 
 ## License
 
