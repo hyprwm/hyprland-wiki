@@ -171,7 +171,7 @@ After installing, you can then enable the Wayland backend with this command:
 This will add the parameters required to run Vesktop with its Wayland backend.
 
 On earlier Nvidia driver versions, including 535, you may have to also include
-the `--disable-gpu` and `--disable-gpu-sandbox` flags, but, as the names suggests,
+the `--disable-gpu` and `--disable-gpu-sandbox` flags, but, as the names suggest,
 you will lose hardware acceleration for Vesktop.
 
 In other cases like VSCodium, you can add the same flags to their respective
