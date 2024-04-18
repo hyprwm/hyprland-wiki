@@ -100,8 +100,8 @@ env = __GLX_VENDOR_LIBRARY_NAME,nvidia
 env = WLR_NO_HARDWARE_CURSORS,1
 ```
 
-Last but not least, you'll also need to install a few packages to get some apps
-to function natively with Wayland, you can have a look at [the Master Tutorial](https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#force-apps-to-use-wayland)
+Lastly, you also need to install a few packages to get some apps
+to function natively with Wayland. Have a look at [the Master Tutorial](https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#force-apps-to-use-wayland).
 
 Reboot your computer.
 
