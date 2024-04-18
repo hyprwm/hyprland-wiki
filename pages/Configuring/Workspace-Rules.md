@@ -24,7 +24,7 @@ Props:
  - `s[bool]` - Whether the workspace is special or not
  - `n[bool]`, `n[s:string]`, `n[e:string]` - named actions. `n[bool]` -> whether a workspace is a named workspace, `s` and `e` are starts and ends with respectively
  - `m[monitor]` - Monitor selector
- - `w[(flags)A-B]`, `w[(flags)X]` - Prop for window counts on the workspace. A-B is an inclusive range, X is a specific number. Flags can be omitted. It can be `t` for tiled-only, `f` for floating-only, and `g` to count groups instead of windows.
+ - `w[(flags)A-B]`, `w[(flags)X]` - Prop for window counts on the workspace. A-B is an inclusive range, X is a specific number. Flags can be omitted. It can be `t` for tiled-only, `f` for floating-only, `g` to count groups instead of windows, and `v` to count only visible windows.
 
 ### Syntax
 
