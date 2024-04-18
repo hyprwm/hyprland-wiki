@@ -79,7 +79,9 @@ in `/etc/mkinitcpio.conf` add `nvidia nvidia_modeset nvidia_uvm nvidia_drm` to
 your `MODULES`
 
 For example, a clean `MODULES` line would now look like this:
-`MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)`
+```sh
+MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+```
 
 Now, run `sudo mkinitcpio -P`. This will regenerate the initcpios for all kernels
 currently installed on the system. If you see any errors here about missing
@@ -166,7 +168,9 @@ For Discord, you can try the [Vesktop app](https://github.com/Vencord/Vesktop).
 It has a multitude of install options for many distros in their README.
 
 After installing, you can then enable the Wayland backend with this command:
-`echo "--enable-features=UseOzonePlatform --ozone-platform-hint=auto" > ~/.config/vesktop-flags.conf`
+```sh
+echo "--enable-features=UseOzonePlatform --ozone-platform-hint=auto" > ~/.config/vesktop-flags.conf
+```
 
 This will add the parameters required to run Vesktop with its Wayland backend.
 
@@ -174,8 +178,16 @@ On earlier Nvidia driver versions, including 535, you may have to also include
 the `--disable-gpu` and `--disable-gpu-sandbox` flags, but, as the names suggest,
 you will lose hardware acceleration for Vesktop.
 
-In other cases like VSCodium, you can add the same flags to their respective
-flags files. In VSCodium's case, this would be `~/.config/codium-flags.conf`
+For Spotify, Arch Linux has a `spotify-launcher` packages in their official repos.
+You should use that instead of the `spotify` package in the AUR, and then enabling
+the Wayland backend in `/etc/spotify-launcher.conf` by uncommenting this line:
+```sh
+extra_arguments = ["--enable-features=UseOzonePlatform", "--ozone-platform=wayland"]
+```
+
+In other cases like VSCodium, you can add the same flags from the Vesktop app
+to their respective flags files. In VSCodium's case, this would be `~/.config/codium-flags.conf`
+and for Obsidian it would be `~/.config/obsidian/user-flags.conf`
 
 With NixOS, you can also try setting the `NIXOS_OZONE_WL` environment variable
 to `1`, which should automatically configure electron apps to run with native
