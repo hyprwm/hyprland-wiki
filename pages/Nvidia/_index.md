@@ -185,7 +185,7 @@ the Wayland backend in `/etc/spotify-launcher.conf` by uncommenting this line:
 extra_arguments = ["--enable-features=UseOzonePlatform", "--ozone-platform=wayland"]
 ```
 
-In other cases like VSCodium, you can add the same flags from the Vesktop app
+In other cases like VSCodium and Obsidian, you can add the same flags from the Vesktop app
 to their respective flags files. In VSCodium's case, this would be `~/.config/codium-flags.conf`
 and for Obsidian it would be `~/.config/obsidian/user-flags.conf`
 
