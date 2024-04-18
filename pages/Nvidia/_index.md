@@ -69,10 +69,9 @@ to add `nvidia_drm.modeset=1` to your specific bootloader.
 
 {{< callout >}}
 
-there has been a lot of confusion on whether or not `nvidia_drm` or `nvidia-drm`
-is correct for this kernel paramter. However, it has been confirmed that either
-of these will work, so do not fret if you already have one or the other in your
-kernel parameters.
+There has been a lot of debate on which of `nvidia_drm` or `nvidia-drm`
+is correct for this kernel paramter. It has been confirmed that either
+of these will work.
 
 {{< /callout >}}
 
