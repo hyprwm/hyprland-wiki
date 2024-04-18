@@ -37,7 +37,7 @@ the `linux-zen` kernel on Arch Linux, this package would be `linux-zen-headers`.
 
 Install the required nvidia packages. For most cases, this would be `nvidia-dkms`
 (or `nvidia-open-dkms` for the open source ones),
-and `nvidia-utils`, If you'd like to game via Wine or even natively, it would be
+and `nvidia-utils`. If you'd like to game via Wine or even natively, it would be
 in your best interest to also install `lib32-nvidia-utils`.
 
 {{< callout >}}
