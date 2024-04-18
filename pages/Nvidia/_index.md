@@ -162,20 +162,20 @@ change your BIOS settings from hybrid graphics to discrete graphics.
 This flickering is likely caused by these apps running in XWayland.
 To fix the flickering, try running the apps with native Wayland instead.
 
-For discord, you can try the [vesktop app](https://github.com/Vencord/Vesktop).
+For Discord, you can try the [Vesktop app](https://github.com/Vencord/Vesktop).
 It has a multitude of install options for many distros in their README.
 
-After installing, you can then enable the wayland backend with this command:
+After installing, you can then enable the Wayland backend with this command:
 `echo "--enable-features=UseOzonePlatform --ozone-platform-hint=auto" > ~/.config/vesktop-flags.conf`
 
-This will add the parameters required to run vesktop with its wayland backend.
+This will add the parameters required to run Vesktop with its Wayland backend.
 
-On earlier nvidia driver versions, including 535, you may have to also include
-the `--disable-gpu` and `--disable-gpu-sandbox` flags, but as the names suggest,
-you will lose hardware acceleration for vesktop.
+On earlier Nvidia driver versions, including 535, you may have to also include
+the `--disable-gpu` and `--disable-gpu-sandbox` flags, but, as the names suggests,
+you will lose hardware acceleration for Vesktop.
 
-In other cases like vscodium, you can add the same flags to their respective
-flags files. In vscodium's case, this would be `~/.config/codium-flags.conf`
+In other cases like VSCodium, you can add the same flags to their respective
+flags files. In VSCodium's case, this would be `~/.config/codium-flags.conf`
 
 With NixOS, you can also try setting the `NIXOS_OZONE_WL` environment variable
 to `1`, which should automatically configure electron apps to run with native
