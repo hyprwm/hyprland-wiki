@@ -59,7 +59,7 @@ Our recommendation is the KDE one. For arch, it's `polkit-kde-agent`.
 You can autostart it with
 `exec-once=/usr/lib/polkit-kde-authentication-agent-1`. On some distributions
 you might have to use a different path
-`/usr/libexec/polkit-kde-authentication-agent-1`.
+`/usr/libexec/polkit-kde-authentication-agent-1` or `/usr/libexec/kf5/polkit-kde-authentication-agent-1`.
 
 On other distributions that use a more recent version, such as Gentoo, it may be
 necessary to use
