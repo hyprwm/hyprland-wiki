@@ -240,7 +240,7 @@ windowrulev2 = opacity 0.8 override 0.8 override 1.0 override,^(kitty)$
 ## Layer Rules
 
 Some things in Wayland are not windows, but layers. That includes, for example:
-most launchers, your status bar or wallpaper.
+app launchers, status bars, or wallpapers.
 
 Those have specific rules separate from windows:
 

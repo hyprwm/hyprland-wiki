@@ -11,7 +11,7 @@ The config file is located at `~/.config/hypr/hyprpaper.conf`. It is not
 required.
 
 Configuration is done using `preload`, which _loads_ an image into memory. Then,
-you use `wallpaper` keywords to apply the preloaded image to your monitor(s):
+the `wallpaper` keyword is used to apply the preloaded image to your monitor(s):
 
 ```ini
 preload = /home/me/amongus.png

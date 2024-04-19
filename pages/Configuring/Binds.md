@@ -169,14 +169,14 @@ bindr=SUPER, SUPER_L, exec, pkill wofi || wofi
 
 ## Mouse Binds
 
-Mouse binds are binds that rely on a mouse, usually its movement. They
+Mouse binds are binds that rely on mouse movement. They
 will have one less arg, and may look like this:
 
 ```ini
 bindm=ALT,mouse:272,movewindow
 ```
 
-this will create a bind with <key>ALT</key> + <key>LMB</key> to move the window
+This will create a bind with <key>ALT</key> + <key>LMB</key> to move the window
 with your mouse.
 
 _Available mouse binds_:
