@@ -5,7 +5,7 @@ title: Monitors
 
 ## General
 
-The general config of a monitor looks like this
+The general config of a monitor looks like this:
 
 ```ini
 monitor=name,resolution,position,scale
@@ -17,7 +17,7 @@ A common example:
 monitor=DP-1,1920x1080@144,0x0,1
 ```
 
-will tell Hyprland to make the monitor on `DP-1` a `1920x1080` display, at
+This will make the monitor on `DP-1` a `1920x1080` display, at
 144Hz, `0x0` off from the top left corner, with a scale of 1 (unscaled).
 
 To list all available monitors (active and inactive):
@@ -57,7 +57,7 @@ monitor=DP-2, 1920x1080, -1920x0, 1
 
 The position is calculated with the scaled (and transformed) resolution, meaning
 if you want your 4K monitor with scale 2 to the left of your 1080p one, you'd
-use the position `1920x0` for the second screen. (3840 / 2) If the monitor is
+use the position `1920x0` for the second screen (3840 / 2). If the monitor is
 also rotated 90 degrees (vertical), you'd use `1080x0`.
 
 {{</ callout >}}
@@ -65,8 +65,10 @@ also rotated 90 degrees (vertical), you'd use `1080x0`.
 Leaving the name empty will define a fallback rule to use when no other rules
 match.
 
-You can use `preferred` as a resolution to use the display's preferred size and
-`auto` as a position to let Hyprland decide on a position for you.
+You can use `preferred` as a resolution to use the display's preferred size, 
+or you can use `highres` or `highrr` to get the best possible resolution or refresh rate for your monitor. 
+
+You can use `auto` as a position to let Hyprland decide on a position for you.
 
 You can also use `auto` as a scale to let Hyprland decide on a scale for you.
 These depend on the PPI of the monitor.
@@ -79,21 +81,6 @@ monitor=,preferred,auto,1
 
 Will make any monitor that was not specified with an explicit rule automatically
 placed on the right of the other(s) with its preferred resolution.
-
-Alternatively, you can use the `highres` or `highrr` rules in order to get the
-best possible resolution or refreshrate mix.
-
-for a focus on refreshrate use this:
-
-```ini
-monitor=,highrr,auto,1
-```
-
-for a focus on resolution this:
-
-```ini
-monitor=,highres,auto,1
-```
 
 For more specific rules, you can also use the output's description (see
 `hyprctl monitors` for more details). If the output of `hyprctl monitors` looks
@@ -145,14 +132,15 @@ screensaver style (just turn off the monitor) use the `dpms`
 
 ## Custom reserved area
 
-If your workflow requires custom reserved area, you can add it with
+A reserved area is an area that remains unoccupied by tiled windows.
+If your workflow requires a custom reserved area, you can add it with:
 
 ```ini
 monitor=name,addreserved,TOP,BOTTOM,LEFT,RIGHT
 ```
 
 Where `TOP` `BOTTOM` `LEFT` `RIGHT` are integers in pixels of the reserved area
-to add. This does stack on top of the calculated one, (e.g. bars) but you may
+to add. This does stack on top of the calculated one (e.g. bars), but you may
 only use one of these rules per monitor in the config.
 
 ## Extra args
@@ -163,7 +151,7 @@ You can combine extra arguments at the end of the monitor rule, examples:
 monitor=eDP-1,2880x1800@90,0x0,1,transform,1,mirror,DP-2,bitdepth,10
 ```
 
-See bellow for more detail about each argument.
+See below for more detail about each argument.
 
 ### Mirrored displays
 
@@ -220,24 +208,6 @@ flipped + 90 degrees -> 5
 flipped + 180 degrees -> 6
 flipped + 270 degrees -> 7
 ```
-
-{{< callout type=info >}}
-
-If you're using a touchscreen, you'll also have to rotate its digitizer to
-match:
-
-```ini
-input {
-    touchdevice {
-        transform = 1
-    }
-}
-```
-
-This will be done automatically when
-[#3544](https://github.com/hyprwm/Hyprland/pull/3544) lands.
-
-{{< /callout >}}
 
 ## Default workspace
 

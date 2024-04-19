@@ -47,13 +47,13 @@ nix profile install github:guibou/nixGL --impure
 
 `--impure` is needed due to `nixGL`'s reliance on hardware information.
 
-From now on, you can run Hyprland by invoking it with nixGL
+From now on, you can run Hyprland by invoking it with nixGL.
 
 ```sh
 nixGL Hyprland
 ```
 
-or by creating a wrapper script that runs the above command inside.
+Or by creating a wrapper script that runs the above command inside.
 
 ## Upgrading
 

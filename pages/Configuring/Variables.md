@@ -20,7 +20,7 @@ the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 | bool | boolean, `true` or `false` (`yes` or `no`, `on` or `off`, `0` or `1`) - any numerical value that is not `0` or `1` will cause undefined behavior. |
 | float | floating point number |
 | color | color (see hint below for color info) |
-| vec2 | vector with 2 values (float), separated by a space (e.g. `0 0` or `-10.9 99.1`) |
+| vec2 | vector with 2 float values, separated by a space (e.g. `0 0` or `-10.9 99.1`) |
 | MOD | a string modmask (e.g. `SUPER` or `SUPERSHIFT` or `SUPER + SHIFT` or `SUPER and SHIFT` or `CTRL_SHIFT` or empty for none. You are allowed to put any separators you please except for a `,`) |
 | str | a string |
 | gradient | a gradient, in the form of `color color ... [angle]` where `color` is a color (see above) and angle is an angle in degrees, in the format of `123deg` e.g. `45deg` (e.g. `rgba(11ee11ff) rgba(1111eeff) 45deg`) Angle is optional and will default to `0deg` |
@@ -176,21 +176,21 @@ _[More about Animations](../Animations)._
 | kb_rules | Appropriate XKB keymap parameter | str | \[\[Empty\]\] |
 | kb_file | If you prefer, you can use a path to your custom .xkb file. | str | \[\[Empty\]\] |
 | numlock_by_default | Engage numlock by default. | bool | false |
-| resolve_binds_by_sym | Determines how keybinds act when multiple layouts are used. If false, keybinds will always act as if the first specified layout were active. If true, keybinds specified by symbols activate if you type the respective symbol with the current layout. | bool | false |
+| resolve_binds_by_sym | Determines how keybinds act when multiple layouts are used. If false, keybinds will always act as if the first specified layout is active. If true, keybinds specified by symbols are activated when you type the respective symbol with the current layout. | bool | false |
 | repeat_rate | The repeat rate for held-down keys, in repeats per second. | int | 25 |
 | repeat_delay | Delay before a held-down key is repeated, in milliseconds. | int | 600 |
-| sensitivity | Sets the mouse input sensitivity. Value will be clamped to the range -1.0 to 1.0. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) | float | 0.0 |
+| sensitivity | Sets the mouse input sensitivity. Value is clamped to the range -1.0 to 1.0. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) | float | 0.0 |
 | accel_profile | Sets the cursor acceleration profile. Can be one of `adaptive`, `flat`. Can also be `custom`, see [below](#custom-accel-profiles). Leave empty to use `libinput`'s default mode for your input device. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) [adaptive/flat/custom]| str | \[\[Empty\]\]
 | force_no_accel | Force no cursor acceleration. This bypasses most of your pointer settings to get as raw of a signal as possible. **Enabling this is not recommended due to potential cursor desynchronization.** | bool | false |
 | left_handed | Switches RMB and LMB | bool | false |
 | scroll_points | Sets the scroll acceleration profile, when `accel_profile` is set to `custom`. Has to be in the form `<step> <points>`. Leave empty to have a flat scroll curve. | str | \[\[Empty\]\]
 | scroll_method | Sets the scroll method. Can be one of `2fg` (2 fingers), `edge`, `on_button_down`, `no_scroll`. [libinput#scrolling](https://wayland.freedesktop.org/libinput/doc/latest/scrolling.html) [2fg/edge/on_button_down/no_scroll] | str | \[\[Empty\]\]
 | scroll_button | Sets the scroll button. Has to be an int, cannot be a string. Check `wev` if you have any doubts regarding the ID. 0 means default. | int | 0 |
-| scroll_button_lock | If the scroll button lock is enabled, the button does not need to be held down. Pressing and releasing the button once enables the button lock, the button is now considered logically held down. Pressing and releasing the button a second time logically releases the button. While the button is logically held down, motion events are converted to scroll events. | bool | 0 |
+| scroll_button_lock | If the scroll button lock is enabled, the button does not need to be held down. Pressing and releasing the button toggles the button lock, which logically holds the button down or releases it. While the button is logically held down, motion events are converted to scroll events. | bool | 0 |
 | scroll_factor | Multiplier added to scroll movement for external mice. Note that there is a separate setting for [touchpad scroll_factor](#touchpad).  | float | 1.0 |
-| natural_scroll | Inverts scrolling direction. When enabled, scrolling moves content directly instead of manipulating a scrollbar. | bool | false |
+| natural_scroll | Inverts scrolling direction. When enabled, scrolling moves content directly, rather than manipulating a scrollbar. | bool | false |
 | follow_mouse | Specify if and how cursor movement should affect window focus. See the note below. [0/1/2/3] | int | 1 |
-| mouse_refocus | If disabled and `follow_mouse=1` then mouse focus will not switch to the hovered window unless the mouse crosses a window boundary. | bool | true |
+| mouse_refocus | If disabled, mouse focus won't switch to the hovered window unless the mouse crosses a window boundary when `follow_mouse=1`. | bool | true |
 | float_switch_override_focus | If enabled (1 or 2), focus will change to the window under the cursor when changing from tiled-to-floating and vice versa. If 2, focus will also follow mouse on float-to-float switches. | int | 1 |
 | special_fallthrough | if enabled, having only floating windows in the special workspace will not block focusing windows in the regular workspace. | bool | false |
 | off_window_axis_events | Handles axis events around (gaps/border for tiled, dragarea/border for floated) a focused window. `0` ignores axis events `1` sends out-of-bound coordinates `2` fakes pointer coordinates to the closest point inside the window `3` warps the cursor to the closest point inside the window | int | 1 |
@@ -226,7 +226,7 @@ For switchable keyboard configurations, take a look at
 
 `custom <step> <points...>`
 
-for example `custom 200 0.0 0.5`
+Example: `custom 200 0.0 0.5`
 
 #### `scroll_points`
 
@@ -234,7 +234,7 @@ NOTE: Only works when `accel_profile` is set to `custom`.
 
 `<step> <points...>`
 
-For example `0.2 0.0 0.5 1 1.2 1.5`
+Example: `0.2 0.0 0.5 1 1.2 1.5`
 
 To mimic the Windows acceleration curves, take a look at
 [this script](https://gist.github.com/fufexan/de2099bc3086f3a6c83d61fc1fcc06c9).
@@ -252,7 +252,7 @@ _Subcategory `input:touchpad:`_
 | name | description | type | default |
 | --- | --- | --- | --- |
 | disable_while_typing | Disable the touchpad while typing. | bool | true |
-| natural_scroll | Inverts scrolling direction. When enabled, scrolling moves content directly instead of manipulating a scrollbar. | bool | false |
+| natural_scroll | Inverts scrolling direction. When enabled, scrolling moves content directly, rather than manipulating a scrollbar. | bool | false |
 | scroll_factor | Multiplier applied to the amount of scroll movement. | float | 1.0 |
 | middle_button_emulation | Sending LMB and RMB simultaneously will be interpreted as a middle click. This disables any touchpad area that would normally send a middle click based on location. [libinput#middle-button-emulation](https://wayland.freedesktop.org/libinput/doc/latest/middle-button-emulation.html) | bool | false |
 | tap_button_map | Sets the tap button mapping for touchpad button emulation. Can be one of `lrm` (default) or `lmr` (Left, Middle, Right Buttons). [lrm/lmr] | str | \[\[Empty\]\] |
@@ -267,8 +267,8 @@ _Subcategory `input:touchdevice:`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
-| transform | transform the input from touchdevices. The possible transformations are the same as [those of the monitors](../Monitors/#rotating) | int | 0 |
-| output | the monitor to bind touch devices. The default is autodetection. To stop autotection use an empty string or the "\[\[Empty\]\]" value. | string | \[\[Auto\]\] |
+| transform | Transform the input from touchdevices. The possible transformations are the same as [those of the monitors](../Monitors/#rotating) | int | 0 |
+| output | The monitor to bind touch devices. The default is auto-detection. To stop auto-detection, use an empty string or the "\[\[Empty\]\]" value. | string | \[\[Auto\]\] |
 | enabled | Whether input is enabled for touch devices. | bool | true |
 
 #### Tablet
@@ -326,7 +326,7 @@ _Subcategory `group:groupbar:`_
 | --- | --- | --- | --- |
 | enabled | enables groupbars | bool | true |
 | font_family | font used to display groupbar titles | string | Sans |
-| font_size | font size for the above | int | 8 |
+| font_size | font size of groupbar title | int | 8 |
 | gradients | enables gradients | bool | true |
 | height | height of the groupbar | int | 14 |
 | priority | sets the decoration priority for groupbars | int | 3 |
@@ -342,12 +342,12 @@ _Subcategory `group:groupbar:`_
 
 | name | description | type | default |
 |---|---|---|---|
-| disable_hyprland_logo | disables the random hyprland logo / anime girl background. :( | bool | false |
-| disable_splash_rendering | disables the hyprland splash rendering. (requires a monitor reload to take effect) | bool | false |
+| disable_hyprland_logo | disables the random Hyprland logo / anime girl background. :( | bool | false |
+| disable_splash_rendering | disables the Hyprland splash rendering. (requires a monitor reload to take effect) | bool | false |
 | col.splash | Changes the color of the splash text (requires a monitor reload to take effect). | color | 0xffffffff |
 | splash_font_family | Changes the font used to render the splash text, selected from system fonts (requires a monitor reload to take effect). | string | Sans |
 | force_default_wallpaper | Enforce any of the 3 default wallpapers. Setting this to `0` or `1` disables the anime background. `-1` means "random". [-1/0/1/2] | int | -1 |
-| vfr | controls the VFR status of hyprland. Heavily recommended to leave on true to conserve resources. | bool | true |
+| vfr | controls the VFR status of Hyprland. Heavily recommended to leave enabled to conserve resources. | bool | true |
 | vrr | controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on, 2 - fullscreen only [0/1/2] | int | 0 |
 | mouse_move_enables_dpms | If DPMS is set to off, wake up the monitors if the mouse moves. | bool | false |
 | key_press_enables_dpms | If DPMS is set to off, wake up the monitors if a key is pressed. | bool | false |
@@ -367,7 +367,7 @@ _Subcategory `group:groupbar:`_
 | suppress_portal_warnings | disables warnings about incompatible portal implementations. | bool | false |
 | render_ahead_of_time | [Warning: buggy] starts rendering _before_ your monitor displays a frame in order to lower latency | bool | false |
 | render_ahead_safezone | how many ms of safezone to add to rendering ahead of time. Recommended 1-2. | int | 1 |
-| cursor_zoom_factor | the factor to zoom by around the cursor. AKA. Magnifying glass. Minimum 1.0 (meaning no zoom) | float | 1.0 |
+| cursor_zoom_factor | the factor to zoom by around the cursor. Like a magnifying glass. Minimum 1.0 (meaning no zoom) | float | 1.0 |
 | cursor_zoom_rigid | whether the zoom should follow the cursor rigidly (cursor is always centered if it can be) or loosely | bool | false |
 | allow_session_lock_restore | if true, will allow you to restart a lockscreen app in case it crashes (red screen of death) | bool | false |
 | background_color | change the background color. (requires enabled `disable_hyprland_logo`) | color | 0x111111 |
@@ -380,7 +380,7 @@ _Subcategory `group:groupbar:`_
 | name | description | type | default |
 | --- | --- | --- | --- |
 | pass_mouse_when_bound | if disabled, will not pass the mouse events to apps / dragging windows around if a keybind has been triggered. | bool | false |
-| scroll_event_delay | in ms, how many ms to wait after a scroll event to allow to pass another one for the binds. | int | 300 |
+| scroll_event_delay | in ms, how many ms to wait after a scroll event to allow passing another one for the binds. | int | 300 |
 | workspace_back_and_forth | If enabled, an attempt to switch to the currently focused workspace will instead switch to the previous workspace. Akin to i3's _auto_back_and_forth_. | bool | false |
 | allow_workspace_cycles | If enabled, workspaces don't forget their previous workspace, so cycles can be created by switching to the first workspace in a sequence, then endlessly going to the previous workspace. | bool | false |
 | workspace_center_on | Whether switching workspaces should center the cursor on the workspace (0) or on the last active window for that workspace (1) | int | 0 |
@@ -422,7 +422,7 @@ Only for developers.
 | manual_crash | set to 1 and then back to 0 to crash Hyprland. | int | 0 |
 | suppress_errors | if true, do not display config file parsing errors. | bool | false |
 | watchdog_timeout | sets the timeout in seconds for watchdog to abort processing of a signal of the main thread. Set to 0 to disable. | int | 5 |
-| disable_scale_checks | disables verifying of the scale factors. Will result in pixel alignment and rounding errors. | bool | false |
+| disable_scale_checks | disables verification of the scale factors. Will result in pixel alignment and rounding errors. | bool | false |
 | error_limit | limits the number of displayed config file parsing errors. | int | 5 | 
 
 ### More

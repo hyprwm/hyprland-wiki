@@ -69,15 +69,15 @@ e.g.: `workspace>>2`
 
 {{< callout type=warning >}}
 
-A fullscreen event is not guaranteed to fire on/off once in succession. A window
-might do for example 3 requests to be fullscreen'd, which would result in 3
+A fullscreen event is not guaranteed to fire on/off once in succession. Some windows
+may fire multiple requests to be fullscreened, resulting in multiple
 fullscreen events.
 
 {{< /callout >}}
 
 ## How to use socket2 with bash
 
-example script using socket2 events with bash and `socat`:
+Example script using socket2 events with bash and `socat`:
 
 ```sh
 #!/bin/sh

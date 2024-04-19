@@ -43,21 +43,21 @@ Find a repository you want to install plugins from. As an example, we will use
 hyprpm add https://github.com/hyprwm/hyprland-plugins
 ```
 
-once it finishes, you can list your installed plugins with
+Once it finishes, you can list your installed plugins with:
 
 ```sh
 hyprpm list
 ```
 
-and enable or disable them via `hyprpm enable name` and `hyprpm disable name`.
+Then, enable or disable them via `hyprpm enable name` and `hyprpm disable name`.
 
-In order for the plugins to be loaded into hyprland, run `hyprpm reload`.
+In order for the plugins to be loaded into Hyprland, run `hyprpm reload`.
 
-You can add `exec-once = hyprpm reload -n` to your hyprland config to have
+You can add `exec-once = hyprpm reload -n` to your Hyprland config to have
 plugins loaded at startup. `-n` will make hyprpm send a notification if anything
 goes wrong (e.g. update needed)
 
-In order update your plugins, run `hyprpm update`.
+To update your plugins, run `hyprpm update`.
 
 For all options of `hyprpm`, run `hyprpm -h`.
 
@@ -65,8 +65,8 @@ For all options of `hyprpm`, run `hyprpm -h`.
 
 Different plugins may have different build methods, refer to their instructions.
 
-If you don't have hyprland headers installed, clone hyprland, checkout to your
-version, build hyprland, and run `sudo make installheaders`. Then build your
+If you don't have Hyprland headers installed, clone Hyprland, checkout to your
+version, build Hyprland, and run `sudo make installheaders`. Then build your
 plugin(s).
 
 To load plugins manually, use `hyprctl plugin load path` !NOTE: Path HAS TO BE
@@ -91,7 +91,7 @@ See [here](../Development/Getting-Started).
 ### Where do I find plugins?
 
 You can find our featured plugins at [hyprland.org/plugins](https://hyprland.org/plugins/).
-You can also see a list at [awesome-hyprland](https://github.com/hyprland-community/awesome-hyprland#plugins). Note it may not be complete.
+You can also see a list at [awesome-hyprland](https://github.com/hyprland-community/awesome-hyprland#plugins). Note that it may not be complete.
 Lastly, you can try searching around github for the `"hyprland plugin"` keyword.
 
 ### Are plugins safe?

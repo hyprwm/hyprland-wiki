@@ -25,7 +25,7 @@ Let's look at a simple example:
 void Events::listener_monitorFrame(void* owner, void* data)
 ```
 
-will be the function we want to hook. `Events::` is a namespace, not a class, so
+This will be the function we want to hook. `Events::` is a namespace, not a class, so
 this is just a plain function.
 
 ```cpp
@@ -100,11 +100,11 @@ _will not_ change during runtime, so it's a good idea to make the lookups
 
 Why use that instead of e.g. `&CCompositor::focusWindow`? Two reasons:
 
-1 - less breakage. Whenever someone updates hyprland, that address might become
+1. Less breakage. Whenever someone updates Hyprland, that address might become
 invalid. findFunctionsByName is more resilient. As long as the function exists,
 it will be found.
 
-2 - error handling. The method array contains, besides the address, the
+2. Error handling. The method array contains, besides the address, the
 signatures. You can verify those to make 100% sure you got the right function,
 or throw an error if it was not found.
 

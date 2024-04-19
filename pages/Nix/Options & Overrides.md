@@ -44,7 +44,7 @@ See [XWayland](../../Configuring/XWayland).
 ## Using Nix repl
 
 If you're using Nix (and not NixOS or Home Manager) and you want to override,
-you can do it like this
+you can do it like this:
 
 ```nix
 $ nix repl

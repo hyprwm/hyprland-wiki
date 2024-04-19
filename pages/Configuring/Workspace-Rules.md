@@ -50,7 +50,7 @@ workspace=w[tg1-4],shadow:false
 
 | Rule | Description | type |
 | --- | --- | --- |
-| monitor:[m] | Binds a workspace to a monitor See [syntax](#syntax) and [Monitors](../Monitors). | string |
+| monitor:[m] | Binds a workspace to a monitor. See [syntax](#syntax) and [Monitors](../Monitors). | string |
 | default:[b] | Whether this workspace should be the default workspace for the given monitor | bool |
 | gapsin:[x] | Set the gaps between windows (equivalent to [General->gaps_in](../Variables#general)) | int |
 | gapsout:[x] | Set the gaps between windows and monitor edges (equivalent to [General->gaps_out](../Variables#general)) | int |

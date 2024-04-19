@@ -6,7 +6,7 @@ title: Must have
 This page documents software that is **strongly** recommended to have running
 for a smooth Hyprland experience.
 
-DEs like Plasma or Gnome will take care of this automatically. Hyprland will
+DEs like Plasma or GNOME will take care of this automatically. Hyprland will
 not, as you might want to use something else.
 
 ### A notification daemon
@@ -15,37 +15,37 @@ _Starting method:_ most likely manual (`exec-once`)
 
 Many apps (e.g. Discord) may freeze without one running.
 
-Use e.g. `dunst`, `mako`, `swaync`, etc.
+Examples: `dunst`, `mako`, and `swaync`.
 
 ### Pipewire
 
-_Starting method:_ Automatic on Systemd, manual otherwise
+_Starting method:_ Automatic on systemd, manual otherwise.
 
 Pipewire is not necessarily required, but screensharing will not work without
 it.
 
-Install `pipewire` and `wireplumber` (**not** `pipewire-media-session`)
+Install `pipewire` and `wireplumber` (**not** `pipewire-media-session`).
 
 #### Non-systemd distros
 
 Since there is no truly standardized way (outside of systemd) to load PipeWire
-when starting a graphical shell[^1] non-systemd distros like Gentoo or Artix
+when starting a graphical shell,[^1] non-systemd distros like Gentoo or Artix
 provide a dedicated launcher.
 
 It can be usually found by running `whereis <distro>-pipewire-launcher`. If such
-file does not exist on your install please refer to your distro's documentation
+a file does not exist on your install, please refer to your distro's documentation
 for help.
 
 [^1]: https://wiki.gentoo.org/wiki/PipeWire#OpenRC
 
 ### XDG Desktop Portal
 
-_Starting method:_ Automatic on Systemd, manual otherwise
+_Starting method:_ Automatic on systemd, manual otherwise.
 
 XDG Desktop Portal handles a lot of stuff for your desktop, like file pickers,
 screensharing, etc.
 
-See the [Hyprland Desktop Portal Page](../xdg-desktop-portal-hyprland)
+See the [Hyprland Desktop Portal Page.](../xdg-desktop-portal-hyprland)
 
 ### Authentication Agent
 
@@ -57,8 +57,8 @@ password whenever an app wants to elevate its privileges.
 Our recommendation is the KDE one. For arch, it's `polkit-kde-agent`.
 
 You can autostart it with
-`exec-once=/usr/lib/polkit-kde-authentication-agent-1`. On some distributions
-you might have to use a different path
+`exec-once=/usr/lib/polkit-kde-authentication-agent-1`. 
+On some distributions, you may have to use a different path like 
 `/usr/libexec/polkit-kde-authentication-agent-1`.
 
 On other distributions that use a more recent version, such as Gentoo, it may be

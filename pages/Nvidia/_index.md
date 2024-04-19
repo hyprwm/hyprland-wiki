@@ -10,16 +10,16 @@ make it work properly following this page.
 
 You can choose between the proprietary
 [Nvidia drivers](https://wiki.archlinux.org/title/NVIDIA) or the open source
-[Nouveau driver](https://wiki.archlinux.org/title/Nouveau). Under the
-proprietary Nvidia drivers category, there are 3 of them: the current driver
+[Nouveau driver](https://wiki.archlinux.org/title/Nouveau). For the
+proprietary drivers, there are 3 of them: the current driver
 named 'nvidia' (or 'nvidia-dkms' to use with custom linux kernels) which is
 under active development, the legacy drivers 'nvidia-3xxxx' for older cards
 which Nvidia no longer actively supports, and the 'nvidia-open' driver which is
-currently an alpha stage attempt to open source a part of their close source
+currently an alpha stage attempt to open source a part of their proprietary
 driver for newer cards.
 
 You may want to use the proprietary Nvidia drivers in some cases, for example:
-if you have a new Nvidia GPU model, if you want more performance, if you want to
+if you have a newer Nvidia GPU model, if you want more performance, if you want to
 play video games, if you need a wider feature set (for example, better power
 consumption on recent GPUs), etc. However, keep in mind that if the proprietary
 Nvidia drivers do not work properly on your computer, the Nouveau driver might
@@ -35,9 +35,9 @@ Hyprland properly:
 
 Install the `nvidia-dkms` driver and add it to your initramfs & kernel
 parameters.\
-For people using [systemd-boot](https://wiki.archlinux.org/title/systemd-boot)
+If you use [systemd-boot](https://wiki.archlinux.org/title/systemd-boot)
 you can do this adding `nvidia_drm.modeset=1` to the end of
-`/boot/loader/entries/arch.conf`. For people using
+`/boot/loader/entries/arch.conf`. If you use
 [grub](https://wiki.archlinux.org/title/GRUB) you can do this by adding
 `nvidia_drm.modeset=1` to the end of `GRUB_CMDLINE_LINUX_DEFAULT=` in
 `/etc/default/grub`, then run `# grub-mkconfig -o /boot/grub/grub.cfg` For
@@ -104,19 +104,19 @@ Install `qt5-wayland`, `qt5ct` and `libva`. Additionally
 `libva-nvidia-driver-git` (AUR) to fix crashes in some Electron-based
 applications, such as Unity Hub.
 
-Reboot your computer
+Reboot your computer.
 
 Launch Hyprland.
 
 It _should_ work now.
 
-## Fixing random flickering, (nuclear method)
+## Fixing random flickering (nuclear method)
 
-Do note though that this forces performance mode to be active, resulting in
+Note that this forces performance mode to be active, resulting in
 increased power-consumption (from 22W idle on a RTX 3070TI, to 74W).
 
-This may not even be needed for some users, only apply these 'fixes' if you
-in-fact do notice flickering artifacts from being idle for ~5 seconds.
+This may not be needed for some users. Only apply these 'fixes' if you 
+do notice flickering artifacts from being idle for ~5 seconds.
 
 Make a new file at `/etc/modprobe.d/nvidia.conf` and paste this in:
 
@@ -128,7 +128,7 @@ Reboot your computer and it should be working.
 
 If it does not, try:
 
-- lowering your monitors' refresh rate, as this can stop the flickering
+- lowering your monitor's refresh rate, as this can stop the flickering
   altogether
 - installing the 535xx versions of the drivers, as later (545, 550) can cause
   flickering with XWayland
@@ -143,7 +143,7 @@ Enable the services `nvidia-suspend.service`, `nvidia-hibernate.service` and
 `nvidia-resume.service`, they will be started by systemd when needed.
 
 Add `nvidia.NVreg_PreserveVideoMemoryAllocations=1` to your kernel parameters if
-you don't have it already.
+you haven't already.
 
 {{< callout >}}
 

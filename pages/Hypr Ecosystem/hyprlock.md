@@ -4,7 +4,7 @@ title: hyprlock
 ---
 
 hyprlock is a simple, yet fast, multi-threaded and GPU-accelerated screen lock
-for hyprland.
+for Hyprland.
 
 ## Configuration
 
@@ -21,12 +21,12 @@ Variables in the `general` category:
 | grace | the amount of seconds for which the lockscreen will unlock on mouse movement. | int | 0 |
 | no_fade_in | disables the fadein animation | bool | false |
 | no_fade_out | disables the fadeout animation | bool | false |
-| ignore_empty_input | skips validation when empty password is provided | bool | false |
+| ignore_empty_input | skips validation when no password is provided | bool | false |
 | pam_module | sets the pam module used for authentication. If the module isn't found in `/etc/pam.d`, "su" will be used as a fallback | str | hyprlock |
 
 ## Keyboard Shortcuts and Actions
 
-The following keys and key-combinations describe hyprlocks default behaviour:
+The following keys and key-combinations describe hyprlock's default behaviour:
 | input | description | 
 | -- | -- |
 | ESC | Clear password buffer |
@@ -62,7 +62,7 @@ widget_name {
 
 ### Shadowable
 
-Some widgets are shadowable, aka. can have a shadow. For those widgets, you get:
+Some widgets are shadowable, meaning they can have a shadow. For those widgets, you get:
 | variable | description | type | default |
 | -- | -- | -- | -- |
 | shadow_passes | passes for shadow, 0 to disable | int | 0 |
@@ -188,7 +188,7 @@ input-field {
 
 #### Colors information
 
-When `outline_thickness` set to `0`, color of the inner box will be changed instead of outer.
+When `outline_thickness` set to `0`, the color of the inner box will be changed instead of the outer.
 
 Behaviour of `swap_font_color` is as follows:
  - `outline_thickness` is `0`: if set, font color will be swapped with inner one on color change events (e.g. Caps-lock on or password check).

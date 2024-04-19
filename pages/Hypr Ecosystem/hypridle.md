@@ -3,13 +3,13 @@ weight: 3
 title: hypridle
 ---
 
-hypridle is hyprland's idle management daemon.
+hypridle is Hyprland's idle management daemon.
 
 ## Configuration
 
 Configuration is done via the config file at `~/.config/hypr/hypridle.conf`. A
 config file is required; hypridle won't run without one. To run hypridle at
-startup edit `hyprland.conf` and add: `exec-once = hypridle`.
+startup, edit `hyprland.conf` and add: `exec-once = hypridle`.
 
 ### General
 

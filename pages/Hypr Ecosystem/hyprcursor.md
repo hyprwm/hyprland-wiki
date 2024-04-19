@@ -7,7 +7,7 @@ over the widely used xcursor.
 
 ## Hyprcursor themes
 
-You will need to obtain those yourself. If you are on the discord server, see `#hyprcursor-themes`.
+You will need to obtain those yourself. If you are on the Discord server, see `#hyprcursor-themes`.
 
 Put your theme(s) in `~/.local/share/icons` or `~/.icons`
 
@@ -53,5 +53,5 @@ icons and XCursors in both `/usr/share/icons` and `~/.icons`.
 
 ## I don't want to use hyprcursor
 
-If you don't have any hyprcursor themes installed, hyprland will fall back to XCursor, and use
+If you don't have any hyprcursor themes installed, Hyprland will fall back to XCursor, and use
 whatever you define with `XCURSOR_THEME` and `XCURSOR_SIZE`.

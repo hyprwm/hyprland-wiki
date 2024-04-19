@@ -6,7 +6,7 @@ title: Color pickers
 Color pickers are useful for quickly grabbing a color of _something_ on your
 screen.
 
-It's preferred using _hyrpwm_'s own solution, which, so far, seems to be the
+It's preferred using _hyprwm_'s own solution, which, so far, seems to be the
 only one that doesn't suck.
 
 ## Hyprpicker

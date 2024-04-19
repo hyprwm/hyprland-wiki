@@ -3,14 +3,14 @@ weight: 1
 title: hyprpaper
 ---
 
-hyprpaper is a fast, IPC-controlled wallpaper utility for hyprland.
+hyprpaper is a fast, IPC-controlled wallpaper utility for Hyprland.
 
 ## Configuration
 
 The config file is located at `~/.config/hypr/hyprpaper.conf`. It is not
 required.
 
-Configuration is done via `preload`s, which _load_ an image into memory. Then,
+Configuration is done using `preload`, which _loads_ an image into memory. Then,
 you use `wallpaper` keywords to apply the preloaded image to your monitor(s):
 
 ```ini
@@ -20,8 +20,8 @@ wallpaper = DP-1,/home/me/amongus.png
 
 For wallpaper keywords:
 
-You can also `unload` preloaded images to free up memory. `unload all` and
-`unload unused` are a thing too.
+You can use `unload` to unload preloaded images. You can also specify `unload all`
+to unload all images or `unload unused` to unload images that aren't being used.
 
 To run hyprpaper at startup edit `hyprland.conf` and add:
 `exec-once = hyprpaper`.

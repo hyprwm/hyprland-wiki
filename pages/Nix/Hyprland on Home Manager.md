@@ -157,12 +157,12 @@ wayland.windowManager.hyprland.plugins = [
 ];
 ```
 
-For examples on how to build Hyprland plugins using nix see the
+For examples on how to build Hyprland plugins using Nix, see the
 [official plugins](https://github.com/hyprwm/hyprland-plugins).
 
 ## Fixing problems with themes
 
-If your themes for mouse cursor, icons or windows don't load correctly, try
+If your themes for mouse cursors, icons or windows don't load correctly, try
 setting them with `home.pointerCursor` and `gtk.theme`, which enable a bunch of
 compatibility options that should make the themes load in all situations.
 
@@ -198,7 +198,7 @@ gtk = {
 
 ## Programs don't work in systemd services, but do on the terminal
 
-This problem is related to Systemd not importing the environment by default. It
+This problem is related to systemd not importing the environment by default. It
 will not have knowledge of `PATH`, so it cannot run the commands in the
 services. This is the most common with user-configured services such as
 `hypridle` or `swayidle`.

@@ -8,7 +8,7 @@ title: FAQ
 This just means they are running through XWayland, which physically cannot scale
 by fractional amounts.
 
-To force them to run in wayland-native mode, see
+To force them to run in native Wayland mode, see
 [the Master Tutorial](../Getting-Started/Master-Tutorial/#force-apps-to-use-wayland).
 
 If they can't, see [the XWayland page](../Configuring/XWayland).
@@ -32,8 +32,7 @@ _[wiki page](../Crashes-and-Bugs)_
 
 ### Me cursor no render?
 
-Are you on NVIDIA? If so, then you have been naughty and haven't listened
-to my tips on other pages. Use the `WLR_NO_HARDWARE_CURSORS=1` environment
+If you are on NVIDIA, you may need to use the `WLR_NO_HARDWARE_CURSORS=1` environment
 variable.
 
 ### My external monitor is blank / doesn't render / receives no signal (laptop)
@@ -62,9 +61,9 @@ external monitor through the iGPU.
 
 ### How do I screenshot?
 
-Install `grim` and `slurp`
+Install `grim` and `slurp`.
 
-Use a keybind (or execute) `grim -g "$(slurp)"`, select a region. A screenshot
+Use a keybind (or execute) `grim -g "$(slurp)"`, and select a region. A screenshot
 will pop into your `~/Pictures/` (You can configure grim and slurp, see their
 GitHub pages).
 
@@ -122,7 +121,7 @@ update the package. Paru has been problematic with updating before, use Yay.
 
 ### How do I screen lock?
 
-Use a wayland-compatible locking utility using WLR protocols, e.g. `swaylock`.
+Use a Wayland-compatible locking utility using WLR protocols, e.g. `swaylock`.
 
 ### How do I change me mouse cursor?
 
@@ -158,7 +157,7 @@ Waybar has a set of caveats or settings that you need to be aware of. See
 
 ### How do I autostart my favorite apps?
 
-Using the window rules to assign apps to workspace you can open a bunch of
+Using the window rules to assign apps to workspaces, you can open a bunch of
 applications on various workspaces. The following method will start these apps
 silently (i.e. without the flickering from workspace to workspace).
 
@@ -173,7 +172,7 @@ exec-once=[workspace 4 silent] firefox
 
 ### How do I move my favorite workspaces to a new monitor when I plug it in?
 
-if you want workspaces to automatically go to a monitor upon connection, use the
+If you want workspaces to automatically go to a monitor upon connection, use the
 following:
 
 In hyprland.conf:
@@ -199,7 +198,7 @@ handle() {
 socat - "UNIX-CONNECT:/tmp/hypr/${HYPRLAND_INSTANCE_SIGNATURE}/.socket2.sock" | while read -r line; do handle "$line"; done
 ```
 
-if you want workspaces 1 2 4 5 to go to monitor 1 when connecting it.
+This makes workspaces 1, 2, 4, and 5 go to monitor 1 when connecting it.
 
 Please note this requires `socat` to be installed.
 
@@ -247,10 +246,10 @@ env = XDG_CURRENT_DESKTOP,Hyprland
 
 ### How to disable middle-click paste?
 
-You can simply intercept the middle-click action all together, via hyprland
-binds for example. The drawbacks to this solution are that 1. it disables the
+You can simply intercept the middle-click action all together via Hyprland
+binds. However, there are drawbacks to this solution. It disables the
 rest of the functionality of the middle-click action, such as auto scroll,
-closing browser tabs, etc., and 2. many applications (such as kitty) manually
+closing browser tabs, etc. Additionally, many applications (such as kitty) manually
 intercept the middle-click events and bind them to paste from the primary buffer
 themselves, bypassing the solution altogether. For this solution, add this bind
 to your config:
@@ -272,7 +271,7 @@ your config with `exec-once`, for example) to achieve this:
 to the primary buffer, `wl-copy -p ''` clears the primary buffer)
 
 **As you can see, however, this creates an endless loop (found copied text ->
-copy -> found copied text...). Therefore this method is not recommended.**
+copy -> found copied text...). Therefore, this method is not recommended.**
 
 </details>
 
@@ -298,9 +297,9 @@ You most likely have multiple portal impls / an impl is failing to launch.
 
 ### My screenshot utilities won't work with multiple screens
 
-Some programs like flameshot (currently) has limited wayland support so on most
-Wayland compositors, you will have to do few tweaks. For Hyprland, you can add
-these window rules to your config to make said programs work with both of your
+Some programs like Flameshot (currently) have limited Wayland support, so on most
+Wayland compositors, you will have to do a few tweaks. For Hyprland, you can add
+these window rules to your config to make these programs work with both of your
 screens.
 
 ```ini
@@ -318,7 +317,7 @@ First, install and run `wev`, then press `SUPER`. If you see a key press event
 followed by an instant key release event, then it's likely your `SUPER` key is
 set to single press mode.
 
-On most laptops this can be fixed by pressing `FN+SUPER` and verified in `wev`.
+On most laptops, this can be fixed by pressing `FN+SUPER` and verified in `wev`.
 You should be able to hold `SUPER` and not see an instant release event. In case
 `FN+SUPER` doesn't work, consult your laptop's manual.
 
@@ -335,12 +334,10 @@ bind = SUPER,Escape,submap,reset
 submap = reset
 ```
 
-set `MOD` and `KEY` to desired values.
+Set `MOD` and `KEY` to desired values.
 
-By pressing the selected combo you will enter a mode where hyprland ignores your
-keybinds and passes them on to the vm.
-
-Then, pressing `SUPER + Escape` will leave that mode.
+By pressing the selected combo, you will enter a mode where Hyprland ignores your
+keybinds and passes them on to the VM. Pressing `SUPER + Escape` will leave that mode.
 
 ### Some of my drop-down/pop-up windows in apps disappear/don't open at cursor position
 
@@ -385,9 +382,9 @@ to use the first solution if opening at the cursor position.
 
 ### Steam's file picker no worky
 
-On instances where you have a steam library on another drive that you have to
+On instances where you have a Steam library on another drive that you have to
 add, Hyprland's file picker would not normally appear when selecting a directory
-from steam.
+from Steam.
 
 Steam has its own file picker, however, it's not functional. Install
 `xdg-desktop-portal-gtk` to show the desktop's file picker.

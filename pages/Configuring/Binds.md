@@ -15,7 +15,7 @@ for example,
 bind=SUPER_SHIFT,Q,exec,firefox
 ```
 
-will bind opening firefox to <key>SUPER</key> + <key>SHIFT</key> + <key>Q</key>
+will bind opening Firefox to <key>SUPER</key> + <key>SHIFT</key> + <key>Q</key>
 
 {{< callout type=info >}}
 
@@ -41,7 +41,7 @@ for all the keysyms. The name you should use is the segment after `XKB_KEY_`.
 If you are unsure of what your key's name is, you can use `xev` or `wev` to find
 that information.
 
-If you want to bind by a keycode, you can just input it in the KEY position with
+If you want to bind by a keycode, you can put it in the KEY position with
 a `code:` prefix, e.g.:
 
 ```ini
@@ -111,7 +111,7 @@ bindl=,switch:on:[switch name],exec,hyprctl keyword monitor "eDP-1, disable"
 bindl=,switch:off:[switch name],exec,hyprctl keyword monitor "eDP-1, 2560x1600, 0x0, 1"
 ```
 
-check out your switches in `hyprctl devices`.
+You can view your switches in `hyprctl devices`.
 
 ### Multiple binds to one key
 
@@ -143,7 +143,7 @@ bindrl=MOD,KEY,exec,amongus
 Flags:
 
 ```ini
-l -> locked, aka. works also when an input inhibitor (e.g. a lockscreen) is active.
+l -> locked, will still work when an input inhibitor (e.g. a lockscreen) is active.
 r -> release, will trigger on release of a key.
 e -> repeat, will repeat when held.
 n -> non-consuming, key/mouse events will be passed to the active window in addition to triggering the dispatcher.
@@ -169,8 +169,8 @@ bindr=SUPER, SUPER_L, exec, pkill wofi || wofi
 
 ## Mouse Binds
 
-Mouse binds are binds that heavily rely on a mouse, usually its movement. They
-will have one less arg, and look for example like this:
+Mouse binds are binds that rely on a mouse, usually its movement. They
+will have one less arg, and may look like this:
 
 ```ini
 bindm=ALT,mouse:272,movewindow
@@ -242,10 +242,9 @@ Will pass MOUSE5 to TeamSpeak3.
 
 {{< callout >}}
 
-XWayland is a bit wonky. Make sure that what you're passing is a "global Xorg
-keybind", otherwise passing from a different XWayland app may not work.
-
-It works flawlessly with all native Wayland applications though.
+This works flawlessly with all native Wayland applications. However, XWayland is a bit wonky. 
+Make sure that what you're passing is a "global Xorg keybind", 
+otherwise passing from a different XWayland app may not work.
 
 {{< /callout >}}
 
@@ -276,9 +275,9 @@ Please note that this function will _only_ work with
 
 ## Submaps
 
-If you want keybind submaps, also known as _modes_ or _groups_, for example if
-you press <key>ALT</key> + <key>R</key>, you can enter a "resize" mode, resize
-with arrow keys, and leave with escape, do it like this:
+Keybind submaps, also known as _modes_ or _groups_, allow you to activate a
+seperate set of keybinds. For example, if you want to enter a "resize" mode 
+which allows you to resize windows with the arrow keys, you can do it like this:
 
 ```ini
 # will switch to a submap called resize
@@ -296,7 +295,7 @@ binde=,down,resizeactive,0 10
 # use reset to go back to the global submap
 bind=,escape,submap,reset 
 
-# will reset the submap, meaning end the current one and return to the global one
+# will reset the submap, which will return to the global submap
 submap=reset
 
 # keybinds further down will be global again...
