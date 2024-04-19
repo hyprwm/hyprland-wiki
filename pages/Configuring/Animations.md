@@ -8,7 +8,7 @@ title: Animations
 Animations are declared with the `animation` keyword.
 
 ```ini
-animation=NAME,ONOFF,SPEED,CURVE,(STYLE)
+animation=NAME,ONOFF,SPEED,CURVE[,STYLE]
 ```
 
 `ONOFF` can be either 0 or 1, 0 to disable, 1 to enable. _note:_ if it's 0, you

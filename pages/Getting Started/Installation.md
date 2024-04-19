@@ -20,7 +20,7 @@ might have **major** issues running Hyprland.
 ## Installation
 
 Installing Hyprland is very easy. Simply install it with your package manager 
-(if the pkg is available for Hyprland) or install/build it yourself.
+(if there is a Hyprland package available) or install/build it yourself.
 
 {{< callout >}}
 

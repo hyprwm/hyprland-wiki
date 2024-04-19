@@ -143,7 +143,7 @@ bindrl=MOD,KEY,exec,amongus
 Flags:
 
 ```ini
-l -> locked, will still work when an input inhibitor (e.g. a lockscreen) is active.
+l -> locked, will also work when an input inhibitor (e.g. a lockscreen) is active.
 r -> release, will trigger on release of a key.
 e -> repeat, will repeat when held.
 n -> non-consuming, key/mouse events will be passed to the active window in addition to triggering the dispatcher.

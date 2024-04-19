@@ -223,7 +223,7 @@ The rest of the floating windows will have `opacity 0.5`.
 
 {{< callout type=info >}}
 
-Opacity is a PRODUCT of all opacities by default. Setting `activeopacity` to 0.5 
+Opacity is a PRODUCT of all opacities by default. For example, setting `activeopacity` to 0.5 
 and `opacity` to 0.5 will result in a total opacity of 0.25. You are allowed
 to set opacities over 1, but any opacity product over 1 will cause graphical
 glitches. For example, using `0.5 * 2 = 1` is fine, but `0.5 * 4 = 2` will cause

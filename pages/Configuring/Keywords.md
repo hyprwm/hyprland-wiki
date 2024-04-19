@@ -29,7 +29,7 @@ three_param_keyword = A, B,  # OK
 
 ## Executing
 
-You can execute a shell script on startup of the compositor or whenever 
+You can execute a shell script on startup of the compositor or every time 
 the config is reloaded.
 
 `exec-once=command` will execute only on launch
@@ -38,7 +38,7 @@ the config is reloaded.
 
 ## Defining variables
 
-You can define your own custom variables using a dollar sign ($):
+You can define your own custom variables using a dollar sign (`$`):
 
 ```ini
 $VAR = value
@@ -145,7 +145,7 @@ In that case you'll need to type the symbol specified in the bind to activate it
 
 ## Wallpapers
 
-The Hyprland background you see when you first start Hyprland is **NOT A
+The "Hyprland" background you see when you first start Hyprland is **NOT A
 WALLPAPER**, it's the default image rendered at the bottom of the render stack.
 
 To set a wallpaper, use a wallpaper utility like

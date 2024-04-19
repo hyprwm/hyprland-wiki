@@ -167,5 +167,5 @@ logs.
 
 `systemctl --user status xdg-desktop-portal-hyprland`
 
-If you see a crash, it's likely you are missing either `qt6-wayland` and/or
+If you see a crash, it's likely you are missing either `qt6-wayland` or
 `qt5-wayland`.
