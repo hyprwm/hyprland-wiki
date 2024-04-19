@@ -247,13 +247,18 @@ env = XDG_CURRENT_DESKTOP,Hyprland
 
 ### How to disable middle-click paste?
 
-You can simply intercept the middle-click action all together, via hyprland
-binds for example. The drawbacks to this solution are that 1. it disables the
-rest of the functionality of the middle-click action, such as auto scroll,
-closing browser tabs, etc., and 2. many applications (such as kitty) manually
-intercept the middle-click events and bind them to paste from the primary buffer
-themselves, bypassing the solution altogether. For this solution, add this bind
-to your config:
+You can intercept the bind to empty the primary buffer with wl-copy before
+forwarding the input to the focused application by adding this to your config:
+
+`bindn = , mouse:274, exec, wl-copy -pc`
+
+Alternatively, you can simply intercept the middle-click action all together,
+via hyprland binds for example. The drawbacks to this solution are that 1. it
+disables the rest of the functionality of the middle-click action, such as auto
+scroll, closing browser tabs, etc., and 2. many applications (such as kitty)
+manually intercept the middle-click events and bind them to paste from the
+primary buffer themselves, bypassing the solution altogether. For this solution,
+add this bind to your config:
 
 `bind = , mouse:274, exec, ;`. Note that the exact bindcode may vary, so you may
 want to check it with `wev` first.
