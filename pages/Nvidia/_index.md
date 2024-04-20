@@ -115,7 +115,7 @@ It _should_ work now.
 
 We can achieve VA-API acceleration on Nvidia and Wayland with the help of the
 [nvidia-vaapi-driver](https://github.com/elFarto/nvidia-vaapi-driver). This may
-solve certain issues in electron apps, and it will also allow for GPU decoding
+solve certain issues in Electron apps, and it will also allow for GPU decoding
 for videos on the web, with benefits including higher performance video playback
 and also higher power efficiency during video playback.
 
@@ -149,7 +149,8 @@ after waking.
 `env = GBM_BACKEND,nvidia-drm`.
 
 - If you face problems with Discord windows not displaying or screen sharing not
-working in Zoom, remove or comment the line
+working in Zoom, first try running them in Native Wayland (more details below).
+Otherwise, remove or comment the line
 `env = __GLX_VENDOR_LIBRARY_NAME,nvidia`.
 
 ### How to possibly get multi-monitor working with hybrid graphics
@@ -159,38 +160,50 @@ both an Intel and an Nvidia GPU), you will need to remove the `optimus-manager`
 package if installed (disabling the service does not work). You also need to
 change your BIOS settings from hybrid graphics to discrete graphics.
 
-### Fixing flickering in electron apps
+### Fixing flickering in Electron / CEF apps
 
 This flickering is likely caused by these apps running in XWayland.
 To fix the flickering, try running the apps with native Wayland instead.
 
-For Discord, you can try the [Vesktop app](https://github.com/Vencord/Vesktop).
-It has a multitude of install options for many distros in their README.
+For most Electron apps, you should be fine just adding this
+environment variable to your config:
 
-After installing, you can then enable the Wayland backend with this command:
 ```sh
-echo "--enable-features=UseOzonePlatform --ozone-platform-hint=auto" > ~/.config/vesktop-flags.conf
+env = ELECTRON_OZONE_PLATFORM_HINT,auto
 ```
 
-This will add the parameters required to run Vesktop with its Wayland backend.
+This has been confirmed to work on Vesktop, VSCodium and Obsidian and will probably
+work on other Electron apps as well.
 
-On earlier Nvidia driver versions, including 535, you may have to also include
-the `--disable-gpu` and `--disable-gpu-sandbox` flags, but, as the names suggest,
-you will lose hardware acceleration for Vesktop.
+For other apps, including CEF apps, you will need to launch them with these flags:
 
-For Spotify, Arch Linux has a `spotify-launcher` packages in their official repos.
-You should use that instead of the `spotify` package in the AUR, and then enabling
-the Wayland backend in `/etc/spotify-launcher.conf` by uncommenting this line:
+```sh
+--enable-features=UseOzonePlatform --ozone-platform=wayland
+```
+
+To do this easily for Spotify, Arch Linux has a `spotify-launcher` packages
+in their official repos. You should use that instead of the `spotify`
+package in the AUR. Then, enable the Wayland backend in 
+`/etc/spotify-launcher.conf` by uncommenting this line:
+
 ```sh
 extra_arguments = ["--enable-features=UseOzonePlatform", "--ozone-platform=wayland"]
 ```
 
-In other cases like VSCodium and Obsidian, you can add the same flags from the Vesktop app
-to their respective flags files. In VSCodium's case, this would be `~/.config/codium-flags.conf`
-and for Obsidian it would be `~/.config/obsidian/user-flags.conf`
+Some CEF / Electron apps may also have a respective flags file in ~/.config.
+For example, for VSCodium, you can add the flags to `~/.config/codium-flags.conf`
+and for Obsidian, you can add the flags to `~/.config/obsidian/user-flags.conf`.
+
+{{< callout >}}
+
+On earlier Nvidia driver versions, including 535, you may have to also include
+the `--disable-gpu` and `--disable-gpu-sandbox` flags, but, as the names suggest,
+you will lose hardware acceleration for whichever app is run with these flags.
+
+{{< /callout >}}
 
 With NixOS, you can also try setting the `NIXOS_OZONE_WL` environment variable
-to `1`, which should automatically configure electron apps to run with native
+to `1`, which should automatically configure Electron / CEF apps to run with native
 Wayland for you.
 
 While it is best to have as many things as possible running natively in
@@ -208,7 +221,8 @@ you have a few possible fixes:
 - Install xorg-xwayland-git (AUR). This git package includes this [PR](https://gitlab.freedesktop.org/xorg/xserver/-/merge_requests/967)
   which implements the "Explicit Sync" protocol. 
   This will fix it in some, if not all cases. However if it doesn't,
-  try the next solution.
+  try the next solution. Once the 555 series of drivers are released, this
+  should completely fix the issue.
 
 - Install older nvidia drivers which do not exhibit this problem. The
   last ones which would work will be the 535xx series of drivers. These
@@ -268,3 +282,9 @@ hardware.nvidia.powerManagement.enable = true;
 # Making sure to use the proprietary drivers until the issue above is fixed upstream
 hardware.nvidia.open = false;
 ```
+
+## Still having issues?
+
+If you're still having issues after following this guide, you can join the
+[Hyprland Discord](https://discord.gg/hypr) and ask for help in the
+`#hyprland-nvidia` channel. Hopefully someone will be able to help you out.
