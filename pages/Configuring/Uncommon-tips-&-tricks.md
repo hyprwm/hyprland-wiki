@@ -97,36 +97,6 @@ else
 fi
 ```
 
-## Window Dancing
-
-Some XWayland games like Rhythm Doctor and Friday Night Funkin' mods like to
-move the windows by themselves, but that often doesn't work by default.
-
-For example, if you want to configure Rhythm Doctor, you'd have to:
-
-1. Set input rules
-
-```ini
-input {
-	# ...
-	follow_mouse=0
-	float_switch_override_focus=0
-}
-```
-
-2. Set the windowrule
-
-```ini
-windowrule=windowdance,title:^(Rhythm Doctor)$
-# windowrule=forceinput,title:^(Rhythm Doctor)$ # May also be needed
-```
-
-3. Have fun!
-
-Click the GIF below to see a full demo video
-
-[![Demo GIF of Rhythm Doctor](https://github.com/hyprwm/hyprland-wiki/assets/36706276/6a3d306e-366e-48df-aec2-5e16bb143625)](https://pool.jortage.com/voringme/misskey/565b9dfb-125f-4ea0-9257-b371cb4c7195.mp4)
-
 ### Shimeji
 
 To use Shimeji programs like
