@@ -58,7 +58,7 @@ See the likely culprits below.
 
 ### No tearing at all
 
-Make sure your windowrules are matching and you have the master toggle enabled.
+Make sure your window rules are matching and you have the master toggle enabled.
 
 Also make sure nothing except for your game is showing on your monitor. No
 notifications, overlays, lockscreens, bars, other windows, etc. (on a different
@@ -78,13 +78,7 @@ Likely issue with your graphics driver.
 Please _do not_ report issues if this is the culprit. Unfortunately, it's most
 likely your GPU driver's fault.
 
-Could be the below as well
-
-### Other graphical issues
-
-or
-
-### Hyprland instantly crashes on launch
+### Other graphical issues/Hyprland instantly crashes on launch
 
 Likely issue with `WLR_DRM_NO_ATOMIC`.
 

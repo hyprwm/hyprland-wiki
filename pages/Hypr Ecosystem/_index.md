@@ -3,7 +3,7 @@ weight: 4
 title: Hypr Ecosystem
 ---
 
-This wiki section hosts docs for various hypr* projects. See a list bere:
+This wiki section hosts docs for various hypr* projects. See a list here:
 
 {{< callout type=info >}}
 

@@ -19,7 +19,7 @@ change, and don't want to make a config file. Get it
 
 ## wpaperd
 
-A bit more advanced wallpaper daemon with automatic wallpaper changing options
+A slightly more advanced wallpaper daemon with automatic wallpaper changing options
 and other fancy stuff. [GitHub](https://github.com/danyspin97/wpaperd).
 
 ## mpvpaper
@@ -29,7 +29,7 @@ A neat mpv wrapper to play a video as your wallpaper.
 
 ## swww
 
-An efficient animated wallpaper daemon for wayland, controlled at runtime, which
+An efficient animated wallpaper daemon for Wayland, controlled at runtime, which
 means you can change wallpapers without even needing to restart.
 [GitHub](https://github.com/Horus645/swww)
 

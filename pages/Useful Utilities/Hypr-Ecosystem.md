@@ -1,5 +1,5 @@
 The hypr ecosystem is a collection of apps developed by me (aka hyprwm)
-that are designed for hyprland and to integrate with it as nicely as possible.
+that are designed for Hyprland and to integrate with it as nicely as possible.
 
 ## hyprpaper
 
@@ -9,7 +9,7 @@ A cool, fast, IPC-controlled wallpaper utility.
 
 ## hyprpicker
 
-A neat color picker for your hyprland desktop.
+A neat color picker for your Hyprland desktop.
 
 [Github link](https://github.com/hyprwm/hyprpicker)
 
@@ -19,13 +19,13 @@ A must-have, see [The wiki page](../xdg-desktop-portal-hyprland)
 
 ## hypridle
 
-An idle management daemon for hyprland, to set stuff like lockscreen or monitor poweroff when idle.
+An idle management daemon for Hyprland, for things like opening lock screens or powering off the monitor when idle.
 
 [Github link](https://github.com/hyprwm/hypridle)
 
 ## hyprlock
 
-A simple, but fast, multithreaded, GPU-accelerated screen locker for hyprland.
+A simple, but fast, multithreaded, GPU-accelerated screen locker for Hyprland.
 
 [Github link](https://github.com/hyprwm/hyprlock)
 

@@ -21,8 +21,8 @@ For more info regarding configuration, see
 
 After getting everything set up, you might want to check if Waybar is configured
 to your liking. To launch it, simply type `waybar` into your terminal. If you
-would like waybar to launch alongside hyprland, you can do this by adding a line
-to your hyprland configuration that reads `exec-once=waybar`
+would like Waybar to launch alongside Hyprland, you can do this by adding a line
+to your Hyprland configuration that reads `exec-once=waybar`.
 
 ### Waybar popups render behind the windows
 
@@ -36,7 +36,7 @@ Replace `#workspaces button.focused` with `#workspaces button.active` in
 
 ### Scrolling through workspaces
 
-Since there a lot of configuration options from `sway/workspaces` are missing,
+Since a lot of configuration options from `sway/workspaces` are missing,
 you should deduce some of them by yourself. In the case of scrolling, it should
 look like this:
 
@@ -52,14 +52,14 @@ look like this:
 
 On the `hyprland/workspaces` module, add `"on-click": "activate"`. That's the
 purpose of the `sed` command used before building Waybar: the default way to
-select a workspace by clicking uses the `swaymsg`'s way, and thus it is required
+select a workspace by clicking uses `swaymsg`, and thus it is required
 to edit this function to make it work with `hyprctl`.
 
 ### Window title is missing
 
 Follow the above instructions to make sure everything is working. The prefix for
 the window module that provides the title is `hyprland` not `wlr`. In your
-waybar config, insert this module:
+Waybar config, insert this module:
 
 ```json
 "modules-center": ["hyprland/window"],
@@ -226,9 +226,9 @@ socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | s
 ## Hybrid
 
 Like Waybar, [Hybrid](https://github.com/vars1ty/HybridBar) is a GTK status bar
-mainly focused for wlroots compositors.
+mainly focused on wlroots compositors.
 
-You can install it from the AUR by the name `hybrid-bar`.
+You can install it by installing `hybrid-bar` from the AUR.
 
 ### Configuration
 
@@ -239,12 +239,12 @@ The configuration is done through JSON, more information is available
 
 After configuring HybridBar, you can launch it by typing `hybrid-bar` into your
 terminal to try it out. It is also possible to set it to launch at start, to do
-this you can add a line to your hyprland configuration that reads
+this you can add a line to your Hyprland configuration that reads
 `exec-once=hybrid-bar`
 
 #### Blur
 
-To activate blur, set `blurls=NAMESPACE` in your hyprland configuration, where
+To activate blur, set `blurls=NAMESPACE` in your Hyprland configuration, where
 `NAMESPACE` is the gtk-layer-shell namespace of your HybridBar. The default
 namespace is `gtk-layer-shell` and can be changed in the HybridBar configuration
 at

@@ -29,8 +29,8 @@ three_param_keyword = A, B,  # OK
 
 ## Executing
 
-you can execute a shell script on startup of the compositor or on each time it's
-reloaded.
+You can execute a shell script on startup of the compositor or every time 
+the config is reloaded.
 
 `exec-once=command` will execute only on launch
 
@@ -38,25 +38,25 @@ reloaded.
 
 ## Defining variables
 
-You can define your own custom variables like this:
+You can define your own custom variables using a dollar sign (`$`):
 
 ```ini
 $VAR = value
 ```
 
-for example:
+For example:
 
 ```ini
 $MyFavoriteGame = Among Us
 ```
 
-then, to use them, simply use them. For example:
+Then you can reference them in the rest of the config. For example:
 
 ```ini
 col.active_border=$MyColor
 ```
 
-You ARE allowed to do this:
+You are allowed to combine variables in-place with other strings, like this:
 
 ```ini
 col.active_border=ff$MyRedValue1111
@@ -145,7 +145,7 @@ In that case you'll need to type the symbol specified in the bind to activate it
 
 ## Wallpapers
 
-The hyprland background you see when you first start Hyprland is **NOT A
+The "Hyprland" background you see when you first start Hyprland is **NOT A
 WALLPAPER**, it's the default image rendered at the bottom of the render stack.
 
 To set a wallpaper, use a wallpaper utility like
@@ -167,7 +167,7 @@ layerrule = blur,NAMESPACE
 layerrule = blur,address:0x<ADDRESS>
 ```
 
-you can get the namespace / address from `hyprctl layers`.
+You can get the namespace / address from `hyprctl layers`.
 
 To remove a layer rule (useful in dynamic situations) use:
 

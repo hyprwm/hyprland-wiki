@@ -58,7 +58,7 @@ We also create a global pointer for our handle:
 inline HANDLE PHANDLE = nullptr;
 ```
 
-we will initialize it in our plugin init function later. It serves as an
+We will initialize it in our plugin init function later. It serves as an
 internal "ID" of our plugin.
 
 Then, there is the API version method:
@@ -100,7 +100,7 @@ APICALL EXPORT void PLUGIN_EXIT() {
 }
 ```
 
-The first method will be called when your plugin gets initialized (loaded)
+The first method will be called when your plugin gets initialized (loaded).
 
 You can, and probably should, initialize everything you may want to use in
 there.
@@ -130,13 +130,13 @@ for you.
 In order to make your life easier, it's a good idea to work on a nested debug
 Hyprland session.
 
-Enter your Hyprland directory and run `make debug`
+Enter your Hyprland directory and run `make debug`.
 
 Make a copy of your config in `~/.config/hypr` called `hyprlandd.conf`.
 
 Remove _all_ `exec=` or `exec-once=` directives from your config.
 
-_recommended_: Change the modifier for your keybinds (e.g. `SUPER` -> `ALT`)
+_recommended_: Change the modifier for your keybinds (e.g. `SUPER` -> `ALT`).
 
 Launch the output `Hyprland` binary in `./build/` _when logged into a Hyprland
 session_.

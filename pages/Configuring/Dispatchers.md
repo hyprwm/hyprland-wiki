@@ -29,7 +29,7 @@ layout pages (See the sidebar).
 | closewindow | closes a specified window | window |
 | workspace | changes the workspace | workspace |
 | movetoworkspace | moves the focused window to a workspace | workspace OR `workspace,window` for a specific window |
-| movetoworkspacesilent | same as above, but doesnt switch to the workspace | workspace OR `workspace,window` for a specific window |
+| movetoworkspacesilent | same as above, but doesn't switch to the workspace | workspace OR `workspace,window` for a specific window |
 | togglefloating | toggles the current window's floating state | left empty / `active` for current, or `window` for a specific window |
 | setfloating | sets the current window's floating state to true | left empty / `active` for current, or `window` for a specific window |
 | settiled | sets the current window's floating state to false | left empty / `active` for current, or `window` for a specific window |
@@ -102,13 +102,13 @@ The new group’s border colors are configurable with the appropriate `col.`
 settings in the `group` config section.
 
 You can lock a group with the `lockactivegroup` dispatcher in order to stop new
-window from entering this group. In addition, the `lockgroups` dispatcher can be
-used to toggle an independent global group lock that will prevent new window
+windows from entering this group. In addition, the `lockgroups` dispatcher can be
+used to toggle an independent global group lock that will prevent new windows
 from entering any groups, regardless of their local group lock stat.
 
-You can prevent a window from being added to group or becoming a group with the
+You can prevent a window from being added to a group or becoming a group with the
 `denywindowfromgroup` dispatcher. `movewindoworgroup` will behave like
-`movewindow` if current active window or window in direction has this property
+`movewindow` if the current active window or window in direction has this property
 set.
 
 ## Workspaces
@@ -173,8 +173,8 @@ bind = SUPER, C, movetoworkspace, special
 ## Executing with rules
 
 The `exec` dispatcher supports adding rules. Please note some windows might work
-better, some worse. It records the PID of the spawned process and uses that. If
-your process e.g. forks and then the fork opens a window, this will not work.
+better, some worse. It records the PID of the spawned process and uses that. For example, if
+your process forks and then the fork opens a window, this will not work.
 
 The syntax is:
 

@@ -19,14 +19,14 @@ might have **major** issues running Hyprland.
 
 ## Installation
 
-Installing Hyprland is very easy. Either you install it from your local package
-provider (if they provide pkgs for Hyprland) or you install/build it yourself.
+Installing Hyprland is very easy. Simply install it with your package manager 
+(if there is a Hyprland package available) or install/build it yourself.
 
 {{< callout >}}
 
 This project is under development and is constantly changing. If you want to
 keep up to date with the latest commits, please consider updating your packages
-with `yay -Syu --devel`, or your other preferred package manager.
+with `yay -Syu --devel`, or your preferred package manager.
 
 {{< /callout >}}
 

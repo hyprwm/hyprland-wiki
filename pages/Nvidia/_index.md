@@ -10,20 +10,17 @@ have had success with the instructions on this page.
 
 You can choose between the proprietary
 [Nvidia drivers](https://wiki.archlinux.org/title/NVIDIA) or the open source
-[Nouveau driver](https://wiki.archlinux.org/title/Nouveau). Under the
-proprietary Nvidia drivers category, there are 3 of them: the current driver
+[Nouveau driver](https://wiki.archlinux.org/title/Nouveau). For the
+proprietary drivers, there are 3 of them: the current driver
 named 'nvidia' (or 'nvidia-dkms' to use with custom linux kernels) which is
 under active development, the legacy drivers 'nvidia-3xxxx' for older cards
 which Nvidia no longer actively supports, and the 'nvidia-open' driver which is
 currently an alpha stage attempt to open source a part of their closed source
 driver for newer cards.
 
-If your card is supported by the proprietary nvidia drivers, there is a very
-high chance that you will most likely want to use those. Benefits include but
-are not limited to:
-
-- (Much) better gaming performance
-- Better power management on recent GPUs
+If the proprietary drivers support your graphics card, it's generally recommended
+to use them instead, as it includes significantly improved gaming performance 
+and power management for recent GPUs.
 
 However, keep in mind that if the proprietary Nvidia drivers do not work
 properly on your computer, the Nouveau driver might work fine. This will
@@ -54,12 +51,10 @@ similarly between the two.
 Next up, you need to enable modeset for nvidia, this can be done via editing
 the kernel paramaters for your bootloader.
 
-For people using [systemd-boot](https://wiki.archlinux.org/title/systemd-boot)
-you can do this by adding `nvidia_drm.modeset=1` to the end of
-`/boot/loader/entries/arch.conf`.
-
-For people using
-[GRUB](https://wiki.archlinux.org/title/GRUB) you can do this by adding
+If you use [systemd-boot](https://wiki.archlinux.org/title/systemd-boot)
+you can do this adding `nvidia_drm.modeset=1` to the end of
+`/boot/loader/entries/arch.conf`. If you use
+[grub](https://wiki.archlinux.org/title/GRUB) you can do this by adding
 `nvidia_drm.modeset=1` to the end of `GRUB_CMDLINE_LINUX_DEFAULT=` in
 `/etc/default/grub`, then running `sudo grub-mkconfig -o /boot/grub/grub.cfg`.
 
@@ -207,8 +202,8 @@ to `1`, which should automatically configure Electron / CEF apps to run with nat
 Wayland for you.
 
 While it is best to have as many things as possible running natively in
-wayland, the root cause of the flickering will likely be solved
-in the 555 series of nvidia driver updates.
+Wayland, the root cause of the flickering will likely be solved
+in the 555 series of Nvidia driver updates.
 
 ### Fixing flickering in XWayland games specifically
 
@@ -233,11 +228,11 @@ More info about explicit sync is available
 
 ### Fixing other random flickering (nuclear method)
 
-Do note that this forces performance mode to be active, resulting in
-increased power-consumption (from 22W idle on an RTX 3070TI, to 74W).
+Note that this forces performance mode to be active, resulting in
+increased power-consumption (from 22W idle on a RTX 3070TI, to 74W).
 
-This is probably not needed for most users, so only apply these 'fixes' if
-you in-fact do notice flickering artifacts from being idle for ~5 seconds.
+This may not be needed for some users. Only apply these 'fixes' if you 
+do notice flickering artifacts from being idle for ~5 seconds.
 
 Make a new file at `/etc/modprobe.d/nvidia.conf` and paste this in:
 
@@ -249,7 +244,7 @@ Reboot your computer and it should be working.
 
 If it does not, try:
 
-- lowering your monitors' refresh rate, as this can stop the flickering
+- lowering your monitor's refresh rate, as this can stop the flickering
   altogether
 - using the [Nouveau driver](https://wiki.archlinux.org/title/Nouveau) as
   mentioned above
@@ -260,7 +255,7 @@ Enable the services `nvidia-suspend.service`, `nvidia-hibernate.service` and
 `nvidia-resume.service`, they will be started by systemd when needed.
 
 Add `nvidia.NVreg_PreserveVideoMemoryAllocations=1` to your kernel parameters if
-you don't have it already.
+you haven't already.
 
 {{< callout >}}
 

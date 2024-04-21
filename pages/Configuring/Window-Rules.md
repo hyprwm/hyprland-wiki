@@ -50,16 +50,16 @@ windowrulev2 = float,class:(kitty),title:(kitty)
 
 {{< callout type=info >}}
 
-In the case of dynamic window titles such as browser windows keep in mind how
+In the case of dynamic window titles such as browser windows, keep in mind how
 powerful regex is.
 
-for example a window rule of:
+For example, a window rule of:
 `windowrule=opacity 0.3 override 0.3 override,title:(.*)(- Youtube)$` will match
 _any_ window that contains a string of "- Youtube" after any other text. This
 could be multiple browser windows or other applications that contain the string
 for any reason.
 
-for the `windowrulev2 = float,class:(kitty),title:(kitty)` example, the
+For the `windowrulev2 = float,class:(kitty),title:(kitty)` example, the
 `class:(kitty)` `WINDOW` field is what keeps the window rule specific to kitty
 terminals.
 
@@ -83,11 +83,6 @@ onworkspace - id, name: and name, or workspace selector (see Workspace Rules)
 
 Keep in mind that you _have_ to declare at least one field, but not all.
 
-{{< callout type=warning >}}
-Please beware that `hyprctl clients` display the field as **initialClass** while the WINDOW field in the configuration uses `initialclass`.
-
-{{< /callout >}}
-
 {{< callout type=info >}}
 
 To get more information about a window's class, title, XWayland status or its
@@ -95,11 +90,17 @@ size, you can use `hyprctl clients`.
 
 {{< /callout >}}
 
+{{< callout type=warning >}}
+
+Please beware that `hyprctl clients` will display the field as **initialClass** while the WINDOW field in the configuration uses `initialclass`.
+
+{{< /callout >}}
+
 ## Rules
 
 ### Static rules
 
-Static rules are evaluated once at window open and never again.
+Static rules are evaluated once when the window is opened and never again.
 
 | Rule | Description |
 | ---- | ----------- |
@@ -134,7 +135,7 @@ Dynamic rules are re-evaluated every time a property changes.
 | ---- | ----------- |
 | opacity \[a\] | additional opacity multiplier. Options for a: `float` -> sets an overall opacity OR `float float` -> sets activeopacity and inactiveopacity respectively, OR `float float float` -> sets activeopacity, inactiveopacity and fullscreenopacity respectively. |
 | opaque | forces the window to be opaque (can be toggled with the toggleopaque dispatcher) |
-| forcergbx | makes hyprland ignore the alpha channel of all the window's surfaces, effectively making it _actually, fully 100% opaque_ |
+| forcergbx | makes Hyprland ignore the alpha channel of all the window's surfaces, effectively making it _actually, fully 100% opaque_ |
 | animation \[style\] (\[opt\]) | forces an animation onto a window, with a selected opt. Opt is optional. |
 | rounding \[x\] | forces the application to have X pixels of rounding, ignoring the set default (in `decoration:rounding`). Has to be an int. |
 | minsize \[x\] \[y\] | sets the minimum size (x,y -> int) |
@@ -197,7 +198,7 @@ windowrulev2 = stayfocused, class:^(pinentry-) # fix pinentry losing focus
 
 Rules that are marked as _Dynamic_ will be reevaluated if the matching property
 of the window changes. For instance, if a rule is defined that changes the
-bordercolor of a window when it is floating, then the bordercolor will change to
+`bordercolor` of a window when it is floating, then the `bordercolor` will change to
 the requested color when it is set to floating, and revert to the default color
 when it is tiled again.
 
@@ -209,26 +210,26 @@ windowrulev2 = opacity 0.8 0.8,class:^(kitty)$
 windowrulev2 = opacity 0.5 0.5,floating:1
 ```
 
--> all non-fullscreen kitty windows will have opacity 0.8, except if they are floating. Then
-they will have opacity 0.5. -> all non-fullscreen floating windows will have opacity 0.5.
+Here, all non-fullscreen kitty windows will have `opacity 0.8`, except if they are floating. 
+Otherwise, they will have `opacity 0.5`. The rest of the non-fullscreen floating windows will have `opacity 0.5`.
 
 ```ini
 windowrulev2 = opacity 0.5 0.5,floating:1
 windowrulev2 = opacity 0.8 0.8,class:^(kitty)$
 ```
 
--> all kitty windows will have opacity 0.8, also if they are floating. -> all
-other floating windows will have opacity 0.5.
+Here, all kitty windows will have `opacity 0.8`, even if they are floating. 
+The rest of the floating windows will have `opacity 0.5`.
 
 {{< callout type=info >}}
 
-Opacity is a PRODUCT of all opacities by default. E.g. `active_opacity` to 0.5 and
-windowrule opacity to 0.5 will result in a total opacity 0.25. You are allowed
+Opacity is a PRODUCT of all opacities by default. For example, setting `activeopacity` to 0.5 
+and `opacity` to 0.5 will result in a total opacity of 0.25. You are allowed
 to set opacities over 1, but any opacity product over 1 will cause graphical
-glitches. E.g. `0.5 * 2 = 1`, and it will be fine, `0.5 * 4` will cause
-graphical glitches. You can use `override` after an opacity to make it override
-instead of a multiplier. E.g. to set active and inactive opacity to 0.8,
-and make fullscreen fully opaque regardless of other opacity rules:
+glitches. For example, using `0.5 * 2 = 1` is fine, but `0.5 * 4 = 2` will cause
+graphical glitches. You can put `override` after an opacity value to override it to an exact value
+rather than a multiplier. For example, to set active and inactive opacity to 0.8,
+and make fullscreen windows fully opaque regardless of other opacity rules:
 
 ```ini
 windowrulev2 = opacity 0.8 override 0.8 override 1.0 override,^(kitty)$
@@ -238,8 +239,8 @@ windowrulev2 = opacity 0.8 override 0.8 override 1.0 override,^(kitty)$
 
 ## Layer Rules
 
-Some things in wayland are not windows, but layers. That includes for example
-most launchers, your status bar or wallpaper.
+Some things in Wayland are not windows, but layers. That includes, for example:
+app launchers, status bars, or wallpapers.
 
 Those have specific rules separate from windows:
 
@@ -256,7 +257,7 @@ in `hyprctl layers`) or `address` is an address in the form of `address:0x[hex]`
 
 | rule | description |
 | --- | --- |
-| unset | removes all layerRules previously set for a select namespace regex. Please note it has to match _exactly_ |
+| unset | removes all layerRules previously set for a select namespace regex. Please note it has to match _exactly_. |
 | noanim | disables animations |
 | blur | enables blur for the layer |
 | blurpopups | enables blur for the popups |

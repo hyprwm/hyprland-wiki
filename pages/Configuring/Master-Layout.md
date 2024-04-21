@@ -5,7 +5,7 @@ title: Master Layout
 
 The master layout makes one (or more) window(s) be the "master", taking (by
 default) the left part of the screen, and tiles the rest on the right. You can
-change the orientation on per-workspace basis if you want to use anything other
+change the orientation on a per-workspace basis if you want to use anything other
 than the default left/right split.
 
 ![master1](https://user-images.githubusercontent.com/43317083/179357849-321f042c-f536-44b3-9e6f-371df5321836.gif)
@@ -54,11 +54,11 @@ _category name `master`_
 | rollnext | rotate the next window in stack to be the master, while keeping the focus on master | none |
 | rollprev | rotate the previous window in stack to be the master, while keeping the focus on master | none |
 
-params for the commands are separated by a single space
+Parameters for the commands are separated by a single space.
 
 {{< callout type=info >}}
 
-example usage:
+Example usage:
 
 ```ini
 bind=MOD,KEY,layoutmsg,cyclenext

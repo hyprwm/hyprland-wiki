@@ -5,14 +5,12 @@ title: Crashes and Bugs
 
 ## Getting the log
 
-If you are in a TTY, and the hyprland session that crashed was the last one you
-launched, the log will be printed with
+If you are in a TTY, and the Hyprland session that crashed was the last one you
+launched, the log can be printed with
 
 ```sh
 cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 1)/hyprland.log
 ```
-
-feel free to save it to a file, save, copy, etc.
 
 if you are in a Hyprland session, and you want the log of the last session, use
 
@@ -62,7 +60,7 @@ issue on GitHub.
 
 If requested, this is the deepest level of memory issue debugging possible.
 
-_Do this in the tty, with no Hyprland instances running_
+_Do this in the tty, with no Hyprland instances running._
 
 Clone hyprland: `git clone --recursive https://github.com/hyprwm/Hyprland`
 

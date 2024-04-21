@@ -3,7 +3,7 @@ weight: 12
 title: Connect
 ---
 
-These are the links to official hyprland-related spaces or profiles:
+These are the links to official Hyprland-related spaces or profiles:
 
 ## Profiles
 
@@ -19,4 +19,4 @@ Matrix: `#hyprland:matrix.vaxry.net`
 ## Other
 
 hyprland.org git instance: [code.hyprland.org](https://code.hyprland.org/)<br/>
-hyprland website: [hyprland.org](https://hyprland.org/)<br/>
+Hyprland website: [hyprland.org](https://hyprland.org/)<br/>

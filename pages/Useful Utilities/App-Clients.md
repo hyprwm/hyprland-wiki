@@ -9,7 +9,7 @@ replacements for them:
 ## Discord
 
 - [WebCord](https://github.com/SpacingBat3/WebCord) is a Discord client based on
-  the latest Electron, with support for Wayland Ozone platform, as well as
+  the latest Electron, with support for the Wayland Ozone platform, as well as
   PipeWire screensharing. It has tons of great features and tries not to
   infringe on the Discord ToS.
 

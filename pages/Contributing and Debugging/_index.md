@@ -39,7 +39,7 @@ With that, you can build in debug, go to the debugging tab and hit
 
 `make debug`
 
-attach and profile in your preferred way.
+Attach and profile in your preferred way.
 
 ### Meson
 
@@ -62,7 +62,7 @@ This code can go in the `package` attribute of the NixOS/Home Manager modules.
 
 ## Running
 
-when running Hyprland in Debug mode, the config is
+When running Hyprland in Debug mode, the config is
 `~/.config/hypr/hyprlandd.conf` and the logs can be found at
 `/tmp/hypr/[INSTANCE SIGNATURE]/hyprlandd.log`.
 

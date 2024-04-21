@@ -25,9 +25,9 @@ For live event handling, see the [socket2](../../IPC/).
 
 ## Commands
 
-### Dispatch
+### dispatch
 
-issue a `dispatch` to call a keybind dispatcher with an arg.
+Issue a `dispatch` to call a keybind dispatcher with an arg.
 
 An arg has to be present, for dispatchers without parameters it can be anything.
 
@@ -49,7 +49,7 @@ Returns: `ok` on success, an error message on fail.
 
 See [Dispatchers](../Dispatchers) for a list of dispatchers.
 
-### Keyword
+### keyword
 
 issue a `keyword` to call a config keyword dynamically.
 
@@ -65,13 +65,13 @@ hyprctl keyword monitor DP-3,1920x1080@144,0x0,1
 
 Returns: `ok` on success, an error message on fail.
 
-### Reload
+### reload
 
-issue a `reload` to force reload the config.
+Issue a `reload` to force reload the config.
 
 ### kill
 
-issue a `kill` to get into a kill mode, where you can kill an app by clicking on
+Issue a `kill` to get into a kill mode, where you can kill an app by clicking on
 it. You can exit it with ESCAPE.
 
 Kind of like xkill.
@@ -142,7 +142,7 @@ where `CMD` is either `next` for next, `prev` for previous, or `ID` for a
 specific one (in the above case, `us`: 0, `pl`: 1, `de`: 2). You can find the
 `DEVICE` using `hyprctl devices` command.
 
-example command for a typical keyboard:
+Example command for a typical keyboard:
 
 ```sh
 hyprctl switchxkblayout at-translated-set-2-keyboard next
@@ -173,7 +173,7 @@ Sets the hyprctl error string. Will reset when Hyprland's config is reloaded.
 hyprctl seterror 'rgba(66ee66ff)' hello world this is my problem
 ```
 
-or disable:
+To disable:
 
 ```sh
 hyprctl seterror disable
@@ -270,23 +270,23 @@ hyprctl dismissnotify -1 # dismiss all notifications (same as no arguments)
 ## Info
 
 ```plain
-version - prints the hyprland version, meaning flags, commit and branch of build.
+version - prints the Hyprland version along with flags, commit and branch of build.
 monitors - lists active outputs with their properties, 'monitors all' lists active and inactive outputs
 workspaces - lists all workspaces with their properties
 activeworkspace - gets the active workspace and its properties
 workspacerules - gets the list of defined workspace rules
 clients - lists all windows with their properties
 devices - lists all connected keyboards and mice
-decorations [window]- lists all decorations and their info
+decorations [window] - lists all decorations and their info
 binds - lists all registered binds
 activewindow - gets the active window name and its properties
 layers - lists all the layers
 splash - prints the current random splash
 getoption [option] - gets the config option status (values)
-cursorpos - gets the current cursor pos in global layout coordinates
-animations - gets the current config'd info about animations and beziers
-instances - lists all running instances of hyprland with their info
-layouts - lists all layouts available (including plugin'd ones)
+cursorpos - gets the current cursor position in global layout coordinates
+animations - gets the currently configured info about animations and beziers
+instances - lists all running instances of Hyprland with their info
+layouts - lists all layouts available (including from plugins)
 configerrors - lists all current config parsing errors
 rollinglog - prints tail of the log
 ```
@@ -301,11 +301,11 @@ hyprctl getoption general:border_size
 hyprctl getoption input:touchpad:disable_while_typing
 ```
 
-See [Variables](../Variables) for section and options you can use.
+See [Variables](../Variables) for sections and options you can use.
 
 ## Batch
 
-You can also use `--batch` to specify a batch of commands to execute
+You can also use `--batch` to specify a batch of commands to execute.
 
 e.g.
 
