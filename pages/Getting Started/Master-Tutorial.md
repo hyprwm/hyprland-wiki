@@ -108,14 +108,21 @@ require `qt4ct`.
 
 ## Force apps to use Wayland
 
-A lot of apps will use Wayland by default. Chromium (and other browsers based on
-it or electron) don't. You need to pass
-`--enable-features=UseOzonePlatform --ozone-platform=wayland` to them or use
-`.conf` files where possible. Chromium-based browsers also should have a toggle
-in `chrome://flags`. Search for _"ozone"_ and select Wayland.
+A lot of apps will use Wayland by default.
 
-For most electron apps, you should put the above in
-`~/.config/electron-flags.conf`. VSCode is known to not work with that though.
+Chromium-based browsers and Electron based apps (like VS Code) don't.
+You need to start them with the flag `--enable-features=UseOzonePlatform --ozone-platform=wayland`
+or use `.conf` files where possible.
+
+For most electron apps, it is sufficient to put `--enable-features=UseOzonePlatform --ozone-platform=wayland`
+in `~/.config/electron-flags.conf`. 
+
+VS Code is known to not work with that though.
+The solution is to create `~/.config/code-flags.conf`, and put the flag there.
+This will also work with VS Codium (with `~/.config/codium-flags.conf`).
+
+Chromium-based browsers should have a toggle in `chrome://flags`.
+Search for _"ozone"_ and select Wayland.
 
 A few more environment variables for forcing Wayland mode are documented
 [here](../../Configuring/Environment-variables).
