@@ -56,6 +56,57 @@ First of all, **_READ THE [FAQ PAGE](../FAQ)_**
 If your bug is not listed there, you can ask on the Discord server or open an
 issue on GitHub.
 
+## Bisecting an issue
+
+"Bisecting" is finding the first _git_ commit that introduced a specific bug or
+regression using binary search. This is done in `git` using the `git bisect` command.
+
+First, clone the Hyprland repo if you haven't already:
+
+```sh
+git clone --recursive https://github.com/hyprwm/Hyprland
+cd Hyprland
+```
+
+Start the bisect process:
+
+```sh
+git bisect start
+```
+
+Enter the first known good commit hash that did not contain the issue:
+
+```sh
+git bisect good [good commit]
+```
+
+Then, enter the known bad commit hash that does contain the issue. You can simply use HEAD:
+
+```sh
+git bisect bad HEAD
+```
+
+_git_ will now checkout a commit in the middle of the specified range.
+Now, build and install Hyprland:
+
+```sh
+make all
+sudo make install
+```
+
+...and run Hyprland from the TTY.
+
+Try to reproduce your issue. If you can't (i.e. the bug is not present), go back to the
+Hyprland repo and run `git bisect good`. If you can reproduce it, run `git bisect bad`.
+_git_ will then checkout another commit and continue the binary search.
+
+Build and install Hyprland again and repeat this step until _git_ identifies the
+commit that introduced the bug:
+
+```
+[commit hash] is the first bad commit
+```
+
 ## Building the Wayland stack with ASan
 
 If requested, this is the deepest level of memory issue debugging possible.
