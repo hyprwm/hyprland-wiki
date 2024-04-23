@@ -69,6 +69,12 @@ You can use `preferred` as a resolution to use the display's preferred size,
 or you can use `highres` or `highrr` to get the best possible resolution or refresh rate for your monitor. 
 
 You can use `auto` as a position to let Hyprland decide on a position for you.
+If you want to get fancy with multiple monitors you can specify `auto-right` to put your monitor to the right,
+`auto-down` to position your monitor below, `auto-left` to put it to the left, and `auto-up` to put your monitor above.
+***Please Note:*** While specifying a monitor direction for your first monitor is allowed, this does nothing and it will
+be positioned at (0,0). Also the direction is always from the center out, so you can specify `auto-up` then `auto-left`,
+but the left monitors will just be left of the origin and above the origin. You can also specify duplicate directions and
+monitors will continue to go in that direction.
 
 You can also use `auto` as a scale to let Hyprland decide on a scale for you.
 These depend on the PPI of the monitor.
