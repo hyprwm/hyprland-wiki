@@ -97,6 +97,14 @@ env = __GLX_VENDOR_LIBRARY_NAME,nvidia
 env = WLR_NO_HARDWARE_CURSORS,1
 ```
 
+{{< callout type=info >}}
+
+The `WLR_NO_HARDWARE_CURSORS` environment variable no longer a hard requirement
+for a visible cursor since the adoption of [this](https://github.com/hyprwm/wlroots-hyprland/pull/5)
+patch in wlroots-hyprland. Feel free to try out hardware cursors for a spin.
+
+{{< /callout >}}
+
 Lastly, you also need to install a few packages to get some apps
 to function natively with Wayland. Have a look at [the Master Tutorial](https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#force-apps-to-use-wayland).
 
