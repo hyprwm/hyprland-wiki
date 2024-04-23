@@ -99,7 +99,7 @@ env = WLR_NO_HARDWARE_CURSORS,1
 
 {{< callout type=info >}}
 
-The `WLR_NO_HARDWARE_CURSORS` environment variable no longer a hard requirement
+The `WLR_NO_HARDWARE_CURSORS` environment variable is no longer a hard requirement
 for a visible cursor since the adoption of [this](https://github.com/hyprwm/wlroots-hyprland/pull/5)
 patch in wlroots-hyprland. Feel free to try out hardware cursors for a spin.
 
