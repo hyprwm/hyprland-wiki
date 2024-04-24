@@ -82,7 +82,7 @@ If `path` is `screenshot`, a screenshot of your desktop at launch will be used.
 ```ini
 background {
     monitor =
-    path = /home/me/someImage.png   # only png supported for now
+    path = /home/me/someImage.png   # supports png, jpg, webp (no animations, though)
     color = rgba(25, 20, 20, 1.0)
 
     # all these options are taken from hyprland, see https://wiki.hyprland.org/Configuring/Variables/#blur for explanations
