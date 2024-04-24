@@ -203,6 +203,17 @@ activated.
 
 {{< /callout >}}
 
+### Touchpad
+
+As clicking and moving the mouse on a touchpad is unergonomic, you can also use keyboard keys instead of mouse clicks too.
+
+```ini
+bindm=SUPER, mouse:272, movewindow
+bindm=SUPER, Control_L, movewindow
+bindm=SUPER, mouse:273, resizewindow
+bindm=SUPER, ALT_L, resizewindow
+```
+
 ## Binding mods
 
 You can bind a mod alone like this:
