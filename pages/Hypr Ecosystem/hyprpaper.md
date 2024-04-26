@@ -64,7 +64,6 @@ Examples:
 hyprctl hyprpaper preload "~/Pictures/myepicpng.png"
 hyprctl hyprpaper wallpaper "DP-1,~/Pictures/myepicpng.png"
 ```
-
 ```sh
 hyprctl hyprpaper listloaded
 ```
