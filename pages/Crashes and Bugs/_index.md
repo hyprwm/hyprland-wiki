@@ -87,9 +87,10 @@ git bisect bad HEAD
 ```
 
 _git_ will now checkout a commit in the middle of the specified range.
-Now, build and install Hyprland:
+Now, reset, build and install Hyprland:
 
 ```sh
+git reset --hard --recurse-submodules
 make all
 sudo make install
 ```
@@ -100,7 +101,7 @@ Try to reproduce your issue. If you can't (i.e. the bug is not present), go back
 Hyprland repo and run `git bisect good`. If you can reproduce it, run `git bisect bad`.
 _git_ will then checkout another commit and continue the binary search.
 
-Build and install Hyprland again and repeat this step until _git_ identifies the
+Reset, build and install Hyprland again and repeat this step until _git_ identifies the
 commit that introduced the bug:
 
 ```
