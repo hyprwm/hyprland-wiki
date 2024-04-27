@@ -9,8 +9,9 @@ from a more tangible example.
 
 ### end_4
 
-![](https://camo.githubusercontent.com/5ca3a06db6bcbec4b51448a6989c941d76b4dcac2e150452a45ae913793adfe9/68747470733a2f2f63646e2e646973636f72646170702e636f6d2f6174746163686d656e74732f313039313536393837323533353831343138352f313130373637353836363130313732333237372f73637265656e73686f742d73756d6d65722e706e67)
-[https://github.com/end-4/dots-hyprland/tree/summer-gruv](https://github.com/end-4/dots-hyprland/tree/summer-gruv)
+![](https://github.com/end-4/dots-hyprland/assets/97237370/5e081770-0f1e-45c4-ad9c-3d19f488cd85)
+
+[https://github.com/end-4/dots-hyprland](https://github.com/end-4/dots-hyprland)
 
 ### fufexan
 
