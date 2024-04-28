@@ -64,7 +64,7 @@ This code can go in the `package` attribute of the NixOS/Home Manager modules.
 
 When running Hyprland in Debug mode, the config is
 `~/.config/hypr/hyprlandd.conf` and the logs can be found at
-`/tmp/hypr/[INSTANCE SIGNATURE]/hyprlandd.log`.
+`$XDG_RUNTIME_DIR/hypr/[INSTANCE SIGNATURE]/hyprlandd.log`.
 
 ## Logs, dumps, etc
 
@@ -78,7 +78,7 @@ the dump. See the instructions below for more info about `coredumpctl`.
 You can also use the amazing command
 
 ```sh
-watch -n 0.1 "grep -v \"arranged\" /tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/hyprland.log | tail -n 40"
+watch -n 0.1 "grep -v \"arranged\" $XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/hyprland.log | tail -n 40"
 ```
 
 for live logs. (replace `hyprland` with `hyprlandd` for debug builds)
