@@ -9,13 +9,13 @@ If you are in a TTY, and the Hyprland session that crashed was the last one you
 launched, the log can be printed with
 
 ```sh
-cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 1)/hyprland.log
+cat $XDG_RUNTIME_DIR/hypr/$(ls -t $XDG_RUNTIME_DIR/hypr/ | head -n 1)/hyprland.log
 ```
 
 if you are in a Hyprland session, and you want the log of the last session, use
 
 ```sh
-cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 2 | tail -n 1)/hyprland.log
+cat $XDG_RUNTIME_DIR/hypr/$(ls -t $XDG_RUNTIME_DIR/hypr/ | head -n 2 | tail -n 1)/hyprland.log
 ```
 
 ## Obtaining the Hyprland Crash Report

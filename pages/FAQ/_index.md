@@ -195,7 +195,7 @@ handle() {
   esac
 }
 
-socat - "UNIX-CONNECT:/tmp/hypr/${HYPRLAND_INSTANCE_SIGNATURE}/.socket2.sock" | while read -r line; do handle "$line"; done
+socat - "UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/${HYPRLAND_INSTANCE_SIGNATURE}/.socket2.sock" | while read -r line; do handle "$line"; done
 ```
 
 This makes workspaces 1, 2, 4, and 5 go to monitor 1 when connecting it.
