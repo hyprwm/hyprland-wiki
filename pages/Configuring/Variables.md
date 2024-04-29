@@ -425,6 +425,7 @@ Only for developers.
 | watchdog_timeout | sets the timeout in seconds for watchdog to abort processing of a signal of the main thread. Set to 0 to disable. | int | 5 |
 | disable_scale_checks | disables verification of the scale factors. Will result in pixel alignment and rounding errors. | bool | false |
 | error_limit | limits the number of displayed config file parsing errors. | int | 5 | 
+| colored_stdout_logs | enables colors in the stdout logs. | bool | true |
 
 ### More
 
