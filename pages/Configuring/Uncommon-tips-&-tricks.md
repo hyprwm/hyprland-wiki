@@ -82,6 +82,17 @@ input {
     kb_options = caps:swapescape
 }
 ```
+##  Minimize Windows Using Special Sorkspaces
+you can alway create a special workspace and put whatever you want in it.
+However, this is a more intuitive way by using single keybind to minimize
+it or unminimize, every keybind can only minimize one window at a time.
+```ini
+bind = $mod, S, togglespecialworkspace, magic
+bind = $mod, S, movetoworkspace, +0
+bind = $mod, S, togglespecialworkspace, magic
+bind = $mod, S, movetoworkspace, special:magic
+bind = $mod, S, togglespecialworkspace, magic
+```
 
 ## Minimize Steam instead of killing
 
