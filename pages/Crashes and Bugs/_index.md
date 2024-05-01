@@ -9,13 +9,13 @@ If you are in a TTY, and the Hyprland session that crashed was the last one you
 launched, the log can be printed with
 
 ```sh
-cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 1)/hyprland.log
+cat $XDG_RUNTIME_DIR/hypr/$(ls -t $XDG_RUNTIME_DIR/hypr/ | head -n 1)/hyprland.log
 ```
 
 if you are in a Hyprland session, and you want the log of the last session, use
 
 ```sh
-cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 2 | tail -n 1)/hyprland.log
+cat $XDG_RUNTIME_DIR/hypr/$(ls -t $XDG_RUNTIME_DIR/hypr/ | head -n 2 | tail -n 1)/hyprland.log
 ```
 
 ## Obtaining the Hyprland Crash Report
@@ -48,6 +48,17 @@ Diagnose the issue by what is in the log:
 ## Crashes not at launch
 
 Report an issue on GitHub or on the Discord server.
+
+## Obtaining a debug stacktrace
+
+Systemd-only.
+
+Build hyprland in debug (`make debug`) and run. Get it to crash. Then, in a tty or terminal, do
+`coredumpctl debug Hyprland`.
+
+If gdb asks you for symbols, say `y`, if it asks about paging, say `c`.
+
+Once you get to `(gdb)`, run `bt -full` and post the output.
 
 ## Bugs
 
@@ -87,9 +98,10 @@ git bisect bad HEAD
 ```
 
 _git_ will now checkout a commit in the middle of the specified range.
-Now, build and install Hyprland:
+Now, reset, build and install Hyprland:
 
 ```sh
+git reset --hard --recurse-submodules
 make all
 sudo make install
 ```
@@ -100,7 +112,7 @@ Try to reproduce your issue. If you can't (i.e. the bug is not present), go back
 Hyprland repo and run `git bisect good`. If you can reproduce it, run `git bisect bad`.
 _git_ will then checkout another commit and continue the binary search.
 
-Build and install Hyprland again and repeat this step until _git_ identifies the
+Reset, build and install Hyprland again and repeat this step until _git_ identifies the
 commit that introduced the bug:
 
 ```
