@@ -82,6 +82,16 @@ input {
     kb_options = caps:swapescape
 }
 ```
+##  Minimize windows using special workspaces
+This approach uses special workspaces to mimic the "minimize window" function, by using a single keybind to toggle the minimized state.
+Note that one keybind can only handle one window.
+```ini
+bind = $mod, S, togglespecialworkspace, magic
+bind = $mod, S, movetoworkspace, +0
+bind = $mod, S, togglespecialworkspace, magic
+bind = $mod, S, movetoworkspace, special:magic
+bind = $mod, S, togglespecialworkspace, magic
+```
 
 ## Minimize Steam instead of killing
 
