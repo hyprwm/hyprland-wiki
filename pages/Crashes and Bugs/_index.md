@@ -49,6 +49,17 @@ Diagnose the issue by what is in the log:
 
 Report an issue on GitHub or on the Discord server.
 
+## Obtaining a debug stacktrace
+
+Systemd-only.
+
+Build hyprland in debug (`make debug`) and run. Get it to crash. Then, in a tty or terminal, do
+`coredumpctl debug Hyprland`.
+
+If gdb asks you for symbols, say `y`, if it asks about paging, say `c`.
+
+Once you get to `(gdb)`, run `bt -full` and post the output.
+
 ## Bugs
 
 First of all, **_READ THE [FAQ PAGE](../FAQ)_**
