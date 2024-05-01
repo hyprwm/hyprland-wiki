@@ -82,10 +82,9 @@ input {
     kb_options = caps:swapescape
 }
 ```
-##  Minimize Windows Using Special Sorkspaces
-you can always create a special workspace and put whatever you want in it.
-However, this is a more intuitive way by using a single keybind to minimize
-it or unminimize, but every keybind can only minimize one window at a time.
+##  Minimize windows using special workspaces
+This approach uses special workspaces to mimic the "minimize window" function, by using a single keybind to toggle the minimized state.
+Note that one keybind can only handle one window.
 ```ini
 bind = $mod, S, togglespecialworkspace, magic
 bind = $mod, S, movetoworkspace, +0
