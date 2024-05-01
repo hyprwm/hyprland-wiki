@@ -3,7 +3,7 @@ weight: 1
 title: hyprpaper
 ---
 
-hyprpaper is a fast IPC-controlled wallpaper utility for Hyprland.
+hyprpaper is a fast, IPC-controlled wallpaper utility for Hyprland.
 
 ## Configuration
 
@@ -15,10 +15,10 @@ the `wallpaper` keyword is used to apply the preloaded image to your monitor(s):
 
 ```ini
 preload = /home/me/amongus.png
-wallpaper = monitor-name,/home/me/amongus.png
+wallpaper = monitor,/home/me/amongus.png
 ```
 
-`monitor-name` can be left empty to set to all monitors without a set wallpaper:
+`monitor` can be left empty to set to all monitors without a set wallpaper:
 
 ```
 wallpaper = ,/home/me/amongus.png
@@ -31,7 +31,7 @@ Also can be used with `desc:` followed by the monitor's description without the 
 You may add `contain:` before the file path in `wallpaper=` to set the mode to contain instead of cover:
 
 ```
-wallpaper = monitor-name,contain:/home/me/amongus.png
+wallpaper = monitor,contain:/home/me/amongus.png
 ```
 
 You can use `unload` to unload preloaded images. You can also specify `unload all`
