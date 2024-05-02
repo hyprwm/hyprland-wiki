@@ -25,6 +25,7 @@ M: means std::unordered_map<std::string, std::any> following props are members.
 | closeLayer | fired when a LS is unmapped | CLayerSurface* | ✕ |
 | openWindow | fired when a window is mapped | PHLWINDOW | ✕ |
 | closeWindow | fired when a window is unmapped | PHLWINDOW | ✕ |
+| windowUpdateRules | fired when a window's rules are updated | PHLWINDOW | ✕ |
 | urgent | fired when a window requests urgent | PHLWINDOW | ✕ |
 | minimize | fired when a window requests a minimize status change. Second param is 1 or 0 | std::vector<std::any>{PHLWINDOW, int64_t} | ✕ |
 | monitorAdded | fired when a monitor is plugged in | CMonitor* | ✕ |
