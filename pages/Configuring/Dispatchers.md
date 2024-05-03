@@ -119,11 +119,11 @@ You have eight choices:
 
 - Relative ID: e.g. `+1`, `-3` or `+100`
 
-- Relative workspace on monitor: e.g. `m+1`, `m-1` or `m+3`
+- workspace on monitor, relative with `+` or `-`, absolute with `~`: e.g. `m+1`, `m-2` or `m~3`
 
-- Relative workspace on monitor including empty workspaces: e.g. `r+1` or `r-3`
+- workspace on monitor including empty workspaces, relative with `+` or `-`, absolute with `~`: e.g. `r+1` or `r~3`
 
-- Relative open workspace: e.g. `e+1` or `e-10`
+- open workspace, relative with `+` or `-`, absolute with `~`: e.g. `e+1`, `e-10`, or `e~2`
 
 - Name: e.g. `name:Web`, `name:Anime` or `name:Better anime`
 
