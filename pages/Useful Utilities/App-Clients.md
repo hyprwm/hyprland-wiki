@@ -13,7 +13,7 @@ replacements for them:
   PipeWire screensharing. It has tons of great features and tries not to
   infringe on the Discord ToS.
 
-- [gtkcord4](https://github.com/diamondburned/gtkcord4) is a Discord client
+- [dissent](https://github.com/diamondburned/dissent) is a Discord client
   written in GTK4. While it does infringe on Discord's ToS, it's relatively safe
   and doesn't rely on any webview technologies.
 
