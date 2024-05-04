@@ -12,14 +12,14 @@ via code / bash utilities.
 echo $HYPRLAND_INSTANCE_SIGNATURE
 ```
 
-## $XDG_RUNTIME_DIR/hypr/\[HIS\]/.socket.sock
+## /tmp/hypr/\[HIS\]/.socket.sock
 
 Used for hyprctl-like requests. See the
 [Hyprctl page](../Configuring/Using-hyprctl) for commands.
 
 basically, write `[flag(s)]/command args`.
 
-## $XDG_RUNTIME_DIR/hypr/\[HIS\]/.socket2.sock
+## /tmp/hypr/\[HIS\]/.socket2.sock
 
 Used for events. Hyprland will write to each connected client live events like
 this:
@@ -89,5 +89,5 @@ handle() {
   esac
 }
 
-socat -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r line; do handle "$line"; done
+socat -U - UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r line; do handle "$line"; done
 ```
