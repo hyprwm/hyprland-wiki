@@ -23,6 +23,7 @@ Variables in the `general` category:
 | no_fade_out | disables the fadeout animation | bool | false |
 | ignore_empty_input | skips validation when no password is provided | bool | false |
 | pam_module | sets the pam module used for authentication. If the module isn't found in `/etc/pam.d`, "su" will be used as a fallback | str | hyprlock |
+| text_trim | sets if the text should be trimmed, useful to avoid trailing newline in commands output | bool | true |
 
 ## Keyboard Shortcuts and Actions
 
