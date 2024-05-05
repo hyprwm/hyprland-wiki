@@ -77,7 +77,7 @@ up, use clangd. You'll probably notice there will be a bunch of warnings
 because we haven't generated compile commands, to do this run:
 
 ```
-cmake -S . -B build/ -G "Unix Makefiles" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+cmake -S . -B build/ -G Ninja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 ```
 
 Also, before submitting a PR please format with clang-format, to run this only
