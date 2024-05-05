@@ -14,7 +14,7 @@ For a list of available options, check the
 
 ## Installation
 
-{{< tabs items="Home Manager,Flakes,No Flakes (with flake-compat)" >}}
+{{< tabs items="Home Manager,Flakes,Nix stable (with flake-compat)" >}}
 
 {{< tab "Home Manager" >}}
 
@@ -57,7 +57,7 @@ Don't forget to replace `user@hostname` with your username and hostname!
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
   };
 
   outputs = {nixpkgs, home-manager, hyprland, ...}: {
@@ -87,8 +87,8 @@ you should use the downstream Home Manager module.
 {{< /callout >}}
 
 The following snippet of code tries to show how to bring the Hyprland flake from
-the flake input and import it into the module system. Feel free to make any
-adjustment for your setup.
+the flake input and use the package in the Home Manager option. Feel free to
+make any adjustment for your setup.
 
 ```nix
 # home config
@@ -96,13 +96,19 @@ adjustment for your setup.
 {pkgs, ...}: let
   flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
 
-  hyprland = (import flake-compat {
-    src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/master.tar.gz";
+  hyprland-flake = (import flake-compat {
+    # we're not using pkgs.fetchgit as that requires a hash to be provided
+    src = builtins.fetchGit {
+      url = "https://github.com/hyprwm/Hyprland.git";
+      submodules = true;
+    };
   }).defaultNix;
 in {
-  imports = [hyprland.homeManagerModules.default];
+  wayland.windowManager.hyprland = {
+    enable = true;
 
-  wayland.windowManager.hyprland.enable = true;
+    package = hyprland-flake.packages.${pkgs.system}.hyprland;
+  }
 }
 ```
 

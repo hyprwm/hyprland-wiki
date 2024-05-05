@@ -19,7 +19,7 @@ Make sure to check out the options of the
 
 {{< /callout >}}
 
-{{< tabs items="Nixpkgs,Flake Package, No Flakes (with flake-compat)" >}}
+{{< tabs items="Nixpkgs,Flakes,Nix stable (flake-compat)" >}}
 
 {{< tab "Nixpkgs" >}}
 
@@ -35,7 +35,7 @@ This will use the Hyprland version that Nixpkgs has.
 
 {{< /tab >}}
 
-{{< tab "Flake package" >}}
+{{< tab "Flake Package" >}}
 
 {{< callout >}}
 
@@ -51,7 +51,7 @@ this:
 # flake.nix
 
 {
-  inputs.hyprland.url = "github:hyprwm/Hyprland";
+  inputs.hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
   # ...
 
   outputs = {nixpkgs, ...} @ inputs: {
@@ -76,8 +76,6 @@ this:
 
 Don't forget to change the `HOSTNAME` to your actual hostname!
 
-{{< callout >}}
-
 If you start experiencing lag and FPS drops in games or programs like Blender on
 **stable** NixOS when using the Hyprland flake, it most likely is a `mesa`
 version mismatch between your system and Hyprland.
@@ -101,11 +99,9 @@ in {
 For more details, see
 [issue #5148](https://github.com/hyprwm/Hyprland/issues/5148).
 
-{{< /callout >}}
-
 {{< /tab >}}
 
-{{< tab "Flake package, Nix stable" >}}
+{{< tab "Nix stable" >}}
 
 {{< callout >}}
 
@@ -120,13 +116,17 @@ have to compile Hyprland yourself.
 {pkgs, ...}: let
   flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
 
-  hyprland-flake = (import flake-compat {
-    src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/master.tar.gz";
+  hyprland = (import flake-compat {
+    # we're not using pkgs.fetchgit as that requires a hash to be provided
+    src = builtins.fetchGit {
+      url = "https://github.com/hyprwm/Hyprland.git";
+      submodules = true;
+    };
   }).defaultNix;
 in {
   programs.hyprland = {
     enable = true;
-    package = hyprland-flake.packages.${pkgs.system}.hyprland;
+    package = hyprland.packages.${pkgs.system}.hyprland;
   };
 }
 ```

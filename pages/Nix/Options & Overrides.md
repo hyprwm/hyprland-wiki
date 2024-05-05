@@ -48,7 +48,7 @@ you can do it like this:
 
 ```nix
 $ nix repl
-nix-repl> :lf "github:hyprwm/Hyprland"
+nix-repl> :lf git+https://github.com/hyprwm/Hyprland?submodules=1
 nix-repl> :bl outputs.packages.x86_64-linux.hyprland.override { /* flag here */ }
 ```
 
