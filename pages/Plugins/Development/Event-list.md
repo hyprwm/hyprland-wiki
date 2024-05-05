@@ -49,7 +49,7 @@ M: means std::unordered_map<std::string, std::any> following props are members.
 | windowtitle | emitted when a window title changes. | PHLWINDOW | ✕ |
 | configReloaded | emitted after the config is reloaded | nullptr | ✕ |
 | preConfigReload | emitted before a config reload | nullptr | ✕ |
-| keyPress | emitted on a key press | M: `event`:`wlr_keyboard_key_event*`, `keyboard`:`SKeyboard*` | ✔ |
+| keyPress | emitted on a key press | M: `event`:`wlr_keyboard_key_event*`, `keyboard`:`SP<IKeyboard>` | ✔ |
 | pin | emitted when a window is pinned or unpinned | PHLWINDOW | ✕ |
 | swipeBegin | emitted when a touchpad swipe is commenced | `wlr_pointer_swipe_begin_event*` | ✔ |
 | swipeUpdate | emitted when a touchpad swipe is updated | `wlr_pointer_swipe_update_event*` | ✔ |
