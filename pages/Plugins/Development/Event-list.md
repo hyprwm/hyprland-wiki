@@ -42,7 +42,7 @@ M: means std::unordered_map<std::string, std::any> following props are members.
 | touchDown | fired on a touch down event | wlr_touch_down_event* | ✔ |
 | touchUp | fired on a touch up event | wlr_touch_up_event* | ✔ |
 | touchMove | fired on a touch motion event | wlr_touch_motion_event* | ✔ |
-| activeLayout | fired on a keyboard layout change. String pointer temporary, not guaranteed after execution of the handler finishes. | std::vector<void*>{SKeyboard*, std::string*} | ✕ |
+| activeLayout | fired on a keyboard layout change. String pointer temporary, not guaranteed after execution of the handler finishes. | std::vector<std::any>{SP<IKeyboard>, std::string} | ✕ |
 | preRender | fired before a frame for a monitor is about to be rendered | CMonitor* | ✕ |
 | screencast | fired when the screencopy state of a client changes. Keep in mind there might be multiple separate clients. | std::vector<uint64_t>{state, framesInHalfSecond, owner} | ✕ |
 | render | fired at various stages of rendering to allow your plugin to render stuff. See `src/SharedDefs.hpp` for a list with explanations | eRenderStage | ✕ |
