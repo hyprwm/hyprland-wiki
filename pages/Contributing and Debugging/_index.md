@@ -35,6 +35,10 @@ that you can copy to your .vscode/ folder in the repo root.
 With that, you can build in debug, go to the debugging tab and hit
 `(gdb) Launch`.
 
+*note:* You probably want to set `watchdog_timeout = 0` in the debug {} section
+of your config. Otherwise Hyprland will notice its hanging when you hit a
+breakpoint and it will crash after you continue out of it.
+
 ### Custom, CLI
 
 `make debug`
@@ -65,6 +69,19 @@ This code can go in the `package` attribute of the NixOS/Home Manager modules.
 When running Hyprland in Debug mode, the config is
 `~/.config/hypr/hyprlandd.conf` and the logs can be found at
 `$XDG_RUNTIME_DIR/hypr/[INSTANCE SIGNATURE]/hyprlandd.log`.
+
+## LSP and Formatting
+
+If you want proper LSP support in an editor that doesn't automatically set it
+up, use clangd. You'll probably notice there will be a bunch of warnings
+because we haven't generated compile commands, to do this run:
+
+```
+cmake -S . -B build/ -G Ninja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+```
+
+Also, before submitting a PR please format with clang-format, to run this only
+on your changes run `git-clang-format` in your projects root directory.
 
 ## Logs, dumps, etc
 
