@@ -17,6 +17,10 @@ workspaces for Hyprland.
 by _MahouShoujoMivutilde and coffebar_: Per window keyboard layouts for
 Hyprland.
 
+### Editor support for config files
+
+[HyprLS](https://github.com/hyprland-community/hyprls) by _ewen-lbh_: A LSP server to provide auto-completion and more for Hyprland's configuration files in neovim, VS Code & others
+
 ### IPC wrappers
 
 [hyprland-rs](https://github.com/yavko/hyprland-rs) by _yavko_: A neat wrapper
