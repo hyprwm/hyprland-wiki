@@ -12,14 +12,14 @@ via code / bash utilities.
 echo $HYPRLAND_INSTANCE_SIGNATURE
 ```
 
-## /tmp/hypr/\[HIS\]/.socket.sock
+## $XDG_RUNTIME_DIR/hypr/\[HIS\]/.socket.sock
 
 Used for hyprctl-like requests. See the
 [Hyprctl page](../Configuring/Using-hyprctl) for commands.
 
 basically, write `[flag(s)]/command args`.
 
-## /tmp/hypr/\[HIS\]/.socket2.sock
+## $XDG_RUNTIME_DIR/hypr/\[HIS\]/.socket2.sock
 
 Used for events. Hyprland will write to each connected client live events like
 this:
