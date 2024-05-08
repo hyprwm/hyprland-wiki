@@ -129,7 +129,7 @@ You have eight choices:
 
 - Previous workspace: `previous`
 
-- First available empty workspace: `empty`
+- First available empty workspace: `empty`, suffix with `m` to only search on monitor. and/or `n` to make it the *next* available empty workspace. e.g. `emptynm`
 
 - Special Workspace: `special` or `special:name` for named special workspaces.
 
