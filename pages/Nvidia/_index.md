@@ -94,14 +94,12 @@ env = LIBVA_DRIVER_NAME,nvidia
 env = XDG_SESSION_TYPE,wayland
 env = GBM_BACKEND,nvidia-drm
 env = __GLX_VENDOR_LIBRARY_NAME,nvidia
-env = WLR_NO_HARDWARE_CURSORS,1
 ```
 
-{{< callout type=info >}}
+{{< callout type=warning >}}
 
-The `WLR_NO_HARDWARE_CURSORS` environment variable is no longer a hard requirement
-for a visible cursor since the adoption of [this](https://github.com/hyprwm/wlroots-hyprland/pull/5)
-patch in wlroots-hyprland. Feel free to try out hardware cursors for a spin.
+Previously used `WLR_NO_HARDWARE_CURSORS` environment variable has been deprecated.
+Do not set it in your configs. See: [cursor](../Configuring/Variables/#cursor)
 
 {{< /callout >}}
 
