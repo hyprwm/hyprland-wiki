@@ -30,11 +30,6 @@ and try compiling with LEGACY_RENDERER
 _For more info about bugs and crashes, see this_
 _[wiki page](../Crashes-and-Bugs)_
 
-### Me cursor no render?
-
-If you are on NVIDIA, you may need to use the `WLR_NO_HARDWARE_CURSORS=1` environment
-variable.
-
 ### My external monitor is blank / doesn't render / receives no signal (laptop)
 
 For Nvidia graphics - This issue appears to be resolved when using Nvidia
