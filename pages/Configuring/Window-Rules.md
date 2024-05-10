@@ -147,6 +147,7 @@ Dynamic rules are re-evaluated every time a property changes.
 | noshadow | disables shadows for the window |
 | noanim | disables the animations for the window |
 | keepaspectratio | forces aspect ratio when resizing window with the mouse |
+| focusonactivate | whether Hyprland should focus an app that requests to be focused (an `activate` request) |
 | bordercolor \[c\] | force the bordercolor of the window. Options for c: `color`/`color ... color angle` -> sets the active border color/gradient OR `color color`/`color ... color angle color ... color [angle]` -> sets the active and inactive border color/gradient of the window. See [variables->colors](../Variables#variable-types) for color definition. |
 | idleinhibit \[mode\] | sets an idle inhibit rule for the window. If active, apps like `hypridle` will not fire. Modes: `none`, `always`, `focus`, `fullscreen` |
 | dimaround | dims everything around the window . Please note this rule is meant for floating windows and using it on tiled ones may result in strange behavior. |
