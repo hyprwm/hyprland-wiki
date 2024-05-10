@@ -61,10 +61,7 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 | col.active_border | border color for the active window | gradient | 0xffffffff |
 | col.nogroup_border | inactive border color for window that cannot be added to a group (see `denywindowfromgroup` dispatcher) | gradient | 0xffffaaff |
 | col.nogroup_border_active | active border color for window that cannot be added to a group | gradient | 0xffff00ff |
-| cursor_inactive_timeout | in seconds, after how many seconds of cursor's inactivity to hide it. Set to `0` for never. | int | 0 |
 | layout | which layout to use. [dwindle/master] | str | dwindle |
-| no_cursor_warps | if true, will not warp the cursor in many cases (focusing, keybinds, etc) | bool | false |
-| default_cursor_monitor | the name of a default monitor for the cursor to be set to on startup (see `hyprctl monitors` for names) | str | [[EMPTY]] |
 | no_focus_fallback | if true, will not fall back to the next available window when moving focus in a direction where no window was found | bool | false |
 | apply_sens_to_raw | if on, will also apply the sensitivity to raw mouse output (e.g. sensitivity in games) **NOTICE:** ***really*** not recommended. | bool | false |
 | resize_on_border | enables resizing windows by clicking and dragging on borders and gaps | bool | false |
@@ -362,19 +359,14 @@ _Subcategory `group:groupbar:`_
 | swallow_exception_regex | The *title* regex to be used for windows that should *not* be swallowed by the windows specified in swallow_regex  (e.g. wev). The regex is matched against the parent (e.g. Kitty) window's title on the assumption that it changes to whatever process it's running. | str | \[\[Empty\]\] |
 | focus_on_activate | Whether Hyprland should focus an app that requests to be focused (an `activate` request) | bool | false |
 | no_direct_scanout | Disables direct scanout. Direct scanout attempts to reduce lag when there is only one fullscreen application on a screen (e.g. game). It is also recommended to set this to true if the fullscreen application shows graphical glitches. | bool | true |
-| hide_cursor_on_touch | Hides the cursor when the last input was a touch input until a mouse input is done. | bool | false |
-| hide_cursor_on_key_press | Hides the cursor when you press any key until the mouse is moved. | bool | true |
 | mouse_move_focuses_monitor | Whether mouse moving into a different monitor should focus it | bool | true |
 | suppress_portal_warnings | disables warnings about incompatible portal implementations. | bool | false |
 | render_ahead_of_time | [Warning: buggy] starts rendering _before_ your monitor displays a frame in order to lower latency | bool | false |
 | render_ahead_safezone | how many ms of safezone to add to rendering ahead of time. Recommended 1-2. | int | 1 |
-| cursor_zoom_factor | the factor to zoom by around the cursor. Like a magnifying glass. Minimum 1.0 (meaning no zoom) | float | 1.0 |
-| cursor_zoom_rigid | whether the zoom should follow the cursor rigidly (cursor is always centered if it can be) or loosely | bool | false |
 | allow_session_lock_restore | if true, will allow you to restart a lockscreen app in case it crashes (red screen of death) | bool | false |
 | background_color | change the background color. (requires enabled `disable_hyprland_logo`) | color | 0x111111 |
 | close_special_on_empty | close the special workspace if the last window is removed | bool | true |
 | new_window_takes_over_fullscreen | if there is a fullscreen window, whether a new tiled window opened should replace the fullscreen one or stay behind. 0 - behind, 1 - takes over, 2 - unfullscreen the current fullscreen window [0/1/2] | int | 0 |
-| enable_hyprcursor | whether to enable hyprcursor support | bool | true |
 | initial_workspace_tracking | if enabled, windows will open on the workspace they were invoked on. 0 - disabled, 1 - single-shot, 2 - persistent (all children too) | int | 1 |
 
 ### Binds
@@ -411,6 +403,14 @@ _Subcategory `group:groupbar:`_
 | --- | --- | --- | --- |
 | no_hardware_cursors | disables hardware cursors | bool | false |
 | hotspot_padding | the padding, in logical px, between screen edges and the cursor | int | 1 |
+| inactive_timeout | in seconds, after how many seconds of cursor's inactivity to hide it. Set to `0` for never. | int | 0 |
+| no_warps | if true, will not warp the cursor in many cases (focusing, keybinds, etc) | bool | false |
+| default_monitor | the name of a default monitor for the cursor to be set to on startup (see `hyprctl monitors` for names) | str | [[EMPTY]] |
+| zoom_factor | the factor to zoom by around the cursor. Like a magnifying glass. Minimum 1.0 (meaning no zoom) | float | 1.0 |
+| zoom_rigid | whether the zoom should follow the cursor rigidly (cursor is always centered if it can be) or loosely | bool | false |
+| enable_hyprcursor | whether to enable hyprcursor support | bool | true |
+| hide_on_key_press | Hides the cursor when you press any key until the mouse is moved. | bool | true |
+| hide_on_touch | Hides the cursor when the last input was a touch input until a mouse input is done. | bool | false |
 
 ### Debug
 
