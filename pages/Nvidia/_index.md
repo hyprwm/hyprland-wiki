@@ -13,8 +13,8 @@ You can choose between the proprietary
 [Nouveau driver](https://wiki.archlinux.org/title/Nouveau). For the
 proprietary drivers, there are 3 of them: the current closed source driver
 named 'nvidia' (or 'nvidia-dkms' to use with custom linux kernels) which is
-under active development, the legacy closed source drivers 'nvidia-3xxxx' for older cards
-which Nvidia no longer actively supports, and the 'nvidia-open' driver which is
+under active development; the legacy closed source drivers 'nvidia-3xxxx' for older cards
+which Nvidia no longer actively supports; and the 'nvidia-open' driver which is
 currently an alpha stage attempt to open source a part of their closed source
 driver for newer cards.
 
