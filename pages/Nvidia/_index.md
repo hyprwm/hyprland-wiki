@@ -11,10 +11,10 @@ have had success with the instructions on this page.
 You can choose between the proprietary
 [Nvidia drivers](https://wiki.archlinux.org/title/NVIDIA) or the open source
 [Nouveau driver](https://wiki.archlinux.org/title/Nouveau). For the
-proprietary drivers, there are 3 of them: the current driver
+proprietary drivers, there are 3 of them: the current closed source driver
 named 'nvidia' (or 'nvidia-dkms' to use with custom linux kernels) which is
-under active development, the legacy drivers 'nvidia-3xxxx' for older cards
-which Nvidia no longer actively supports, and the 'nvidia-open' driver which is
+under active development; the legacy closed source drivers 'nvidia-3xxxx' for older cards
+which Nvidia no longer actively supports; and the 'nvidia-open' driver which is
 currently an alpha stage attempt to open source a part of their closed source
 driver for newer cards.
 
@@ -25,7 +25,7 @@ and power management for recent GPUs.
 However, keep in mind that if the proprietary Nvidia drivers do not work
 properly on your computer, the Nouveau driver might work fine. This will
 most likely be the case for
-[older cards](https://wiki.archlinux.org/title/NVIDIA#Unsupported_drivers)
+[older cards](https://wiki.archlinux.org/title/NVIDIA#Unsupported_drivers).
 
 ## How to get Hyprland to possibly run on Nvidia (Proprietary)
 
@@ -40,7 +40,7 @@ in your best interest to also install `lib32-nvidia-utils`.
 {{< callout >}}
 
 Even if your GPU is listed as supported by the `nvidia-open-dkms` driver, at this
-point in time, it is still not up to feature parity with the proprietary drivers.
+point in time, it is still not up to feature parity with the current closed source drivers.
 One issue with the open drivers is that it could cause problems with suspend in
 general, let that be closing the lid on your laptop or by manually triggering one.
 Overall, you'd be better off with `nvidia-dkms` right now, but Hyprland should work
