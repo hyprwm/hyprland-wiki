@@ -289,6 +289,7 @@ instances - lists all running instances of Hyprland with their info
 layouts - lists all layouts available (including from plugins)
 configerrors - lists all current config parsing errors
 rollinglog - prints tail of the log
+locked - prints whether the current session is locked.
 ```
 
 For the getoption command, the option name should be written as
