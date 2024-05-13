@@ -221,7 +221,9 @@ libwlroots), you don't need to update anything else.
 
 ### Manual (Manual Build)
 
-_Arch dependencies_:
+Dependencies:
+
+{{% details title="Arch" closed="true" %}}
 
 ```plain
 yay -S gdb ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite xorg-xinput libxrender pixman wayland-protocols cairo pango seatd libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio tomlplusplus hyprlang hyprcursor
@@ -230,7 +232,9 @@ yay -S gdb ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libx
 _(Please make a pull request or open an issue if any packages are missing from
 the list)_
 
-_openSUSE dependencies_:
+{{% /details %}}
+
+{{% details title="OpenSuse" closed="true" %}}
 
 ```sh
 zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig(gbm)" "pkgconfig(gl)" "pkgconfig(glesv2)" "pkgconfig(libdrm)" "pkgconfig(libinput)" "pkgconfig(libseat)" "pkgconfig(libudev)" "pkgconfig(pango)" "pkgconfig(pangocairo)" "pkgconfig(pixman-1)" "pkgconfig(vulkan)" "pkgconfig(wayland-client)" "pkgconfig(wayland-protocols)" "pkgconfig(wayland-scanner)" "pkgconfig(wayland-server)" "pkgconfig(xcb)" "pkgconfig(xcb-icccm)" "pkgconfig(xcb-renderutil)" "pkgconfig(xkbcommon)" "pkgconfig(xwayland)" "pkgconfig(xcb-errors)" glslang-devel Mesa-libGLESv3-devel tomlplusplus-devel
@@ -239,7 +243,9 @@ zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig
 (this should also work on RHEL/Fedora if you remove `Mesa-libGLESv3-devel` and
 `pkgconfig(xcb-errors)`)
 
-_FreeBSD dependencies_:
+{{% /details %}}
+
+{{% details title="FreeBSD" closed="true" %}}
 
 ```plain
 pkg install git pkgconf gmake gcc evdev-proto cmake wayland-protocols wayland libglvnd libxkbcommon libinput cairo pango pixman libxcb
@@ -247,7 +253,11 @@ pkg install meson jq `pkg rquery %dn wlroots` hwdata libdisplay-info libliftoff
 export CC=gcc CXX=g++ LDFLAGS="-static-libstdc++ -static-libgcc"
 ```
 
-_Ubuntu 23.04 dependencies_: refer to the Ubuntu tab above
+{{% /details %}}
+
+{{% details title="Ubuntu" closed="true" %}}
+
+refer to the Ubuntu tab above
 
 Please note Hyprland builds `wlroots`. Make sure you have the dependencies of
 wlroots installed, you can make sure you have them by installing wlroots
@@ -257,6 +267,18 @@ Also note that Hyprland uses the C++23 standard, so both your compiler and your
 C++ library has to support that (`gcc>=13.0.0` or `clang>=15`). On Clang-based
 systems libc++ may be used by default, so until libc++ supports C++23 you have
 to pass `-stdlib=libstdc++` or switch to GCC.
+
+{{% /details %}}
+
+{{< callout type=warning >}}
+
+Additionally to those, you will also need a few hypr* dependencies which may or may not be
+packaged for your distro of choice:
+ - hyprlang
+ - hyprcursor
+ - hyprwayland-scanner (build-only)
+
+{{< /callout >}}
 
 ### CMake (recommended)
 
