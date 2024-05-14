@@ -13,6 +13,12 @@ from a more tangible example.
 
 [https://github.com/end-4/dots-hyprland](https://github.com/end-4/dots-hyprland)
 
+### Stephan Raabe (ML4W)
+
+![](https://i.ibb.co/6ydHNt9/screenshot-29-1.png)
+
+[https://gitlab.com/stephan-raabe/dotfiles](https://gitlab.com/stephan-raabe/dotfiles)
+
 ### fufexan
 
 ![](https://user-images.githubusercontent.com/36706276/192147190-cf9cf4df-94cb-4a3b-b9d8-137ed0c2538f.png)
