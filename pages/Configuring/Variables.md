@@ -327,6 +327,7 @@ _Subcategory `group:groupbar:`_
 | font_size | font size of groupbar title | int | 8 |
 | gradients | enables gradients | bool | true |
 | height | height of the groupbar | int | 14 |
+| stacked | render the groupbar as a vertical stack | bool | false |
 | priority | sets the decoration priority for groupbars | int | 3 |
 | render_titles | whether to render titles in the group bar decoration | bool | true |
 | scrolling | whether scrolling in the groupbar changes group active window | bool | true |
