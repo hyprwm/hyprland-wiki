@@ -87,6 +87,25 @@ activating mod) and the `r` flag, e.g.:
 bindr=SUPERALT,Alt_L,exec,amongus
 ```
 
+### Keysym combos
+
+For an arbitrary combination of multiple keys, seperate keysyms with `&` between
+each mod/key and use the `s` flag, e.g.:
+
+```ini
+# You can use a single mod with multiple keys.
+binds = Control_L, A&Z, exec, kitty
+# You can also specify multiple specific mods.
+binds = Control_L&Shift_L, K, exec, kitty
+# You can also do both!
+binds = Control_R&Super_R&Alt_L, J&K&L, exec, kitty
+# If you are feeling a little wild... you can use other keys for binds...
+binds = Escape&Apostrophe&F7, T&O&A&D, exec, battletoads 2: retoaded
+```
+
+(Please note this is only valid for keysyms and it makes all mods keysyms. If
+you don't know what a keysym is use `xev` and press the key you want to use.)
+
 ### Mouse wheel
 
 You can also bind the mouse wheel with `mouse_up` and `mouse_down` (or
