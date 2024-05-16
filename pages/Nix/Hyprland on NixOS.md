@@ -61,7 +61,7 @@ this:
         ./configuration.nix
       ];
     };
-  } 
+  };
 }
 
 # configuration.nix
