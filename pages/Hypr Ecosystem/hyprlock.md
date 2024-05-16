@@ -56,10 +56,11 @@ widget_name {
   - Additionally hyprlock will parse `<br/>` for your convenience. (That's a
     linebreak) Remember to enable linebreaks in your spans with
     `allow_breaks="true"`.
-- Positioning is done via halign, valign and position. Position is an added
+- Positioning is done via halign, valign, position, and zheight. Position is an added
   offset to the result of alignment.
   - halign: `left`, `center`, `right`, `none`. valign: `top`, `center`,
     `bottom`, `none`
+  - zheight: Widgets with larger numbers will be placed above widgets with smaller numbers. All widgets default to 0, except background which defaults to -1.
 
 ### Shadowable
 
