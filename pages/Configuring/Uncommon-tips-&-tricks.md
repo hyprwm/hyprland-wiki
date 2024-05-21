@@ -95,7 +95,7 @@ bind = $mod, S, togglespecialworkspace, magic
 
 ## Minimize Steam instead of killing
 
-Steam will exit entirely when it's last window is closed using the `killactive`
+Steam will exit entirely when its last window is closed using the `killactive`
 dispatcher. To minimize Steam to tray, use the following script to close
 applications:
 
