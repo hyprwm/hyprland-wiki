@@ -323,7 +323,7 @@ _Subcategory `group:groupbar:`_
 | name | description | type | default |
 | --- | --- | --- | --- |
 | enabled | enables groupbars | bool | true |
-| font_family | font used to display groupbar titles | string | Sans |
+| font_family | font used to display groupbar titles, use `misc:font_family` if not specified | string | [[Empty]] |
 | font_size | font size of groupbar title | int | 8 |
 | gradients | enables gradients | bool | true |
 | height | height of the groupbar | int | 14 |
@@ -344,7 +344,8 @@ _Subcategory `group:groupbar:`_
 | disable_hyprland_logo | disables the random Hyprland logo / anime girl background. :( | bool | false |
 | disable_splash_rendering | disables the Hyprland splash rendering. (requires a monitor reload to take effect) | bool | false |
 | col.splash | Changes the color of the splash text (requires a monitor reload to take effect). | color | 0xffffffff |
-| splash_font_family | Changes the font used to render the splash text, selected from system fonts (requires a monitor reload to take effect). | string | Sans |
+| font_family | Set the global default font to render the text including debug fps/notification, config error messages and etc., selected from system fonts. | string | Sans |
+| splash_font_family | Changes the font used to render the splash text, selected from system fonts (requires a monitor reload to take effect). | string | [[Empty]] |
 | force_default_wallpaper | Enforce any of the 3 default wallpapers. Setting this to `0` or `1` disables the anime background. `-1` means "random". [-1/0/1/2] | int | -1 |
 | vfr | controls the VFR status of Hyprland. Heavily recommended to leave enabled to conserve resources. | bool | true |
 | vrr | controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on, 2 - fullscreen only [0/1/2] | int | 0 |
@@ -434,7 +435,7 @@ Only for developers.
 | suppress_errors | if true, do not display config file parsing errors. | bool | false |
 | watchdog_timeout | sets the timeout in seconds for watchdog to abort processing of a signal of the main thread. Set to 0 to disable. | int | 5 |
 | disable_scale_checks | disables verification of the scale factors. Will result in pixel alignment and rounding errors. | bool | false |
-| error_limit | limits the number of displayed config file parsing errors. | int | 5 | 
+| error_limit | limits the number of displayed config file parsing errors. | int | 5 |
 | error_position | sets the position of the error bar. top - 0, bottom - 1 | int | 0 |
 | colored_stdout_logs | enables colors in the stdout logs. | bool | true |
 
