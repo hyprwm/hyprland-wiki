@@ -68,10 +68,11 @@ terminals.
 For now, the supported fields for V2 are:
 
 ```ini
-class - class regex 
+class - class regex
 title - title regex
 initialclass - initialClass regex
 initialTitle - initialTitle regex
+tag - tag name
 xwayland - 0/1
 floating - 0/1
 fullscreen - 0/1
@@ -154,6 +155,7 @@ Dynamic rules are re-evaluated every time a property changes.
 | xray \[on\] | sets blur xray mode for the window (0 for off, 1 for on, unset for default) |
 | immediate | forces the window to allow to be torn. See [the Tearing page](../Tearing). |
 | nearestneighbor | forces the window to use the nearest neigbor filtering. |
+| tag \[name\] | apply tag to the window, use prefix `+`/`-` to set/unset flag, or no prefix to toggle the flag |
 
 {{< callout type=info >}}
 
@@ -211,7 +213,7 @@ windowrulev2 = opacity 0.8 0.8,class:^(kitty)$
 windowrulev2 = opacity 0.5 0.5,floating:1
 ```
 
-Here, all non-fullscreen kitty windows will have `opacity 0.8`, except if they are floating. 
+Here, all non-fullscreen kitty windows will have `opacity 0.8`, except if they are floating.
 Otherwise, they will have `opacity 0.5`. The rest of the non-fullscreen floating windows will have `opacity 0.5`.
 
 ```ini
@@ -219,12 +221,12 @@ windowrulev2 = opacity 0.5 0.5,floating:1
 windowrulev2 = opacity 0.8 0.8,class:^(kitty)$
 ```
 
-Here, all kitty windows will have `opacity 0.8`, even if they are floating. 
+Here, all kitty windows will have `opacity 0.8`, even if they are floating.
 The rest of the floating windows will have `opacity 0.5`.
 
 {{< callout type=info >}}
 
-Opacity is a PRODUCT of all opacities by default. For example, setting `activeopacity` to 0.5 
+Opacity is a PRODUCT of all opacities by default. For example, setting `activeopacity` to 0.5
 and `opacity` to 0.5 will result in a total opacity of 0.25. You are allowed
 to set opacities over 1, but any opacity product over 1 will cause graphical
 glitches. For example, using `0.5 * 2 = 1` is fine, but `0.5 * 4 = 2` will cause

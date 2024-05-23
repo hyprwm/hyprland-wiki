@@ -50,6 +50,7 @@ layout pages (See the sidebar).
 | movewindowpixel | moves a selected window | `resizeparams,window` |
 | cyclenext | focuses the next window on a workspace | none (for next) or `prev` (for previous) additionally `tiled` for only tiled, `floating` for only floating. `prev tiled` is ok. |
 | swapnext | swaps the focused window with the next window on a workspace | none (for next) or `prev` (for previous) |
+| tagwindow | apply tag to current or the first window matching | `tag [window]`, e.g. `+code ^(foot)$`, `music` |
 | focuswindow | focuses the first window matching | window |
 | focusmonitor | focuses a monitor | monitor |
 | splitratio | changes the split ratio | floatvalue |
