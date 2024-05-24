@@ -17,6 +17,8 @@ layout pages (See the sidebar).
 | resizeparams | relative pixel delta vec2 (e.g. `10 -10`), optionally a percentage of the window size (e.g. `20 25%`) or `exact` followed by an exact vec2 (e.g. `exact 1280 720`), optionally a percentage of the screen size (e.g. `exact 50% 50%`) |
 | floatvalue | a relative float delta (e.g `-0.2` or `+0.2`) or `exact` followed by a the exact float value (e.g. `exact 0.5`) |
 | zheight | `top` or `bottom` |
+| mod | `SUPER`, `SUPER_ALT`, etc. |
+| key | `g`, `code:42`, `42` or mouse clicks (`mouse:272`) |
 
 ## List of Dispatchers
 
@@ -25,6 +27,7 @@ layout pages (See the sidebar).
 | exec | executes a shell command | command (supports rules, see [below]({{< relref "#executing-with-rules" >}})) |
 | execr | executes a raw shell command (does not support rules) | command |
 | pass | passes the key (with mods) to a specified window. Can be used as a workaround to global keybinds not working on Wayland. | window |
+| sendshortcut | sends specified keys (with mods) to an optionally specified window. Can be used like pass | mod, key[, window] |
 | killactive | closes (not kills) the active window | none |
 | closewindow | closes a specified window | window |
 | workspace | changes the workspace | workspace |
