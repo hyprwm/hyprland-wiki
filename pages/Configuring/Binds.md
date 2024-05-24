@@ -248,7 +248,7 @@ bindr=ALT,Alt_L,exec,amongus
 Yes, you heard this right, Hyprland does support global keybinds for ALL apps,
 including OBS, Discord, Firefox, etc.
 
-See the [`pass` dispatcher](../Dispatchers/#list-of-dispatchers) for keybinds.
+See the [`pass` dispatcher](../Dispatchers/#list-of-dispatchers) and the [`sendshortcut` dispatcher](../Dispatchers/#list-of-dispatchers) for keybinds.
 
 Let's take OBS as an example: the "Start/Stop Recording" keybind is set to
 <key>SUPER</key> + <key>F10</key>, and you want to make it work globally.
@@ -269,6 +269,14 @@ bind=,mouse:276,pass,^(TeamSpeak 3)$
 ```
 
 Will pass MOUSE5 to TeamSpeak3.
+
+You may also add shortcuts, where other keys are passed to the window.
+
+```ini
+bind = SUPER,F10,sendshortcut,SUPER,F4,^(com\.obsproject\.Studio)$
+```
+
+Will send <key>SUPER</key> + <key>F4</key> to OBS if you press <key>SUPER</key> + <key>F10</key>.
 
 {{< callout >}}
 
