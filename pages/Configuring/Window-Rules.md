@@ -183,6 +183,51 @@ qualifier makes them always effective.
 
 {{< /callout >}}
 
+### Tags
+
+Window may have several tags, either static or dynamic, dynamic tag will have a suffix of `*`.
+You may check window tags with `hyprctl clients`.
+
+Use `tagwindow` dispatcher to add a static tag to a window:
+
+```
+hyprctl dispatch tagwindow +code        # add tag to current window
+hyprctl dispatch tagwindow -- -code     # remove tag from current window (use `--` to protect the leading `-`)
+hyprctl dispatch tagwindow code         # toggle the tag of current window
+
+# or you can tag windows matched with a window regex
+hyprctl dispatch tagwindow +music deadbeef
+hyprctl dispatch tagwindow +media title:Celluloid
+```
+
+Use `tag` rule to add a dynamic tag to a window:
+
+```ini
+windowrulev2 = tag +term, class:(footclient)    # add dynamic tag `term*` to window footclient
+windowrulev2 = tag term, class:(footclient)     # toggle dynamic tag `term*` for window footclient
+windowrulev2 = tag +code, tag:cpp               # add dynamic tag `code*` to window with tag `cpp`
+
+windowrulev2 = opacity 0.8, tag:code            # set opacity for window with tag `code` or `code*`
+windowrulev2 = opacity 0.7, tag:cpp             # window with tag `cpp` will match both `code` and `cpp`, the last one will override prior match
+windowrulev2 = opacity 0.6, tag:term*           # set opacity for window with tag `term*` only, `term` will not be matched
+
+windowrulev2 = tag -code, tag:term              # remove dynamic tag `code*` for window with tag `term` or `term*`
+```
+
+Or with keybind for convenience:
+
+```ini
+bind = $mod Ctrl, 2, tagwindow, alpha_0.2
+bind = $mod Ctrl, 4, tagwindow, alpha_0.4
+
+windowrulev2 = opacity 0.2 override, tag:alpha_0.2
+windowrulev2 = opacity 0.4 override, tag:alpha_0.4
+```
+
+The `tag` rule can only manipulate dynamic tags, and the `tagwindow` dispatcher only work with static tags
+(as once the dispatcher is called, dynamic tags will be cleared).
+
+
 ### Example Rules
 
 ```ini
