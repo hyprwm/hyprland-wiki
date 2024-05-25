@@ -37,6 +37,9 @@ wallpaper = monitor,contain:/home/me/amongus.png
 You can use `unload` to unload preloaded images. You can also specify `unload all`
 to unload all images or `unload unused` to unload images that aren't being used.
 
+Also you can use `reload` to unload preloaded image from your monitor(s), 
+preload another and set it to your monitor(s). It has the same syntax as `wallpaper` keyword.
+
 To run hyprpaper at startup edit `hyprland.conf` and add:
 `exec-once = hyprpaper`.
 
