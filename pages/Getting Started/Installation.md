@@ -367,3 +367,71 @@ sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/sha
 
 Lastly, copy hyprctl, hyprpm, and wlroots as mentioned
 [here](#manual-releases-linux-only)
+
+## Running In a VM
+*YMMV, this is not officially supported.*
+
+You may have tried to get Hyprland working in a libvirt VM by installing the official
+arch package and enabling virgl. In order to get this to work however, you must
+also compile from source yourself. To save you some headache I'm going to walk
+you through how I was able to get this to work. Note this guide is for an Arch
+host running an Arch guest.
+
+1. Read through the [libvirt Arch wiki page](https://wiki.archlinux.org/title/Libvirt)
+   and get libvirt, virsh, and virt-viewer setup and installed.
+   ```sh
+   # Install libvirt and qemu things.
+   sudo pacman -S libvirt virt-viewer qemu-common
+   # Enable and start libvirtd.
+   systemctl enable libvirtd
+   systemctl start libvirtd
+   # Add yourself to the libvirt group.
+   sudo usermod -a -G libvirt USER # Replace 'USER' with your username.
+   # You may need to restart the libvirtd service. 
+   systemctl restart libvirtd
+   ```
+2. Go to the [arch-boxes gitlab](https://gitlab.archlinux.org/archlinux/arch-boxes/-/packages)
+   and download the latest arch qemu basic image. You can also download via any of
+   arch's mirrors.
+   ```sh
+   curl https://geo.mirror.pkgbuild.com/images/latest/Arch-Linux-x86_64-basic.qcow2 \
+     -o ~/Downloads/arch-qemu.qcow2 # Or download wherever you want.
+   ```
+
+3. Create the VM with virsh.
+   ```sh
+   # Use virt-install (included with libvirt) to install the vm from the image. 
+   virt-install \
+     --graphics spice,listen=none,gl.enable=yes,rendernode=/dev/dri/renderD128 \
+     --name hypr-vm \
+     --os-variant archlinux \
+     --memory 2048 \
+     --disk ~/Downloads/arch-qemu.qcow2 \
+     --import
+   ```
+
+4. Connect with virt-viewer, this will open a virt-viewer graphical session on
+   the tty. The default login is 'arch' for user and 'arch' for password.
+   *NOTE: Make sure the --attach flag is used, enabling virgl makes it so that
+   we had to disable listen. This means that we can't make a direct TCP/UNIX
+   socket connection to the remote display. --attach asks libvirt to provide a
+   pre-connected socket to the display.*
+   ```sh
+   virt-viewer --attach hypr-vm
+   ```
+5. Install yay on the guest following [the readme on their github](https://github.com/Jguer/yay).
+   ```sh
+   pacman -Sy --needed git base-devel
+   git clone https://aur.archlinux.org/yay.git
+   cd yay
+   makepkg -si
+   ```
+6. Most likely installing the release binary via pacman won't work. So first
+   try just installing the latest hyprland-git. If that has problems I last
+   verified this works on [commit 553232a](https://github.com/hyprwm/Hyprland/commit/553232a3e4c112c8511309e6b685cb614895e714)
+   so try building from source at that commit if you have problems.
+   *NOTE: Make sure you select `mesa` as the OpenGL driver. The virgl drivers
+   are included in `mesa`*
+   ```sh
+   yay -S hyprland-git
+   ```
