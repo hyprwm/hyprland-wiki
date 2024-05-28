@@ -37,6 +37,10 @@ rgb(), e.g. `rgb(b3ff1a)`
 
 legacy, e.g. `0xeeb3ff1a` -> ARGB order
 
+{{< /callout >}}
+
+{{< callout type=info >}}
+
 **_Mod list:_**
 
 ```ini
@@ -392,7 +396,7 @@ _Subcategory `group:groupbar:`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
-| use_nearest_neighbor | uses the nearest neigbor filtering for xwayland apps, making them pixelated rather than blurry | bool | true |
+| use_nearest_neighbor | uses the nearest neighbor filtering for xwayland apps, making them pixelated rather than blurry | bool | true |
 | force_zero_scaling | forces a scale of 1 on xwayland windows on scaled displays. | bool | false |
 
 ### OpenGL
