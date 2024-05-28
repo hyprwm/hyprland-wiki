@@ -183,9 +183,10 @@ l -> locked, will also work when an input inhibitor (e.g. a lockscreen) is activ
 r -> release, will trigger on release of a key.
 e -> repeat, will repeat when held.
 n -> non-consuming, key/mouse events will be passed to the active window in addition to triggering the dispatcher.
-m -> mouse, see below
+m -> mouse, see below.
 t -> transparent, cannot be shadowed by other binds.
 i -> ignore mods, will ignore modifiers.
+s -> separate, will arbitrarily combine keys between each mod/key, see [Keysym combos](./Binds.md/#keysym-combos) above.
 d -> has description, will allow you to write a description for your bind.
 ```
 
