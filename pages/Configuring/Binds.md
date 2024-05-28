@@ -89,7 +89,7 @@ bindr=SUPERALT,Alt_L,exec,amongus
 
 ### Keysym combos
 
-For an arbitrary combination of multiple keys, seperate keysyms with `&` between
+For an arbitrary combination of multiple keys, separate keysyms with `&` between
 each mod/key and use the `s` flag, e.g.:
 
 ```ini
@@ -302,8 +302,8 @@ Will send <key>SUPER</key> + <key>F4</key> to OBS if you press <key>SUPER</key> 
 
 {{< callout >}}
 
-This works flawlessly with all native Wayland applications. However, XWayland is a bit wonky. 
-Make sure that what you're passing is a "global Xorg keybind", 
+This works flawlessly with all native Wayland applications. However, XWayland is a bit wonky.
+Make sure that what you're passing is a "global Xorg keybind",
 otherwise passing from a different XWayland app may not work.
 
 {{< /callout >}}
@@ -336,7 +336,7 @@ Please note that this function will _only_ work with
 ## Submaps
 
 Keybind submaps, also known as _modes_ or _groups_, allow you to activate a
-seperate set of keybinds. For example, if you want to enter a "resize" mode 
+separate set of keybinds. For example, if you want to enter a "resize" mode 
 which allows you to resize windows with the arrow keys, you can do it like this:
 
 ```ini
