@@ -407,14 +407,25 @@ virt-install \
 
 Connect with `virt-viewer`, this will open a `virt-viewer` graphical session on
 the tty. The default login is 'arch' for user and 'arch' for password.
-*NOTE: Make sure the --attach flag is used, enabling virgl makes it so that
+
+{{< callout >}}
+
+Make sure the --attach flag is used, enabling virgl makes it so that
 we had to disable listen. This means that we can't make a direct TCP/UNIX
 socket connection to the remote display. --attach asks libvirt to provide a
 pre-connected socket to the display.*
+
+{{</ callout >}}
+
 ```sh
 virt-viewer --attach hypr-vm
 ```
 Finally on the guest follow the instructions above for either [installing
 hyprland-git from the aur](#installation) or [building manually](#manual-manual-build).
-*NOTE: Make sure you install `mesa` as the OpenGL driver. The virgl drivers
-are included in `mesa`.*
+
+{{< callout >}}
+
+Make sure you install `mesa` as the OpenGL driver. The virgl drivers
+are included in `mesa`.
+
+{{</ callout >}}
