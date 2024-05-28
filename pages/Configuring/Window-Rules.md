@@ -68,10 +68,11 @@ terminals.
 For now, the supported fields for V2 are:
 
 ```ini
-class - class regex 
+class - class regex
 title - title regex
 initialclass - initialClass regex
 initialTitle - initialTitle regex
+tag - tag name
 xwayland - 0/1
 floating - 0/1
 fullscreen - 0/1
@@ -154,6 +155,7 @@ Dynamic rules are re-evaluated every time a property changes.
 | xray \[on\] | sets blur xray mode for the window (0 for off, 1 for on, unset for default) |
 | immediate | forces the window to allow to be torn. See [the Tearing page](../Tearing). |
 | nearestneighbor | forces the window to use the nearest neigbor filtering. |
+| tag \[name\] | apply tag to the window, use prefix `+`/`-` to set/unset flag, or no prefix to toggle the flag |
 
 {{< callout type=info >}}
 
@@ -180,6 +182,51 @@ By default, `set` and `lock` only affect new windows once. The `always`
 qualifier makes them always effective.
 
 {{< /callout >}}
+
+### Tags
+
+Window may have several tags, either static or dynamic, dynamic tag will have a suffix of `*`.
+You may check window tags with `hyprctl clients`.
+
+Use `tagwindow` dispatcher to add a static tag to a window:
+
+```
+hyprctl dispatch tagwindow +code        # add tag to current window
+hyprctl dispatch tagwindow -- -code     # remove tag from current window (use `--` to protect the leading `-`)
+hyprctl dispatch tagwindow code         # toggle the tag of current window
+
+# or you can tag windows matched with a window regex
+hyprctl dispatch tagwindow +music deadbeef
+hyprctl dispatch tagwindow +media title:Celluloid
+```
+
+Use `tag` rule to add a dynamic tag to a window:
+
+```ini
+windowrulev2 = tag +term, class:(footclient)    # add dynamic tag `term*` to window footclient
+windowrulev2 = tag term, class:(footclient)     # toggle dynamic tag `term*` for window footclient
+windowrulev2 = tag +code, tag:cpp               # add dynamic tag `code*` to window with tag `cpp`
+
+windowrulev2 = opacity 0.8, tag:code            # set opacity for window with tag `code` or `code*`
+windowrulev2 = opacity 0.7, tag:cpp             # window with tag `cpp` will match both `code` and `cpp`, the last one will override prior match
+windowrulev2 = opacity 0.6, tag:term*           # set opacity for window with tag `term*` only, `term` will not be matched
+
+windowrulev2 = tag -code, tag:term              # remove dynamic tag `code*` for window with tag `term` or `term*`
+```
+
+Or with keybind for convenience:
+
+```ini
+bind = $mod Ctrl, 2, tagwindow, alpha_0.2
+bind = $mod Ctrl, 4, tagwindow, alpha_0.4
+
+windowrulev2 = opacity 0.2 override, tag:alpha_0.2
+windowrulev2 = opacity 0.4 override, tag:alpha_0.4
+```
+
+The `tag` rule can only manipulate dynamic tags, and the `tagwindow` dispatcher only work with static tags
+(as once the dispatcher is called, dynamic tags will be cleared).
+
 
 ### Example Rules
 
@@ -211,7 +258,7 @@ windowrulev2 = opacity 0.8 0.8,class:^(kitty)$
 windowrulev2 = opacity 0.5 0.5,floating:1
 ```
 
-Here, all non-fullscreen kitty windows will have `opacity 0.8`, except if they are floating. 
+Here, all non-fullscreen kitty windows will have `opacity 0.8`, except if they are floating.
 Otherwise, they will have `opacity 0.5`. The rest of the non-fullscreen floating windows will have `opacity 0.5`.
 
 ```ini
@@ -219,12 +266,12 @@ windowrulev2 = opacity 0.5 0.5,floating:1
 windowrulev2 = opacity 0.8 0.8,class:^(kitty)$
 ```
 
-Here, all kitty windows will have `opacity 0.8`, even if they are floating. 
+Here, all kitty windows will have `opacity 0.8`, even if they are floating.
 The rest of the floating windows will have `opacity 0.5`.
 
 {{< callout type=info >}}
 
-Opacity is a PRODUCT of all opacities by default. For example, setting `activeopacity` to 0.5 
+Opacity is a PRODUCT of all opacities by default. For example, setting `activeopacity` to 0.5
 and `opacity` to 0.5 will result in a total opacity of 0.25. You are allowed
 to set opacities over 1, but any opacity product over 1 will cause graphical
 glitches. For example, using `0.5 * 2 = 1` is fine, but `0.5 * 4 = 2` will cause
