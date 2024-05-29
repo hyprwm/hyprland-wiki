@@ -367,3 +367,65 @@ sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/sha
 
 Lastly, copy hyprctl, hyprpm, and wlroots as mentioned
 [here](#manual-releases-linux-only)
+
+## Running In a VM
+*YMMV, this is not officially supported.*
+
+Read through the [libvirt Arch wiki page](https://wiki.archlinux.org/title/Libvirt)
+and get `libvirt`, `virsh`, and `virt-viewer` setup and installed.
+```sh
+# Install libvirt and qemu things.
+sudo pacman -S libvirt virt-viewer qemu-common
+# Enable and start libvirtd.
+systemctl enable libvirtd
+systemctl start libvirtd
+# Add yourself to the libvirt group.
+sudo usermod -a -G libvirt USER # Replace 'USER' with your username.
+# You may need to restart the libvirtd service. 
+systemctl restart libvirtd
+```
+
+Go to the [arch-boxes gitlab](https://gitlab.archlinux.org/archlinux/arch-boxes/-/packages)
+and download the latest arch qemu basic image. You can also download via any of
+arch's mirrors.
+```sh
+curl https://geo.mirror.pkgbuild.com/images/latest/Arch-Linux-x86_64-basic.qcow2 \
+  -o ~/Downloads/arch-qemu.qcow2 # Or download wherever you want.
+```
+
+Create the VM with virsh.
+```sh
+# Use virt-install (included with libvirt) to install the vm from the image. 
+virt-install \
+  --graphics spice,listen=none,gl.enable=yes,rendernode=/dev/dri/renderD128 \
+  --name hypr-vm \
+  --os-variant archlinux \
+  --memory 2048 \
+  --disk ~/Downloads/arch-qemu.qcow2 \
+  --import
+```
+
+Connect with `virt-viewer`, this will open a `virt-viewer` graphical session on
+the tty. The default login is 'arch' for user and 'arch' for password.
+
+{{< callout >}}
+
+Make sure the --attach flag is used, enabling virgl makes it so that
+we had to disable listen. This means that we can't make a direct TCP/UNIX
+socket connection to the remote display. --attach asks libvirt to provide a
+pre-connected socket to the display.*
+
+{{</ callout >}}
+
+```sh
+virt-viewer --attach hypr-vm
+```
+Finally on the guest follow the instructions above for either [installing
+hyprland-git from the aur](#installation) or [building manually](#manual-manual-build).
+
+{{< callout >}}
+
+Make sure you install `mesa` as the OpenGL driver. The virgl drivers
+are included in `mesa`.
+
+{{</ callout >}}
