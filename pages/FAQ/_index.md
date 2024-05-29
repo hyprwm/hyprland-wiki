@@ -383,3 +383,23 @@ from Steam.
 
 Steam has its own file picker, however, it's not functional. Install
 `xdg-desktop-portal-gtk` to show the desktop's file picker.
+
+# Workspaces or clients are disappearing or monitor related dispatchers cause crashes
+
+It seems there is a Kernel bug making the system think there is an extra
+phantom monitor, that causes all sorts of issues, crashes and weird behaviors
+like disapearing workspaces or clients when adding or removing an external
+monitor.
+
+First check the list of monitors detected by Hyprland by running:
+
+```ini
+hyprctl monitors
+```
+
+If you see a monitor that should not be there (usually named `Unknown-1`), you
+can work around the issue by adding in your `hyprland.conf`:
+
+```ini
+monitor=Unknown-1,disabled
+```
