@@ -53,8 +53,8 @@ monitor=DP-1, 1920x1080, 0x0, 1
 monitor=DP-2, 1920x1080, -1920x0, 1
 ```
 
-Recall the `position` is calculated from the top-left corner. Thus, a larger number
-places a monitor lower relative to the others.
+Hyprland uses an inverse Y cartesian system. Thus, placing a - before the y coordinate
+places a monitor higher, and a positive value will place it lower.
 
 For example:
 
