@@ -14,15 +14,7 @@ For issues, please see
 
 ### Required packages
 
-`xcb` stuff, check with your local package provider.
-
-`wayland` - of course.
-
-_Arch_:
-
-`yay -S gdb ninja gcc cmake libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite xorg-xinput libxrender pixman wayland-protocols cairo pango seatd tomlplusplus`
-
-(If any are missing hmu)
+See [manual build](https://wiki.hyprland.org/Getting-Started/Installation/#manual-manual-build) for deps.
 
 ### Recommended, CMake
 
