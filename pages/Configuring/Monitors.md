@@ -53,6 +53,25 @@ monitor=DP-1, 1920x1080, 0x0, 1
 monitor=DP-2, 1920x1080, -1920x0, 1
 ```
 
+Hyprland uses an inverse Y cartesian system. Thus, a negative y coordinate
+places a monitor higher, and a positive y coordinate will place it lower.
+
+For example:
+
+```ini
+monitor=DP-1, 1920x1080, 0x0, 1
+monitor=DP-2, 1920x1080, 0x-1080, 1
+```
+
+will tell hyprland to make DP-2 _above_ DP-1, while
+
+```ini
+monitor=DP-1, 1920x1080, 0x0, 1
+monitor=DP-2, 1920x1080, 0x1080, 1
+```
+
+will tell hyprland to make DP-2 _below_.
+
 {{< callout type=info >}}
 
 The position is calculated with the scaled (and transformed) resolution, meaning
