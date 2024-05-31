@@ -48,6 +48,11 @@ similarly between the two.
 
 {{< /callout >}}
 
+Take care to also install `egl-wayland` (`libnvidia-egl-wayland1` and
+`libnvidia-egl-gbm1` on Ubuntu) if you are using the proprietary drivers.
+It provides the necessary compatibility layer, instead of falling back to
+zink/Vulkan.
+
 Next up, you need to enable modeset for nvidia, this can be done via editing
 the kernel paramaters for your bootloader.
 
