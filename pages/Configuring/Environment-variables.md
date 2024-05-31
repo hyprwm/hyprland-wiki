@@ -42,7 +42,6 @@ environment on traditional Linux distros.
 ## Toolkit Backend Variables
 
 - `env = GDK_BACKEND,wayland,x11,*` - GTK: Use wayland if available. If not: try x11, then any other GDK backend.
-  not.
 - `env = QT_QPA_PLATFORM,wayland;xcb` - Qt: Use wayland if available, fall back to
   x11 if not.
 - `env = SDL_VIDEODRIVER,wayland` - Run SDL2 applications on Wayland. Remove or set to
