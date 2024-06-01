@@ -27,14 +27,25 @@ properly on your computer, the Nouveau driver might work fine. This will
 most likely be the case for
 [older cards](https://wiki.archlinux.org/title/NVIDIA#Unsupported_drivers).
 
-# Proprietary drivers
+# Proprietary drivers setup
 
-Install the headers package for your kernel. For example, if you have
-the `linux-zen` kernel on Arch Linux, this package would be `linux-zen-headers`.
+Install the following packages:
 
-Install the required nvidia packages. For most cases, this would be `nvidia-dkms`
-(or `nvidia-open-dkms` for the open source ones),
-and `nvidia-utils`. If you'd like to game using Steam or Wine, install `lib32-nvidia-utils` as well.
+1. `linux-headers`: This is necessary for installing the dkms package. If you're
+using a custom kernel, install the headers package for it (e.g. for `linux-zen` it would
+be `linux-zen-headers`).
+2. `nvidia-dkms` or `nvidia-open-dkms`: The kernel driver itself.
+3. `nvidia-utils`: The userspace graphics drivers. You need this for running Vulkan
+applications. If you'd like to game using Steam or Wine, install `lib32-nvidia-utils` as well.
+4. `egl-wayland` (`libnvidia-egl-wayland1` and `libnvidia-egl-gbm1` on Ubuntu): This provides
+the necessary compatibility layer so that Hyprland doesn't fall back to zink/Vulkan.
+
+{{< callout >}}
+
+It's recommended to use the `nvidia-dkms` drivers as you won't have to rebuild the initramfs
+manually every time the drivers update.
+
+{{< /callout >}}
 
 {{< callout >}}
 
