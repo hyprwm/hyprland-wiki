@@ -96,27 +96,40 @@ hyprctl setcursor Bibata-Modern-Classic 24
 
 Allows you to add and remove fake outputs to your preferred backend.
 
-params: `create` or `remove` and `backend` or `name` respectively.
+Usage:
 
-For _create_:
+```sh
+hyprctl output create [backend] (name)
+```
+or
+```sh
+hyprctl output remove [name]
+```
 
-pass a backend name: `wayland`, `x11`, `headless` or `auto`. On a _real_
-hyprland session, if you're looking for a VNC / RDP type thing, it's 99% going
-to be `headless`.
+Where `[backend]` is the name of the backend and `(name)` is an optional name for the output. If `(name)` is not
+specified, the default naming scheme will be used (`HEADLESS-2`, `WL-1`, etc.)
 
-For _remove_:
+{{< callout type=info >}}
 
-pass the output's name, as found in `hyprctl monitors`. Please be aware you are
-_not_ allowed to remove real displays with this command.
+`create` and `remove` can also be `add` or `destroy`, respectively.
 
-e.g.:
+{{< /callout >}}
 
-```ini
-# will create a 1920x1080 headless display, for example to use with RDP.
-hyprctl output create headless
+Available backends: 
+- `wayland`: Creates an output as a Wayland window. This will only work if you're already running Hyprland with the Wayland backend.
+- `headless`: Creates a headless monitor output. If you're running a VNC/RDP/Sunshine server, you should use this.
+- `auto`: Picks a backend for you. For example, if you're running Hyprland from the TTY, `headless` will be chosen.
 
-# will remove the above display, provided its name was HEADLESS-1
-hyprctl output remove HEADLESS-1
+For example, to create a headless output named "test":
+
+```sh
+hyprctl output create headless test
+```
+
+And to remove it:
+
+```sh
+hyprctl output remove test
 ```
 
 ### switchxkblayout
