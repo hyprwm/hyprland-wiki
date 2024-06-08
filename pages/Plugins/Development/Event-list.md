@@ -17,7 +17,7 @@ M: means std::unordered_map<std::string, std::any> following props are members.
 | --- | --- | --- | --- |
 | tick | fired on a tick, meaning once per (1000 / highestMonitorHz) ms | nullptr | ✕ |
 | activeWindow | fired on active window change | PHLWINDOW | ✕ |
-| keyboardFocus | fired on keyboard focus change. Contains the newly focused surface | wlr_surface* | ✕ |
+| keyboardFocus | fired on keyboard focus change. Contains the newly focused surface | SP<CWLSurfaceResource> | ✕ |
 | moveWorkspace | fired when a workspace changes its monitor | std::vector<std::any>{PHLWORKSPACE, CMonitor*} | ✕ |
 | focusedMon | fired on monitor focus change | CMonitor* | ✕ |
 | moveWindow | fired when a window changes workspace | std::vector<std::any>{PHLWINDOW, PHLWORKSPACE} | ✕ |
