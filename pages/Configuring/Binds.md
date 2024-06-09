@@ -148,7 +148,7 @@ The keybinds will be executed in the order they were created. (top to bottom)
 ### Description
 
 You can describe you keybind with the description flag.
-Your description always goes in front of the dispatcher and should never contain the character ´,´!
+Your description always goes in front of the dispatcher and should never contain the character `,`!
 
 ```ini
 bindd=MODS,key,description,dispatcher,params
@@ -160,7 +160,7 @@ for example,
 bindd=SUPER,Q,Open my favourite terminal,exec,kitty
 ```
 
-If you want to access your description you can use `hyprctl binds`. For more information have a look at [Useing Hyprctl](./Using-hyprctl.md).
+If you want to access your description you can use `hyprctl binds`. For more information have a look at [Using Hyprctl](./Using-hyprctl.md).
 
 ## Bind flags
 
