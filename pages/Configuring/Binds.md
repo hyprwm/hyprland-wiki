@@ -147,7 +147,7 @@ The keybinds will be executed in the order they were created. (top to bottom)
 
 ### Description
 
-You can describe you keybind with the description flag.
+You can describe your keybind with the description flag.
 Your description always goes in front of the dispatcher and should never contain the character `,`!
 
 ```ini
