@@ -137,7 +137,7 @@ You can view your switches in `hyprctl devices`.
 You can trigger multiple actions with one keybind by assigning multiple binds to
 one combination, e.g.:
 
-```
+```ini
 # to switch between windows in a floating workspace
 bind = SUPER,Tab,cyclenext,          # change focus to another window
 bind = SUPER,Tab,bringactivetotop,   # bring it to the top
