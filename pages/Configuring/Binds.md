@@ -321,7 +321,7 @@ Choose whichever you like, for example `coolApp:myToggle`
 
 Bind it to whatever you want with the `global` dispatcher:
 
-```
+```ini
 bind = SUPERSHIFT, A, global, coolApp:myToggle
 ```
 
