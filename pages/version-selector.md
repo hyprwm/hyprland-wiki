@@ -6,6 +6,7 @@ weight: 1
 Select your preferred wiki version below:
 
 - [Latest Git](https://wiki.hyprland.org/)
+- [v0.41.0](https://wiki.hyprland.org/0.41.0/)
 - [v0.40.0](https://wiki.hyprland.org/0.40.0/)
 - [v0.39.0](https://wiki.hyprland.org/0.39.0/)
 - [v0.38.0](https://wiki.hyprland.org/0.38.0/)
