@@ -137,13 +137,30 @@ You can view your switches in `hyprctl devices`.
 You can trigger multiple actions with one keybind by assigning multiple binds to
 one combination, e.g.:
 
-```
+```ini
 # to switch between windows in a floating workspace
 bind = SUPER,Tab,cyclenext,          # change focus to another window
 bind = SUPER,Tab,bringactivetotop,   # bring it to the top
 ```
 
 The keybinds will be executed in the order they were created. (top to bottom)
+
+### Description
+
+You can describe your keybind with the description flag.
+Your description always goes in front of the dispatcher and should never contain the character `,`!
+
+```ini
+bindd=MODS,key,description,dispatcher,params
+```
+
+for example,
+
+```ini
+bindd=SUPER,Q,Open my favourite terminal,exec,kitty
+```
+
+If you want to access your description you can use `hyprctl binds`. For more information have a look at [Using Hyprctl](./Using-hyprctl.md).
 
 ## Bind flags
 
@@ -169,6 +186,7 @@ n -> non-consuming, key/mouse events will be passed to the active window in addi
 m -> mouse, see below
 t -> transparent, cannot be shadowed by other binds.
 i -> ignore mods, will ignore modifiers.
+d -> has description, will allow you to write a description for your bind.
 ```
 
 Example Usage:
@@ -182,6 +200,9 @@ bindl=, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 
 # Start wofi opens wofi on first press, closes it on second
 bindr=SUPER, SUPER_L, exec, pkill wofi || wofi
+
+# Describe a bind
+bindd=SUPER,Q,Open my favourite terminal,exec,kitty
 
 # See Mouse Binds section for bindm usage
 ```
@@ -300,7 +321,7 @@ Choose whichever you like, for example `coolApp:myToggle`
 
 Bind it to whatever you want with the `global` dispatcher:
 
-```
+```ini
 bind = SUPERSHIFT, A, global, coolApp:myToggle
 ```
 
