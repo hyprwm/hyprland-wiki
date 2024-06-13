@@ -186,7 +186,7 @@ n -> non-consuming, key/mouse events will be passed to the active window in addi
 m -> mouse, see below.
 t -> transparent, cannot be shadowed by other binds.
 i -> ignore mods, will ignore modifiers.
-s -> separate, will arbitrarily combine keys between each mod/key, see [Keysym combos](./Binds.md/#keysym-combos) above.
+s -> separate, will arbitrarily combine keys between each mod/key, see [Keysym combos](#keysym-combos) above.
 d -> has description, will allow you to write a description for your bind.
 ```
 
