@@ -165,21 +165,23 @@ Refer to the gist if anything fails.
 
 {{% details title="Void Linux*" closed="true" %}}
 
-Hyprland is not available for Void Linux from the official repositories
-[as Hyprland doesn't build against tagged wlroots](https://github.com/void-linux/void-packages/issues/37544),
-however template files are available
-[from a third party](https://github.com/Makrennel/hyprland-void) which can build
-Hyprland [using xbps-src](https://github.com/void-linux/void-packages).
+Hyprland is not available from Void Linux's official repositories [due to a conflict of packaging philosophy](https://github.com/void-linux/void-packages/issues/37544). However, a [third party repository](https://github.com/Makrennel/hyprland-void) is available with [binary packages](https://github.com/Makrennel/hyprland-void/tree/repository-x86_64-glibc) built in CI by GitHub Actions.
 
-For further instructions on building with the third party resource, refer to the
-[README](https://github.com/Makrennel/hyprland-void/blob/master/README.md).
+You can add this repository by creating a file such as `/etc/xbps.d/hyprland-void.conf` with the following contents:
 
-{{< callout type=warning >}}
+```plain
+repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-glibc
+```
+Then you can install the packages as you would any other:
 
-As always, when using third party scripts exercise caution and understand what
-the script does.
+```sh
+sudo xbps-install -S hyprland
+sudo xbps-install -S hyprland-devel # If you want to use plugins
+sudo xbps-install -S xdg-desktop-portal-hyprland
 
-{{< /callout >}}
+xbps-query -Rs hypr # This will require you to have already accepted the repository's fingerprint using xbps-install -S
+```
+More information is available in the [hyprland-void README](https://github.com/Makrennel/hyprland-void/blob/master/README.md), including information about how you can [manually build](https://github.com/Makrennel/hyprland-void?tab=readme-ov-file#manually-building) Hyprland for Void Linux using the templates provided.
 
 {{% /details %}}
 
