@@ -89,7 +89,7 @@ bindr=SUPERALT,Alt_L,exec,amongus
 
 ### Keysym combos
 
-For an arbitrary combination of multiple keys, seperate keysyms with `&` between
+For an arbitrary combination of multiple keys, separate keysyms with `&` between
 each mod/key and use the `s` flag, e.g.:
 
 ```ini
@@ -183,9 +183,10 @@ l -> locked, will also work when an input inhibitor (e.g. a lockscreen) is activ
 r -> release, will trigger on release of a key.
 e -> repeat, will repeat when held.
 n -> non-consuming, key/mouse events will be passed to the active window in addition to triggering the dispatcher.
-m -> mouse, see below
+m -> mouse, see below.
 t -> transparent, cannot be shadowed by other binds.
 i -> ignore mods, will ignore modifiers.
+s -> separate, will arbitrarily combine keys between each mod/key, see [Keysym combos](#keysym-combos) above.
 d -> has description, will allow you to write a description for your bind.
 ```
 
@@ -301,8 +302,8 @@ Will send <key>SUPER</key> + <key>F4</key> to OBS if you press <key>SUPER</key> 
 
 {{< callout >}}
 
-This works flawlessly with all native Wayland applications. However, XWayland is a bit wonky. 
-Make sure that what you're passing is a "global Xorg keybind", 
+This works flawlessly with all native Wayland applications. However, XWayland is a bit wonky.
+Make sure that what you're passing is a "global Xorg keybind",
 otherwise passing from a different XWayland app may not work.
 
 {{< /callout >}}
@@ -335,7 +336,7 @@ Please note that this function will _only_ work with
 ## Submaps
 
 Keybind submaps, also known as _modes_ or _groups_, allow you to activate a
-seperate set of keybinds. For example, if you want to enter a "resize" mode 
+separate set of keybinds. For example, if you want to enter a "resize" mode 
 which allows you to resize windows with the arrow keys, you can do it like this:
 
 ```ini
