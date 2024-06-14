@@ -411,6 +411,8 @@ _Subcategory `group:groupbar:`_
 | name | description | type | default |
 | --- | --- | --- | --- |
 | no_hardware_cursors | disables hardware cursors | bool | false |
+| no_break_fs_vrr | disables scheduling new frames on cursor movement for fullscreen apps with VRR enabled to avoid framerate spikes (requires `no_hardware_cursors = true`) | bool | false |
+| min_refresh_rate | minimum refresh rate for cursor movement when `no_break_fs_vrr` is active. Set to minimum supported refresh rate or higher | int | 24 |
 | hotspot_padding | the padding, in logical px, between screen edges and the cursor | int | 1 |
 | inactive_timeout | in seconds, after how many seconds of cursor's inactivity to hide it. Set to `0` for never. | int | 0 |
 | no_warps | if true, will not warp the cursor in many cases (focusing, keybinds, etc) | bool | false |
