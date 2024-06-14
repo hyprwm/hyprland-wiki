@@ -301,7 +301,7 @@ animations - gets the currently configured info about animations and beziers
 instances - lists all running instances of Hyprland with their info
 layouts - lists all layouts available (including from plugins)
 configerrors - lists all current config parsing errors
-rollinglog - prints tail of the log
+rollinglog - prints tail of the log. Also supports -f/--follow option
 locked - prints whether the current session is locked.
 ```
 
