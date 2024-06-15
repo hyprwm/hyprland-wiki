@@ -81,6 +81,7 @@ layout pages (See the sidebar).
 | setignoregrouplock | Temporarily enable or disable binds:ignore_group_lock | `on`, `off`, or `toggle` |
 | global | Executes a Global Shortcut using the GlobalShortcuts portal. See [here](../Binds/#global-keybinds) | name |
 | submap | Change the current mapping group. See [Submaps](../Binds/#submaps) | `reset` or name |
+| event | Emits a custom event to socket2 in the form of `custom>>yourdata` | the data to send |
 
 {{< callout type=warning >}}
 
