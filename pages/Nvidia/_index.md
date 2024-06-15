@@ -99,12 +99,16 @@ env = LIBVA_DRIVER_NAME,nvidia
 env = XDG_SESSION_TYPE,wayland
 env = GBM_BACKEND,nvidia-drm
 env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+
+cursor {
+    no_hardware_cursors = true
+}
 ```
 
 {{< callout type=warning >}}
 
 Previously used `WLR_NO_HARDWARE_CURSORS` environment variable has been deprecated.
-Do not set it in your configs. See: [cursor](../Configuring/Variables/#cursor)
+Do not set it in your configs. Use `cursor:no_hardware_cursors` instead.
 
 {{< /callout >}}
 
