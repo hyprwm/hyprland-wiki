@@ -98,15 +98,14 @@ git bisect bad HEAD
 ```
 
 _git_ will now checkout a commit in the middle of the specified range.
-Now, reset, build and install Hyprland:
+Now, reset and build Hyprland:
 
 ```sh
 git reset --hard --recurse-submodules
 make all
-sudo make install
 ```
 
-...and run Hyprland from the TTY.
+...and run the built executable from the TTY `./build/Hyprland`.
 
 Try to reproduce your issue. If you can't (i.e. the bug is not present), go back to the
 Hyprland repo and run `git bisect good`. If you can reproduce it, run `git bisect bad`.
