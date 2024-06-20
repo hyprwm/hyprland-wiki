@@ -11,7 +11,7 @@ have had success with the instructions on this page.
 You can choose between the proprietary
 [Nvidia drivers](https://wiki.archlinux.org/title/NVIDIA) or the open source
 [Nouveau driver](https://wiki.archlinux.org/title/Nouveau). For the
-proprietary drivers, there are 3 of them: the current closed source driver
+proprietary drivers, there are 3 varieties: the current closed source driver
 named 'nvidia' (or 'nvidia-dkms' to use with custom linux kernels) which is
 under active development; the legacy closed source drivers 'nvidia-3xxxx' for older cards
 which Nvidia no longer actively supports; and the 'nvidia-open' driver which is
@@ -19,12 +19,12 @@ currently an alpha stage attempt to open source a part of their closed source
 driver for newer cards.
 
 If the proprietary drivers support your graphics card, it's generally recommended
-to use them instead, as it includes significantly improved performance 
-and power management for recent GPUs.
+to use them instead, as it has significantly improved performance 
+and power management for newer GPUs.
 
 However, keep in mind that if the proprietary Nvidia drivers do not work
 properly on your computer, the Nouveau driver might work fine. This will
-most likely be the case for
+likely be the case for
 [older cards](https://wiki.archlinux.org/title/NVIDIA#Unsupported_drivers).
 
 # Proprietary drivers setup
@@ -32,17 +32,18 @@ most likely be the case for
 Install the following packages:
 
 1. `linux-headers`: This is necessary for installing the dkms package. If you're
-using a custom kernel, install the headers package for it (e.g. for `linux-zen` it would
+using a custom kernel, the headers package for it will need to be installed (e.g. for `linux-zen` it would
 be `linux-zen-headers`).
-2. `nvidia-dkms` or `nvidia-open-dkms`: The kernel driver itself.
-3. `nvidia-utils`: The userspace graphics drivers. You need this for running Vulkan
-applications. If you'd like to game using Steam or Wine, install `lib32-nvidia-utils` as well.
-4. `egl-wayland` (`libnvidia-egl-wayland1` and `libnvidia-egl-gbm1` on Ubuntu): This provides
-the necessary compatibility layer so that Hyprland doesn't fall back to zink/Vulkan.
+2. `nvidia` or `nvidia-dkms`: The kernel driver itself. Optionally, the open source drivers
+from NVIDIA can be installed as `nvidia-open` or `nvidia-open-dkms`.
+4. `nvidia-utils`: The userspace graphics drivers. You need this for running Vulkan
+applications. If you'd like to use apps like Steam or Wine, install `lib32-nvidia-utils` as well.
+5. `egl-wayland` (`libnvidia-egl-wayland1` and `libnvidia-egl-gbm1` on Ubuntu): This enables
+compatibility between the EGL API and the Wayland protocol.
 
 {{< callout >}}
 
-It's recommended to use the `nvidia-dkms` drivers as you won't have to rebuild the initramfs
+It's recommended to use the `nvidia-dkms` drivers, as you won't have to rebuild the initramfs
 manually every time the drivers update.
 
 {{< /callout >}}
@@ -67,6 +68,12 @@ Edit `/etc/default/grub`. On the `GRUB_CMDLINE_LINUX_DEFAULT` line, append the f
 
 ```ini
 GRUB_CMDLINE_LINUX_DEFAULT="[...] nvidia_drm.modeset=1"
+```
+
+Then, update GRUB:
+
+```sh
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 ### systemd-boot
