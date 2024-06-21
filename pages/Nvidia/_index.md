@@ -12,7 +12,7 @@ You can choose between the proprietary
 [Nvidia drivers](https://wiki.archlinux.org/title/NVIDIA) or the open source
 [Nouveau driver](https://wiki.archlinux.org/title/Nouveau). For the
 proprietary drivers, there are 3 varieties: the current closed source driver
-named 'nvidia' (or 'nvidia-dkms' to use with custom linux kernels) which is
+named 'nvidia' (or 'nvidia-dkms') which is
 under active development; the legacy closed source drivers 'nvidia-3xxxx' for older cards
 which Nvidia no longer actively supports; and the 'nvidia-open' driver which is
 currently an alpha stage attempt to open source a part of their closed source
@@ -27,69 +27,50 @@ properly on your computer, the Nouveau driver might work fine. This will
 likely be the case for
 [older cards](https://wiki.archlinux.org/title/NVIDIA#Unsupported_drivers).
 
+{{< callout >}}
+
+The `nvidia-open` drivers are still not up to feature parity with the proprietary drivers.
+One issue is with [suspend](https://github.com/NVIDIA/open-gpu-kernel-modules/issues/472) (e.g. closing the lid on your laptop).
+
+{{< /callout >}}
+
 # Proprietary drivers setup
+
+You can choose between the `nvidia` or the `nvidia-dkms` package. There are pros and cons
+for each, but it is generally recommended to use the `dkms` package,
+as you won't have to rebuild the initramfs [manually](https://wiki.archlinux.org/title/NVIDIA#mkinitcpio) every time the kernel and drivers update, for example.
+If you're using a kernel that isn't `linux` or `linux-lts`, the `dkms` package is *required*.
+
+## Installation
 
 Install the following packages:
 
-1. `linux-headers`: This is necessary for installing the dkms package. If you're
-using a custom kernel, the headers package for it will need to be installed (e.g. for `linux-zen` it would
-be `linux-zen-headers`).
-2. `nvidia` or `nvidia-dkms`: The kernel driver itself. Optionally, the open source drivers
+1. `nvidia` or `nvidia-dkms`: The driver itself. Optionally, the open source drivers
 from NVIDIA can be installed as `nvidia-open` or `nvidia-open-dkms`.
-4. `nvidia-utils`: The userspace graphics drivers. You need this for running Vulkan
+2. `nvidia-utils`: The userspace graphics drivers. You need this for running Vulkan
 applications. If you'd like to use apps like Steam or Wine, install `lib32-nvidia-utils` as well.
-5. `egl-wayland` (`libnvidia-egl-wayland1` and `libnvidia-egl-gbm1` on Ubuntu): This enables
-compatibility between the EGL API and the Wayland protocol.
-
-{{< callout >}}
-
-It's recommended to use the `nvidia-dkms` drivers, as you won't have to rebuild the initramfs
-manually every time the drivers update.
-
-{{< /callout >}}
-
-{{< callout >}}
-
-Even if your GPU is listed as supported by the `nvidia-open-dkms` driver, at this
-point in time, it is still not up to feature parity with the proprietary drivers.
-One issue is with suspend (i.e. closing the lid on your laptop).
-
-{{< /callout >}}
+3. `egl-wayland` (`libnvidia-egl-wayland1` and `libnvidia-egl-gbm1` on Ubuntu): This is required
+in order to enable compatibility between the EGL API and the Wayland protocol.
 
 ## DRM kernel mode setting
 
 Since NVIDIA does not load kernel mode setting by default, enabling it is
-required to make Wayland compositors function properly. To enable it, a kernel
-parameter must be added to the boot loader.
+required to make Wayland compositors function properly. To enable it, the NVIDIA
+driver modules need to be added to the initramfs.
 
-### GRUB
-
-Edit `/etc/default/grub`. On the `GRUB_CMDLINE_LINUX_DEFAULT` line, append the following option:
+Edit `/etc/mkinitcpio.conf`. In the `MODULES` array, add the following module names:
 
 ```ini
-GRUB_CMDLINE_LINUX_DEFAULT="[...] nvidia_drm.modeset=1"
+MODULES=(... nvidia nvidia_modeset nvidia_uvm nvidia_drm ...)
 ```
 
-Then, update GRUB:
-
-```sh
-sudo grub-mkconfig -o /boot/grub/grub.cfg
-```
-
-### systemd-boot
-
-Edit your boot entry's config file (e.g. `/boot/loader/entries/arch.conf`). Append the kernel parameter to the `options`
-line:
+Then, create and edit `/etc/modprobe.d/nvidia.conf`. Add this line to the file:
 
 ```ini
-options [...] nvidia_drm.modeset=1
+options nvidia_drm modeset=1 fbdev=1
 ```
 
-{{< callout >}}
-
-Both `nvidia_drm` and `nvidia-drm` are valid for this kernel parameter.
-
-{{< /callout >}}
+Lastly, rebuild the initramfs with `sudo mkinitcpio -P`, and reboot.
 
 More information is available [here](https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting).
 
