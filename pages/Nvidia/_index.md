@@ -11,88 +11,72 @@ have had success with the instructions on this page.
 You can choose between the proprietary
 [Nvidia drivers](https://wiki.archlinux.org/title/NVIDIA) or the open source
 [Nouveau driver](https://wiki.archlinux.org/title/Nouveau). For the
-proprietary drivers, there are 3 of them: the current closed source driver
-named 'nvidia' (or 'nvidia-dkms' to use with custom linux kernels) which is
+proprietary drivers, there are 3 varieties: the current closed source driver
+named 'nvidia' (or 'nvidia-dkms') which is
 under active development; the legacy closed source drivers 'nvidia-3xxxx' for older cards
 which Nvidia no longer actively supports; and the 'nvidia-open' driver which is
 currently an alpha stage attempt to open source a part of their closed source
 driver for newer cards.
 
 If the proprietary drivers support your graphics card, it's generally recommended
-to use them instead, as it includes significantly improved gaming performance 
-and power management for recent GPUs.
+to use them instead, as it has significantly improved performance 
+and power management for newer GPUs.
 
 However, keep in mind that if the proprietary Nvidia drivers do not work
 properly on your computer, the Nouveau driver might work fine. This will
-most likely be the case for
+likely be the case for
 [older cards](https://wiki.archlinux.org/title/NVIDIA#Unsupported_drivers).
 
-## How to get Hyprland to possibly run on Nvidia (Proprietary)
-
-Install the correct headers package for your current kernel. For the example of
-the `linux-zen` kernel on Arch Linux, this package would be `linux-zen-headers`.
-
-Install the required nvidia packages. For most cases, this would be `nvidia-dkms`
-(or `nvidia-open-dkms` for the open source ones),
-and `nvidia-utils`. If you'd like to game via Wine or even natively, it would be
-in your best interest to also install `lib32-nvidia-utils`.
-
 {{< callout >}}
 
-Even if your GPU is listed as supported by the `nvidia-open-dkms` driver, at this
-point in time, it is still not up to feature parity with the current closed source drivers.
-One issue with the open drivers is that it could cause problems with suspend in
-general, let that be closing the lid on your laptop or by manually triggering one.
-Overall, you'd be better off with `nvidia-dkms` right now, but Hyprland should work
-similarly between the two.
+The `nvidia-open` drivers are still not up to feature parity with the proprietary drivers.
+One issue is with [suspend](https://github.com/NVIDIA/open-gpu-kernel-modules/issues/472) (e.g. closing the lid on your laptop).
 
 {{< /callout >}}
 
-Take care to also install `egl-wayland` (`libnvidia-egl-wayland1` and
-`libnvidia-egl-gbm1` on Ubuntu) if you are using the proprietary drivers.
-It provides the necessary compatibility layer, instead of falling back to
-zink/Vulkan.
+# Proprietary drivers setup
 
-Next up, you need to enable modeset for nvidia, this can be done via editing
-the kernel paramaters for your bootloader.
+You can choose between the `nvidia` or the `nvidia-dkms` package. There are pros and cons
+for each, but it is generally recommended to use the `dkms` package,
+as you won't have to rebuild the initramfs [manually](https://wiki.archlinux.org/title/NVIDIA#mkinitcpio) every time the kernel and drivers update, for example.
+If you're using a kernel that isn't `linux` or `linux-lts`, the `dkms` package is *required*.
 
-If you use [systemd-boot](https://wiki.archlinux.org/title/systemd-boot)
-you can do this adding `nvidia_drm.modeset=1` to the end of
-`/boot/loader/entries/arch.conf`. If you use
-[grub](https://wiki.archlinux.org/title/GRUB) you can do this by adding
-`nvidia_drm.modeset=1` to the end of `GRUB_CMDLINE_LINUX_DEFAULT=` in
-`/etc/default/grub`, then running `sudo grub-mkconfig -o /boot/grub/grub.cfg`.
+## Installation
 
-For others check out
-[kernel parameters](https://wiki.archlinux.org/title/Kernel_parameters) and how
-to add `nvidia_drm.modeset=1` to your specific bootloader.
+Install the following packages:
 
-{{< callout >}}
+1. `nvidia` or `nvidia-dkms`: The driver itself. Optionally, the open source drivers
+from NVIDIA can be installed as `nvidia-open` or `nvidia-open-dkms`.
+2. `nvidia-utils`: The userspace graphics drivers. You need this for running Vulkan
+applications. If you'd like to use apps like Steam or Wine, install `lib32-nvidia-utils` as well.
+3. `egl-wayland` (`libnvidia-egl-wayland1` and `libnvidia-egl-gbm1` on Ubuntu): This is required
+in order to enable compatibility between the EGL API and the Wayland protocol.
 
-There has been a lot of debate on which of `nvidia_drm` or `nvidia-drm`
-is correct for this kernel parameter. It has been confirmed that either
-of these will work.
+## DRM kernel mode setting
 
-{{< /callout >}}
+Since NVIDIA does not load kernel mode setting by default, enabling it is
+required to make Wayland compositors function properly. To enable it, the NVIDIA
+driver modules need to be added to the initramfs.
 
-in `/etc/mkinitcpio.conf` add `nvidia nvidia_modeset nvidia_uvm nvidia_drm` to
-your `MODULES`
+Edit `/etc/mkinitcpio.conf`. In the `MODULES` array, add the following module names:
 
-For example, a clean `MODULES` line would now look like this:
-```sh
-MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+```ini
+MODULES=(... nvidia nvidia_modeset nvidia_uvm nvidia_drm ...)
 ```
 
-Now, run `sudo mkinitcpio -P`. This will regenerate the initcpios for all kernels
-currently installed on the system. If you see any errors here about missing
-nvidia modules, it is highly probable that you forgot to install the correct
-headers package. Make sure you install the headers package for your kernel and
-run this command again.
+Then, create and edit `/etc/modprobe.d/nvidia.conf`. Add this line to the file:
 
-More information is available here:
-[https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting](https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting)
+```ini
+options nvidia_drm modeset=1 fbdev=1
+```
 
-Export these variables in your hyprland config:
+Lastly, rebuild the initramfs with `sudo mkinitcpio -P`, and reboot.
+
+More information is available [here](https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting).
+
+## Environment variables
+
+Add these variables to your Hyprland config:
 
 ```sh
 env = LIBVA_DRIVER_NAME,nvidia
@@ -112,8 +96,11 @@ Do not set it in your configs. Use `cursor:no_hardware_cursors` instead.
 
 {{< /callout >}}
 
-Lastly, you also need to install a few packages to get some apps
-to function natively with Wayland. Have a look at [the Master Tutorial](https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#force-apps-to-use-wayland).
+## Finishing up
+
+Install a few packages to get some apps to function natively with Wayland for the 
+best compatibility and performance. 
+See the [the Master Tutorial](https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#force-apps-to-use-wayland).
 
 Reboot your computer.
 
@@ -123,35 +110,27 @@ It _should_ work now.
 
 ## VA-API hardware video acceleration
 
-We can achieve VA-API acceleration on Nvidia and Wayland with the help of the
+Hardware video acceleration on Nvidia and Wayland is possible with the
 [nvidia-vaapi-driver](https://github.com/elFarto/nvidia-vaapi-driver). This may
-solve certain issues in Electron apps, and it will also allow for GPU decoding
-for videos on the web, with benefits including higher performance video playback
-and also higher power efficiency during video playback.
+solve specific issues in Electron apps.
 
-Its install instructions are available in the README, however, a quick guide will
+The install instructions are available in the README, however, a quick guide will
 be given here:
 
-- Install the package. On Arch, this is `libva-nvidia-driver` in the official
+1. Install the package. On Arch, this is `libva-nvidia-driver` in the official
   repos.
 
-- export this variable in your hyprland config:
-  ```sh
-  env = NVD_BACKEND,direct
-  ```
-  see [here](https://github.com/elFarto/nvidia-vaapi-driver?tab=readme-ov-file#upstream-regressions)
-  for more information on this environment variable.
+2. Add this variable to your hyprland config:
+   ```sh
+   env = NVD_BACKEND,direct
+   ```
 
-- Enable the services `nvidia-suspend.service`, `nvidia-hibernate.service` and
-`nvidia-resume.service`
+   See [here](https://github.com/elFarto/nvidia-vaapi-driver?tab=readme-ov-file#upstream-regressions)
+   for more information on this environment variable.
 
-- Add `nvidia.NVreg_PreserveVideoMemoryAllocations=1` to your kernel parameters if
-you don't have it already. This will solve issues with corrupted desktop / videos
-after waking.
+You can check the README to get it working for Firefox.
 
-- You can check the README to get it working for Firefox.
-
-## Other issues to look out for
+## Other issues
 
 ### Regarding environment variables
 
@@ -163,17 +142,17 @@ working in Zoom, first try running them in Native Wayland (more details below).
 Otherwise, remove or comment the line
 `env = __GLX_VENDOR_LIBRARY_NAME,nvidia`.
 
-### How to possibly get multi-monitor working with hybrid graphics
+### Multi-monitor with hybrid graphics
 
 On a hybrid graphics device (a laptop with
 both an Intel and an Nvidia GPU), you will need to remove the `optimus-manager`
 package if installed (disabling the service does not work). You also need to
 change your BIOS settings from hybrid graphics to discrete graphics.
 
-### Fixing flickering in Electron / CEF apps
+### Flickering in Electron / CEF apps
 
 This flickering is likely caused by these apps running in XWayland.
-To fix the flickering, try running the apps with native Wayland instead.
+To fix the flickering, try running the apps in native Wayland instead.
 
 For most Electron apps, you should be fine just adding this
 environment variable to your config:
@@ -182,7 +161,7 @@ environment variable to your config:
 env = ELECTRON_OZONE_PLATFORM_HINT,auto
 ```
 
-This has been confirmed to work on Vesktop, VSCodium and Obsidian and will probably
+This has been confirmed to work on Vesktop, VSCodium, Obsidian and will probably
 work on other Electron apps as well.
 
 For other apps, including CEF apps, you will need to launch them with these flags:
@@ -212,31 +191,31 @@ you will lose hardware acceleration for whichever app is run with these flags.
 
 {{< /callout >}}
 
-With NixOS, you can also try setting the `NIXOS_OZONE_WL` environment variable
+For NixOS, you can set the `NIXOS_OZONE_WL` environment variable
 to `1`, which should automatically configure Electron / CEF apps to run with native
 Wayland for you.
 
 While it is best to have as many things as possible running natively in
-Wayland, the root cause of the flickering will likely be solved
-in the 555 series of Nvidia driver updates.
+Wayland, the flickering will likely be solved in the 555 series of Nvidia driver updates.
 
-### Fixing flickering in XWayland games specifically
+### Flickering in XWayland games
 
-The symptoms of this widespread issue include XWayland games flickering in
-a way which makes them unplayable. Repeated frames, random presenting of
-black frames, and overall weirdness. This is a result of a multitude of
-issues which will be solved soon via Nvidia driver updates, but for now
-you have a few possible fixes:
+XWayland games may flicker or present frames out-of-order in a way which makes them unplayable. 
+This is due to the lack of explicit synchronization in the driver.
 
-- Install xorg-xwayland-git (AUR). This git package includes this [PR](https://gitlab.freedesktop.org/xorg/xserver/-/merge_requests/967)
-  which implements the "Explicit Sync" protocol. 
-  This will fix it in some, if not all cases. However if it doesn't,
-  try the next solution. Once the 555 series of drivers are released, this
-  should completely fix the issue.
+There are a few fixes:
 
-- Install older nvidia drivers which do not exhibit this problem. The
+1. Install the latest versions of `xorg-xwayland` and `wayland-protocols`.
+   Ensure `xorg-xwayland` is at least version 24.1 and `wayland-protocols` is at least version 1.34.
+   Both versions include the explicit sync patches.
+
+2. Install the older Nvidia drivers which do not exhibit this issue. The
   last ones which would work will be the 535xx series of drivers. These
-  can be installed easily on Arch via [these AUR packages](https://aur.archlinux.org/packages?O=0&K=535xx)
+  can be installed on Arch via [these AUR packages](https://aur.archlinux.org/packages?O=0&K=535xx)
+
+3. Install the 555 beta driver. This version contains official support for explicit sync, but is still in beta.
+   These can be installed from the
+   [AUR](https://aur.archlinux.org/packages?O=0&SeB=nd&K=nvidia+beta&outdated=off&SB=p&SO=d&PP=50&submit=Go).
 
 More info about explicit sync is available
 [on this blog](https://planet.kde.org/xavers-blog-2024-04-05-explicit-sync/).
@@ -259,12 +238,12 @@ Reboot your computer and it should be working.
 
 If it does not, try:
 
-- lowering your monitor's refresh rate, as this can stop the flickering
-  altogether
-- using the [Nouveau driver](https://wiki.archlinux.org/title/Nouveau) as
-  mentioned above
+1. Lowering your monitor's refresh rate: This can stop the flickering
+  altogether.
+2. Using the [Nouveau driver](https://wiki.archlinux.org/title/Nouveau) as
+  mentioned above.
 
-### Fixing suspend/wakeup issues
+### Suspend/wakeup issues
 
 Enable the services `nvidia-suspend.service`, `nvidia-hibernate.service` and
 `nvidia-resume.service`, they will be started by systemd when needed.
@@ -293,8 +272,8 @@ hardware.nvidia.powerManagement.enable = true;
 hardware.nvidia.open = false;
 ```
 
-## Still having issues?
+# Still having issues?
 
 If you're still having issues after following this guide, you can join the
-[Hyprland Discord](https://discord.gg/hypr) and ask for help in the
-`#hyprland-nvidia` channel. Hopefully someone will be able to help you out.
+[Hyprland Discord](https://discord.gg/hQ9XvMUjjr) and ask for help in the
+`#hyprland-nvidia` channel.
