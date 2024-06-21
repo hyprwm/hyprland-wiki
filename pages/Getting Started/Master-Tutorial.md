@@ -112,7 +112,8 @@ A lot of apps will use Wayland by default. Chromium (and other browsers based on
 it or electron) don't. You need to pass
 `--enable-features=UseOzonePlatform --ozone-platform=wayland` to them or use
 `.conf` files where possible. Chromium-based browsers also should have a toggle
-in `chrome://flags`. Search for _"ozone"_ and select Wayland.
+in `chrome://flags`. Search for _"ozone"_ and select Wayland. If you are on NixOS
+You can also use `NIXOS_OZONE_WL=1`.
 
 For most electron apps, you should put the above in
 `~/.config/electron-flags.conf`. VSCode is known to not work with that though.
