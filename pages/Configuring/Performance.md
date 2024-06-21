@@ -25,7 +25,7 @@ case, remove it completely.
 
 **_Useful Optimizations_**:
 
-- `decoration:blur = false` and `decoration:drop_shadow = false` to disable
+- `decoration:blur:enabled = false` and `decoration:drop_shadow = false` to disable
   fancy but battery hungry effects.
 
 - `misc:vfr = true`, since it'll lower the amount of sent frames when nothing is
