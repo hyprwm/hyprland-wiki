@@ -280,6 +280,18 @@ hyprctl dismissnotify 2 # dismiss the oldest 2 notifications
 hyprctl dismissnotify -1 # dismiss all notifications (same as no arguments)
 ```
 
+### rollinglog
+
+Prints the tail of the log. You can print the log out continuously by adding `--follow` or `-f`.
+By default, this will update 20 times per second, but you can also specify a number to change the rate,
+if you prefer.
+
+```sh
+hyprctl rollinglog               # prints the log normally
+hyprctl rollinglog --follow      # follows the log
+hyprctl rollinglog --follow 120  # follows the log, updating 120 times per second
+```
+
 ## Info
 
 ```plain
@@ -301,7 +313,6 @@ animations - gets the currently configured info about animations and beziers
 instances - lists all running instances of Hyprland with their info
 layouts - lists all layouts available (including from plugins)
 configerrors - lists all current config parsing errors
-rollinglog - prints tail of the log. Also supports -f/--follow option
 locked - prints whether the current session is locked.
 ```
 
