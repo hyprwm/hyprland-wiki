@@ -118,7 +118,7 @@ set.
 
 ## Workspaces
 
-You have eight choices:
+You have nine choices:
 
 - ID: e.g. `1`, `2`, or `3`
 
@@ -132,7 +132,7 @@ You have eight choices:
 
 - Name: e.g. `name:Web`, `name:Anime` or `name:Better anime`
 
-- Previous workspace: `previous`
+- Previous workspace: `previous`, or `previous_per_monitor`
 
 - First available empty workspace: `empty`, suffix with `m` to only search on monitor. and/or `n` to make it the *next* available empty workspace. e.g. `emptynm`
 
