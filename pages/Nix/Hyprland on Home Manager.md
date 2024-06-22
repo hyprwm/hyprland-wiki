@@ -8,18 +8,17 @@ For a list of available options, check the
 {{< callout >}}
 
 - _(Required) NixOS Module_: enables critical components needed to run Hyprland
-  properly
-- _(Optional) Home-manager module_: lets you declaratively configure Hyprland
-  {{< /callout >}}
+  properly. Without this, you may have issues with XDG Portals, or missing
+  session files in your Display Manager.
+- _(Optional) Home Manager module_: lets you declaratively configure Hyprland
+
+{{< /callout >}}
 
 ## Installation
 
 {{< tabs items="Home Manager,Flakes,Nix stable (with flake-compat)" >}}
 
 {{< tab "Home Manager" >}}
-
-Home Manager has options for Hyprland without needing to import the Flake
-module.
 
 ```nix
 {
@@ -66,7 +65,9 @@ Don't forget to replace `user@hostname` with your username and hostname!
 
       modules = [
         hyprland.homeManagerModules.default
-        {wayland.windowManager.hyprland.enable = true;}
+        {
+          wayland.windowManager.hyprland.enable = true;
+        }
         # ...
       ];
     };
@@ -107,7 +108,7 @@ in {
   wayland.windowManager.hyprland = {
     enable = true;
 
-    package = hyprland-flake.packages.${pkgs.system}.hyprland;
+    package = hyprland-flake.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   }
 }
 ```
@@ -119,11 +120,11 @@ in {
 ## Usage
 
 Once the module is enabled, you can use it to declaratively configure Hyprland.
-Here is an example config, made to work with either the upstream Home Manager
-module, or the flake-based Home Manager module.
+Here is an example config:
 
 ```nix
 # home.nix
+
 {
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
@@ -157,16 +158,20 @@ module, or the flake-based Home Manager module.
 Hyprland plugins can be added through the `plugins` option:
 
 ```nix
-wayland.windowManager.hyprland.plugins = [
-  inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
-  "/absolute/path/to/plugin.so"
-];
+{
+  wayland.windowManager.hyprland.plugins = [
+    inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
+    "/absolute/path/to/plugin.so"
+  ];
+}
 ```
 
 For examples on how to build Hyprland plugins using Nix, see the
-[official plugins](https://github.com/hyprwm/hyprland-plugins).
+[Nix/Plugins](../Plugins) page.
 
-## Fixing problems with themes
+## FAQ
+
+### Fixing problems with themes
 
 If your themes for mouse cursors, icons or windows don't load correctly, try
 setting them with `home.pointerCursor` and `gtk.theme`, which enable a bunch of
@@ -175,34 +180,37 @@ compatibility options that should make the themes load in all situations.
 Example configuration:
 
 ```nix
-home.pointerCursor = {
-  gtk.enable = true;
-  # x11.enable = true;
-  package = pkgs.bibata-cursors;
-  name = "Bibata-Modern-Classic";
-  size = 16;
-};
-
-gtk = {
-  enable = true;
-  theme = {
-    package = pkgs.flat-remix-gtk;
-    name = "Flat-Remix-GTK-Grey-Darkest";
+{
+  home.pointerCursor = {
+    gtk.enable = true;
+    # x11.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 16;
   };
 
-  iconTheme = {
-    package = pkgs.gnome.adwaita-icon-theme;
-    name = "Adwaita";
-  };
+  gtk = {
+    enable = true;
 
-  font = {
-    name = "Sans";
-    size = 11;
+    theme = {
+      package = pkgs.flat-remix-gtk;
+      name = "Flat-Remix-GTK-Grey-Darkest";
+    };
+
+    iconTheme = {
+      package = pkgs.gnome.adwaita-icon-theme;
+      name = "Adwaita";
+    };
+
+    font = {
+      name = "Sans";
+      size = 11;
+    };
   };
-};
+}
 ```
 
-## Programs don't work in systemd services, but do on the terminal
+### Programs don't work in systemd services, but do on the terminal
 
 This problem is related to systemd not importing the environment by default. It
 will not have knowledge of `PATH`, so it cannot run the commands in the

@@ -3,7 +3,7 @@ title: Hyprland on NixOS
 ---
 
 The NixOS module enables critical components needed to run Hyprland properly,
-such as: polkit,
+such as polkit,
 [xdg-desktop-portal-hyprland](https://github.com/hyprwm/xdg-desktop-portal-hyprland),
 graphics drivers, fonts, dconf, xwayland, and adding a proper Desktop Entry to
 your Display Manager.
@@ -14,8 +14,9 @@ Make sure to check out the options of the
 {{< callout >}}
 
 - _(Required) NixOS Module_: enables critical components needed to run Hyprland
-  properly
-- _(Optional) Home-manager module_: lets you declaratively configure Hyprland
+  properly. Without this, you may have issues with XDG Portals, or missing
+  session files in your Display Manager.
+- _(Optional) Home Manager Module_: lets you declaratively configure Hyprland
 
 {{< /callout >}}
 
@@ -26,12 +27,12 @@ Make sure to check out the options of the
 ```nix
 # configuration.nix
 
-{pkgs, ...}: {
+{
   programs.hyprland.enable = true;
 }
 ```
 
-This will use the Hyprland version that Nixpkgs has.
+This will use the Hyprland version included in the Nixpkgs release you're using.
 
 {{< /tab >}}
 
@@ -69,7 +70,7 @@ this:
 {inputs, pkgs, ...}: {
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   };
 }
 ```
@@ -77,7 +78,7 @@ this:
 Don't forget to change the `HOSTNAME` to your actual hostname!
 
 If you start experiencing lag and FPS drops in games or programs like Blender on
-**stable** NixOS when using the Hyprland flake, it most likely is a `mesa`
+**stable** NixOS when using the Hyprland flake, it is most likely a `mesa`
 version mismatch between your system and Hyprland.
 
 You can fix this issue by using `mesa` from Hyprland's `nixpkgs` input:
@@ -126,7 +127,7 @@ have to compile Hyprland yourself.
 in {
   programs.hyprland = {
     enable = true;
-    package = hyprland.packages.${pkgs.system}.hyprland;
+    package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   };
 }
 ```
