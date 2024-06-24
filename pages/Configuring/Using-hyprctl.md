@@ -198,6 +198,38 @@ Sets a window prop. Can be locked by adding `lock` at the end. If `lock` is not
 added, will be unlocked. Locking means a dynamic windowrule _cannot_ override
 this setting.
 
+Usage:
+```sh
+hyprctl setprop <mode:regex> <property> <value> [lock]
+```
+
+Regex supports different modes. The supported modes are:
+```ini
+class - class
+title - title
+initialclass - initialClass
+initialtitle - initialTitle
+active - active window
+address - address prefixed with 0x
+pid - process ID
+floating - first floating window on the current workspace
+tiled - first tiled window on the current workspace
+```
+
+If no mode is specified `class` is used by default.
+
+{{< callout type=info >}}
+
+To get more information about a window, you can use `hyprctl clients`.
+
+{{< /callout >}}
+
+{{< callout type=warning >}}
+
+Please beware that `hyprctl clients` will display the fields as **initialClass** and **initialTitle** while the regex mode uses `initialclass` and `initialtitle`.
+
+{{< /callout >}}
+
 Prop List:
 | prop | comment |
 | --- | --- |
@@ -228,6 +260,7 @@ Prop List:
 | activebordercolor | gradient, -1 means not set |
 | inactivebordercolor | gradient, -1 means not set |
 
+For example:
 ```sh
 hyprctl setprop address:0x13371337 forcenoanims 1 lock  # with locking
 hyprctl setprop address:0x13371337 nomaxsize 0          # without locking

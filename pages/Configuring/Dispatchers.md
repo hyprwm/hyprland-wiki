@@ -180,6 +180,9 @@ bind = SUPER, C, movetoworkspace, special
 The `exec` dispatcher supports adding rules. Please note some windows might work
 better, some worse. It records the PID of the spawned process and uses that. For example, if
 your process forks and then the fork opens a window, this will not work.
+Rules will only be applied once. This means dynamic rules will be overridden as soon as a 
+property of the window changes (e.g. switching focus). To make dynamic rules stick around
+use `hyprctl setprop` (see [Using hyprctl](./Using-hyprctl)).
 
 The syntax is:
 
@@ -190,5 +193,5 @@ bind = mod, key, exec, [rules...] command
 For example:
 
 ```
-bind = SUPER, E, exec, [workspace 2 silent;float;noanim] kitty
+bind = SUPER, E, exec, [workspace 2 silent; float; move 0 0] kitty
 ```
