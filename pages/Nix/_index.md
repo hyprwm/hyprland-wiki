@@ -10,7 +10,7 @@ To install Hyprland on NixOS, we provide a NixOS and a Home Manager module.
 - _**(Required)** NixOS Module_: enables critical components needed to run Hyprland
   properly
 - _(Optional) Home-manager module_: lets you configure Hyprland declaratively through home-manager.
-  - _This module configures Hyprland and adds it to your users' `$PATH`, but does not make certain system-level changes such as adding a desktop session file for your display manager. This is handled by the NixOS module once you enable it._
+  - _This module configures Hyprland and adds it to your user's `$PATH`, but does not make certain system-level changes such as adding a desktop session file for your display manager. This is handled by the NixOS module once you enable it._
 
 {{< /callout >}}
 
