@@ -25,7 +25,7 @@ To keep a failed build directory, pass the `--keep-failed` flag.
 ## Building the Wayland stack with ASan
 
 Run `nix develop` first, then follow the
-[Building with ASan](https://wiki.hyprland.org/Crashes-and-Bugs/#bisecting-an-issue)
+[Building with ASan](https://wiki.hyprland.org/Crashes-and-Bugs/#building-the-wayland-stack-with-asan)
 guide.
 
 ## Manual building
