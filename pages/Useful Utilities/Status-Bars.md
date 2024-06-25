@@ -77,6 +77,10 @@ configuration:
 
 ## Eww
 
+[Eww](https://github.com/elkowar/eww) (ElKowar's Wacky Widgets) is a widget system made in Rust, which lets you
+create your own widgets similarly to how you can in AwesomeWM. The key difference
+is that it is independent of your window manager! Or for us your Wayland compositor.
+
 In order to use [Eww](https://github.com/elkowar/eww), you first have to install
 it, either using your distro's package manager, by searching `eww-wayland`, or
 by manually compiling. In the latter case, you can follow the
