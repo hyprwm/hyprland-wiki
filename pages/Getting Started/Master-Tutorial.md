@@ -6,7 +6,7 @@ title: Master tutorial
 If you are coming to Hyprland for the first time, this is the main tutorial to
 read.
 
-Due to a lot of people doing stupid stuff, this tutorial will cover literally
+This tutorial will cover literally
 everything you need to just get things going. It does link to other pages where
 necessary.
 
