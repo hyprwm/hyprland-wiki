@@ -34,7 +34,7 @@ category name: `dwindle`
 
 | dispatcher | description | params |
 | --- | --- | --- |
-| pseudo | toggles the focused window's pseudo mode | none |
+| pseudo | toggles the given window's pseudo mode | left empty / `active` for current, or `window` for a specific window |
 
 ## Layout messages
 

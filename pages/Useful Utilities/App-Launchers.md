@@ -42,7 +42,7 @@ For the config you can check out [DistroTube's Configuring Emacs](https://gitlab
 
 Anyrun is a Wayland-native krunner-like runner, made with customizability in
 mind. It is modular and extensible through plugins. It can be used as an app launcher with its Applications Plugin.
-[GitHub](https://github.com/Kirottu/anyrun)
+[GitHub](https://github.com/anyrun-org/anyrun)
 
 ## Walker
 

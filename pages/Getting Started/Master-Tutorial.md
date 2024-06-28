@@ -6,7 +6,7 @@ title: Master tutorial
 If you are coming to Hyprland for the first time, this is the main tutorial to
 read.
 
-Due to a lot of people doing stupid stuff, this tutorial will cover literally
+This tutorial will cover literally
 everything you need to just get things going. It does link to other pages where
 necessary.
 
@@ -112,7 +112,8 @@ A lot of apps will use Wayland by default. Chromium (and other browsers based on
 it or electron) don't. You need to pass
 `--enable-features=UseOzonePlatform --ozone-platform=wayland` to them or use
 `.conf` files where possible. Chromium-based browsers also should have a toggle
-in `chrome://flags`. Search for _"ozone"_ and select Wayland.
+in `chrome://flags`. Search for _"ozone"_ and select Wayland. If you are on NixOS
+you can also set the environment variable `NIXOS_OZONE_WL=1` in your configuration.
 
 For most electron apps, you should put the above in
 `~/.config/electron-flags.conf`. VSCode is known to not work with that though.
