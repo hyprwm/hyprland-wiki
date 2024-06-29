@@ -209,7 +209,7 @@ There are a few fixes:
    Ensure `xorg-xwayland` is at least version 24.1, `wayland-protocols` is at least version 1.34 and Nvidia driver is at least version 555.
    These enable explicit sync on the Nvidia driver and should avoid flickering.
 
-2. If you GPU is no longer suppoerted by the 555 driver, install older Nvidia drivers which do not exhibit this issue. The
+2. If your GPU is no longer suppoerted by the 555 driver, install older Nvidia drivers which do not exhibit this issue. The
   last ones which would work will be the 535xx series of drivers. These
   can be installed on Arch via [these AUR packages](https://aur.archlinux.org/packages?O=0&K=535xx)
 
