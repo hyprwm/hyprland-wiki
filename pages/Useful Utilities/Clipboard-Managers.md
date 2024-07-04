@@ -8,7 +8,7 @@ _Starting method:_ manual (`exec-once`)
 Clipboard Managers provide a convenient way to organize and access previously 
 copied content, including both text and images.
 
-Some common ones used are `copyq`, `clipman` and `cliphist`.
+Some common ones used are `copyq`, `clipman`, `cliphist` and `clipse`.
 
 `clipman` - Utilizes Wayland with `wl-clipboard` support and stores text only
 [Github](https://github.com/chmouel/clipman)
@@ -22,6 +22,9 @@ After that, the data disappears and can no longer be pasted.
 To fix this problem, you can use `wl-clip-persist` which will preserve the data 
 in the clipboard after the application is closed.
 [Github](https://github.com/Linus789/wl-clip-persist)
+
+`clipse` - Utilizes Wayland with `wl-clipboard` support and runs from a single binary. Stores text and images indefinitely, accessible via a nice TUI that can be bound to floating window in your Hyprland config. Allows custom themes, image/text previews, multi-select, pinned items and more.
+[GitHub](https://github.com/savedra1/clipse)
 
 ## copyq
 
@@ -109,3 +112,25 @@ bind = SUPER, V, exec, clipman pick -t wofi
 
 ...and so on. For further information, please refer to the repository
 mentioned above.
+
+## clipse
+
+Start by adding the following line to your `~/.config/hypr/hyprland.conf`
+
+```ini
+exec-once = clipse -listen
+```
+
+You can bind the TUI to a something nice like this:
+ 
+```ini
+windowrulev2 = float,class:(clipse)
+windowrulev2 = size 622 652,class:(clipse)
+
+bind = SUPER, V, exec, alacritty --class clipse -e zsh -c 'clipse'
+```
+
+Replace `alacritty` and `zsh` with your terminal/shell environments. The class is optional, but it's recommended to use a floating window to achieve more GUI-like behavior. 
+
+For more details on `clipse`, please refer to its GitHub repo linked at the top of the page.
+
