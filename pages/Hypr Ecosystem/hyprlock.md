@@ -174,6 +174,7 @@ input-field {
     check_color = rgb(204, 136, 34)
     fail_color = rgb(204, 34, 34) # if authentication failed, changes outer_color and fail message color
     fail_text = <i>$FAIL <b>($ATTEMPTS)</b></i> # can be set to empty
+    fail_timeout = 2000 # milliseconds before fail_text and fail_color disappears
     fail_transition = 300 # transition time in ms between normal outer_color and fail_color
     capslock_color = -1
     numlock_color = -1
