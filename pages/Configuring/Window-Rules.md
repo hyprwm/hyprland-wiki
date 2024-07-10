@@ -116,10 +116,7 @@ Static rules are evaluated once when the window is opened and never again.
 | pseudo | pseudotiles a window |
 | monitor \[id\] | sets the monitor on which a window should open. `id` can be either id or name (either e.g. `1` or e.g. `DP-1`) |
 | workspace \[w\] | sets the workspace on which a window should open (for workspace syntax, see [dispatchers->workspaces](../Dispatchers#workspaces)). You can also make \[w\] to `unset`, will unset all previous workspace rules applied to this window. You can also add `silent` after the workspace to make the window open silently. |
-| nofocus | disables focus to the window |
 | noinitialfocus | disables the initial focus to the window |
-| forceinput | forces an XWayland window to receive input, even if it requests not to do so. (Might fix issues like e.g. Game Launchers not receiving focus for some reason) |
-| windowdance | forces an XWayland window to never refocus, used for games/applications like Rhythm Doctor |
 | pin | pins the window  (i.e. show it on all workspaces) *note: floating only* |
 | unset | removes all previously set rules for the given parameters. Please note it has to match EXACTLY. |
 | nomaxsize | removes max size limitations. Especially useful with windows that report invalid max sizes (e.g. winecfg) |
@@ -134,28 +131,44 @@ Dynamic rules are re-evaluated every time a property changes.
 
 | Rule | Description |
 | ---- | ----------- |
-| opacity \[a\] | additional opacity multiplier. Options for a: `float` -> sets an overall opacity OR `float float` -> sets activeopacity and inactiveopacity respectively, OR `float float float` -> sets activeopacity, inactiveopacity and fullscreenopacity respectively. |
-| opaque | forces the window to be opaque (can be toggled with the toggleopaque dispatcher) |
-| forcergbx | makes Hyprland ignore the alpha channel of all the window's surfaces, effectively making it _actually, fully 100% opaque_ |
 | animation \[style\] (\[opt\]) | forces an animation onto a window, with a selected opt. Opt is optional. |
-| rounding \[x\] | forces the application to have X pixels of rounding, ignoring the set default (in `decoration:rounding`). Has to be an int. |
-| minsize \[x\] \[y\] | sets the minimum size (x,y -> int) |
-| maxsize \[x\] \[y\] | sets the maximum size (x,y -> int) |
-| noblur | disables blur for the window |
-| noborder | disables borders for the window |
-| bordersize \[size\] | sets the border size |
-| nodim | disables window dimming for the window |
-| noshadow | disables shadows for the window |
-| noanim | disables the animations for the window |
-| keepaspectratio | forces aspect ratio when resizing window with the mouse |
-| focusonactivate | whether Hyprland should focus an app that requests to be focused (an `activate` request) |
 | bordercolor \[c\] | force the bordercolor of the window. Options for c: `color`/`color ... color angle` -> sets the active border color/gradient OR `color color`/`color ... color angle color ... color [angle]` -> sets the active and inactive border color/gradient of the window. See [variables->colors](../Variables#variable-types) for color definition. |
 | idleinhibit \[mode\] | sets an idle inhibit rule for the window. If active, apps like `hypridle` will not fire. Modes: `none`, `always`, `focus`, `fullscreen` |
-| dimaround | dims everything around the window . Please note this rule is meant for floating windows and using it on tiled ones may result in strange behavior. |
-| xray \[on\] | sets blur xray mode for the window (0 for off, 1 for on, unset for default) |
-| immediate | forces the window to allow to be torn. See [the Tearing page](../Tearing). |
-| nearestneighbor | forces the window to use the nearest neigbor filtering. |
+| opacity \[a\] | additional opacity multiplier. Options for a: `float` -> sets an overall opacity OR `float float` -> sets activeopacity and inactiveopacity respectively, OR `float float float` -> sets activeopacity, inactiveopacity and fullscreenopacity respectively. |
 | tag \[name\] | apply tag to the window, use prefix `+`/`-` to set/unset flag, or no prefix to toggle the flag |
+| maxsize \[x\] \[y\] | sets the maximum size (x,y -> int) |
+| minsize \[x\] \[y\] | sets the minimum size (x,y -> int) |
+
+The following rules can also be set with [`hyprctl setprop`](../Using-hyprctl.md#set-prop):
+
+| Rule | Description |
+| ---- | ----------- |
+| bordersize \[int\] | sets the border size |
+| rounding \[int\] | forces the application to have X pixels of rounding, ignoring the set default (in `decoration:rounding`). Has to be an int. |
+| allowsinput \[on\] | \forces an XWayland window to receive input, even if it requests not to do so. (Might fix issues like e.g. Game Launchers not receiving focus for some reason) |
+| dimaround \[on\] | dims everything around the window . Please note this rule is meant for floating windows and using it on tiled ones may result in strange behavior. |
+| decorate \[on\] | whether to draw window decorations or not |
+| focusonactivate \[on\] | whether Hyprland should focus an app that requests to be focused (an `activate` request) |
+| keepaspectratio \[on\] | forces aspect ratio when resizing window with the mouse |
+| nearestneighbor \[on\] | forces the window to use the nearest neigbor filtering. |
+| noanim \[on\] | disables the animations for the window |
+| noblur \[on\] | disables blur for the window |
+| noborder \[on\] | disables borders for the window |
+| nodim \[on\] | disables window dimming for the window |
+| nofocus \[on\] | disables focus to the window |
+| nomaxsize \[on\] | disables max size for the window |
+| norounding \[on\] | disables rounding for the window |
+| noshadow \[on\] | disables shadows for the window |
+| opaque \[on\] | forces the window to be opaque |
+| forcergbx \[on\] | makes Hyprland ignore the alpha channel of all the window's surfaces, effectively making it _actually, fully 100% opaque_ |
+| immediate \[on\] | forces the window to allow to be torn. See [the Tearing page](../Tearing). |
+| xray \[on\] | sets blur xray mode for the window |
+
+When using window rules, \[on\] can be set to `0` for off, `1` for on or not set for default.
+
+When using `hyprctl setprop`, \[on\] can be set to `0` for off, `1` for on, `toggle` to toggle the state or `unset` to unset previous values.
+
+When using `hyprctl setprop`, \[int\] can also be `unset` to unset previous values.
 
 {{< callout type=info >}}
 
