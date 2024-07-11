@@ -139,7 +139,7 @@ Dynamic rules are re-evaluated every time a property changes.
 | maxsize \[x\] \[y\] | sets the maximum size (x,y -> int) |
 | minsize \[x\] \[y\] | sets the minimum size (x,y -> int) |
 
-The following rules can also be set with [`hyprctl setprop`](../Using-hyprctl.md#set-prop):
+The following rules can also be set with [`hyprctl setprop`](../Using-hyprctl#setprop):
 
 | Rule | Description |
 | ---- | ----------- |

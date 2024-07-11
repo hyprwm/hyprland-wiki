@@ -245,7 +245,7 @@ Prop List:
 | maxsize | vec2 (`x y`) |
 | minsize | vec2 (`x y`) |
 
-Additional properties can be found in the [Window Rules](../Window-Rules.md#Dynamic-Rules) section.
+Additional properties can be found in the [Window Rules](../Window-Rules#dynamic-rules) section.
 
 For example:
 ```sh
