@@ -233,37 +233,26 @@ Please beware that `hyprctl clients` will display the fields as **initialClass**
 Prop List:
 | prop | comment |
 | --- | --- |
-| animationstyle | string, cannot be locked |
-| rounding | int, -1 means not overriden |
-| bordersize | int, -1 means not overriden |
-| forcenoblur | 0/1 |
-| forceopaque | 0/1|
-| forceopaqueoverriden | 0/1 |
-| forceallowsinput | 0/1, forceinput rule |
-| forcenoanims | 0/1 |
-| forcenoborder | 0/1 |
-| forcenodim | 0/1 |
-| forcenoshadow | 0/1 |
-| nofocus | 0/1 |
-| windowdancecompat | 0/1 |
-| nomaxsize | 0/1 |
-| minsize | vec2 (`x y`) |
-| maxsize | vec2 (`x y`) |
-| dimaround | 0/1 |
-| keepaspectratio | 0/1 |
-| alphaoverride | 0/1, makes the next setting be override instead of multiply |
 | alpha | float 0.0 - 1.0 |
-| alphainactiveoverride | 0/1, makes the next setting be override instead of multiply |
+| alphaoverride | 0/1, makes the next setting be override instead of multiply |
 | alphainactive | float 0.0 - 1.0 |
-| alphafullscreenoverride | 0/1, makes the next setting be override instead of multiply |
+| alphainactiveoverride | 0/1, makes the next setting be override instead of multiply |
 | alphafullscreen | float 0.0 - 1.0 |
+| alphafullscreenoverride | 0/1, makes the next setting be override instead of multiply |
+| animationstyle | string, cannot be locked |
 | activebordercolor | gradient, -1 means not set |
 | inactivebordercolor | gradient, -1 means not set |
+| maxsize | vec2 (`x y`) |
+| minsize | vec2 (`x y`) |
+
+Additional properties can be found in the [Window Rules](../Window-Rules.md#Dynamic-Rules) section.
 
 For example:
 ```sh
-hyprctl setprop address:0x13371337 forcenoanims 1 lock  # with locking
-hyprctl setprop address:0x13371337 nomaxsize 0          # without locking
+hyprctl setprop address:0x13371337 noanim 1
+hyprctl setprop address:0x13371337 nomaxsize 0
+hyprctl setprop address:0x13371337 opaque toggle
+hyprctl setprop address:0x13371337 immediate unset
 ```
 
 ### notify
