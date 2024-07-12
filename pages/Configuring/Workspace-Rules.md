@@ -42,7 +42,7 @@ workspace=WORKSPACE,RULES
 ### Examples
 
 ```ini
-workspace=name:myworkspace,gapsin:0,gapsout:0
+workspace=defaultName:myworkspace,gapsin:0,gapsout:0
 workspace=3,rounding:false,bordersize:0
 workspace=w[tg1-4],shadow:false
 ```
@@ -68,10 +68,10 @@ workspace=w[tg1-4],shadow:false
 
 ```ini
 workspace = 3, rounding:false, decorate:false
-workspace = name:coding, rounding:false, decorate:false, gapsin:0, gapsout:0, border:false, decorate:false, monitor:DP-1
+workspace = defaultName:coding, rounding:false, decorate:false, gapsin:0, gapsout:0, border:false, decorate:false, monitor:DP-1
 workspace = 8,bordersize:8
-workspace = name:Hello, monitor:DP-1, default:true
-workspace = name:gaming, monitor:desc:Chimei Innolux Corporation 0x150C, default:true
+workspace = defaultName:Hello, monitor:DP-1, default:true
+workspace = defaultName:gaming, monitor:desc:Chimei Innolux Corporation 0x150C, default:true
 workspace = 5, on-created-empty:[float] firefox
 workspace = special:scratchpad, on-created-empty:foot
 ```
