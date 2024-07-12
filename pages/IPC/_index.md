@@ -62,6 +62,7 @@ e.g.: `workspace>>2`
 | minimize | emitted when a window requests a change to its minimized state. `MINIMIZED` is either 0 or 1. | `WINDOWADDRESS,MINIMIZED` |
 | screencast | emitted when a screencopy state of a client changes. Keep in mind there might be multiple separate clients. State is 0/1, owner is 0 - monitor share, 1 - window share | `STATE,OWNER` |
 | windowtitle | emitted when a window title changes. | `WINDOWADDRESS` |
+| windowtitlev2 | emitted when a window title changes. | `WINDOWADDRESS,WINDOWTITLE` |
 | togglegroup | emitted when `togglegroup` command is used. <br> returns `state,handle` where the `state` is a toggle status and the `handle` is one or more window addresses separated by a comma<br> e.g. `0,0x64cea2525760,0x64cea2522380` where `0` means that a group has been destroyed and the rest informs which windows were part of it | `0/1,WINDOWADDRESS(ES)` |
 | moveintogroup | emitted when the window is merged into a group. returns the address of a merged window | `WINDOWADDRESS` |
 | moveoutofgroup | emitted when the window is removed from a group. returns the address of a removed window | `WINDOWADDRESS` |
