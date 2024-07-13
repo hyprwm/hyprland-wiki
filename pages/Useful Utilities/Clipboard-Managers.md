@@ -23,7 +23,7 @@ To fix this problem, you can use `wl-clip-persist` which will preserve the data
 in the clipboard after the application is closed.
 [Github](https://github.com/Linus789/wl-clip-persist)
 
-`clipse` - Utilizes Wayland with `wl-clipboard` support and runs from a single binary. Stores text and images indefinitely, accessible via a nice TUI that can be bound to floating window in your Hyprland config. Allows custom themes, image/text previews, multi-select, pinned items and more.
+`clipse` - Utilizes Wayland with `wl-clipboard` support and runs from a single binary. Stores text and images indefinitely, accessible via a nice TUI that can be bound to a floating window in your Hyprland config. Allows custom themes, image/text previews, multi-select, pinned items and more.
 [GitHub](https://github.com/savedra1/clipse)
 
 ## copyq
@@ -127,10 +127,10 @@ You can bind the TUI to a something nice like this:
 windowrulev2 = float,class:(clipse)
 windowrulev2 = size 622 652,class:(clipse)
 
-bind = SUPER, V, exec, alacritty --class clipse -e zsh -c 'clipse'
+bind = SUPER, V, exec, alacritty --class clipse -e clipse  
 ```
 
-Replace `alacritty` and `zsh` with your terminal/shell environments. The class is optional, but it's recommended to use a floating window to achieve more GUI-like behavior. 
+Replace `alacritty` with the terminal environment you use if necessary. The class is optional, but it's recommended to use a floating window to achieve more GUI-like behavior. 
 
 For more details on `clipse`, please refer to its GitHub repo linked at the top of the page.
 
