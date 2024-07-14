@@ -378,13 +378,10 @@ and get `libvirt`, `virsh`, and `virt-viewer` setup and installed.
 ```sh
 # Install libvirt and qemu things.
 sudo pacman -S libvirt virt-viewer qemu-common
-# Enable and start libvirtd.
-systemctl enable libvirtd
-systemctl start libvirtd
 # Add yourself to the libvirt group.
 sudo usermod -a -G libvirt USER # Replace 'USER' with your username.
-# You may need to restart the libvirtd service. 
-systemctl restart libvirtd
+# Enable and start libvirtd.
+systemctl enable --now libvirtd
 ```
 
 Go to the [arch-boxes gitlab](https://gitlab.archlinux.org/archlinux/arch-boxes/-/packages)
