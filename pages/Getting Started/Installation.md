@@ -269,6 +269,7 @@ to pass `-stdlib=libstdc++` or switch to GCC.
 
 Additionally to those, you will also need a few hypr* dependencies which may or may not be
 packaged for your distro of choice:
+ - aquamarine
  - hyprlang
  - hyprcursor
  - hyprwayland-scanner (build-only)
