@@ -426,6 +426,7 @@ _Subcategory `group:groupbar:`_
 | enable_hyprcursor | whether to enable hyprcursor support | bool | true |
 | hide_on_key_press | Hides the cursor when you press any key until the mouse is moved. | bool | false |
 | hide_on_touch | Hides the cursor when the last input was a touch input until a mouse input is done. | bool | false |
+| allow_dumb_copy | Makes HW cursors work on Nvidia, at the cost of a possible hitch whenever the image changes | bool | false |
 
 ### Debug
 
