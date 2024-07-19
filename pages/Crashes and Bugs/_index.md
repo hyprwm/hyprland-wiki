@@ -33,16 +33,13 @@ Attach that file to your issue.
 
 Diagnose the issue by what is in the log:
 
-- `sWLRBackend was NULL!` -> launch in the TTY and refer to the wlr logs in RED.
+- `backend failed to start` -> launch in the TTY and refer to the logs in RED.
 - `Monitor X has NO PREFERRED MODE, and an INVALID one was requested` -> your
   monitor is bork.
 - Other -> see the coredump. Use `coredumpctl`, find the latest one's PID and do
   `coredumpctl info PID`.
 - failing on a driver (e.g. `radeon`) -> try compiling with
   `make legacyrenderer`, if that doesn't help, report an issue.
-- failing on `wlr-xxx` -> try compiling with `make legacyrenderer`, if that
-  doesn't help, report an issue, and also refer to the TTY wlr logs in RED like
-  in the first point.
 - failing on `Hyprland` -> report an issue.
 
 ## Crashes not at launch

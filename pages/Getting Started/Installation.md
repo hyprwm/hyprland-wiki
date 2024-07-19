@@ -211,15 +211,12 @@ copy hyprctl to `/usr/bin/`.
 
 copy hyprpm to `/usr/bin/`.
 
-copy the wlroots .so (`libwlroots.so.XX032`) to `/usr/lib/`.
-
 copy the desktop entry (`example/hyprland.desktop`) to
 `/usr/share/wayland-sessions/`
 
 the example config is in `example/hyprland.conf`.
 
-For updating later on, you can overwrite the binaries (hyprctl, hyprland and
-libwlroots), you don't need to update anything else.
+For updating later on, you can overwrite the binaries (hyprctl, hyprland, hyprpm ...), you don't need to update anything else.
 
 ### Manual (Manual Build)
 
@@ -251,7 +248,7 @@ zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig
 
 ```plain
 pkg install git pkgconf gmake gcc evdev-proto cmake wayland-protocols wayland libglvnd libxkbcommon libinput cairo pango pixman libxcb
-pkg install meson jq `pkg rquery %dn wlroots` hwdata libdisplay-info libliftoff
+pkg install meson jq hwdata libdisplay-info libliftoff
 export CC=gcc CXX=g++ LDFLAGS="-static-libstdc++ -static-libgcc"
 ```
 
@@ -261,11 +258,7 @@ export CC=gcc CXX=g++ LDFLAGS="-static-libstdc++ -static-libgcc"
 
 refer to the Ubuntu tab above
 
-Please note Hyprland builds `wlroots`. Make sure you have the dependencies of
-wlroots installed, you can make sure you have them by installing wlroots
-separately (Hyprland doesn't mind)
-
-Also note that Hyprland uses the C++23 standard, so both your compiler and your
+Please note that Hyprland uses the C++23 standard, so both your compiler and your
 C++ library has to support that (`gcc>=13.0.0` or `clang>=15`). On Clang-based
 systems libc++ may be used by default, so until libc++ supports C++23 you have
 to pass `-stdlib=libstdc++` or switch to GCC.

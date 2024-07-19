@@ -10,8 +10,6 @@ Screen tearing is used to reduce latency and/or jitter in games.
 To enable tearing:
 
 - Set `general:allow_tearing` to `true`. This is a "master toggle"
-- Add `env = WLR_DRM_NO_ATOMIC,1` to your Hyprland config. This disables the
-  usage of a newer kernel DRM API that doesn't support tearing yet.
 - Add an `immediate` windowrule to your game of choice. This makes sure that
   Hyprland will tear it.
 
@@ -29,21 +27,8 @@ general {
     allow_tearing = true
 }
 
-env = WLR_DRM_NO_ATOMIC,1
-
 windowrulev2 = immediate, class:^(cs2)$
 ```
-
-{{< callout >}}
-
-`env = WLR_DRM_NO_ATOMIC,1` is not recommended. If your kernel ver is >= 6.8,
-you can remove it.
-
-For kernels < 6.8, this env is required.
-
-Check your kernel version with `uname -r`.
-
-{{< /callout >}}
 
 {{< callout type=warning >}}
 
@@ -66,8 +51,7 @@ monitor is fine)
 
 ### Apps that should tear, freeze
 
-Almost definitely means your GPU driver does not support tearing, like e.g.
-Intel's, or AMD if you don't use the legacy backend with `env = WLR_DRM_NO_ATOMIC,1` or patch your kernel.
+Almost definitely means your GPU driver does not support tearing.
 
 Please _do not_ report issues if this is the culprit.
 
@@ -77,13 +61,3 @@ Likely issue with your graphics driver.
 
 Please _do not_ report issues if this is the culprit. Unfortunately, it's most
 likely your GPU driver's fault.
-
-### Other graphical issues/Hyprland instantly crashes on launch
-
-Likely issue with `WLR_DRM_NO_ATOMIC`.
-
-NO_ATOMIC forces the use of a legacy, less tested drm API.
-
-Please _do not_ report issues if this is the culprit. Unfortunately, you will
-have to wait for the Linux kernel to support tearing page flips on the atomic
-API.
