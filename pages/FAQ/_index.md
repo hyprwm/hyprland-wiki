@@ -39,7 +39,7 @@ Outside those, there is a way to fix it that _might_ work for you though:
 
 **Option 1:** Use _only_ the external monitor
 
-By using `WLR_DRM_DEVICES=/dev/dri/card1` (or `card0`) environment variable you can force Hyprland to
+By using `AQ_DRM_DEVICES=/dev/dri/card1` (or `card0`) environment variable you can force Hyprland to
 use only your dGPU, meaning your laptop's screen will be gone but your external
 one will work.
 

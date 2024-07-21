@@ -46,7 +46,7 @@ boot and is subject to frequent change, making it unsuitable as a marker for GPU
 
 After determining which "card" belongs to which GPU, we now have to tell
 Hyprland the GPU we want to use primarily.
-This is done by setting the `WLR_DRM_DEVICES` environment variable.
+This is done by setting the `AQ_DRM_DEVICES` environment variable.
 
 {{< callout type=info >}}
 
@@ -59,34 +59,34 @@ with lower and higher power rating GPUs respectively.
 {{< /callout >}}
 
 If you wish to use the integrated GPU to run Hyprland, no further action is
-required. wlroots will set `WLR_DRM_DEVICES` to the integrated GPU by default.
+required. Aquamarine will set `AQ_DRM_DEVICES` to the integrated GPU by default.
 
 If instead you would like to use another GPU, you must first create a symlink to
 the card from the previous section.
 
-It is not possible to use `~/.config/hypr/card` as wlroots will not expand it correctly.  
+It is not possible to use `~/.config/hypr/card` as aquamarine will not expand it correctly.  
 You must include full path e.g `$HOME/.config/hypr/card`
 ```
 ln -sf /dev/dri/by-path/pci-0000:06:00.0-card $HOME/.config/hypr/card
 ```
 
 It is not possible to directly use the `/dev/dri/by-path/pci-0000:06:00.0-card` path,
-as wlroots interprets the colon symbols in the path as separators. Escaping
+as aquamarine interprets the colon symbols in the path as separators. Escaping
 characters will not rectify this.
 
-Afterwards, you must set the `WLR_DRM_DEVICES` environment variable in
+Afterwards, you must set the `AQ_DRM_DEVICES` environment variable in
 hyprland.conf to this linked card.
 
 
 ```ini
-env = WLR_DRM_DEVICES,$HOME/.config/hypr/card
+env = AQ_DRM_DEVICES,$HOME/.config/hypr/card
 ```
 
 If you want to set a sequence of fallback cards, symlink another card and set
 the var as a colon separated list in order of priority.
 
 ```ini
-env = WLR_DRM_DEVICES,$HOME/.config/hypr/card:$HOME/.config/hypr/otherCard
+env = AQ_DRM_DEVICES,$HOME/.config/hypr/card:$HOME/.config/hypr/otherCard
 ```
 
 Here, we tell Hyprland to set priorities. If `card` isn't available for

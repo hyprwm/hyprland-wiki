@@ -92,7 +92,9 @@ cursor {
 {{< callout type=warning >}}
 
 Previously used `WLR_NO_HARDWARE_CURSORS` environment variable has been deprecated.
-Do not set it in your configs. Use `cursor:no_hardware_cursors` instead.
+Do not set it in your configs. Use `cursor:no_hardware_cursors` instead, and enable `cursor:allow_dumb_copy`.
+
+Please note this may cause small hitches whenever the cursor shape changes.
 
 {{< /callout >}}
 

@@ -35,7 +35,7 @@ environment on traditional Linux distros.
 
 ## Hyprland Environment Variables
 
-- `HYPRLAND_LOG_WLR=1` - Enables more verbose logging of wlroots.
+- `HYPRLAND_TRACE=1` - Enables more verbose logging.
 - `HYPRLAND_NO_RT=1` - Disables realtime priority setting by Hyprland.
 - `HYPRLAND_NO_SD_NOTIFY=1` - If systemd, disables the `sd_notify` calls.
 
@@ -98,8 +98,8 @@ To force GBM as a backend, set the following environment variables:
 - `__GL_VRR_ALLOWED` - Controls if Adaptive Sync should be used. Recommended to
   set as "0" to avoid having problems on some games.
 
-- `env = WLR_DRM_NO_ATOMIC,1` - use legacy DRM interface instead of atomic mode
-  setting. Might fix flickering issues.
+- `env = AQ_NO_ATOMIC,1` - use legacy DRM interface instead of atomic mode
+  setting. **NOT** recommended.
 
 ## Theming Related Variables
 
