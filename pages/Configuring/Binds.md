@@ -80,12 +80,14 @@ will bind it to <key>SUPER</key> + <key>LMB</key>.
 
 ### Only modkeys
 
-For binding only modkeys, you need to use the TARGET modmask (with the
+For binding only modkeys, you need to use the SOURCE modmask (without the
 activating mod) and the `r` flag, e.g.:
 
 ```ini
-bindr=SUPERALT,Alt_L,exec,amongus
+bindr=SUPER,Alt_L,exec,amongus
 ```
+
+Will bind `exec amongus` to <key>SUPER</key> + <key>ALT</key>
 
 ### Keysym combos
 
@@ -200,7 +202,7 @@ binde=, XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@
 bindl=, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 
 # Start wofi opens wofi on first press, closes it on second
-bindr=SUPER, SUPER_L, exec, pkill wofi || wofi
+bindr=, SUPER_L, exec, pkill wofi || wofi
 
 # Describe a bind
 bindd=SUPER,Q,Open my favourite terminal,exec,kitty
