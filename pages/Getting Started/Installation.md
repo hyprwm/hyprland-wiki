@@ -216,7 +216,7 @@ copy the desktop entry (`example/hyprland.desktop`) to
 
 the example config is in `example/hyprland.conf`.
 
-For updating later on, you can overwrite the binaries (hyprctl, hyprland, hyprpm ...), you don't need to update anything else.
+For updating later on, you can overwrite the binaries (hyprctl, hyprland, hyprpm ...). You don't need to update anything else.
 
 ### Manual (Manual Build)
 
