@@ -302,7 +302,8 @@ Described [here](../Keywords#per-device-input-configs).
 | workspace_swipe_min_fingers | if enabled, workspace_swipe_fingers is considered the minimum number of fingers to swipe | bool | false |
 | workspace_swipe_distance | in px, the distance of the touchpad gesture | int | 300 |
 | workspace_swipe_touch | enable workspace swiping from the edge of a touchscreen | bool | false |
-| workspace_swipe_invert | invert the direction | bool | true |
+| workspace_swipe_invert | invert the direction (touchpad only) | bool | true |
+| workspace_swipe_touch_invert | invert the direction (touchscreen only) | bool | true |
 | workspace_swipe_min_speed_to_force | minimum speed in px per timepoint to force the change ignoring `cancel_ratio`. Setting to `0` will disable this mechanic. | int | 30 |
 | workspace_swipe_cancel_ratio | how much the swipe has to proceed in order to commence it. (0.7 -> if > 0.7 * distance, switch, if less, revert) [0.0 - 1.0] | float | 0.5 |
 | workspace_swipe_create_new | whether a swipe right on the last workspace should create a new one. | bool | true |
