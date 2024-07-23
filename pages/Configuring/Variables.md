@@ -303,7 +303,7 @@ Described [here](../Keywords#per-device-input-configs).
 | workspace_swipe_distance | in px, the distance of the touchpad gesture | int | 300 |
 | workspace_swipe_touch | enable workspace swiping from the edge of a touchscreen | bool | false |
 | workspace_swipe_invert | invert the direction (touchpad only) | bool | true |
-| workspace_swipe_touch_invert | invert the direction (touchscreen only) | bool | true |
+| workspace_swipe_touch_invert | invert the direction (touchscreen only) | bool | false |
 | workspace_swipe_min_speed_to_force | minimum speed in px per timepoint to force the change ignoring `cancel_ratio`. Setting to `0` will disable this mechanic. | int | 30 |
 | workspace_swipe_cancel_ratio | how much the swipe has to proceed in order to commence it. (0.7 -> if > 0.7 * distance, switch, if less, revert) [0.0 - 1.0] | float | 0.5 |
 | workspace_swipe_create_new | whether a swipe right on the last workspace should create a new one. | bool | true |
@@ -426,7 +426,7 @@ _Subcategory `group:groupbar:`_
 | zoom_rigid | whether the zoom should follow the cursor rigidly (cursor is always centered if it can be) or loosely | bool | false |
 | enable_hyprcursor | whether to enable hyprcursor support | bool | true |
 | hide_on_key_press | Hides the cursor when you press any key until the mouse is moved. | bool | false |
-| hide_on_touch | Hides the cursor when the last input was a touch input until a mouse input is done. | bool | false |
+| hide_on_touch | Hides the cursor when the last input was a touch input until a mouse input is done. | bool | true |
 | allow_dumb_copy | Makes HW cursors work on Nvidia, at the cost of a possible hitch whenever the image changes | bool | false |
 
 ### Debug
