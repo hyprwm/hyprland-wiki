@@ -57,6 +57,13 @@ If gdb asks you for symbols, say `y`, if it asks about paging, say `c`.
 
 Once you get to `(gdb)`, run `bt -full` and post the output.
 
+## Obtaining a trace log
+
+launch Hyprland with `HYPRLAND_TRACE=1 AQ_TRACE=1` environment variables set.
+
+These variables will enable _very_ verbose logging and it's not recommended to enable them unless debugging, as they
+might cause slowdowns and _massive_ log files.
+
 ## Bugs
 
 First of all, **_READ THE [FAQ PAGE](../FAQ)_**
