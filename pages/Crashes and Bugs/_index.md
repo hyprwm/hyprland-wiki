@@ -64,6 +64,8 @@ launch Hyprland with `HYPRLAND_TRACE=1 AQ_TRACE=1` environment variables set.
 These variables will enable _very_ verbose logging and it's not recommended to enable them unless debugging, as they
 might cause slowdowns and _massive_ log files.
 
+Try to reproduce your issue as fast as possible so we don't have to sift through 1 million lines of logs.
+
 ## Bugs
 
 First of all, **_READ THE [FAQ PAGE](../FAQ)_**
