@@ -159,6 +159,7 @@ The following rules can also be set with [`hyprctl setprop`](../Using-hyprctl#se
 | nomaxsize \[on\] | disables max size for the window |
 | norounding \[on\] | disables rounding for the window |
 | noshadow \[on\] | disables shadows for the window |
+| noshortcutsinhibit \[on\] | disallows the app from [inhibiting your shortcuts](https://wayland.app/protocols/keyboard-shortcuts-inhibit-unstable-v1) |
 | opaque \[on\] | forces the window to be opaque |
 | forcergbx \[on\] | makes Hyprland ignore the alpha channel of all the window's surfaces, effectively making it _actually, fully 100% opaque_ |
 | immediate \[on\] | forces the window to allow to be torn. See [the Tearing page](../Tearing). |
