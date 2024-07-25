@@ -80,11 +80,11 @@ will bind it to <key>SUPER</key> + <key>LMB</key>.
 
 ### Only modkeys
 
-For binding only modkeys, you need to use the SOURCE modmask (without the
+For binding only modkeys, you need to use the TARGET modmask (with the
 activating mod) and the `r` flag, e.g.:
 
 ```ini
-bindr=SUPER,Alt_L,exec,amongus
+bindr=SUPER ALT,Alt_L,exec,amongus
 ```
 
 Will bind `exec amongus` to <key>SUPER</key> + <key>ALT</key>
