@@ -17,7 +17,7 @@ from a more tangible example.
 
 ![](https://i.ibb.co/6ydHNt9/screenshot-29-1.png)
 
-[https://gitlab.com/stephan-raabe/dotfiles](https://gitlab.com/stephan-raabe/dotfiles)
+[https://github.com/mylinuxforwork/dotfiles](https://github.com/mylinuxforwork/dotfiles)
 
 ### fufexan
 
