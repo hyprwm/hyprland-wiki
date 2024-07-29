@@ -133,6 +133,12 @@ device {
 }
 ```
 
+Example modifying per-device config values using `hyprctl`:
+
+```plain
+hyprctl -r -- keyword device[my-device]:sensitivity -1
+```
+
 {{< callout type=info >}}
 
 Per-device layouts will by default not alter the keybind keymap, so for example with a global keymap of `us`
