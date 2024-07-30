@@ -30,11 +30,11 @@ you will have to find yourself.
 ## Installing / Using plugins
 
 It is _highly_ recommended you use the Hyprland Plugin Manager, `hyprpm`. For
-manual instructions, see a bit below.
+manual instructions, see [here](#manual).
 
 ### hyprpm
 
-Make sure you have the required dependencies: `cpio`, `meson`, `cmake`.
+Make sure you have the required dependencies: `cpio`, `cmake`.
 
 Find a repository you want to install plugins from. As an example, we will use
 [hyprland-plugins](https://github.com/hyprwm/hyprland-plugins).
@@ -69,10 +69,15 @@ If you don't have Hyprland headers installed, clone Hyprland, checkout to your
 version, build Hyprland, and run `sudo make installheaders`. Then build your
 plugin(s).
 
-To load plugins manually, use `hyprctl plugin load path` !NOTE: Path HAS TO BE
-ABSOLUTE!
+To load plugins manually, use `hyprctl plugin load path`.
 
 You can unload plugins with `hyprctl plugin unload path`.
+
+{{< callout >}}
+
+Path has to be absolute!
+
+{{< /callout >}}
 
 ## FAQ About Plugins
 
@@ -90,9 +95,12 @@ See [here](../Development/Getting-Started).
 
 ### Where do I find plugins?
 
-You can find our featured plugins at [hyprland.org/plugins](https://hyprland.org/plugins/).
-You can also see a list at [awesome-hyprland](https://github.com/hyprland-community/awesome-hyprland#plugins). Note that it may not be complete.
-Lastly, you can try searching around github for the `"hyprland plugin"` keyword.
+You can find our featured plugins at
+[hyprland.org/plugins](https://hyprland.org/plugins/). You can also see a list
+at
+[awesome-hyprland](https://github.com/hyprland-community/awesome-hyprland#plugins).
+Note that it may not be complete. Lastly, you can try searching around github
+for the `"hyprland plugin"` keyword.
 
 ### Are plugins safe?
 

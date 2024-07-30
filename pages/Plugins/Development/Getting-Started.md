@@ -71,8 +71,7 @@ APICALL EXPORT std::string PLUGIN_API_VERSION() {
 ```
 
 This method will tell Hyprland what API version was used to compile this plugin.
-Do NOT change it. It will be set automatically when compiling to the correct
-value.
+Do NOT change it. It will be set to the correct value when compiling.
 
 Skipping over some example handlers, we have two important functions:
 
