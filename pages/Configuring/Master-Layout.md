@@ -62,9 +62,9 @@ Parameters for the commands are separated by a single space.
 Example usage:
 
 ```ini
-bind=MOD,KEY,layoutmsg,cyclenext
+bind = MOD, KEY, layoutmsg, cyclenext
 # behaves like xmonads promote feature (https://hackage.haskell.org/package/xmonad-contrib-0.17.1/docs/XMonad-Actions-Promote.html)
-bind=MOD,KEY,layoutmsg,swapwithmaster master
+bind = MOD, KEY, layoutmsg, swapwithmaster master
 ```
 
 {{< /callout >}}

@@ -30,8 +30,8 @@ windowrule=RULE,WINDOW
 ### Examples
 
 ```ini
-windowrule=float,^(kitty)$
-windowrule=move 0 0,title:^(Firefox)(.*)$
+windowrule = float, ^(kitty)$
+windowrule = move 0 0, title:^(Firefox)(.*)$
 ```
 
 ## Window Rules V2
@@ -45,7 +45,7 @@ the `RULE` field is unchanged, but in the `WINDOW` field, you can put regexes
 for multiple values like so:
 
 ```ini
-windowrulev2 = float,class:(kitty),title:(kitty)
+windowrulev2 = float, class:(kitty), title:(kitty)
 ```
 
 {{< callout type=info >}}
@@ -54,7 +54,7 @@ In the case of dynamic window titles such as browser windows, keep in mind how
 powerful regex is.
 
 For example, a window rule of:
-`windowrule=opacity 0.3 override 0.3 override,title:(.*)(- Youtube)$` will match
+`windowrule = opacity 0.3 override 0.3 override,title:(.*)(- Youtube)$` will match
 _any_ window that contains a string of "- Youtube" after any other text. This
 could be multiple browser windows or other applications that contain the string
 for any reason.
@@ -67,7 +67,7 @@ terminals.
 
 For now, the supported fields for V2 are:
 
-```ini
+```
 class - class regex
 title - title regex
 initialclass - initialClass regex
@@ -166,15 +166,16 @@ The following rules can also be set with [`hyprctl setprop`](../Using-hyprctl#se
 | immediate \[on\] | forces the window to allow to be torn. See [the Tearing page](../Tearing). |
 | xray \[on\] | sets blur xray mode for the window |
 
-When using window rules, \[on\] can be set to `0` for off, `1` for on or not set for default.
+When using window rules, \[on\] can be set to `0` for off, `1` for on or not set
+for default.
 
-When using `hyprctl setprop`, \[on\] can be set to `0` for off, `1` for on, `toggle` to toggle the state or `unset` to unset previous values.
+When using `hyprctl setprop`, \[on\] can be set to `0` for off, `1` for on,
+`toggle` to toggle the state or `unset` to unset previous values.
 
-When using `hyprctl setprop`, \[int\] can also be `unset` to unset previous values.
+When using `hyprctl setprop`, \[int\] can also be `unset` to unset previous
+values.
 
-{{< callout type=info >}}
-
-## `group` window rule options
+### `group` window rule options
 
 - `set` \[`always`\] - Open window as a group.
 - `new` - Shorthand of `barred set`.
@@ -196,16 +197,14 @@ The `group` rule without options is a shorthand for `group set`.
 By default, `set` and `lock` only affect new windows once. The `always`
 qualifier makes them always effective.
 
-{{< /callout >}}
-
 ### Tags
 
-Window may have several tags, either static or dynamic, dynamic tag will have a suffix of `*`.
-You may check window tags with `hyprctl clients`.
+Window may have several tags, either static or dynamic, dynamic tag will have a
+suffix of `*`. You may check window tags with `hyprctl clients`.
 
 Use `tagwindow` dispatcher to add a static tag to a window:
 
-```
+```bash
 hyprctl dispatch tagwindow +code        # add tag to current window
 hyprctl dispatch tagwindow -- -code     # remove tag from current window (use `--` to protect the leading `-`)
 hyprctl dispatch tagwindow code         # toggle the tag of current window
@@ -239,42 +238,44 @@ windowrulev2 = opacity 0.2 override, tag:alpha_0.2
 windowrulev2 = opacity 0.4 override, tag:alpha_0.4
 ```
 
-The `tag` rule can only manipulate dynamic tags, and the `tagwindow` dispatcher only work with static tags
-(as once the dispatcher is called, dynamic tags will be cleared).
+The `tag` rule can only manipulate dynamic tags, and the `tagwindow` dispatcher
+only work with static tags (as once the dispatcher is called, dynamic tags will
+be cleared).
 
 
 ### Example Rules
 
 ```ini
-windowrule = move 100 100,^(kitty)$ # moves kitty to 100 100
-windowrule = animation popin,^(kitty)$ # sets the animation style for kitty
-windowrule = noblur,^(firefox)$ # disables blur for firefox
-windowrule = move cursor -50% -50%,^(kitty)$ # moves kitty to the center of the cursor
-windowrulev2 = bordercolor rgb(FF0000) rgb(880808),fullscreen:1 # set bordercolor to red if window is fullscreen
-windowrulev2 = bordercolor rgb(FFFF00),title:^(.*Hyprland.*)$ # set bordercolor to yellow when title contains Hyprland
-windowrule = opacity 1.0 override 0.5 override 0.8 override,^(kitty)$ # set opacity to 1.0 active, 0.5 inactive and 0.8 fullscreen for kitty
-windowrule = rounding 10,^(kitty)$ # set rounding to 10 for kitty
-windowrulev2 = stayfocused, class:^(pinentry-) # fix pinentry losing focus
+windowrule = move 100 100, ^(kitty)$ # moves kitty to 100 100
+windowrule = animation popin, ^(kitty)$ # sets the animation style for kitty
+windowrule = noblur, ^(firefox)$ # disables blur for firefox
+windowrule = move cursor -50% -50%, ^(kitty)$ # moves kitty to the center of the cursor
+windowrulev2 = bordercolor rgb(FF0000) rgb(880808), fullscreen:1 # set bordercolor to red if window is fullscreen
+windowrulev2 = bordercolor rgb(FFFF00), title:^(.*Hyprland.*)$ # set bordercolor to yellow when title contains Hyprland
+windowrule = opacity 1.0 override 0.5 override 0.8 override, ^(kitty)$ # set opacity to 1.0 active, 0.5 inactive and 0.8 fullscreen for kitty
+windowrule = rounding 10, ^(kitty)$ # set rounding to 10 for kitty
+windowrulev2 = stayfocused,  class:^(pinentry-) # fix pinentry losing focus
 ```
 
 ### Notes
 
 Rules that are marked as _Dynamic_ will be reevaluated if the matching property
 of the window changes. For instance, if a rule is defined that changes the
-`bordercolor` of a window when it is floating, then the `bordercolor` will change to
-the requested color when it is set to floating, and revert to the default color
-when it is tiled again.
+`bordercolor` of a window when it is floating, then the `bordercolor` will
+change to the requested color when it is set to floating, and revert to the
+default color when it is tiled again.
 
 Rules will be processed from top to bottom, where the _last_ match will take
 precedence. i.e.
 
 ```ini
-windowrulev2 = opacity 0.8 0.8,class:^(kitty)$
-windowrulev2 = opacity 0.5 0.5,floating:1
+windowrulev2 = opacity 0.8 0.8, class:^(kitty)$
+windowrulev2 = opacity 0.5 0.5, floating:1
 ```
 
-Here, all non-fullscreen kitty windows will have `opacity 0.8`, except if they are floating.
-Otherwise, they will have `opacity 0.5`. The rest of the non-fullscreen floating windows will have `opacity 0.5`.
+Here, all non-fullscreen kitty windows will have `opacity 0.8`, except if
+they are floating. Otherwise, they will have `opacity 0.5`. The rest of the
+non-fullscreen floating windows will have `opacity 0.5`.
 
 ```ini
 windowrulev2 = opacity 0.5 0.5,floating:1
@@ -286,16 +287,17 @@ The rest of the floating windows will have `opacity 0.5`.
 
 {{< callout type=info >}}
 
-Opacity is a PRODUCT of all opacities by default. For example, setting `activeopacity` to 0.5
-and `opacity` to 0.5 will result in a total opacity of 0.25. You are allowed
-to set opacities over 1, but any opacity product over 1 will cause graphical
-glitches. For example, using `0.5 * 2 = 1` is fine, but `0.5 * 4 = 2` will cause
-graphical glitches. You can put `override` after an opacity value to override it to an exact value
-rather than a multiplier. For example, to set active and inactive opacity to 0.8,
-and make fullscreen windows fully opaque regardless of other opacity rules:
+Opacity is a PRODUCT of all opacities by default. For example, setting
+`activeopacity` to 0.5 and `opacity` to 0.5 will result in a total opacity of
+0.25. You are allowed to set opacities over 1, but any opacity product over 1
+will cause graphical glitches. For example, using `0.5 * 2 = 1` is fine, but
+`0.5 * 4 = 2` will cause graphical glitches. You can put `override` after an
+opacity value to override it to an exact value rather than a multiplier. For
+example, to set active and inactive opacity to 0.8, and make fullscreen windows
+fully opaque regardless of other opacity rules:
 
 ```ini
-windowrulev2 = opacity 0.8 override 0.8 override 1.0 override,^(kitty)$
+windowrulev2 = opacity 0.8 override 0.8 override 1.0 override, ^(kitty)$
 ```
 
 {{< /callout >}}
@@ -313,8 +315,9 @@ layerrule = rule, namespace
 layerrule = rule, address
 ```
 
-where `rule` is the rule and `namespace` is the namespace regex (find namespaces
-in `hyprctl layers`) or `address` is an address in the form of `address:0x[hex]`
+where `rule` is the rule and `namespace` is the namespace regex (find
+namespaces in `hyprctl layers`) or `address` is an address in the form of
+`address:0x[hex]`.
 
 ### Rules
 

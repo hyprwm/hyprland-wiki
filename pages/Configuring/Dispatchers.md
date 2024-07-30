@@ -84,11 +84,11 @@ layout pages (See the sidebar).
 
 {{< callout type=warning >}}
 
-it is NOT recommended to set DPMS with a keybind directly, as it might cause
+It is NOT recommended to set DPMS with a keybind directly, as it might cause
 undefined behavior. Instead, consider something like
 
 ```ini
-bind = MOD,KEY,exec,sleep 1 && hyprctl dispatch dpms off
+bind = MOD, KEY, exec, sleep 1 && hyprctl dispatch dpms off
 ```
 
 {{< /callout >}}
@@ -123,17 +123,22 @@ You have nine choices:
 
 - Relative ID: e.g. `+1`, `-3` or `+100`
 
-- workspace on monitor, relative with `+` or `-`, absolute with `~`: e.g. `m+1`, `m-2` or `m~3`
+- workspace on monitor, relative with `+` or `-`, absolute with `~`: e.g. `m+1`,
+  `m-2` or `m~3`
 
-- workspace on monitor including empty workspaces, relative with `+` or `-`, absolute with `~`: e.g. `r+1` or `r~3`
+- workspace on monitor including empty workspaces, relative with `+` or `-`,
+  absolute with `~`: e.g. `r+1` or `r~3`
 
-- open workspace, relative with `+` or `-`, absolute with `~`: e.g. `e+1`, `e-10`, or `e~2`
+- open workspace, relative with `+` or `-`, absolute with `~`: e.g. `e+1`,
+  `e-10`, or `e~2`
 
 - Name: e.g. `name:Web`, `name:Anime` or `name:Better anime`
 
 - Previous workspace: `previous`, or `previous_per_monitor`
 
-- First available empty workspace: `empty`, suffix with `m` to only search on monitor. and/or `n` to make it the *next* available empty workspace. e.g. `emptynm`
+- First available empty workspace: `empty`, suffix with `m` to only search
+  on monitor. and/or `n` to make it the *next* available empty workspace. e.g.
+  `emptynm`
 
 - Special Workspace: `special` or `special:name` for named special workspaces.
 
@@ -168,7 +173,7 @@ limited to 97 at a time.
 For example, to move a window/application to a special workspace you can use the
 following syntax:
 
-```
+```ini
 bind = SUPER, C, movetoworkspace, special
 #The above syntax will move the window to a special workspace upon pressing 'SUPER'+'C'.
 #To see the hidden window you can use the togglespecialworkspace dispatcher mentioned above.
@@ -177,20 +182,21 @@ bind = SUPER, C, movetoworkspace, special
 ## Executing with rules
 
 The `exec` dispatcher supports adding rules. Please note some windows might work
-better, some worse. It records the PID of the spawned process and uses that. For example, if
-your process forks and then the fork opens a window, this will not work.
-Rules will only be applied once. This means dynamic rules will be overridden as soon as a 
-property of the window changes (e.g. switching focus). To make dynamic rules stick around
-use `hyprctl setprop` (see [Using hyprctl](../Using-hyprctl)).
+better, some worse. It records the PID of the spawned process and uses that.
+For example, if your process forks and then the fork opens a window, this will
+not work. Rules will only be applied once. This means dynamic rules will be
+overridden as soon as a property of the window changes (e.g. switching focus).
+To make dynamic rules stick around use `hyprctl setprop` (see
+[Using hyprctl](../Using-hyprctl)).
 
 The syntax is:
 
-```
+```ini
 bind = mod, key, exec, [rules...] command
 ```
 
 For example:
 
-```
+```ini
 bind = SUPER, E, exec, [workspace 2 silent; float; move 0 0] kitty
 ```

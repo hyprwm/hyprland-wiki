@@ -20,7 +20,7 @@ properly. To do this, each toolkit has its own mechanism.
 
 ```ini
 # change monitor to high resolution, the last argument is the scale factor
-monitor=,highres,auto,2
+monitor = , highres, auto, 2
 
 # unscale XWayland
 xwayland {

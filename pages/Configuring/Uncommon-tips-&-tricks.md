@@ -61,10 +61,10 @@ If you want to disable all keybinds with another keybind (make a keybind toggle
 of sorts) you can just use a submap with only a keybind to exit it.
 
 ```ini
-bind=MOD,KEY,submap,clean
-submap=clean
-bind=MOD,KEY,submap,reset
-submap=reset
+bind = MOD, KEY, submap, clean
+submap = clean
+bind = MOD, KEY, submap, reset
+submap = reset
 ```
 
 ## Remap Caps-Lock to Ctrl
@@ -114,11 +114,11 @@ To use Shimeji programs like
 following rules:
 
 ```ini
-windowrule=float, com-group_finity-mascot-Main
-windowrule=noblur, com-group_finity-mascot-Main
-windowrule=nofocus, com-group_finity-mascot-Main
-windowrule=noshadow, com-group_finity-mascot-Main
-windowrule=noborder, com-group_finity-mascot-Main
+windowrule = float, com-group_finity-mascot-Main
+windowrule = noblur, com-group_finity-mascot-Main
+windowrule = nofocus, com-group_finity-mascot-Main
+windowrule = noshadow, com-group_finity-mascot-Main
+windowrule = noborder, com-group_finity-mascot-Main
 ```
 
 {{< callout type=info >}}
