@@ -15,33 +15,34 @@ the `wallpaper` keyword is used to apply the preloaded image to your monitor(s):
 
 ```ini
 preload = /home/me/amongus.png
-wallpaper = monitor,/home/me/amongus.png
+wallpaper = monitor, /home/me/amongus.png
 ```
 
 `monitor` can be left empty to set to all monitors without a set wallpaper:
 
-```
-wallpaper = ,/home/me/amongus.png
+```ini
+wallpaper = , /home/me/amongus.png
 ```
 
 Monitor names can be checked with `hyprctl monitors`
 
 Also can be used with `desc:` followed by the monitor's description without the (PORT) at the end
 
-You may add `contain:` before the file path in `wallpaper=` to set the mode to contain instead of cover:
+You may add `contain:` before the file path in `wallpaper =` to set the mode to contain instead of cover:
 
-```
-wallpaper = monitor,contain:/home/me/amongus.png
+```ini
+wallpaper = monitor, contain:/home/me/amongus.png
 ```
 
 You can use `unload` to unload preloaded images. You can also specify `unload all`
 to unload all images or `unload unused` to unload images that aren't being used.
 
-Also you can use `reload` to unload preloaded image from your monitor(s), 
-preload another and set it to your monitor(s). It has the same syntax as `wallpaper` keyword.
+Also you can use `reload` to unload preloaded image from your monitor(s),
+preload another and set it to your monitor(s). It has the same syntax as
+`wallpaper` keyword.
 
-To run hyprpaper at startup edit `hyprland.conf` and add:
-`exec-once = hyprpaper`.
+To run hyprpaper at startup edit `hyprland.conf` and add: `exec-once =
+hyprpaper`.
 
 ### Misc options
 
