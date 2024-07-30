@@ -1,49 +1,51 @@
 ---
-weight: 1
+weight: 2
 title: Master tutorial
 ---
 
 If you are coming to Hyprland for the first time, this is the main tutorial to
 read.
 
-This tutorial will cover literally
-everything you need to just get things going. It does link to other pages where
-necessary.
+This tutorial covers everything you need to get things going. It links to other
+pages where necessary.
 
 ## Install Hyprland
 
 See [Installation](../Installation) and come back here once you have
 successfully installed Hyprland.
 
-Install `kitty` (default terminal emulator) terminal. This is available in most
-distros' repositories.
+Install `kitty` (default terminal emulator). This is available in most distros'
+repositories.
 
-## NVIDIA?
+## Nvidia?
 
-_If not using an NVIDIA card, skip this step_
+_If not using an Nvidia card, skip this step_
 
-Please take a look at [The Nvidia page](../../Nvidia) before launching. It has a
-lot of info regarding the needed environment and tweaks.
+Please take a look at [The Nvidia page](../../Nvidia) before launching. It has
+information regarding the needed environment and tweaks.
 
 ## VM?
 
 _If not using a VM, skip this step_
 
-In a VM, make sure you have 3D acceleration enabled in your virtio config (or
-virt-manager) otherwise Hyprland _**will not work**_.
+In a VM, make sure you have 3D acceleration enabled in your `virtio` config (or
+`virt-manager`) otherwise Hyprland _**will not work**_.
 
 You can also passthru a GPU to make it work.
 
-Please bear in mind 3D accel in VMs may be pretty slow.
+Please bear in mind 3D acceleration in VMs may be pretty slow.
 
 ## Launching Hyprland
 
-Now, you can just execute `Hyprland` in your tty.
+Hyprland can be executed by typing `hyprland` in your tty.
 
-**!IMPORTANT**: Do **not** launch Hyprland with `root` permissions (don't
-`sudo`)
+{{< callout type=warning >}}
 
-You can see some launch flags by doing `Hyprland -h`, these include setting the
+Do **not** launch Hyprland with `root` permissions (don't `sudo`)
+
+{{< /callout >}}
+
+You can see some launch flags by doing `hyprland -h`, these include setting the
 config path, ignoring a check for the above, etc.
 
 Login managers are not officially supported, but here's a short compatibility
@@ -53,8 +55,10 @@ list:
   [latest git version](https://github.com/sddm/sddm) (or
   [sddm-git](https://aur.archlinux.org/packages/sddm-git) from AUR) to prevent
   SDDM bug [1476](https://github.com/sddm/sddm/issues/1476) (90s shutdowns).
-- GDM → Works with the caveat of crashing Hyprland on the first launch
-- ly → Works poorly
+- GDM → Works with the caveat of crashing Hyprland on the first launch.
+- greetd → Works flawlessly, especially with
+  [ReGreet](https://github.com/rharish101/ReGreet).
+- ly → Works poorly.
 
 ## In Hyprland
 
@@ -81,42 +85,44 @@ configuring your displays.
 
 See the [Useful Utilities page](../../Useful-Utilities) and the
 [Sway wiki page](https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway)
-just about that. You can also visit the
+about that. You can also visit the
 [Awesome-Hyprland](https://github.com/hyprland-community/awesome-hyprland)
 repository for a more comprehensive list.
 
-## Fully configure
+## Fully configure Hyprland
 
 Head onto the
 [Configuring Hyprland page](../../Configuring/Configuring-Hyprland) to learn all
-about configuring Hyprland to your likings.
+about configuring Hyprland to your liking.
 
 ## Cursors
 
 Cursors are a notorious pain to set up when you don't know how. See
 [this FAQ entry](../../FAQ#how-do-i-change-me-mouse-cursor)
 
-If your cursor does not appear, then see
+If your cursor does not appear, see
 [this FAQ entry](../../FAQ#me-cursor-no-render)
 
 ## Themes
 
-Since this is not a fully-fledged Desktop Environment, you will need to use tools
-such as `lxappearance` and `nwg-look` (recommended) for GTK, and `qt5ct` /
+Since Hyprland is not a fully-fledged Desktop Environment, you will need to use
+tools such as `lxappearance` or `nwg-look` (recommended) for GTK, and `qt5ct` /
 `qt6ct` for their respective Qt versions. Some older applications may also
 require `qt4ct`.
 
 ## Force apps to use Wayland
 
 A lot of apps will use Wayland by default. Chromium (and other browsers based on
-it or electron) don't. You need to pass
+it, or Electron) don't. You need to pass
 `--enable-features=UseOzonePlatform --ozone-platform=wayland` to them or use
 `.conf` files where possible. Chromium-based browsers also should have a toggle
-in `chrome://flags`. Search for _"ozone"_ and select Wayland. If you are on NixOS
-you can also set the environment variable `NIXOS_OZONE_WL=1` in your configuration.
+in `chrome://flags`. Search for _"ozone"_ and select Wayland. If you are on
+NixOS you can also set the environment variable `NIXOS_OZONE_WL=1` in your
+configuration.
 
 For most electron apps, you should put the above in
-`~/.config/electron-flags.conf`. VSCode is known to not work with that though.
+`~/.config/electron-flags.conf`. Note that VSCode is known **not** to work with
+it.
 
 A few more environment variables for forcing Wayland mode are documented
 [here](../../Configuring/Environment-variables).
