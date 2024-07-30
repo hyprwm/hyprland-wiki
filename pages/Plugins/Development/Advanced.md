@@ -132,7 +132,7 @@ Please remember that the pointer to your config value will never change after
 `PLUGIN_INIT`, so to greatly optimize performance, make it static:
 
 ```cpp
-static auto* const MYVAR      = &HyprlandAPI::getConfigValue(PHANDLE, "plugin:myPlugin:variable1")->intValue;
+static auto* const MYVAR = &HyprlandAPI::getConfigValue(PHANDLE, "plugin:myPlugin:variable1")->intValue;
 ```
 
 ## Further
