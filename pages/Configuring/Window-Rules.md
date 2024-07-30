@@ -108,7 +108,6 @@ Static rules are evaluated once when the window is opened and never again.
 | float | floats a window |
 | tile | tiles a window |
 | fullscreen | fullscreens a window |
-| fakefullscreen | fakefullscreens a window |
 | maximize | maximizes a window |
 | move \[x\] \[y\] | moves a floating window (x,y -> int or %, e.g. 20% or 100. You are also allowed to do `100%-` for the right/bottom anchor, e.g. `100%-20`. In addition, the option supports the subtraction of the window size with `100%-w-`, e.g. `100%-w-20`. This results in a gap at the right/bottom edge of the screen to the window with the defined subtracted size). Additionally, you can also do `cursor [x] [y]` where x and y are either pixels or percent. Percent is calculated from the window's size. Specify `onscreen` before other parameters to force the window into the screen (e.g. `move onscreen cursor 50% 50%`) |
 | size \[x\] \[y\] | resizes a floating window (x,y -> int or %, e.g. 20% or 100) |
@@ -162,6 +161,7 @@ The following rules can also be set with [`hyprctl setprop`](../Using-hyprctl#se
 | noshortcutsinhibit \[on\] | disallows the app from [inhibiting your shortcuts](https://wayland.app/protocols/keyboard-shortcuts-inhibit-unstable-v1) |
 | opaque \[on\] | forces the window to be opaque |
 | forcergbx \[on\] | makes Hyprland ignore the alpha channel of all the window's surfaces, effectively making it _actually, fully 100% opaque_ |
+| syncfullscreen \[on\] | whether the fullscreen mode should always be the same as the one sent to the window (will only take effect on the next fullscreen mode change) |
 | immediate \[on\] | forces the window to allow to be torn. See [the Tearing page](../Tearing). |
 | xray \[on\] | sets blur xray mode for the window |
 
