@@ -1,14 +1,16 @@
 ---
-weight: 2
+weight: 1
 title: Installation
 ---
 
-# Foreword
+{{< callout type=warning >}}
 
 Due to their proprietary nature, Nvidia GPUs have limited compatibility with
 Hyprland. If you want to try Hyprland on Nvidia regardless (many people have
 reported successes), follow the [Nvidia page](../../Nvidia) after installing
 Hyprland.
+
+{{< /callout >}}
 
 ## Distros
 
@@ -210,9 +212,15 @@ Refer to the gist if anything fails.
 
 {{% details title="Void Linux*" closed="true" %}}
 
-Hyprland is not available from Void Linux's official repositories [due to a conflict of packaging philosophy](https://github.com/void-linux/void-packages/issues/37544). However, a [third party repository](https://github.com/Makrennel/hyprland-void) is available with [binary packages](https://github.com/Makrennel/hyprland-void/tree/repository-x86_64-glibc) built in CI by GitHub Actions.
+Hyprland is not available from Void Linux's official repositories
+[due to a conflict of packaging philosophy](https://github.com/void-linux/void-packages/issues/37544).
+However, a [third party repository](https://github.com/Makrennel/hyprland-void)
+is available with
+[binary packages](https://github.com/Makrennel/hyprland-void/tree/repository-x86_64-glibc)
+built in CI by GitHub Actions.
 
-You can add this repository by creating a file such as `/etc/xbps.d/hyprland-void.conf` with the following contents:
+You can add this repository by creating a file such as
+`/etc/xbps.d/hyprland-void.conf` with the following contents:
 
 ```plain
 repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-glibc
@@ -228,7 +236,11 @@ sudo xbps-install -S xdg-desktop-portal-hyprland
 xbps-query -Rs hypr # This will require you to have already accepted the repository's fingerprint using xbps-install -S
 ```
 
-More information is available in the [hyprland-void README](https://github.com/Makrennel/hyprland-void/blob/master/README.md), including information about how you can [manually build](https://github.com/Makrennel/hyprland-void?tab=readme-ov-file#manually-building) Hyprland for Void Linux using the templates provided.
+More information is available in the
+[hyprland-void README](https://github.com/Makrennel/hyprland-void/blob/master/README.md),
+including information about how you can
+[manually build](https://github.com/Makrennel/hyprland-void?tab=readme-ov-file#manually-building)
+Hyprland for Void Linux using the templates provided.
 
 {{% /details %}}
 
@@ -268,20 +280,15 @@ community-driven, and no guarantee is provided for their validity.**_
 
 ### Manual (Releases, Linux-only)
 
-Download the most recent release.
-
-copy the binary (Hyprland) to `/usr/bin/`.
-
-copy hyprctl to `/usr/bin/`.
-
-copy hyprpm to `/usr/bin/`.
-
-copy the desktop entry (`example/hyprland.desktop`) to
-`/usr/share/wayland-sessions/`
+1. Download the most recent release.
+2. copy the binaries (Hyprland, hyprctl, hyprpm) to `/usr/bin/`.
+3. copy the desktop entry (`example/hyprland.desktop`) to
+   `/usr/share/wayland-sessions/`
 
 the example config is in `example/hyprland.conf`.
 
-For updating later on, you can overwrite the binaries (hyprctl, hyprland, hyprpm ...). You don't need to update anything else.
+For updating later on, you can overwrite the binaries (Hyprland, hyprctl,
+hyprpm) . You don't need to update anything else.
 
 ### Manual (Manual Build)
 
@@ -330,6 +337,11 @@ export CC=gcc CXX=g++ LDFLAGS="-static-libstdc++ -static-libgcc"
 
 refer to the Ubuntu tab above
 
+Please note that Hyprland uses the C++23 standard, so both your compiler and
+your C++ library has to support that (`gcc>=13.0.0` or `clang>=15`). On
+Clang-based systems libc++ may be used by default, so until libc++ supports
+C++23 you have to pass `-stdlib=libstdc++` or switch to GCC.
+
 {{% /details %}}
 
 {{< callout type=warning >}}
@@ -373,20 +385,25 @@ See [Crashes and Bugs](../../Crashes-and-Bugs).
 
 ## Custom installation (legacy renderer, etc)
 
-cd into the hyprland repo.
+1. cd into the hyprland repo.
+2. for legacy renderer:
 
-for legacy renderer:
-
-```plain
-make legacyrenderer && sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
+```bash
+make legacyrenderer
+sudo make install
 ```
 
-_please note the legacy renderer may not support some graphical features._
-<br/><br/> Any other config: (replace \[PRESET\] with your preset, `release`
-`debug` `legacyrenderer` `legacyrendererdebug`)
+{{< callout type=info >}}
 
-```plain
-make [PRESET] && sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
+_please note the legacy renderer may not support some graphical features._
+
+{{< /callout >}}
+
+3. Any other config: (replace `<PRESET>` with your preset: `release`, `debug`,
+   `legacyrenderer`, `legacyrendererdebug`)
+
+```bash
+make <PRESET> && sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
 ```
 
 ## Custom Build flags
@@ -395,51 +412,46 @@ To apply custom build flags, you'll have to ditch make.
 
 Supported custom build flags:
 
-```plain
+```bash
+LEGACY_RENDERER - Compiles with the legacy renderer (see above)
 NO_XWAYLAND - Removes XWayland support
 NO_SYSTEMD - Removes systemd dependencies
 ```
 
-How to?
+Flags can be passed to CMake like this:
 
-Go to the root repo.
-
-Then, configure CMake:
-
-```plain
-mkdir -p build && cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -D<YOUR_FLAG>:STRING=true -H./ -B./build -G Ninja
+```bash
+cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -D<FLAG>:STRING=true -B build -G Ninja
 ```
 
-Change `<YOUR_FLAG>` to one of the custom build flags. You **are allowed to**
-use multiple at once, then add another `-D<YOUR_FLAG_2>:STRING=true`
+Change `<FLAG>` to one of the custom build flags. Multiple flags can be used at
+once, by adding more `-D<FLAG_2>:STRING=true`.
 
-You can of course also change the `BUILD_TYPE` to `Debug`.
+The `BUILD_TYPE` can also be changed to `Debug`.
 
-Now, build:
+To build, run:
 
-```plain
-cmake --build ./build --config Release --target all -j $(nproc)
+```bash
+cmake --build ./build --config Release --target all
 ```
 
 If you configured in `Debug`, change the `--config` to `Debug` as well.
 
-Now, of course, install manually.
+To install, run:
 
-```plain
-sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
+```bash
+sudo cmake --install ./build
 ```
-
-Lastly, copy hyprctl, hyprpm, etc as mentioned
-[here](#manual-releases-linux-only)
 
 ## Running In a VM
 
 _YMMV, this is not officially supported._
 
-Read through the [libvirt Arch wiki page](https://wiki.archlinux.org/title/Libvirt)
-and get `libvirt`, `virsh`, and `virt-viewer` setup and installed.
+Read through the
+[libvirt Arch wiki page](https://wiki.archlinux.org/title/Libvirt) and get
+`libvirt`, `virsh`, and `virt-viewer` setup and installed.
 
-```sh
+```bash
 # Install libvirt and qemu things.
 sudo pacman -S libvirt virt-viewer qemu-common
 # Add yourself to the libvirt group.
@@ -448,18 +460,19 @@ sudo usermod -a -G libvirt USER # Replace 'USER' with your username.
 systemctl enable --now libvirtd
 ```
 
-Go to the [arch-boxes gitlab](https://gitlab.archlinux.org/archlinux/arch-boxes/-/packages)
+Go to the
+[arch-boxes gitlab](https://gitlab.archlinux.org/archlinux/arch-boxes/-/packages)
 and download the latest arch qemu basic image. You can also download via any of
 arch's mirrors.
 
-```sh
+```bash
 curl https://geo.mirror.pkgbuild.com/images/latest/Arch-Linux-x86_64-basic.qcow2 \
   -o ~/Downloads/arch-qemu.qcow2 # Or download wherever you want.
 ```
 
 Create the VM with virsh.
 
-```sh
+```bash
 # Use virt-install (included with libvirt) to install the vm from the image.
 virt-install \
   --graphics spice,listen=none,gl.enable=yes,rendernode=/dev/dri/renderD128 \
@@ -486,12 +499,12 @@ pre-connected socket to the display.\*
 virt-viewer --attach hypr-vm
 ```
 
-Finally on the guest follow the instructions above for either [installing
-hyprland-git from the aur](#installation) or [building manually](#manual-manual-build).
-
+Finally on the guest follow the instructions above for either
+[installing hyprland-git from the aur](#installation) or
+[building manually](#manual-manual-build).
 {{< callout >}}
 
-Make sure you install `mesa` as the OpenGL driver. The virgl drivers
-are included in `mesa`.
+Make sure you install `mesa` as the OpenGL driver. The virgl drivers are
+included in `mesa`.
 
 {{</ callout >}}
