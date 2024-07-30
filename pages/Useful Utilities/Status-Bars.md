@@ -9,32 +9,37 @@ Waybar is a GTK status bar made specifically for wlroots compositors and
 supports Hyprland by default. To use it, it's recommended to use your distro's
 package.
 
-If you want to use the workspaces module, first, copy the configuration files
-from `/etc/xdg/waybar/` into `~/.config/waybar/`. Then, in
-`~/.config/waybar/config` replace all the references to `sway/workspaces` with
-`hyprland/workspaces`.
+To start configuring, copy the configuration files from
+`/etc/xdg/waybar/` into `~/.config/waybar/`. Then, in `~/.config/waybar/config`
+
+To use the workspaces module, replace all the occurrences of `sway/workspaces`
+with `hyprland/workspaces`.
 
 For more info regarding configuration, see
 [The Waybar Wiki](https://github.com/Alexays/Waybar/wiki/Module:-Hyprland).
 
 ### How to launch
 
-After getting everything set up, you might want to check if Waybar is configured
-to your liking. To launch it, simply type `waybar` into your terminal. If you
-would like Waybar to launch alongside Hyprland, you can do this by adding a line
-to your Hyprland configuration that reads `exec-once=waybar`.
+Type `waybar` into your terminal. In order to have Waybar launch alongside
+Hyprland, add this line to your Hyprland configuration:
 
-### Waybar popups render behind the windows
+```ini
+exec-once = waybar
+```
+
+### Waybar FAQ
+
+#### Waybar popups render behind the windows
 
 In `~/.config/waybar/config`, make sure that you have the `layer` configuration
 set to `top` and not `bottom`.
 
-### Active workspace doesn't show up
+#### Active workspace doesn't show up
 
 Replace `#workspaces button.focused` with `#workspaces button.active` in
 `~/.config/waybar/style.css`.
 
-### Scrolling through workspaces
+#### Scrolling through workspaces
 
 Since a lot of configuration options from `sway/workspaces` are missing,
 you should deduce some of them by yourself. In the case of scrolling, it should
@@ -67,27 +72,26 @@ If you are using multiple monitors, you may want to insert the following option:
 
 ## Eww
 
-[Eww](https://github.com/elkowar/eww) (ElKowar's Wacky Widgets) is a widget system made in Rust, which lets you
-create your own widgets similarly to how you can in AwesomeWM. The key difference
-is that it is independent of your window manager/compositor.
+[Eww](https://github.com/elkowar/eww) (ElKowar's Wacky Widgets) is a widget
+system made in Rust + GTK, which lets allows the creation of custom widgets
+similarly to AwesomeWM. The key difference is that it is independent of window
+manager/compositor.
 
-In order to use [Eww](https://github.com/elkowar/eww), you first have to install
-it, either using your distro's package manager, by searching `eww-wayland`, or
-by manually compiling. In the latter case, you can follow the
+Install Eww either using your distro's package manager, by searching
+`eww-wayland`, or by manually compiling. In the latter case, you can follow the
 [instructions](https://elkowar.github.io/eww).
 
 ### Configuration
 
-After you've successfully installed Eww, you can move onto configuring it. There
-are a few examples listed in the [Readme](https://github.com/elkowar/eww). It's
-also highly recommended to read through the
+There are a few examples listed in the [Readme](https://github.com/elkowar/eww).
+It's also highly recommended to read through the
 [Configuration options](https://elkowar.github.io/eww/configuration.html).
 
 {{< callout >}}
 
 Read
 [the Wayland section](https://elkowar.github.io/eww/configuration.html#wayland)
-carefully before asking why your bar doesn't work.
+carefully, otherwise Eww won't work on Hyprland.
 
 {{< /callout >}}
 
@@ -222,23 +226,26 @@ socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket
 Like Waybar, [Hybrid](https://github.com/vars1ty/HybridBar) is a GTK status bar
 mainly focused on wlroots compositors.
 
-You can install it by installing `hybrid-bar` from the AUR.
+It can be installed using the `hybrid-bar` package from the AUR.
 
 ### Configuration
 
-The configuration is done through JSON, more information is available
+The configuration is done through JSON. More information is available
 [here](https://github.com/vars1ty/HybridBar).
 
 ### How to launch
 
-After configuring HybridBar, you can launch it by typing `hybrid-bar` into your
-terminal to try it out. It is also possible to set it to launch at start, to do
-this you can add a line to your Hyprland configuration that reads
-`exec-once=hybrid-bar`
+After configuring HybridBar, it can be launched by typing `hybrid-bar` into a
+terminal. It is also possible to set it to launch at startup. To do this, add
+this line to `hyprland.conf`:
+
+```ini
+exec-once = hybrid-bar
+```
 
 #### Blur
 
-To activate blur, set `blurls=NAMESPACE` in your Hyprland configuration, where
+To activate blur, set `blurls = NAMESPACE` in your Hyprland configuration, where
 `NAMESPACE` is the gtk-layer-shell namespace of your HybridBar. The default
 namespace is `gtk-layer-shell` and can be changed in the HybridBar configuration
 at
