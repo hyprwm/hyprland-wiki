@@ -4,14 +4,7 @@ title: Using hyprctl
 ---
 
 `hyprctl` is a utility for controlling some parts of the compositor from a CLI
-or a script. If you install with `make install`, or any package, it should
-automatically be installed.
-
-To check if `hyprctl` is installed, simply execute it by issuing `hyprctl` in
-the terminal.
-
-If it's not, go to the repo root and `/hyprctl`. Issue a `make all` and then
-`sudo cp ./hyprctl /usr/bin`.
+or a script. It should automatically be installed along with Hyprland.
 
 {{< callout type=warning >}}
 
@@ -27,12 +20,13 @@ For live event handling, see the [socket2](../../IPC/).
 
 ### dispatch
 
-Issue a `dispatch` to call a keybind dispatcher with an arg.
+Issue a `dispatch` to call a keybind dispatcher with an argument.
 
-An arg has to be present, for dispatchers without parameters it can be anything.
+An argument has to be present, for dispatchers without parameters it can be
+anything.
 
-To pass an argument starting with `-` or `--`, such as command line options to
-`exec` programs, pass `--` as an option. This will disable any subsequent
+To pass an argument starting with `-` or `--`, such as command line options
+to `exec` programs, pass `--` as an option. This will disable any subsequent
 parsing of options by _hyprctl_.
 
 Examples:
@@ -106,8 +100,9 @@ or
 hyprctl output remove [name]
 ```
 
-Where `[backend]` is the name of the backend and `(name)` is an optional name for the output. If `(name)` is not
-specified, the default naming scheme will be used (`HEADLESS-2`, `WL-1`, etc.)
+Where `[backend]` is the name of the backend and `(name)` is an optional name
+for the output. If `(name)` is not specified, the default naming scheme will be
+used (`HEADLESS-2`, `WL-1`, etc.)
 
 {{< callout type=info >}}
 
@@ -116,9 +111,12 @@ specified, the default naming scheme will be used (`HEADLESS-2`, `WL-1`, etc.)
 {{< /callout >}}
 
 Available backends: 
-- `wayland`: Creates an output as a Wayland window. This will only work if you're already running Hyprland with the Wayland backend.
-- `headless`: Creates a headless monitor output. If you're running a VNC/RDP/Sunshine server, you should use this.
-- `auto`: Picks a backend for you. For example, if you're running Hyprland from the TTY, `headless` will be chosen.
+- `wayland`: Creates an output as a Wayland window. This will only work if
+  you're already running Hyprland with the Wayland backend.
+- `headless`: Creates a headless monitor output. If you're running a VNC/RDP/
+  Sunshine server, you should use this.
+- `auto`: Picks a backend for you. For example, if you're running Hyprland from
+  the TTY, `headless` will be chosen.
 
 For example, to create a headless output named "test":
 
@@ -140,8 +138,8 @@ For example, if you set:
 
 ```ini
 device {
-    name=my-epic-keyboard-v1
-    kb_layout=us,pl,de
+    name = my-epic-keyboard-v1
+    kb_layout = us,pl,de
 }
 ```
 
@@ -163,7 +161,7 @@ hyprctl switchxkblayout at-translated-set-2-keyboard next
 
 {{< callout type=info >}}
 
-If you want a single variant ie. pl/dvorak on one layout but us/qwerty on the
+If you want a single variant i.e. pl/dvorak on one layout but us/qwerty on the
 other, xkb parameters can still be blank, however the amount of comma-separated
 parameters have to match. Alternatively, a single parameter can be specified for
 it to apply to all three.
@@ -226,7 +224,9 @@ To get more information about a window, you can use `hyprctl clients`.
 
 {{< callout type=warning >}}
 
-Please beware that `hyprctl clients` will display the fields as **initialClass** and **initialTitle** while the regex mode uses `initialclass` and `initialtitle`.
+Please beware that `hyprctl clients` will display the fields as **initialClass**
+and **initialTitle** while the regex mode uses `initialclass` and
+`initialtitle`.
 
 {{< /callout >}}
 

@@ -8,7 +8,7 @@ title: Animations
 Animations are declared with the `animation` keyword.
 
 ```ini
-animation=NAME,ONOFF,SPEED,CURVE[,STYLE]
+animation = NAME, ONOFF, SPEED, CURVE [,STYLE]
 ```
 
 `ONOFF` can be either 0 or 1, 0 to disable, 1 to enable. _note:_ if it's 0, you
@@ -26,9 +26,9 @@ parent's values. See [the animation tree](#animation-tree).
 ### Examples
 
 ```ini
-animation=workspaces,1,8,default
-animation=windows,1,10,myepiccurve,slide
-animation=fade,0
+animation = workspaces, 1, 8, default
+animation = windows, 1, 10, myepiccurve, slide
+animation = fade, 0
 ```
 
 ### Animation tree
@@ -62,7 +62,7 @@ global
 Defining your own Bezier curve can be done with the `bezier` keyword:
 
 ```ini
-bezier=NAME,X0,Y0,X1,Y1
+bezier = NAME, X0, Y0, X1, Y1
 ```
 
 where `NAME` is the name, and the rest are two points for the Cubic Bezier. A
@@ -74,7 +74,7 @@ but if you want to instead choose from a list of beziers, you can check out
 ### Example
 
 ```ini
-bezier=overshot,0.05,0.9,0.1,1.1
+bezier = overshot, 0.05, 0.9, 0.1, 1.1
 ```
 
 ### Extras
@@ -84,7 +84,7 @@ to start from. For example, the following will make the animation 80% -> 100% of
 the size:
 
 ```ini
-animation=windows,1,8,default,popin 80%
+animation = windows, 1, 8, default, popin 80%
 ```
 
 For animation styles `slidefade` and `slidefadevert` in `workspaces`, you can
@@ -92,13 +92,14 @@ specify a movement percentage. For example, the following will make windows move
 20% of the screen width:
 
 ```ini
-animation=workspaces,1,8,default,slidefade 20%
+animation = workspaces, 1, 8, default, slidefade 20%
 ```
 
-For animation style `slide` in windows and layers you can specify a forced side, e.g.:
+For animation style `slide` in windows and layers you can specify a forced side,
+e.g.:
 
 ```ini
-animation=windows,1,8,default,slide left
+animation = windows, 1, 8, default, slide left
 ```
 
 You can use `top`, `bottom`, `left` or `right`.

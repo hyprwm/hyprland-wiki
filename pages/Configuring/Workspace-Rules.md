@@ -3,34 +3,40 @@ weight: 8
 title: Workspace Rules
 ---
 
-## Workspace Rules
-
 You can set workspace rules to achieve workspace-specific behaviors. For
 instance, you can define a workspace where all windows are drawn without borders
 or gaps.
 
 For layout-specific rules, see the specific layout page. For example:
-[Master Layout->Workspace Rules](../Master-Layout#workspace-rules)
+[Master Layout->Workspace Rules](../Master-Layout#workspace-rules).
 
 ### Workspace selectors
 
-Workspaces that have already been created can be targeted by workspace selectors,
-e.g. `r[2-4] w[t1]`
+Workspaces that have already been created can be targeted by workspace
+selectors, e.g. `r[2-4] w[t1]`.
 
-Selectors have props separated by a space. No spaces are allowed inside props themselves.
+Selectors have props separated by a space. No spaces are allowed inside props
+themselves.
 
 Props:
  - `r[A-B]` - ID range from A to B inclusive
  - `s[bool]` - Whether the workspace is special or not
- - `n[bool]`, `n[s:string]`, `n[e:string]` - named actions. `n[bool]` -> whether a workspace is a named workspace, `s` and `e` are starts and ends with respectively
+ - `n[bool]`, `n[s:string]`, `n[e:string]` - named actions. `n[bool]` ->
+    whether a workspace is a named workspace, `s` and `e` are starts and ends
+    with respectively
  - `m[monitor]` - Monitor selector
- - `w[(flags)A-B]`, `w[(flags)X]` - Prop for window counts on the workspace. A-B is an inclusive range, X is a specific number. Flags can be omitted. It can be `t` for tiled-only, `f` for floating-only, `g` to count groups instead of windows, and `v` to count only visible windows.
- - `f[-1]`, `f[0]`, `f[1]`, `f[2]` - fullscreen state of the workspace. `-1`: no fullscreen, `0`: fullscreen, `1`: maximized, `2`, fullscreen without fullscreen state sent to the window.
+ - `w[(flags)A-B]`, `w[(flags)X]` - Prop for window counts on the workspace.
+    A-B is an inclusive range, X is a specific number. Flags can be omitted.
+    It can be `t` for tiled-only, `f` for floating-only, `g` to count groups
+    instead of windows, and `v` to count only visible windows.
+ - `f[-1]`, `f[0]`, `f[1]`, `f[2]` - fullscreen state of the workspace. `-1`: no
+    fullscreen, `0`: fullscreen, `1`: maximized, `2`, fullscreen without
+    fullscreen state sent to the window.
 
 ### Syntax
 
 ```ini
-workspace=WORKSPACE,RULES
+workspace = WORKSPACE, RULES
 ```
 
 - WORKSPACE is a valid workspace identifier (see
@@ -42,9 +48,9 @@ workspace=WORKSPACE,RULES
 ### Examples
 
 ```ini
-workspace=name:myworkspace,gapsin:0,gapsout:0
-workspace=3,rounding:false,bordersize:0
-workspace=w[tg1-4],shadow:false
+workspace = name:myworkspace, gapsin:0, gapsout:0
+workspace = 3, rounding:false, bordersize:0
+workspace = w[tg1-4], shadow:false
 ```
 
 ## Rules
