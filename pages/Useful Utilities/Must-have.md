@@ -33,8 +33,8 @@ when starting a graphical shell,[^1] non-systemd distros like Gentoo or Artix
 provide a dedicated launcher.
 
 It can be usually found by running `whereis <distro>-pipewire-launcher`. If such
-a file does not exist on your install, please refer to your distro's documentation
-for help.
+a file does not exist on your install, please refer to your distro's
+documentation for help.
 
 [^1]: https://wiki.gentoo.org/wiki/PipeWire#OpenRC
 
@@ -59,7 +59,9 @@ Our recommendation is the KDE one. For arch, it's `polkit-kde-agent`.
 You can autostart it with
 `exec-once=/usr/lib/polkit-kde-authentication-agent-1`. On some distributions
 you might have to use a different path which could be
-`/usr/libexec/polkit-kde-authentication-agent-1`, `/usr/libexec/kf5/polkit-kde-authentication-agent-1`, or `/usr/libexec/kf6/polkit-kde-authentication-agent-1`.
+`/ usr/libexec/polkit-kde-authentication-agent-1`,
+`/usr/libexec/kf5/polkit-kde-authentication-agent-1`, or
+`/usr/libexec/kf6/polkit-kde-authentication-agent-1`.
 
 On other distributions that use a more recent version, such as Gentoo, it may be
 necessary to use

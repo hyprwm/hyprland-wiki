@@ -3,18 +3,16 @@ weight: 3
 title: Wallpapers
 ---
 
-Launch your wallpaper utility with `exec-once=`.
+Launch your wallpaper utility with `exec-once =`.
 
 ## hyprpaper
 
 Straight from our oven, `hyprpaper` is a wallpaper utility from the Hypr
-Development team. See its usage and config by following the README on the
-[GitHub Page](https://github.com/hyprwm/hyprpaper).
+Development team. See its usage and config [here](../../Hypr-Ecosystem/hyprpaper).
 
 ## swaybg
 
-Great utility if all you want is one simple static wallpaper that will never
-change, and don't want to make a config file. Get it
+Great utility if all you want is one simple static wallpaper. Get it
 [here](https://github.com/swaywm/swaybg).
 
 ## wpaperd
@@ -36,5 +34,5 @@ means you can change wallpapers without even needing to restart.
 ## waypaper
 
 GUI wallpaper manager that allows to visually choose the static or animated
-wallpapers, and supports `swaybg` and `swww` as backends on wayland.
+wallpapers, and supports `swaybg` and `swww` as backends on Wayland.
 [GitHub](https://github.com/anufrievroman/waypaper)

@@ -7,18 +7,15 @@ Screensharing is done through PipeWire on Wayland.
 
 ## Prerequisites
 
-Make sure you have `pipewire` and `wireplumber` installed, enabled and running
-if you don't have them yet.
+Make sure you have `pipewire`, `wireplumber` and
+[`xdg-desktop-portal-hyprland`](../../Hypr-Ecosystem/xdg-desktop-portal-hyprland)
+installed, enabled and running if you don't have them yet.
 
 ## Screensharing
 
 Read
 [this amazing gist by Bruno Ancona Sala](https://gist.github.com/brunoanc/2dea6ddf6974ba4e5d26c3139ffb7580)
 for a great tutorial.
-
-## Better screensharing
-
-See [the hyprland portal page](../xdg-desktop-portal-hyprland)
 
 ## XWayland
 
@@ -37,9 +34,9 @@ the same effect. See
 more information. For example:
 
 ```ini
-windowrulev2 = opacity 0.0 override,class:^(xwaylandvideobridge)$
-windowrulev2 = noanim,class:^(xwaylandvideobridge)$
-windowrulev2 = noinitialfocus,class:^(xwaylandvideobridge)$
-windowrulev2 = maxsize 1 1,class:^(xwaylandvideobridge)$
-windowrulev2 = noblur,class:^(xwaylandvideobridge)$
+windowrulev2 = opacity 0.0 override, class:^(xwaylandvideobridge)$
+windowrulev2 = noanim, class:^(xwaylandvideobridge)$
+windowrulev2 = noinitialfocus, class:^(xwaylandvideobridge)$
+windowrulev2 = maxsize 1 1, class:^(xwaylandvideobridge)$
+windowrulev2 = noblur, class:^(xwaylandvideobridge)$
 ```

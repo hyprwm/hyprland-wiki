@@ -43,26 +43,23 @@ swapping and scheduling screen shaders; also functions as an
 _Starting method:_ manual ('exec-once')
 
 USB mass storage devices, like thumb drives, mobile phones, digital cameras,
-etc. do not mount automatically to the file system.
+etc. are not mounted automatically to the file system.
 
-Typically, we have to manually mount them, often using root and `umount` to do so.
+Typically, they have to be manually mounted, often using root and `umount` to do so.
 
 Many popular DEs automatically handle this by using `udisks2` wrappers.
 
 `udiskie` is a udisks2 front-end that allows to manage removable media such as
 CDs or flash drives from userspace.
 
-Install `udiskie` via your repositories, or
+Install `udiskie` via your package manager, or
 [build manually](https://github.com/coldfix/udiskie/wiki/installation)
 
-Head over to your `~/.config/hypr/hyprland.conf` and add the following lines:
+Head over to your `hyprland.conf` and add the following line:
 
 ```ini
-exec-once = udiskie &
+exec-once = udiskie
 ```
-
-This launches `udiskie` and the `&` argument launches it in the
-background.
 
 [See more uses here](https://github.com/coldfix/udiskie/wiki/Usage).
 

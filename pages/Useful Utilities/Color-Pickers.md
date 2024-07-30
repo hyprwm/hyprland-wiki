@@ -11,5 +11,6 @@ only one that doesn't suck.
 
 ## Hyprpicker
 
-Dead simple to use. Launch, click, and you're done.
+Dead simple to use. Launch, click, and you're done. Also see
+[its wiki page](../../Hypr-Ecosystem/hyprpicker).
 [GitHub](https://github.com/hyprwm/hyprpicker)
