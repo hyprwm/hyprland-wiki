@@ -107,7 +107,7 @@ else
 fi
 ```
 
-### Shimeji
+## Shimeji
 
 To use Shimeji programs like
 [this](https://codeberg.org/thatonecalculator/spamton-linux-shimeji), set the
