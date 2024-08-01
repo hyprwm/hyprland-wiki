@@ -42,6 +42,9 @@ hyprland-git (AUR) - compiles from latest source
 hyprland - binary x86 tagged release
 ```
 
+If you decide to use the `git` version, we recommend the usage of the [Chaotic Aur](https://aur.chaotic.cx/) to get pre-build binaries,
+and easy downgrading with [downgrade](https://github.com/archlinux-downgrade/downgrade) in case something breaks.
+
 {{% /details %}}
 
 {{% details title="Nix" closed="true" %}}
