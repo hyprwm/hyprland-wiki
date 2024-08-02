@@ -93,7 +93,7 @@ following the instructions
 [here](https://github.com/hyprwm/Hyprland/discussions/284)
 
 {{% /details %}}
-{{% details title="openSUSE*" closed="true" %}}
+{{% details title="Debain*" closed="true" %}}
 
 Hyprland recently made it into the SID repos and can be installed with
 
