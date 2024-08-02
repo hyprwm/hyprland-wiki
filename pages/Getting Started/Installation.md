@@ -93,14 +93,14 @@ following the instructions
 [here](https://github.com/hyprwm/Hyprland/discussions/284)
 
 {{% /details %}}
-{{% details title="Debain*" closed="true" %}}
+{{% details title="Debian*" closed="true" %}}
 
 Hyprland recently made it into the SID repos and can be installed with
 
 ```sh
 sudo apt  install hyprland
 ```
-Note: Soon will be in the trizie repos
+Note: Soon will be in the trizie repos, but as Hyprland is bleeding edge it is only rec to install with SID even if any other repo got hyprland.
 
 Alternatively, you can also follow the instructions under
 ["Manual (Manual Build)"](#manual-manual-build) to build Hyprland yourself.
