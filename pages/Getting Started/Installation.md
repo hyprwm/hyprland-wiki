@@ -19,7 +19,7 @@ might have **major** issues running Hyprland.
 
 ## Installation
 
-Installing Hyprland is very easy. Simply install it with your package manager 
+Installing Hyprland is very easy. Simply install it with your package manager
 (if there is a Hyprland package available) or install/build it yourself.
 
 {{< callout >}}
@@ -42,7 +42,7 @@ hyprland-git (AUR) - compiles from latest source
 hyprland - binary x86 tagged release
 ```
 
-If you decide to use the `git` version, we recommend the usage of the [Chaotic Aur](https://aur.chaotic.cx/) to get pre-build binaries,
+If you decide to use the `git` version, you can use the [Chaotic Aur](https://aur.chaotic.cx/) to get pre-build binaries,
 and easy downgrading with [downgrade](https://github.com/archlinux-downgrade/downgrade) in case something breaks.
 
 {{% /details %}}
@@ -175,6 +175,7 @@ You can add this repository by creating a file such as `/etc/xbps.d/hyprland-voi
 ```plain
 repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-glibc
 ```
+
 Then you can install the packages as you would any other:
 
 ```sh
@@ -184,6 +185,7 @@ sudo xbps-install -S xdg-desktop-portal-hyprland
 
 xbps-query -Rs hypr # This will require you to have already accepted the repository's fingerprint using xbps-install -S
 ```
+
 More information is available in the [hyprland-void README](https://github.com/Makrennel/hyprland-void/blob/master/README.md), including information about how you can [manually build](https://github.com/Makrennel/hyprland-void?tab=readme-ov-file#manually-building) Hyprland for Void Linux using the templates provided.
 
 {{% /details %}}
@@ -270,12 +272,13 @@ to pass `-stdlib=libstdc++` or switch to GCC.
 
 {{< callout type=warning >}}
 
-Additionally to those, you will also need a few hypr* dependencies which may or may not be
+Additionally to those, you will also need a few hypr\* dependencies which may or may not be
 packaged for your distro of choice:
- - aquamarine
- - hyprlang
- - hyprcursor
- - hyprwayland-scanner (build-only)
+
+- aquamarine
+- hyprlang
+- hyprcursor
+- hyprwayland-scanner (build-only)
 
 {{< /callout >}}
 
@@ -368,10 +371,12 @@ Lastly, copy hyprctl, hyprpm, etc as mentioned
 [here](#manual-releases-linux-only)
 
 ## Running In a VM
-*YMMV, this is not officially supported.*
+
+_YMMV, this is not officially supported._
 
 Read through the [libvirt Arch wiki page](https://wiki.archlinux.org/title/Libvirt)
 and get `libvirt`, `virsh`, and `virt-viewer` setup and installed.
+
 ```sh
 # Install libvirt and qemu things.
 sudo pacman -S libvirt virt-viewer qemu-common
@@ -384,14 +389,16 @@ systemctl enable --now libvirtd
 Go to the [arch-boxes gitlab](https://gitlab.archlinux.org/archlinux/arch-boxes/-/packages)
 and download the latest arch qemu basic image. You can also download via any of
 arch's mirrors.
+
 ```sh
 curl https://geo.mirror.pkgbuild.com/images/latest/Arch-Linux-x86_64-basic.qcow2 \
   -o ~/Downloads/arch-qemu.qcow2 # Or download wherever you want.
 ```
 
 Create the VM with virsh.
+
 ```sh
-# Use virt-install (included with libvirt) to install the vm from the image. 
+# Use virt-install (included with libvirt) to install the vm from the image.
 virt-install \
   --graphics spice,listen=none,gl.enable=yes,rendernode=/dev/dri/renderD128 \
   --name hypr-vm \
@@ -409,13 +416,14 @@ the tty. The default login is 'arch' for user and 'arch' for password.
 Make sure the --attach flag is used, enabling virgl makes it so that
 we had to disable listen. This means that we can't make a direct TCP/UNIX
 socket connection to the remote display. --attach asks libvirt to provide a
-pre-connected socket to the display.*
+pre-connected socket to the display.\*
 
 {{</ callout >}}
 
 ```sh
 virt-viewer --attach hypr-vm
 ```
+
 Finally on the guest follow the instructions above for either [installing
 hyprland-git from the aur](#installation) or [building manually](#manual-manual-build).
 
