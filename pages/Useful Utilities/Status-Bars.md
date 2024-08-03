@@ -48,29 +48,19 @@ look like this:
 }
 ```
 
-### Clicking on a workspace icon does not work!
-
-On the `hyprland/workspaces` module, add `"on-click": "activate"`. That's the
-purpose of the `sed` command used before building Waybar: the default way to
-select a workspace by clicking uses `swaymsg`, and thus it is required
-to edit this function to make it work with `hyprctl`.
-
 ### Window title is missing
 
-Follow the above instructions to make sure everything is working. The prefix for
-the window module that provides the title is `hyprland` not `wlr`. In your
-Waybar config, insert this module:
+The prefix for the window module that provides the title is `hyprland` not `wlr`.
+In your Waybar config, insert this module:
 
 ```json
 "modules-center": ["hyprland/window"],
 ```
 
-If you are using a multiple monitors, you may want to also insert this module
-configuration:
+If you are using multiple monitors, you may want to insert the following option:
 
 ```json
 "hyprland/window": {
-    "max-length": 200,
     "separate-outputs": true
 },
 ```
