@@ -44,6 +44,8 @@ hyprland - binary x86 tagged release
 
 If you decide to use the `git` version, you can use the [Chaotic Aur](https://aur.chaotic.cx/) to get pre-built binaries.
 
+In case of errors you can downgrade easily with [downgrade](https://github.com/archlinux-downgrade/downgrade).
+
 {{% /details %}}
 
 {{% details title="Nix" closed="true" %}}
