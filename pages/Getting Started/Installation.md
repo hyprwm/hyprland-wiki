@@ -105,7 +105,11 @@ Note: Soon Hyprland will be in the trixie repos, but as it is bleeding edge it i
 Alternatively, you can also follow the instructions under
 ["Manual (Manual Build)"](#manual-manual-build) to build Hyprland yourself.
 
-Note: _Hyprland is not available for Bookworm as it packages are too old
+{{< callout type=info >}}
+
+Hyprland is not available for Bookworm as its packages are too old.
+
+{{< /callout >}}
 
 {{% /details %}}
 
