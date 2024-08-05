@@ -37,9 +37,14 @@ from source first.
 
 {{% details title="Arch" closed="true" %}}
 
-```plain
-hyprland-git (AUR) - compiles from latest source
-hyprland - binary x86 tagged release
+Install from the AUR, which compiles the latest source:
+```shell
+sudo yay -S hyprland-git
+```
+
+or a tagged release from the arch packages:
+```shell
+sudo pacman -S hyprland
 ```
 
 {{% /details %}}
