@@ -37,9 +37,14 @@ from source first.
 
 {{% details title="Arch" closed="true" %}}
 
-```plain
-hyprland-git (AUR) - compiles from latest source
-hyprland - binary x86 tagged release
+Install from the AUR, which compiles the latest source:
+```shell
+sudo yay -S hyprland-git
+```
+
+or a tagged release from the arch packages:
+```shell
+sudo pacman -S hyprland
 ```
 
 If you decide to use the `git` version from the AUR, you can use the [Chaotic Aur](https://aur.chaotic.cx/) to get pre-built binaries.
