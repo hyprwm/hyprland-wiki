@@ -203,7 +203,8 @@ Wayland, the flickering will likely be solved in the 555 series of Nvidia driver
 ### Flickering in XWayland games
 
 XWayland games may flicker or present frames out-of-order in a way which makes them unplayable. 
-This is due to the lack of explicit synchronization in older versions of the proprietary driver.
+This is due to the lack of implicit synchronization in the driver, and/or flaky explicit sync support
+in newer ones.
 
 There are a few fixes:
 
@@ -212,11 +213,11 @@ There are a few fixes:
    These enable explicit sync on the Nvidia driver and should avoid flickering.
 
 2. If your GPU is no longer supported by the 555 driver, install older Nvidia drivers which do not exhibit this issue. The
-  last ones which would work will be the 535xx series of drivers. These
-  can be installed on Arch via [these AUR packages](https://aur.archlinux.org/packages?O=0&K=535xx)
+   last ones which would work will be the 535xx series of drivers. These
+   can be installed on Arch via [these AUR packages](https://aur.archlinux.org/packages?O=0&K=535xx)
 
-More info about explicit sync is available
-[on this blog](https://planet.kde.org/xavers-blog-2024-04-05-explicit-sync/).
+3. Try disabling explicit sync. In some select cases, explicit sync may actually cause issues due to the flaky nature of Nvidia drivers.
+   Set `render:explicit_sync = 0` in your hyprland config.
 
 ### Fixing other random flickering (nuclear method)
 
