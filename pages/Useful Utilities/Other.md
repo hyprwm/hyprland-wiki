@@ -65,3 +65,7 @@ This launches `udiskie` and the `&` argument launches it in the
 background.
 
 [See more uses here](https://github.com/coldfix/udiskie/wiki/Usage).
+
+### Other useful utilities
+
+The website [Are we Wayland Yet](https://arewewaylandyet.com/) details some other useful utilities and applications for Wayland like docks, email clients, and so on, along with some other useful information about compatibility on Wayland.
