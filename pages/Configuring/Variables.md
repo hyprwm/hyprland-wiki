@@ -367,7 +367,6 @@ _Subcategory `group:groupbar:`_
 | swallow_regex | The *class* regex to be used for windows that should be swallowed (usually, a terminal). To know more about the list of regex which can be used [use this cheatsheet](https://github.com/ziishaned/learn-regex/blob/master/README.md). | str | \[\[Empty\]\] |
 | swallow_exception_regex | The *title* regex to be used for windows that should *not* be swallowed by the windows specified in swallow_regex  (e.g. wev). The regex is matched against the parent (e.g. Kitty) window's title on the assumption that it changes to whatever process it's running. | str | \[\[Empty\]\] |
 | focus_on_activate | Whether Hyprland should focus an app that requests to be focused (an `activate` request) | bool | false |
-| no_direct_scanout | Disables direct scanout. Direct scanout attempts to reduce lag when there is only one fullscreen application on a screen (e.g. game). It is also recommended to set this to true if the fullscreen application shows graphical glitches. | bool | true |
 | mouse_move_focuses_monitor | Whether mouse moving into a different monitor should focus it | bool | true |
 | render_ahead_of_time | [Warning: buggy] starts rendering _before_ your monitor displays a frame in order to lower latency | bool | false |
 | render_ahead_safezone | how many ms of safezone to add to rendering ahead of time. Recommended 1-2. | int | 1 |
@@ -407,6 +406,14 @@ _Subcategory `group:groupbar:`_
 | --- | --- | --- | --- |
 | nvidia_anti_flicker | reduces flickering on nvidia at the cost of possible frame drops on lower-end GPUs. On non-nvidia, this is ignored. | bool | true |
 | force_introspection | forces introspection at all times. Introspection is aimed at reducing GPU usage in certain cases, but might cause graphical glitches on nvidia. 0 - nothing, 1 - force always on, 2 - force always on if nvidia | int | 2 |
+
+### Render
+
+| name | description | type | default |
+| --- | --- | --- | --- |
+| explicit_sync | Whether to enable explicit sync support. Requires a hyprland restart. 0 - no, 1 - yes, 2 - auto based on the gpu driver | int | 2 |
+| explicit_sync_kms | Whether to enable explicit sync support for the KMS layer. Requires explicit_sync to be enabled. 0 - no, 1 - yes, 2 - auto based on the gpu driver | int | 2 |
+| direct_scanout | Enables direct scanout. Direct scanout attempts to reduce lag when there is only one fullscreen application on a screen (e.g. game). It is also recommended to set this to false if the fullscreen application shows graphical glitches. | bool | false |
 
 ### Cursor
 
