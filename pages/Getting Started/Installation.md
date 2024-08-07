@@ -104,12 +104,12 @@ following the instructions
 {{% /details %}}
 {{% details title="Debian*" closed="true" %}}
 
-Hyprland recently made it into the SID repos and can be installed with
+Hyprland recently made it into the SID and trixie repos and can be installed with
 
 ```sh
 sudo apt install hyprland
 ```
-Note: Soon Hyprland will be in the trixie repos, but as it is bleeding edge it is only recommended to install with Sid even if any other repo got Hyprland.
+Note: Even though Hyprland is in the trixie repos, it is still recommended to install from SID, as some dependencies in the trixie repo are outdated.
 
 Alternatively, you can also follow the instructions under
 ["Manual (Manual Build)"](#manual-manual-build) to build Hyprland yourself.
@@ -165,9 +165,13 @@ Hyprland and related are in the default repository:
 
 {{% /details %}}
 
-{{% details title="Ubuntu 23.04*" closed="true" %}}
+{{% details title="Ubuntu*" closed="true" %}}
 
-Build Dependencies:
+Hyprland made it into the universe repos and can be installed with 
+```bash
+sudo add-apt-repository universe && sudo apt-get update && sudo apt-get install -y hyprland
+```
+Build dependencies:
 
 ```bash
 sudo apt-get install -y meson wget build-essential ninja-build cmake-extras cmake gettext gettext-base fontconfig libfontconfig-dev libffi-dev libxml2-dev libdrm-dev libxkbcommon-x11-dev libxkbregistry-dev libxkbcommon-dev libpixman-1-dev libudev-dev libseat-dev seatd libxcb-dri3-dev libegl-dev libgles2 libegl1-mesa-dev glslang-tools libinput-bin libinput-dev libxcb-composite0-dev libavutil-dev libavcodec-dev libavformat-dev libxcb-ewmh2 libxcb-ewmh-dev libxcb-present-dev libxcb-icccm4-dev libxcb-render-util0-dev libxcb-res0-dev libxcb-xinput-dev xdg-desktop-portal-wlr libtomlplusplus3
@@ -184,6 +188,14 @@ for more info refer to the
 Please note that since Ubuntu is generally behind with dependencies, it's not
 guaranteed that the build process will work at all. Even if it is, it's likely
 that it will break at some point in the future.
+
+{{< callout >}}
+
+Always use the latest version of Ubuntu for the most up to date dependencies.
+
+Note: Your mileage may vary, as GDM has some bugs with Hyprland. Check the [Master Tutorial](../Master-Tutorial) for more info.
+
+{{< /callout >}}
 
 Refer to the gist if anything fails.
 
