@@ -104,12 +104,12 @@ following the instructions
 {{% /details %}}
 {{% details title="Debian*" closed="true" %}}
 
-Hyprland recently made it into the SID repos and can be installed with
+Hyprland recently made it into the SID and trixie repos and can be installed with
 
 ```sh
 sudo apt install hyprland
 ```
-Note: Soon Hyprland will be in the trixie repos, but as it is bleeding edge it is only recommended to install with Sid even if any other repo got Hyprland.
+Note: Even though that Hyprland is in the trixie repos, it is still recommended to install from SID as some dependencies are out dated.
 
 Alternatively, you can also follow the instructions under
 ["Manual (Manual Build)"](#manual-manual-build) to build Hyprland yourself.
