@@ -168,7 +168,7 @@ Hyprland and related are in the default repository:
 {{% details title="Ubuntu*" closed="true" %}}
 Hyprland made it into the universe repos and can be installed with 
 ```bash
-sudo add-apt-repository universe&& sudo apt-get update && sudo apt-get install -y hyprland
+sudo add-apt-repository universe && sudo apt-get update && sudo apt-get install -y hyprland
 ```
 Build dependencies:
 
