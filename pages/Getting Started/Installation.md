@@ -186,7 +186,7 @@ for more info refer to the
 
 Please note that since Ubuntu is generally behind with dependencies, it's not
 guaranteed that the build process will work at all. Even if it is, it's likely
-that it will break at some point in the future.  ** Always use the latest version for the most up to date dependencies if building or installing. **
+that it will break at some point in the future.  **Always use the latest version for the most up to date dependencies if building or installing.**
 
 Refer to the gist if anything fails.
 
