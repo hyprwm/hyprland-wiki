@@ -377,3 +377,16 @@ can work around the issue by adding in your `hyprland.conf`:
 ```ini
 monitor=Unknown-1,disabled
 ```
+
+## I get a .so file missing error on launch
+
+If you are using a -git package, this is a common occurrence when ABI-breaking updates are done.
+
+***Do not*** symlink different .so versions, this will cause crashes!!!
+
+Instead, find all hypr* packages with `-git` you have installed, remove them (possibly remove dependencies of them, too)
+and simply install them again.
+
+If using yay, make sure to `CleanBuild` every package. If using paru, manually remove the cache of hypr* packages in `~/.cache/paru`.
+
+If you are not using any -git packages, this is a mistake in your distro's packaging and should be solved there.
