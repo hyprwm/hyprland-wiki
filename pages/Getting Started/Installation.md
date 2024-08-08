@@ -264,6 +264,13 @@ For updating later on, you can overwrite the binaries (hyprctl, hyprland, hyprpm
 
 Dependencies:
 
+{{< callout type=info >}}
+
+Please note that Hyprland uses the C++26 standard, so both your compiler and your
+C++ standard library has to support that (`gcc>=14` or `clang>=18`).
+
+{{< /callout >}}
+
 {{% details title="Arch" closed="true" %}}
 
 ```plain
@@ -299,11 +306,6 @@ export CC=gcc CXX=g++ LDFLAGS="-static-libstdc++ -static-libgcc"
 {{% details title="Ubuntu" closed="true" %}}
 
 refer to the Ubuntu tab above
-
-Please note that Hyprland uses the C++23 standard, so both your compiler and your
-C++ library has to support that (`gcc>=13.0.0` or `clang>=15`). On Clang-based
-systems libc++ may be used by default, so until libc++ supports C++23 you have
-to pass `-stdlib=libstdc++` or switch to GCC.
 
 {{% /details %}}
 
