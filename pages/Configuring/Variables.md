@@ -419,6 +419,7 @@ _Subcategory `group:groupbar:`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
+| sync_gsettings_theme | sync xcursor theme with gsettings, it applies cursor-theme and cursor-size on theme load to gsettings making most CSD gtk based clients use same xcursor theme and size. | bool | true |
 | no_hardware_cursors | disables hardware cursors | bool | false |
 | no_break_fs_vrr | disables scheduling new frames on cursor movement for fullscreen apps with VRR enabled to avoid framerate spikes (requires `no_hardware_cursors = true`) | bool | false |
 | min_refresh_rate | minimum refresh rate for cursor movement when `no_break_fs_vrr` is active. Set to minimum supported refresh rate or higher | int | 24 |
