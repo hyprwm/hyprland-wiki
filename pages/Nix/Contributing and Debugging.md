@@ -2,8 +2,8 @@
 title: Contributing and Debugging
 ---
 
-Everything needed to build and debug Hyprland is included inside the provided
-`devShell`.
+Everything needed to build and debug Hyprland and other hyprwm programs is
+included inside the provided `devShell`s.
 
 To use it in the cloned repo, simply run `nix develop`.
 
@@ -11,6 +11,11 @@ To use it in the cloned repo, simply run `nix develop`.
 
 A debug build is already provided through
 `hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland-debug`.
+
+Most hyprwm apps also provide their own `-debug` versions. For those that don't,
+one can build the debug version from the CLI by using
+[overrideAttrs](../Options-Overrides/#using-nix-repl) with
+`cmakeBuildType = "debug";`.
 
 ## Bisecting an issue
 
