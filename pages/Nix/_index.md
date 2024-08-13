@@ -35,7 +35,7 @@ For more options, see
 
 For other NixOS options, see [Hyprland on NixOS](./Hyprland-on-NixOS).
 
-## Home-manager module
+## Home Manager module
 
 Read [Hyprland on Home Manager](./Hyprland-on-Home-Manager).
 
