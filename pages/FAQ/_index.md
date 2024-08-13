@@ -160,10 +160,10 @@ silently (i.e. without the flickering from workspace to workspace).
 Put the following in your `hyprland.conf`: (example)
 
 ```ini
-exec-once=[workspace 1 silent] kitty
-exec-once=[workspace 1 silent] subl
-exec-once=[workspace 3 silent] mailspring
-exec-once=[workspace 4 silent] firefox
+exec-once = [workspace 1 silent] kitty
+exec-once = [workspace 1 silent] subl
+exec-once = [workspace 3 silent] mailspring
+exec-once = [workspace 4 silent] firefox
 ```
 
 ### How do I move my favorite workspaces to a new monitor when I plug it in?
@@ -174,7 +174,7 @@ following:
 In hyprland.conf:
 
 ```ini
-exec-once=handle_monitor_connect.sh
+exec-once = handle_monitor_connect.sh
 ```
 
 where `handle_monitor_connect.sh` is: (example)
@@ -209,7 +209,7 @@ Until then, OTD is the way to go.
 _~/.config/hypr/hyprland.conf_
 
 ```ini
-exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 ```
 
 Make sure that your portals launch _after_ this gets executed. For some people,
@@ -272,9 +272,9 @@ these window rules to your config to make these programs work with both of your
 screens.
 
 ```ini
-windowrulev2=float,title:^(flameshot)
-windowrulev2=move 0 0,title:^(flameshot)
-windowrulev2=suppressevent fullscreen,title:^(flameshot)
+windowrulev2 = float,title:^(flameshot)
+windowrulev2 = move 0 0,title:^(flameshot)
+windowrulev2 = suppressevent fullscreen,title:^(flameshot)
 ```
 
 ### I cannot bind SUPER as my mod key on my laptop
@@ -375,7 +375,7 @@ If you see a monitor that should not be there (usually named `Unknown-1`), you
 can work around the issue by adding in your `hyprland.conf`:
 
 ```ini
-monitor=Unknown-1,disabled
+monitor = Unknown-1,disabled
 ```
 
 ## I get a .so file missing error on launch
