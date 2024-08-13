@@ -76,6 +76,11 @@ sudo zypper in hyprland
 
 or install the "hyprland" package via YaST2 Software.
 
+For `hyprpm` to recognize it's dependencies, you'll also need to install `hyprland-devel`:
+```sh
+sudo zypper in hyprland-devel
+```
+
 Alternatively, you can also follow the instructions under
 ["Manual (Manual Build)"](#manual-manual-build) to build Hyprland yourself.
 
