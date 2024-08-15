@@ -57,7 +57,7 @@ password whenever an app wants to elevate its privileges.
 Our recommendation is the KDE one. For arch, it's `polkit-kde-agent`.
 
 You can autostart it with
-`exec-once=systemctl --user start plasma-polkit-agent`
+`exec-once=systemctl --user start plasma-polkit-agent`.
 
 On other distributions that use a different init system, such as Gentoo, it may be
 necessary to use
