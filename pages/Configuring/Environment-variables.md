@@ -38,6 +38,7 @@ environment on traditional Linux distros.
 - `HYPRLAND_TRACE=1` - Enables more verbose logging.
 - `HYPRLAND_NO_RT=1` - Disables realtime priority setting by Hyprland.
 - `HYPRLAND_NO_SD_NOTIFY=1` - If systemd, disables the `sd_notify` calls.
+- `HYPRLAND_NO_SD_VARS=1` - Disables management of variables in systemd and dbus activation environments.
 
 ## Toolkit Backend Variables
 
