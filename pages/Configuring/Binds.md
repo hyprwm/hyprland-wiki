@@ -203,7 +203,7 @@ binde = , XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SIN
 bindl = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 
 # Start wofi opens wofi on first press, closes it on second
-bindr = , SUPER_L, exec, pkill wofi || wofi
+bindr = SUPER, SUPER_L, exec, pkill wofi || wofi
 
 # Describe a bind
 bindd = SUPER, Q, Open my favourite terminal, exec, kitty
