@@ -325,6 +325,7 @@ layouts - lists all layouts available (including from plugins)
 configerrors - lists all current config parsing errors
 rollinglog - prints tail of the log. Also supports -f/--follow option
 locked - prints whether the current session is locked.
+descriptions - returns a JSON with all config options, their descriptions and types.
 ```
 
 For the getoption command, the option name should be written as
