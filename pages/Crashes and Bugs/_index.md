@@ -141,3 +141,28 @@ Now, in either `cwd`, `~` or `./build`, search for file(s) named
 `asan.log.XXXXX` where XXXXX is a number.
 
 Zip all of them up and attach to your issue.
+
+## Debugging DRM issues
+
+DRM (Direct Rendering Manager) is the underlying kernel architecture to take a gpu buffer (something
+we can render to) and put it on your screen (via the gpu) instead of a window.
+
+Freezes, glitches, and others, can be caused by issues with Hyprland's communication with DRM, the driver
+or kernel. In those cases, a DRM log is helpful.
+
+_Please note, these logs are EXTREMELY verbose. Please reproduce your bug(s) ASAP to avoid getting a 1GB log_
+
+```sh
+echo 0x19F | sudo tee /sys/module/drm/parameters/debug  # cnables verbose drm logging
+sudo dmesg -C                                           # clears kernel debug logs
+dmesg -w > ~/dmesg.log &                                # writes kernel logs in the background to a file at ~/dmesg.log
+Hyprland
+
+# ... repro the issue, then quit hyprland
+
+
+fg # after this, use CTRL+C to stop writing the logs
+echo 0 | sudo tee /sys/module/drm/parameters/debug # disables drm logging, don't forget this to avoid slowdowns
+```
+
+After this, _attach_ the `dmesg.log` file.
