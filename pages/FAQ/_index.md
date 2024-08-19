@@ -390,3 +390,7 @@ and simply install them again.
 If using yay, make sure to `CleanBuild` every package. If using paru, manually remove the cache of hypr* packages in `~/.cache/paru`.
 
 If you are not using any -git packages, this is a mistake in your distro's packaging and should be solved there.
+
+## My cursor is a hyprland icon?
+
+This means you have no hyprcursor theme installed, and hyprland failed to find an XCursor theme as well. Install a cursor theme.

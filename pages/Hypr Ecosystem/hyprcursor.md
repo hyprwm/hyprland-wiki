@@ -61,3 +61,7 @@ and `~/.icons`.
 
 If you don't have any hyprcursor themes installed, Hyprland will fall back to XCursor, and use
 whatever you define with `XCURSOR_THEME` and `XCURSOR_SIZE`.
+
+## My cursor is a hyprland icon?
+
+See [FAQ](../FAQ)
