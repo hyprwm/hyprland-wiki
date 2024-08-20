@@ -64,4 +64,4 @@ whatever you define with `XCURSOR_THEME` and `XCURSOR_SIZE`.
 
 ## My cursor is a hyprland icon?
 
-See [FAQ](../FAQ)
+See [FAQ](../../FAQ)
