@@ -54,7 +54,11 @@ global
   ↳ border - for animating the border's color switch speed
   ↳ borderangle - for animating the border's gradient angle - styles: once (default), loop
   ↳ workspaces - styles: slide, slidevert, fade, slidefade, slidefadevert
+    ↳ workspacesIn - styles: same as workspaces
+    ↳ workspacesOut - styles: same as workspaces
     ↳ specialWorkspace - styles: same as workspaces
+      ↳ specialWorkspaceIn - styles: same as workspaces
+      ↳ specialWorkspaceOut - styles: same as workspaces
 ```
 
 ## Curves
