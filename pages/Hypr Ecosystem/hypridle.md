@@ -22,7 +22,7 @@ Variables in the `general` category:
 | before_sleep_cmd | command to run when receiving a dbus prepare_sleep event | string | empty |
 | after_sleep_cmd | command to run when receiving a dbus post prepare_sleep event | string | empty |
 | ignore_dbus_inhibit | whether to ignore dbus-sent idle inhibit events (e.g. from firefox) | bool | false |
-| ignore_systemd_inhibit | whether to ignore systemd-inhibit --what=idle inhibitors | bool | false |
+| ignore_systemd_inhibit | whether to ignore `systemd-inhibit --what=idle` inhibitors | bool | false |
 
 ### Listeners
 
