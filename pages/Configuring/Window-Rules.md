@@ -70,7 +70,7 @@ For now, the supported fields for V2 are:
 ```
 class - class regex
 title - title regex
-initialclass - initialClass regex
+initialClass - initialClass regex
 initialTitle - initialTitle regex
 tag - tag name
 xwayland - 0/1
@@ -88,12 +88,6 @@ Keep in mind that you _have_ to declare at least one field, but not all.
 
 To get more information about a window's class, title, XWayland status or its
 size, you can use `hyprctl clients`.
-
-{{< /callout >}}
-
-{{< callout type=warning >}}
-
-Please beware that `hyprctl clients` will display the field as **initialClass** while the WINDOW field in the configuration uses `initialclass`.
 
 {{< /callout >}}
 
