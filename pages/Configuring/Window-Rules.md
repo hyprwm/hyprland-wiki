@@ -78,6 +78,7 @@ floating - 0/1
 fullscreen - 0/1
 pinned - 0/1
 focus - 0/1
+fullscreenstate - [internal] [client]: `*` - any, `0` - none, `1` - maximize, `2` - fullscreen, `3` - maximize and fullscreen
 workspace - id or name: and name
 onworkspace - id, name: and name, or workspace selector (see Workspace Rules)
 ```
@@ -245,6 +246,7 @@ windowrule = animation popin, ^(kitty)$ # sets the animation style for kitty
 windowrule = noblur, ^(firefox)$ # disables blur for firefox
 windowrule = move cursor -50% -50%, ^(kitty)$ # moves kitty to the center of the cursor
 windowrulev2 = bordercolor rgb(FF0000) rgb(880808), fullscreen:1 # set bordercolor to red if window is fullscreen
+windowrulev2 = bordercolor rgb(00FF00), fullscreenstate:* 1 # set bordercolor to green if window's client fullscreen state is 1(maximize) (internal state can be anything)
 windowrulev2 = bordercolor rgb(FFFF00), title:^(.*Hyprland.*)$ # set bordercolor to yellow when title contains Hyprland
 windowrule = opacity 1.0 override 0.5 override 0.8 override, ^(kitty)$ # set opacity to 1.0 active, 0.5 inactive and 0.8 fullscreen for kitty
 windowrule = rounding 10, ^(kitty)$ # set rounding to 10 for kitty
