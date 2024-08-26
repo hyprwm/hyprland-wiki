@@ -147,7 +147,7 @@ in {
 If your themes for mouse cursors, icons or windows don't load correctly, see the
 relevant section in [Hyprland on Home Manager](../Hyprland-on-Home-Manager).
 
-If you prefer not to use home manager, you can also resolve the issues with GTK themes using dconf like so:
+If you prefer not to use Home Manager, you can also resolve the issues with GTK themes using dconf like so:
 
 exec-once = dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita'"
 exec-once = dconf write /org/gnome/desktop/interface/icon-theme "'Flat-Remix-Red-Dark'"
