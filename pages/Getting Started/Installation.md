@@ -178,8 +178,10 @@ Hyprland made it into the Ubuntu 24.10 Oracular Oriole universe repo and can be 
 ```bash
 sudo add-apt-repository universe && sudo apt-get update && sudo apt-get install -y hyprland
 ```
-> [!NOTE]
-> Above is for Ubuntu 24.10 (Unreleased) version
+
+{{< callout type=info >}}
+NOTE: Above is for Ubuntu 24.10 (Unreleased) version
+{{< /callout >}}
 
 For installing Hyprland from Source, install first the dependencies below:
 
