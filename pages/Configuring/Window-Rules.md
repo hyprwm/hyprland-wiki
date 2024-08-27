@@ -67,21 +67,21 @@ terminals.
 
 For now, the supported fields for V2 are:
 
-```
-class - class regex
-title - title regex
-initialClass - initialClass regex
-initialTitle - initialTitle regex
-tag - tag name
-xwayland - 0/1
-floating - 0/1
-fullscreen - 0/1
-pinned - 0/1
-focus - 0/1
-fullscreenstate - [internal] [client]: `*` - any, `0` - none, `1` - maximize, `2` - fullscreen, `3` - maximize and fullscreen
-workspace - id or name: and name
-onworkspace - id, name: and name, or workspace selector (see Workspace Rules)
-```
+| Field | Description |
+| -------------- | --------------- |
+| class:\[regex\] | Windows with `class` matching `regex`. |
+| title:\[regex\] | Windows with `title` matching `regex`. |
+| initialClass:\[regex\] | Windows with `initialClass` matching `regex`. |
+| initialTitle:\[regex\] | Windows with `initialTitle` matching `regex`. |
+| tag:\[name\] | Windows with matching `tag`. |
+| xwayland:\[0/1\] | Xwayland windows. |
+| floating:\[0/1\] | Floating windows. |
+| fullscreen:\[0/1\] | Fullscreen windows. |
+| pinned:\[0/1\] | Pinned windows. |
+| focus:\[0/1\] | Currently focused window. |
+| fullscreenstate:\[internal\] \[client\] | Windows with matching `fullscreenstate`. `internal` and `client` can be `*` - any, `0` - none, `1` - maximize, `2` - fullscreen, `3` - maximize and fullscreen. |
+| workspace:\[w\] | Windows on matching workspace. `w` can be `id` or `name:string`. |
+| onworkspace:\[w\] | Windows on matching workspace. `w` can be `id`, `name:string` or `workspace selector`. |
 
 Keep in mind that you _have_ to declare at least one field, but not all.
 
