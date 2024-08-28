@@ -153,6 +153,8 @@ where `CMD` is either `next` for next, `prev` for previous, or `ID` for a
 specific one (in the above case, `us`: 0, `pl`: 1, `de`: 2). You can find the
 `DEVICE` using `hyprctl devices` command.
 
+`DEVICE` can also be `current` or `all`, self-explanatory. Current is the `main` keyboard from `devices`.
+
 Example command for a typical keyboard:
 
 ```sh
