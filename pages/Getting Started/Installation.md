@@ -194,7 +194,8 @@ sudo apt-get install -y meson wget build-essential ninja-build cmake-extras cmak
 you will also need to build the latest wayland, wayland-protocols, and
 libdisplay-info tagged releases from source
 
-For screensharing, you can install also install xdg-desktop-portal-wlr or xdg-desktop-portal-hyprland 
+For screensharing, you can also `install xdg-desktop-portal-wlr` or `xdg-desktop-portal-hyprland`
+
 ```bash
 sudo apt-get install -y xdg-desktop-portal-wlr
 ```
@@ -206,7 +207,6 @@ See
 
 Refer to
 [XDPH](../../Hypr-Ecosystem/xdg-desktop-portal-hyprland) for more information
-
 
 for more info refer to the
 [Ubuntu Guide For Installing And Building Hyprland Gist](https://gist.github.com/Vertecedoc4545/3b077301299c20c5b9b4db00f4ca6000)
