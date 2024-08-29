@@ -180,7 +180,9 @@ sudo add-apt-repository universe && sudo apt-get update && sudo apt-get install 
 ```
 
 {{< callout type=info >}}
+
 NOTE: Above is for Ubuntu 24.10 (Unreleased) version
+
 {{< /callout >}}
 
 For installing Hyprland from Source, install first the dependencies below:
@@ -191,6 +193,20 @@ sudo apt-get install -y meson wget build-essential ninja-build cmake-extras cmak
 
 you will also need to build the latest wayland, wayland-protocols, and
 libdisplay-info tagged releases from source
+
+For screensharing, you can install also install xdg-desktop-portal-wlr or xdg-desktop-portal-hyprland 
+```bash
+sudo apt-get install -y xdg-desktop-portal-wlr
+```
+
+_Unfortunately, `xdg-desktop-portal-hyprland` still not in Ubuntu Repo so you have to build it from source_
+
+See
+[The xdph Github repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland).
+
+Refer to
+[XDPH](../../Hypr-Ecosystem/xdg-desktop-portal-hyprland) for more information
+
 
 for more info refer to the
 [Ubuntu Guide For Installing And Building Hyprland Gist](https://gist.github.com/Vertecedoc4545/3b077301299c20c5b9b4db00f4ca6000)
