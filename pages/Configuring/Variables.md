@@ -378,6 +378,7 @@ _Subcategory `group:groupbar:`_
 | exit_window_retains_fullscreen | if true, closing a fullscreen window makes the next focused window fullscreen | bool | false |
 | initial_workspace_tracking | if enabled, windows will open on the workspace they were invoked on. 0 - disabled, 1 - single-shot, 2 - persistent (all children too) | int | 1 |
 | middle_click_paste | whether to enable middle-click-paste (aka primary selection) | bool | true |
+| render_unfocused_fps | the maximum limit for renderunfocused windows' fps in the background | int | 15 |
 
 ### Binds
 
