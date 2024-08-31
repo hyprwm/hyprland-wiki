@@ -62,6 +62,16 @@ When running Hyprland in Debug mode, the config is
 `~/.config/hypr/hyprlandd.conf` and the logs can be found at
 `$XDG_RUNTIME_DIR/hypr/[INSTANCE SIGNATURE]/hyprlandd.log`.
 
+## Nesting Hyprland
+
+Hyprland can run nested in a window. For that, make sure you did the following:
+
+- built in debug
+- removed all `exec=` and `exec-once=` keywords from your debug config
+  (`hyprlandd.conf`)
+- made sure no keybinds overlap (use a different mod for your keybinds
+  altogether)
+
 ## LSP and Formatting
 
 If you want proper LSP support in an editor that doesn't automatically set it
@@ -96,18 +106,3 @@ for live logs. (replace `hyprland` with `hyprlandd` for debug builds)
 
 See
 [`ISSUE_GUIDELINES.md`](https://github.com/hyprwm/Hyprland/blob/main/docs/ISSUE_GUIDELINES.md).
-
-## Nesting Hyprland
-
-Hyprland can run nested in a window. For that, make sure you did the following:
-
-- built in debug
-- removed ALL `exec=` and `exec-once=` keywords from your debug config
-  (`hyprlandd.conf`)
-- set a resolution for `WL-1` and are not using `preferred`
-- made sure no keybinds overlap (use a different mod for your keybinds
-  altogether)
-
-Once you launch, the display might be cropped. This can be fixed by setting the
-resolution for `WL-1` to the exact dimensions of the window as reported by
-`hyprctl clients`.
