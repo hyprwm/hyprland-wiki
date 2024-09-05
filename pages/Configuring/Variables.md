@@ -319,6 +319,7 @@ Described [here](../Keywords#per-device-input-configs).
 | --- | --- | --- | --- |
 | insert_after_current | whether new windows in a group spawn after current or at group tail | bool | true |
 | focus_removed_window | whether Hyprland should focus on the window that has just been moved out of the group | bool | true |
+| merge_groups_on_drag | whether window groups can be dragged into other groups | bool | true |
 | col.border_active | active group border color | gradient | 0x66ffff00 |
 | col.border_inactive | inactive (out of focus) group border color | gradient | 0x66777700 |
 | col.border_locked_active | active locked group border color | gradient | 0x66ff5500 |
