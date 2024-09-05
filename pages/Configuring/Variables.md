@@ -399,6 +399,7 @@ _Subcategory `group:groupbar:`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
+| enabled | allow running applications using X11 | bool | true |
 | use_nearest_neighbor | uses the nearest neighbor filtering for xwayland apps, making them pixelated rather than blurry | bool | true |
 | force_zero_scaling | forces a scale of 1 on xwayland windows on scaled displays. | bool | false |
 
