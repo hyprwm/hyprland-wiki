@@ -48,18 +48,20 @@ Report an issue on GitHub or on the Discord server.
 
 ## Obtaining a debug stacktrace
 
-Systemd-only.
+> Systemd-only.
 
-Build hyprland in debug (`make debug`) and run. Get it to crash. Then, in a tty or terminal, do
-`coredumpctl debug Hyprland`.
-
-If gdb asks you for symbols, say `y`, if it asks about paging, say `c`.
-
-Once you get to `(gdb)`, run `bt -full` and post the output.
+1. Build Hyprland in debug (`make debug`).
+2. Start Hyprland and get it to crash.
+3. In a tty or terminal, do `coredumpctl debug Hyprland`.
+    - If gdb asks you for symbols, say `y`.
+    - If it asks about paging, say `c`.
+4. Once you get to `(gdb)`, start file logging with `set logging on`.
+    - For a specific file, use `set logging file output.log`.
+5. Run `bt -full`, then `exit` once finished, and attach the output.
 
 ## Obtaining a trace log
 
-launch Hyprland with `HYPRLAND_TRACE=1 AQ_TRACE=1` environment variables set.
+Launch Hyprland with `HYPRLAND_TRACE=1 AQ_TRACE=1` environment variables set.
 
 These variables will enable _very_ verbose logging and it's not recommended to enable them unless debugging, as they
 might cause slowdowns and _massive_ log files.
