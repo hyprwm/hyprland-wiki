@@ -26,12 +26,16 @@ three_param_keyword = A, B,   # OK
 
 ## Executing
 
-You can execute a shell script on startup of the compositor or every time 
-the config is reloaded.
+You can execute a shell script on:
+- startup of the compositor
+- every time the config is reloaded.
+- shutdown of the compositor
 
 `exec-once = command` will execute only on launch
 
 `exec = command` will execute on each reload
+
+`exec-shutdown = command` will execute only on shutdown
 
 ## Defining variables
 
