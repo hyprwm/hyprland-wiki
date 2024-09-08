@@ -37,7 +37,7 @@ Please bear in mind 3D acceleration in VMs may be pretty slow.
 
 ## Launching Hyprland
 
-Hyprland can be executed by typing `hyprland` in your tty.
+Hyprland can be executed by typing `Hyprland` in your tty.
 
 {{< callout type=warning >}}
 
@@ -45,7 +45,7 @@ Do **not** launch Hyprland with `root` permissions (don't `sudo`)
 
 {{< /callout >}}
 
-You can see some launch flags by doing `hyprland -h`, these include setting the
+You can see some launch flags by doing `Hyprland -h`, these include setting the
 config path, ignoring a check for the above, etc.
 
 Login managers are not officially supported, but here's a short compatibility
