@@ -329,3 +329,4 @@ namespaces in `hyprctl layers`) or `address` is an address in the form of
 | dimaround | dims everything behind the layer |
 | xray \[on\] | sets the blur xray mode for a layer. 0 for off, 1 for on, unset for default. |
 | animation \[style\] | allows you to set a specific animation style for this layer |
+| order \[n\] | sets the order relative to other layers. Higher means closer to the edge of the monitor. Can be negative. `n = 0` if unspecified. |
