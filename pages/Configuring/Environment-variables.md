@@ -40,6 +40,14 @@ environment on traditional Linux distros.
 - `HYPRLAND_NO_SD_NOTIFY=1` - If systemd, disables the `sd_notify` calls.
 - `HYPRLAND_NO_SD_VARS=1` - Disables management of variables in systemd and dbus activation environments.
 
+## Aquamarine Environment Variables <!-- ref https://github.com/hyprwm/aquamarine/blob/main/docs/env.md -->
+
+- `AQ_TRACE=1` - Enables more verbose logging.
+- `AQ_DRM_DEVICES=` - Set an explicit list of DRM devices (GPUs) to use. It's a colon-separated list of paths, with the first being the primary.
+  E.g. `/dev/dri/card1:/dev/dri/card0`
+- `AQ_MGPU_NO_EXPLICIT=1` - Disables explicit syncing on mgpu buffers
+- `AQ_NO_MODIFIERS=1` - Disables modifiers for DRM buffers
+
 ## Toolkit Backend Variables
 
 - `env = GDK_BACKEND,wayland,x11,*` - GTK: Use wayland if available. If not: try x11, then any other GDK backend.
