@@ -76,12 +76,7 @@ Here's an example binding:
 utility, try our own screenshotting utility:
 [Grimblast](https://github.com/hyprwm/contrib).
 
-You can also use `hyprshot` to do this, for example:
-`bind = , Print, exec, hyprshot -m region`
-or
-`bind = $mainMod, PRINT, exec, hyprshot -m window`
-Hyprshot also automatically saves the screenshot to the clipboard
-You can also use the `--freeze` flag (needs `hyprpicker` installed) to freeze your monitor while your screenshot.
+You can also use `hyprshot` to do this, more info [here](https://github.com/Gustash/Hyprshot).
 
 For recording videos, [wf-recorder](https://github.com/ammen99/wf-recorder),
 [wl-screenrec](https://github.com/russelltg/wl-screenrec) or
