@@ -76,6 +76,8 @@ Here's an example binding:
 utility, try our own screenshotting utility:
 [Grimblast](https://github.com/hyprwm/contrib).
 
+You can also use hyprshot, more info [here](https://github.com/Gustash/Hyprshot).
+
 For recording videos, [wf-recorder](https://github.com/ammen99/wf-recorder),
 [wl-screenrec](https://github.com/russelltg/wl-screenrec) or
 [OBS Studio](https://obsproject.com/) could be used.
