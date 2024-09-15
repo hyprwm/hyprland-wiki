@@ -160,6 +160,7 @@ The following rules can also be set with [`hyprctl setprop`](../Using-hyprctl#se
 | syncfullscreen \[on\] | whether the fullscreen mode should always be the same as the one sent to the window (will only take effect on the next fullscreen mode change) |
 | immediate \[on\] | forces the window to allow to be torn. See [the Tearing page](../Tearing). |
 | xray \[on\] | sets blur xray mode for the window |
+| renderunfocused | forces the window to think it's being rendered when it's not visible |
 
 When using window rules, \[on\] can be set to `0` for off, `1` for on or not set
 for default.
@@ -328,3 +329,4 @@ namespaces in `hyprctl layers`) or `address` is an address in the form of
 | dimaround | dims everything behind the layer |
 | xray \[on\] | sets the blur xray mode for a layer. 0 for off, 1 for on, unset for default. |
 | animation \[style\] | allows you to set a specific animation style for this layer |
+| order \[n\] | sets the order relative to other layers. Higher means closer to the edge of the monitor. Can be negative. `n = 0` if unspecified. |

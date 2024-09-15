@@ -34,7 +34,13 @@ Make sure to check out the options of the
 # configuration.nix
 
 {
-  programs.hyprland.enable = true;
+  programs = {
+    kitty.enable = true;    # required for the default Hyprland config
+    hyprland.enable = true; # enable Hyprland
+  };
+
+  # Optional, hint Electron apps to use Wayland:
+  # environment.sessionVariables.NIXOS_OZONE_WL = "1";
 }
 ```
 
@@ -76,7 +82,10 @@ this:
 {inputs, pkgs, ...}: {
   programs.hyprland = {
     enable = true;
+    # set the flake package
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # make sure to also set the portal package, so that they are in sync
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 }
 ```
@@ -133,7 +142,10 @@ have to compile Hyprland yourself.
 in {
   programs.hyprland = {
     enable = true;
+    # set the flake package
     package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # make sure to also set the portal package, so that they are in sync
+    portalPackage = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 }
 ```
@@ -146,3 +158,14 @@ in {
 
 If your themes for mouse cursors, icons or windows don't load correctly, see the
 relevant section in [Hyprland on Home Manager](../Hyprland-on-Home-Manager).
+
+If you prefer not to use Home Manager, you can also resolve the issues with GTK
+themes using dconf like so:
+
+```ini
+exec-once = dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita'"
+exec-once = dconf write /org/gnome/desktop/interface/icon-theme "'Flat-Remix-Red-Dark'"
+exec-once = dconf write /org/gnome/desktop/interface/document-font-name "'Noto Sans Medium 11'"
+exec-once = dconf write /org/gnome/desktop/interface/font-name "'Noto Sans Medium 11'"
+exec-once = dconf write /org/gnome/desktop/interface/monospace-font-name "'Noto Sans Mono Medium 11'"
+```

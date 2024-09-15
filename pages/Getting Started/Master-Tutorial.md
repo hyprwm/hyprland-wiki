@@ -37,7 +37,7 @@ Please bear in mind 3D acceleration in VMs may be pretty slow.
 
 ## Launching Hyprland
 
-Hyprland can be executed by typing `hyprland` in your tty.
+Hyprland can be executed by typing `Hyprland` in your tty.
 
 {{< callout type=warning >}}
 
@@ -45,7 +45,7 @@ Do **not** launch Hyprland with `root` permissions (don't `sudo`)
 
 {{< /callout >}}
 
-You can see some launch flags by doing `hyprland -h`, these include setting the
+You can see some launch flags by doing `Hyprland -h`, these include setting the
 config path, ignoring a check for the above, etc.
 
 Login managers are not officially supported, but here's a short compatibility
@@ -60,7 +60,21 @@ list:
   [ReGreet](https://github.com/rharish101/ReGreet).
 - ly → Works poorly.
 
-## In Hyprland
+## DE-like pre-configured setups
+
+Do you want to just get Hyprland pre-configured like a DE,
+without making your own configuration from scratch?
+
+Check out the [Preconfigured setups page](../Preconfigured-setups)
+to see a few options.
+
+These dotfiles should do everything for you, and have their own tutorials as well.
+
+If you choose to use those, you can skip the next step. However, it's still recommended to read all the points below
+it. They'll give you recommended apps, replacements for old X11 software, information about configuring displays,
+etc.
+
+## In Hyprland with the default config
 
 You're good to go with your adventure, technically.
 

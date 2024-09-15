@@ -55,7 +55,6 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 
 | name | description | type | default |
 |---|---|---|---|
-| sensitivity | mouse sensitivity (legacy, may cause bugs if not 1, prefer `input:sensitivity`) | float | 1.0 |
 | border_size | size of the border around windows | int | 1 |
 | no_border_on_floating | disable borders for floating windows | bool | false |
 | gaps_in | gaps between windows, also supports css style gaps (top, right, bottom, left -> 5,10,15,20) | int | 5 |
@@ -67,19 +66,11 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 | col.nogroup_border_active | active border color for window that cannot be added to a group | gradient | 0xffff00ff |
 | layout | which layout to use. [dwindle/master] | str | dwindle |
 | no_focus_fallback | if true, will not fall back to the next available window when moving focus in a direction where no window was found | bool | false |
-| apply_sens_to_raw | if on, will also apply the sensitivity to raw mouse output (e.g. sensitivity in games) **NOTICE:** ***really*** not recommended. | bool | false |
 | resize_on_border | enables resizing windows by clicking and dragging on borders and gaps | bool | false |
 | extend_border_grab_area | extends the area around the border where you can click and drag on, only used when `general:resize_on_border` is on. | int | 15 |
 | hover_icon_on_border | show a cursor icon when hovering over borders, only used when `general:resize_on_border` is on. | bool | true |
 | allow_tearing | master switch for allowing tearing to occur. See [the Tearing page](../Tearing). | bool | false |
 | resize_corner | force floating windows to use a specific corner when being resized (1-4 going clockwise from top left, 0 to disable) | int | 0 |
-
-{{< callout type=warning >}}
-
-Prefer using `input:sensitivity` over `general:sensitivity` to avoid bugs,
-especially with Wine/Proton apps.
-
-{{< /callout >}}
 
 ### Decoration
 
@@ -319,6 +310,7 @@ Described [here](../Keywords#per-device-input-configs).
 | --- | --- | --- | --- |
 | insert_after_current | whether new windows in a group spawn after current or at group tail | bool | true |
 | focus_removed_window | whether Hyprland should focus on the window that has just been moved out of the group | bool | true |
+| merge_groups_on_drag | whether window groups can be dragged into other groups | bool | true |
 | col.border_active | active group border color | gradient | 0x66ffff00 |
 | col.border_inactive | inactive (out of focus) group border color | gradient | 0x66777700 |
 | col.border_locked_active | active locked group border color | gradient | 0x66ff5500 |
@@ -378,6 +370,7 @@ _Subcategory `group:groupbar:`_
 | exit_window_retains_fullscreen | if true, closing a fullscreen window makes the next focused window fullscreen | bool | false |
 | initial_workspace_tracking | if enabled, windows will open on the workspace they were invoked on. 0 - disabled, 1 - single-shot, 2 - persistent (all children too) | int | 1 |
 | middle_click_paste | whether to enable middle-click-paste (aka primary selection) | bool | true |
+| render_unfocused_fps | the maximum limit for renderunfocused windows' fps in the background | int | 15 |
 
 ### Binds
 
@@ -398,6 +391,7 @@ _Subcategory `group:groupbar:`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
+| enabled | allow running applications using X11 | bool | true |
 | use_nearest_neighbor | uses the nearest neighbor filtering for xwayland apps, making them pixelated rather than blurry | bool | true |
 | force_zero_scaling | forces a scale of 1 on xwayland windows on scaled displays. | bool | false |
 

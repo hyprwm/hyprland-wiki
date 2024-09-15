@@ -41,7 +41,7 @@ from source first.
 
 Install from the AUR, which compiles the latest source:
 ```shell
-sudo yay -S hyprland-git
+yay -S hyprland-git
 ```
 
 or a tagged release from the arch packages:

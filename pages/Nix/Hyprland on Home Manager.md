@@ -28,7 +28,11 @@ For a list of available options, check the
 
 ```nix
 {
-  wayland.windowManager.hyprland.enable = true;
+  programs.kitty.enable = true; # required for the default Hyprland config
+  wayland.windowManager.hyprland.enable = true; # enable Hyprland
+
+  # Optional, hint Electron apps to use Wayland:
+  # home.sessionVariables.NIXOS_OZONE_WL = "1";
 }
 ```
 
@@ -36,16 +40,8 @@ For a list of available options, check the
 
 {{< tab "Flakes" >}}
 
-{{< callout >}}
-
-The flake module is merely an extension to the Home Manager downstream module.
-It is mainly used as a staging area for new options, so unless you're a tester
-you should use the downstream Home Manager module.
-
-{{< /callout >}}
-
 The following snippet of code tries to show how to bring the Hyprland flake from
-the flake input and import it into the module system. Feel free to make any
+the flake input and use its packages with Home Manager. Feel free to make any
 adjustment for your setup.
 
 Don't forget to replace `user@hostname` with your username and hostname!
@@ -70,9 +66,12 @@ Don't forget to replace `user@hostname` with your username and hostname!
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
 
       modules = [
-        hyprland.homeManagerModules.default
         {
-          wayland.windowManager.hyprland.enable = true;
+          wayland.windowManager.hyprland = {
+            enable = true;
+            # set the flake package
+            package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+          };
         }
         # ...
       ];
@@ -83,7 +82,7 @@ Don't forget to replace `user@hostname` with your username and hostname!
 
 {{< /tab >}}
 
-{{< tab "No flakes (with flake-compat)" >}}
+{{< tab "Nix stable (with flake-compat)" >}}
 
 {{< callout >}}
 
@@ -103,7 +102,7 @@ make any adjustment for your setup.
 {pkgs, ...}: let
   flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
 
-  hyprland-flake = (import flake-compat {
+  hyprland = (import flake-compat {
     # we're not using pkgs.fetchgit as that requires a hash to be provided
     src = builtins.fetchGit {
       url = "https://github.com/hyprwm/Hyprland.git";
@@ -113,8 +112,8 @@ make any adjustment for your setup.
 in {
   wayland.windowManager.hyprland = {
     enable = true;
-
-    package = hyprland-flake.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # set the flake package
+    package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   }
 }
 ```
@@ -141,19 +140,15 @@ Here is an example config:
       ]
       ++ (
         # workspaces
-        # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
-        builtins.concatLists (builtins.genList (
-            x: let
-              ws = let
-                c = (x + 1) / 10;
-              in
-                builtins.toString (x + 1 - (c * 10));
+        # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
+        builtins.concatLists (builtins.genList (i:
+            let ws = i + 1;
             in [
-              "$mod, ${ws}, workspace, ${toString (x + 1)}"
-              "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+              "$mod, code:1${toString i}, workspace, ${toString ws}"
+              "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
             ]
           )
-          10)
+          9)
       );
   };
 }
