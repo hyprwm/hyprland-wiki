@@ -190,3 +190,4 @@ Config file `~/.config/hypr/xdph.conf` allows for these variables:
 | variable | description                                               | type | default value |
 | -------- | --------------------------------------------------------- | ---- | ------------- |
 | max_fps  | Maximum fps of a screensharing session. 0 means no limit. | int  | 120           |
+| allow_token_by_default  | If enabled, will tick the "Allow restore token" box by default | bool  | false           |
