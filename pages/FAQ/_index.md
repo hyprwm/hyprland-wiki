@@ -387,7 +387,7 @@ can work around the issue by adding in your `hyprland.conf`:
 monitor = Unknown-1,disabled
 ```
 
-## I get a .so file missing error on launch
+### I get a .so file missing error on launch
 
 If you are using a -git package, this is a common occurrence when ABI-breaking updates are done.
 
@@ -400,6 +400,6 @@ If using yay, make sure to `CleanBuild` every package. If using paru, manually r
 
 If you are not using any -git packages, this is a mistake in your distro's packaging and should be solved there.
 
-## My cursor is a hyprland icon?
+### My cursor is a hyprland icon?
 
 This means you have no hyprcursor theme installed, and hyprland failed to find an XCursor theme as well. Install a cursor theme.
