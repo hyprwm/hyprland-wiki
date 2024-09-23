@@ -27,7 +27,6 @@ These are all the events that can be listened to using Event Hooks.
 | closeWindow | fired when a window is unmapped | `PHLWINDOW` | ✕ |
 | windowUpdateRules | fired when a window's rules are updated | `PHLWINDOW` | ✕ |
 | urgent | fired when a window requests urgent | `PHLWINDOW` | ✕ |
-| minimize | fired when a window requests a minimize status change. Second param is 1 or 0 | `std::vector<std::any>{PHLWINDOW, int64_t}` | ✕ |
 | monitorAdded | fired when a monitor is plugged in | `CMonitor*` | ✕ |
 | monitorRemoved | fired when a monitor is unplugged | `CMonitor*` | ✕ |
 | createWorkspace | fired when a workspace is created | `PHLWORKSPACE` | ✕ |
