@@ -25,7 +25,7 @@ Variables in the `general` category:
 | immediate_render | makes hyprlock immediately start to draw widgets. Backgrounds will render `background:color` until their `background:path` resource is available | bool | false |
 | pam_module | sets the pam module used for authentication. If the module isn't found in `/etc/pam.d`, "su" will be used as a fallback | str | hyprlock |
 | text_trim | sets if the text should be trimmed, useful to avoid trailing newline in commands output | bool | true |
-| fractional_scaling | whether to use fractional scaling. 0 - disabled, 1 - enabled, 2 - auto (default) | int | 2 |
+| fractional_scaling | whether to use fractional scaling. 0 - disabled, 1 - enabled, 2 - auto | int | 2 |
 
 ## Keyboard Shortcuts and Actions
 
