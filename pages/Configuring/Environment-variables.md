@@ -39,6 +39,7 @@ environment on traditional Linux distros.
 - `HYPRLAND_NO_RT=1` - Disables realtime priority setting by Hyprland.
 - `HYPRLAND_NO_SD_NOTIFY=1` - If systemd, disables the `sd_notify` calls.
 - `HYPRLAND_NO_SD_VARS=1` - Disables management of variables in systemd and dbus activation environments.
+- `HYPRLAND_CONFIG` - Specifies where you want your Hyprland configuration.
 
 ## Aquamarine Environment Variables <!-- ref https://github.com/hyprwm/aquamarine/blob/main/docs/env.md -->
 
