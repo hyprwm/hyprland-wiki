@@ -296,6 +296,32 @@ apk add hyprland
 
 {{% /details %}}
 
+{{% details title="Ximper*" closed="true" %}}
+
+Install from the Sisyphus:
+
+```bash
+epmi hyprland
+epmi hyprland-devel # If you want to use plugins
+```
+
+or legacyrenderer version:
+
+```bash
+epmi hyprland-legacyrenderer
+```
+
+Ecosystem:
+
+```bash
+epmi xdg-desktop-portal-hyprland
+epmi hypridle
+epmi hyprpaper
+epmi hyprpicker
+```
+
+{{% /details %}}
+
 _**\* Unofficial, no official support is provided. These instructions are
 community-driven, and no guarantee is provided for their validity.**_
 
