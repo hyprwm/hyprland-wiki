@@ -308,6 +308,7 @@ Described [here](../Keywords#per-device-input-configs).
 
 | name | description | type | default |
 | --- | --- | --- | --- |
+| auto_group | whether new windows are automatically grouped into the focused and not-locked group, or manually instead | bool | true |
 | insert_after_current | whether new windows in a group spawn after current or at group tail | bool | true |
 | focus_removed_window | whether Hyprland should focus on the window that has just been moved out of the group | bool | true |
 | merge_groups_on_drag | whether window groups can be dragged into other groups | bool | true |
