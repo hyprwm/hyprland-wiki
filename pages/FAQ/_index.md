@@ -263,10 +263,6 @@ Setting `misc:middle_click_paste` to `false` disables the feature altogether wit
 - `misc:vfr = true`, since it'll lower the amount of sent frames when nothing is
   happening on-screen.
 
-### How to fix games with window dancing?
-
-Read [this trick](../Configuring/Uncommon-tips--tricks/#window-dancing).
-
 ### My apps take a long time to start / can't screenshare
 
 See [The XDPH Page](../Useful-Utilities/xdg-desktop-portal-hyprland).
