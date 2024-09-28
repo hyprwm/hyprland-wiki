@@ -119,7 +119,6 @@ Static rules are evaluated once when the window is opened and never again.
 | group \[options\] | set window group properties. See the note below. |
 | suppressevent \[types...\] | ignores specific events from the window. Events are space separated, and can be: `fullscreen` `maximize` `activate` `activatefocus` |
 
-
 ### Dynamic rules
 
 Dynamic rules are re-evaluated every time a property changes.
@@ -160,7 +159,7 @@ The following rules can also be set with [`hyprctl setprop`](../Using-hyprctl#se
 | syncfullscreen \[on\] | whether the fullscreen mode should always be the same as the one sent to the window (will only take effect on the next fullscreen mode change) |
 | immediate \[on\] | forces the window to allow to be torn. See [the Tearing page](../Tearing). |
 | xray \[on\] | sets blur xray mode for the window |
-| renderunfocused | forces the window to think it's being rendered when it's not visible |
+| renderunfocused | forces the window to think it's being rendered when it's not visible - see also [Variables - Misc](../Variables/#Misc) for setting ``render_unfocused_fps`` |
 
 When using window rules, \[on\] can be set to `0` for off, `1` for on or not set
 for default.
@@ -237,7 +236,6 @@ windowrulev2 = opacity 0.4 override, tag:alpha_0.4
 The `tag` rule can only manipulate dynamic tags, and the `tagwindow` dispatcher
 only work with static tags (as once the dispatcher is called, dynamic tags will
 be cleared).
-
 
 ### Example Rules
 
@@ -316,7 +314,7 @@ where `rule` is the rule and `namespace` is the namespace regex (find
 namespaces in `hyprctl layers`) or `address` is an address in the form of
 `address:0x[hex]`.
 
-### Rules
+### List of Rules
 
 | rule | description |
 | --- | --- |

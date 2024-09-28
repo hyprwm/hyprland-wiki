@@ -95,7 +95,9 @@ Usage:
 ```sh
 hyprctl output create [backend] (name)
 ```
+
 or
+
 ```sh
 hyprctl output remove [name]
 ```
@@ -110,7 +112,8 @@ used (`HEADLESS-2`, `WL-1`, etc.)
 
 {{< /callout >}}
 
-Available backends: 
+Available backends:
+
 - `wayland`: Creates an output as a Wayland window. This will only work if
   you're already running Hyprland with the Wayland backend.
 - `headless`: Creates a headless monitor output. If you're running a VNC/RDP/
@@ -199,11 +202,13 @@ added, will be unlocked. Locking means a dynamic windowrule _cannot_ override
 this setting.
 
 Usage:
+
 ```sh
 hyprctl setprop <mode:regex> <property> <value> [lock]
 ```
 
 Regex supports different modes. The supported modes are:
+
 ```ini
 class - class
 title - title
@@ -233,6 +238,7 @@ and **initialTitle** while the regex mode uses `initialclass` and
 {{< /callout >}}
 
 Prop List:
+
 | prop | comment |
 | --- | --- |
 | alpha | float 0.0 - 1.0 |
@@ -250,6 +256,7 @@ Prop List:
 Additional properties can be found in the [Window Rules](../Window-Rules#dynamic-rules) section.
 
 For example:
+
 ```sh
 hyprctl setprop address:0x13371337 noanim 1
 hyprctl setprop address:0x13371337 nomaxsize 0
@@ -277,7 +284,7 @@ Color of `0` means "Default color for icon"
 
 Icon list:
 
-```
+```sh
 WARNING = 0
 INFO = 1
 HINT = 2
