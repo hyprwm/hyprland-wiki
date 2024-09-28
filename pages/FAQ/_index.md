@@ -63,7 +63,7 @@ external monitor through the iGPU.
 
 ### How do I screenshot?
 
-Install `grim` and `slurp`.
+**Option 1:** Install `grim` and `slurp`.
 
 Use a keybind (or execute) `grim -g "$(slurp)"`, and select a region. A screenshot
 will pop into your `~/Pictures/` (You can configure grim and slurp, see their
@@ -76,7 +76,26 @@ Here's an example binding:
 utility, try our own screenshotting utility:
 [Grimblast](https://github.com/hyprwm/contrib).
 
-You can also use hyprshot, more info [here](https://github.com/Gustash/Hyprshot).
+**Option 2:** Install `flameshot`.
+
+Flameshot has more built-in features like allowing you to draw with a paintbrush,
+add lines, add shapes, etc.
+
+It was built originally for X and there are some issues on Wayland because of it
+so we have to do some configuration:
+
+```
+# noanim isn't necessary but animations with these rules might look bad. use at your own discretion.
+windowrulev2 = noanim, class:^(flameshot)$
+windowrulev2 = float, class:^(flameshot)$
+windowrulev2 = move 0 0, class:^(flameshot)$
+windowrulev2 = pin, class:^(flameshot)$
+# set this to your leftmost monitor id, otherwise you have to move your cursor to the leftmost monitor
+# before executing flameshot
+windowrulev2 = monitor 1, class:^(flameshot)$
+```
+
+**Option 3:** You can also use hyprshot, more info [here](https://github.com/Gustash/Hyprshot).
 
 For recording videos, [wf-recorder](https://github.com/ammen99/wf-recorder),
 [wl-screenrec](https://github.com/russelltg/wl-screenrec) or
