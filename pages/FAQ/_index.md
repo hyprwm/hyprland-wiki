@@ -76,13 +76,19 @@ Here's an example binding:
 utility, try our own screenshotting utility:
 [Grimblast](https://github.com/hyprwm/contrib).
 
-**Option 2:** Install `flameshot`.
+**Option 2:** You can also use hyprshot, more info [here](https://github.com/Gustash/Hyprshot).
 
-Flameshot has more built-in features like allowing you to draw with a paintbrush,
+
+**Option 3:** Install `flameshot`.
+
+Flameshot has many built-in features like allowing you to draw with a paintbrush,
 add lines, add shapes, etc.
 
-It was built originally for X and there are some issues on Wayland because of it
-so we have to do some configuration:
+Flameshot was built originally for X and **it has many issues on Wayland** and users
+with HiDPI and multi-monitor setups have had mixed experiences with Flameshot.
+The options above are smoother and more native to Wayland. If you still want to
+use Flameshot, here are some configuration recommendations by users who've found
+workarounds.
 
 ```
 # noanim isn't necessary but animations with these rules might look bad. use at your own discretion.
@@ -94,12 +100,10 @@ windowrulev2 = pin, class:^(flameshot)$
 # before executing flameshot
 windowrulev2 = monitor 1, class:^(flameshot)$
 
-# ctrl-c to copy from the flameshot gui gives warped images sometimes.
-# piping it into wl-copy seems to always work though
-bind = ..., exec, flameshot gui --raw | wl-copy
+# ctrl-c to copy from the flameshot gui gives warped images sometimes, but
+# setting the env fixes it
+bind = ..., exec, XDG_CURRENT_DESKTOP=sway flameshot gui
 ```
-
-**Option 3:** You can also use hyprshot, more info [here](https://github.com/Gustash/Hyprshot).
 
 For recording videos, [wf-recorder](https://github.com/ammen99/wf-recorder),
 [wl-screenrec](https://github.com/russelltg/wl-screenrec) or
