@@ -314,7 +314,7 @@ where `rule` is the rule and `namespace` is the namespace regex (find
 namespaces in `hyprctl layers`) or `address` is an address in the form of
 `address:0x[hex]`.
 
-### List of Rules
+### Rules
 
 | rule | description |
 | --- | --- |
