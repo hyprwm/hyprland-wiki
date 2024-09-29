@@ -69,6 +69,9 @@ XDG specific environment variables are often detected through portals and
 applications that may set those for you, however it is not a bad idea to set
 them explicitly.
 
+If your [desktop portal](https://wiki.archlinux.org/title/XDG_Desktop_Portal) is malfunctioning for seemingly
+no reason (no errors), it's likely your XDG env isn't set correctly.
+
 ## Qt Variables
 
 - `env = QT_AUTO_SCREEN_SCALE_FACTOR,1` -
