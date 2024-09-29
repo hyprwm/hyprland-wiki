@@ -93,6 +93,10 @@ windowrulev2 = pin, class:^(flameshot)$
 # set this to your leftmost monitor id, otherwise you have to move your cursor to the leftmost monitor
 # before executing flameshot
 windowrulev2 = monitor 1, class:^(flameshot)$
+
+# ctrl-c to copy from the flameshot gui gives warped images sometimes.
+# piping it into wl-copy seems to always work though
+bind = ..., exec, flameshot gui --raw | wl-copy
 ```
 
 **Option 3:** You can also use hyprshot, more info [here](https://github.com/Gustash/Hyprshot).
