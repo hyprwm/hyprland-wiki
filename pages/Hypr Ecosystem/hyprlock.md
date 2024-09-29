@@ -30,7 +30,7 @@ Variables in the `general` category:
 ## Keyboard Shortcuts and Actions
 
 The following keys and key-combinations describe hyprlock's default behaviour:
-| input | description | 
+| input | description |
 | -- | -- |
 | ESC | Clear password buffer |
 | Ctrl + u | Clear password buffer |
@@ -233,7 +233,8 @@ label {
 Available variables for `text`:
  - `$USER` - username (e.g. linux-user)
  - `$DESC` - user description (e.g. Linux User)
- - `$TIME` - current time (e.g. `13:37`)
+ - `$TIME` - current time in 24-hour format (e.g. `13:37`)
+ - `$TIME12` - current time in 12-hour format (e.g. `1:37 PM`)
  - `$PROMPT` - last pam prompt
  - `$FAIL` - last pam fail reason
  - `$ATTEMPTS` - failed attempts
