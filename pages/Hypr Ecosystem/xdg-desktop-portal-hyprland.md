@@ -173,6 +173,10 @@ logs.
 If you see a crash, it's likely you are missing either `qt6-wayland` or
 `qt5-wayland`.
 
+If the portal does not autostart, does not function when manually started, 
+and does not produce any error logs, it's very likely your [XDG env variables](../../Configuring/Environment-variables.md/#xdg-specifications)
+are messed up
+
 ## Configuration
 
 Example:
