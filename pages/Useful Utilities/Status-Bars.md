@@ -13,7 +13,7 @@ To start configuring, copy the configuration files from
 `/etc/xdg/waybar/` into `~/.config/waybar/`. Then, in `~/.config/waybar/config`
 
 To use the workspaces module, replace all the occurrences of `sway/workspaces`
-with `hyprland/workspaces`.
+with `hyprland/workspaces`. Addionally replace all occurences of `sway/mode` with `hyprland/submap`
 
 For more info regarding configuration, see
 [The Waybar Wiki](https://github.com/Alexays/Waybar/wiki/Module:-Hyprland).
