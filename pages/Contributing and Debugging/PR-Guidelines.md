@@ -22,7 +22,10 @@ Every variable from the config needs to be found in a hashmap. To limit the
 amount of hashmap searches, getting a config option looks like this:
 
 ```cpp
-static auto* const PFOLLOWMOUSE = &g_pConfigManager->getConfigValuePtr("input:follow_mouse")->intValue;
+static const auto PVARIABLE = CConfigValue<TYPE>("name");
+
+// e.g.
+static const auto PBORDERSIZE = CConfigValue<Hyprlang::INT>("general:border_size");
 ```
 
 Since the hashmap _cannot_ be mutated during runtime, this pointer will always
