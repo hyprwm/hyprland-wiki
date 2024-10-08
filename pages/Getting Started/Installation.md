@@ -5,6 +5,25 @@ title: Installation
 
 {{< callout type=warning >}}
 
+Hyprland is not meant for beginners! It is expected that you read this wiki,
+understand Linux's workings and are able to search online and troubleshoot issues
+on your own.
+
+If you are a Linux beginner, consider reading this wiki in **its entirety** and all
+the other pages it refers to, otherwise you might have a really hard time
+getting a usable desktop.
+
+Online forums (e.g. Reddit) should be used as a last resort, as most information
+can be found in this wiki and it's guaranteed to be _up-to-date and accurate_,
+unlike most online "tips and tricks".
+
+Follow the [Master tutorial](../Master-Tutorial) **FROM START TO FINISH** unless
+you really know what you are doing!
+
+{{< /callout >}}
+
+{{< callout type=warning >}}
+
 Due to their proprietary nature, Nvidia GPUs have limited compatibility with
 Hyprland. If you want to try Hyprland on Nvidia regardless (many people have
 reported successes), follow the [Nvidia page](../../Nvidia) after installing
