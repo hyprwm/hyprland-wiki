@@ -164,6 +164,7 @@ input-field {
     dots_spacing = 0.15 # Scale of dots' absolute size, 0.0 - 1.0
     dots_center = false
     dots_rounding = -1 # -1 default circle, -2 follow input-field rounding
+    dots_fade_time = 200 # Milliseconds until a dot fully fades in
     outer_color = rgb(151515)
     inner_color = rgb(200, 200, 200)
     font_color = rgb(10, 10, 10)
