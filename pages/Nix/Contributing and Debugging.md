@@ -15,13 +15,21 @@ A debug build is already provided through
 Most hyprwm apps also provide their own `-debug` versions. For those that don't,
 one can build the debug version from the CLI by using
 [overrideAttrs](../Options-Overrides/#using-nix-repl) with
-`cmakeBuildType = "debug";`.
+`cmakeBuildType = "debug";` or `mesonBuildType = "debug";`, depending on the
+program.
 
 ## Bisecting an issue
 
 Follow the
 [Bisecting an issue](https://wiki.hyprland.org/Crashes-and-Bugs/#bisecting-an-issue)
-guide. To build, run `nix build '.?submodules=1'`.
+guide. To build, run `nix build`.
+
+{{< callout >}}
+
+To build with Tracy support, modify `nix/default.nix` to enable the flag, then run
+`nix build '.?submodules=1'`.
+
+{{< /callout >}}
 
 To view logs, pass the `--print-build-logs` (`-L`) flag.
 
@@ -45,8 +53,8 @@ For CMake:
 
 ```bash
 $ cmakeConfigurePhase # to run the CMake configure phase
-$ ninjaBuildPhase     # to run the Ninja build phase
-$ ninjaInstallPhase   # to run the Ninja install phase
+$ ninjaBuildPhase     # to run the Ninja build phase (or buildPhase when ninja is not available)
+$ ninjaInstallPhase   # to run the Ninja install phase (or installPhase when ninja is not available)
 ```
 
 For Meson:

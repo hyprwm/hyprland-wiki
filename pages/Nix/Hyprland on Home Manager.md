@@ -58,7 +58,7 @@ Don't forget to replace `user@hostname` with your username and hostname!
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = {nixpkgs, home-manager, hyprland, ...}: {
@@ -103,11 +103,7 @@ make any adjustment for your setup.
   flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
 
   hyprland = (import flake-compat {
-    # we're not using pkgs.fetchgit as that requires a hash to be provided
-    src = builtins.fetchGit {
-      url = "https://github.com/hyprwm/Hyprland.git";
-      submodules = true;
-    };
+    src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/main.tar.gz";
   }).defaultNix;
 in {
   wayland.windowManager.hyprland = {

@@ -46,17 +46,17 @@ you can do it like this:
 
 ```nix
 $ nix repl
-nix-repl> :lf git+https://github.com/hyprwm/Hyprland?submodules=1
+nix-repl> :lf github:hyprwm/Hyprland
 nix-repl> :bl outputs.packages.x86_64-linux.hyprland.override { /* flag here */ }
 ```
 
 Then you can run Hyprland from the built path.
 
 You can also use `overrideAttrs` to override `mkDerivation`'s arguments, such as
-`cmakeBuildType`:
+`mesonBuildType`:
 
 ```nix
 $ nix repl
-nix-repl> :lf git+https://github.com/hyprwm/Hyprland?submodules=1
-nix-repl> :bl outputs.packages.x86_64-linux.hyprland.overrideAttrs (self: super: { cmakeBuildType = "debug" })
+nix-repl> :lf github:hyprwm/Hyprland
+nix-repl> :bl outputs.packages.x86_64-linux.hyprland.overrideAttrs (self: super: { mesonBuildType = "debug" })
 ```

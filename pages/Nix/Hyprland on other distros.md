@@ -29,7 +29,7 @@ nix profile install nixpkgs#hyprland
 NOTE: Make sure to enable [Cachix](../Cachix) first.
 
 ```sh
-nix profile install git+https://github.com/hyprwm/Hyprland?submodules=1
+nix profile install github:hyprwm/Hyprland
 ```
 
 {{< /tab >}}
