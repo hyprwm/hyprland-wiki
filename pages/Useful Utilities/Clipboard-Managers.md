@@ -9,6 +9,7 @@ Clipboard Managers provide a convenient way to organize and access previously
 copied content, including both text and images.
 
 Some common ones used are `cb`, `copyq`, `clipman`, `cliphist` and `clipse`.
+
 `cb` - Utilizes Wayland and stores text, images and files temporarily or 
 indefinitely. Allows unlimited clipboards and history, JSON output and more.
 [GitHub](https://github.com/Slackadays/Clipboard)
