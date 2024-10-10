@@ -103,7 +103,7 @@ emerge --ask --verbose gui-libs/xdg-desktop-portal-hyprland
 {{< tab "Manual" >}}
 
 See
-[The Github repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland).
+[The GitHub repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland).
 
 {{</ tab >}}
 

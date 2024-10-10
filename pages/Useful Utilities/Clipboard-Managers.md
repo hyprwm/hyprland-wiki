@@ -11,20 +11,20 @@ copied content, including both text and images.
 Some common ones used are `cb`, `copyq`, `clipman`, `cliphist` and `clipse`.
 `cb` - Utilizes Wayland and stores text, images and files temporarily or 
 indefinitely. Allows unlimited clipboards and history, JSON output and more.
-[Github](https://github.com/Slackadays/Clipboard)
+[GitHub](https://github.com/Slackadays/Clipboard)
 
 `clipman` - Utilizes Wayland with `wl-clipboard` support and stores text only
-[Github](https://github.com/chmouel/clipman)
+[GitHub](https://github.com/chmouel/clipman)
 
 `cliphist` - Utilizes Wayland with `wl-clipboard` and can store both images and
-text [Github](https://github.com/sentriz/cliphist)
+text [GitHub](https://github.com/sentriz/cliphist)
 
 `wl-clip-persist` - When copying something on Wayland, the copied data remains 
 in the clipboard until the application that was copied from is closed. 
 After that, the data disappears and can no longer be pasted. 
 To fix this problem, you can use `wl-clip-persist` which will preserve the data 
 in the clipboard after the application is closed.
-[Github](https://github.com/Linus789/wl-clip-persist)
+[GitHub](https://github.com/Linus789/wl-clip-persist)
 
 `clipse` - Utilizes Wayland with `wl-clipboard` support and runs from a single
 binary. Stores text and images indefinitely, accessible via a nice TUI that can
@@ -39,7 +39,7 @@ Start by adding the following line to your `~/.config/hypr/hyprland.conf`
 exec-once = cb
 ```
 
-For more details on `cb`, please refer to its Github repo linked at the top
+For more details on `cb`, please refer to its GitHub repo linked at the top
 of the page.
 
 ## copyq

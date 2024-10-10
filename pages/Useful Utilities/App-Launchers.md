@@ -27,7 +27,7 @@ to rofi's `drun` mode. [Codeberg](https://codeberg.org/dnkl/fuzzel)
 tofi is an extremely fast and simple yet highly customizable dmenu / rofi
 replacement for wlroots-based Wayland compositors. When configured correctly,
 tofi can get on screen within a single frame.
-[Github](https://github.com/philj56/tofi)
+[GitHub](https://github.com/philj56/tofi)
 
 ## Emacs
 

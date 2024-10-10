@@ -222,7 +222,7 @@ sudo apt-get install -y xdg-desktop-portal-wlr
 _Unfortunately, `xdg-desktop-portal-hyprland` still not in Ubuntu Repo so you have to build it from source_
 
 See
-[The xdph Github repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland).
+[The xdph GitHub repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland).
 
 Refer to
 [XDPH](../../Hypr-Ecosystem/xdg-desktop-portal-hyprland) for more information
