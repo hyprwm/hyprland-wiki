@@ -53,6 +53,14 @@ workspace = 3, rounding:false, bordersize:0
 workspace = w[tg1-4], shadow:false
 ```
 
+#### Smart gaps
+
+To replicate "smart gaps" / "no gaps when only", from other WMs/Compositors, use
+
+```ini
+workspace = w[tg1], gapsout:0, border: 0, rounding:0
+```
+
 ## Rules
 
 | Rule | Description | type |
