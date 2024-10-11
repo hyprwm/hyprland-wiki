@@ -236,6 +236,8 @@ Please note that since Ubuntu is generally behind with dependencies, it's not
 guaranteed that the build process will work at all. Even if it is, it's likely
 that it will break at some point in the future.
 
+{{< /callout >}}
+
 {{< callout >}}
 
 Always use the latest version of Ubuntu for the most up to date dependencies.
@@ -245,8 +247,6 @@ Note: Your mileage may vary, as GDM has some bugs with Hyprland. Check the [Mast
 {{< /callout >}}
 
 Refer to the gist if anything fails.
-
-{{< /callout >}}
 
 {{% /details %}}
 
