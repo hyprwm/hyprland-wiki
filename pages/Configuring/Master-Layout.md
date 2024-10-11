@@ -22,7 +22,6 @@ _category name `master`_
 | new_status | `master`: new window becomes master; `slave`: new windows are added to slave stack; `inherit`: inherit from focused window | string | `slave` |
 | new_on_top | whether a newly open window should be on the top of the stack | bool | false |
 | new_on_active | `before`, `after`: place new window relative to the focused window; `none`: place new window according to the value of `new_on_top`.  | string | `none` |
-| no_gaps_when_only | whether to apply gaps when there is only one window on a workspace, aka. smart gaps. (default: disabled - 0) no border - 1, with border - 2 [0/1/2] | int | 0 |
 | orientation | default placement of the master area, can be left, right, top, bottom or center | string | left |
 | inherit_fullscreen | inherit fullscreen status when cycling/swapping to another window (e.g. monocle layout) | bool | true |
 | always_center_master | when using orientation=center, keep the master window centered, even when it is the only window in the workspace. | bool | false |
