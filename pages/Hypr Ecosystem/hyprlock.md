@@ -161,13 +161,15 @@ input-field {
     size = 200, 50
     outline_thickness = 3
     dots_size = 0.33 # Scale of input-field height, 0.2 - 0.8
-    dots_spacing = 0.15 # Scale of dots' absolute size, 0.0 - 1.0
+    dots_spacing = 0.15 # Scale of dots' absolute size, -1.0 - 1.0
     dots_center = false
     dots_rounding = -1 # -1 default circle, -2 follow input-field rounding
     dots_fade_time = 200 # Milliseconds until a dot fully fades in
+    dots_text_format = # Text character used for the input indicator. Leave empty for a rectangle that will be rounded via dots_rounding (default).
     outer_color = rgb(151515)
     inner_color = rgb(200, 200, 200)
     font_color = rgb(10, 10, 10)
+    font_family = Noto Sans # Font used for placeholder_text, fail_text and dots_text_format.
     fade_on_empty = true
     fade_timeout = 1000 # Milliseconds before fade_on_empty is triggered.
     placeholder_text = <i>Input Password...</i> # Text rendered in the input box when it's empty.
