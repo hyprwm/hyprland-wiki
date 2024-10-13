@@ -308,7 +308,7 @@ Described [here](../Keywords#per-device-input-configs).
 
 | name | description | type | default |
 | --- | --- | --- | --- |
-| auto_group | whether new windows will be automatically grouped into the focused unlocked group | bool | true |
+| auto_group | whether new windows will be automatically grouped into the focused unlocked group. Note: if you want to disable auto_group only for specific windows, use [the "group barred" window rule](../Window-Rules/#group-window-rule-options) instead. | bool | true |
 | insert_after_current | whether new windows in a group spawn after current or at group tail | bool | true |
 | focus_removed_window | whether Hyprland should focus on the window that has just been moved out of the group | bool | true |
 | drag_into_group | whether dragging a window into a unlocked group will merge them. Options: 0 (disabled), 1 (enabled), 2 (only when dragging into the groupbar) | int | 1 |
