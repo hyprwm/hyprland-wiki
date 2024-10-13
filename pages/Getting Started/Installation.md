@@ -59,11 +59,13 @@ from source first.
 {{% details title="Arch" closed="true" %}}
 
 Install from the AUR, which compiles the latest source:
+
 ```shell
 yay -S hyprland-git
 ```
 
 or a tagged release from the arch packages:
+
 ```shell
 sudo pacman -S hyprland
 ```
@@ -98,6 +100,7 @@ sudo zypper in hyprland
 or install the "hyprland" package via YaST2 Software.
 
 For `hyprpm` to recognize it's dependencies, you'll also need to install `hyprland-devel`:
+
 ```sh
 sudo zypper in hyprland-devel
 ```
@@ -135,6 +138,7 @@ Hyprland recently made it into the SID and trixie repos and can be installed wit
 ```sh
 sudo apt install hyprland
 ```
+
 Note: Even though Hyprland is in the trixie repos, it is still recommended to install from SID, as some dependencies in the trixie repo are outdated.
 
 Alternatively, you can also follow the instructions under
@@ -193,7 +197,8 @@ Hyprland and related are in the default repository:
 
 {{% details title="Ubuntu*" closed="true" %}}
 
-Hyprland made it into the Ubuntu 24.10 Oracular Oriole universe repo and can be installed with 
+Hyprland made it into the Ubuntu 24.10 Oracular Oriole universe repo and can be installed with
+
 ```bash
 sudo add-apt-repository universe && sudo apt-get update && sudo apt-get install -y hyprland
 ```
@@ -210,8 +215,8 @@ For installing Hyprland from Source, install first the dependencies below:
 sudo apt-get install -y meson wget build-essential ninja-build cmake-extras cmake gettext gettext-base fontconfig libfontconfig-dev libffi-dev libxml2-dev libdrm-dev libxkbcommon-x11-dev libxkbregistry-dev libxkbcommon-dev libpixman-1-dev libudev-dev libseat-dev seatd libxcb-dri3-dev libegl-dev libgles2 libegl1-mesa-dev glslang-tools libinput-bin libinput-dev libxcb-composite0-dev libavutil-dev libavcodec-dev libavformat-dev libxcb-ewmh2 libxcb-ewmh-dev libxcb-present-dev libxcb-icccm4-dev libxcb-render-util0-dev libxcb-res0-dev libxcb-xinput-dev libtomlplusplus3
 ```
 
-you will also need to build the latest wayland, wayland-protocols, and
-libdisplay-info tagged releases from source
+You will also need to build the latest wayland, wayland-protocols, and
+libdisplay-info tagged releases from source.
 
 For screensharing, you can also `install xdg-desktop-portal-wlr` or `xdg-desktop-portal-hyprland`
 
@@ -222,13 +227,10 @@ sudo apt-get install -y xdg-desktop-portal-wlr
 _Unfortunately, `xdg-desktop-portal-hyprland` still not in Ubuntu Repo so you have to build it from source_
 
 See
-[The xdph GitHub repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland).
-
-Refer to
-[XDPH](../../Hypr-Ecosystem/xdg-desktop-portal-hyprland) for more information
-
-for more info refer to the
+[The xdph GitHub repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland). Refer to
+[XDPH](../../Hypr-Ecosystem/xdg-desktop-portal-hyprland) and
 [Ubuntu Guide For Installing And Building Hyprland Gist](https://gist.github.com/Vertecedoc4545/3b077301299c20c5b9b4db00f4ca6000)
+for more information.
 
 {{< callout type=warning >}}
 
@@ -244,9 +246,10 @@ Always use the latest version of Ubuntu for the most up to date dependencies.
 
 Note: Your mileage may vary, as GDM has some bugs with Hyprland. Check the [Master Tutorial](../Master-Tutorial) for more info.
 
-{{< /callout >}}
-
 Refer to the gist if anything fails.
+
+<!-- For some reason uncommenting the line below creates an unwanted <pre><div></pre> in the page. -->
+<!-- {{< /callout >}} -->
 
 {{% /details %}}
 
@@ -307,7 +310,7 @@ http://dl-cdn.alpinelinux.org/alpine/edge/testing
 
 This will only work on Alpine linux edge, not on any stable release. For use on stable releases, see the [Alpine wiki](https://wiki.alpinelinux.org/wiki/Repositories#Using_the_testing_repository_on_stable_branches)
 
-After enabling the repository, the following command will install hyprland and its dependencies. 
+After enabling the repository, the following command will install hyprland and its dependencies.
 
 ```plain
 apk add hyprland
