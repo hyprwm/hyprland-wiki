@@ -82,6 +82,24 @@ input {
     kb_options = caps:swapescape
 }
 ```
+
+## Set F13-F24 as usual function keys
+By default, F13-F24 are mapped by xkb as various "XF86" keysyms. These cause binding
+issues in many programs. One example is OBS Studio, which does not detect the XF86
+keysyms as usable keybindings, making you unable to use them for binds, This option
+simply maps them back to the expected F13-F24 values, which are bindable as normal.
+
+{{< callout >}}
+This option was only added recently to `xkeyboard-config`. Please ensure you are on version
+2.43 or greater for this option to do anything.
+{{< /callout >}}
+
+```
+input {
+    kb_options = fkeys:basic_13-24
+}
+```
+
 ##  Minimize windows using special workspaces
 This approach uses special workspaces to mimic the "minimize window" function, by using a single keybind to toggle the minimized state.
 Note that one keybind can only handle one window.
