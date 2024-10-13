@@ -176,8 +176,7 @@ values.
 - `new` - Shorthand of `barred set`.
 - `lock` \[`always`\] - Lock the group that added this window. Use with `set` or
   `new` (i.e. `new lock`) to create a new locked group.
-- `barred` - Do not add the window to the focused group. If [the variable `auto_group`](../Variables/#group) equals true, a window
-  with a `group set` rule will be added to an active group if possible, unless `group barred` denies it.
+- `barred` - Do not add the window to the focused group.
 - `deny` - Do not allow window to be toggled as or added to group (see
   `denywindowfromgroup` dispatcher).
 - `invade` - Force open window in the locked group.
