@@ -86,7 +86,7 @@ input {
 ## Set F13-F24 as usual function keys
 By default, F13-F24 are mapped by xkb as various "XF86" keysyms. These cause binding
 issues in many programs. One example is OBS Studio, which does not detect the XF86
-keysyms as usable keybindings, making you unable to use them for binds, This option
+keysyms as usable keybindings, making you unable to use them for binds. This option
 simply maps them back to the expected F13-F24 values, which are bindable as normal.
 
 {{< callout >}}
