@@ -61,6 +61,12 @@ global
       ↳ specialWorkspaceOut - styles: same as workspaces
 ```
 
+{{< callout type=warning >}}
+
+Using borderangle style: loop requires Hyprland to constantly push out new frames at [your monitor's hz] times a second which might put stress on your CPU/GPU and affect battery life. This will be applied even if animation are disabled or borders are not visible.
+
+{{</ callout >}}
+
 ## Curves
 
 Defining your own Bezier curve can be done with the `bezier` keyword:
