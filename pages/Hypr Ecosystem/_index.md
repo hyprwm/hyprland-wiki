@@ -12,9 +12,20 @@ These docs always target latest -git branch of respective apps.
 {{< /callout >}}
 
 ## Wiki pages
+
+### Apps/utilities for the user
  - **[hyprpaper](./hyprpaper)**
  - **[hyprpicker](./hyprpicker)**
  - **[hypridle](./hypridle)**
  - **[hyprlock](./hyprlock)**
- - **[hyprcursor](./hyprcursor)**
  - **[xdg-desktop-portal-hyprland](./xdg-desktop-portal-hyprland)**
+ - **[hyprsysteminfo](./hyprsysteminfo)**
+ - **[hyprsunset](./hyprsunset)**
+
+### Libraries and other utilities
+ - **[hyprcursor](./hyprcursor)**
+ - **[hyprutils](./hyprutils)**
+ - **[hyprlang](./hyprlang)**
+ - **[hyprwayland-scanner](./hyprwayland-scanner)**
+ - **[aquamarine](./aquamarine)**
+ 
