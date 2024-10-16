@@ -11,7 +11,7 @@ or use a different agent, e.g. [KDE's one](https://github.com/KDE/polkit-kde-age
 
 ## Usage
 
-Add `exec-once = systemctl --user start plasma-polkit-agent` to your Hyprland config and restart hyprland.
+Add `exec-once = systemctl --user start hyprpolkitagent` to your Hyprland config and restart hyprland.
 (obviously change that to whatever you are using if you are not using the hypr one)
 
 On distributions that use a different init system, such as Gentoo, it may be
