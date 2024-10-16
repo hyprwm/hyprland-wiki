@@ -21,6 +21,7 @@ These docs always target latest -git branch of respective apps.
  - **[xdg-desktop-portal-hyprland](./xdg-desktop-portal-hyprland)**
  - **[hyprsysteminfo](./hyprsysteminfo)**
  - **[hyprsunset](./hyprsunset)**
+ - **[hyprpolkitagent](./hyprpolkitagent)**
 
 ### Libraries and other utilities
  - **[hyprcursor](./hyprcursor)**

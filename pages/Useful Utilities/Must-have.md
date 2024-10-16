@@ -54,20 +54,7 @@ _Starting method:_ manual (`exec-once`)
 Authentication agents are the things that pop up a window asking you for a
 password whenever an app wants to elevate its privileges.
 
-Our recommendation is the KDE one. For arch, it's `polkit-kde-agent`.
-
-You can autostart it with
-`exec-once=systemctl --user start plasma-polkit-agent`.
-
-On distributions that use a different init system, such as Gentoo, it may be
-necessary to use
-`exec-once=/usr/lib64/libexec/polkit-kde-authentication-agent-1` instead.
-
-Other possible paths include
-`/usr/lib/polkit-kde-authentication-agent-1`,
-`/usr/libexec/polkit-kde-authentication-agent-1`,
-`/usr/libexec/kf5/polkit-kde-authentication-agent-1`, and
-`/usr/libexec/kf6/polkit-kde-authentication-agent-1`.
+See [hyprpolkitagent](../hyprpolkitagent)
 
 ### Qt Wayland Support
 

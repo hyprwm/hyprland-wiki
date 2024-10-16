@@ -1,5 +1,5 @@
 ---
-weight: 10
+weight: 104
 title: hyprwayland-scanner
 ---
 

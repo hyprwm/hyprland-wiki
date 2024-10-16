@@ -1,5 +1,5 @@
 ---
-weight: 9
+weight: 103
 title: hyprlang
 ---
 
