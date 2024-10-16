@@ -54,7 +54,7 @@ _Starting method:_ manual (`exec-once`)
 Authentication agents are the things that pop up a window asking you for a
 password whenever an app wants to elevate its privileges.
 
-See [hyprpolkitagent](../hyprpolkitagent)
+See [hyprpolkitagent](../../Hypr-Ecosystem/hyprpolkitagent)
 
 ### Qt Wayland Support
 
