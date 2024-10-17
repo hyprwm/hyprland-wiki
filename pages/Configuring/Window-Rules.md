@@ -106,7 +106,7 @@ Static rules are evaluated once when the window is opened and never again.
 | maximize | maximizes a window |
 | fullscreenstate \[internal\] \[client\] | sets the focused window's fullscreen mode and the one sent to the client, where internal and client can be `0` - none, `1` - maximize, `2` - fullscreen, `3` - maximize and fullscreen |
 | move \[x\] \[y\] | moves a floating window (x,y -> int or %, e.g. 20% or 100. You are also allowed to do `100%-` for the right/bottom anchor, e.g. `100%-20`. In addition, the option supports the subtraction of the window size with `100%-w-`, e.g. `100%-w-20`. This results in a gap at the right/bottom edge of the screen to the window with the defined subtracted size). Additionally, you can also do `cursor [x] [y]` where x and y are either pixels or percent. Percent is calculated from the window's size. Specify `onscreen` before other parameters to force the window into the screen (e.g. `move onscreen cursor 50% 50%`) |
-| size \[x\] \[y\] | resizes a floating window (x,y -> int or %, e.g. 20% or 100) |
+| size \[x\] \[y\] | resizes a floating window (x,y -> (<\/>)int or (<\/>)%, < -> maximum size, > -> minimum size, e.g. >20%, 100 or <500) |
 | center (\[opt\]) | if the window is floating, will center it on the monitor. Set opt as 1 to respect monitor reserved area |
 | pseudo | pseudotiles a window |
 | monitor \[id\] | sets the monitor on which a window should open. `id` can be either id or name (either e.g. `1` or e.g. `DP-1`) |
