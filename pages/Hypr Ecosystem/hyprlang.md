@@ -15,8 +15,12 @@ Every config line is a command followed by a value.
 COMMAND = VALUE
 ```
 
-The command can be a variable, or a special keyword (described further in this
-page)
+The command can be a variable, or a special keyword (those are defined by the app
+you are using)
+
+Variables are like "options", while keywords are like "commands". Options can be specified
+only once (if you do it more times, it will overwrite the previous one),
+while commands invoke some behavior every time they are defined.
 
 The trailing spaces at the beginning and end of words are not necessary, and are
 there only for legibility.
