@@ -34,40 +34,9 @@ the toggleable / numerical options.
 
 {{< /callout >}}
 
-## Line style
+## Language style and syntax
 
-Every config line is a command followed by a value.
-
-```ini
-COMMAND = VALUE
-```
-
-The command can be a variable, or a special keyword (described further in this
-page)
-
-The trailing spaces at the beginning and end of words are not necessary, and are
-there only for legibility.
-
-### Comments
-
-Comments are started with the `#` character.
-
-If you want to escape it (put an actual `#` and not start a comment) you can use
-`##`. It will be turned into a single `#` that _will_ be a part of your line.
-
-### Escaping errors
-
-If you use plugins, you may want to ignore errors from missing options/keywords
-so that you don't get an error bar before they are loaded. To do so, do this:
-
-```ini
-# hyprlang noerror true
-
-bind = MOD, KEY, something, amogus
-someoption = blah
-
-# hyprlang noerror false
-```
+See the [hyprlang page](../Hypr-Ecosystem/hyprlang).
 
 ## Basic configuring
 

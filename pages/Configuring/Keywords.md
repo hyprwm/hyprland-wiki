@@ -37,32 +37,6 @@ You can execute a shell script on:
 
 `exec-shutdown = command` will execute only on shutdown
 
-## Defining variables
-
-You can define your own custom variables using a dollar sign (`$`):
-
-```ini
-$VAR = value
-```
-
-For example:
-
-```ini
-$MyFavoriteGame = Among Us
-```
-
-Then you can reference them in the rest of the config. For example:
-
-```ini
-col.active_border = $MyColor
-```
-
-You are allowed to combine variables in-place with other strings, like this:
-
-```ini
-col.active_border = ff$MyRedValue1111
-```
-
 ## Sourcing (multi-file)
 
 Use the `source` keyword to source another file.
