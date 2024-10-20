@@ -26,6 +26,9 @@ Variables in the `general` category:
 | pam_module | sets the pam module used for authentication. If the module isn't found in `/etc/pam.d`, "su" will be used as a fallback | str | hyprlock |
 | text_trim | sets if the text should be trimmed, useful to avoid trailing newline in commands output | bool | true |
 | fractional_scaling | whether to use fractional scaling. 0 - disabled, 1 - enabled, 2 - auto | int | 2 |
+| enable_fingerprint | enables parallel fingerprint auth with fprintd. | bool | false |
+| fingerprint_ready_message | sets the message that will be displayed when fprintd is ready to scan a fingerprint. | str | (Scan fingerprint to unlock) |
+| fingerprint_present_message | sets the message that will be displayed when a finger is placed on the scanner. | str | Scanning fingerprint |
 
 ## Keyboard Shortcuts and Actions
 
@@ -242,6 +245,7 @@ Available variables for `text`:
  - `$FAIL` - last pam fail reason
  - `$ATTEMPTS` - failed attempts
  - `$LAYOUT` - current keyboard layout
+ - `$FPRINTMESSAGE` - last message from fingerprint matching
 
 `text` also supports launching commands, for example:
 
