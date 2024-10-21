@@ -72,6 +72,36 @@ SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
 | allow_tearing | master switch for allowing tearing to occur. See [the Tearing page](../Tearing). | bool | false |
 | resize_corner | force floating windows to use a specific corner when being resized (1-4 going clockwise from top left, 0 to disable) | int | 0 |
 
+#### Snap
+
+_Subcategory `general:snap:`_
+
+| name | description | type | default |
+| --- | --- | --- | --- |
+| enabled | enable snapping for floating windows | bool | false |
+| window_gap | minimum gap in pixels between windows before snapping | int | 10 |
+| monitor_gap | minimum gap in pixels between window and monitor edges before snapping | int | 10 |
+
+{{< callout type=important >}}
+
+A subcategory is a nested category:
+
+```ini
+general {
+    # ...
+    # ...
+
+    snap {
+        # ...
+        # ...
+    }
+}
+```
+
+Doing `general:snap {` is **invalid**!
+
+{{< /callout >}}
+
 ### Decoration
 
 | name | description | type | default |
@@ -114,26 +144,6 @@ _Subcategory `decoration:blur:`_
 | special | whether to blur behind the special workspace (note: expensive) | bool | false |
 | popups | whether to blur popups (e.g. right-click menus) | bool | false |
 | popups_ignorealpha | works like ignorealpha in layer rules. If pixel opacity is below set value, will not blur. [0.0 - 1.0] | float | 0.2 |
-
-{{< callout type=important >}}
-
-A subcategory is a nested category:
-
-```ini
-decoration {
-    # ...
-    # ...
-
-    blur {
-        # ...
-        # ...
-    }
-}
-```
-
-Doing `decoration:blur {` is **invalid**!
-
-{{< /callout >}}
 
 {{< callout type=info >}}
 
