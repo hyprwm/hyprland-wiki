@@ -30,6 +30,12 @@ Variables in the `general` category:
 | fingerprint_ready_message | sets the message that will be displayed when fprintd is ready to scan a fingerprint. | str | (Scan fingerprint to unlock) |
 | fingerprint_present_message | sets the message that will be displayed when a finger is placed on the scanner. | str | Scanning fingerprint |
 
+{{< callout type=warning >}}
+
+If you are not on hyprland, or your  `XDG_CURRENT_DESKTOP` is not Hyprland, the fade out will be disabled and the value of your `no_fade_out` variable will be ignored.
+
+{{< /callout >}}
+
 ## Keyboard Shortcuts and Actions
 
 The following keys and key-combinations describe hyprlock's default behaviour:
