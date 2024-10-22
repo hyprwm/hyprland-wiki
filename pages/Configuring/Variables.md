@@ -324,6 +324,7 @@ Described [here](../Keywords#per-device-input-configs).
 | drag_into_group | whether dragging a window into a unlocked group will merge them. Options: 0 (disabled), 1 (enabled), 2 (only when dragging into the groupbar) | int | 1 |
 | merge_groups_on_drag | whether window groups can be dragged into other groups | bool | true |
 | merge_floated_into_tiled_on_groupbar | whether dragging a floating window into a tiled window groupbar will merge them | bool | false |
+| group_on_movetoworkspace | whether using movetoworkspace[silent] will merge the window into the workspace's solitary unlocked group | bool | false |
 | col.border_active | active group border color | gradient | 0x66ffff00 |
 | col.border_inactive | inactive (out of focus) group border color | gradient | 0x66777700 |
 | col.border_locked_active | active locked group border color | gradient | 0x66ff5500 |
