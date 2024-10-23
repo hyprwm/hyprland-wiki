@@ -33,6 +33,7 @@ sudo dnf install hyprpaper
 
 
 {{% details title="Manual" closed="true" %}}
+
 ### Dependencies
 The development files of these packages need to be installed on the system for `hyprpaper` to build correctly.
 (Development packages are usually suffixed with `-dev` or `-devel` in most distros' repos).
@@ -78,6 +79,7 @@ Install with:
 ```sh
 cmake --install ./build
 ```
+
 {{% /details %}}
 
 ## Configuration
