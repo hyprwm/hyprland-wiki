@@ -5,6 +5,81 @@ title: hyprpaper
 
 hyprpaper is a fast, IPC-controlled wallpaper utility for Hyprland.
 
+## Installation
+
+{{% details title="Arch" closed="true" %}}
+
+```sh
+pacman -S hyprpaper
+```
+
+{{% /details %}}
+
+{{% details title="OpenSuse" closed="true" %}}
+
+```sh
+zypper install hyprpaper
+```
+
+{{% /details %}}
+
+{{% details title="Fedora" closed="true" %}}
+
+```sh
+sudo dnf install hyprpaper
+```
+
+{{% /details %}}
+
+
+{{% details title="Manual" closed="true" %}}
+### Dependencies
+The development files of these packages need to be installed on the system for `hyprpaper` to build correctly.
+(Development packages are usually suffixed with `-dev` or `-devel` in most distros' repos).
+- wayland
+- wayland-protocols
+- pango
+- cairo
+- file
+- libglvnd
+- libglvnd-core
+- libjpeg-turbo
+- libwebp
+- hyprlang
+- hyprutils
+- hyprwayland-scanner
+
+To install all of these in Fedora, run this command:
+```
+sudo dnf install wayland-devel wayland-protocols-devel hyprlang-devel pango-devel cairo-devel file-devel libglvnd-devel libglvnd-core-devel libjpeg-turbo-devel libwebp-devel gcc-c++ hyprutils-devel hyprwayland-scanner
+```
+
+On Arch:
+```
+sudo pacman -S ninja gcc wayland-protocols libjpeg-turbo libwebp pango cairo pkgconf cmake libglvnd wayland hyprutils hyprwayland-scanner hyprlang
+```
+
+On OpenSUSE:
+```
+sudo zypper install ninja gcc-c++ wayland-protocols-devel Mesa-libGLESv3-devel file-devel hyprutils-devel hyprwayland-scanner
+```
+
+### Building
+
+Building is done via CMake:
+
+```sh
+cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
+cmake --build ./build --config Release --target hyprpaper -j`nproc 2>/dev/null || getconf _NPROCESSORS_CONF`
+```
+
+Install with:
+
+```sh
+cmake --install ./build
+```
+{{% /details %}}
+
 ## Configuration
 
 The config file is located at `~/.config/hypr/hyprpaper.conf`. It is not
