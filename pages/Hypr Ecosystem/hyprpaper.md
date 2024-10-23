@@ -5,31 +5,6 @@ title: hyprpaper
 
 hyprpaper is a fast, IPC-controlled wallpaper utility for Hyprland.
 
-## Installation
-
-### [Arch Linux Install](https://archlinux.org/packages/extra/x86_64/hyprpaper/)
-
-```sh
-pacman -S hyprpaper
-```
-
-### [OpenSuse Linux Install](https://software.opensuse.org/package/hyprpaper)
-
-```sh
-zypper install hyprpaper
-```
-
-### Manual
-
-For manual installation please check the [docs](https://github.com/hyprwm/hyprpaper?tab=readme-ov-file#manual)
-
-
-## Run at startup
-
-To run hyprpaper at startup edit `hyprland.conf` and add: `exec-once =
-hyprpaper`.
-
-
 ## Configuration
 
 The config file is located at `~/.config/hypr/hyprpaper.conf`. It is not
@@ -66,6 +41,11 @@ Also you can use `reload` to unload preloaded image from your monitor(s),
 preload another and set it to your monitor(s). It has the same syntax as
 `wallpaper` keyword.
 
+### Run at startup
+
+To run hyprpaper at startup edit `hyprland.conf` and add: `exec-once =
+hyprpaper`.
+
 ### Misc options
 
 | variable | description | type | default |
@@ -96,6 +76,3 @@ hyprctl hyprpaper listloaded
 ```
 
 Please note all paths have to be absolute (or start with `~`).
-
-## Docs
-If you want to know more you can read the [docs](https://github.com/hyprwm/hyprpaper?tab=readme-ov-file#hyprpaper)
