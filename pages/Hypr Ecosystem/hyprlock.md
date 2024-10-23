@@ -56,7 +56,16 @@ widget_name {
 }
 ```
 
-`monitor` can be left empty for "all monitors"
+The `monitor` could be either the __port name__ or __description__ value from
+the output of `hyprctl monitors` command. It can be left empty for "all
+monitors"
+
+{{< callout >}}
+
+Pay attention! You do not need to add `desc:` prefix like in
+[`hyprland.conf`](../Configuring/Monitors.md)
+
+{{</ callout >}}
 
 ## Widget List
 
