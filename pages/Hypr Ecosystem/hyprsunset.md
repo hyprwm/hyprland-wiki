@@ -10,7 +10,7 @@ This method is preferred to screen shaders as it will _not_ be captured via reco
 
 {{< callout type=warning >}}
 
-`hypsunset` is supported since Hyprland 0.45.0.
+`hyprsunset` is supported since Hyprland 0.45.0.
 
 {{< /callout >}}
 
