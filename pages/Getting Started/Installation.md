@@ -404,9 +404,9 @@ zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig
 {{% details title="FreeBSD" closed="true" %}}
 
 ```plain
-pkg install git pkgconf gmake gcc evdev-proto cmake wayland-protocols wayland libglvnd libxkbcommon libinput cairo pango pixman libxcb
-pkg install meson jq hwdata libdisplay-info libliftoff
-export CC=gcc CXX=g++ LDFLAGS="-static-libstdc++ -static-libgcc"
+pkg install git pkgconf evdev-proto cmake wayland-protocols wayland libglvnd libxkbcommon libinput cairo pango pixman tomlplusplus e2fsprogs-libuuid
+pkg install aquamarine hyprcursor hyprlang hyprutils hyprwayland-scanner
+pkg install libxcb xcb-util-errors xcb-util-wm
 ```
 
 {{% /details %}}
@@ -448,10 +448,11 @@ installed._
 ### Meson
 
 ```plain
-meson subprojects update --reset
+git clone --recursive https://github.com/hyprwm/Hyprland
+cd Hyprland
 meson setup build
-ninja -C build
-ninja -C build install --tags runtime,man
+meson compile -C build
+meson install -C build --skip-subprojects
 ```
 
 Refer to [Debugging](../../Contributing-and-Debugging) to see how to build &
