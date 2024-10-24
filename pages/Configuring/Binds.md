@@ -53,6 +53,26 @@ can also use `xev` or `wev` to find keycodes.
 
 ## Misc
 
+### Workspace bindings on non-qwerty layouts 
+
+Keys used for keybinds need to be accessible without any modifiers in your layout. For instance, the `French Azerty` layout uses `SHIFT+unmodified_key` to write `0-9` numbers. As such, the workspace keybinds for this layout need to use the names of the `unmodified_key`s, and will not work when using the `0-9` numbers.
+
+{{< callout type=info >}}
+
+To get the correct name for an `unmodified_key`, refer to [the section on uncommon syms](#uncommon-syms--binding-with-a-keycode)
+
+{{< /callout >}}
+
+```ini
+# On a french layout, instead of
+# bind = $mainMod, 1, workspace,  1
+
+# Use 
+bind = $mainMod, ampersand, workspace,  1
+```
+
+For help configuring the `French Azerty` layout, [see](https://rherault.dev/articles/hyprland-fr-layout).
+
 ### Unbind
 
 You can also unbind with `unbind`, e.g.:
