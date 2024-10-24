@@ -45,7 +45,7 @@ _Starting method:_ Automatic on systemd, manual otherwise.
 XDG Desktop Portal handles a lot of stuff for your desktop, like file pickers,
 screensharing, etc.
 
-See the [Hyprland Desktop Portal Page.](../xdg-desktop-portal-hyprland)
+See the [Hyprland Desktop Portal Page.](../../Hypr-Ecosystem/xdg-desktop-portal-hyprland)
 
 ### Authentication Agent
 
