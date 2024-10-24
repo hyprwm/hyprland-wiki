@@ -218,7 +218,7 @@ sudo apt-get install -y meson wget build-essential ninja-build cmake-extras cmak
 You will also need to build the latest wayland, wayland-protocols, and
 libdisplay-info tagged releases from source.
 
-For screensharing, you can also `install xdg-desktop-portal-wlr` or `xdg-desktop-portal-hyprland`
+For screensharing, you can also install `xdg-desktop-portal-wlr` or `xdg-desktop-portal-hyprland`
 
 ```bash
 sudo apt-get install -y xdg-desktop-portal-wlr
