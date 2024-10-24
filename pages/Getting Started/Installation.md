@@ -218,7 +218,7 @@ sudo apt-get install -y meson wget build-essential ninja-build cmake-extras cmak
 You will also need to build the latest wayland, wayland-protocols, and
 libdisplay-info tagged releases from source.
 
-For screensharing, you can also `install xdg-desktop-portal-wlr` or `xdg-desktop-portal-hyprland`
+For screensharing, you can also install `xdg-desktop-portal-wlr` or `xdg-desktop-portal-hyprland`
 
 ```bash
 sudo apt-get install -y xdg-desktop-portal-wlr
@@ -414,11 +414,6 @@ export CC=gcc CXX=g++ LDFLAGS="-static-libstdc++ -static-libgcc"
 {{% details title="Ubuntu" closed="true" %}}
 
 refer to the Ubuntu tab above
-
-Please note that Hyprland uses the C++23 standard, so both your compiler and
-your C++ library has to support that (`gcc>=13.0.0` or `clang>=15`). On
-Clang-based systems libc++ may be used by default, so until libc++ supports
-C++23 you have to pass `-stdlib=libstdc++` or switch to GCC.
 
 {{% /details %}}
 
