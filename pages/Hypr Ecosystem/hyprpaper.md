@@ -105,7 +105,7 @@ Monitor names can be checked with `hyprctl monitors`
 
 Also can be used with `desc:` followed by the monitor's description without the (PORT) at the end
 
-You may add `contain:` before the file path in `wallpaper =` to set the mode to contain instead of cover:
+You may add `contain:` or `tile:` before the file path in `wallpaper =` to set the mode to either contain or tile, respectively, instead of cover:
 
 ```ini
 wallpaper = monitor, contain:/home/me/amongus.png
