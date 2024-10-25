@@ -106,7 +106,7 @@ repository for a more comprehensive list.
 ## Fully configure Hyprland
 
 Head onto the
-[Configuring Hyprland page](../../Configuring/Configuring-Hyprland) to learn all
+[Configuring Hyprland page](../../Configuring) to learn all
 about configuring Hyprland to your liking.
 
 ## Cursors
