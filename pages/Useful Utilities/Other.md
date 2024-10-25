@@ -28,9 +28,10 @@ for Hyprland's IPC written in Rust.
 
 ### Screen shaders/color temperature
 
-[hyprshade](https://github.com/loqusion/hyprshade) by _loqusion_: Utility for
+- [hyprshade](https://github.com/loqusion/hyprshade) by _loqusion_: Utility for
 swapping and scheduling screen shaders; also functions as an
 [automatic color temperature shifter](https://en.wikipedia.org/wiki/F.lux).
+- [gammastep](https://gitlab.com/chinstrap/gammastep) by _Chinstrap_: Control temperature color automatically depending on the time of the day and location.
 
 ### Wireless settings
 - [iwgtk](https://github.com/J-Lentz/iwgtk) by _Jesse Lentz_: WiFi settings frontend for `iwd` in GTK
@@ -69,4 +70,4 @@ exec-once = udiskie
 
 ### Other useful utilities
 
-The website [Are we Wayland Yet](https://arewewaylandyet.com/) details some other useful utilities and applications for Wayland like docks, email clients, and so on, along with some other useful information about compatibility on Wayland.
+The website [We Are Wayland Now](https://wearewaylandnow.com/) details some other useful utilities and applications for Wayland like docks, email clients, and so on, along with some other useful information about compatibility on Wayland.
