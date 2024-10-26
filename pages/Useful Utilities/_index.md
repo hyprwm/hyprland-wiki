@@ -28,4 +28,6 @@ Hyprland working.
 
 - **[Hyprland Desktop Portal](./xdg-desktop-portal-hyprland)**
 
+- **[File Managers](./File-Managers)**
+
 - **[Other](./Other)**
