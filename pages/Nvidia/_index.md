@@ -97,8 +97,9 @@ cursor {
 Previously used `WLR_NO_HARDWARE_CURSORS` environment variable has been deprecated.
 Do not set it in your configs. Use `cursor:no_hardware_cursors` instead.
 
-If you want to try hardware cursors, you can enable them, but it will require also enabling `cursor:allow_dumb_copy` which
-may cause small hitches whenever the cursor shape changes. If this is a problem on your system,
+If you want to try hardware cursors, you can enable them by setting `cursor:no_hardware_cursors = false`,
+but it will require also enabling `cursor:allow_dumb_copy` which
+may cause small to major hitches whenever the cursor shape changes. If this is a problem on your system,
 keep hardware cursors disabled.
 
 {{< /callout >}}
