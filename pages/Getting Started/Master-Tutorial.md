@@ -39,7 +39,7 @@ Please bear in mind 3D acceleration in VMs may be pretty slow.
 
 Hyprland can be executed by typing `Hyprland` in your tty. 
 
-Systemd users can also start Hyprland as a systemd service, by typing `systemctl --user start hyprland-session.service` in tty. This method provides additional features, such as [xdg-autostart](https://www.freedesktop.org/software/systemd/man/latest/systemd-xdg-autostart-generator.html) support and ability to enable services for programs that rely on a graphical session and provide such services (e.g waybar).
+Systemd users can also start Hyprland, by typing `systemctl --user start hyprland-session.service` in tty. This method provides additional features, such as [xdg-autostart](https://www.freedesktop.org/software/systemd/man/latest/systemd-xdg-autostart-generator.html) support and ability to enable services for programs that rely on a graphical session and provide such services (e.g waybar).
 
 {{< callout type=warning >}}
 
