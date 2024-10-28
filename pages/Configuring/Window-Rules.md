@@ -133,7 +133,7 @@ Dynamic rules are re-evaluated every time a property changes.
 | maxsize \[x\] \[y\] | sets the maximum size (x,y -> int) |
 | minsize \[x\] \[y\] | sets the minimum size (x,y -> int) |
 
-The following rules can also be set with [`hyprctl setprop`](../Using-hyprctl#setprop):
+The following rules can also be set with [`setprop`](../Dispatchers#setprop):
 
 | Rule | Description |
 | ---- | ----------- |
@@ -164,10 +164,10 @@ The following rules can also be set with [`hyprctl setprop`](../Using-hyprctl#se
 When using window rules, \[on\] can be set to `0` for off, `1` for on or not set
 for default.
 
-When using `hyprctl setprop`, \[on\] can be set to `0` for off, `1` for on,
+When using `setprop`, \[on\] can be set to `0` for off, `1` for on,
 `toggle` to toggle the state or `unset` to unset previous values.
 
-When using `hyprctl setprop`, \[int\] can also be `unset` to unset previous
+When using `setprop`, \[int\] can also be `unset` to unset previous
 values.
 
 ### `group` window rule options
