@@ -81,6 +81,7 @@ layout pages (See the sidebar).
 | global | Executes a Global Shortcut using the GlobalShortcuts portal. See [here](../Binds/#global-keybinds) | name |
 | submap | Change the current mapping group. See [Submaps](../Binds/#submaps) | `reset` or name |
 | event | Emits a custom event to socket2 in the form of `custom>>yourdata` | the data to send |
+| setprop | Sets a window property | `window property value` |
 
 {{< callout type=warning >}}
 
@@ -184,10 +185,7 @@ bind = SUPER, C, movetoworkspace, special
 The `exec` dispatcher supports adding rules. Please note some windows might work
 better, some worse. It records the PID of the spawned process and uses that.
 For example, if your process forks and then the fork opens a window, this will
-not work. Rules will only be applied once. This means dynamic rules will be
-overridden as soon as a property of the window changes (e.g. switching focus).
-To make dynamic rules stick around use `hyprctl setprop` (see
-[Using hyprctl](../Using-hyprctl)).
+not work.
 
 The syntax is:
 
@@ -200,3 +198,33 @@ For example:
 ```ini
 bind = SUPER, E, exec, [workspace 2 silent; float; move 0 0] kitty
 ```
+
+### setprop
+
+Prop List:
+
+| prop | comment |
+| --- | --- |
+| alpha | float 0.0 - 1.0 |
+| alphaoverride | 0/1, makes the next setting be override instead of multiply |
+| alphainactive | float 0.0 - 1.0 |
+| alphainactiveoverride | 0/1, makes the next setting be override instead of multiply |
+| alphafullscreen | float 0.0 - 1.0 |
+| alphafullscreenoverride | 0/1, makes the next setting be override instead of multiply |
+| animationstyle | string, cannot be locked |
+| activebordercolor | gradient, -1 means not set |
+| inactivebordercolor | gradient, -1 means not set |
+| maxsize | vec2 (`x y`) |
+| minsize | vec2 (`x y`) |
+
+Additional properties can be found in the [Window Rules](../Window-Rules#dynamic-rules) section.
+
+For example:
+
+```sh
+address:0x13371337 noanim 1
+address:0x13371337 nomaxsize 0
+address:0x13371337 opaque toggle
+address:0x13371337 immediate unset
+```
+
