@@ -426,3 +426,7 @@ If you are not using any -git packages, this is a mistake in your distro's packa
 ### My cursor is a hyprland icon?
 
 This means you have no hyprcursor theme installed, and hyprland failed to find an XCursor theme as well. Install a cursor theme.
+
+### Smart gaps please?
+
+[Here](../Configuring/Workspace-Rules/#smart-gaps).

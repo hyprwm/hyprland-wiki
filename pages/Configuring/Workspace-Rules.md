@@ -55,17 +55,18 @@ workspace = w[tg1-4], shadow:false
 
 #### Smart gaps
 
-To replicate "smart gaps" / "no gaps when only" from other WMs/Compositors, use
+To replicate "smart gaps" / "no gaps when only" from other WMs/Compositors, use this bad boy:
 
 ```ini
-workspace = w[t1], gapsout:0, gapsin:0, border: 0, rounding:0
-workspace = w[tg1], gapsout:0, gapsin:0, border: 0, rounding:0
-```
-
-If you want no gaps when a window is maximised (but not fullscreen), add this rule as well
-
-```ini
-workspace = f[1], gapsout:0, gapsin:0, border: 0, rounding:0
+workspace = w[t1], gapsout:0, gapsin:0
+workspace = w[tg1], gapsout:0, gapsin:0
+workspace = f[1], gapsout:0, gapsin:0
+windowrulev2 = bordersize 0, floating:0, onworkspace:w[t1]
+windowrulev2 = rounding 0, floating:0, onworkspace:w[t1]
+windowrulev2 = bordersize 0, floating:0, onworkspace:w[tg1]
+windowrulev2 = rounding 0, floating:0, onworkspace:w[tg1]
+windowrulev2 = bordersize 0, floating:0, onworkspace:f[1]
+windowrulev2 = rounding 0, floating:0, onworkspace:f[1]
 ```
 
 ## Rules
