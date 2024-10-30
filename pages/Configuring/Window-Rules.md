@@ -96,7 +96,13 @@ size, you can use `hyprctl clients`.
 
 ### Static rules
 
-Static rules are evaluated once when the window is opened and never again.
+Static rules are evaluated once when the window is opened and never again. This essentially means that it is always the `initialTitle` and `initialClass` which will be found when matching on `title` and `class`, respectively.
+
+{{< callout type=warning >}}
+
+It is not possible to `float` (or any other of the static rules) a window based on a change in the `title` after the window has been created. This applies to all static rules listed here.
+
+{{< /callout >}}
 
 | Rule | Description |
 | ---- | ----------- |
