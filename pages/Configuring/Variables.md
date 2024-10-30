@@ -81,6 +81,7 @@ _Subcategory `general:snap:`_
 | enabled | enable snapping for floating windows | bool | false |
 | window_gap | minimum gap in pixels between windows before snapping | int | 10 |
 | monitor_gap | minimum gap in pixels between window and monitor edges before snapping | int | 10 |
+| border_overlap | if true, windows snap such that only one border's worth of space is between them | bool | false |
 
 {{< callout type=important >}}
 
