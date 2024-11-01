@@ -374,7 +374,7 @@ Dependencies:
 
 {{< callout type=info >}}
 
-Please note that Hyprland uses the C++26 standard, so both your compiler and your
+Please note that Hyprland uses the C++23 standard, so both your compiler and your
 C++ standard library has to support that (`gcc>=14` or `clang>=18`).
 
 {{< /callout >}}
