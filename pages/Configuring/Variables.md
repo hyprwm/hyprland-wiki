@@ -136,7 +136,7 @@ _Subcategory `decoration:blur:`_
 | passes | the amount of passes to perform | int | 1 |
 | ignore_opacity | make the blur layer ignore the opacity of the window | bool | false |
 | new_optimizations | whether to enable further optimizations to the blur. Recommended to leave on, as it will massively improve performance. | bool | true |
-| xray | if enabled, floating windows will ignore tiled windows in their blur. Only available if blur_new_optimizations is true. Will reduce overhead on floating blur significantly. | bool | false |
+| xray | if enabled, floating windows will ignore tiled windows in their blur. Only available if new_optimizations is true. Will reduce overhead on floating blur significantly. | bool | false |
 | noise | how much noise to apply. [0.0 - 1.0] | float | 0.0117 |
 | contrast | contrast modulation for blur. [0.0 - 2.0] | float | 0.8916 |
 | brightness | brightness modulation for blur. [0.0 - 2.0] | float | 0.8172 |
