@@ -68,6 +68,16 @@ exec-once = udiskie
 
 [UWSM](https://github.com/Vladimir-csp/uwsm) by _Vladimir-csp_: Wraps standalone Wayland compositors into a set of Systemd units on the fly. Provides robust session management including environment, XDG autostart support, bi-directional binding with login session, login shell integration, and clean shutdown. Optional user unit control utility via dmenu-like menu, failed unit monitor.
 
+### Global or program-specific Macros
+
+[hyprmacros](https://github.com/lunatic-gh/hyprmacros) by _lunatic_: A macro-manager that allows to create both global and program-specific macros:
+- key>key remappings. for example `A` to `B`.
+- key>sequence remappings. for example `A` to `H > E > L > L > O`, or even `H > E > L > L > O > [5ms-delay] > W > O > R > L > D`.
+- key>text remappings. for example `A` sends `Hello World` as plain text.
+- key>command remappings. for example `LCtrl+LAlt+Return` runs `kitty`
+
+Install/Usage instructions can be found on the project's github page.
+
 ### Other useful utilities
 
 The website [We Are Wayland Now](https://wearewaylandnow.com/) details some other useful utilities and applications for Wayland like docks, email clients, and so on, along with some other useful information about compatibility on Wayland.
