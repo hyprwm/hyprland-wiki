@@ -14,6 +14,8 @@ or use a different agent, e.g. [KDE's one](https://github.com/KDE/polkit-kde-age
 Add `exec-once = systemctl --user start hyprpolkitagent` to your Hyprland config and restart hyprland.
 (obviously change that to whatever you are using if you are not using the hypr one)
 
+If Hyprland is started as a systemd service, you can autostart for polkit with the command `systemctl --user enable --now hyprpolkitagent.service`.
+
 On distributions that use a different init system, such as Gentoo, it may be
 necessary to use
 `exec-once=/usr/lib64/libexec/hyprpolkitagent` instead.
