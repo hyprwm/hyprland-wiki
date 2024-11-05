@@ -72,6 +72,10 @@ widget_name {
   - halign: `left`, `center`, `right`, `none`. valign: `top`, `center`,
     `bottom`, `none`
   - zindex: Widgets with larger numbers will be placed above widgets with smaller numbers. All widgets default to 0, except background which defaults to -1.
+- All `position` and `size` options can be specified in pixels or as percentages of the output size.
+  - pixels: `10, 10` or `10px, 10px`
+  - percentages: `10%, 10%`
+  - mixed: `10%, 5px`
 
 ### Shadowable
 
