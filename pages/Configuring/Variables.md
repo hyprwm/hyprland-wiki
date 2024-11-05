@@ -111,14 +111,6 @@ Doing `general:snap {` is **invalid**!
 | active_opacity | opacity of active windows. [0.0 - 1.0] | float | 1.0 |
 | inactive_opacity | opacity of inactive windows. [0.0 - 1.0] | float | 1.0 |
 | fullscreen_opacity | opacity of fullscreen windows. [0.0 - 1.0] | float | 1.0 |
-| drop_shadow | enable drop shadows on windows | bool | true |
-| shadow_range | Shadow range ("size") in layout px | int | 4 |
-| shadow_render_power | in what power to render the falloff (more power, the faster the falloff) [1 - 4] | int | 3 |
-| shadow_ignore_window | if true, the shadow will not be rendered behind the window itself, only around it. | bool | true |
-| col.shadow | shadow's color. Alpha dictates shadow's opacity. | color | 0xee1a1a1a |
-| col.shadow_inactive | inactive shadow color. (if not set, will fall back to col.shadow) | color | unset |
-| shadow_offset | shadow's rendering offset. | vec2 | [0, 0] |
-| shadow_scale | shadow's scale. [0.0 - 1.0] | float | 1.0 |
 | dim_inactive | enables dimming of inactive windows | bool | false |
 | dim_strength | how much inactive windows should be dimmed [0.0 - 1.0] | float | 0.5 |
 | dim_special | how much to dim the rest of the screen by when a special workspace is open. [0.0 - 1.0] | float | 0.2 |
@@ -155,6 +147,22 @@ Increasing `blur:passes` is necessary to prevent blur looking wrong on higher
 strain on the GPU.
 
 {{< /callout >}}
+
+#### Shadow
+
+_Subcategory `decoration:shadow:`_
+
+| name | description | type | default |
+| --- | --- | --- | --- |
+| enabled | enable drop shadows on windows | bool | true |
+| range | Shadow range ("size") in layout px | int | 4 |
+| render_power | in what power to render the falloff (more power, the faster the falloff) [1 - 4] | int | 3 |
+| sharp | if enabled, will make the shadows sharp, akin to an infinite render power | bool | false |
+| ignore_window | if true, the shadow will not be rendered behind the window itself, only around it. | bool | true |
+| color | shadow's color. Alpha dictates shadow's opacity. | color | 0xee1a1a1a |
+| color_inactive | inactive shadow color. (if not set, will fall back to color) | color | unset |
+| offset | shadow's rendering offset. | vec2 | [0, 0] |
+| scale | shadow's scale. [0.0 - 1.0] | float | 1.0 |
 
 ### Animations
 
