@@ -148,7 +148,7 @@ strain on the GPU.
 
 {{< /callout >}}
 
-### Shadow
+#### Shadow
 
 _Subcategory `decoration:shadow:`_
 
