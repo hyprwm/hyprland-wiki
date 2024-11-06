@@ -18,7 +18,7 @@ the [Home Manager module](../Hyprland-on-Home-Manager).
 In Nixpkgs, there are Hyprland plugins packaged for the Hyprland version in
 Nixpkgs. You can use them like this:
 
-```nix
+```nix {filename="home.nix"}
 {pkgs, ...}: {
   wayland.windowManager.hyprland.plugins = [
     pkgs.hyprlandPlugins.<plugin>
@@ -38,7 +38,7 @@ flake, and **not** the Nixpkgs version.
 
 First, add the flake to your flake inputs:
 
-```nix
+```nix {filename="flake.nix"}
 {
   inputs = {
     hyprland.url = "github:hyprwm/Hyprland";
@@ -59,7 +59,7 @@ long as you update both inputs at once.
 
 The next step is adding the plugins to Hyprland:
 
-```nix
+```nix {filename="home.nix"}
 {inputs, pkgs, ...}: {
   wayland.windowManager.hyprland = {
     enable = true;

@@ -22,7 +22,7 @@ To install Hyprland on NixOS, we provide a NixOS and a Home Manager module.
 
 ## NixOS module
 
-```nix
+```nix {filename="configuration.nix"}
 {
   programs.hyprland.enable = true;
   # Optional, hint electron apps to use wayland:

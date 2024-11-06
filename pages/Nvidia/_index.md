@@ -60,13 +60,13 @@ driver modules need to be added to the initramfs.
 
 Edit `/etc/mkinitcpio.conf`. In the `MODULES` array, add the following module names:
 
-```ini
+```conf {filename="/etc/mkinitcpio.conf"}
 MODULES=(... nvidia nvidia_modeset nvidia_uvm nvidia_drm ...)
 ```
 
 Then, create and edit `/etc/modprobe.d/nvidia.conf`. Add this line to the file:
 
-```ini
+```conf {filename="/etc/modprobe.d/nvidia.conf"}
 options nvidia_drm modeset=1 fbdev=1
 ```
 
@@ -78,7 +78,7 @@ More information is available [here](https://wiki.archlinux.org/title/NVIDIA#DRM
 
 Add these variables to your Hyprland config:
 
-```sh
+```ini
 env = LIBVA_DRIVER_NAME,nvidia
 env = XDG_SESSION_TYPE,wayland
 env = GBM_BACKEND,nvidia-drm
@@ -130,7 +130,7 @@ be given here:
    repos.
 
 2. Add this variable to your hyprland config:
-   ```sh
+   ```ini
    env = NVD_BACKEND,direct
    ```
 
@@ -166,7 +166,7 @@ To fix the flickering, try running the apps in native Wayland instead.
 For most Electron apps, you should be fine just adding this
 environment variable to your config:
 
-```sh
+```ini
 env = ELECTRON_OZONE_PLATFORM_HINT,auto
 ```
 
@@ -184,7 +184,7 @@ in their official repos. You should use that instead of the `spotify`
 package in the AUR. Then, enable the Wayland backend in
 `/etc/spotify-launcher.conf` by uncommenting this line:
 
-```sh
+```sh {filename="/etc/spotify-launcher.conf"}
 extra_arguments = ["--enable-features=UseOzonePlatform", "--ozone-platform=wayland"]
 ```
 
@@ -236,7 +236,7 @@ do notice flickering artifacts from being idle for ~5 seconds.
 
 Make a new file at `/etc/modprobe.d/nvidia.conf` and paste this in:
 
-```sh
+```conf {filename="/etc/modprobe.d/nvidia.conf"}
 options nvidia NVreg_RegistryDwords="PowerMizerEnable=0x1; PerfLevelSrc=0x2222; PowerMizerLevel=0x3; PowerMizerDefault=0x3; PowerMizerDefaultAC=0x3"
 ```
 
@@ -267,9 +267,7 @@ make sure you're on `nvidia-dkms`.
 
 For Nix users, the equivalent of the above is
 
-```nix
-# configuration.nix
-
+```nix {filename="configuration.nix"}
 boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
 
 hardware.nvidia.powerManagement.enable = true;

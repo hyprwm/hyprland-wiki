@@ -26,7 +26,7 @@ For a list of available options, check the
 
 {{< tab "Home Manager" >}}
 
-```nix
+```nix {filename="home.nix"}
 {
   programs.kitty.enable = true; # required for the default Hyprland config
   wayland.windowManager.hyprland.enable = true; # enable Hyprland
@@ -46,9 +46,7 @@ adjustment for your setup.
 
 Don't forget to replace `user@hostname` with your username and hostname!
 
-```nix
-# flake.nix
-
+```nix {filename="flake.nix"}
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -96,9 +94,7 @@ The following snippet of code tries to show how to bring the Hyprland flake from
 the flake input and use the package in the Home Manager option. Feel free to
 make any adjustment for your setup.
 
-```nix
-# home config
-
+```nix {filename="home.nix"}
 {pkgs, ...}: let
   flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
 
@@ -123,9 +119,7 @@ in {
 Once the module is enabled, you can use it to declaratively configure Hyprland.
 Here is an example config:
 
-```nix
-# home.nix
-
+```nix {filename="home.nix"}
 {
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
@@ -154,7 +148,7 @@ Here is an example config:
 
 Hyprland plugins can be added through the `plugins` option:
 
-```nix
+```nix {filename="home.nix"}
 {
   wayland.windowManager.hyprland.plugins = [
     inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
@@ -176,7 +170,7 @@ compatibility options that should make the themes load in all situations.
 
 Example configuration:
 
-```nix
+```nix {filename="home.nix"}
 {
   home.pointerCursor = {
     gtk.enable = true;
@@ -216,13 +210,13 @@ services. This is the most common with user-configured services such as
 
 To fix it, add to your config:
 
-```nix
+```nix {filename="home.nix"}
 wayland.windowManager.hyprland.systemd.variables = ["--all"];
 ```
 
 This setting will produce the following entry in the Hyprland config:
 
-```ini
+```ini {filename="hyprland.conf"}
 exec-once = dbus-update-activation-environment --systemd --all
 ```
 

@@ -265,7 +265,7 @@ built in CI by GitHub Actions.
 You can add this repository by creating a file such as
 `/etc/xbps.d/hyprland-void.conf` with the following contents:
 
-```plain
+```plain {filename="/etc/xbps.d/hyprland-void.conf"}
 repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-glibc
 ```
 
@@ -304,7 +304,7 @@ For detailed instructions on installing this build see
 
 Hyprland is available in Alpine's [testing repository](https://wiki.alpinelinux.org/wiki/Repositories#Testing) which can be enabled in `/etc/apk/repositories` by adding
 
-```plain
+```plain {filename="/etc/apk/repositories"}
 http://dl-cdn.alpinelinux.org/alpine/edge/testing
 ```
 
@@ -404,7 +404,7 @@ zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig
 
 {{% details title="FreeBSD" closed="true" %}}
 
-```plain
+```sh
 pkg install git pkgconf gmake gcc evdev-proto cmake wayland-protocols wayland libglvnd libxkbcommon libinput cairo pango pixman libxcb
 pkg install meson jq hwdata libdisplay-info libliftoff
 export CC=gcc CXX=g++ LDFLAGS="-static-libstdc++ -static-libgcc"
@@ -432,7 +432,7 @@ packaged for your distro of choice:
 
 ### CMake (recommended)
 
-```Plain
+```sh
 git clone --recursive https://github.com/hyprwm/Hyprland
 cd Hyprland
 make all && sudo make install
@@ -443,7 +443,7 @@ installed._
 
 ### Meson
 
-```plain
+```sh
 meson subprojects update --reset
 meson setup build
 ninja -C build

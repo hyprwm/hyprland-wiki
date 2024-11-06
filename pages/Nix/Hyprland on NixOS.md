@@ -30,9 +30,7 @@ Make sure to check out the options of the
 
 {{< tab "Nixpkgs" >}}
 
-```nix
-# configuration.nix
-
+```nix {filename="configuration.nix"}
 {
   programs.hyprland.enable = true; # enable Hyprland
 
@@ -62,9 +60,7 @@ have to compile Hyprland yourself.
 In case you want to use the development version of Hyprland, you can add it like
 this:
 
-```nix
-# flake.nix
-
+```nix {filename="flake.nix"}
 {
   inputs.hyprland.url = "github:hyprwm/Hyprland";
   # ...
@@ -78,9 +74,9 @@ this:
     };
   };
 }
+```
 
-# configuration.nix
-
+```nix {filename="configuration.nix"}
 {inputs, pkgs, ...}: {
   programs.hyprland = {
     enable = true;
@@ -100,7 +96,7 @@ version mismatch between your system and Hyprland.
 
 You can fix this issue by using `mesa` from Hyprland's `nixpkgs` input:
 
-```nix
+```nix {filename="configuration.nix"}
 {pkgs, inputs, ...}: let
   pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in {
@@ -128,9 +124,7 @@ have to compile Hyprland yourself.
 
 {{< /callout >}}
 
-```nix
-# configuration.nix
-
+```nix {filename="configuration.nix"}
 {pkgs, ...}: let
   flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
 
@@ -160,7 +154,7 @@ relevant section in [Hyprland on Home Manager](../Hyprland-on-Home-Manager).
 If you prefer not to use Home Manager, you can also resolve the issues with GTK
 themes using dconf like so:
 
-```ini
+```ini {filename="hyprland.conf"}
 exec-once = dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita'"
 exec-once = dconf write /org/gnome/desktop/interface/icon-theme "'Flat-Remix-Red-Dark'"
 exec-once = dconf write /org/gnome/desktop/interface/document-font-name "'Noto Sans Medium 11'"

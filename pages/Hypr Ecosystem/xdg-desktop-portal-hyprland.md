@@ -33,13 +33,13 @@ XDPH doesn't implement a file picker. For that, it is recommended to install
 
 {{< tab "Arch Linux" >}}
 
-```plain
+```sh
 pacman -S xdg-desktop-portal-hyprland
 ```
 
 or, for -git:
 
-```plain
+```sh
 yay -S xdg-desktop-portal-hyprland-git
 ```
 
@@ -57,9 +57,7 @@ On NixOS, XDPH is already enabled by the
 
 ## Unmask dependencies
 
-### /etc/portage/profile/package.unmask
-
-```plain
+```plain {filename="/etc/portage/profile/package.unmask"}
 dev-qt/qtbase
 dev-qt/qtwayland
 dev-qt/qtdeclarative
@@ -68,9 +66,7 @@ dev-qt/qtshadertools
 
 ## Apply necessary useflags
 
-### /etc/portage/package.use
-
-```plain
+```plain {filename="/etc/portage/package.use"}
 dev-qt/qtbase opengl egl eglfs gles2-only
 dev-qt/qtdeclarative opengl
 sys-apps/xdg-desktop-portal screencast
@@ -78,9 +74,7 @@ sys-apps/xdg-desktop-portal screencast
 
 ## Unmask dependencies and xdph
 
-### /etc/portage/package.accept_keywords
-
-```plain
+```plain {filename="/etc/portage/package.accept_keywords"}
 gui-libs/xdg-desktop-portal-hyprland 
 dev-qt/qtbase
 dev-qt/qtwayland
@@ -152,7 +146,7 @@ default (see `/usr/share/xdg-desktop-portal/hyprland-portals.conf`). If you want
 to use the KDE file picker but let XDPH handle everything else, create a file
 `~/.config/xdg-desktop-portal/hyprland-portals.conf` with the following content:
 
-```ini
+```ini {filename="~/.config/xdg-desktop-portal/hyprland-portals.conf"}
 [preferred]
 default = hyprland;gtk
 org.freedesktop.impl.portal.FileChooser = kde

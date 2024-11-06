@@ -215,7 +215,7 @@ exec-once = handle_monitor_connect.sh
 
 where `handle_monitor_connect.sh` is: (example)
 
-```sh
+```sh {filename="handle_monitor_connect.sh"}
 #!/bin/sh
 
 handle() {
@@ -242,9 +242,7 @@ Until then, OTD is the way to go.
 
 ### Some of my apps take a really long time to open...?
 
-_~/.config/hypr/hyprland.conf_
-
-```ini
+```ini {filename="~/.config/hypr/hyprland.conf"}
 exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 ```
 

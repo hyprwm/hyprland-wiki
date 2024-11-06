@@ -22,8 +22,7 @@ using the Hyprland flake package.
 
 {{< /callout >}}
 
-```nix
-# configuration.nix
+```nix {filename="configuration.nix"}
 {
   nix.settings = {
     substituters = ["https://hyprland.cachix.org"];
