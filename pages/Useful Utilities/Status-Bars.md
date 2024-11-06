@@ -73,7 +73,7 @@ If you are using multiple monitors, you may want to insert the following option:
 ## Eww
 
 [Eww](https://github.com/elkowar/eww) (ElKowar's Wacky Widgets) is a widget
-system made in Rust + GTK, which lets allows the creation of custom widgets
+system made in Rust + GTK, which allows the creation of custom widgets
 similarly to AwesomeWM. The key difference is that it is independent of window
 manager/compositor.
 
