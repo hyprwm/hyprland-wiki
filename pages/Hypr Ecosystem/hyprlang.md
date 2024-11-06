@@ -30,6 +30,7 @@ there only for legibility.
 Categories can be regular, and "special".
 
 Both are specified the same:
+
 ```ini
 category {
     variable = value
@@ -37,6 +38,7 @@ category {
 ```
 
 Special categories can have other properties, like for example containing a key:
+
 ```ini
 special {
     key = A
@@ -54,11 +56,13 @@ example uses those for per-device configs.
 ### Defining variables
 
 Variables can be defined like so:
+
 ```ini
 $VAR = myData
 ```
 
 Later on, you can use them like so:
+
 ```ini
 $SUFFIX = -san
 $NAME = Jeremy
@@ -91,11 +95,13 @@ someoption = blah
 ### Inline options
 
 If you want to specify an option inline, without opening and closing a category, the separator is `:`:
+
 ```ini
 category:variable = value
 ```
 
 If the category is special and requires a key, you can do:
+
 ```ini
 category[keyvalue]:variable = value
 ```
@@ -105,4 +111,3 @@ This is the syntax used by `hyprctl keyword`, for example.
 ## Developer documentation
 
 See the documentation at [hyprland.org/hyprlang](https://hyprland.org/hyprlang/).
-

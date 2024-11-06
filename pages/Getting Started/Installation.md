@@ -341,6 +341,7 @@ epmi hypridle
 epmi hyprpaper
 epmi hyprpicker
 ```
+
 {{% /details %}}
 
 {{% details title="Solus*" closed="true" %}}

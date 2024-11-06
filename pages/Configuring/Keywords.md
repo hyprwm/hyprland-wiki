@@ -27,6 +27,7 @@ three_param_keyword = A, B,   # OK
 ## Executing
 
 You can execute a shell script on:
+
 - startup of the compositor
 - every time the config is reloaded.
 - shutdown of the compositor
@@ -96,8 +97,8 @@ Remember to use the name of the `Tablet` and not `Tablet Pad` or `Tablet tool`.
 Additional properties only present in per-device configs:
 
 - `enabled` -> (only for mice / touchpads / touchdevices / keyboards)
-    - enables / disables the device (connects / disconnects from the on-screen cursor)
-    - default: Enabled
+  - enables / disables the device (connects / disconnects from the on-screen cursor)
+  - default: Enabled
 
 Example config section:
 

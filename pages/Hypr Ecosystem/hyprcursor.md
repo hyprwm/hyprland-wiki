@@ -2,6 +2,7 @@
 weight: 101
 title: hyprcursor
 ---
+
 hyprcursor is a new cursor theme format that has many advantages
 over the widely used xcursor.
 
@@ -22,8 +23,9 @@ to potential permission issues.
 You can set your theme with envvars, or with `hyprctl setcursor`.
 
 Env:
- - `HYPRCURSOR_THEME` controls the theme.
- - `HYPRCURSOR_SIZE` controls the cursor size.
+
+- `HYPRCURSOR_THEME` controls the theme.
+- `HYPRCURSOR_SIZE` controls the cursor size.
 
 example snippet of `hyprland.conf`:
 

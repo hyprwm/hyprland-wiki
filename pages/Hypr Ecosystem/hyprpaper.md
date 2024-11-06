@@ -31,12 +31,12 @@ sudo dnf install hyprpaper
 
 {{% /details %}}
 
-
 {{% details title="Manual" closed="true" %}}
 
 ### Dependencies
 The development files of these packages need to be installed on the system for `hyprpaper` to build correctly.
 (Development packages are usually suffixed with `-dev` or `-devel` in most distros' repos).
+
 - wayland
 - wayland-protocols
 - pango
@@ -51,17 +51,20 @@ The development files of these packages need to be installed on the system for `
 - hyprwayland-scanner
 
 To install all of these in Fedora, run this command:
-```
+
+```sh
 sudo dnf install wayland-devel wayland-protocols-devel hyprlang-devel pango-devel cairo-devel file-devel libglvnd-devel libglvnd-core-devel libjpeg-turbo-devel libwebp-devel gcc-c++ hyprutils-devel hyprwayland-scanner
 ```
 
 On Arch:
-```
+
+```sh
 sudo pacman -S ninja gcc wayland-protocols libjpeg-turbo libwebp pango cairo pkgconf cmake libglvnd wayland hyprutils hyprwayland-scanner hyprlang
 ```
 
 On OpenSUSE:
-```
+
+```sh
 sudo zypper install ninja gcc-c++ wayland-protocols-devel Mesa-libGLESv3-devel file-devel hyprutils-devel hyprwayland-scanner
 ```
 
@@ -101,9 +104,9 @@ wallpaper = monitor, /home/me/amongus.png
 wallpaper = , /home/me/amongus.png
 ```
 
-Monitor names can be checked with `hyprctl monitors`
+Monitor names can be checked with `hyprctl monitors`.
 
-Also can be used with `desc:` followed by the monitor's description without the (PORT) at the end
+Also can be used with `desc:` followed by the monitor's description without the (PORT) at the end.
 
 You may add `contain:` or `tile:` before the file path in `wallpaper =` to set the mode to either contain or tile, respectively, instead of cover:
 

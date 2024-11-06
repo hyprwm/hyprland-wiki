@@ -138,7 +138,7 @@ You have nine choices:
 - Previous workspace: `previous`, or `previous_per_monitor`
 
 - First available empty workspace: `empty`, suffix with `m` to only search
-  on monitor. and/or `n` to make it the *next* available empty workspace. e.g.
+  on monitor. and/or `n` to make it the _next_ available empty workspace. e.g.
   `emptynm`
 
 - Special Workspace: `special` or `special:name` for named special workspaces.
@@ -227,4 +227,3 @@ address:0x13371337 nomaxsize 0
 address:0x13371337 opaque toggle
 address:0x13371337 immediate unset
 ```
-

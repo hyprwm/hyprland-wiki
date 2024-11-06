@@ -14,6 +14,7 @@ is not required, but recommended. Without it, locking shows the current screen.
 ### General
 
 Variables in the `general` category:
+
 | variable | description | type | default |
 | -- | -- | -- | -- |
 | disable_loading_bar | disables the loading bar on the bottom of the screen while hyprlock is booting up. | bool | false |
@@ -32,13 +33,14 @@ Variables in the `general` category:
 
 {{< callout type=warning >}}
 
-If you are not on hyprland, or your  `XDG_CURRENT_DESKTOP` is not Hyprland, the fade out will be disabled and the value of your `no_fade_out` variable will be ignored.
+If you are not on hyprland, or your `XDG_CURRENT_DESKTOP` is not Hyprland, the fade out will be disabled and the value of your `no_fade_out` variable will be ignored.
 
 {{< /callout >}}
 
 ## Keyboard Shortcuts and Actions
 
 The following keys and key-combinations describe hyprlock's default behaviour:
+
 | input | description |
 | -- | -- |
 | ESC | Clear password buffer |
@@ -80,6 +82,7 @@ widget_name {
 ### Shadowable
 
 Some widgets are shadowable, meaning they can have a shadow. For those widgets, you get:
+
 | variable | description | type | default |
 | -- | -- | -- | -- |
 | shadow_passes | passes for shadow, 0 to disable | int | 0 |
@@ -212,17 +215,20 @@ input-field {
 When `outline_thickness` set to `0`, the color of the inner box will be changed instead of the outer.
 
 Behaviour of `swap_font_color` is as follows:
- - `outline_thickness` is `0`: if set, font color will be swapped with inner one on color change events (e.g. Caps-lock on or password check).
- - `outline_thickness` is not `0`: if set, font and inner colors will be swapped on password check and authentication failure.
+
+- `outline_thickness` is `0`: if set, font color will be swapped with inner one on color change events (e.g. Caps-lock on or password check).
+- `outline_thickness` is not `0`: if set, font and inner colors will be swapped on password check and authentication failure.
 
 {{< /callout >}}
 
 Available variables for `placeholder_text`:
- - `$PROMPT` - prompt text provided by pam. Usually this will be "Password: ", but it depends on your pam configuration.
+
+- `$PROMPT` - prompt text provided by pam. Usually this will be "Password: ", but it depends on your pam configuration.
 
 Available variables for `fail_text`:
- - `$FAIL` - pam fail reason
- - `$ATTEMPTS` - number of failed authentication attempts
+
+- `$FAIL` - pam fail reason
+- `$ATTEMPTS` - number of failed authentication attempts
 
 ### Label
 
@@ -247,15 +253,16 @@ label {
 ```
 
 Available variables for `text`:
- - `$USER` - username (e.g. linux-user)
- - `$DESC` - user description (e.g. Linux User)
- - `$TIME` - current time in 24-hour format (e.g. `13:37`)
- - `$TIME12` - current time in 12-hour format (e.g. `1:37 PM`)
- - `$PROMPT` - last pam prompt
- - `$FAIL` - last pam fail reason
- - `$ATTEMPTS` - failed attempts
- - `$LAYOUT` - current keyboard layout
- - `$FPRINTMESSAGE` - last message from fingerprint matching
+
+- `$USER` - username (e.g. linux-user)
+- `$DESC` - user description (e.g. Linux User)
+- `$TIME` - current time in 24-hour format (e.g. `13:37`)
+- `$TIME12` - current time in 12-hour format (e.g. `1:37 PM`)
+- `$PROMPT` - last pam prompt
+- `$FAIL` - last pam fail reason
+- `$ATTEMPTS` - failed attempts
+- `$LAYOUT` - current keyboard layout
+- `$FPRINTMESSAGE` - last message from fingerprint matching
 
 `text` also supports launching commands, for example:
 
@@ -264,12 +271,13 @@ text = cmd[update:1000] echo "<span foreground='##ff2222'>$(date)</span>"
 ```
 
 Worth noting:
- - `update:` - time is in ms.
- - label can be forcefully updated by specifying `update:<time>:1` or `update:<time>:true` and sending `SIGUSR2` to hyprlock. `<time>` can be `0` in this case.
- - `$ATTEMPTS[<string>]` format can be used to show `<string>` when there are no failed attempts. You can use pango-markup here. `<string>` can be empty to hide.
- - `$LAYOUT[<str0>,<str1>,...]` format is available to replace indexed layouts. You can use settings from `hyprland.conf`, e.g. `$LAYOUT[en,ru,de]`. Also, single `!` character will hide layout. E.g. `$LAYOUT[!]` will hide default (0 indexed) and show others.
- - Variables seen above are parsed _before_ the command is ran.
- - **do not** run commands that never exit. This will hang the AsyncResourceGatherer and you won't have a good time.
+
+- `update:` - time is in ms.
+- label can be forcefully updated by specifying `update:<time>:1` or `update:<time>:true` and sending `SIGUSR2` to hyprlock. `<time>` can be `0` in this case.
+- `$ATTEMPTS[<string>]` format can be used to show `<string>` when there are no failed attempts. You can use pango-markup here. `<string>` can be empty to hide.
+- `$LAYOUT[<str0>,<str1>,...]` format is available to replace indexed layouts. You can use settings from `hyprland.conf`, e.g. `$LAYOUT[en,ru,de]`. Also, single `!` character will hide layout. E.g. `$LAYOUT[!]` will hide default (0 indexed) and show others.
+- Variables seen above are parsed _before_ the command is ran.
+- **do not** run commands that never exit. This will hang the AsyncResourceGatherer and you won't have a good time.
 
 ## User Signals
 

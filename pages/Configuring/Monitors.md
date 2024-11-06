@@ -85,15 +85,17 @@ Leaving the name empty will define a fallback rule to use when no other rules
 match.
 
 There are a few special values for the resolutions:
+
 - `preferred` - use the display's preferred size and refresh rate.
 - `highres` - use the highest supported resolution.
 - `highrr` - use the highest supported refresh rate.
 
 Position also has a few special values:
+
 - `auto` - let Hyprland decide on a position. By default, it places each new monitor to the right of existing ones.
 - `auto-right/left/up/down` - place the monitor to the right/left, above or below other monitors.
 
-***Please Note:*** While specifying a monitor direction for your first monitor is allowed, this does nothing and it will
+_**Please Note:**_ While specifying a monitor direction for your first monitor is allowed, this does nothing and it will
 be positioned at (0,0). Also the direction is always from the center out, so you can specify `auto-up` then `auto-left`,
 but the left monitors will just be left of the origin and above the origin. You can also specify duplicate directions and
 monitors will continue to go in that direction.
@@ -231,15 +233,15 @@ monitor = eDP-1, 2880x1800@90, 0x0, 1, transform, 1
 
 Transform list:
 
-```
-0 -> normal (no transforms) 
-1 -> 90 degrees 
-2 -> 180 degrees 
-3 -> 270 degrees 
-4 -> flipped 
-5 -> flipped + 90 degrees 
-6 -> flipped + 180 degrees 
-7 -> flipped + 270 degrees 
+```plain
+0 -> normal (no transforms)
+1 -> 90 degrees
+2 -> 180 degrees
+3 -> 270 degrees
+4 -> flipped
+5 -> flipped + 90 degrees
+6 -> flipped + 180 degrees
+7 -> flipped + 270 degrees
 ```
 
 ## Default workspace

@@ -35,10 +35,10 @@ _[wiki page](../Crashes-and-Bugs)_
 For Nvidia graphics - This issue appears to be resolved when using Nvidia
 Drivers 525.60.11 or later, but it may persist with older drivers.
 
-For systems with limited hardware (Ex. iGPU, USB-C, USB Hubs) - Set `env = AQ_NO_MODIFIERS,1` in your config \
+For systems with limited hardware (Ex. iGPU, USB-C, USB Hubs) - Set `env = AQ_NO_MODIFIERS,1` in your config.
 To diagnose if you have the exact problem above you can get a [DRM log](https://wiki.hyprland.org/Crashes-and-Bugs/#debugging-drm-issues) and look for
 
-```
+```plain
 Requested display configuration exceeds system DDB limitations
 ```
 
@@ -78,7 +78,6 @@ utility, try our own screenshotting utility:
 
 **Option 2:** You can also use hyprshot, more info [here](https://github.com/Gustash/Hyprshot).
 
-
 **Option 3:** Install `flameshot`.
 
 Flameshot has many built-in features like allowing you to draw with a paintbrush,
@@ -90,7 +89,7 @@ The options above are smoother and more native to Wayland. If you still want to
 use Flameshot, here are some configuration recommendations by users who've found
 workarounds.
 
-```
+```ini
 # noanim isn't necessary but animations with these rules might look bad. use at your own discretion.
 windowrulev2 = noanim, class:^(flameshot)$
 windowrulev2 = float, class:^(flameshot)$
@@ -158,6 +157,7 @@ Be aware that they will not prevent tty-changing using Ctrl-Alt-F1...F7.
 ### How do I change me mouse cursor?
 
 See [hyprcursor](../Hypr-Ecosystem/hyprcursor)
+
 1. Set the GTK cursor using [nwg-look](https://github.com/nwg-piotr/nwg-look).
 2. Add `exec-once=hyprctl setcursor [THEME] [SIZE]` to your config and restart Hyprland.
 
@@ -351,10 +351,10 @@ pop-up. It should look something like this:
 
 ```bash
 Window 55d794495400 -> :
-	...
-	class: [CLASS here]
-	title: [TITLE here]
-	...
+  ...
+  class: [CLASS here]
+  title: [TITLE here]
+  ...
 ```
 
 If the pop-up disappears as you hover over it, you can add to your config:
@@ -414,7 +414,7 @@ monitor = Unknown-1,disabled
 
 If you are using a -git package, this is a common occurrence when ABI-breaking updates are done.
 
-***Do not*** symlink different .so versions, this will cause crashes!!!
+_**Do not**_ symlink different .so versions, this will cause crashes!!!
 
 Instead, find all hypr* packages with `-git` you have installed, remove them (possibly remove dependencies of them, too)
 and simply install them again.

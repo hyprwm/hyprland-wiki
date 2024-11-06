@@ -53,10 +53,10 @@ Report an issue on GitHub or on the Discord server.
 1. Build Hyprland in debug (`make debug`).
 2. Start Hyprland and get it to crash.
 3. In a tty or terminal, do `coredumpctl debug Hyprland`.
-    - If gdb asks you for symbols, say `y`.
-    - If it asks about paging, say `c`.
+   - If gdb asks you for symbols, say `y`.
+   - If it asks about paging, say `c`.
 4. Once you get to `(gdb)`, start file logging with `set logging on`.
-    - For a specific file, use `set logging file output.log`.
+   - For a specific file, use `set logging file output.log`.
 5. Run `bt -full`, then `exit` once finished, and attach the output.
 
 ## Obtaining a trace log
@@ -152,7 +152,11 @@ we can render to) and put it on your screen (via the gpu) instead of a window.
 Freezes, glitches, and others, can be caused by issues with Hyprland's communication with DRM, the driver
 or kernel. In those cases, a DRM log is helpful.
 
-_Please note, these logs are EXTREMELY verbose. Please reproduce your bug(s) ASAP to avoid getting a 1GB log_
+{{< callout >}}
+
+Please note, these logs are EXTREMELY verbose. Please reproduce your bug(s) ASAP to avoid getting a 1GB log.
+
+{{< /callout >}}
 
 ```sh
 echo 0x19F | sudo tee /sys/module/drm/parameters/debug  # cnables verbose drm logging

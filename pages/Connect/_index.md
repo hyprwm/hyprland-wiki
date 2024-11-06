@@ -9,12 +9,10 @@ These are the links to official Hyprland-related spaces or profiles:
 
 Twitter: [twitter.com/hyprwm](https://twitter.com/hyprwm)
 
-
 ## Spaces
 
 Discord: [discord.gg/hQ9XvMUjjr](https://discord.gg/hQ9XvMUjjr)<br/>
 Matrix: `#hyprland:matrix.vaxry.net`
-
 
 ## Other
 

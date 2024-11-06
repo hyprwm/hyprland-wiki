@@ -29,11 +29,12 @@ for Hyprland's IPC written in Rust.
 ### Screen shaders/color temperature
 
 - [hyprshade](https://github.com/loqusion/hyprshade) by _loqusion_: Utility for
-swapping and scheduling screen shaders; also functions as an
-[automatic color temperature shifter](https://en.wikipedia.org/wiki/F.lux).
+  swapping and scheduling screen shaders; also functions as an
+  [automatic color temperature shifter](https://en.wikipedia.org/wiki/F.lux).
 - [gammastep](https://gitlab.com/chinstrap/gammastep) by _Chinstrap_: Control temperature color automatically depending on the time of the day and location.
 
 ### Wireless settings
+
 - [iwgtk](https://github.com/J-Lentz/iwgtk) by _Jesse Lentz_: WiFi settings frontend for `iwd` in GTK
 - [blueberry](https://github.com/linuxmint/blueberry) by _Linux Mint_: Bluetooth settings frontend in GTK
 - [Overskride](https://github.com/kaii-lb/overskride) by _kaii-lb_: A simple yet powerful bluetooth client in GTK4

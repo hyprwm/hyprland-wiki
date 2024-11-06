@@ -19,14 +19,22 @@ repositories.
 
 ## Nvidia?
 
-_If not using an Nvidia card, skip this step_
+{{< callout type=info >}}
+
+If not using an Nvidia card, skip this step.
+
+{{< /callout >}}
 
 Please take a look at [The Nvidia page](../../Nvidia) before launching. It has
 information regarding the needed environment and tweaks.
 
 ## VM?
 
-_If not using a VM, skip this step_
+{{< callout type=info >}}
+
+If not using a VM, skip this step.
+
+{{< /callout >}}
 
 In a VM, make sure you have 3D acceleration enabled in your `virtio` config (or
 `virt-manager`) otherwise Hyprland _**will not work**_.
@@ -37,7 +45,7 @@ Please bear in mind 3D acceleration in VMs may be pretty slow.
 
 ## Launching Hyprland
 
-Hyprland can be executed by typing `Hyprland` in your tty. 
+Hyprland can be executed by typing `Hyprland` in your tty.
 
 Systemd users can also start Hyprland, by typing `systemctl --user start hyprland-session.service` in tty. This method provides additional features, such as [xdg-autostart](https://www.freedesktop.org/software/systemd/man/latest/systemd-xdg-autostart-generator.html) support and ability to enable services for programs that rely on a graphical session and provide such services (e.g waybar).
 

@@ -24,4 +24,3 @@ Configuration options are passed via environment variables starting with `AQ_` t
 ## Documentation
 
 Documentation will come soon.
-

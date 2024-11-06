@@ -5,12 +5,12 @@ title: Clipboard managers
 
 _Starting method:_ manual (`exec-once`)
 
-Clipboard Managers provide a convenient way to organize and access previously 
+Clipboard Managers provide a convenient way to organize and access previously
 copied content, including both text and images.
 
 Some common ones used are `cb`, `copyq`, `clipman`, `cliphist` and `clipse`.
 
-`cb` - Utilizes Wayland and stores text, images and files temporarily or 
+`cb` - Utilizes Wayland and stores text, images and files temporarily or
 indefinitely. Allows unlimited clipboards and history, JSON output and more.
 [GitHub](https://github.com/Slackadays/Clipboard)
 
@@ -20,10 +20,10 @@ indefinitely. Allows unlimited clipboards and history, JSON output and more.
 `cliphist` - Utilizes Wayland with `wl-clipboard` and can store both images and
 text [GitHub](https://github.com/sentriz/cliphist)
 
-`wl-clip-persist` - When copying something on Wayland, the copied data remains 
-in the clipboard until the application that was copied from is closed. 
-After that, the data disappears and can no longer be pasted. 
-To fix this problem, you can use `wl-clip-persist` which will preserve the data 
+`wl-clip-persist` - When copying something on Wayland, the copied data remains
+in the clipboard until the application that was copied from is closed.
+After that, the data disappears and can no longer be pasted.
+To fix this problem, you can use `wl-clip-persist` which will preserve the data
 in the clipboard after the application is closed.
 [GitHub](https://github.com/Linus789/wl-clip-persist)
 
@@ -34,6 +34,7 @@ image/text previews, multi-select, pinned items and more.
 [GitHub](https://github.com/savedra1/clipse)
 
 ## cb
+
 Start by adding the following line to your `~/.config/hypr/hyprland.conf`
 
 ```ini
@@ -152,12 +153,12 @@ exec-once = clipse -listen
 ```
 
 You can bind the TUI to a something nice like this:
- 
+
 ```ini
 windowrulev2 = float, class:(clipse)
 windowrulev2 = size 622 652, class:(clipse)
 
-bind = SUPER, V, exec, alacritty --class clipse -e clipse  
+bind = SUPER, V, exec, alacritty --class clipse -e clipse
 ```
 
 Replace `alacritty` with the terminal environment you use if necessary. The
@@ -166,4 +167,3 @@ GUI-like behavior.
 
 For more details on `clipse`, please refer to its GitHub repo linked at the top
 of the page.
-

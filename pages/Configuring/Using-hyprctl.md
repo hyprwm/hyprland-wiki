@@ -194,6 +194,7 @@ To disable:
 ```sh
 hyprctl seterror disable
 ```
+
 ### notify
 
 Sends a notification using the built-in Hyprland notification system.

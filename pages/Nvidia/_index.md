@@ -19,7 +19,7 @@ currently an alpha stage attempt to open source a part of their closed source
 driver for newer cards.
 
 If the proprietary drivers support your graphics card, it's generally recommended
-to use them instead, as it has significantly improved performance 
+to use them instead, as it has significantly improved performance
 and power management for newer GPUs.
 
 However, keep in mind that if the proprietary Nvidia drivers do not work
@@ -39,18 +39,18 @@ One issue is with [suspend](https://github.com/NVIDIA/open-gpu-kernel-modules/is
 You can choose between the `nvidia` or the `nvidia-dkms` package. There are pros and cons
 for each, but it is generally recommended to use the `dkms` package,
 as you won't have to rebuild the initramfs [manually](https://wiki.archlinux.org/title/NVIDIA#mkinitcpio) every time the kernel and drivers update, for example.
-If you're using a kernel that isn't `linux` or `linux-lts`, the `dkms` package is *required*.
+If you're using a kernel that isn't `linux` or `linux-lts`, the `dkms` package is _required_.
 
 ## Installation
 
 Install the following packages:
 
 1. `nvidia` or `nvidia-dkms`: The driver itself. Optionally, the open source drivers
-from NVIDIA can be installed as `nvidia-open` or `nvidia-open-dkms`.
+   from NVIDIA can be installed as `nvidia-open` or `nvidia-open-dkms`.
 2. `nvidia-utils`: The userspace graphics drivers. You need this for running Vulkan
-applications. If you'd like to use apps like Steam or Wine, install `lib32-nvidia-utils` as well.
+   applications. If you'd like to use apps like Steam or Wine, install `lib32-nvidia-utils` as well.
 3. `egl-wayland` (`libnvidia-egl-wayland1` and `libnvidia-egl-gbm1` on Ubuntu): This is required
-in order to enable compatibility between the EGL API and the Wayland protocol.
+   in order to enable compatibility between the EGL API and the Wayland protocol.
 
 ## DRM kernel mode setting
 
@@ -86,6 +86,7 @@ env = __GLX_VENDOR_LIBRARY_NAME,nvidia
 ```
 
 and set this variable:
+
 ```ini
 cursor {
     no_hardware_cursors = true
@@ -106,8 +107,8 @@ keep hardware cursors disabled.
 
 ## Finishing up
 
-Install a few packages to get some apps to function natively with Wayland for the 
-best compatibility and performance. 
+Install a few packages to get some apps to function natively with Wayland for the
+best compatibility and performance.
 See the [the Master Tutorial](https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#force-apps-to-use-wayland).
 
 Reboot your computer.
@@ -126,7 +127,7 @@ The install instructions are available in the README, however, a quick guide wil
 be given here:
 
 1. Install the package. On Arch, this is `libva-nvidia-driver` in the official
-  repos.
+   repos.
 
 2. Add this variable to your hyprland config:
    ```sh
@@ -143,12 +144,12 @@ You can check the README to get it working for Firefox.
 ### Regarding environment variables
 
 - If you encounter crashes in Firefox, remove the line
-`env = GBM_BACKEND,nvidia-drm`.
+  `env = GBM_BACKEND,nvidia-drm`.
 
 - If you face problems with Discord windows not displaying or screen sharing not
-working in Zoom, first try running them in Native Wayland (more details below).
-Otherwise, remove or comment the line
-`env = __GLX_VENDOR_LIBRARY_NAME,nvidia`.
+  working in Zoom, first try running them in Native Wayland (more details below).
+  Otherwise, remove or comment the line
+  `env = __GLX_VENDOR_LIBRARY_NAME,nvidia`.
 
 ### Multi-monitor with hybrid graphics
 
@@ -180,7 +181,7 @@ For other apps, including CEF apps, you will need to launch them with these flag
 
 To do this easily for Spotify, Arch Linux has a `spotify-launcher` packages
 in their official repos. You should use that instead of the `spotify`
-package in the AUR. Then, enable the Wayland backend in 
+package in the AUR. Then, enable the Wayland backend in
 `/etc/spotify-launcher.conf` by uncommenting this line:
 
 ```sh
@@ -208,7 +209,7 @@ Wayland, the flickering will likely be solved in the 555 series of Nvidia driver
 
 ### Flickering in XWayland games
 
-XWayland games may flicker or present frames out-of-order in a way which makes them unplayable. 
+XWayland games may flicker or present frames out-of-order in a way which makes them unplayable.
 This is due to the lack of implicit synchronization in the driver, and/or flaky explicit sync support
 in newer ones.
 
@@ -230,7 +231,7 @@ There are a few fixes:
 Note that this forces performance mode to be active, resulting in
 increased power-consumption (from 22W idle on a RTX 3070TI, to 74W).
 
-This may not be needed for some users. Only apply these 'fixes' if you 
+This may not be needed for some users. Only apply these 'fixes' if you
 do notice flickering artifacts from being idle for ~5 seconds.
 
 Make a new file at `/etc/modprobe.d/nvidia.conf` and paste this in:
@@ -244,9 +245,9 @@ Reboot your computer and it should be working.
 If it does not, try:
 
 1. Lowering your monitor's refresh rate: This can stop the flickering
-  altogether.
+   altogether.
 2. Using the [Nouveau driver](https://wiki.archlinux.org/title/Nouveau) as
-  mentioned above.
+   mentioned above.
 
 ### Suspend/wakeup issues
 

@@ -14,19 +14,20 @@ These docs always target latest -git branch of respective apps.
 ## Wiki pages
 
 ### Apps/utilities for the user
- - **[hyprpaper](./hyprpaper)**
- - **[hyprpicker](./hyprpicker)**
- - **[hypridle](./hypridle)**
- - **[hyprlock](./hyprlock)**
- - **[xdg-desktop-portal-hyprland](./xdg-desktop-portal-hyprland)**
- - **[hyprsysteminfo](./hyprsysteminfo)**
- - **[hyprsunset](./hyprsunset)**
- - **[hyprpolkitagent](./hyprpolkitagent)**
+
+- **[hyprpaper](./hyprpaper)**
+- **[hyprpicker](./hyprpicker)**
+- **[hypridle](./hypridle)**
+- **[hyprlock](./hyprlock)**
+- **[xdg-desktop-portal-hyprland](./xdg-desktop-portal-hyprland)**
+- **[hyprsysteminfo](./hyprsysteminfo)**
+- **[hyprsunset](./hyprsunset)**
+- **[hyprpolkitagent](./hyprpolkitagent)**
 
 ### Libraries and other utilities
- - **[hyprcursor](./hyprcursor)**
- - **[hyprutils](./hyprutils)**
- - **[hyprlang](./hyprlang)**
- - **[hyprwayland-scanner](./hyprwayland-scanner)**
- - **[aquamarine](./aquamarine)**
- 
+
+- **[hyprcursor](./hyprcursor)**
+- **[hyprutils](./hyprutils)**
+- **[hyprlang](./hyprlang)**
+- **[hyprwayland-scanner](./hyprwayland-scanner)**
+- **[aquamarine](./aquamarine)**

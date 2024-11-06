@@ -52,15 +52,15 @@ in the `nix develop` shell.
 For CMake:
 
 ```bash
-$ cmakeConfigurePhase # to run the CMake configure phase
-$ ninjaBuildPhase     # to run the Ninja build phase (or buildPhase when ninja is not available)
-$ ninjaInstallPhase   # to run the Ninja install phase (or installPhase when ninja is not available)
+cmakeConfigurePhase # to run the CMake configure phase
+ninjaBuildPhase     # to run the Ninja build phase (or buildPhase when ninja is not available)
+ninjaInstallPhase   # to run the Ninja install phase (or installPhase when ninja is not available)
 ```
 
 For Meson:
 
 ```bash
-$ mesonConfigurePhase # to run the Meson configure phase
-$ ninjaBuildPhase     # to run the Ninja build phase
-$ mesonInstallPhase   # to run the Meson install phase
+mesonConfigurePhase # to run the Meson configure phase
+ninjaBuildPhase     # to run the Ninja build phase
+mesonInstallPhase   # to run the Meson install phase
 ```
