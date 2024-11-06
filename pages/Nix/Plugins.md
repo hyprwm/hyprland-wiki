@@ -78,41 +78,46 @@ using a general function, `mkHyprlandPlugin`. Any plugin can be made to work
 with it. The general usage is presented below, exemplified through hy3's
 derivation:
 
-```nix
+```nix {filename="plugin.nix"}
+{
+  lib,
+  fetchFromGitHub,
+  cmake,
+  hyprland,
+  hyprlandPlugins,
+}:
+hyprlandPlugins.mkHyprlandPlugin hyprland {
+  pluginName = "hy3";
+  version = "0.39.1";
+
+  src = fetchFromGitHub {
+    owner = "outfoxxed";
+    repo = "hy3";
+    rev = "hl0.39.1";
+    hash = "sha256-PqVld+oFziSt7VZTNBomPyboaMEAIkerPQFwNJL/Wjw=";
+  };
+
+  # any nativeBuildInputs required for the plugin
+  nativeBuildInputs = [cmake];
+
+  # set any buildInputs that are not already included in Hyprland
+  # by default, Hyprland and its dependencies are included
+  buildInputs = [];
+
+  meta = {
+    homepage = "https://github.com/outfoxxed/hy3";
+    description = "Hyprland plugin for an i3 / sway like manual tiling layout";
+    license = lib.licenses.gpl3;
+    platforms = lib.platforms.linux;
+  };
+}
+```
+
+```nix {filename="home.nix"}
 {pkgs, ...}: {
-  hy3 = pkgs.callPackage ({
-    lib,
-    fetchFromGitHub,
-    cmake,
-    hyprland,
-    hyprlandPlugins,
-  }:
-    hyprlandPlugins.mkHyprlandPlugin pkgs.hyprland {
-      pluginName = "hy3";
-      version = "0.39.1";
-
-      src = fetchFromGitHub {
-        owner = "outfoxxed";
-        repo = "hy3";
-        rev = "hl0.39.1";
-        hash = "sha256-PqVld+oFziSt7VZTNBomPyboaMEAIkerPQFwNJL/Wjw=";
-      };
-
-      # any nativeBuildInputs required for the plugin
-      nativeBuildInputs = [cmake];
-
-      # set any buildInputs that are not already included in Hyprland
-      # by default, Hyprland and its dependencies are included
-      buildInputs = [];
-
-      meta = {
-        homepage = "https://github.com/outfoxxed/hy3";
-        description = "Hyprland plugin for an i3 / sway like manual tiling layout";
-        license = lib.licenses.gpl3;
-        platforms = lib.platforms.linux;
-        maintainers = with lib.maintainers; [aacebedo];
-      };
-    });
+  wayland.windowManager.hyprland.plugins = [
+    (pkgs.callPackage ./plugin.nix {})
+  ];
 }
 ```
 
