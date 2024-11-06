@@ -26,7 +26,7 @@ Hyprland working.
 
 - **[Clipboard Managers](./Clipboard-Managers)**
 
-- **[Hyprland Desktop Portal](./xdg-desktop-portal-hyprland)**
+- **[Hyprland Desktop Portal](../Hypr-Ecosystem/xdg-desktop-portal-hyprland)**
 
 - **[File Managers](./File-Managers)**
 
