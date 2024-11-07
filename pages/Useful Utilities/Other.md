@@ -65,10 +65,6 @@ exec-once = udiskie
 
 [See more uses here](https://github.com/coldfix/udiskie/wiki/Usage).
 
-### Advanced Systemd Session Management
-
-[UWSM](https://github.com/Vladimir-csp/uwsm) by _Vladimir-csp_: Wraps standalone Wayland compositors into a set of Systemd units on the fly. Provides robust session management including environment, XDG autostart support, bi-directional binding with login session, login shell integration, and clean shutdown. Optional user unit control utility via dmenu-like menu, failed unit monitor.
-
 ### Other useful utilities
 
 The website [We Are Wayland Now](https://wearewaylandnow.com/) details some other useful utilities and applications for Wayland like docks, email clients, and so on, along with some other useful information about compatibility on Wayland.
