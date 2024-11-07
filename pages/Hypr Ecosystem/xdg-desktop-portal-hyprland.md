@@ -126,8 +126,6 @@ sleep 2
 /usr/lib/xdg-desktop-portal &
 ```
 
-
-
 Adjust the paths if they're incorrect.
 
 ***Note to systemd users:*** `xdg-desktop-portal-hyprland`  does not automatically restart when the Hyprland session is exited (`hyprctl dispatch exit`), then started again. To resolve this, add `exec-once = systemctl --user restart xdg-desktop-portal-hyprland.service` to your `hyprland.conf`:
