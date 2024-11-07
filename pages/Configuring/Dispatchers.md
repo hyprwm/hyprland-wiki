@@ -91,6 +91,17 @@ It's also strongly adviced to replace `exit` dispatcher with `loginctl terminate
 
 {{< /callout >}}
 
+{{< callout type=warning >}}
+
+It is NOT recommended to set DPMS with a keybind directly, as it might cause
+undefined behavior. Instead, consider something like
+
+```ini
+bind = MOD, KEY, exec, sleep 1 && hyprctl dispatch dpms off
+```
+
+{{< /callout >}}
+
 ### Grouped (tabbed) windows
 
 Hyprland allows you to make a group from the current active window with the
