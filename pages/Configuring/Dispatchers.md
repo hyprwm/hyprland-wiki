@@ -85,12 +85,9 @@ layout pages (See the sidebar).
 
 {{< callout type=warning >}}
 
-It is NOT recommended to set DPMS with a keybind directly, as it might cause
-undefined behavior. Instead, consider something like
+uwsm users should avoid using `exit` dispatcher, as exiting Hyprland this way causes various systemd-related problems after restarting the compositor, such xdg-desktop-portal-hyprland and other services do not restart. Use `loginctl terminate-user ""` instead.
 
-```ini
-bind = MOD, KEY, exec, sleep 1 && hyprctl dispatch dpms off
-```
+It's also strongly adviced to replace `exit` dispatcher with `loginctl terminate-user ""` inside `hyprland.conf` keybinds section.
 
 {{< /callout >}}
 
