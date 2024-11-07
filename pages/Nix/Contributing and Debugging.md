@@ -41,6 +41,22 @@ Run `nix develop` first, then follow the
 [Building with ASan](https://wiki.hyprland.org/Crashes-and-Bugs/#building-the-wayland-stack-with-asan)
 guide.
 
+## Getting a debug stacktrace
+
+Debug stacktraces provide useful info on why a program crashed. To get proper
+stacktraces from Hyprland, make sure it was [built in debug mode](#build-in-debug-mode).
+
+After a crash, perform the following steps:
+
+```sh
+nix shell nixpkgs#gdb # get gdb temporarily
+coredumpctl # check the PID of the recent crash
+coredumpctl debug <PID> # using the PID found in the previous step
+```
+
+The rest of the process is the same as
+[here](../../Crashes-and-Bugs#obtaining-a-debug-stacktrace), from step 3 onwards.
+
 ## Manual building
 
 Nix works differently than other build systems, so it has its own abstractions
