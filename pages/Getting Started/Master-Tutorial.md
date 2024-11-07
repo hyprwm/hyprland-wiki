@@ -47,7 +47,7 @@ Please bear in mind 3D acceleration in VMs may be pretty slow.
 
 Hyprland can be executed by typing `Hyprland` in your tty.
 
-Systemd users can also start Hyprland, using [uwsm](https://github.com/Vladimir-csp/uwsm), either by adding the following command in shell profile.
+Systemd users can also start Hyprland, using [uwsm](https://github.com/Vladimir-csp/uwsm), either by adding the following code in shell profile.
 
 ```
 if uwsm check may-start && uwsm select; then
