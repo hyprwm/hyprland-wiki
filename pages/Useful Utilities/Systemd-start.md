@@ -27,7 +27,7 @@ Available [here](https://github.com/NixOS/nixpkgs/tree/master/pkgs/by-name/uw/uw
 {{% /details %}}
 
 
- {{< callout type=info >}}
+{{< callout type=info >}}
 
 For instructions for other distros and manual building, see [building and installing](https://github.com/Vladimir-csp/uwsm?tab=readme-ov-file#installation) section on the project's page.
 
