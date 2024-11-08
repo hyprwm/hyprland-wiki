@@ -66,8 +66,8 @@ fi
 
 If you use a display manager, choose `hyprland (uwsm-managed)` entry in a display manager selection menu.
 
- {{< callout type=info >}}
+{{< callout type=info >}}
  
  Pay attention to the warnings in [Environment variables](../../Environment-variables#xdg-specifications) and [Dispatchers](../../Dispatchers) sections.
  
- {{< /callout >}}
+{{< /callout >}}
