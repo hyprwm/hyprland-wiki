@@ -47,7 +47,7 @@ Please bear in mind 3D acceleration in VMs may be pretty slow.
 
 Hyprland can be executed by typing `Hyprland` in your tty.
 
-Systemd users can also start Hyprland, using [uwsm](https://github.com/Vladimir-csp/uwsm). This is the recommended method of launching Hyprland on systemd-based distros, as it provides additional features, such as [xdg-autostart](https://www.freedesktop.org/software/systemd/man/latest/systemd-xdg-autostart-generator.html) support and ability to enable services for programs that rely on a graphical session and provide such services (e.g waybar). See [uwsm](../../Systemd-start) page for further instrustions.
+Systemd users can also start Hyprland, using [uwsm](https://github.com/Vladimir-csp/uwsm). This is the recommended method of launching Hyprland on systemd-based distros, as it provides additional features, such as [xdg-autostart](https://www.freedesktop.org/software/systemd/man/latest/systemd-xdg-autostart-generator.html) support and the ability to enable services for programs that rely on a graphical session and provide such services (e.g waybar). See [uwsm](../../Systemd-start) page for further instructions.
 
 
 {{< callout type=warning >}}
