@@ -85,7 +85,7 @@ layout pages (See the sidebar).
 
 {{< callout type=warning >}}
 
-uwsm users should avoid using `exit` dispatcher, as exiting Hyprland this way causes various systemd-related problems after restarting the compositor, such xdg-desktop-portal-hyprland and other services do not restart. Use `loginctl terminate-user ""` instead.
+[uwsm](../../Systemd-start) users should avoid using `exit` dispatcher, as exiting Hyprland this way causes various systemd-related problems after restarting the compositor, such xdg-desktop-portal-hyprland and other services do not restart. Use `loginctl terminate-user ""` instead.
 
 It's also strongly adviced to replace `exit` dispatcher with `loginctl terminate-user ""` inside `hyprland.conf` keybinds section.
 
