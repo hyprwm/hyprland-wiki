@@ -124,7 +124,7 @@ preload another and set it to your monitor(s). It has the same syntax as
 ### Run at startup
 
 To run hyprpaper at startup edit `hyprland.conf` and add: `exec-once =
-hyprpaper`. If you start Hyprland as a systemd service, you can also use `systemctl --user enable --now hyprpaper.service` command.
+hyprpaper`. If you start Hyprland with uwsm, you can also use `systemctl --user enable --now hyprpaper.service` command.
 
 ### Misc options
 
