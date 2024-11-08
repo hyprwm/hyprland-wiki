@@ -42,7 +42,7 @@ For more info, read the [option](https://search.nixos.org/options?channel=unstab
 
 For instructions for other distros and manual building, see [building and installing](https://github.com/Vladimir-csp/uwsm?tab=readme-ov-file#installation) section on the project's page.
 
- {{< /callout >}}
+{{< /callout >}}
 
 ## Launching Hyprland with uwsm
 
