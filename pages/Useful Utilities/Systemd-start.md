@@ -21,6 +21,8 @@ yay -S uwsm
 
 {{% details title="Nix/NixOS" closed="true" %}}
 
+Available [here](https://github.com/NixOS/nixpkgs/tree/master/pkgs/by-name/uw/uwsm/package.nix)
+
 
 {{% /details %}}
 
