@@ -21,7 +21,7 @@ yay -S uwsm
 
 {{% details title="Nix/NixOS" closed="true" %}}
 
-\```nix
+```nix
 programs.uwsm = {
   enable = true;
   waylandCompositors.hyprland = {
@@ -30,11 +30,21 @@ programs.uwsm = {
     prettyName = "Hyprland";
   };
 };
-\```
+```
 
-The above option generates a new desktop entry, `hyprland-uwsm.desktop`, which will be available in Desktop Managers.
+The above option generates a new desktop entry, `hyprland-uwsm.desktop`, which will be available in display managers.
 
 For more info, read the [option](https://search.nixos.org/options?channel=unstable&show=programs.uwsm.enable&from=0&size=50&sort=relevance&type=packages&query=uwsm).
+
+{{< callout >}}
+
+If you use the [Home Manager module](../../Nix/Hyprland-on-Home-Manager), make sure to disable the systemd integration, as it conflicts with uwsm.
+
+```nix
+wayland.windowManager.hyprland.systemd.enable = false;
+```
+
+{{< /callout >}}
 
 {{% /details %}}
 
@@ -45,6 +55,14 @@ For instructions for other distros and manual building, see [building and instal
 {{< /callout >}}
 
 ## Launching Hyprland with uwsm
+
+{{< callout type=info >}}
+
+Pay attention to the warnings in [Environment variables](../../Environment-variables#xdg-specifications) and [Dispatchers](../../Dispatchers) sections.
+
+{{< /callout >}}
+
+### In tty
 
 To launch Hyprland with uwsm, add this code in your shell profile.
 
@@ -61,13 +79,9 @@ If you want to bypass compositor selection menu and launch Hyprland directly, us
 ```
 if uwsm check may-start; then
     exec uwsm start hyprland.desktop
-fi 
+fi
 ```
 
-If you use a display manager, choose `hyprland (uwsm-managed)` entry in a display manager selection menu.
+### Using a display manager
 
-{{< callout type=info >}}
- 
- Pay attention to the warnings in [Environment variables](../../Environment-variables#xdg-specifications) and [Dispatchers](../../Dispatchers) sections.
- 
-{{< /callout >}}
+If you use a display manager, choose `hyprland (uwsm-managed)` entry in a display manager selection menu.
