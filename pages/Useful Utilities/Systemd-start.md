@@ -21,8 +21,20 @@ yay -S uwsm
 
 {{% details title="Nix/NixOS" closed="true" %}}
 
-Available [here](https://github.com/NixOS/nixpkgs/tree/master/pkgs/by-name/uw/uwsm/package.nix)
+\```nix
+programs.uwsm = {
+  enable = true;
+  waylandCompositors.hyprland = {
+    binPath = "/run/current-system/sw/bin/Hyprland";
+    comment = "Hyprland session managed by uwsm";
+    prettyName = "Hyprland";
+  };
+};
+\```
 
+The above option generates a new desktop entry, `hyprland-uwsm.desktop`, which will be available in Desktop Managers.
+
+For more info, read the [option](https://search.nixos.org/options?channel=unstable&show=programs.uwsm.enable&from=0&size=50&sort=relevance&type=packages&query=uwsm).
 
 {{% /details %}}
 
