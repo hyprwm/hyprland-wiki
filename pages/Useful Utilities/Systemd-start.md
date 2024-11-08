@@ -66,11 +66,8 @@ if uwsm check may-start; then
 fi 
 ```
 
-
 If you use a display manager, choose `hyprland (uwsm-managed)` entry in a display manager selection menu.
 
-
- 
 
  {{< callout type=info >}}
  
