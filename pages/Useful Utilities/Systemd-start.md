@@ -84,6 +84,8 @@ fi
 
 ### Using a display manager
 
+If you use a display manager, choose `hyprland (uwsm-managed)` entry in a display manager selection menu.
+
 ## Launching applications inside session
 
 The concept of a session managed by Systemd implies also running applications as units. Uwsm [provides](https://github.com/Vladimir-csp/uwsm#3-applications-and-slices) a helper to do it.
