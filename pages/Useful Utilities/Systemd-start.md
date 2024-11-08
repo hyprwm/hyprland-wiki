@@ -90,6 +90,6 @@ If you use a display manager, choose `hyprland (uwsm-managed)` entry in a displa
 
 The concept of a session managed by Systemd implies also running applications as units. Uwsm [provides](https://github.com/Vladimir-csp/uwsm#3-applications-and-slices) a helper to do it.
 
-Prefix application startup commands with `uwsm app --`. It also supports launching Desktop Entries by IDs or paths.
+Prefix application startup commands with `uwsm app --`. It also supports launching Desktop Entries by IDs or paths. See `man uwsm` or `uwsm app --help`.
 
 Running applications as child processes inside compositor's unit is discouraged.
