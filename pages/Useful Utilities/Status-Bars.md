@@ -27,7 +27,7 @@ Hyprland, add this line to your Hyprland configuration:
 exec-once = waybar
 ```
 
-Waybar also provides a systemd service. If you use Hyprland with uwsm, you can enable it, using the following command.
+Waybar also provides a systemd service. If you use Hyprland with [uwsm](../../Systemd-start), you can enable it, using the following command.
 
 ```ini
 systemctl --user enable --now waybar.service
