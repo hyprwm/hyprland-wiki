@@ -38,7 +38,6 @@ For more info, read the [option](https://search.nixos.org/options?channel=unstab
 
 {{% /details %}}
 
-
 {{< callout type=info >}}
 
 For instructions for other distros and manual building, see [building and installing](https://github.com/Vladimir-csp/uwsm?tab=readme-ov-file#installation) section on the project's page.
@@ -46,7 +45,6 @@ For instructions for other distros and manual building, see [building and instal
  {{< /callout >}}
 
 ## Launching Hyprland with uwsm
-
 
 To launch Hyprland with uwsm, add this code in your shell profile.
 
@@ -67,7 +65,6 @@ fi
 ```
 
 If you use a display manager, choose `hyprland (uwsm-managed)` entry in a display manager selection menu.
-
 
  {{< callout type=info >}}
  
