@@ -33,8 +33,35 @@ For instructions for other distros and manual building, see [building and instal
 
  {{< /callout >}}
 
+## Launching Hyprland with uwsm
+
+
+To launch Hyprland with uwsm, add this code in your shell profile.
+
+```
+if uwsm check may-start && uwsm select; then
+	exec systemd-cat -t uwsm_start uwsm start default
+fi
+```
+
+This will bring uwsm compositor selection menu after you log in tty. Choose Hyprland entry and you're good to go.
+
+If you want to bypass compositor selection menu and launch Hyprland directly, use this code in your shell profile, instead.
+
+```
+if uwsm check may-start; then
+    exec uwsm start hyprland.desktop
+fi 
+```
+
+
+If you use a display manager, choose `hyprland (uwsm-managed)` entry in a display manager selection menu.
+
+
+ 
+
  {{< callout type=info >}}
  
-For instructions - how to start Hyprland session with uwsm, see [launching Hyprland](../../Master-Tutorial#launching-hyprland) secton of Master Tutorial. Also, pay attention to the warnings in [Environment variables](../../Environment-variables#xdg-specifications) and [Dispatchers](../../Dispatchers) sections.
+ Pay attention to the warnings in [Environment variables](../../Environment-variables#xdg-specifications) and [Dispatchers](../../Dispatchers) sections.
  
  {{< /callout >}}
