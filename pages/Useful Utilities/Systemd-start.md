@@ -92,4 +92,10 @@ The concept of a session managed by Systemd implies also running applications as
 
 Prefix application startup commands with `uwsm app --`. It also supports launching Desktop Entries by IDs or paths. See `man uwsm` or `uwsm app --help`.
 
+An autostart entry example:
+
+```
+exec-once = uwsm app -- mycommand --arg1 --arg2
+```
+
 Running applications as child processes inside compositor's unit is discouraged.
