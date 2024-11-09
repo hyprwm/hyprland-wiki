@@ -145,7 +145,7 @@ your plugin in the nested session without worrying about nuking your actual
 session, and also being able to debug it easily.
 
 See more info in
-[the Contributing Section](../../Contributing-and-Debugging/#nesting-hyprland)
+[the Contributing Section](../../../Contributing-and-Debugging/#nesting-hyprland)
 
 ### More advanced stuff
 
