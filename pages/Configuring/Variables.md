@@ -434,6 +434,7 @@ _Subcategory `group:groupbar:`_
 | explicit_sync | Whether to enable explicit sync support. Requires a hyprland restart. 0 - no, 1 - yes, 2 - auto based on the gpu driver | int | 2 |
 | explicit_sync_kms | Whether to enable explicit sync support for the KMS layer. Requires explicit_sync to be enabled. 0 - no, 1 - yes, 2 - auto based on the gpu driver | int | 2 |
 | direct_scanout | Enables direct scanout. Direct scanout attempts to reduce lag when there is only one fullscreen application on a screen (e.g. game). It is also recommended to set this to false if the fullscreen application shows graphical glitches. | bool | false |
+| expand_undersized_textures | Whether to expand undersized textures along the edge, or rather stretch the entire texture. | bool | true |
 
 ### Cursor
 
