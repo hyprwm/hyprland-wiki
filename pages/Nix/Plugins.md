@@ -27,7 +27,7 @@ Nixpkgs. You can use them like this:
 ```
 
 You can find which plugins are included using
-`nix search nixpkgs#hyprlandPlugins`.
+`nix search nixpkgs#hyprlandPlugins ^`.
 
 ## hyprland-plugins
 
