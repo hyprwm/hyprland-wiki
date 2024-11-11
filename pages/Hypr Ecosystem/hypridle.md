@@ -9,7 +9,7 @@ hypridle is Hyprland's idle management daemon.
 
 Configuration is done via the config file at `~/.config/hypr/hypridle.conf`. A
 config file is required; hypridle won't run without one. To run hypridle at
-startup, edit `hyprland.conf` and add: `exec-once = hypridle`. If Hyprland is started with [uwsm](../../Systemd-start), you can use `systemctl --user enable --now hypridle.service`.
+startup, edit `hyprland.conf` and add: `exec-once = hypridle`. If Hyprland is started with [uwsm](../../Useful-Utilities/Systemd-start), you can use `systemctl --user enable --now hypridle.service`.
 
 ### General
 
