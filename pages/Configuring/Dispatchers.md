@@ -85,7 +85,7 @@ layout pages (See the sidebar).
 
 {{< callout type=warning >}}
 
-[uwsm](../../Systemd-start) users should avoid using `exit` dispatcher, or terminating Hyprland process directly, as exiting Hyprland this way removes it from under its clients and may cause some systemd services to enter inconsistent states causing problems in the next session. Use `exec, loginctl terminate-user ""` instead.
+[uwsm](../../Useful-Utilities/Systemd-start) users should avoid using `exit` dispatcher, or terminating Hyprland process directly, as exiting Hyprland this way removes it from under its clients and may cause some systemd services to enter inconsistent states causing problems in the next session. Use `exec, loginctl terminate-user ""` instead.
 
 It's also strongly advised to replace the `exit` dispatcher with `exec, loginctl terminate-user ""` inside `hyprland.conf` keybinds section.
 
