@@ -428,3 +428,10 @@ This means you have no hyprcursor theme installed, and hyprland failed to find a
 ### Smart gaps please?
 
 [Here](../Configuring/Workspace-Rules/#smart-gaps).
+
+### Hprwinwrap is not visible through blurred windows
+
+This is a side effect of the [decoration:blur:new_optimizations](../Configuring/Variables/#blur).
+You have two options to resolve it.
+1. Set `decoration:blur:new_optimizations` to `false` - This will preserve the exact same appearance, but may have a slight performance cost.
+2. Set `decoration:blur:ignore_opacity` to `false` - This will drastically affect the appearance, but should maintain the original performance.
