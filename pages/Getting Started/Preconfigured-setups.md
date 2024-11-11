@@ -36,3 +36,12 @@ Prasanthrangan's dotfiles are a very popular choice that will suit your needs.
 [GitHub](https://github.com/prasanthrangan/hyprdots)
 
 ![Image of prasanthrangan's dotfiles](https://i.ibb.co/W3SYJCc/showcase-2-2412602747.png)
+
+## litszwaiboris 
+
+Want a quick start on getting Hyprland working? Do you love to have a simple productive workflow?
+Litszwaiboris' dotfiles will get you up on your track to Hyprland as fast as possible
+
+[GitHub](https://github.com/litszwaiboris/dotfiles/tree/linux-hypr)
+
+![Image of litszwaiboris' dotfiles](https://github.com/user-attachments/assets/9dda0819-9067-4342-a91a-b632b69ca195)
