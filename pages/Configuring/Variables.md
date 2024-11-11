@@ -292,8 +292,9 @@ _Subcategory `input:tablet:`_
 | name | description | type | default |
 | --- | --- | --- | --- |
 | transform | transform the input from tablets. The possible transformations are the same as [those of the monitors](../Monitors/#rotating) | int | 0 |
-| output | the monitor to bind tablets. Empty means unbound. | string | \[\[Empty\]\] |
-| region_position | position of the mapped region in monitor layout. | vec2 | [0, 0] |
+| output | the monitor to bind tablets. Can be `current` or a monitor name. Leave empty to map across all monitors. | string | \[\[Empty\]\] |
+| region_position | position of the mapped region in monitor layout relative to the top left corner of the bound monitor or all monitors. | vec2 | [0, 0] |
+| absolute_region_position | whether to treat the `region_position` as an absolute position in monitor layout. Only applies when `output` is empty. | bool | false |
 | region_size | size of the mapped region. When this variable is set, tablet input will be mapped to the region. [0, 0] or invalid size means unset. | vec2 | [0, 0] |
 | relative_input | whether the input should be relative | bool | false |
 | left_handed | if enabled, the tablet will be rotated 180 degrees | bool | false |
