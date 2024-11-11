@@ -58,7 +58,7 @@ For instructions for other distros and manual building, see [building and instal
 
 {{< callout type=info >}}
 
-Pay attention to the warnings in [Environment variables](../../Environment-variables#xdg-specifications) and [Dispatchers](../../Dispatchers) sections.
+Pay attention to the warnings in [Environment variables](../../Configuring/Environment-variables/#xdg-specifications) and [Dispatchers](../../Configuring/Dispatchers) sections.
 
 {{< /callout >}}
 
