@@ -31,3 +31,5 @@ Hyprland working.
 - **[File Managers](./File-Managers)**
 
 - **[Other](./Other)**
+
+- **[Systemd startup](./Systemd-start)**
