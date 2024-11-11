@@ -72,6 +72,12 @@ them explicitly.
 If your [desktop portal](https://wiki.archlinux.org/title/XDG_Desktop_Portal) is malfunctioning for seemingly
 no reason (no errors), it's likely your XDG env isn't set correctly.
 
+ {{< callout type=info >}}
+ 
+ [uwsm](../../Systemd-start) users don't need to explicitly set XDG environment variables, as uwsm sets them, automatically.
+
+ {{< /callout >}}
+
 ## Qt Variables
 
 - `env = QT_AUTO_SCREEN_SCALE_FACTOR,1` -
