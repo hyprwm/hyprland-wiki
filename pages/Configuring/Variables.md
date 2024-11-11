@@ -126,7 +126,7 @@ _Subcategory `decoration:blur:`_
 | enabled | enable kawase window background blur | bool | true |
 | size | blur size (distance) | int | 8 |
 | passes | the amount of passes to perform | int | 1 |
-| ignore_opacity | make the blur layer ignore the opacity of the window | bool | false |
+| ignore_opacity | make the blur layer ignore the opacity of the window | bool | true |
 | new_optimizations | whether to enable further optimizations to the blur. Recommended to leave on, as it will massively improve performance. | bool | true |
 | xray | if enabled, floating windows will ignore tiled windows in their blur. Only available if new_optimizations is true. Will reduce overhead on floating blur significantly. | bool | false |
 | noise | how much noise to apply. [0.0 - 1.0] | float | 0.0117 |
