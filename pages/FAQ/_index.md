@@ -429,7 +429,7 @@ This means you have no hyprcursor theme installed, and hyprland failed to find a
 
 [Here](../Configuring/Workspace-Rules/#smart-gaps).
 
-### Hprwinwrap is not visible through blurred windows
+### Hyprwinwrap is not visible through blurred windows
 
 This is a side effect of the [decoration:blur:new_optimizations](../Configuring/Variables/#blur).
 You have two options to resolve it.
