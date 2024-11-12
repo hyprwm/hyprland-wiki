@@ -13,7 +13,7 @@ replacements for them:
   PipeWire screensharing. It has tons of great features and tries not to
   infringe on the Discord ToS.
 
-- [Vesktop](https://github.com/Vencord/Vesktop) Like WebCord, Vesktop is a custom Discord client with improved performance and Wayland support. Like WebCord, it also has built-in screen sharing, and in addition has support for plugins and custom themes. Vesktop even supports proper audio sharing when you screen share. Note that Vesktop relies on Vencord, a custom Discord API, which violates Discord's terms of service. Use at your own risk.
+- [Vesktop](https://github.com/Vencord/Vesktop) Like WebCord, Vesktop is a custom Discord client with improved performance and Wayland support. It also has built-in screen sharing, and in addition has support for plugins and custom themes. Vesktop even supports proper audio sharing when you screen share. Note that Vesktop relies on Vencord, a custom Discord API, which violates Discord's terms of service. Use at your own risk.
 
 - [dissent](https://github.com/diamondburned/dissent) is a Discord client
   written in GTK4. While it does infringe on Discord's ToS, it's relatively safe
