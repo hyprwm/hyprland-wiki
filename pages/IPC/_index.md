@@ -32,8 +32,8 @@ e.g.: `workspace>>2`
 
 | name | description | data |
 | --- | --- | --- |
-| workspace | emitted on workspace change. Is emitted ONLY when a user requests a workspace change, and is not emitted on mouse movements (see `activemon`) | `WORKSPACENAME` |
-| workspacev2 | emitted on workspace change. Is emitted ONLY when a user requests a workspace change, and is not emitted on mouse movements (see `activemon`) | `WORKSPACEID,WORKSPACENAME` |
+| workspace | emitted on workspace change. Is emitted ONLY when a user requests a workspace change, and is not emitted on mouse movements (see `focusedmon`) | `WORKSPACENAME` |
+| workspacev2 | emitted on workspace change. Is emitted ONLY when a user requests a workspace change, and is not emitted on mouse movements (see `focusedmon`) | `WORKSPACEID,WORKSPACENAME` |
 | focusedmon | emitted on the active monitor being changed. | `MONNAME,WORKSPACENAME` |
 | activewindow | emitted on the active window being changed. | `WINDOWCLASS,WINDOWTITLE` |
 | activewindowv2 | emitted on the active window being changed. | `WINDOWADDRESS` |
