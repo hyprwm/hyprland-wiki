@@ -34,7 +34,7 @@ Hyprland.
 ## Distros
 
 Arch, NixOS and openSUSE Tumbleweed are very supported. For any other distro
-(not based on Arch/Nix) you might have varying amounts of success. However,
+(not based on Arch/Nix/openSUSE) you might have varying amounts of success. However,
 since Hyprland is extremely bleeding-edge, distros like Pop!\_OS, Ubuntu, etc.
 might have **major** issues running Hyprland.
 
