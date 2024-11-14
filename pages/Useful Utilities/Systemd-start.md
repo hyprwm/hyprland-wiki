@@ -72,7 +72,7 @@ if uwsm check may-start && uwsm select; then
 fi
 ```
 
-This will bring uwsm compositor selection menu after you log in tty1. Choose Hyprland entry and you're good to go.
+This will bring uwsm compositor selection menu after you log in tty1. Choose `Hyprland` entry and you're good to go.
 
 If you want to bypass compositor selection menu and launch Hyprland directly, use this code in your shell profile, instead.
 
