@@ -41,7 +41,7 @@ Read [Hyprland on Home Manager](./Hyprland-on-Home-Manager).
 
 For the adventurous, [@spikespaz](https://github.com/spikespaz) has made a
 Hyprland module that can be used in Home Manager and NixOS. It can be found
-[here](https://github.com/spikespaz/hyprland-nix).
+[here](https://github.com/hyprland-community/hyprnix).
 
 ## Options and overrides
 
