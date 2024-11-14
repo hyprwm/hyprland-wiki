@@ -282,7 +282,7 @@ Setting `misc:middle_click_paste` to `false` disables the feature altogether wit
 
 **_Useful Optimizations_**:
 
-- `decoration:blur:enabled = false` and `decoration:drop_shadow = false` to disable
+- `decoration:blur:enabled = false` and `decoration:shadow:enabled = false` to disable
   fancy but battery hungry effects.
 
 - `misc:vfr = true`, since it'll lower the amount of sent frames when nothing is
