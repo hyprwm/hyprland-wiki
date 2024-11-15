@@ -76,6 +76,11 @@ including Hyprland, or default to your dGPU if you prefer.
 
 {{< callout type=info >}}
 
-[[uwsm](../../Useful-Utilities/Systemd-start) users are adiviced to export `AQ_DRM_DEVICES` variable inside `~/.config/uwsm/env-hyprland`, instead. This method ensures that the variable is properly exported to the systemd environment without conflicting with other compositors or desktop environments.
+[[uwsm](../../Useful-Utilities/Systemd-start) users are adiviced to export `AQ_DRM_DEVICES` variable inside `~/.config/uwsm/env-hyprland`, instead. 
+This method ensures that the variable is properly exported to the systemd environment without conflicting with other compositors or desktop environments.
+
+```plain
+export AQ_DRM_DEVICES=/dev/dri/card0:/dev/dri/card1
+```
 
 {{< /callout >}}
