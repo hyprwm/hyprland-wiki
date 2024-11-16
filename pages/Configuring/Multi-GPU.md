@@ -73,3 +73,14 @@ whatever reason, use `card1`.
 
 You should now be able to use an integrated GPU for lighter GPU loads,
 including Hyprland, or default to your dGPU if you prefer.
+
+{{< callout type=info >}}
+
+[uwsm](../../Useful-Utilities/Systemd-start) users are advised to export the `AQ_DRM_DEVICES` variable inside `~/.config/uwsm/env-hyprland`, instead. 
+This method ensures that the variable is properly exported to the systemd environment without conflicting with other compositors or desktop environments.
+
+```plain
+export AQ_DRM_DEVICES="/dev/dri/card0;/dev/dri/card1"
+```
+
+{{< /callout >}}
