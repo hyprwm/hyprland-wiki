@@ -203,6 +203,7 @@ Flags:
 ```plain
 l -> locked, will also work when an input inhibitor (e.g. a lockscreen) is active.
 r -> release, will trigger on release of a key.
+o -> longPress, will trigger on long press of a key.
 e -> repeat, will repeat when held.
 n -> non-consuming, key/mouse events will be passed to the active window in addition to triggering the dispatcher.
 m -> mouse, see below.
@@ -228,6 +229,10 @@ bindr = SUPER, SUPER_L, exec, pkill wofi || wofi
 # Describe a bind
 bindd = SUPER, Q, Open my favourite terminal, exec, kitty
 
+# Skip player on long press and only skip 5s on normal press
+bindo = SUPER, XF86AudioNext, exec, playerctl next
+bind = SUPER, XF86AudioNext, exec, playerctl position +5
+```
 # See Mouse Binds section for bindm usage
 ```
 
