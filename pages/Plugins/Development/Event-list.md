@@ -27,8 +27,10 @@ These are all the events that can be listened to using Event Hooks.
 | closeWindow | fired when a window is unmapped | `PHLWINDOW` | ✕ |
 | windowUpdateRules | fired when a window's rules are updated | `PHLWINDOW` | ✕ |
 | urgent | fired when a window requests urgent | `PHLWINDOW` | ✕ |
-| monitorAdded | fired when a monitor is plugged in | `CMonitor*` | ✕ |
-| monitorRemoved | fired when a monitor is unplugged | `CMonitor*` | ✕ |
+| preMonitorAdded | fired when a monitor is plugged in, before Hyprland handles it | `CMonitor*` | ✕ |
+| monitorAdded | fired when a monitor is plugged in, after Hyprland has handled it | `CMonitor*` | ✕ |
+| preMonitorRemoved | fired when a monitor is unplugged, before Hyprland handles it | `CMonitor*` | ✕ |
+| monitorRemoved | fired when a monitor is unplugged, after Hypralnd has handled it | `CMonitor*` | ✕ |
 | createWorkspace | fired when a workspace is created | `PHLWORKSPACE` | ✕ |
 | destroyWorkspace | fired when a workspace is destroyed | `PHLWORKSPACE` | ✕ |
 | fullscreen | fired when a window changes fullscreen state | `PHLWINDOW` | ✕ |
