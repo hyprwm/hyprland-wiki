@@ -3,6 +3,18 @@ weight: 15
 title: Environment variables
 ---
 
+{{< callout type=info >}}
+
+[uwsm](../../Useful-Utilities/Systemd-start) users should avoid placing environment variables in the `hyprland.conf` file. Instead, use `~/.config/uwsm/env` for theming, xcursor, nvidia and toolkit variables, and `~/.config/uwsm/env-hyprland` for `HYPR*` and `AQ_*` variables. The format is `export KEY=VAL`.
+
+```plain
+export XCURSOR_SIZE=24
+```
+
+See [uwsm readme](https://github.com/Vladimir-csp/uwsm?tab=readme-ov-file#4-environments-and-shell-profile) for additional information.
+
+{{< /callout >}}
+
 You can use the `env` keyword to set environment variables prior to the
 initialization of the Display Server, e.g.:
 
