@@ -451,5 +451,5 @@ User=MY_USERNAME
 Add this to `~/.config/hypr/hyprland.conf`:
 
 ```ini
-exec-once=hyprlock || hyprctl dispatch exit
+exec-once=hyprlock --immediate-render || hyprctl dispatch exit
 ```
