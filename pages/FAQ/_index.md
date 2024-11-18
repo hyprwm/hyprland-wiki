@@ -436,7 +436,7 @@ You have two options to resolve it.
 1. Set `decoration:blur:new_optimizations` to `false` - This will preserve the exact same appearance, but may have a slight performance cost.
 2. Set `decoration:blur:ignore_opacity` to `false` - This will drastically affect the appearance, but should maintain the original performance.
 
-### How can I use Hyprlock as a login screen I start my computer?
+### How can I use Hyprlock as a login screen when I start my computer?
 
 To use a unified/single login screen you have to configure your display manager to auto login and run Hyprlock on startup. For [SDDM+KDE to auto login](https://wiki.archlinux.org/title/SDDM#Autologin) (also possible with (greetd)[https://wiki.archlinux.org/title/Greetd#Enabling_autologin]) you have to add this to `/etc/sddm.config.d/kde_settings.conf`:
 
