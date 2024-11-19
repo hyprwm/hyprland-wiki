@@ -251,15 +251,4 @@ exec-once = hybrid-bar
 
 #### Blur
 
-To activate blur, set `blurls = NAMESPACE` in your Hyprland configuration, where
-`NAMESPACE` is the gtk-layer-shell namespace of your HybridBar. The default
-namespace is `gtk-layer-shell` and can be changed in the HybridBar configuration
-at
-
-```json
-{
-     "hybrid" {
-          "namespace": "namespace name"
-     }
-}
-```
+To activate blur for your status bar, have a look at [layer rules](https://wiki.hyprland.org/Configuring/Window-Rules/#layer-rules).
