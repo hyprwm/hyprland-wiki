@@ -141,9 +141,6 @@ You can check the README to get it working for Firefox.
 
 ### Regarding environment variables
 
-- If you encounter crashes in Firefox, remove the line
-  `env = GBM_BACKEND,nvidia-drm`.
-
 - If you face problems with Discord windows not displaying or screen sharing not
   working in Zoom, first try running them in Native Wayland (more details below).
   Otherwise, remove or comment the line
