@@ -22,14 +22,7 @@ yay -S uwsm
 {{% details title="Nix/NixOS" closed="true" %}}
 
 ```nix
-programs.uwsm = {
-  enable = true;
-  waylandCompositors.hyprland = {
-    binPath = "/run/current-system/sw/bin/Hyprland";
-    comment = "Hyprland session managed by uwsm";
-    prettyName = "Hyprland";
-  };
-};
+programs.hyprland.withUWSM  = true;
 ```
 
 The above option generates a new desktop entry, `hyprland-uwsm.desktop`, which will be available in display managers.
