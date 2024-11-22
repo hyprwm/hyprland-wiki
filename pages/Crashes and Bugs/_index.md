@@ -55,7 +55,7 @@ Report an issue on GitHub or on the Discord server.
 3. In a tty or terminal, do `coredumpctl debug Hyprland`.
    - If gdb asks you for symbols, say `y`.
    - If it asks about paging, say `c`.
-4. Once you get to `(gdb)`, start file logging with `set logging on`.
+4. Once you get to `(gdb)`, start file logging with `set logging enabled`.
    - For a specific file, use `set logging file output.log`.
 5. Run `bt -full`, then `exit` once finished, and attach the output.
 
