@@ -137,6 +137,8 @@ _Subcategory `decoration:blur:`_
 | special | whether to blur behind the special workspace (note: expensive) | bool | false |
 | popups | whether to blur popups (e.g. right-click menus) | bool | false |
 | popups_ignorealpha | works like ignorealpha in layer rules. If pixel opacity is below set value, will not blur. [0.0 - 1.0] | float | 0.2 |
+| input_methods | whether to blur input methods (e.g. fcitx5) | bool | false |
+| input_methods_ignorealpha | works like ignorealpha in layer rules. If pixel opacity is below set value, will not blur. [0.0 - 1.0] | float | 0.2 |
 
 {{< callout type=info >}}
 
