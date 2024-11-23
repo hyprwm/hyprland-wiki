@@ -250,7 +250,7 @@ Draws a password input field.
 | placeholder_text | text rendered in the input box when it's empty | str | `<i>Input Password...</i>` |
 | hide_input | render an input indicator similar to swaylock instead of dots when set to true | bool | false |
 | rounding | -1 means complete rounding (circle/oval) | int | -1 |
-| check_color | color accent when waiting for waiting for the authentication result | gradient | rgba(204, 136, 34, 1.0) |
+| check_color | color accent when waiting for the authentication result | gradient | rgba(204, 136, 34, 1.0) |
 | fail_color | color accent when authentication fails | gradient | rgba(204, 34, 34, 1.0) |
 | fail_text | text rendered when authentication fails | str | `<i>$FAIL <b>($ATTEMPTS)</b></i>` |
 | fail_timeout | milliseconds before `fail_text` and `fail_color` disappears | int | 2000 |
