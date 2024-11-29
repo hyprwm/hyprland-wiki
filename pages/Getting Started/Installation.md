@@ -70,6 +70,12 @@ or a tagged release from the arch packages:
 sudo pacman -S hyprland
 ```
 
+Alternatively, install the `hyprland-meta` package to get the entire Hypr ecosystem.
+
+```shell
+yay -S hyprland-meta-git
+```
+
 If you decide to use the `git` version from the AUR, you can use the [Chaotic Aur](https://aur.chaotic.cx/) to get pre-built binaries.
 
 In case of errors you can downgrade easily with [downgrade](https://github.com/archlinux-downgrade/downgrade).
