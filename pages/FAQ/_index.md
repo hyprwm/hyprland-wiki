@@ -290,7 +290,7 @@ Setting `misc:middle_click_paste` to `false` disables the feature altogether wit
 
 ### My apps take a long time to start / can't screenshare
 
-See [The XDPH Page](../Useful-Utilities/xdg-desktop-portal-hyprland).
+See [The XDPH Page](../Hypr-Ecosystem/xdg-desktop-portal-hyprland/#debugging).
 
 You most likely have multiple portal impls / an impl is failing to launch.
 
