@@ -70,7 +70,7 @@ or a tagged release from the arch packages:
 sudo pacman -S hyprland
 ```
 
-Alternatively, install the `hyprland-meta` package to get the entire Hypr ecosystem.
+Alternatively, install the `hyprland-meta` package to automatically fetch and compile the latest git versions of all components within the Hypr ecosystem.
 
 ```shell
 yay -S hyprland-meta-git
