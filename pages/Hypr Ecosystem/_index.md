@@ -31,3 +31,4 @@ These docs always target latest -git branch of respective apps.
 - **[hyprlang](./hyprlang)**
 - **[hyprwayland-scanner](./hyprwayland-scanner)**
 - **[aquamarine](./aquamarine)**
+- **[hyprgraphics](./hyprgraphics)**

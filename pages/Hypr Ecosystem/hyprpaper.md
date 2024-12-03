@@ -48,6 +48,7 @@ The development files of these packages need to be installed on the system for `
 - libwebp
 - hyprlang
 - hyprutils
+- hyprgraphics
 - hyprwayland-scanner
 
 To install all of these in Fedora, run this command:

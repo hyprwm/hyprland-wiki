@@ -389,7 +389,7 @@ C++ standard library has to support that (`gcc>=14` or `clang>=18`).
 {{% details title="Arch" closed="true" %}}
 
 ```plain
-yay -S ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite libxrender pixman wayland-protocols cairo pango seatd libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio tomlplusplus hyprlang-git hyprcursor-git hyprwayland-scanner-git xcb-util-errors hyprutils-git
+yay -S ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite libxrender pixman wayland-protocols cairo pango seatd libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio tomlplusplus hyprlang-git hyprcursor-git hyprwayland-scanner-git xcb-util-errors hyprutils-git hyprgraphics-git
 ```
 
 _(Please make a pull request or open an issue if any packages are missing from
@@ -432,6 +432,8 @@ packaged for your distro of choice:
 - aquamarine
 - hyprlang
 - hyprcursor
+- hyprutils
+- hyprgraphics
 - hyprwayland-scanner (build-only)
 
 {{< /callout >}}
