@@ -233,8 +233,6 @@ bindd = SUPER, Q, Open my favourite terminal, exec, kitty
 bindo = SUPER, XF86AudioNext, exec, playerctl next
 bind = SUPER, XF86AudioNext, exec, playerctl position +5
 ```
-# See Mouse Binds section for bindm usage
-```
 
 ## Mouse Binds
 
