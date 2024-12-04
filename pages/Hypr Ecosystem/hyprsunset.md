@@ -14,6 +14,10 @@ This method is preferred to screen shaders as it will _not_ be captured via reco
 
 {{< /callout >}}
 
+## Installation
+
+`yay -S hyprsunset`
+
 ## Usage
 
 See `hyprsunset --help`.
