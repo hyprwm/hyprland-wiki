@@ -32,3 +32,4 @@ These docs always target latest -git branch of respective apps.
 - **[hyprwayland-scanner](./hyprwayland-scanner)**
 - **[aquamarine](./aquamarine)**
 - **[hyprgraphics](./hyprgraphics)**
+- **[hyprland-qtutils](./hyprland-qtutils)**
