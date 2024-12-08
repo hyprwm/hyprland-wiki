@@ -35,11 +35,6 @@ systemctl --user enable --now waybar.service
 
 ### Waybar FAQ
 
-#### Waybar popups render behind the windows
-
-In `~/.config/waybar/config`, make sure that you have the `layer` configuration
-set to `top` and not `bottom`.
-
 #### Active workspace doesn't show up
 
 Replace `#workspaces button.focused` with `#workspaces button.active` in
