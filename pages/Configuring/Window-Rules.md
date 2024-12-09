@@ -166,6 +166,8 @@ The following rules can also be set with [`setprop`](../Dispatchers#setprop):
 | immediate \[on\] | forces the window to allow to be torn. See [the Tearing page](../Tearing). |
 | xray \[on\] | sets blur xray mode for the window |
 | renderunfocused | forces the window to think it's being rendered when it's not visible - see also [Variables - Misc](../Variables/#Misc) for setting ``render_unfocused_fps`` |
+| scrollmouse \[float\] | forces the window to override the variable `input:scroll_factor` |
+| scrolltouchpad \[float\] | forces the window to override the variable `input:touchpad:scroll_factor` |
 
 When using window rules, \[on\] can be set to `0` for off, `1` for on or not set
 for default.
