@@ -454,7 +454,7 @@ _Subcategory `group:groupbar:`_
 | inactive_timeout | in seconds, after how many seconds of cursor's inactivity to hide it. Set to `0` for never. | float | 0 |
 | no_warps | if true, will not warp the cursor in many cases (focusing, keybinds, etc) | bool | false |
 | persistent_warps | When a window is refocused, the cursor returns to its last position relative to that window, rather than to the centre. | bool | false |
-| warp_on_change_workspace | If true, move the cursor to the last focused window after changing the workspace. | bool | false |
+| warp_on_change_workspace | Move the cursor to the last focused window after changing the workspace. Options: 0 (Disabled), 1 (Enabled), 2 (Force - ignores cursor:no_warps option) | int | 0 |
 | default_monitor | the name of a default monitor for the cursor to be set to on startup (see `hyprctl monitors` for names) | str | [[EMPTY]] |
 | zoom_factor | the factor to zoom by around the cursor. Like a magnifying glass. Minimum 1.0 (meaning no zoom) | float | 1.0 |
 | zoom_rigid | whether the zoom should follow the cursor rigidly (cursor is always centered if it can be) or loosely | bool | false |
