@@ -187,5 +187,6 @@ Config file `~/.config/hypr/xdph.conf` allows for these variables:
 
 | variable | description                                               | type | default value |
 | -------- | --------------------------------------------------------- | ---- | ------------- |
-| max_fps  | Maximum fps of a screensharing session. 0 means no limit. | int  | 120           |
-| allow_token_by_default  | If enabled, will tick the "Allow restore token" box by default | bool  | false           |
+| max_fps  | Maximum fps of a screensharing session. 0 means no limit. | int  | 120 |
+| allow_token_by_default  | If enabled, will tick the "Allow restore token" box by default | bool  | false |
+| custom_picker_binary  | If non-empty, will use that **binary** as your share picker. Please note that it has to conform to the stdout selection layout of `hyprland-share-picker`. | bool  | false |
