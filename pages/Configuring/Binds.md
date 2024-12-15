@@ -427,25 +427,25 @@ submap = main_submap
 # ...
 
 # nested_one
-    bind = , 1, submap, nested_one
-    submap = nested_one
+bind = , 1, submap, nested_one
+submap = nested_one
 
-    # ...
+# ...
 
-    bind = SHIFT, escape, submap, reset
-    bind =      , escape, submap, main_submap
-    submap = main_submap
+bind = SHIFT, escape, submap, reset
+bind =      , escape, submap, main_submap
+submap = main_submap
 # /nested_one
 
 # nested_two
-    bind = , 2, submap, nested_two
-    submap = nested_two
+bind = , 2, submap, nested_two
+submap = nested_two
 
-    # ...
+# ...
 
-    bind = SHIFT, escape, submap, reset
-    bind =      , escape, submap, main_submap
-    submap = main_submap
+bind = SHIFT, escape, submap, reset
+bind =      , escape, submap, main_submap
+submap = main_submap
 # /nested_two
 
 bind = , escape, submap, reset
