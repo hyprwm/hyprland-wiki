@@ -67,7 +67,7 @@ To get the correct name for an `unmodified_key`, refer to [the section on uncomm
 # On a french layout, instead of
 # bind = $mainMod, 1, workspace,  1
 
-# Use 
+# Use
 bind = $mainMod, ampersand, workspace,  1
 ```
 
@@ -379,7 +379,7 @@ binde = , up, resizeactive, 0 -10
 binde = , down, resizeactive, 0 10
 
 # use reset to go back to the global submap
-bind = , escape, submap, reset 
+bind = , escape, submap, reset
 
 # will reset the submap, which will return to the global submap
 submap = reset
@@ -416,7 +416,43 @@ submap = reset
 This works because the binds are executed in the order they appear, and
 assigning multiple actions per bind is possible.
 
-## Catch-All
+### Nesting
+
+Submaps can be nested, see the following example:
+
+```ini
+bind = $mainMod, M, submap, main_submap
+submap = main_submap
+
+# ...
+
+# nested_one
+bind = , 1, submap, nested_one
+submap = nested_one
+
+# ...
+
+bind = SHIFT, escape, submap, reset
+bind =      , escape, submap, main_submap
+submap = main_submap
+# /nested_one
+
+# nested_two
+bind = , 2, submap, nested_two
+submap = nested_two
+
+# ...
+
+bind = SHIFT, escape, submap, reset
+bind =      , escape, submap, main_submap
+submap = main_submap
+# /nested_two
+
+bind = , escape, submap, reset
+submap = reset
+```
+
+### Catch-All
 
 You can also define a keybind via the special `catchall` keyword, which
 activates no matter which key is pressed. This can be used to prevent any keys
