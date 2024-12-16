@@ -32,16 +32,30 @@ Variables in the `general` category:
 | no_fade_out | disables the fadeout animation | bool | false |
 | ignore_empty_input | skips validation when no password is provided | bool | false |
 | immediate_render | makes hyprlock immediately start to draw widgets. Backgrounds will render `background:color` until their `background:path` resource is available | bool | false |
-| pam_module | sets the pam module used for authentication. If the module isn't found in `/etc/pam.d`, "su" will be used as a fallback | str | hyprlock |
 | text_trim | sets if the text should be trimmed, useful to avoid trailing newline in commands output | bool | true |
 | fractional_scaling | whether to use fractional scaling. 0 - disabled, 1 - enabled, 2 - auto | int | 2 |
-| enable_fingerprint | enables parallel fingerprint auth with fprintd. | bool | false |
-| fingerprint_ready_message | sets the message that will be displayed when fprintd is ready to scan a fingerprint. | str | (Scan fingerprint to unlock) |
-| fingerprint_present_message | sets the message that will be displayed when a finger is placed on the scanner. | str | Scanning fingerprint |
 
 {{< callout type=warning >}}
 
 If you are not on hyprland, or your `XDG_CURRENT_DESKTOP` is not Hyprland, the fade out will be disabled and the value of your `no_fade_out` variable will be ignored.
+
+{{< /callout >}}
+
+### Authentication
+
+Variables in the `auth` category:
+
+| variable | description | type | default |
+| -- | -- | -- | -- |
+| pam:enabled | whether to enable pam authentication | bool | true |
+| pam:module | sets the pam module used for authentication. If the module isn't found in `/etc/pam.d`, "su" will be used as a fallback | str | hyprlock |
+| fingerprint:enabled | enables parallel fingerprint auth with fprintd. | bool | false |
+| fingerprint:ready_message | sets the message that will be displayed when fprintd is ready to scan a fingerprint. | str | (Scan fingerprint to unlock) |
+| fingerprint:present_message | sets the message that will be displayed when a finger is placed on the scanner. | str | Scanning fingerprint |
+
+{{< callout type=info >}}
+
+At least one enabled authentication method is required.
 
 {{< /callout >}}
 
