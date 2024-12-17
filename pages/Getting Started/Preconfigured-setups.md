@@ -20,6 +20,19 @@ It includes simple gui settings apps, pre-configured feature-rich panels, a welc
 
 ![Image of ML4W dotfiles](https://i.ibb.co/6ydHNt9/screenshot-29-1.png)
 
+## JaKooLit
+
+Would you rather like something a bit more similar, yet still very easy to install?
+
+JaKooLit provides installation scripts for many distros for their dotfiles, with
+many themes to choose from.
+
+[GitHub](https://github.com/JaKooLit/Hyprland-Dots)
+
+[Youtube](https://www.youtube.com/@Ja.KooLit)
+
+![Image of JaKooLit's dotfiles](https://i.ibb.co/7tMsnTv/default-waybar.png)
+
 ## prasanthrangan
 
 Prefer something more minimal, clean and aesthetic? Are you a terminal enjoyer?
