@@ -134,6 +134,9 @@ If `path` is `screenshot`, a screenshot of your desktop at launch will be used.
 | brightness | brightness modulation for blur | float | 0.8172 |
 | vibrancy | Increase saturation of blurred colors | float | 0.1696 |
 | vibrancy_darkness | How strong the effect of vibrancy is on dark areas | float | 0.05 |
+| reload_time | seconds between reloading, 0 to reload with SIGUSR2. Ignored if `path` is `screenshot`. | int | -1 |
+| reload_cmd | command to get new path. If empty, old path will be used. | str | [[Empty]] |
+| crossfade_time | cross-fade time in seconds between old and new background on reload. A negative value means no cross-fade. | float | -1.0 |
 | zindex | z-index of the widget | int | -1 |
 
 {{< callout type=info >}}
