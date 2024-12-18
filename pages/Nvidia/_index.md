@@ -83,26 +83,6 @@ env = LIBVA_DRIVER_NAME,nvidia
 env = __GLX_VENDOR_LIBRARY_NAME,nvidia
 ```
 
-and set this variable:
-
-```ini
-cursor {
-    no_hardware_cursors = true
-}
-```
-
-{{< callout type=warning >}}
-
-Previously used `WLR_NO_HARDWARE_CURSORS` environment variable has been deprecated.
-Do not set it in your configs. Use `cursor:no_hardware_cursors` instead.
-
-If you want to try hardware cursors, you can enable them by setting `cursor:no_hardware_cursors = false`,
-but it will require also enabling `cursor:allow_dumb_copy` which
-may cause small to major hitches whenever the cursor shape changes. If this is a problem on your system,
-keep hardware cursors disabled.
-
-{{< /callout >}}
-
 ## Finishing up
 
 Install a few packages to get some apps to function natively with Wayland for the
