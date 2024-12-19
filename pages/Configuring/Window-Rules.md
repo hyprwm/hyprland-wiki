@@ -12,7 +12,8 @@ As of Hyprland v0.46.0, regexes need to fully match the window values. For
 example, in the case of `kitty`:
 
 - `kitty`/`(kitty)`/`^(kitty)$`: Matches.
-- `tty`: Used to match, now won't. Use `.*tty.*` to make it act like before, or consider using a more specific regex.
+- `tty`: Used to match, now won't. Use `.*tty.*` to make it act like before, or
+  consider using a more specific regex.
 
 {{< /callout >}}
 
