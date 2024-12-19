@@ -8,14 +8,12 @@ title: Window Rules
 Window rules (both V1 and V2) are **case sensitive**. (e.g. `firefox` ≠
 `Firefox`)
 
-As of Hyprland v0.46.0, regexes need to fully match the value for the
-corresponding rules to apply.
-
-For example, in the case of `kitty`:
+As of Hyprland v0.46.0, regexes need to fully match the window values. For
+example, in the case of `kitty`:
 
 - `kitty`: OK
 - `^(kitty)$`: OK
-- `tty`: Used to match, now won't. Use `.*tty.*` to make it act like before.
+- `tty`: Used to match, now won't. Use `.*tty.*` to make it act like before, but consider rewriting the rule to be more specific.
 
 {{< /callout >}}
 
