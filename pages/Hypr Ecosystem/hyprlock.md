@@ -17,7 +17,7 @@ Hyprlock uses the following types in addition to [Hyprland's variable types](../
 
 | type | description |
 | -- | -- |
-| layoutxy | vec2 with an optional `%` suffix, allowing users to specify sizes as percentages of the output size.  |
+| layoutxy | vec2 with an optional `%` suffix, allowing users to specify sizes as percentages of the output size. Floats (e.g. 10.5) are supported, but only have an effect when used with `%`. Raw pixel values will just get rounded. |
 
 ### General
 
@@ -98,7 +98,7 @@ widget_name {
   - zindex: Widgets with larger numbers will be placed above widgets with smaller numbers. All widgets default to 0, except background which defaults to -1.
 - All `position` and `size` options can be specified in pixels or as percentages of the output size.
   - pixels: `10, 10` or `10px, 10px`
-  - percentages: `10%, 10%`
+  - percentages: `10%, 10.5%`
   - mixed: `10%, 5px`
 - Supported image formats are png, jpg and webp (no animations though)
 
