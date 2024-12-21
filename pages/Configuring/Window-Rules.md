@@ -99,6 +99,13 @@ size, you can use `hyprctl clients`.
 
 {{< /callout >}}
 
+### RegEx writing
+
+Please note Hyprland uses Google's RE2 for parsing Regex. This means that all operations requiring polynomial
+time to compute will not work. See [the re2 wiki](https://github.com/google/re2/wiki/Syntax) for supported extensions.
+
+If you want to _negate_ a regex, as in pass only when the regex _fails_, you can prefix it with `negative:`, e.g.: `negative:kitty`.
+
 ## Rules
 
 ### Static rules
