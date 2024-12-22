@@ -494,6 +494,7 @@ Only for developers.
 | error_limit | limits the number of displayed config file parsing errors. | int | 5 |
 | error_position | sets the position of the error bar. top - 0, bottom - 1 | int | 0 |
 | colored_stdout_logs | enables colors in the stdout logs. | bool | true |
+| pass | enables render pass debugging. | bool | false |
 
 ### More
 
