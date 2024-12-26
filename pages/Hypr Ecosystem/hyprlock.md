@@ -358,7 +358,8 @@ Available variables for `text`:
 - `$FAIL` - last pam fail reason
 - `$ATTEMPTS` - failed attempts
 - `$LAYOUT` - current keyboard layout
-- `$FPRINTMESSAGE` - last message from fingerprint matching
+- `$FPRINTMESSAGE` - last error message from fingerprint matching
+- `$FPRINTPROMPT` - last prompt from fingerprint matching
 
 `text` also supports launching commands, for example:
 
