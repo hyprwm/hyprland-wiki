@@ -304,7 +304,7 @@ Let's take OBS as an example: the "Start/Stop Recording" keybind is set to
 add
 
 ```ini
-bind = SUPER, F10, pass, ^(com\.obsproject\.Studio)$
+bind = SUPER, F10, pass, class:^(com\.obsproject\.Studio)$
 ```
 
 to your config and you're done.
@@ -313,7 +313,7 @@ to your config and you're done.
 This also means that push-to-talk will work flawlessly with one pass, e.g.:
 
 ```ini
-bind = , mouse:276, pass, ^(TeamSpeak 3)$
+bind = , mouse:276, pass, class:^(TeamSpeak 3)$
 ```
 
 Will pass MOUSE5 to TeamSpeak3.
@@ -321,7 +321,7 @@ Will pass MOUSE5 to TeamSpeak3.
 You may also add shortcuts, where other keys are passed to the window.
 
 ```ini
-bind = SUPER, F10, sendshortcut, SUPER, F4, ^(com\.obsproject\.Studio)$
+bind = SUPER, F10, sendshortcut, SUPER, F4, class:^(com\.obsproject\.Studio)$
 ```
 
 Will send <key>SUPER</key> + <key>F4</key> to OBS if you press
