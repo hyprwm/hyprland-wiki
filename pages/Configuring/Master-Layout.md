@@ -24,7 +24,7 @@ _category name `master`_
 | new_on_active | `before`, `after`: place new window relative to the focused window; `none`: place new window according to the value of `new_on_top`.  | string | `none` |
 | orientation | default placement of the master area, can be left, right, top, bottom or center | string | left |
 | inherit_fullscreen | inherit fullscreen status when cycling/swapping to another window (e.g. monocle layout) | bool | true |
-| always_center_master | when using orientation=center, keep the master window centered, even when it is the only window in the workspace. | bool | false |
+| slave_count_for_center_master | when using orientation=center, make the master window centered only when at least this many slave windows are open. (Set 0 to always_center_master) | int | 2 |
 | smart_resizing | if enabled, resizing direction will be determined by the mouse's position on the window (nearest to which corner). Else, it is based on the window's tiling position. | bool | true |
 | drop_at_cursor | when enabled, dragging and dropping windows will put them at the cursor position. Otherwise, when dropped at the stack side, they will go to the top/bottom of the stack depending on new_on_top. | bool | true |
 
