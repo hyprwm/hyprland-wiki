@@ -41,3 +41,11 @@ Prasanthrangan's dotfiles are a very popular choice that will suit your needs.
 [GitHub](https://github.com/prasanthrangan/hyprdots)
 
 ![Image of prasanthrangan's dotfiles](https://i.ibb.co/W3SYJCc/showcase-2-2412602747.png)
+
+## BinaryHarbinger
+
+Maintained dotfiles provides pretty clean and functional setup with scripts. Provides an installer script and update support built-in.
+
+[GitHub](https://github.com/binaryharbinger/dotfiles)
+
+![Image of prasanthrangan's dotfiles](https://raw.githubusercontent.com/BinaryHarbinger/Dotfiles/main/preview/desktop.png)
