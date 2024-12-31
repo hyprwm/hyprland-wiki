@@ -400,6 +400,7 @@ _Subcategory `group:groupbar:`_
 | render_unfocused_fps | the maximum limit for renderunfocused windows' fps in the background (see also [Window-Rules](../Window-Rules/#dynamic-rules) - `renderunfocused`)| int | 15 |
 | disable_xdg_env_checks | disable the warning if XDG environment is externally managed | bool | false |
 | disable_hyprland_qtutils_check | disable the warning if hyprland-qtutils is not installed | bool | false |
+| disable_assets_check | disable the warning if assets are missing | bool | false |
 | lockdead_screen_delay | the delay in ms after the lockdead screen appears if the lock screen did not appear after a lock event occurred | int | 1000 |
 
 ### Binds
