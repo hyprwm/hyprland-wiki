@@ -28,8 +28,6 @@ Variables in the `general` category:
 | disable_loading_bar | disables the loading bar on the bottom of the screen while hyprlock is booting up. | bool | false |
 | hide_cursor | hides the cursor instead of making it visible | bool | false |
 | grace | the amount of seconds for which the lockscreen will unlock on mouse movement. | int | 0 |
-| no_fade_in | disables the fadein animation | bool | false |
-| no_fade_out | disables the fadeout animation | bool | false |
 | ignore_empty_input | skips validation when no password is provided | bool | false |
 | immediate_render | makes hyprlock immediately start to draw widgets. Backgrounds will render `background:color` until their `background:path` resource is available | bool | false |
 | text_trim | sets if the text should be trimmed, useful to avoid trailing newline in commands output | bool | true |
@@ -58,6 +56,43 @@ Variables in the `auth` category:
 At least one enabled authentication method is required.
 
 {{< /callout >}}
+
+### Animations
+
+Variables in the `animations` category:
+
+| variable | description | type | default |
+| -- | -- | -- | -- |
+| enabled | whether to enable animations | bool | true |
+
+#### Keywords
+
+The `animation` and `bezier` keywords can be used just like in `hyprland.conf`.
+
+For Example:
+```ini
+bezier = linear, 1, 1, 0, 0
+animation = fade, 1, 1.8, linear
+```
+
+Available animations can be found in the [animation tree](#animation-tree).
+The optional `STYLE` parameter for the `animation` keyword is currently unused by hyprlock.
+
+Check out Hyprland's [animation documentation](../../Configuring/Animations) for more information.
+
+#### Animation tree
+
+```txt
+global
+  ↳ fade
+    ↳ fadeIn - fade to lockscreen
+    ↳ fadeOut - fade back to the wayland session
+  ↳ inputField
+    ↳ inputFieldColors - fade between colors and gradients
+    ↳ inputFieldFade - fade_on_empty animation
+    ↳ inputFieldWidth - adaptive width animation
+    ↳ inputFieldDots - fade in/out for individual dots in the input field
+```
 
 ## Keyboard Shortcuts and Actions
 
@@ -262,7 +297,6 @@ Draws a password input field.
 | dots_spacing | spacing between dots. [-1.0 - 1.0] | float | 0.15 |
 | dots_center | whether to center the dots. align left otherwise  | bool | true |
 | dots_rounding | rounding of the dots | int | -1 |
-| dots_fade_time | Milliseconds until a dot fully fades in | int | 200 |
 | dots_text_format | text character(s) used for the input indicator, rounded rectangles are the default. | str | [[Empty]] |
 | outer_color | border color | gradient | rgba(17, 17, 17, 1.0) |
 | inner_color | color of the inner box | color | rgba(200, 200, 200, 1.0) |
@@ -277,7 +311,6 @@ Draws a password input field.
 | fail_color | color accent when authentication fails | gradient | rgba(204, 34, 34, 1.0) |
 | fail_text | text rendered when authentication fails | str | `<i>$FAIL <b>($ATTEMPTS)</b></i>` |
 | fail_timeout | milliseconds before `fail_text` and `fail_color` disappears | int | 2000 |
-| fail_transition | transition time in ms between normal `outer_color` and `fail_color` | int | 300 |
 | capslock_color | color accent when capslock is active | gradient | [[Empty]] |
 | numlock_color | color accent when numlock is active | gradient | [[Empty]] |
 | bothlock_color | color accent when both locks are active | gradient | [[Empty]] |
