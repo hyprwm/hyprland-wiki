@@ -36,10 +36,10 @@ _category name `master`_
 | --- | --- | --- |
 | swapwithmaster | swaps the current window with master. If the current window is the master, swaps it with the first child. | either `master` (new focus is the new master window), `child` (new focus is the new child) or `auto` (which is the default, keeps the focus of the previously focused window) |
 | focusmaster | focuses the master window. | either `master` (focus stays at master, even if it was selected before) or `auto` (which is the default, if the current window is the master, focuses the first child.) |
-| cyclenext | focuses the next window respecting the layout | none |
-| cycleprev | focuses the previous window respecting the layout | none |
-| swapnext | swaps the focused window with the next window respecting the layout | none |
-| swapprev | swaps the focused window with the previous window respecting the layout | none |
+| cyclenext | focuses the next window respecting the layout | either `loop` (allow looping from the bottom of the pile back to master) or `noloop` (force stop at the bottom of the pile, like in DWM). `loop` is the default if left blank. |
+| cycleprev | focuses the previous window respecting the layout | either `loop` (allow looping from master to the bottom of the pile) or `noloop` (force stop at master, like in DWM). `loop` is the default if left blank. |
+| swapnext | swaps the focused window with the next window respecting the layout | either `loop` (allow swapping the bottom of the pile and master) or `noloop` (do not allow it, like in DWM). `loop` is the default if left blank. |
+| swapprev | swaps the focused window with the previous window respecting the layout | either `loop` (allow swapping master and the bottom of the pile) or `noloop` (do not allow it, like in DWM). `loop` is the default if left blank. |
 | addmaster | adds a master to the master side. That will be the active window, if it's not a master, or the first non-master window. | none |
 | removemaster | removes a master from the master side. That will be the active window, if it's a master, or the last master window. | none |
 | orientationleft | sets the orientation for the current workspace to left (master area left, slave windows to the right, vertically stacked) | none |
