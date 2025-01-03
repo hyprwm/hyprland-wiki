@@ -52,6 +52,7 @@ Variables in the `auth` category:
 | fingerprint:enabled | enables parallel fingerprint auth with fprintd. | bool | false |
 | fingerprint:ready_message | sets the message that will be displayed when fprintd is ready to scan a fingerprint. | str | (Scan fingerprint to unlock) |
 | fingerprint:present_message | sets the message that will be displayed when a finger is placed on the scanner. | str | Scanning fingerprint |
+| fingerprint:retry_delay | sets the delay in ms after an unrecognized finger is scanned before another finger can be scanned. | int | 250 |
 
 {{< callout type=info >}}
 
