@@ -8,8 +8,7 @@ for Hyprland.
 
 ## Configuration
 
-Configuration is done via the config file at `~/.config/hypr/hyprlock.conf`. It
-is not required, but recommended. Without it, locking shows the current screen.
+Configuration is done via the config file at `~/.config/hypr/hyprlock.conf`. This file must exist to run `hyprlock`.
 
 ### Variable types
 
