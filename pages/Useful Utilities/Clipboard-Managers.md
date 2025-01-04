@@ -8,7 +8,7 @@ _Starting method:_ manual (`exec-once`)
 Clipboard Managers provide a convenient way to organize and access previously
 copied content, including both text and images.
 
-Some common ones used are `copyq`, `clipman`, `cliphist`, `clipse` and `cb`.
+Some common ones used are `copyq`, `clipman`, `cliphist`, `clipse`.
 
 `clipman` - Utilizes Wayland with `wl-clipboard` support and stores text only
 [GitHub](https://github.com/chmouel/clipman)
@@ -28,29 +28,6 @@ binary. Stores text and images indefinitely, accessible via a nice TUI that can
 be bound to a floating window in your Hyprland config. Allows custom themes,
 image/text previews, multi-select, pinned items and more.
 [GitHub](https://github.com/savedra1/clipse)
-
-`cb` - Utilizes Wayland and stores text, images and files temporarily or
-indefinitely. Allows unlimited clipboards and history, JSON output and more.
-[GitHub](https://github.com/Slackadays/Clipboard)
-
-{{< callout >}}
-
-`cb` does not automatically update the clipboard in the background. It is not
-recommended to enable it either, as that makes the focused window flicker every
-second.
-
-{{< /callout >}}
-
-## cb
-
-Start by adding the following line to your `~/.config/hypr/hyprland.conf`
-
-```ini
-exec-once = cb
-```
-
-For more details on `cb`, please refer to its GitHub repo linked at the top
-of the page.
 
 ## copyq
 
