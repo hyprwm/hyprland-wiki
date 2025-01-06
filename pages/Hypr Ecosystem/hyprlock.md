@@ -122,6 +122,21 @@ So either use the portname (e.g. `eDP-1`) or the monitor description (e.g. `desc
 
 See [Monitors](../../Configuring/Monitors).
 
+### Variable substitution
+The following variables in widget text options will be substituted.
+
+- `$USER` - username (e.g. linux-user)
+- `$DESC` - user description (e.g. Linux User)
+- `$TIME` - current time in 24-hour format (e.g. `13:37`)
+- `$TIME12` - current time in 12-hour format (e.g. `1:37 PM`)
+- `$LAYOUT` - current keyboard layout
+- `$ATTEMPTS` - failed authentication attempts
+- `$FAIL` - last authentication fail reason
+- `$PAMPROMPT` - pam auth last prompt
+- `$PAMFAIL` - pam auth last fail reason
+- `$FPRINTPROMPT` - fingerprint auth last prompt
+- `$FPRINTFAIL` - fingerprint auth last fail reason
+
 ## Widget List
 
 ### General remarks
@@ -334,14 +349,7 @@ Behaviour of `swap_font_color` is as follows:
 
 {{< /callout >}}
 
-Available variables for `placeholder_text`:
-
-- `$PROMPT` - prompt text provided by pam. Usually this will be "Password: ", but it depends on your pam configuration.
-
-Available variables for `fail_text`:
-
-- `$FAIL` - pam fail reason
-- `$ATTEMPTS` - number of failed authentication attempts
+`placeholder_text` and `fail_text` both support [variable substitution](#variable-substitution).
 
 {{% details title="Example input-field" closed="true" %}}
 
@@ -386,20 +394,10 @@ Draws a label.
 | halign | horizontal alignment | str | center |
 | valign | vertical alignment | str | center |
 
-Available variables for `text`:
 
-- `$USER` - username (e.g. linux-user)
-- `$DESC` - user description (e.g. Linux User)
-- `$TIME` - current time in 24-hour format (e.g. `13:37`)
-- `$TIME12` - current time in 12-hour format (e.g. `1:37 PM`)
-- `$PROMPT` - last pam prompt
-- `$FAIL` - last pam fail reason
-- `$ATTEMPTS` - failed attempts
-- `$LAYOUT` - current keyboard layout
-- `$FPRINTMESSAGE` - last error message from fingerprint matching
-- `$FPRINTPROMPT` - last prompt from fingerprint matching
+#### Dynamic labels
 
-`text` also supports launching commands, for example:
+The `text` option supports [variable substitution](#variable-substitution) and launching shell commands. For example:
 
 ```ini
 text = cmd[update:1000] echo "<span foreground='##ff2222'>$(date)</span>"
