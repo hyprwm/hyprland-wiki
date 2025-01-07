@@ -474,6 +474,31 @@ _Subcategory `group:groupbar:`_
 | --- | --- | --- | --- |
 | no_update_news | disable the popup that shows up when you update hyprland to a new version. | bool | false |
 
+### Experimental
+
+| name | description | type | default |
+| --- | --- | --- | --- |
+| wide_color_gamut | force wide color gamut for all supported outputs | bool | false |
+| hdr | force static hdr for all supported outputs (for testing only, will result in oversaturated colors) | bool | false |
+| xx_color_management_v4 | enable color management protocol | bool | false |
+
+Requires a client with `frog-color-management-v1` or `xx-color-management-v4` support like gamescope or https://github.com/Zamundaaa/VK_hdr_layer
+
+Steam:
+
+`DXVK_HDR=1 gamescope -f --hdr-enabled -- %command%`
+
+`ENABLE_HDR_WSI=1 DXVK_HDR=1 DISPLAY= %command%` (requires wayland-enabled proton version)
+
+Non-steam:
+
+`ENABLE_HDR_WSI=1 DXVK_HDR=1 DISPLAY= wine executable.exe` 
+
+Video:
+
+`ENABLE_HDR_WSI=1 mpv --vo=gpu-next --target-colorspace-hint --gpu-api=vulkan --gpu-context=waylandvk "filename"`
+
+
 ### Debug
 
 {{< callout type=warning >}}
