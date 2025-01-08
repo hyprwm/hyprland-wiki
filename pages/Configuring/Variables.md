@@ -451,7 +451,7 @@ _Subcategory `group:groupbar:`_
 | name | description | type | default |
 | --- | --- | --- | --- |
 | sync_gsettings_theme | sync xcursor theme with gsettings, it applies cursor-theme and cursor-size on theme load to gsettings making most CSD gtk based clients use same xcursor theme and size. | bool | true |
-| no_hardware_cursors | disables hardware cursors. Set to 2 for `auto` which disables them on Nvidia, while keeping them enabled otherwise. | int | 2 |
+| no_hardware_cursors | disables hardware cursors. | bool | false |
 | no_break_fs_vrr | disables scheduling new frames on cursor movement for fullscreen apps with VRR enabled to avoid framerate spikes (requires `no_hardware_cursors = true`) | bool | false |
 | min_refresh_rate | minimum refresh rate for cursor movement when `no_break_fs_vrr` is active. Set to minimum supported refresh rate or higher | int | 24 |
 | hotspot_padding | the padding, in logical px, between screen edges and the cursor | int | 1 |
@@ -465,7 +465,7 @@ _Subcategory `group:groupbar:`_
 | enable_hyprcursor | whether to enable hyprcursor support | bool | true |
 | hide_on_key_press | Hides the cursor when you press any key until the mouse is moved. | bool | false |
 | hide_on_touch | Hides the cursor when the last input was a touch input until a mouse input is done. | bool | true |
-| use_cpu_buffer | Makes HW cursors use a CPU buffer. Required on Nvidia to have HW cursors. Experimental. | bool | false |
+| use_cpu_buffer | Makes HW cursors use a CPU buffer. Required on Nvidia to have HW cursors. 0 - off, 1 - on, 2 - auto (nvidia only) | int | 2 |
 | warp_back_after_non_mouse_input | Warp the cursor back to where it was after using a non-mouse input to move it, and then returning back to mouse. | bool | false |
 
 ### Ecosystem
