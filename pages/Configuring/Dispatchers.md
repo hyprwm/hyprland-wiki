@@ -29,7 +29,11 @@ layout pages (See the sidebar).
 | pass | passes the key (with mods) to a specified window. Can be used as a workaround to global keybinds not working on Wayland. | window |
 | sendshortcut | sends specified keys (with mods) to an optionally specified window. Can be used like pass | mod, key[, window] |
 | killactive | closes (not kills) the active window | none |
+| forcekillactive | kills the active window | none |
 | closewindow | closes a specified window | window |
+| killwindow | kills a specified window | window |
+| signal | sends a signal to the active window | signal |
+| signalwindow | sends a signal to a specified window | `window,signal`, e.g.`class:Alacritty,9` |
 | workspace | changes the workspace | workspace |
 | movetoworkspace | moves the focused window to a workspace | workspace OR `workspace,window` for a specific window |
 | movetoworkspacesilent | same as above, but doesn't switch to the workspace | workspace OR `workspace,window` for a specific window |
