@@ -22,7 +22,8 @@ It includes simple gui settings apps, pre-configured feature-rich panels, a welc
 
 ## JaKooLit
 
-Would you rather like something a bit more similar, yet still very easy to install?
+Another great option is installing JaKooLit's dotfiles. They are another feature-rich and very well
+maintained option.
 
 JaKooLit provides installation scripts for many distros for their dotfiles, with
 many themes to choose from.
