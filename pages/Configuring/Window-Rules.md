@@ -137,7 +137,7 @@ It is not possible to `float` (or any other of the static rules) a window based 
 | nomaxsize | removes max size limitations. Especially useful with windows that report invalid max sizes (e.g. winecfg) |
 | stayfocused | forces focus on the window as long as it's visible |
 | group \[options\] | set window group properties. See the note below. |
-| suppressevent \[types...\] | ignores specific events from the window. Events are space separated, and can be: `fullscreen` `maximize` `activate` `activatefocus` |
+| suppressevent \[types...\] | ignores specific events from the window. Events are space separated, and can be: `fullscreen` `maximize` `activate` `activatefocus` `fullscreenoutput` |
 
 ### Dynamic rules
 
