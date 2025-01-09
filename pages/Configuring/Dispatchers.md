@@ -59,6 +59,7 @@ layout pages (See the sidebar).
 | focusmonitor | focuses a monitor | monitor |
 | splitratio | changes the split ratio | floatvalue |
 | movecursortocorner | moves the cursor to the corner of the active window | direction, 0 - 3, bottom left - 0, bottom right - 1, top right - 2, top left - 3 |
+| movecursortomonitor | moves the cursor to the specified monitor | monitor |
 | movecursor | moves the cursor to a specified position | `x y` |
 | renameworkspace | rename a workspace | `id name`, e.g. `2 work` |
 | exit | exits the compositor with no questions asked. | none |
