@@ -101,6 +101,7 @@ no reason (no errors), it's likely your XDG env isn't set correctly.
   applications
 - `env = QT_QPA_PLATFORMTHEME,qt5ct` - Tells Qt based applications to pick your theme
   from qt5ct, use with Kvantum.
+- `env = QT_QUICK_CONTROLS_STYLE,org.hyprland.style` - Enable [hyprland-qt-support](../../Hypr-Ecosystem/hyprland-qt-support/) styling for hypr* Qt applications
 
 ## NVIDIA Specific
 
