@@ -445,6 +445,7 @@ _Subcategory `group:groupbar:`_
 | expand_undersized_textures | Whether to expand undersized textures along the edge, or rather stretch the entire texture. | bool | true |
 | xp_mode | Disables back buffer and bottom layer rendering. | bool | false |
 | ctm_animation | Whether to enable a fade animation for CTM changes (hyprsunset). 2 means "auto" which disables them on Nvidia. | int | 2 |
+| allow_early_buffer_release | Allow early buffer release event. Fixes stuttering and missing frames for some apps. May cause graphical glitches and memory leaks in others. | bool | true |
 
 ### Cursor
 
