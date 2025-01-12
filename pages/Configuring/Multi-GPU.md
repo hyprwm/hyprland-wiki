@@ -65,7 +65,7 @@ If instead you would like to use another GPU, or the wrong GPU is picked by defa
 set `AQ_DRM_DEVICES` to a `:`-separated list of card paths, e.g.
 
 ```plain
-env = AQ_DRM_DEVICES,/dev/dri/card0:/dev/dri/card1
+env = AQ_DRM_DEVICES,/dev/dri/by-path/pci-0000:01:00.0-card:/dev/dri/by-path/pci-0000:06:00.0-card
 ```
 
 Here, we tell Hyprland to set priorities. If `card0` isn't available for
@@ -80,7 +80,7 @@ including Hyprland, or default to your dGPU if you prefer.
 This method ensures that the variable is properly exported to the systemd environment without conflicting with other compositors or desktop environments.
 
 ```plain
-export AQ_DRM_DEVICES="/dev/dri/card0:/dev/dri/card1"
+export AQ_DRM_DEVICES="/dev/dri/by-path/pci-0000:01:00.0-card:/dev/dri/by-path/pci-0000:06:00.0-card"
 ```
 
 {{< /callout >}}
