@@ -88,7 +88,7 @@ windowrulev2 = rounding 0, floating:0, onworkspace:f[1]
 
 ```ini
 workspace = 3, rounding:false, decorate:false
-workspace = name:coding, rounding:false, decorate:false, gapsin:0, gapsout:0, border:false, decorate:false, monitor:DP-1
+workspace = name:coding, rounding:false, decorate:false, gapsin:0, gapsout:0, border:false, monitor:DP-1
 workspace = 8,bordersize:8
 workspace = name:Hello, monitor:DP-1, default:true
 workspace = name:gaming, monitor:desc:Chimei Innolux Corporation 0x150C, default:true
