@@ -159,7 +159,7 @@ Please note, these logs are EXTREMELY verbose. Please reproduce your bug(s) ASAP
 {{< /callout >}}
 
 ```sh
-echo 0x19F | sudo tee /sys/module/drm/parameters/debug  # cnables verbose drm logging
+echo 0x19F | sudo tee /sys/module/drm/parameters/debug  # enables verbose drm logging
 sudo dmesg -C                                           # clears kernel debug logs
 dmesg -w > ~/dmesg.log &                                # writes kernel logs in the background to a file at ~/dmesg.log
 Hyprland
