@@ -498,12 +498,13 @@ Supported custom build flags:
 LEGACY_RENDERER - Compiles with the legacy renderer (see above)
 NO_XWAYLAND - Removes XWayland support
 NO_SYSTEMD - Removes systemd dependencies
+NO_UWSM - Does not install the hyprland-uwsm.desktop file
 ```
 
 Flags can be passed to CMake like this:
 
 ```bash
-cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -D<FLAG>:STRING=true -B build -G Ninja
+cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -D<FLAG>:STRING=true -B build
 ```
 
 Change `<FLAG>` to one of the custom build flags. Multiple flags can be used at
@@ -514,7 +515,7 @@ The `BUILD_TYPE` can also be changed to `Debug`.
 To build, run:
 
 ```bash
-cmake --build ./build --config Release --target all
+cmake --build ./build --config Release --target all -j`nproc 2>/dev/null || getconf NPROCESSORS_CONF`
 ```
 
 If you configured in `Debug`, change the `--config` to `Debug` as well.
