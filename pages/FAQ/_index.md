@@ -435,3 +435,17 @@ This is a side effect of the [decoration:blur:new_optimizations](../Configuring/
 You have two options to resolve it.
 1. Set `decoration:blur:new_optimizations` to `false` - This will preserve the exact same appearance, but may have a slight performance cost.
 2. Set `decoration:blur:ignore_opacity` to `false` - This will drastically affect the appearance, but should maintain the original performance.
+
+### I can't create Discord binds
+
+You most likely have `env = ELECTRON_OZONE_PLATFORM_HINT, wayland` in your config.
+
+Try running Discord like this `ELECTRON_OZONE_PLATFORM_HINT= discord`.
+
+{{< callout >}}
+
+Keep in mind that this will run Discord under XWayland.
+
+{{< /callout >}}
+
+If it works, navigate to the Discord desktop entry (usually located in `/usr/share/applications/`). Duplicate it and replace `Exec=/usr/bin/discord` with `Exec=env ELECTRON_OZONE_PLATFORM_HINT= /usr/bin/discord`. You can also give it a new name, e.g. `Name=DiscordX`, to avoid confusion as to which is which.
