@@ -435,3 +435,8 @@ This is a side effect of the [decoration:blur:new_optimizations](../Configuring/
 You have two options to resolve it.
 1. Set `decoration:blur:new_optimizations` to `false` - This will preserve the exact same appearance, but may have a slight performance cost.
 2. Set `decoration:blur:ignore_opacity` to `false` - This will drastically affect the appearance, but should maintain the original performance.
+
+### I can't create Discord binds
+You most likely have `env = ELECTRON_OZONE_PLATFORM_HINT, wayland` in your config. <br/>
+Try running Discord like this `ELECTRON_OZONE_PLATFORM_HINT= discord`. <br/>
+If it works, edit the Discord desktop entry(usually located in `/usr/share/applications/`) and replace `Exec=/usr/bin/discord` with `Exec=env ELECTRON_OZONE_PLATFORM_HINT= /usr/bin/discord`.
