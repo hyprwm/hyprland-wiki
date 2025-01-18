@@ -458,6 +458,8 @@ ninja -C build
 ninja -C build install --tags runtime,man
 ```
 
+Custom build flags can be found in [`meson_options.txt`](https://github.com/hyprwm/Hyprland/blob/main/meson_options.txt).
+
 Refer to [Debugging](../../Contributing-and-Debugging) to see how to build &
 debug.
 
@@ -492,13 +494,14 @@ make <PRESET> && sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland
 
 To apply custom build flags, you'll have to ditch make.
 
-Supported custom build flags:
+Supported custom build flags on CMake:
 
 ```bash
 LEGACY_RENDERER - Compiles with the legacy renderer (see above)
 NO_XWAYLAND - Removes XWayland support
 NO_SYSTEMD - Removes systemd dependencies
 NO_UWSM - Does not install the hyprland-uwsm.desktop file
+NO_HYPRPM - Does not build and install hyprpm
 ```
 
 Flags can be passed to CMake like this:
