@@ -123,10 +123,10 @@ about configuring Hyprland to your liking.
 ## Cursors
 
 Cursors are a notorious pain to set up when you don't know how. See
-[this FAQ entry](../../FAQ#how-do-i-change-me-mouse-cursor)
+[this FAQ entry on changing your mouse cursor](../../FAQ#how-do-i-change-me-mouse-cursor)
 
 If your cursor does not appear, see
-[this FAQ entry](../../FAQ#me-cursor-no-render)
+[this FAQ entry on cursor not rendering](../../FAQ#me-cursor-no-render)
 
 ## Themes
 
