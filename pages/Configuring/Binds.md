@@ -182,7 +182,7 @@ for example,
 bindd = SUPER, Q, Open my favourite terminal, exec, kitty
 ```
 
-If you want to access your description you can use `hyprctl binds`. For more information have a look at [Using Hyprctl](../Using-hyprctl.md).
+If you want to access your description you can use `hyprctl binds`. For more information have a look at [Using Hyprctl](../Using-hyprctl).
 
 ## Bind flags
 
