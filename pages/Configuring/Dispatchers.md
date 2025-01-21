@@ -52,7 +52,7 @@ layout pages (See the sidebar).
 | moveactive | moves the active window | resizeparams |
 | resizewindowpixel | resizes a selected window | `resizeparams,window`, e.g. `100 100,^(kitty)$` |
 | movewindowpixel | moves a selected window | `resizeparams,window` |
-| cyclenext | focuses the next window on a workspace | none (for next) or `prev` (for previous) additionally `tiled` for only tiled, `floating` for only floating. `prev tiled` is ok. |
+| cyclenext | focuses the next window (on a workspace, if `visible` is not provided) | none (for next) or `prev` (for previous) additionally `tiled` for only tiled, `floating` for only floating. `prev tiled` is ok. `visible` for all monitors cycling. `visible prev floating` is ok |
 | swapnext | swaps the focused window with the next window on a workspace | none (for next) or `prev` (for previous) |
 | tagwindow | apply tag to current or the first window matching | `tag [window]`, e.g. `+code ^(foot)$`, `music` |
 | focuswindow | focuses the first window matching | window |
