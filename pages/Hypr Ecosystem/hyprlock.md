@@ -31,6 +31,7 @@ Variables in the `general` category:
 | immediate_render | makes hyprlock immediately start to draw widgets. Backgrounds will render `background:color` until their `background:path` resource is available | bool | false |
 | text_trim | sets if the text should be trimmed, useful to avoid trailing newline in commands output | bool | true |
 | fractional_scaling | whether to use fractional scaling. 0 - disabled, 1 - enabled, 2 - auto | int | 2 |
+| screencopy_mode | selects screencopy mode. 0 - gpu accelerated, 1 - cpu based (slow) | int | 0 |
 
 {{< callout type=warning >}}
 
