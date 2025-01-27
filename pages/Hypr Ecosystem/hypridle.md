@@ -19,10 +19,25 @@ Variables in the `general` category:
 | --- | --- | --- | --- |
 | lock_cmd | command to run when receiving a dbus lock event (e.g. `loginctl lock-session`) | string | empty |
 | unlock_cmd | command to run when receiving a dbus unlock event (e.g. `loginctl unlock-session`) | string | empty |
+| on_lock_cmd | command to run when the session gets locked by a lock screen app | string | empty |
+| on_unlock_cmd | command to run when the session gets unlocked by a lock screen app | string | empty |
 | before_sleep_cmd | command to run when receiving a dbus prepare_sleep event | string | empty |
 | after_sleep_cmd | command to run when receiving a dbus post prepare_sleep event | string | empty |
 | ignore_dbus_inhibit | whether to ignore dbus-sent idle inhibit events (e.g. from firefox) | bool | false |
 | ignore_systemd_inhibit | whether to ignore `systemd-inhibit --what=idle` inhibitors | bool | false |
+| inhibit_sleep | sleep inhibition mode, 0 - disable, 1 - normal, 2 - auto, 3 - lock notify | int | 2 |
+
+{{< callout type=info >}}
+
+The `general:inihit_sleep` option is used to make sure hypridle can do certain tasks before the system goes to sleep.
+
+Options:
+- `3` makes your system wait until the session gets locked by a lock screen app. This works with all wayland session-lock apps.
+- `2` (auto) selects either 3 or 1 depending on whether hypridle detects if you want to launch hyprlock before sleep.
+- `1` makes the system wait until hypridle launched `general:before_sleep_cmd`.
+- `0` disables sleep inhibition.
+
+{{< /callout >}}
 
 ### Listeners
 
