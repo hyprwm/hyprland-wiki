@@ -368,19 +368,7 @@ sudo eopkg install hyprland
 _**\* Unofficial, no official support is provided. These instructions are
 community-driven, and no guarantee is provided for their validity.**_
 
-### Manual (Releases, Linux-only)
-
-1. Download the most recent release.
-2. copy the binaries (Hyprland, hyprctl, hyprpm) to `/usr/bin/`.
-3. copy the desktop entry (`example/hyprland.desktop`) to
-   `/usr/share/wayland-sessions/`
-
-the example config is in `example/hyprland.conf`.
-
-For updating later on, you can overwrite the binaries (Hyprland, hyprctl,
-hyprpm) . You don't need to update anything else.
-
-### Manual (Manual Build)
+### Manual
 
 Dependencies:
 
