@@ -40,14 +40,19 @@ might have **major** issues running Hyprland.
 
 ## Installation
 
-Installing Hyprland is very easy. Simply install it with your package manager
-(if there is a Hyprland package available) or install/build it yourself.
+Installing Hyprland is very easy. Simply install it with your package manager.
 
-{{< callout >}}
+{{< callout type=warning >}}
 
-This project is under development and is constantly changing. If you want to
-keep up to date with the latest commits, please consider updating your packages
-with `yay -Syu --devel`, or your preferred package manager.
+It is **heavily** recommended you use **what the distro packages for you**, and **not** compiling manually
+or using `-git` packages.
+Hyprland's ecosystem and dependencies change often, and compiling manually will only potentially expose you to outdated,
+or incompatible versions of these dependencies.
+
+If you get `.so` file mismatch / missing errors, it's _entirely your fault_ for doing this!
+
+However, if you are an experienced user and want to beta-test new features, you're more than welcome to run the latest
+git head. Please don't come asking about ".so file missing" errors though!
 
 {{< /callout >}}
 
@@ -58,16 +63,16 @@ from source first.
 
 {{% details title="Arch" closed="true" %}}
 
-Install from the AUR, which compiles the latest source:
-
-```shell
-yay -S hyprland-git
-```
-
-or a tagged release from the arch packages:
+Install a tagged release from the arch packages:
 
 ```shell
 sudo pacman -S hyprland
+```
+
+or install from the AUR, which compiles the latest source:
+
+```shell
+yay -S hyprland-git
 ```
 
 Alternatively, install the `hyprland-meta` package to automatically fetch and compile the latest git versions of all components within the hypr* ecosystem.
