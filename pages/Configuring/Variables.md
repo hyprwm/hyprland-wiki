@@ -384,6 +384,7 @@ _Subcategory `group:groupbar:`_
 | animate_manual_resizes | If true, will animate manual window resizes/moves | bool | false |
 | animate_mouse_windowdragging | If true, will animate windows being dragged by mouse, note that this can cause weird behavior on some curves | bool | false |
 | disable_autoreload | If true, the config will not reload automatically on save, and instead needs to be reloaded with `hyprctl reload`. Might save on battery. | bool | false |
+| watch_symlinks | If true and the config is a symlink, it will be reloaded when the symlink changes, not when the pointed file changes. | bool | false |
 | enable_swallow | Enable window swallowing | bool | false |
 | swallow_regex | The _class_ regex to be used for windows that should be swallowed (usually, a terminal). To know more about the list of regex which can be used [use this cheatsheet](https://github.com/ziishaned/learn-regex/blob/master/README.md). | str | \[\[Empty\]\] |
 | swallow_exception_regex | The _title_ regex to be used for windows that should _not_ be swallowed by the windows specified in swallow_regex  (e.g. wev). The regex is matched against the parent (e.g. Kitty) window's title on the assumption that it changes to whatever process it's running. | str | \[\[Empty\]\] |
