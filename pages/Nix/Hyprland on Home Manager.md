@@ -9,8 +9,8 @@ For a list of available options, check the
 
 - _**(Required)** NixOS Module_: enables critical components needed to run
   Hyprland properly.
-  - _Without this, you may have issues with XDG Portals, or missing session
-    files in your Display Manager._
+  - _Without this, you may have issues with missing session files in your
+    Display Manager._
 - _(Optional) Home Manager module_: lets you configure Hyprland declaratively
   through Home Manager.
   - _This module configures Hyprland and adds it to your user's `$PATH`, but
@@ -69,6 +69,7 @@ Don't forget to replace `user@hostname` with your username and hostname!
             enable = true;
             # set the flake package
             package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+            portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portla-hyprland;
           };
         }
         # ...
@@ -106,6 +107,7 @@ in {
     enable = true;
     # set the flake package
     package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portla-hyprland;
   }
 }
 ```

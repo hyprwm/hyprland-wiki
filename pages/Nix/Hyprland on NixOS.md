@@ -15,8 +15,8 @@ Make sure to check out the options of the
 
 - _**(Required)** NixOS Module_: enables critical components needed to run
   Hyprland properly
-  - _Without this, you may have issues with XDG Portals, or missing session
-    files in your Display Manager._
+  - _Without this, you may have issues with missing session files in your
+    Display Manager._
 - _(Optional) Home Manager module_: lets you configure Hyprland declaratively
   through Home Manager.
   - _This module configures Hyprland and adds it to your user's `$PATH`, but
