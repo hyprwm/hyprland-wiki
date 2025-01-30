@@ -11,10 +11,10 @@ title: Systemd startup
 
 {{% details title="Arch" closed="true" %}}
 
-uwsm is available in AUR. You can install it either with an AUR helper, or build PKGBUILD manually. Here's an example for yay.
+uwsm is available in Arch official repositories.
 
 ```sh
-yay -S uwsm
+pacman -S uwsm
 ```
 
 {{% /details %}}
