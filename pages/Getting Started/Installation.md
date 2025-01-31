@@ -313,15 +313,10 @@ For detailed instructions on installing this build see
 
 {{% details title="Alpine*" closed="true" %}}
 
-Hyprland is available in Alpine's [testing repository](https://wiki.alpinelinux.org/wiki/Repositories#Testing) which can be enabled in `/etc/apk/repositories` by adding
+Hyprland is currently available in Alpine's [community repository](https://wiki.alpinelinux.org/wiki/Repositories#Community)
+and it is maintaned by the community.
 
-```plain {filename="/etc/apk/repositories"}
-http://dl-cdn.alpinelinux.org/alpine/edge/testing
-```
-
-This will only work on Alpine linux edge, not on any stable release. For use on stable releases, see the [Alpine wiki](https://wiki.alpinelinux.org/wiki/Repositories#Using_the_testing_repository_on_stable_branches)
-
-After enabling the repository, the following command will install hyprland and its dependencies.
+The following command will install hyprland and its dependencies.
 
 ```plain
 apk add hyprland
