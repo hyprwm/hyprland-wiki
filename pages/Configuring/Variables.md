@@ -355,10 +355,15 @@ _Subcategory `group:groupbar:`_
 | font_size | font size of groupbar title | int | 8 |
 | gradients | enables gradients | bool | true |
 | height | height of the groupbar | int | 14 |
+| indicator_height | height of the groupbar indicator | int | 3 |
 | stacked | render the groupbar as a vertical stack | bool | false |
 | priority | sets the decoration priority for groupbars | int | 3 |
 | render_titles | whether to render titles in the group bar decoration | bool | true |
 | scrolling | whether scrolling in the groupbar changes group active window | bool | true |
+| rounding | how much to round the indicator | int | 1 |
+| gradient_rounding | how much to round the gradients | int | 2 |
+| round_only_edges | round only the indicator edges of the entire groupbar | bool | true |
+| gradient_round_only_edges | round only the gradient edges of the entire groupbar | bool | true |
 | text_color | controls the group bar text color | color | 0xffffffff |
 | col.active | active group bar background color | gradient | 0x66ffff00 |
 | col.inactive | inactive (out of focus) group bar background color | gradient | 0x66777700 |
