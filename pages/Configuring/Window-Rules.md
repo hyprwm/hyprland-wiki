@@ -89,6 +89,7 @@ For now, the supported fields for V2 are:
 | fullscreenstate:\[internal\] \[client\] | Windows with matching `fullscreenstate`. `internal` and `client` can be `*` - any, `0` - none, `1` - maximize, `2` - fullscreen, `3` - maximize and fullscreen. |
 | workspace:\[w\] | Windows on matching workspace. `w` can be `id` or `name:string`. |
 | onworkspace:\[w\] | Windows on matching workspace. `w` can be `id`, `name:string` or `workspace selector`. |
+| content:\[none\|photo\|video\|game\] | Windows with specified content type |
 
 Keep in mind that you _have_ to declare at least one field, but not all.
 
@@ -138,6 +139,7 @@ It is not possible to `float` (or any other of the static rules) a window based 
 | stayfocused | forces focus on the window as long as it's visible |
 | group \[options\] | set window group properties. See the note below. |
 | suppressevent \[types...\] | ignores specific events from the window. Events are space separated, and can be: `fullscreen` `maximize` `activate` `activatefocus` `fullscreenoutput` |
+| content \[none\|photo\|video\|game\] | sets content type |
 
 ### Dynamic rules
 
