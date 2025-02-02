@@ -445,7 +445,7 @@ _Subcategory `group:groupbar:`_
 | --- | --- | --- | --- |
 | explicit_sync | Whether to enable explicit sync support. Requires a hyprland restart. 0 - no, 1 - yes, 2 - auto based on the gpu driver | int | 2 |
 | explicit_sync_kms | Whether to enable explicit sync support for the KMS layer. Requires explicit_sync to be enabled. 0 - no, 1 - yes, 2 - auto based on the gpu driver | int | 2 |
-| direct_scanout | Enables direct scanout. Direct scanout attempts to reduce lag when there is only one fullscreen application on a screen (e.g. game). It is also recommended to set this to false if the fullscreen application shows graphical glitches. | bool | false |
+| direct_scanout | Enables direct scanout. Direct scanout attempts to reduce lag when there is only one fullscreen application on a screen (e.g. game). It is also recommended to set this to false if the fullscreen application shows graphical glitches. 0 - off, 1 - on, 2 - auto (on with content type 'game') | int | 0 |
 | expand_undersized_textures | Whether to expand undersized textures along the edge, or rather stretch the entire texture. | bool | true |
 | xp_mode | Disables back buffer and bottom layer rendering. | bool | false |
 | ctm_animation | Whether to enable a fade animation for CTM changes (hyprsunset). 2 means "auto" which disables them on Nvidia. | int | 2 |
@@ -457,7 +457,7 @@ _Subcategory `group:groupbar:`_
 | --- | --- | --- | --- |
 | sync_gsettings_theme | sync xcursor theme with gsettings, it applies cursor-theme and cursor-size on theme load to gsettings making most CSD gtk based clients use same xcursor theme and size. | bool | true |
 | no_hardware_cursors | disables hardware cursors. | bool | false |
-| no_break_fs_vrr | disables scheduling new frames on cursor movement for fullscreen apps with VRR enabled to avoid framerate spikes (requires `no_hardware_cursors = true`) | bool | false |
+| no_break_fs_vrr | disables scheduling new frames on cursor movement for fullscreen apps with VRR enabled to avoid framerate spikes (may require no_hardware_cursors = true) 0 - off, 1 - on, 2 - auto (on with content type 'game') | int | 2 |
 | min_refresh_rate | minimum refresh rate for cursor movement when `no_break_fs_vrr` is active. Set to minimum supported refresh rate or higher | int | 24 |
 | hotspot_padding | the padding, in logical px, between screen edges and the cursor | int | 1 |
 | inactive_timeout | in seconds, after how many seconds of cursor's inactivity to hide it. Set to `0` for never. | float | 0 |
