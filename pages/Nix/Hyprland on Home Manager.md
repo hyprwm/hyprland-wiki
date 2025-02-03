@@ -203,6 +203,27 @@ Example configuration:
 }
 ```
 
+### Using the Home-Manager module with NixOS
+
+If you want to use the Home Manager module while using the Hyprland package you've
+defined in your NixOS module, you can now do so as long as you're running
+[Home Manager `5dc1c2e40410f7dabef3ba8bf4fdb3145eae3ceb`](https://github.com/nix-community/home-manager/commit/5dc1c2e40410f7dabef3ba8bf4fdb3145eae3ceb)
+or later by setting your `package` and `portalPackage` to `null`.
+
+```nix {filename="home.nix"}
+wayland.windowManager.hyprland = {
+  enable = true;
+  # set the Hyprland and XDPH packages to null to use the ones from the NixOS module
+  package = null;
+  portalPackage = null;
+};
+```
+
+Make sure not to mix versions of Hyprland and XDPH. If in your NixOS module you've
+set your Hyprland package to be from the flake, you should do the same for your
+XDPH package as well. The same goes for if you set the Home Manager Hyprland
+module package to `null`, you should also set the XDPH package to `null`.
+
 ### Programs don't work in systemd services, but do on the terminal
 
 This problem is related to systemd not importing the environment by default. It
