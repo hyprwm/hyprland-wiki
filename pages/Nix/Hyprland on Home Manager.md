@@ -219,10 +219,9 @@ wayland.windowManager.hyprland = {
 };
 ```
 
-Make sure not to mix versions of Hyprland and XDPH. If in your NixOS module you've
-set your Hyprland package to be from the flake, you should do the same for your
-XDPH package as well. The same goes for if you set the Home Manager Hyprland
-module package to `null`, you should also set the XDPH package to `null`.
+Make sure **not** to mix versions of Hyprland and XDPH.
+If your NixOS config uses Hyprland from the flake, you should also use XDPH from the flake.
+If you set the Home Manager Hyprland module package to `null`, you should also set the XDPH package to `null`.
 
 ### Programs don't work in systemd services, but do on the terminal
 
