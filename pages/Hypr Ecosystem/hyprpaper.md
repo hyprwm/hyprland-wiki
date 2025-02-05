@@ -118,9 +118,40 @@ wallpaper = monitor, contain:/home/me/amongus.png
 You can use `unload` to unload preloaded images. You can also specify `unload all`
 to unload all images or `unload unused` to unload images that aren't being used.
 
-Also you can use `reload` to unload preloaded image from your monitor(s),
-preload another and set it to your monitor(s). It has the same syntax as
-`wallpaper` keyword.
+### The `reload` keyword
+
+The `reload` keyword allows you to set / change wallpapers without
+having to preload them. For example, you could have a completely empty
+hyprpaper config (with [IPC](#IPC) enabled!!), and run the below command to
+very simply set your wallpaper (this example sets the wallpaper for
+all monitors):
+```
+hyprctl hyprpaper reload ,"~/amogus.png"
+```
+
+Running this command again with a new wallpaper would effectively swap
+the wallpaper with the new one, automating the whole preload, set,
+unload old sequence.
+
+#### Using this keyword to randomize your wallpaper
+
+You can also use this simple `reload` functionality to randomize your wallpaper. Using a simple script like so would do it very easily:
+
+```bash
+#!/usr/bin/env bash
+
+WALLPAPER_DIR="$HOME/wallpapers/"
+CURRENT_WALL=$(hyprctl hyprpaper listloaded)
+
+# Get a random wallpaper that is not the current one
+WALLPAPER=$(find "$WALLPAPER_DIR" -type f ! -name "$(basename "$CURRENT_WALL")" | shuf -n 1)
+
+# Apply the selected wallpaper
+hyprctl hyprpaper reload ,"$WALLPAPER"
+```
+
+Make sure to change the `WALLPAPER_DIR` to your own wallpaper directory. You can then run this
+script in your Hyprland config with a keybind.
 
 ### Run at startup
 
