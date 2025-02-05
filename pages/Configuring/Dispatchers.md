@@ -86,6 +86,7 @@ layout pages (See the sidebar).
 | submap | Change the current mapping group. See [Submaps](../Binds/#submaps) | `reset` or name |
 | event | Emits a custom event to socket2 in the form of `custom>>yourdata` | the data to send |
 | setprop | Sets a window property | `window property value` |
+| toggleswallow | If a window is swallowed by the focused window, unswallows it. Execute again to swallow it back | none |
 
 {{< callout type=warning >}}
 
