@@ -44,9 +44,8 @@ boot and is subject to frequent change, making it unsuitable as a marker for GPU
 
 ## Telling Hyprland which GPU to use
 
-After determining which "card" belongs to which GPU, we now have to tell
-Hyprland the GPU we want to use primarily.
-This is done by setting the `AQ_DRM_DEVICES` environment variable.
+After determining which "card" belongs to which GPU, we can now tell
+Hyprland which GPUs to use by setting the `AQ_DRM_DEVICES` environment variable.
 
 {{< callout type=info >}}
 
@@ -58,18 +57,20 @@ with lower and higher power rating GPUs respectively.
 
 {{< /callout >}}
 
-If you wish to use the integrated GPU to run Hyprland, no further action is
-required.
-
-If instead you would like to use another GPU, or the wrong GPU is picked by default,
+If you would like to use another GPU, or the wrong GPU is picked by default,
 set `AQ_DRM_DEVICES` to a `:`-separated list of card paths, e.g.
 
 ```plain
 env = AQ_DRM_DEVICES,/dev/dri/card0:/dev/dri/card1
 ```
 
-Here, we tell Hyprland to set priorities. If `card0` isn't available for
-whatever reason, use `card1`.
+Here, we tell Hyprland which GPUs it's allowed to use, in order of priority. 
+For example, `card0` will be the primary renderer, but if it isn't available for
+whatever reason, then `card1` is primary.
+
+Do note that if you have an external monitor connected to, for example `card1`,
+that card must be included in `AQ_DRM_DEVICES` for the monitor to work, though
+it doesn't have to be the primary renderer.
 
 You should now be able to use an integrated GPU for lighter GPU loads,
 including Hyprland, or default to your dGPU if you prefer.
