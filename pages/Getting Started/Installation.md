@@ -267,7 +267,7 @@ Refer to the gist if anything fails.
 {{% details title="Void Linux*" closed="true" %}}
 
 Hyprland is not available from Void Linux's official repositories
-[due to a conflict of packaging philosophy](https://github.com/void-linux/void-packages/issues/37544).
+due to the void developers being salty and personally disliking our main developer.
 However, a [third party repository](https://github.com/Makrennel/hyprland-void)
 is available with
 [binary packages](https://github.com/Makrennel/hyprland-void/tree/repository-x86_64-glibc)
