@@ -29,7 +29,8 @@ Props:
 - `w[(flags)A-B]`, `w[(flags)X]` - Prop for window counts on the workspace.
   A-B is an inclusive range, X is a specific number. Flags can be omitted.
   It can be `t` for tiled-only, `f` for floating-only, `g` to count groups
-  instead of windows, and `v` to count only visible windows.
+  instead of windows, `v` to count only visible windows, and `p` to count 
+  only pinned windows.
 - `f[-1]`, `f[0]`, `f[1]`, `f[2]` - fullscreen state of the workspace. `-1`: no
   fullscreen, `0`: fullscreen, `1`: maximized, `2`, fullscreen without
   fullscreen state sent to the window.
