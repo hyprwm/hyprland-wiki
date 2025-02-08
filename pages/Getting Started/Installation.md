@@ -126,7 +126,7 @@ Hyprland needs are too old._
 
 {{% details title="Fedora*" closed="true" %}}
 
-On Fedora 39+, run:
+On Fedora 40+, run:
 
 ```sh
 sudo dnf install hyprland
