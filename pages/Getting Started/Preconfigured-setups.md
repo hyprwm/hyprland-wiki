@@ -36,6 +36,14 @@ many themes to choose from.
 
 ![Image of JaKooLit's dotfiles](https://i.ibb.co/7tMsnTv/default-waybar.png)
 
+## end_4
+
+Like material styling? Want a lot of great apps? Don't mind a tiny bit of tinkering? end-4 has you covered.
+
+[GitHub](https://github.com/end-4/dots-hyprland)
+
+![Image of end-4's dotfiles](https://github.com/end-4/dots-hyprland/assets/97237370/5e081770-0f1e-45c4-ad9c-3d19f488cd85)
+
 ## prasanthrangan
 
 Prefer something more minimal, clean and aesthetic? Are you a terminal enjoyer?
