@@ -19,7 +19,7 @@ Hyprland.
 
 ### Editor support for config files
 
-[HyprLS](https://github.com/hyprland-community/hyprls) by _ewen-lbh_: A LSP server to provide auto-completion and more for Hyprland's configuration files in neovim, VS Code & others
+[HyprLS](https://github.com/hyprland-community/hyprls) by _gwennlbh_: A LSP server to provide auto-completion and more for Hyprland's configuration files in neovim, VS Code & others
 
 ### IPC wrappers
 
