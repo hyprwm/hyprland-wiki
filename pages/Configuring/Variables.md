@@ -353,7 +353,7 @@ _Subcategory `group:groupbar:`_
 | enabled | enables groupbars | bool | true |
 | font_family | font used to display groupbar titles, use `misc:font_family` if not specified | string | [\[Empty]] |
 | font_size | font size of groupbar title | int | 8 |
-| gradients | enables gradients | bool | true |
+| gradients | enables gradients | bool | false |
 | height | height of the groupbar | int | 14 |
 | indicator_height | height of the groupbar indicator | int | 3 |
 | stacked | render the groupbar as a vertical stack | bool | false |
