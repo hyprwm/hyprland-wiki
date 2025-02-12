@@ -72,6 +72,8 @@ options nvidia_drm modeset=1 fbdev=1
 
 Lastly, rebuild the initramfs with `sudo mkinitcpio -P`, and reboot.
 
+To verify that DRM is actually enabled, run `cat /sys/module/nvidia_drm/parameters/modeset` which should return `Y`.
+
 More information is available [here](https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting).
 
 ## Environment variables
