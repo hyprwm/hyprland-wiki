@@ -54,9 +54,11 @@ Install the following packages:
 
 ## DRM kernel mode setting
 
-Since NVIDIA does not load kernel mode setting by default, enabling it is
-required to make Wayland compositors function properly. To enable it, the NVIDIA
-driver modules need to be added to the initramfs.
+On driver version 560.35.03-5 or earlier NVIDIA does not load kernel mode
+setting by default. Enabling it is required to make Wayland compositors
+function properly.
+
+To enable it, the NVIDIA driver modules need to be added to the initramfs.
 
 Edit `/etc/mkinitcpio.conf`. In the `MODULES` array, add the following module names:
 
@@ -71,6 +73,8 @@ options nvidia_drm modeset=1 fbdev=1
 ```
 
 Lastly, rebuild the initramfs with `sudo mkinitcpio -P`, and reboot.
+
+To verify that DRM is actually enabled, run `cat /sys/module/nvidia_drm/parameters/modeset` which should return `Y`.
 
 More information is available [here](https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting).
 
