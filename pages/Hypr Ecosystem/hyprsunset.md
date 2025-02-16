@@ -29,7 +29,8 @@ See `hyprsunset --help`.
 
 ## Run at startup
 
-To autostart hyprsunset, add: `exec-once = hyprsunset` to your `hyprland.conf` . If you start Hyprland with [uwsm](../../Useful-Utilities/Systemd-start), you can also use `systemctl --user enable --now hyprsunset.service` command.
+To autostart hyprsunset, add: `exec-once = hyprsunset` to your `hyprland.conf`.
+Alternatively, use `systemctl --user enable --now hyprsunset.service` in order to use hyprsunset as a systemd user service.
 
 ## IPC
 
