@@ -35,7 +35,7 @@ animation = fade, 0
 
 ```txt
 global
-  ↳ windows - styles: slide, popin
+  ↳ windows - styles: slide, popin, gnomed
     ↳ windowsIn - window open
     ↳ windowsOut - window close
     ↳ windowsMove - everything in between, moving, dragging, resizing.
