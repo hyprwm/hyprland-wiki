@@ -10,7 +10,7 @@ supports Hyprland by default. To use it, it's recommended to use your distro's
 package.
 
 To start configuring, copy the configuration files from
-`/etc/xdg/waybar/` into `~/.config/waybar/`. Then, in `~/.config/waybar/config`
+`/etc/xdg/waybar/` into `~/.config/waybar/`.
 
 To use the workspaces module, replace all the occurrences of `sway/workspaces`
 with `hyprland/workspaces`. Addionally replace all occurences of `sway/mode` with `hyprland/submap`
