@@ -27,6 +27,11 @@ below the monitor's minimum.
 
 See `hyprsunset --help`.
 
+## Run at startup
+
+To autostart hyprsunset, add: `exec-once = hyprsunset` to your `hyprland.conf`.
+Alternatively, use `systemctl --user enable --now hyprsunset.service` in order to use hyprsunset as a systemd user service.
+
 ## IPC
 
 `hyprsunset` supports IPC via hyprctl. Both color temperature and the gamma filter are adjustable:
