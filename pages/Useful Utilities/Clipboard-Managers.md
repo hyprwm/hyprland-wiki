@@ -142,6 +142,7 @@ You can bind the TUI to a something nice like this:
 ```ini
 windowrulev2 = float, class:(clipse)
 windowrulev2 = size 622 652, class:(clipse)
+windowrulev2 = stayfocused, class:(clipse)
 
 bind = SUPER, V, exec, alacritty --class clipse -e clipse
 ```
