@@ -278,6 +278,8 @@ _Subcategory `input:touchpad:`_
 | tap-to-click | Tapping on the touchpad with 1, 2, or 3 fingers will send LMB, RMB, and MMB respectively. | bool | true |
 | drag_lock | When enabled, lifting the finger off for a short time while dragging will not drop the dragged item. [libinput#tap-and-drag](https://wayland.freedesktop.org/libinput/doc/latest/tapping.html#tap-and-drag) | bool | false |
 | tap-and-drag | Sets the tap and drag mode for the touchpad | bool | true |
+| flip_x | inverts the horizontal movement of the touchpad | bool | false |
+| flip_y | inverts the vertical movement of the touchpad | bool | false |
 
 #### Touchdevice
 
