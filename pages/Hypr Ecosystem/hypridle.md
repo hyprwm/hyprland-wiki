@@ -29,7 +29,7 @@ Variables in the `general` category:
 
 {{< callout type=info >}}
 
-The `general:inihit_sleep` option is used to make sure hypridle can do certain tasks before the system goes to sleep.
+The `general:inhibit_sleep` option is used to make sure hypridle can do certain tasks before the system goes to sleep.
 
 Options:
 - `3` makes your system wait until the session gets locked by a lock screen app. This works with all wayland session-lock apps.
