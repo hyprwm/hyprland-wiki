@@ -252,7 +252,7 @@ The `fullscreenstate` dispatcher decouples the state that Hyprland maintains for
 | 0 | None | Window allocates the space defined by the current layout. |
 | 1 | Maximize | Window takes up the entire working space, keeping the margins. |
 | 2 | Fullscreen | Window takes up the entire screen. |
-| 3 | Maximize and Fullscreen | ??? |
+| 3 | Maximize and Fullscreen | The state of a fullscreened maximized window. Works the same as fullscreen. |
 
 For example:
 
