@@ -261,5 +261,3 @@ For example:
 This can be used to prevent Chromium-based browsers from going into presentation mode when they detect they have been fullscreened.  
 
 `fullscreenstate 0 2` Keeps the window non-fullscreen, but the client goes into fullscreen mode within the window.
-
-The `fullscreenstate` dispatcher is designed to replace the legacy `fullscreen`. The `fullscreen` dispatcher is planned for deprecation and will be removed in the future.
