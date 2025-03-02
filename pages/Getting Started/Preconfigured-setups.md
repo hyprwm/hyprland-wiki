@@ -51,4 +51,4 @@ Prasanthrangan's dotfiles are a very popular choice that will suit your needs.
 
 [GitHub](https://github.com/HyDE-Project/HyDE)
 
-![Image of prasanthrangan's dotfiles](https://i.ibb.co/W3SYJCc/showcase-2-2412602747.png)
+![Image of HyDE dotfiles](https://i.ibb.co/W3SYJCc/showcase-2-2412602747.png)
