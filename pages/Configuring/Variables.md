@@ -452,6 +452,7 @@ _Subcategory `group:groupbar:`_
 | xp_mode | Disables back buffer and bottom layer rendering. | bool | false |
 | ctm_animation | Whether to enable a fade animation for CTM changes (hyprsunset). 2 means "auto" which disables them on Nvidia. | int | 2 |
 | allow_early_buffer_release | Allow early buffer release event. Fixes stuttering and missing frames for some apps. May cause graphical glitches and memory leaks in others. | bool | true |
+| cm_fs_passthrough | Passthrough color settings for fullscreen apps when possible | bool | true |
 
 ### Cursor
 
@@ -486,8 +487,6 @@ _Subcategory `group:groupbar:`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
-| wide_color_gamut | force wide color gamut for all supported outputs | bool | false |
-| hdr | force static hdr for all supported outputs (for testing only, will result in oversaturated colors) | bool | false |
 | xx_color_management_v4 | enable color management protocol | bool | false |
 
 Requires a client with `frog-color-management-v1` or `xx-color-management-v4` support like gamescope or https://github.com/Zamundaaa/VK_hdr_layer
@@ -531,6 +530,7 @@ Only for developers.
 | error_position | sets the position of the error bar. top - 0, bottom - 1 | int | 0 |
 | colored_stdout_logs | enables colors in the stdout logs. | bool | true |
 | pass | enables render pass debugging. | bool | false |
+| full_cm_proto | claims support for all cm proto features (requires restart) | bool | false |
 
 ### More
 
