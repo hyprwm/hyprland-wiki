@@ -44,11 +44,11 @@ Like material styling? Want a lot of great apps? Don't mind a tiny bit of tinker
 
 ![Image of end-4's dotfiles](https://github.com/end-4/dots-hyprland/assets/97237370/5e081770-0f1e-45c4-ad9c-3d19f488cd85)
 
-## prasanthrangan
+## HyDE
 
 Prefer something more minimal, clean and aesthetic? Are you a terminal enjoyer?
-Prasanthrangan's dotfiles are a very popular choice that will suit your needs.
+Prasanthrangan's HyDE dotfiles are a very popular choice that will suit your needs.
 
-[GitHub](https://github.com/prasanthrangan/hyprdots)
+[GitHub](https://github.com/HyDE-Project/HyDE)
 
-![Image of prasanthrangan's dotfiles](https://i.ibb.co/W3SYJCc/showcase-2-2412602747.png)
+![Image of HyDE dotfiles](https://i.ibb.co/W3SYJCc/showcase-2-2412602747.png)
