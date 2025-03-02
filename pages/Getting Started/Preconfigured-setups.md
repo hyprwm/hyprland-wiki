@@ -47,7 +47,7 @@ Like material styling? Want a lot of great apps? Don't mind a tiny bit of tinker
 ## HyDE
 
 Prefer something more minimal, clean and aesthetic? Are you a terminal enjoyer?
-Prasanthrangan's dotfiles are a very popular choice that will suit your needs.
+Prasanthrangan's HyDE dotfiles are a very popular choice that will suit your needs.
 
 [GitHub](https://github.com/HyDE-Project/HyDE)
 
