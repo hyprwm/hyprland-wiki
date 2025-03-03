@@ -50,6 +50,7 @@ Additionally:
  - classes have a prefix of `C`: `CMyClass`
  - structs have a prefix of `S`: `SMyStruct`
  - namespaces have a prefix of `N`: `NMyNamespace`
+ - interfaces have a prefix of `I`: `IMyInterface`
  - global pointers for singletons have a prefix of `g_`: `g_someManager`
  - constant variables are in CAPS: `const auto MYVARIABLE = ...`
 
