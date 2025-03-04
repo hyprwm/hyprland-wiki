@@ -94,6 +94,10 @@ global
     ↳ inputFieldDots - fade in/out for individual dots in the input field
 ```
 
+### System Configuration
+
+On Arch Linux, by default, hyprlock integrates with [pambase](https://archlinux.org/packages/?name=pambase) through `pam_faillock.so`, which forces a 10 minute timeout after 3 failed unlocks. If you would like to change this, refer to the [arch linux wiki](https://wiki.archlinux.org/title/Security#Lock_out_user_after_three_failed_login_attempts) and update the file `/etc/security/faillock.conf` file with parameters `unlock_time`, `fail_interval`, and `deny` as needed.
+
 ## Keyboard Shortcuts and Actions
 
 The following keys and key-combinations describe hyprlock's default behaviour:
