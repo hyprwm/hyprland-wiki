@@ -28,6 +28,7 @@ _category name `master`_
 | center_master_slaves_on_right | set if the slaves should appear on right of master when slave_count_for_center_master > 2 | bool | true |
 | smart_resizing | if enabled, resizing direction will be determined by the mouse's position on the window (nearest to which corner). Else, it is based on the window's tiling position. | bool | true |
 | drop_at_cursor | when enabled, dragging and dropping windows will put them at the cursor position. Otherwise, when dropped at the stack side, they will go to the top/bottom of the stack depending on new_on_top. | bool | true |
+| always_keep_position | whether to keep the master window in its configured position when there are no slave windows | bool | false |
 
 ## Dispatchers
 
