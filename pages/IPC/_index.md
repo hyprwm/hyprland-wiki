@@ -50,6 +50,7 @@ e.g.: `workspace>>2`
 | moveworkspacev2 | emitted when a workspace is moved to a different monitor | `WORKSPACEID,WORKSPACENAME,MONNAME` |
 | renameworkspace | emitted when a workspace is renamed | `WORKSPACEID,NEWNAME` |
 | activespecial | emitted when the special workspace opened in a monitor changes (closing results in an empty `WORKSPACENAME`) | `WORKSPACENAME,MONNAME` |
+| activespecialv2 | emitted when the special workspace opened in a monitor changes (closing results in empty `WORKSPACEID` and `WORKSPACENAME` values) | `WORKSPACEID,WORKSPACENAME,MONNAME` |
 | activelayout | emitted on a layout change of the active keyboard | `KEYBOARDNAME,LAYOUTNAME` |
 | openwindow | emitted when a window is opened | `WINDOWADDRESS`,`WORKSPACENAME`,`WINDOWCLASS`,`WINDOWTITLE` |
 | closewindow | emitted when a window is closed | `WINDOWADDRESS` |
