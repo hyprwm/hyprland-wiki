@@ -239,6 +239,8 @@ address:0x13371337 noanim 1
 address:0x13371337 nomaxsize 0
 address:0x13371337 opaque toggle
 address:0x13371337 immediate unset
+address:0x13371337 bordersize relative -2
+address:0x13371337 roundingpower relative 0.1
 ```
 
 ### Fullscreenstate
