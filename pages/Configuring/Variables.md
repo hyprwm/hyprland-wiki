@@ -372,6 +372,9 @@ _Subcategory `group:groupbar:`_
 | col.inactive | inactive (out of focus) group bar background color | gradient | 0x66777700 |
 | col.locked_active | active locked group bar background color | gradient | 0x66ff5500 |
 | col.locked_inactive | inactive locked group bar background color | gradient | 0x66775500 |
+| border_size | thickness of the border around the group and its groupbar | int | 0 |
+| col.border_active | color of the border for active groups | gradient | 0xffffffff |
+| col.border_inactive | color of the border for inactive groups | gradient | 0xff444444 |
 
 ### Misc
 
