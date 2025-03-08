@@ -217,6 +217,31 @@ Some applications do _not_ support screen capture with 10 bit enabled.
 
 {{< /callout >}}
 
+### Color management presets
+
+Add a `, cm, X` to change default sRGB output preset
+
+```ini
+monitor = eDP-1, 2880x1800@90, 0x0, 1, bitdepth, 10, cm, wide
+```
+
+```plain
+auto    - srgb for 8bpc, wide for 10bpc if supported (recommended)
+srgb    - sRGB primaries (default)
+wide    - wide color gamut, BT2020 primaries
+edid    - primaries from edid (known to be inaccurate)
+hdr     - wide color gamut and HDR PQ transfer function (experimental)
+hdredid - same as hdr with edid primaries (experimental)
+```
+
+Fullscreen HDR is possible without hdr `cm` setting if `render:cm_fs_passthrough` is enabled.
+
+Use `sdrbrightness, B` and `sdrsaturation, S` to control SDR brighness and saturation in HDR mode. The default for both values is `1.0`. Typical brightness value should be in `1.0 ... 2.0` range.
+
+```ini
+monitor = eDP-1, 2880x1800@90, 0x0, 1, bitdepth, 10, cm, hdr, sdrbrightness, 1.2, sdrsaturation, 0.98
+```
+
 ### VRR
 
 Per-display VRR can be done by adding `, vrr, X` where `X` is the mode from the
