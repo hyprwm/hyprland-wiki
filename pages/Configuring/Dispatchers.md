@@ -28,6 +28,7 @@ layout pages (See the sidebar).
 | execr | executes a raw shell command (does not support rules) | command |
 | pass | passes the key (with mods) to a specified window. Can be used as a workaround to global keybinds not working on Wayland. | window |
 | sendshortcut | sends specified keys (with mods) to an optionally specified window. Can be used like pass | mod, key[, window] |
+| sendkeystate | Send a key with specific state (down/repeat/up) to a specified window (window must keep focus for events to continue).
 | killactive | closes (not kills) the active window | none |
 | forcekillactive | kills the active window | none |
 | closewindow | closes a specified window | window |
