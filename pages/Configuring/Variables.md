@@ -372,6 +372,8 @@ _Subcategory `group:groupbar:`_
 | col.inactive | inactive (out of focus) group bar background color | gradient | 0x66777700 |
 | col.locked_active | active locked group bar background color | gradient | 0x66ff5500 |
 | col.locked_inactive | inactive locked group bar background color | gradient | 0x66775500 |
+| gaps_in | gap between gradients | int | 2 |
+| gaps_out | gap between gradients and window | int | 2 |
 
 ### Misc
 
