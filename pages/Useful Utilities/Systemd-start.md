@@ -61,7 +61,7 @@ To launch Hyprland with uwsm, add this code in your shell profile.
 
 ```
 if uwsm check may-start && uwsm select; then
-	exec systemd-cat -t uwsm_start uwsm start default
+	exec uwsm start default
 fi
 ```
 
@@ -81,7 +81,7 @@ If you use a display manager, choose `hyprland (uwsm-managed)` entry in a displa
 
 ## Launching applications inside session
 
-The concept of a session managed by Systemd implies also running applications as units. Uwsm [provides](https://github.com/Vladimir-csp/uwsm#3-applications-and-slices) a helper to do it.
+The concept of a session managed by Systemd implies also running applications as units. Uwsm [provides](https://github.com/Vladimir-csp/uwsm#3-applications-and-slices) a helper to do it. Running applications as child processes inside compositor's unit is discouraged.
 
 Prefix application startup commands with `uwsm app --`. It also supports launching Desktop Entries by IDs or paths. See `man uwsm` or `uwsm app --help`.
 
@@ -92,4 +92,10 @@ exec-once = uwsm app -- mycommand --arg1 --arg2
 bind = SUPER, E, exec, uwsm app -- pcmanfm-qt.desktop
 ```
 
-Running applications as child processes inside compositor's unit is discouraged.
+## Autostart
+
+XDG Autostart is handled by systemd, and its target is activated in uwsm-managed session automatically.
+
+Some applications provide native systemd user units to be autostarted with. Those might need to be enabled explicitly via `systemctl --user enable [some-app.service]`. Or, in case the unit is missing `[Install]` section, enabled more directly: `systemctl --user add-wants graphical-session.target [some-app.service]`. Also ensure the unit has `After=graphical-session.target` ordering (it can be added via drop-in).
+
+More autostart-related examples and tricks can be found [here](https://github.com/Vladimir-csp/uwsm/tree/master/example-units).

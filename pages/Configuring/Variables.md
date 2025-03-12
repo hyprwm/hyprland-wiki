@@ -287,7 +287,7 @@ _Subcategory `input:touchdevice:`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
-| transform | Transform the input from touchdevices. The possible transformations are the same as [those of the monitors](../Monitors/#rotating) | int | 0 |
+| transform | Transform the input from touchdevices. The possible transformations are the same as [those of the monitors](../Monitors/#rotating). `-1` means it's unset. | int | -1 |
 | output | The monitor to bind touch devices. The default is auto-detection. To stop auto-detection, use an empty string or the "\[\[Empty\]\]" value. | string | \[\[Auto\]\] |
 | enabled | Whether input is enabled for touch devices. | bool | true |
 
@@ -297,7 +297,7 @@ _Subcategory `input:tablet:`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
-| transform | transform the input from tablets. The possible transformations are the same as [those of the monitors](../Monitors/#rotating) | int | 0 |
+| transform | transform the input from tablets. The possible transformations are the same as [those of the monitors](../Monitors/#rotating). `-1` means it's unset. | int | -1 |
 | output | the monitor to bind tablets. Can be `current` or a monitor name. Leave empty to map across all monitors. | string | \[\[Empty\]\] |
 | region_position | position of the mapped region in monitor layout relative to the top left corner of the bound monitor or all monitors. | vec2 | [0, 0] |
 | absolute_region_position | whether to treat the `region_position` as an absolute position in monitor layout. Only applies when `output` is empty. | bool | false |
@@ -375,6 +375,8 @@ _Subcategory `group:groupbar:`_
 | border_size | thickness of the border around the group and its groupbar | int | 0 |
 | col.border_active | color of the border for active groups | gradient | 0xffffffff |
 | col.border_inactive | color of the border for inactive groups | gradient | 0xff444444 |
+| gaps_in | gap size between gradients | int | 2 |
+| gaps_out | gap size between gradients and window | int | 2 |
 
 ### Misc
 
