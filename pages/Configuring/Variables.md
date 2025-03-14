@@ -356,8 +356,11 @@ _Subcategory `group:groupbar:`_
 | enabled | enables groupbars | bool | true |
 | font_family | font used to display groupbar titles, use `misc:font_family` if not specified | string | [\[Empty]] |
 | font_size | font size of groupbar title | int | 8 |
+| font_weight_active | font weight of active groupbar title | string | normal |
+| font_weight_inactive | font weight of inactive groupbar title | string | normal |
 | gradients | enables gradients | bool | false |
 | height | height of the groupbar | int | 14 |
+| indicator_gap | height of gap between groupbar indicator and title | int | 0 |
 | indicator_height | height of the groupbar indicator | int | 3 |
 | stacked | render the groupbar as a vertical stack | bool | false |
 | priority | sets the decoration priority for groupbars | int | 3 |
