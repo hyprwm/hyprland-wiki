@@ -16,7 +16,8 @@ Hyprlock uses the following types in addition to [Hyprland's variable types](../
 
 | type | description |
 | -- | -- |
-| layoutxy | vec2 with an optional `%` suffix, allowing users to specify sizes as percentages of the output size. Floats (e.g. 10.5) are supported, but only have an effect when used with `%`. Raw pixel values will just get rounded. |
+| layoutx | number with an optional `%` suffix, allowing users to specify sizes as percentages of the output size. Floats (e.g. 10.5) are supported, but only have an effect when used with `%`. Raw pixel values will just get rounded. |
+| layoutxy | 2D vector version of layoutx. |
 
 ### General
 
@@ -231,7 +232,7 @@ If `path` is empty or missing, nothing will be shown.
 |--|--|--|--|
 | monitor | monitor to draw on | str | [[Empty]] |
 | path | image path | str | [[Empty]] |
-| size | size scale based on the lesser side of the image | int | 150 |
+| sizex | width of the image. height will be calculated based on the image aspect ratio | layoutx | 10% |
 | rounding | negative values result in a circle | int | -1 |
 | border_size | border size | int | 0 |
 | border_color | border color | gradient | rgba(221, 221, 221, 1.0) |
@@ -391,8 +392,9 @@ Draws a label.
 | monitor | monitor to draw on | str | [[Empty]] |
 | text | text to render | str | Sample Text |
 | text_align | multi-line text alignment inside label container. center/right or any value for default left. | str | center |
+| sizex | absolute width of the label. If left at 0, the width of the rendered label will be used directly. | layoutx | 0 |
 | color | color of the text | color | rgba(254, 254, 254, 1.0) |
-| font_size | size of the font | int |16 |
+| font_size | size of the font. Without sizex, this also configures the size of the label. Together with sizex it can be used to specify how _sharp_ the label should be. | int |16 |
 | font_family | font family | str | Sans |
 | rotate | rotation in degrees, counter-clockwise | int | 0 |
 | position | position of the label | layoutxy | 0, 0 |
