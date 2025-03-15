@@ -36,3 +36,9 @@ means you can change wallpapers without even needing to restart.
 GUI wallpaper manager that allows to visually choose the static or animated
 wallpapers, and supports `swaybg` and `swww` as backends on Wayland.
 [GitHub](https://github.com/anufrievroman/waypaper)
+
+## wallrizz
+
+TUI wallpaper manager that allows to visually choose and apply the desktop wallpaper. 
+It supports `swww`, `hyprpaper` and more as backend on Wayland.
+[Github](https://github.com/5hubham5ingh/WallRizz)
