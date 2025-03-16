@@ -223,7 +223,7 @@ NOTE: Above is for Ubuntu 24.10 (Unreleased) version
 For installing Hyprland from Source, install first the dependencies below:
 
 ```bash
-sudo apt-get install -y meson wget build-essential ninja-build cmake-extras cmake gettext gettext-base fontconfig libfontconfig-dev libffi-dev libxml2-dev libdrm-dev libxkbcommon-x11-dev libxkbregistry-dev libxkbcommon-dev libpixman-1-dev libudev-dev libseat-dev seatd libxcb-dri3-dev libegl-dev libgles2 libegl1-mesa-dev glslang-tools libinput-bin libinput-dev libxcb-composite0-dev libavutil-dev libavcodec-dev libavformat-dev libxcb-ewmh2 libxcb-ewmh-dev libxcb-present-dev libxcb-icccm4-dev libxcb-render-util0-dev libxcb-res0-dev libxcb-xinput-dev libtomlplusplus3
+sudo apt install -y meson wget build-essential ninja-build cmake-extras cmake gettext gettext-base fontconfig libfontconfig-dev libffi-dev libxml2-dev libdrm-dev libxkbcommon-x11-dev libxkbregistry-dev libxkbcommon-dev libpixman-1-dev libudev-dev libseat-dev seatd libxcb-dri3-dev libegl-dev libgles2 libegl1-mesa-dev glslang-tools libinput-bin libinput-dev libxcb-composite0-dev libavutil-dev libavcodec-dev libavformat-dev libxcb-ewmh2 libxcb-ewmh-dev libxcb-present-dev libxcb-icccm4-dev libxcb-render-util0-dev libxcb-res0-dev libxcb-xinput-dev libtomlplusplus3 libre2-dev
 ```
 
 You will also need to build the latest wayland, wayland-protocols, and
@@ -232,7 +232,7 @@ libdisplay-info tagged releases from source.
 For screensharing, you can also install `xdg-desktop-portal-wlr` or `xdg-desktop-portal-hyprland`
 
 ```bash
-sudo apt-get install -y xdg-desktop-portal-wlr
+sudo apt install -y xdg-desktop-portal-wlr
 ```
 
 _Unfortunately, `xdg-desktop-portal-hyprland` still not in Ubuntu Repo so you have to build it from source_

@@ -278,6 +278,8 @@ _Subcategory `input:touchpad:`_
 | tap-to-click | Tapping on the touchpad with 1, 2, or 3 fingers will send LMB, RMB, and MMB respectively. | bool | true |
 | drag_lock | When enabled, lifting the finger off for a short time while dragging will not drop the dragged item. [libinput#tap-and-drag](https://wayland.freedesktop.org/libinput/doc/latest/tapping.html#tap-and-drag) | bool | false |
 | tap-and-drag | Sets the tap and drag mode for the touchpad | bool | true |
+| flip_x | inverts the horizontal movement of the touchpad | bool | false |
+| flip_y | inverts the vertical movement of the touchpad | bool | false |
 
 #### Touchdevice
 
@@ -285,7 +287,7 @@ _Subcategory `input:touchdevice:`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
-| transform | Transform the input from touchdevices. The possible transformations are the same as [those of the monitors](../Monitors/#rotating) | int | 0 |
+| transform | Transform the input from touchdevices. The possible transformations are the same as [those of the monitors](../Monitors/#rotating). `-1` means it's unset. | int | -1 |
 | output | The monitor to bind touch devices. The default is auto-detection. To stop auto-detection, use an empty string or the "\[\[Empty\]\]" value. | string | \[\[Auto\]\] |
 | enabled | Whether input is enabled for touch devices. | bool | true |
 
@@ -295,7 +297,7 @@ _Subcategory `input:tablet:`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
-| transform | transform the input from tablets. The possible transformations are the same as [those of the monitors](../Monitors/#rotating) | int | 0 |
+| transform | transform the input from tablets. The possible transformations are the same as [those of the monitors](../Monitors/#rotating). `-1` means it's unset. | int | -1 |
 | output | the monitor to bind tablets. Can be `current` or a monitor name. Leave empty to map across all monitors. | string | \[\[Empty\]\] |
 | region_position | position of the mapped region in monitor layout relative to the top left corner of the bound monitor or all monitors. | vec2 | [0, 0] |
 | absolute_region_position | whether to treat the `region_position` as an absolute position in monitor layout. Only applies when `output` is empty. | bool | false |
@@ -370,6 +372,8 @@ _Subcategory `group:groupbar:`_
 | col.inactive | inactive (out of focus) group bar background color | gradient | 0x66777700 |
 | col.locked_active | active locked group bar background color | gradient | 0x66ff5500 |
 | col.locked_inactive | inactive locked group bar background color | gradient | 0x66775500 |
+| gaps_in | gap size between gradients | int | 2 |
+| gaps_out | gap size between gradients and window | int | 2 |
 
 ### Misc
 
@@ -451,7 +455,6 @@ _Subcategory `group:groupbar:`_
 | expand_undersized_textures | Whether to expand undersized textures along the edge, or rather stretch the entire texture. | bool | true |
 | xp_mode | Disables back buffer and bottom layer rendering. | bool | false |
 | ctm_animation | Whether to enable a fade animation for CTM changes (hyprsunset). 2 means "auto" which disables them on Nvidia. | int | 2 |
-| allow_early_buffer_release | Allow early buffer release event. Fixes stuttering and missing frames for some apps. May cause graphical glitches and memory leaks in others. | bool | true |
 | cm_fs_passthrough | Passthrough color settings for fullscreen apps when possible | bool | true |
 
 ### Cursor
