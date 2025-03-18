@@ -5,7 +5,7 @@ title: Window Rules
 
 {{< callout type=warning >}}
 
-Window rules (both V1 and V2) are **case sensitive**. (e.g. `firefox` ≠
+Window rules are **case sensitive**. (e.g. `firefox` ≠
 `Firefox`)
 
 As of Hyprland v0.46.0, regexes need to fully match the window values. For
@@ -17,42 +17,23 @@ example, in the case of `kitty`:
 
 {{< /callout >}}
 
-## Window Rules V1
+## Window Rules
 
-You can set window rules to achieve different behaviors from the active
-container.
+You can set window rules to achieve different window behaviors based
+on their properties. 
 
 ### Syntax
 
 ```ini
-windowrule=RULE,WINDOW
+windowrule=RULE,PARAMETERS
 ```
 
 - `RULE` is a [rule](#rules) (and a param if applicable)
-- `WINDOW` is a [RegEx](https://en.wikipedia.org/wiki/Regular_expression),
-  either:
-  - plain RegEx (for matching a window class);
-  - `title:` followed by a regex (for matching a window's title)
+- `PARAMETERS` is a comma-separated list of various things you can match by. See the fields further down.
 
-### Examples
-
+Example rule:
 ```ini
-windowrule = float, kitty
-windowrule = move 0 0, title:(Firefox)(.*)
-```
-
-## Window Rules V2
-
-In order to allow more flexible rules, while retaining compatibility with the
-above rule system, window rules V2 were implemented.
-
-In V2, you are allowed to match multiple variables.
-
-the `RULE` field is unchanged, but in the `WINDOW` field, you can put regexes
-for multiple values like so:
-
-```ini
-windowrulev2 = float, class:kitty, title:kitty
+windowrule = float, class:kitty, title:kitty
 ```
 
 {{< callout type=info >}}
@@ -66,13 +47,13 @@ _any_ window that contains a string of "- Youtube" after any other text. This
 could be multiple browser windows or other applications that contain the string
 for any reason.
 
-For the `windowrulev2 = float,class:kitty,title:kitty` example, the
+For the `windowrule = float,class:kitty,title:kitty` example, the
 `class:(kitty)` `WINDOW` field is what keeps the window rule specific to kitty
 terminals.
 
 {{< /callout >}}
 
-For now, the supported fields for V2 are:
+The supported fields for parameters are:
 
 | Field | Description |
 | -------------- | --------------- |
@@ -237,15 +218,15 @@ hyprctl dispatch tagwindow +media title:Celluloid
 Use `tag` rule to add a dynamic tag to a window:
 
 ```ini
-windowrulev2 = tag +term, class:footclient    # add dynamic tag `term*` to window footclient
-windowrulev2 = tag term, class:footclient     # toggle dynamic tag `term*` for window footclient
-windowrulev2 = tag +code, tag:cpp               # add dynamic tag `code*` to window with tag `cpp`
+windowrule = tag +term, class:footclient    # add dynamic tag `term*` to window footclient
+windowrule = tag term, class:footclient     # toggle dynamic tag `term*` for window footclient
+windowrule = tag +code, tag:cpp               # add dynamic tag `code*` to window with tag `cpp`
 
-windowrulev2 = opacity 0.8, tag:code            # set opacity for window with tag `code` or `code*`
-windowrulev2 = opacity 0.7, tag:cpp             # window with tag `cpp` will match both `code` and `cpp`, the last one will override prior match
-windowrulev2 = opacity 0.6, tag:term*           # set opacity for window with tag `term*` only, `term` will not be matched
+windowrule = opacity 0.8, tag:code            # set opacity for window with tag `code` or `code*`
+windowrule = opacity 0.7, tag:cpp             # window with tag `cpp` will match both `code` and `cpp`, the last one will override prior match
+windowrule = opacity 0.6, tag:term*           # set opacity for window with tag `term*` only, `term` will not be matched
 
-windowrulev2 = tag -code, tag:term              # remove dynamic tag `code*` for window with tag `term` or `term*`
+windowrule = tag -code, tag:term              # remove dynamic tag `code*` for window with tag `term` or `term*`
 ```
 
 Or with keybind for convenience:
@@ -254,8 +235,8 @@ Or with keybind for convenience:
 bind = $mod Ctrl, 2, tagwindow, alpha_0.2
 bind = $mod Ctrl, 4, tagwindow, alpha_0.4
 
-windowrulev2 = opacity 0.2 override, tag:alpha_0.2
-windowrulev2 = opacity 0.4 override, tag:alpha_0.4
+windowrule = opacity 0.2 override, tag:alpha_0.2
+windowrule = opacity 0.4 override, tag:alpha_0.4
 ```
 
 The `tag` rule can only manipulate dynamic tags, and the `tagwindow` dispatcher
@@ -269,12 +250,12 @@ windowrule = move 100 100, kitty # moves kitty to 100 100
 windowrule = animation popin, kitty # sets the animation style for kitty
 windowrule = noblur, firefox # disables blur for firefox
 windowrule = move cursor -50% -50%, kitty # moves kitty to the center of the cursor
-windowrulev2 = bordercolor rgb(FF0000) rgb(880808), fullscreen:1 # set bordercolor to red if window is fullscreen
-windowrulev2 = bordercolor rgb(00FF00), fullscreenstate:* 1 # set bordercolor to green if window's client fullscreen state is 1(maximize) (internal state can be anything)
-windowrulev2 = bordercolor rgb(FFFF00), title:.*Hyprland.* # set bordercolor to yellow when title contains Hyprland
+windowrule = bordercolor rgb(FF0000) rgb(880808), fullscreen:1 # set bordercolor to red if window is fullscreen
+windowrule = bordercolor rgb(00FF00), fullscreenstate:* 1 # set bordercolor to green if window's client fullscreen state is 1(maximize) (internal state can be anything)
+windowrule = bordercolor rgb(FFFF00), title:.*Hyprland.* # set bordercolor to yellow when title contains Hyprland
 windowrule = opacity 1.0 override 0.5 override 0.8 override, kitty # set opacity to 1.0 active, 0.5 inactive and 0.8 fullscreen for kitty
 windowrule = rounding 10, kitty # set rounding to 10 for kitty
-windowrulev2 = stayfocused,  class:(pinentry-)(.*) # fix pinentry losing focus
+windowrule = stayfocused,  class:(pinentry-)(.*) # fix pinentry losing focus
 ```
 
 ### Notes
@@ -289,8 +270,8 @@ Rules will be processed from top to bottom, where the _last_ match will take
 precedence. i.e.
 
 ```ini
-windowrulev2 = opacity 0.8 0.8, class:kitty
-windowrulev2 = opacity 0.5 0.5, floating:1
+windowrule = opacity 0.8 0.8, class:kitty
+windowrule = opacity 0.5 0.5, floating:1
 ```
 
 Here, all non-fullscreen kitty windows will have `opacity 0.8`, except if
@@ -298,8 +279,8 @@ they are floating. Otherwise, they will have `opacity 0.5`. The rest of the
 non-fullscreen floating windows will have `opacity 0.5`.
 
 ```ini
-windowrulev2 = opacity 0.5 0.5,floating:1
-windowrulev2 = opacity 0.8 0.8,class:kitty
+windowrule = opacity 0.5 0.5,floating:1
+windowrule = opacity 0.8 0.8,class:kitty
 ```
 
 Here, all kitty windows will have `opacity 0.8`, even if they are floating.
@@ -317,7 +298,7 @@ example, to set active and inactive opacity to 0.8, and make fullscreen windows
 fully opaque regardless of other opacity rules:
 
 ```ini
-windowrulev2 = opacity 0.8 override 0.8 override 1.0 override, kitty
+windowrule = opacity 0.8 override 0.8 override 1.0 override, kitty
 ```
 
 {{< /callout >}}
