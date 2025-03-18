@@ -456,6 +456,7 @@ _Subcategory `group:groupbar:`_
 | xp_mode | Disables back buffer and bottom layer rendering. | bool | false |
 | ctm_animation | Whether to enable a fade animation for CTM changes (hyprsunset). 2 means "auto" which disables them on Nvidia. | int | 2 |
 | cm_fs_passthrough | Passthrough color settings for fullscreen apps when possible | bool | true |
+| cm_enabled | Whether the color management pipeline should be enabled or not (requires a restart of Hyprland to fully take effect) | bool | true |
 
 ### Cursor
 
