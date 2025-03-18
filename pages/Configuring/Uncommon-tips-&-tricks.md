@@ -135,11 +135,11 @@ To use Shimeji programs like
 following rules:
 
 ```ini
-windowrule = float, com-group_finity-mascot-Main
-windowrule = noblur, com-group_finity-mascot-Main
-windowrule = nofocus, com-group_finity-mascot-Main
-windowrule = noshadow, com-group_finity-mascot-Main
-windowrule = noborder, com-group_finity-mascot-Main
+windowrule = float, class:com-group_finity-mascot-Main
+windowrule = noblur, class:com-group_finity-mascot-Main
+windowrule = nofocus, class:com-group_finity-mascot-Main
+windowrule = noshadow, class:com-group_finity-mascot-Main
+windowrule = noborder, class:com-group_finity-mascot-Main
 ```
 
 {{< callout type=info >}}

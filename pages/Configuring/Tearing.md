@@ -27,7 +27,7 @@ general {
     allow_tearing = true
 }
 
-windowrulev2 = immediate, class:^(cs2)$
+windowrule = immediate, class:^(cs2)$
 ```
 
 {{< callout type=warning >}}
