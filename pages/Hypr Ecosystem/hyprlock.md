@@ -33,12 +33,6 @@ Variables in the `general` category:
 | fractional_scaling | whether to use fractional scaling. 0 - disabled, 1 - enabled, 2 - auto | int | 2 |
 | screencopy_mode | selects screencopy mode. 0 - gpu accelerated, 1 - cpu based (slow) | int | 0 |
 
-{{< callout type=warning >}}
-
-If you are not on hyprland, or your `XDG_CURRENT_DESKTOP` is not Hyprland, the fade out will be disabled and the value of your `no_fade_out` variable will be ignored.
-
-{{< /callout >}}
-
 ### Authentication
 
 Variables in the `auth` category:
