@@ -438,6 +438,7 @@ _Subcategory `group:groupbar:`_
 | enabled | allow running applications using X11 | bool | true |
 | use_nearest_neighbor | uses the nearest neighbor filtering for xwayland apps, making them pixelated rather than blurry | bool | true |
 | force_zero_scaling | forces a scale of 1 on xwayland windows on scaled displays. | bool | false |
+| create_abstract_socket | Create the [abstract Unix domain socket](../XWayland/#abstract-unix-domain-socket) for XWayland connections. (XWayland restart is required for changes to take effect; Linux only) | bool | false |
 
 ### OpenGL
 
