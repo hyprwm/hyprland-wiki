@@ -24,7 +24,6 @@ Variables in the `general` category:
 
 | variable | description | type | default |
 | -- | -- | -- | -- |
-| disable_loading_bar | disables the loading bar on the bottom of the screen while hyprlock is booting up. | bool | false |
 | hide_cursor | hides the cursor instead of making it visible | bool | false |
 | grace | the amount of seconds for which the lockscreen will unlock on mouse movement. | int | 0 |
 | ignore_empty_input | skips validation when no password is provided | bool | false |
