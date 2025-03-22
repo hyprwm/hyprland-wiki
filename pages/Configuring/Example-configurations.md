@@ -23,7 +23,7 @@ from a more tangible example.
 
 ![Sly-Harvey/NixOS screenshot](https://raw.githubusercontent.com/Sly-Harvey/NixOS/master/.github/assets/example.png)
 
-![https://github.com/Sly-Harvey/NixOS](https://github.com/Sly-Harvey/NixOS)
+[https://github.com/Sly-Harvey/NixOS](https://github.com/Sly-Harvey/NixOS)
 
 ### fufexan
 
