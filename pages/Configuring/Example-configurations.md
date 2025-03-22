@@ -19,6 +19,12 @@ from a more tangible example.
 
 [https://github.com/mylinuxforwork/dotfiles](https://github.com/mylinuxforwork/dotfiles)
 
+### Sly-Harvey
+
+![Sly-Harvey/NixOS screenshot](https://raw.githubusercontent.com/Sly-Harvey/NixOS/master/.github/assets/example.png)
+
+![https://github.com/Sly-Harvey/NixOS](https://github.com/Sly-Harvey/NixOS)
+
 ### fufexan
 
 ![fufexan/dotfiles screenshot](https://user-images.githubusercontent.com/36706276/192147190-cf9cf4df-94cb-4a3b-b9d8-137ed0c2538f.png)
