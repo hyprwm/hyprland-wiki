@@ -14,7 +14,7 @@ For issues, please see
 
 ### Required packages
 
-See [manual build](https://wiki.hyprland.org/Getting-Started/Installation/#manual-manual-build) for deps.
+See [manual build](https://wiki.hyprland.org/Getting-Started/Installation/#manual-manual-build) for devs.
 
 ### Recommended, CMake
 
