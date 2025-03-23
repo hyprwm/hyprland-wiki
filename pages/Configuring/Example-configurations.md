@@ -7,6 +7,13 @@ This page houses links to a few repositories with beautiful Hyprland
 configurations for you to get inspired from or learn how to configure Hyprland
 from a more tangible example.
 
+{{< callout >}}
+
+These configurations are popular and have many people using them. PRs that add
+more configurations will not be merged.
+
+{{< /callout >}}
+
 ### end_4
 
 ![end-4/dots-hyprland screenshot](https://github.com/end-4/dots-hyprland/assets/97237370/5e081770-0f1e-45c4-ad9c-3d19f488cd85)
