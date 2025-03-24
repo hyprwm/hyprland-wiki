@@ -117,6 +117,7 @@ Doing `general:snap {` is **invalid**!
 | dim_special | how much to dim the rest of the screen by when a special workspace is open. [0.0 - 1.0] | float | 0.2 |
 | dim_around | how much the `dimaround` window rule should dim by. [0.0 - 1.0] | float | 0.4 |
 | screen_shader | a path to a custom shader to be applied at the end of rendering. See `examples/screenShader.frag` for an example. | str | \[\[Empty\]\] |
+| border_part_of_window | whether the window border should be a part of the window | bool | true |
 
 #### Blur
 
