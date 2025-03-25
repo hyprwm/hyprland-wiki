@@ -363,6 +363,7 @@ _Subcategory `group:groupbar:`_
 | stacked | render the groupbar as a vertical stack | bool | false |
 | priority | sets the decoration priority for groupbars | int | 3 |
 | render_titles | whether to render titles in the group bar decoration | bool | true |
+| text_offset | adjust vertical position for titles | int | 0 |
 | scrolling | whether scrolling in the groupbar changes group active window | bool | true |
 | rounding | how much to round the indicator | int | 1 |
 | gradient_rounding | how much to round the gradients | int | 2 |
@@ -375,6 +376,7 @@ _Subcategory `group:groupbar:`_
 | col.locked_inactive | inactive locked group bar background color | gradient | 0x66775500 |
 | gaps_in | gap size between gradients | int | 2 |
 | gaps_out | gap size between gradients and window | int | 2 |
+| keep_upper_gap | add or remove upper gap | bool | true |
 
 ### Misc
 
