@@ -414,6 +414,7 @@ _Subcategory `group:groupbar:`_
 | disable_hyprland_qtutils_check | disable the warning if hyprland-qtutils is not installed | bool | false |
 | lockdead_screen_delay | the delay in ms after the lockdead screen appears if the lock screen did not appear after a lock event occurred | int | 1000 |
 | enable_anr_dialog | whether to enable the ANR (app not responding) dialog when your apps hang | bool | true |
+| anr_missed_pings | number of missed pings before showing the ANR dialog | int | 1 |
 
 ### Binds
 
