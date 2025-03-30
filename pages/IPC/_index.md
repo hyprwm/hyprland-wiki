@@ -71,6 +71,7 @@ e.g.: `workspace>>2`
 | lockgroups | emitted when `lockgroups` is toggled. | `0/1` |
 | configreloaded | emitted when the config is done reloading | empty |
 | pin | emitted when a window is pinned or unpinned | `WINDOWADDRESS,PINSTATE` |
+| minimized | emitted when an external taskbar-like app requests a window to be minimized | `WINDOWADDRESS,0/1` |
 
 {{< callout type=warning >}}
 
