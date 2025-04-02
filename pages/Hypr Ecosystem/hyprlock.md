@@ -31,6 +31,7 @@ Variables in the `general` category:
 | text_trim | sets if the text should be trimmed, useful to avoid trailing newline in commands output | bool | true |
 | fractional_scaling | whether to use fractional scaling. 0 - disabled, 1 - enabled, 2 - auto | int | 2 |
 | screencopy_mode | selects screencopy mode. 0 - gpu accelerated, 1 - cpu based (slow) | int | 0 |
+| fail_timeout | milliseconds until the ui resets after a failed auth attempt | int | 2000 |
 
 ### Authentication
 
@@ -323,7 +324,6 @@ Draws a password input field.
 | check_color | color accent when waiting for the authentication result | gradient | rgba(204, 136, 34, 1.0) |
 | fail_color | color accent when authentication fails | gradient | rgba(204, 34, 34, 1.0) |
 | fail_text | text rendered when authentication fails | str | `<i>$FAIL <b>($ATTEMPTS)</b></i>` |
-| fail_timeout | milliseconds before `fail_text` and `fail_color` disappears | int | 2000 |
 | capslock_color | color accent when capslock is active | gradient | [[Empty]] |
 | numlock_color | color accent when numlock is active | gradient | [[Empty]] |
 | bothlock_color | color accent when both locks are active | gradient | [[Empty]] |
