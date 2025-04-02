@@ -320,6 +320,7 @@ Draws a password input field.
 | fade_timeout | milliseconds before `fade_on_empty` is triggered | int | 2000 |
 | placeholder_text | text rendered in the input box when it's empty | str | `<i>Input Password...</i>` |
 | hide_input | render an input indicator similar to swaylock instead of dots when set to true | bool | false |
+| hide_input_base_color | this color's hue is randomly rotated (oklab color space) to get colors for `hide_input` | color | rgba(153, 170, 187) |
 | rounding | -1 means complete rounding (circle/oval) | int | -1 |
 | check_color | color accent when waiting for the authentication result | gradient | rgba(204, 136, 34, 1.0) |
 | fail_color | color accent when authentication fails | gradient | rgba(204, 34, 34, 1.0) |
