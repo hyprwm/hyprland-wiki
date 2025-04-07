@@ -5,78 +5,107 @@ title: NVidia
 
 # Foreword
 
-There is no _official_ Hyprland support for Nvidia hardware. However, many people
-have had success with the instructions on this page.
+There is no _official_ Hyprland support for Nvidia hardware. However, many
+people have had success with the instructions on this page. Please read
+everything in FULL before asking for help.
 
-You can choose between the proprietary
-[Nvidia drivers](https://wiki.archlinux.org/title/NVIDIA) or the open source
-[Nouveau driver](https://wiki.archlinux.org/title/Nouveau). For the
-proprietary drivers, there are 3 varieties: the current closed source driver
-named 'nvidia' (or 'nvidia-dkms') which is
-under active development; the legacy closed source drivers 'nvidia-3xxxx' for older cards
-which Nvidia no longer actively supports; and the 'nvidia-open' driver which is
-currently an alpha stage attempt to open source a part of their closed source
-driver for newer cards.
+There are three potential setups you can have with driver setup on Nvidia.
 
-If the proprietary drivers support your graphics card, it's generally recommended
-to use them instead, as it has significantly improved performance
-and power management for newer GPUs.
+1. Entirely proprietary Nvidia drivers, often referred to as "Proprietary
+   Drivers"
+2. Entirely proprietary Nvidia drivers, except with the open source kernel
+   modules, referred to as "Open Drivers".
+3. Nouveau open source drivers. A clean-room implementation of Nvidia drivers,
+   referred to simply as "Nouveau", and not to be confused with the "Open
+   Drivers".
 
-However, keep in mind that if the proprietary Nvidia drivers do not work
-properly on your computer, the Nouveau driver might work fine. This will
-likely be the case for
-[older cards](https://wiki.archlinux.org/title/NVIDIA#Unsupported_drivers).
+For maximum performance and support with newer cards, running either of the
+first two setups is recommended as it contains some vital optimisations and
+power management support for newer GPUs.
 
 {{< callout >}}
 
-The `nvidia-open` drivers are still not up to feature parity with the proprietary drivers.
-One issue is with [suspend](https://github.com/NVIDIA/open-gpu-kernel-modules/issues/472) (e.g. closing the lid on your laptop).
+For those on the Nvidia 50xx series of graphics cards (5090, 5080, etc) or
+newer, the open source kernel modules are **REQUIRED** when using the
+proprietary Nvidia drivers.
 
 {{< /callout >}}
 
-# Proprietary drivers setup
+According to
+[Nvidia](https://developer.nvidia.com/blog/nvidia-transitions-fully-towards-open-source-gpu-kernel-modules/),
+the open source kernel modules are also recommended to be used by the
+architechtures Turing and Ampere. In short, this includes the 16xx and 20xx
+series of consumer cards and later. Your mileage may vary, so please try both of
+them if your card is supported by both.
 
-You can choose between the `nvidia` or the `nvidia-dkms` package. There are pros and cons
-for each, but it is generally recommended to use the `dkms` package,
-as you won't have to rebuild the initramfs [manually](https://wiki.archlinux.org/title/NVIDIA#mkinitcpio) every time the kernel and drivers update, for example.
-If you're using a kernel that isn't `linux` or `linux-lts`, the `dkms` package is _required_.
+If either of the proprietary Nvidia driver setups do not work properly on your
+computer, the Nouveau driver might work fine. This will likely be the case for
+[older cards](https://wiki.archlinux.org/title/NVIDIA#Unsupported_drivers).
 
-## Installation
+# Proprietary driver setup
 
-Install the following packages:
+On Arch Linux and other Arch-based distros, we recommend using the DKMS variety
+of the kernel modules, as it will support all installed kernels on your system.
 
-1. `nvidia` or `nvidia-dkms`: The driver itself. Optionally, the open source drivers
-   from NVIDIA can be installed as `nvidia-open` or `nvidia-open-dkms`.
-2. `nvidia-utils`: The userspace graphics drivers. You need this for running Vulkan
-   applications. If you'd like to use apps like Steam or Wine, install `lib32-nvidia-utils` as well.
-3. `egl-wayland` (`libnvidia-egl-wayland1` and `libnvidia-egl-gbm1` on Ubuntu): This is required
-   in order to enable compatibility between the EGL API and the Wayland protocol.
+If you are only using the `linux` or `linux-lts` kernels on your system, you can
+also use the non-dkms packages if you wish.
 
-## DRM kernel mode setting
+For the entirely proprietary Nvidia drivers, you can therefore use the
+`nvidia-dkms` package. And for those wanting / needing to use the open source
+kernel modules, `nvidia-open-dkms` can be used.
 
-On driver version 560.35.03-5 or earlier NVIDIA does not load kernel mode
-setting by default. Enabling it is required to make Wayland compositors
-function properly.
+These DKMS packages rely on having the "headers" package installed for your
+kernels of choice. So please make sure you have all relevant headers packages
+installed on your system. For example, if you have the Zen kernel installed, you
+must ensure `linux-zen-headers` is also installed.
 
-To enable it, the NVIDIA driver modules need to be added to the initramfs.
+## Further Installation
 
-Edit `/etc/mkinitcpio.conf`. In the `MODULES` array, add the following module names:
+The following packages must also be installed to ensure a smooth experience with
+the proprietary drivers.
+
+1. `nvidia-utils`: The userspace graphics drivers. You need this for pretty much
+   everything on your system, and we do not recommend running your computer
+   without it. If you are also using the "multilib" or "lib32" packages for
+   gaming, Steam, Wine, etc., then you also require `lib32-nvidia-utils`.
+2. `egl-wayland` (`libnvidia-egl-wayland1` and `libnvidia-egl-gbm1` on Ubuntu):
+   This is required in order to enable compatibility between the EGL API and the
+   Wayland protocol. This should already be installed on most distros.
+
+## Early KMS, modeset and fbdev
+
+As of Nvidia driver version 570.86.16, `fbdev` has now been enabled by default
+when `modeset` is also enabled. Therefore we simply need to enable `modeset`.
+
+To enable it, create and edit `/etc/modprobe.d/nvidia.conf`, and add this line
+to the file:
+
+```conf {filename="/etc/modprobe.d/nvidia.conf"}
+options nvidia_drm modeset=1
+```
+
+If you're on Arch Linux, this step has already been done for you.
+
+If you're on NixOS, it is also
+[enabled by default](https://github.com/NixOS/nixpkgs/blob/0196e5372b8b7a282cb3bbe5cbf446617141ce38/nixos/modules/hardware/video/nvidia.nix#L116)
+on all driver versions after 535.
+
+Early KMS will allow the Nvidia modules to load earlier into the boot sequence.
+On distros using `mkinitcpio`, like Arch, you can enable it by editing
+`/etc/mkinitcpio.conf`. In the `MODULES` array add the following module
+names:
 
 ```conf {filename="/etc/mkinitcpio.conf"}
 MODULES=(... nvidia nvidia_modeset nvidia_uvm nvidia_drm ...)
 ```
 
-Then, create and edit `/etc/modprobe.d/nvidia.conf`. Add this line to the file:
+You can then rebuild the initramfs with `sudo mkinitcpio -P`, and reboot.
 
-```conf {filename="/etc/modprobe.d/nvidia.conf"}
-options nvidia_drm modeset=1 fbdev=1
-```
+After rebooting, you can verify that DRM is actually enabled by running
+`cat /sys/module/nvidia_drm/parameters/modeset` which should return `Y`.
 
-Lastly, rebuild the initramfs with `sudo mkinitcpio -P`, and reboot.
-
-To verify that DRM is actually enabled, run `cat /sys/module/nvidia_drm/parameters/modeset` which should return `Y`.
-
-More information is available [here](https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting).
+More information is available
+[here](https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting).
 
 ## Environment variables
 
@@ -89,9 +118,9 @@ env = __GLX_VENDOR_LIBRARY_NAME,nvidia
 
 ## Finishing up
 
-Install a few packages to get some apps to function natively with Wayland for the
-best compatibility and performance.
-See the [the Master Tutorial](https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#force-apps-to-use-wayland).
+Install a few packages to get some apps to function natively with Wayland for
+the best compatibility and performance. See
+[the Master Tutorial](https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#force-apps-to-use-wayland).
 
 Reboot your computer.
 
@@ -99,50 +128,14 @@ Launch Hyprland.
 
 It _should_ work now.
 
-## VA-API hardware video acceleration
+## Flickering in Electron / CEF apps
 
-Hardware video acceleration on Nvidia and Wayland is possible with the
-[nvidia-vaapi-driver](https://github.com/elFarto/nvidia-vaapi-driver). This may
-solve specific issues in Electron apps.
+Electron and CEF apps flicker because:
 
-The install instructions are available in the README, however, a quick guide will
-be given here:
+1. They run in XWayland by default.
+2. They don't use the `syncobj` protocol by default.
 
-1. Install the package. On Arch, this is `libva-nvidia-driver` in the official
-   repos.
-
-2. Add this variable to your hyprland config:
-   ```ini
-   env = NVD_BACKEND,direct
-   ```
-
-   See [here](https://github.com/elFarto/nvidia-vaapi-driver?tab=readme-ov-file#upstream-regressions)
-   for more information on this environment variable.
-
-You can check the README to get it working for Firefox.
-
-## Other issues
-
-### Regarding environment variables
-
-- If you face problems with Discord windows not displaying or screen sharing not
-  working in Zoom, first try running them in Native Wayland (more details below).
-  Otherwise, remove or comment the line
-  `env = __GLX_VENDOR_LIBRARY_NAME,nvidia`.
-
-### Multi-monitor with hybrid graphics
-
-On a hybrid graphics device (a laptop with
-both an Intel and an Nvidia GPU), you will need to remove the `optimus-manager`
-package if installed (disabling the service does not work). You also need to
-change your BIOS settings from hybrid graphics to discrete graphics.
-
-### Flickering in Electron / CEF apps
-
-This flickering is likely caused by these apps running in XWayland.
-To fix the flickering, try running the apps in native Wayland instead.
-
-For most Electron apps, you should be fine just adding this
+To enable native Wayland support for most Electron apps, add this
 environment variable to your config:
 
 ```ini
@@ -152,108 +145,118 @@ env = ELECTRON_OZONE_PLATFORM_HINT,auto
 This has been confirmed to work on Vesktop, VSCodium, Obsidian and will probably
 work on other Electron apps as well.
 
-For other apps, including CEF apps, you will need to launch them with these flags:
+Other Electron or CEF apps have to be launched with these flags:
 
 ```sh
 --enable-features=UseOzonePlatform --ozone-platform=wayland
 ```
 
-To do this easily for Spotify, Arch Linux has a `spotify-launcher` packages
-in their official repos. You should use that instead of the `spotify`
-package in the AUR. Then, enable the Wayland backend in
-`/etc/spotify-launcher.conf` by uncommenting this line:
+For Spotify, Arch Linux has a `spotify-launcher` package in their official
+repos. Use that instead of the `spotify` package in the AUR. Afterwards,
+enable the Wayland flags by creating the file
+`~/.config/spotify-launcher.conf` with these contents:
 
-```sh {filename="/etc/spotify-launcher.conf"}
+```sh {filename="~/.config/spotify-launcher.conf"}
+[spotify]
 extra_arguments = ["--enable-features=UseOzonePlatform", "--ozone-platform=wayland"]
 ```
 
-Some CEF / Electron apps may also have a respective flags file in ~/.config.
-For example, for VSCodium, you can add the flags to `~/.config/codium-flags.conf`
-and for Obsidian, you can add the flags to `~/.config/obsidian/user-flags.conf`.
+For Arch Linux, some CEF / Electron apps may also have respective flags files
+in `$XDG_CONFIG_HOME`. For example, VSCodium reads them from
+`$XDG_CONFIG_HOME/codium-flags.conf` while Obsidian reads them from
+`$XDG_CONFIG_HOME/obsidian/user-flags.conf`.
 
-{{< callout >}}
+On NixOS, you can set the environment variable `NIXOS_OZONE_WL=1`, which
+automatically configures Electron / CEF apps to use Wayland.
 
-On earlier Nvidia driver versions, including 535, you may have to also include
-the `--disable-gpu` and `--disable-gpu-sandbox` flags, but, as the names suggest,
-you will lose hardware acceleration for whichever app is run with these flags.
+As of Electron 35/Chromium 134, the "syncobj" protocol, which implements
+explicit sync correctly, is now supported. This resolves all flickering in
+Electron apps. However, it needs to be _manually enabled_ by adding the below flag
+to any Electron/CEF app:
 
-{{< /callout >}}
+```sh
+--enable-features=WaylandLinuxDrmSyncobj
+```
 
-For NixOS, you can set the `NIXOS_OZONE_WL` environment variable
-to `1`, which should automatically configure Electron / CEF apps to run with native
-Wayland for you.
+Using this in conjunction with native Wayland on these apps should solve all
+issues.
 
-While it is best to have as many things as possible running natively in
-Wayland, the flickering will likely be solved in the 555 series of Nvidia driver updates.
+## VA-API hardware video acceleration
+
+Hardware video acceleration on Nvidia and Wayland is possible with the
+[nvidia-vaapi-driver](https://github.com/elFarto/nvidia-vaapi-driver). This may
+solve specific issues in Electron apps.
+
+The install instructions are available in the README. However, a quick guide
+will be given here:
+
+1. Install the package. On Arch, this is `libva-nvidia-driver` in the official
+   repos.
+
+2. Add this variable to your Hyprland config:
+   ```ini
+   env = NVD_BACKEND,direct
+   ```
+
+   See
+   [here](https://github.com/elFarto/nvidia-vaapi-driver?tab=readme-ov-file#upstream-regressions)
+   for more information on this environment variable.
+
+You can check the README to get it working for Firefox. There is also
+experimental support for Chromium, however there has not been much success.
+
+## Other issues
+
+### Multi-monitor with hybrid graphics
+
+On a hybrid graphics device (a laptop with both an Intel and an Nvidia GPU), you
+will need to remove the `optimus-manager` package if installed (disabling the
+service does not work). You also need to change your BIOS settings from hybrid
+graphics to discrete graphics.
 
 ### Flickering in XWayland games
 
-XWayland games may flicker or present frames out-of-order in a way which makes them unplayable.
-This is due to the lack of implicit synchronization in the driver, and/or flaky explicit sync support
-in newer ones.
+XWayland games may flicker or present frames out-of-order in a way which makes
+them unplayable. This is due to the lack of implicit synchronization in the
+driver, and/or flaky explicit sync support in newer ones.
 
 There are a few fixes:
 
-1. Install the latest versions of `xorg-xwayland`, `wayland-protocols` and Nvidia driver.
-   Ensure `xorg-xwayland` is at least version 24.1, `wayland-protocols` is at least version 1.34 and Nvidia driver is at least version 555.
-   These enable explicit sync on the Nvidia driver and should avoid flickering.
+1. Install the latest versions of `xorg-xwayland`, `wayland-protocols` and
+   Nvidia driver. Ensure `xorg-xwayland` is at least version 24.1,
+   `wayland-protocols` is at least version 1.34 and Nvidia driver is at least
+   version 555. These enable explicit sync on the Nvidia driver and should avoid
+   flickering.
 
-2. If your GPU is no longer supported by the 555 driver, install older Nvidia drivers which do not exhibit this issue. The
-   last ones which would work will be the 535xx series of drivers. These
-   can be installed on Arch via [these AUR packages](https://aur.archlinux.org/packages?O=0&K=535xx)
-
-3. Try disabling explicit sync. In some select cases, explicit sync may actually cause issues due to the flaky nature of Nvidia drivers.
-   Set `render:explicit_sync = 0` in your hyprland config.
-
-### Fixing other random flickering (nuclear method)
-
-Note that this forces performance mode to be active, resulting in
-increased power-consumption (from 22W idle on a RTX 3070TI, to 74W).
-
-This may not be needed for some users. Only apply these 'fixes' if you
-do notice flickering artifacts from being idle for ~5 seconds.
-
-Make a new file at `/etc/modprobe.d/nvidia.conf` and paste this in:
-
-```conf {filename="/etc/modprobe.d/nvidia.conf"}
-options nvidia NVreg_RegistryDwords="PowerMizerEnable=0x1; PerfLevelSrc=0x2222; PowerMizerLevel=0x3; PowerMizerDefault=0x3; PowerMizerDefaultAC=0x3"
-```
-
-Reboot your computer and it should be working.
-
-If it does not, try:
-
-1. Lowering your monitor's refresh rate: This can stop the flickering
-   altogether.
-2. Using the [Nouveau driver](https://wiki.archlinux.org/title/Nouveau) as
-   mentioned above.
+2. If your GPU is no longer supported by the 555 or later drivers, install older
+   Nvidia drivers which do not exhibit this issue. The last ones that work are
+   the 535xx series of drivers. These can be installed on Arch via
+   [these AUR packages](https://aur.archlinux.org/packages?O=0&K=535xx)
 
 ### Suspend/wakeup issues
 
-Enable the services `nvidia-suspend.service`, `nvidia-hibernate.service` and
-`nvidia-resume.service`, they will be started by systemd when needed.
+On Arch Linux and NixOS, the instructions below are already done for you, but
+for others:
+
+- Enable the services `nvidia-suspend.service`, `nvidia-hibernate.service` and
+  `nvidia-resume.service`. They will be started by systemd when needed.
 
 Add `nvidia.NVreg_PreserveVideoMemoryAllocations=1` to your kernel parameters if
 you haven't already.
 
-{{< callout >}}
-
-As previously mentioned, suspend functions are currently broken on `nvidia-open-dkms`
-[due to a bug](https://github.com/NVIDIA/open-gpu-kernel-modules/issues/472), so
-make sure you're on `nvidia-dkms`.
-
-{{< /callout >}}
-
 For Nix users, the equivalent of the above is
 
 ```nix {filename="configuration.nix"}
-boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
-
 hardware.nvidia.powerManagement.enable = true;
-
-# Making sure to use the proprietary drivers until the issue above is fixed upstream
-hardware.nvidia.open = false;
 ```
+
+{{< callout >}}
+
+According to Nvidia, suspend/wakeup issues should be solved on the Nvidia open
+driver. If it still doesn't work and you're using the open driver, it may be
+worth trying the fully proprietary one.
+
+{{< /callout >}}
 
 # Still having issues?
 
