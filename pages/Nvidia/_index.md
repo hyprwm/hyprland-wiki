@@ -171,7 +171,7 @@ any Electron / CEF apps should enable it:
 --enable-features=WaylandLinuxDrmSyncobj
 ```
 
-Using this in conjunction with native wayland on these apps should solve all
+Using this in conjunction with native Wayland on these apps should solve all
 issues.
 
 ## VA-API hardware video acceleration
@@ -186,7 +186,7 @@ will be given here:
 1. Install the package. On Arch, this is `libva-nvidia-driver` in the official
    repos.
 
-2. Add this variable to your hyprland config:
+2. Add this variable to your Hyprland config:
    ```ini
    env = NVD_BACKEND,direct
    ```
