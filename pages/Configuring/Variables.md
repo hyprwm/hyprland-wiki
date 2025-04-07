@@ -24,6 +24,7 @@ the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 | MOD | a string modmask (e.g. `SUPER` or `SUPERSHIFT` or `SUPER + SHIFT` or `SUPER and SHIFT` or `CTRL_SHIFT` or empty for none. You are allowed to put any separators you please except for a `,`) |
 | str | a string |
 | gradient | a gradient, in the form of `color color ... [angle]` where `color` is a color (see above) and angle is an angle in degrees, in the format of `123deg` e.g. `45deg` (e.g. `rgba(11ee11ff) rgba(1111eeff) 45deg`) Angle is optional and will default to `0deg` |
+| rounding | a rounding, can be set by pixels `15`, or as percents `0.42%` |
 
 {{< callout type=info >}}
 
@@ -107,8 +108,8 @@ Doing `general:snap {` is **invalid**!
 
 | name | description | type | default |
 | --- | --- | --- | --- |
-| rounding | rounded corners' radius (in layout px) | int | 0 |
-| rounding_power | adjusts the curve used for rounding corners, larger is smoother, 2.0 is a circle, 4.0 is a squircle. [2.0 - 10.0] | float | 2.0 |
+| rounding | rounded corners' radius (in layout px or in percents of window size) | rounding | 0 |
+| rounding_power | adjusts the curve used for rounding corners, larger is smoother, 2.0 is a circle, 4.0 is a squircle. [2.0 - 10.0]. Not appliable, when used percentage rounding | float | 2.0 |
 | active_opacity | opacity of active windows. [0.0 - 1.0] | float | 1.0 |
 | inactive_opacity | opacity of inactive windows. [0.0 - 1.0] | float | 1.0 |
 | fullscreen_opacity | opacity of fullscreen windows. [0.0 - 1.0] | float | 1.0 |
