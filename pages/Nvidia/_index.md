@@ -40,7 +40,7 @@ If either of the proprietary Nvidia driver setups do not work properly on your
 computer, the Nouveau driver might work fine. This will likely be the case for
 [older cards](https://wiki.archlinux.org/title/NVIDIA#Unsupported_drivers).
 
-# Proprietary drivers setup
+# Proprietary driver setup
 
 On Arch Linux and other Arch-based distros, we would recommend using the dkms
 variety of the kernel modules, as it will support all installed kernels on your
@@ -70,10 +70,23 @@ the proprietary drivers.
    This is required in order to enable compatibility between the EGL API and the
    Wayland protocol. This should already be installed on most distros.
 
-## early KMS, DRM kernel mode setting and fbdev
+## Early KMS, modeset and fbdev
 
-On distros using mkinitcpio, like Arch, edit `/etc/mkinitcpio.conf`. In the
-`MODULES` array and add the following module names:
+As of Nvidia driver version 570.86.16, fbdev has now been enabled by default
+when modeset is also enabled. Therefore we simply need to enable modeset. This
+step should already be done for you on Arch Linux.
+
+To enable it, create and edit `/etc/modprobe.d/nvidia.conf`, and add this line
+to the file:
+
+```conf {filename="/etc/modprobe.d/nvidia.conf"}
+options nvidia_drm modeset=1
+```
+
+Early KMS will allow the Nvidia modules to load earlier into the boot sequence.
+On distros using mkinitcpio, like Arch, you can enable it by editing
+`/etc/mkinitcpio.conf`. In the `MODULES` array and add the following module
+names:
 
 ```conf {filename="/etc/mkinitcpio.conf"}
 MODULES=(... nvidia nvidia_modeset nvidia_uvm nvidia_drm ...)
@@ -81,21 +94,7 @@ MODULES=(... nvidia nvidia_modeset nvidia_uvm nvidia_drm ...)
 
 You can then rebuild the initramfs with `sudo mkinitcpio -P`, and reboot.
 
-The setup for KMS and fbdev is now done by default on all nvidia drivers after
-and including the 560 series. Please ensure you are using the latest driver
-versions to have it work automatically. If not, enabling it is required to make
-Wayland compositors function properly.
-
-To enable them, create and edit `/etc/modprobe.d/nvidia.conf`. Add this line to
-the file:
-
-```conf {filename="/etc/modprobe.d/nvidia.conf"}
-options nvidia_drm modeset=1 fbdev=1
-```
-
-You can then rebuild the initramfs as you did earlier, and reboot.
-
-To verify that DRM is actually enabled, run
+After rebooting, you can verify that DRM is actually enabled by running
 `cat /sys/module/nvidia_drm/parameters/modeset` which should return `Y`.
 
 More information is available
@@ -113,7 +112,7 @@ env = __GLX_VENDOR_LIBRARY_NAME,nvidia
 ## Finishing up
 
 Install a few packages to get some apps to function natively with Wayland for
-the best compatibility and performance. See the
+the best compatibility and performance. See
 [the Master Tutorial](https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#force-apps-to-use-wayland).
 
 Reboot your computer.
@@ -124,11 +123,13 @@ It _should_ work now.
 
 ## Flickering in Electron / CEF apps
 
-This flickering is likely caused by these apps running in XWayland. To fix the
-flickering, try running the apps in native Wayland instead.
+The reason why Electron and CEF apps flicker is because of two reasons:
 
-For most Electron apps, you should be fine just adding this environment variable
-to your config:
+1. They run in XWayland by default.
+2. They don't use the syncobj protocol by default.
+
+To enable native Wayland support most Electron apps, you should be fine just
+adding this environment variable to your config:
 
 ```ini
 env = ELECTRON_OZONE_PLATFORM_HINT,auto
