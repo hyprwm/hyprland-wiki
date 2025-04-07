@@ -185,3 +185,18 @@ bind = WIN, F1, exec, ~/.config/hypr/gamemode.sh
 ```
 
 The hotkey toggle will be WIN+F1, but you can change this to whatever you want.
+
+## Zoom
+```ini
+bind = $mod,	   mouse_down,  exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 + 0.5}')
+bind = $mod, 	   mouse_up,   	exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 - 0.5}')
+
+binde = $mod,	   equal,      	exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 + 0.5}')
+binde = $mod, 	   minus,      	exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 - 0.5}')
+binde = $mod,	   KP_ADD,     	exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 + 0.5}')
+binde = $mod, 	   KP_SUBTRACT,	exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 - 0.5}')
+
+bind = $mod SHIFT, mouse_up,   	exec, hyprctl -q keyword cursor:zoom_factor 1
+bind = $mod SHIFT, minus,      	exec, hyprctl -q keyword cursor:zoom_factor 1
+bind = $mod SHIFT, KP_SUBTRACT,	exec, hyprctl -q keyword cursor:zoom_factor 1
+```
