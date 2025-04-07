@@ -73,8 +73,7 @@ the proprietary drivers.
 ## Early KMS, modeset and fbdev
 
 As of Nvidia driver version 570.86.16, fbdev has now been enabled by default
-when modeset is also enabled. Therefore we simply need to enable modeset. This
-step should already be done for you on Arch Linux.
+when modeset is also enabled. Therefore we simply need to enable modeset.
 
 To enable it, create and edit `/etc/modprobe.d/nvidia.conf`, and add this line
 to the file:
@@ -82,6 +81,12 @@ to the file:
 ```conf {filename="/etc/modprobe.d/nvidia.conf"}
 options nvidia_drm modeset=1
 ```
+
+If you're on Arch Linux, this step has already been done for you.
+
+If you're on NixOS, it is also
+[enabled by default](https://github.com/NixOS/nixpkgs/blob/0196e5372b8b7a282cb3bbe5cbf446617141ce38/nixos/modules/hardware/video/nvidia.nix#L116)
+on all driver versions after 535.
 
 Early KMS will allow the Nvidia modules to load earlier into the boot sequence.
 On distros using mkinitcpio, like Arch, you can enable it by editing
