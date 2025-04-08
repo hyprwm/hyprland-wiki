@@ -492,6 +492,7 @@ _Subcategory `group:groupbar:`_
 | --- | --- | --- | --- |
 | no_update_news | disable the popup that shows up when you update hyprland to a new version. | bool | false |
 | no_donation_nag | disable the popup that shows up twice a year encouraging to donate. | bool | false |
+| enforce_permissions | whether to enable [permission control](../Permissions). | bool | false |
 
 ### Experimental
 
