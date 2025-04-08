@@ -115,7 +115,7 @@ It is not possible to `float` (or any other of the static rules) a window based 
 | monitor \[id\] | sets the monitor on which a window should open. `id` can be either id or name (either e.g. `1` or e.g. `DP-1`) |
 | workspace \[w\] | sets the workspace on which a window should open (for workspace syntax, see [dispatchers->workspaces](../Dispatchers#workspaces)). You can also make \[w\] to `unset`, will unset all previous workspace rules applied to this window. You can also add `silent` after the workspace to make the window open silently. |
 | noinitialfocus | disables the initial focus to the window |
-| nofollowmouse | prevents the window from being focused when the mouse moves over it when `focus_follows_mouse=1` is set |
+| nofollowmouse | prevents the window from being focused when the mouse moves over it when `follow_mouse=1` is set |
 | pin | pins the window  (i.e. show it on all workspaces) _note: floating only_ |
 | unset | removes all previously set rules for the given parameters. Please note it has to match EXACTLY. |
 | nomaxsize | removes max size limitations. Especially useful with windows that report invalid max sizes (e.g. winecfg) |
