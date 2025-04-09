@@ -170,8 +170,8 @@ for you.
 
 As of Electron 35 and Chromium 134, they now support the "syncobj" protocol
 which implements explicit sync correctly. This resolves all flickering in
-Electron apps, however it needs to be manually enabled. Adding the below flag to
-any Electron / CEF apps should enable it:
+Electron apps, however it needs to be _manually enabled_. Adding the below flag
+to any Electron / CEF apps should enable it:
 
 ```sh
 --enable-features=WaylandLinuxDrmSyncobj
@@ -179,6 +179,25 @@ any Electron / CEF apps should enable it:
 
 Using this in conjunction with native Wayland on these apps should solve all
 issues.
+
+## Still experiencing flickering / delayed typing? **Nuclear Method**
+
+Even with Wayland enabled for some applications, and explicit sync working,
+there are sometimes issues for owners of 4090's, where typing can sometimes show
+previous frames as you type. A potential fix is to force your card into a high
+power mode, and this has shown success with some 4090 users. In
+`/etc/modprobe.d/nvidia.conf`, add the below line:
+
+```sh {filename="/etc/modprobe.d/nvidia.conf"}
+options nvidia NVreg_RegistryDwords="PowerMizerEnable=0x1; PerfLevelSrc=0x2222; PowerMizerLevel=0x3; PowerMizerDefault=0x3; PowerMizerDefaultAC=0x3"
+```
+
+{{< callout >}}
+
+This method should only be used if it has to. Please ensure you've followed the
+previous steps in full before trying this workaround.
+
+{{< /callout >}}
 
 ## VA-API hardware video acceleration
 
