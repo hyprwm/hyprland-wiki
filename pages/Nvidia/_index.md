@@ -11,10 +11,10 @@ everything in FULL before creating any bug reports.
 
 There are three potential setups you can have with driver setup on Nvidia.
 
-1. Entirely proprietary Nvidia drivers
+1. Entirely proprietary Nvidia drivers, often referred to as "Proprietary Drivers"
 2. Entirely proprietary Nvidia drivers, except with the open source kernel
-   modules
-3. Nouveau open source drivers
+   modules, referred to as "Open Drivers".
+3. Nouveau open source drivers. A clean-room implementation of Nvidia drivers, referred to simply as "Nouveau", and not to be confused with the "Open Drivers".
 
 For maximum performance and support with newer cards, running either of the
 first two setups is recommended as it contains some vital optimisations and
