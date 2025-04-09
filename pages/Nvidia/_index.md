@@ -11,10 +11,13 @@ everything in FULL before creating any bug reports.
 
 There are three potential setups you can have with driver setup on Nvidia.
 
-1. Entirely proprietary Nvidia drivers, often referred to as "Proprietary Drivers"
+1. Entirely proprietary Nvidia drivers, often referred to as "Proprietary
+   Drivers"
 2. Entirely proprietary Nvidia drivers, except with the open source kernel
    modules, referred to as "Open Drivers".
-3. Nouveau open source drivers. A clean-room implementation of Nvidia drivers, referred to simply as "Nouveau", and not to be confused with the "Open Drivers".
+3. Nouveau open source drivers. A clean-room implementation of Nvidia drivers,
+   referred to simply as "Nouveau", and not to be confused with the "Open
+   Drivers".
 
 For maximum performance and support with newer cards, running either of the
 first two setups is recommended as it contains some vital optimisations and
@@ -179,25 +182,6 @@ to any Electron / CEF apps should enable it:
 
 Using this in conjunction with native Wayland on these apps should solve all
 issues.
-
-## Still experiencing flickering / delayed typing? **Nuclear Method**
-
-Even with Wayland enabled for some applications, and explicit sync working,
-there are sometimes issues for owners of 4090's, where typing can sometimes show
-previous frames as you type. A potential fix is to force your card into a high
-power mode, and this has shown success with some 4090 users. In
-`/etc/modprobe.d/nvidia.conf`, add the below line:
-
-```sh {filename="/etc/modprobe.d/nvidia.conf"}
-options nvidia NVreg_RegistryDwords="PowerMizerEnable=0x1; PerfLevelSrc=0x2222; PowerMizerLevel=0x3; PowerMizerDefault=0x3; PowerMizerDefaultAC=0x3"
-```
-
-{{< callout >}}
-
-This method should only be used if it has to. Please ensure you've followed the
-previous steps in full before trying this workaround.
-
-{{< /callout >}}
 
 ## VA-API hardware video acceleration
 
