@@ -115,7 +115,6 @@ It is not possible to `float` (or any other of the static rules) a window based 
 | monitor \[id\] | sets the monitor on which a window should open. `id` can be either id or name (either e.g. `1` or e.g. `DP-1`) |
 | workspace \[w\] | sets the workspace on which a window should open (for workspace syntax, see [dispatchers->workspaces](../Dispatchers#workspaces)). You can also make \[w\] to `unset`, will unset all previous workspace rules applied to this window. You can also add `silent` after the workspace to make the window open silently. |
 | noinitialfocus | disables the initial focus to the window |
-| nofollowmouse | prevents the window from being focused when the mouse moves over it when `input:follow_mouse=1` is set |
 | pin | pins the window  (i.e. show it on all workspaces) _note: floating only_ |
 | unset | removes all previously set rules for the given parameters. Please note it has to match EXACTLY. |
 | nomaxsize | removes max size limitations. Especially useful with windows that report invalid max sizes (e.g. winecfg) |
@@ -156,6 +155,7 @@ The following rules can also be set with [`setprop`](../Dispatchers#setprop):
 | noborder \[on\] | disables borders for the window |
 | nodim \[on\] | disables window dimming for the window |
 | nofocus \[on\] | disables focus to the window |
+| nofollowmouse \[on\] | prevents the window from being focused when the mouse moves over it when `input:follow_mouse=1` is set |
 | nomaxsize \[on\] | disables max size for the window |
 | norounding \[on\] | disables rounding for the window |
 | noshadow \[on\] | disables shadows for the window |
