@@ -20,7 +20,7 @@ example, in the case of `kitty`:
 ## Window Rules
 
 You can set window rules to achieve different window behaviors based
-on their properties. 
+on their properties.
 
 ### Syntax
 
@@ -334,3 +334,4 @@ namespaces in `hyprctl layers`) or `address` is an address in the form of
 | xray \[on\] | sets the blur xray mode for a layer. 0 for off, 1 for on, unset for default. |
 | animation \[style\] | allows you to set a specific animation style for this layer |
 | order \[n\] | sets the order relative to other layers. Higher means closer to the edge of the monitor. Can be negative. `n = 0` if unspecified. |
+| abovelock \[interactable\] | renders the layer above the lockscreen when the session is locked. If set to `true`, you can interact with the layer on the lockscreen, otherwise it will only be rendered above it. |
