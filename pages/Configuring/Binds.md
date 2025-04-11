@@ -203,6 +203,8 @@ Flags:
 ```plain
 l -> locked, will also work when an input inhibitor (e.g. a lockscreen) is active.
 r -> release, will trigger on release of a key.
+c -> click, will trigger on release of a key or button as long as the mouse cursor stays inside input:drag_threshold.
+g -> drag, will trigger on release of a key or button as long as the mouse cursor moves outside input:drag_threshold.
 o -> longPress, will trigger on long press of a key.
 e -> repeat, will repeat when held.
 n -> non-consuming, key/mouse events will be passed to the active window in addition to triggering the dispatcher.
@@ -236,15 +238,19 @@ bind = SUPER, XF86AudioNext, exec, playerctl position +5
 
 ## Mouse Binds
 
-Mouse binds are binds that rely on mouse movement. They
-will have one less arg, and may look like this:
+Mouse binds are binds that rely on mouse movement. They will have one less arg.
+`input:drag_threshold` can be used to differentiate between clicks and drags with the same button:
 
 ```ini
+input {
+    drag_threshold = 10
+}
 bindm = ALT, mouse:272, movewindow
+bindc = ALT, mouse:272, togglefloating
 ```
 
 This will create a bind with <key>ALT</key> + <key>LMB</key> to move the window
-with your mouse.
+by dragging more than 10px or float it by clicking.
 
 _Available mouse binds_:
 
