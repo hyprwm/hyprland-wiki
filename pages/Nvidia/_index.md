@@ -252,6 +252,14 @@ For Nix users, the equivalent of the above is
 hardware.nvidia.powerManagement.enable = true;
 ```
 
+{{< callout >}}
+
+According to Nvidia, suspend / wakeup issues should be solved on the Nvidia open
+drivers. If it still doesn't work and you're using the open drivers, it may be
+worth trying the proprietary ones, just in case.
+
+{{< /callout >}}
+
 # Still having issues?
 
 If you're still having issues after following this guide, you can join the
