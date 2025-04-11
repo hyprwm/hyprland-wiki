@@ -160,6 +160,7 @@ the AUR. Then, you can enable the Wayland flags by creating the file
 `~/.config/spotify-launcher.conf` with these contents:
 
 ```sh {filename="~/.config/spotify-launcher.conf"}
+[spotify]
 extra_arguments = ["--enable-features=UseOzonePlatform", "--ozone-platform=wayland"]
 ```
 
