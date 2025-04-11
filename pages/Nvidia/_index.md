@@ -45,20 +45,21 @@ computer, the Nouveau driver might work fine. This will likely be the case for
 
 # Proprietary driver setup
 
-On Arch Linux and other Arch-based distros, we would recommend using the dkms
+On Arch Linux and other Arch-based distros, we would recommend using the DKMS
 variety of the kernel modules, as it will support all installed kernels on your
-system. Refrain from using the default `nvidia` or `nvidia-open` kernel module
-packages as these can exhibit issues like the initramfs not being rebuilt in
-certain cases. They will also only work for the **default `linux` kernel**.
+system.
+
+If you are only using the `linux` or `linux-lts` kernels on your system, you can
+also use the non-dkms packages if you wish.
 
 For the entirely proprietary Nvidia drivers, you can therefore use the
 `nvidia-dkms` package. And for those wanting / needing to use the open source
-kernel modules, can use `nvidia-open-dkms`.
+kernel modules, `nvidia-open-dkms` can be used.
 
-These dkms packages rely on having the "headers" package installed for your
+These DKMS packages rely on having the "headers" package installed for your
 kernels of choice. So please make sure you have all relevant headers packages
-installed on your system, for example, if you have the default kernel and the
-LTS kernel, ensure you install both `linux-headers` and `linux-lts-headers`.
+installed on your system, for example, if you have the Zen kernel installed, you
+must ensure `linux-zen-headers` is also installed.
 
 ## Further Installation
 
