@@ -155,10 +155,10 @@ flags:
 
 To do this easily for Spotify, Arch Linux has a `spotify-launcher` package in
 their official repos. You should use that instead of the `spotify` package in
-the AUR. Then, enable the Wayland backend in `/etc/spotify-launcher.conf` by
-uncommenting this line:
+the AUR. Then, you can enable the Wayland flags by creating the file
+`~/.config/spotify-launcher.conf` with these contents:
 
-```sh {filename="/etc/spotify-launcher.conf"}
+```sh {filename="~/.config/spotify-launcher.conf"}
 extra_arguments = ["--enable-features=UseOzonePlatform", "--ozone-platform=wayland"]
 ```
 
