@@ -246,15 +246,15 @@ be cleared).
 ### Example Rules
 
 ```ini
-windowrule = move 100 100, kitty # moves kitty to 100 100
-windowrule = animation popin, kitty # sets the animation style for kitty
-windowrule = noblur, firefox # disables blur for firefox
-windowrule = move cursor -50% -50%, kitty # moves kitty to the center of the cursor
+windowrule = move 100 100, class:kitty # moves kitty to 100 100
+windowrule = animation popin, class:kitty # sets the animation style for kitty
+windowrule = noblur, class:firefox # disables blur for firefox
+windowrule = move cursor -50% -50%, class:kitty # moves kitty to the center of the cursor
 windowrule = bordercolor rgb(FF0000) rgb(880808), fullscreen:1 # set bordercolor to red if window is fullscreen
 windowrule = bordercolor rgb(00FF00), fullscreenstate:* 1 # set bordercolor to green if window's client fullscreen state is 1(maximize) (internal state can be anything)
 windowrule = bordercolor rgb(FFFF00), title:.*Hyprland.* # set bordercolor to yellow when title contains Hyprland
-windowrule = opacity 1.0 override 0.5 override 0.8 override, kitty # set opacity to 1.0 active, 0.5 inactive and 0.8 fullscreen for kitty
-windowrule = rounding 10, kitty # set rounding to 10 for kitty
+windowrule = opacity 1.0 override 0.5 override 0.8 override, class:kitty # set opacity to 1.0 active, 0.5 inactive and 0.8 fullscreen for kitty
+windowrule = rounding 10, class:kitty # set rounding to 10 for kitty
 windowrule = stayfocused,  class:(pinentry-)(.*) # fix pinentry losing focus
 ```
 
@@ -298,7 +298,7 @@ example, to set active and inactive opacity to 0.8, and make fullscreen windows
 fully opaque regardless of other opacity rules:
 
 ```ini
-windowrule = opacity 0.8 override 0.8 override 1.0 override, kitty
+windowrule = opacity 0.8 override 0.8 override 1.0 override, class:kitty
 ```
 
 {{< /callout >}}
