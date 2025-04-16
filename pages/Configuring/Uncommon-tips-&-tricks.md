@@ -189,6 +189,9 @@ The hotkey toggle will be WIN+F1, but you can change this to whatever you want.
 # Alt tab behaviour
 To mimic DE's alt-tab behaviour. Here is an example that uses foot, fzf [grim-hyprland](https://github.com/eriedaberrie/grim-hyprland) and chafa to the screenshot in the terminal.
 
+
+https://github.com/user-attachments/assets/2413ba54-0b6a-417e-97e7-95ad7c7ee411
+
 1. add this to your config
 ```ini
 bind = ALT, TAB, exec, hyprctl -q keyword animations:enabled false ; hyprctl -q dispatch exec "footclient -a alttab ~/.config/hypr/scripts/alttab/alttab.sh" ; hyprctl -q keyword unbind "ALT, TAB" ; hyprctl -q dispatch submap alttab
