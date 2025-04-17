@@ -103,6 +103,9 @@ Additional properties only present in per-device configs:
 - `enabled` -> (only for mice / touchpads / touchdevices / keyboards)
   - enables / disables the device (connects / disconnects from the on-screen cursor)
   - default: Enabled
+- `keybinds` -> (only for devices that send key events)
+  - enables / disables keybinds for the device
+  - default: Enabled
 
 Example config section:
 
