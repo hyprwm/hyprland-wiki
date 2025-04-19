@@ -185,3 +185,64 @@ bind = WIN, F1, exec, ~/.config/hypr/gamemode.sh
 ```
 
 The hotkey toggle will be WIN+F1, but you can change this to whatever you want.
+
+# Alt tab behaviour
+To mimic DE's alt-tab behaviour. Here is an example that uses foot, fzf [grim-hyprland](https://github.com/eriedaberrie/grim-hyprland) and chafa to the screenshot in the terminal.
+
+
+https://github.com/user-attachments/assets/2413ba54-0b6a-417e-97e7-95ad7c7ee411
+
+1. add this to your config
+```ini
+bind = ALT, TAB, exec, hyprctl -q keyword animations:enabled false ; hyprctl -q dispatch exec "footclient -a alttab ~/.config/hypr/scripts/alttab/alttab.sh" ; hyprctl -q keyword unbind "ALT, TAB" ; hyprctl -q dispatch submap alttab
+
+submap=alttab
+binde = ALT, tab, exec,	hyprctl -q dispatch sendshortcut ,tab,class:alttab
+binde = ALT SHIFT, tab, exec, hyprctl -q dispatch sendshortcut shift,tab,class:alttab
+
+bindrt = ALT, ALT_L, exec, ~/.config/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut ,return,class:alttab
+bind = ALT, escape, exec, ~/.config/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut ,escape,class:alttab
+submap = reset
+
+workspace = special:alttab, gapsout:0, gapsin:0, bordersize:0
+windowrule = noanim, class:alttab
+windowrule = stayfocused, class:alttab
+windowrule = workspace special:alttab, class:alttab
+windowrule = bordersize 0, class:alttab
+```
+
+2. create file `~/.config/hypr/scripts/alttab/alttab.sh && chmod +x ~/.config/hypr/scripts/alttab/alttab.sh` and add :
+```ini
+#!/bin/bash
+address=$(hyprctl -j clients | jq -r 'sort_by(.focusHistoryID) | .[] | select(.workspace.id >= 0) | "\(.address)\t\(.title)"' |
+	      fzf --color prompt:green,pointer:green,current-bg:-1,current-fg:green,gutter:-1,border:bright-black,current-hl:red,hl:red \
+		  --cycle \
+		  --sync \
+		  --bind tab:down,shift-tab:up,start:down,double-click:ignore \
+		  --wrap \
+		  --delimiter=$'\t' \
+		  --with-nth=2 \
+		  --preview "~/.config/hypr/scripts/alttab/preview.sh {}" \
+		  --preview-window=down:80% \
+		  --layout=reverse |
+	      awk -F"\t" '{print $1}')
+
+if [ -n "$address" ] ; then
+    hyprctl -q dispatch focuswindow address:$address
+fi
+
+hyprctl -q dispatch submap reset
+```
+I chose to exclude windows that are in special workspaces but it can be modified by removing `select(.workspace.id >= 0)`
+
+3. create file `~/.config/hypr/scripts/alttab/preview.sh && chmod +x ~/.config/hypr/scripts/alttab/preview.sh` and add :
+```ini
+#!/bin/bash
+line="$1"
+
+IFS=$'\t' read -r addr _ <<< "$line"
+dim=${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}
+
+grim -t png -l 0 -w "$addr" ~.config/hypr/scripts/alttab/preview.png
+chafa --animate false -s "$dim" "~/.config/hypr/scripts/alttab/preview.png"
+```
