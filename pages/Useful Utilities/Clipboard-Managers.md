@@ -129,6 +129,20 @@ bind = SUPER, V, exec, clipman pick -t STDOUT | fuzzel --dmenu | wl-copy
 ...and so on. For further information, please refer to the repository
 mentioned above.
 
+## wl-clip-persist
+
+Add the following lines to `hyprland.conf`. No other changes required, the basic wayland copy/paste mechanisms will now persist even when the source window is closed.
+
+```ini
+exec-once = wl-clip-persist --clipboard regular
+```
+
+Can also apply to the primary clipboard too, but this is not recommended because the primary clipboard [has unintended side-effects for some GTK applications.](https://github.com/Linus789/wl-clip-persist#primary-selection-mode-breaks-the-selection-system-3)
+
+```ini
+exec-once = wl-clip-persist --clipboard primary
+```
+
 ## clipse
 
 Start by adding the following line to your `hyprland.conf`
