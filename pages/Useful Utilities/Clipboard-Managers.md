@@ -131,7 +131,7 @@ mentioned above.
 
 ## wl-clip-persist
 
-Add the following lines to `hyprland.conf`. No other changes required, the basic wayland copy/paste mechanisms will now persist even when the source window is closed.
+Add the following line to `hyprland.conf`. No other changes are required. The basic wayland copy/paste mechanisms will now persist even when the source window is closed.
 
 ```ini
 exec-once = wl-clip-persist --clipboard regular
