@@ -137,7 +137,7 @@ Add the following lines to `hyprland.conf`. No other changes required, the basic
 exec-once = wl-clip-persist --clipboard regular
 ```
 
-Can also apply to the primary clipboard too, but this is not recommended because the primary clipboard [has unintended side-effects for some GTK applications.](https://github.com/Linus789/wl-clip-persist#primary-selection-mode-breaks-the-selection-system-3)
+Can also apply to the primary clipboard (i.e. middle click to paste selection) too, but this is not recommended because the primary clipboard [has unintended side-effects for some GTK applications.](https://github.com/Linus789/wl-clip-persist#primary-selection-mode-breaks-the-selection-system-3)
 
 ```ini
 exec-once = wl-clip-persist --clipboard primary
