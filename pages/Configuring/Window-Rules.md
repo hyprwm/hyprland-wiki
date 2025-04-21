@@ -155,6 +155,7 @@ The following rules can also be set with [`setprop`](../Dispatchers#setprop):
 | noborder \[on\] | disables borders for the window |
 | nodim \[on\] | disables window dimming for the window |
 | nofocus \[on\] | disables focus to the window |
+| nofollowmouse \[on\] | prevents the window from being focused when the mouse moves over it when `input:follow_mouse=1` is set |
 | nomaxsize \[on\] | disables max size for the window |
 | norounding \[on\] | disables rounding for the window |
 | noshadow \[on\] | disables shadows for the window |
