@@ -16,7 +16,7 @@ This setup is very common in the likes of gaming laptops, GPU-passthrough
 
 For this case, the writer is taking the example of their laptop.
 
-Upon running `lspci | grep -E 'VGA|3D'`, One can list all the video devices
+Upon running `lspci -d ::03xx'`, one can list all the PCI display controllers
 available.
 
 ```plain
