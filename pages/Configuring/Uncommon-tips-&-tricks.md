@@ -194,11 +194,11 @@ https://github.com/user-attachments/assets/2413ba54-0b6a-417e-97e7-95ad7c7ee411
 
 1. add this to your config
 ```ini
-bind = ALT, TAB, exec, hyprctl -q keyword animations:enabled false ; hyprctl -q dispatch exec "footclient -a alttab ~/.config/hypr/scripts/alttab/alttab.sh" ; hyprctl -q keyword unbind "ALT, TAB" ; hyprctl -q dispatch submap alttab
+bind = ALT, tab, exec, hyprctl -q keyword animations:enabled false ; hyprctl -q dispatch exec "footclient -a alttab ~/.config/hypr/scripts/alttab/alttab.sh" ; hyprctl -q keyword unbind "ALT, TAB" ; hyprctl -q dispatch submap alttab
 
 submap=alttab
-binde = ALT, tab, exec,	hyprctl -q dispatch sendshortcut ,tab,class:alttab
-binde = ALT SHIFT, tab, exec, hyprctl -q dispatch sendshortcut shift,tab,class:alttab
+bind = ALT, tab, sendshortcut, , tab, class:alttab
+bind = ALT SHIFT, tab, sendshortcut, shift, tab, class:alttab
 
 bindrt = ALT, ALT_L, exec, ~/.config/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut ,return,class:alttab
 bind = ALT, escape, exec, ~/.config/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut ,escape,class:alttab
@@ -249,11 +249,8 @@ chafa --animate false -s "$dim" "~/.config/hypr/scripts/alttab/preview.png"
 4. create file `touch ~/.config/hypr/scripts/alttab/disable.sh && chmod +x ~/.config/hypr/scripts/alttab/disable.sh` and add :
 ```ini
 #!/bin/bash
-animations=$(cat /home/aphe/.config/hypr/scripts/battery_hungry/animations_status)
-if [[ $animations == 1 ]] ; then
-    hyprctl -q keyword animations:enabled true
-fi
+hyprctl -q keyword animations:enabled true
 
-hyprctl -q keyword unbind "ALT, TAB"
-hyprctl -q keyword bind ALT, TAB, exec, "hyprctl -q keyword animations:enabled false ; hyprctl -q dispatch exec 'footclient -a alttab ~/.config/hypr/scripts/alttab/alttab.sh' ; hyprctl -q keyword unbind 'ALT, TAB' ; hyprctl -q dispatch submap alttab"
+hyprctl -q keyword unbind "ALT, tab"
+hyprctl -q keyword bind ALT, tab, exec, "hyprctl -q keyword animations:enabled false ; hyprctl -q dispatch exec 'footclient -a alttab ~/.config/hypr/scripts/alttab/alttab.sh' ; hyprctl -q keyword unbind 'ALT, tab' ; hyprctl -q dispatch submap alttab"
 ```
