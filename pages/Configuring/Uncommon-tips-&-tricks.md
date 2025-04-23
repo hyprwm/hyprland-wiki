@@ -211,7 +211,7 @@ windowrule = workspace special:alttab, class:alttab
 windowrule = bordersize 0, class:alttab
 ```
 
-2. create file `~/.config/hypr/scripts/alttab/alttab.sh && chmod +x ~/.config/hypr/scripts/alttab/alttab.sh` and add :
+2. create file `touch ~/.config/hypr/scripts/alttab/alttab.sh && chmod +x ~/.config/hypr/scripts/alttab/alttab.sh` and add :
 ```ini
 #!/bin/bash
 address=$(hyprctl -j clients | jq -r 'sort_by(.focusHistoryID) | .[] | select(.workspace.id >= 0) | "\(.address)\t\(.title)"' |
@@ -235,7 +235,7 @@ hyprctl -q dispatch submap reset
 ```
 I chose to exclude windows that are in special workspaces but it can be modified by removing `select(.workspace.id >= 0)`
 
-3. create file `~/.config/hypr/scripts/alttab/preview.sh && chmod +x ~/.config/hypr/scripts/alttab/preview.sh` and add :
+3. create file `touch ~/.config/hypr/scripts/alttab/preview.sh && chmod +x ~/.config/hypr/scripts/alttab/preview.sh` and add :
 ```ini
 #!/bin/bash
 line="$1"
@@ -245,4 +245,15 @@ dim=${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}
 
 grim -t png -l 0 -w "$addr" ~.config/hypr/scripts/alttab/preview.png
 chafa --animate false -s "$dim" "~/.config/hypr/scripts/alttab/preview.png"
+```
+4. create file `touch ~/.config/hypr/scripts/alttab/disable.sh && chmod +x ~/.config/hypr/scripts/alttab/disable.sh` and add :
+```ini
+#!/bin/bash
+animations=$(cat /home/aphe/.config/hypr/scripts/battery_hungry/animations_status)
+if [[ $animations == 1 ]] ; then
+    hyprctl -q keyword animations:enabled true
+fi
+
+hyprctl -q keyword unbind "ALT, TAB"
+hyprctl -q keyword bind "ALT, TAB, exec, $HOME/.config/hypr/scripts/alttab/enable.sh"
 ```
