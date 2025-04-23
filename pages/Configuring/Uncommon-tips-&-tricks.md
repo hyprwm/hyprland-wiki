@@ -193,7 +193,7 @@ To mimic DE's alt-tab behaviour. Here is an example that uses foot, fzf [grim-hy
 https://github.com/user-attachments/assets/2413ba54-0b6a-417e-97e7-95ad7c7ee411
 
 1. add this to your config
-```ini
+```bash
 bind = ALT, tab, exec, hyprctl -q keyword animations:enabled false ; hyprctl -q dispatch exec "footclient -a alttab ~/.config/hypr/scripts/alttab/alttab.sh" ; hyprctl -q keyword unbind "ALT, TAB" ; hyprctl -q dispatch submap alttab
 
 submap=alttab
@@ -212,8 +212,7 @@ windowrule = bordersize 0, class:alttab
 ```
 
 2. create file `touch ~/.config/hypr/scripts/alttab/alttab.sh && chmod +x ~/.config/hypr/scripts/alttab/alttab.sh` and add :
-```ini
-#!/bin/bash
+```bash
 address=$(hyprctl -j clients | jq -r 'sort_by(.focusHistoryID) | .[] | select(.workspace.id >= 0) | "\(.address)\t\(.title)"' |
 	      fzf --color prompt:green,pointer:green,current-bg:-1,current-fg:green,gutter:-1,border:bright-black,current-hl:red,hl:red \
 		  --cycle \
@@ -236,8 +235,7 @@ hyprctl -q dispatch submap reset
 I chose to exclude windows that are in special workspaces but it can be modified by removing `select(.workspace.id >= 0)`
 
 3. create file `touch ~/.config/hypr/scripts/alttab/preview.sh && chmod +x ~/.config/hypr/scripts/alttab/preview.sh` and add :
-```ini
-#!/bin/bash
+```bash
 line="$1"
 
 IFS=$'\t' read -r addr _ <<< "$line"
@@ -247,8 +245,7 @@ grim -t png -l 0 -w "$addr" ~.config/hypr/scripts/alttab/preview.png
 chafa --animate false -s "$dim" "~/.config/hypr/scripts/alttab/preview.png"
 ```
 4. create file `touch ~/.config/hypr/scripts/alttab/disable.sh && chmod +x ~/.config/hypr/scripts/alttab/disable.sh` and add :
-```ini
-#!/bin/bash
+```bash
 hyprctl -q keyword animations:enabled true
 
 hyprctl -q keyword unbind "ALT, tab"
