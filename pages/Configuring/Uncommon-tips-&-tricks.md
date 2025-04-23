@@ -255,5 +255,5 @@ if [[ $animations == 1 ]] ; then
 fi
 
 hyprctl -q keyword unbind "ALT, TAB"
-hyprctl -q keyword bind "ALT, TAB, exec, $HOME/.config/hypr/scripts/alttab/enable.sh"
+hyprctl -q keyword bind ALT, TAB, exec, "hyprctl -q keyword animations:enabled false ; hyprctl -q dispatch exec 'footclient -a alttab ~/.config/hypr/scripts/alttab/alttab.sh' ; hyprctl -q keyword unbind 'ALT, TAB' ; hyprctl -q dispatch submap alttab"
 ```
