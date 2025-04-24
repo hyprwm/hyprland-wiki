@@ -24,6 +24,7 @@ the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 | MOD | a string modmask (e.g. `SUPER` or `SUPERSHIFT` or `SUPER + SHIFT` or `SUPER and SHIFT` or `CTRL_SHIFT` or empty for none. You are allowed to put any separators you please except for a `,`) |
 | str | a string |
 | gradient | a gradient, in the form of `color color ... [angle]` where `color` is a color (see above) and angle is an angle in degrees, in the format of `123deg` e.g. `45deg` (e.g. `rgba(11ee11ff) rgba(1111eeff) 45deg`) Angle is optional and will default to `0deg` |
+| font_weight | an integer between 100 and 1000, or one of the following presets: `thin` `ultralight` `light` `semilight` `book` `normal` `medium` `semibold` `bold` `ultrabold` `heavy` `ultraheavy` |
 
 {{< callout type=info >}}
 
@@ -358,8 +359,11 @@ _Subcategory `group:groupbar:`_
 | enabled | enables groupbars | bool | true |
 | font_family | font used to display groupbar titles, use `misc:font_family` if not specified | string | [\[Empty]] |
 | font_size | font size of groupbar title | int | 8 |
+| font_weight_active | font weight of active groupbar title | font_weight | normal |
+| font_weight_inactive | font weight of inactive groupbar title | font_weight | normal |
 | gradients | enables gradients | bool | false |
 | height | height of the groupbar | int | 14 |
+| indicator_gap | height of gap between groupbar indicator and title | int | 0 |
 | indicator_height | height of the groupbar indicator | int | 3 |
 | stacked | render the groupbar as a vertical stack | bool | false |
 | priority | sets the decoration priority for groupbars | int | 3 |
