@@ -185,7 +185,9 @@ bind = WIN, F1, exec, ~/.config/hypr/gamemode.sh
 ```
 
 The hotkey toggle will be WIN+F1, but you can change this to whatever you want.
+
 ## Zoom
+
 To zoom using Hyprland's built-in zoom utility
 
 ```ini
