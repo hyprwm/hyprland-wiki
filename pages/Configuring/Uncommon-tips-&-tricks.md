@@ -205,3 +205,86 @@ bind = $mod SHIFT, minus, exec, hyprctl -q keyword cursor:zoom_factor 1
 bind = $mod SHIFT, KP_SUBTRACT, exec, hyprctl -q keyword cursor:zoom_factor 1
 bind = $mod SHIFT, 0, exec, hyprctl -q keyword cursor:zoom_factor 1
 ```
+
+# Alt tab behaviour
+To mimic DE's alt-tab behaviour. Here is an example that uses foot, fzf, [grim-hyprland](https://github.com/eriedaberrie/grim-hyprland) and chafa to the screenshot in the terminal.
+
+https://github.com/user-attachments/assets/2413ba54-0b6a-417e-97e7-95ad7c7ee411
+
+Dependencies :
+- foot
+- fzf
+- [grim-hyprland](https://github.com/eriedaberrie/grim-hyprland)
+- chafa
+- jq
+
+1. add this to your config
+
+```ini
+exec-once = foot --server
+
+bind = ALT, tab, exec, hyprctl -q keyword animations:enabled false ; hyprctl -q dispatch exec "footclient -a alttab $XDG_CONFIG_HOME/hypr/scripts/alttab/alttab.sh" ; hyprctl -q keyword unbind "ALT, TAB" ; hyprctl -q dispatch submap alttab
+
+submap=alttab
+bind = ALT, tab, sendshortcut, , tab, class:alttab
+bind = ALT SHIFT, tab, sendshortcut, shift, tab, class:alttab
+
+bindrt = ALT, ALT_L, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut ,return,class:alttab
+bind = ALT, escape, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut ,escape,class:alttab
+submap = reset
+
+workspace = special:alttab, gapsout:0, gapsin:0, bordersize:0
+windowrule = noanim, class:alttab
+windowrule = stayfocused, class:alttab
+windowrule = workspace special:alttab, class:alttab
+windowrule = bordersize 0, class:alttab
+```
+
+2. create file `touch $XDG_CONFIG_HOME/hypr/scripts/alttab/alttab.sh && chmod +x $XDG_CONFIG_HOME/hypr/scripts/alttab/alttab.sh` and add:
+
+```bash {filename="alttab.sh"}
+#!/usr/bin/env bash
+address=$(hyprctl -j clients | jq -r 'sort_by(.focusHistoryID) | .[] | select(.workspace.id >= 0) | "\(.address)\t\(.title)"' |
+	      fzf --color prompt:green,pointer:green,current-bg:-1,current-fg:green,gutter:-1,border:bright-black,current-hl:red,hl:red \
+		  --cycle \
+		  --sync \
+		  --bind tab:down,shift-tab:up,start:down,double-click:ignore \
+		  --wrap \
+		  --delimiter=$'\t' \
+		  --with-nth=2 \
+		  --preview "$XDG_CONFIG_HOME/hypr/scripts/alttab/preview.sh {}" \
+		  --preview-window=down:80% \
+		  --layout=reverse |
+	      awk -F"\t" '{print $1}')
+
+if [ -n "$address" ] ; then
+    hyprctl -q dispatch focuswindow address:$address
+fi
+
+hyprctl -q dispatch submap reset
+```
+
+I chose to exclude windows that are in special workspaces but it can be modified by removing `select(.workspace.id >= 0)`
+
+3. create file `touch $XDG_CONFIG_HOME/hypr/scripts/alttab/preview.sh && chmod +x $XDG_CONFIG_HOME/hypr/scripts/alttab/preview.sh` and add:
+
+```bash {filename="preview.sh"}
+#!/usr/bin/env bash
+line="$1"
+
+IFS=$'\t' read -r addr _ <<< "$line"
+dim=${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}
+
+grim -t png -l 0 -w "$addr" ~.config/hypr/scripts/alttab/preview.png
+chafa --animate false -s "$dim" "$XDG_CONFIG_HOME/hypr/scripts/alttab/preview.png"
+```
+
+4. create file `touch $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh && chmod +x $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh` and add:
+
+```bash {filename="disable.sh"}
+#!/usr/bin/env bash
+hyprctl -q keyword animations:enabled true
+
+hyprctl -q keyword unbind "ALT, tab"
+hyprctl -q keyword bind ALT, tab, exec, "hyprctl -q keyword animations:enabled false ; hyprctl -q dispatch exec 'footclient -a alttab $XDG_CONFIG_HOME/hypr/scripts/alttab/alttab.sh' ; hyprctl -q keyword unbind 'ALT, tab' ; hyprctl -q dispatch submap alttab"
+```
