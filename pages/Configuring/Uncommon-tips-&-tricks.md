@@ -156,7 +156,7 @@ kill them.
 For increased performance in games, or for less distractions at a keypress
 
 1. create file
-   `$XDG_CONFIG_HOME/hypr/gamemode.sh && chmod +x $XDG_CONFIG_HOME/hypr/gamemode.sh` and add:
+   `~/.config/hypr/gamemode.sh && chmod +x ~/.config/hypr/gamemode.sh` and add:
 
 ```bash
 #!/usr/bin/env sh
@@ -181,7 +181,7 @@ pretty stuff. Otherwise, the script reloads your config to grab your defaults.
 2. Add this to your `hyprland.conf`:
 
 ```ini
-bind = WIN, F1, exec, $XDG_CONFIG_HOME/hypr/gamemode.sh
+bind = WIN, F1, exec, ~/.config/hypr/gamemode.sh
 ```
 
 The hotkey toggle will be WIN+F1, but you can change this to whatever you want.
