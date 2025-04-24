@@ -206,7 +206,7 @@ bind = $mod SHIFT, KP_SUBTRACT, exec, hyprctl -q keyword cursor:zoom_factor 1
 bind = $mod SHIFT, 0, exec, hyprctl -q keyword cursor:zoom_factor 1
 ```
 
-# Alt tab behaviour
+## Alt tab behaviour
 To mimic DE's alt-tab behaviour. Here is an example that uses foot, fzf, [grim-hyprland](https://github.com/eriedaberrie/grim-hyprland) and chafa to the screenshot in the terminal.
 
 https://github.com/user-attachments/assets/2413ba54-0b6a-417e-97e7-95ad7c7ee411
