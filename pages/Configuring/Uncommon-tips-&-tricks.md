@@ -186,6 +186,26 @@ bind = WIN, F1, exec, ~/.config/hypr/gamemode.sh
 
 The hotkey toggle will be WIN+F1, but you can change this to whatever you want.
 
+## Zoom
+
+To zoom using Hyprland's built-in zoom utility
+
+```ini
+bind = $mod, mouse_down, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 * 1.1}')
+bind = $mod, mouse_up, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 * 0.9}')
+
+binde = $mod, equal, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 * 1.1}')
+binde = $mod, minus, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 * 0.9}')
+binde = $mod, KP_ADD, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 * 1.1}')
+binde = $mod, KP_SUBTRACT, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 * 0.9}')
+
+bind = $mod SHIFT, mouse_up, exec, hyprctl -q keyword cursor:zoom_factor 1
+bind = $mod SHIFT, mouse_down, exec, hyprctl -q keyword cursor:zoom_factor 1
+bind = $mod SHIFT, minus, exec, hyprctl -q keyword cursor:zoom_factor 1
+bind = $mod SHIFT, KP_SUBTRACT, exec, hyprctl -q keyword cursor:zoom_factor 1
+bind = $mod SHIFT, 0, exec, hyprctl -q keyword cursor:zoom_factor 1
+```
+
 # Alt tab behaviour
 To mimic DE's alt-tab behaviour. Here is an example that uses foot, fzf, [grim-hyprland](https://github.com/eriedaberrie/grim-hyprland) and chafa to the screenshot in the terminal.
 
@@ -196,8 +216,10 @@ Dependencies :
 - fzf
 - [grim-hyprland](https://github.com/eriedaberrie/grim-hyprland)
 - chafa
+- jq
 
 1. add this to your config
+
 ```ini
 exec-once = foot --server
 
@@ -218,7 +240,8 @@ windowrule = workspace special:alttab, class:alttab
 windowrule = bordersize 0, class:alttab
 ```
 
-2. create file `touch $XDG_CONFIG_HOME/hypr/scripts/alttab/alttab.sh && chmod +x $XDG_CONFIG_HOME/hypr/scripts/alttab/alttab.sh` and add :
+2. create file `touch $XDG_CONFIG_HOME/hypr/scripts/alttab/alttab.sh && chmod +x $XDG_CONFIG_HOME/hypr/scripts/alttab/alttab.sh` and add:
+
 ```bash {filename="alttab.sh"}
 #!/usr/bin/env bash
 address=$(hyprctl -j clients | jq -r 'sort_by(.focusHistoryID) | .[] | select(.workspace.id >= 0) | "\(.address)\t\(.title)"' |
@@ -240,9 +263,11 @@ fi
 
 hyprctl -q dispatch submap reset
 ```
+
 I chose to exclude windows that are in special workspaces but it can be modified by removing `select(.workspace.id >= 0)`
 
-3. create file `touch $XDG_CONFIG_HOME/hypr/scripts/alttab/preview.sh && chmod +x $XDG_CONFIG_HOME/hypr/scripts/alttab/preview.sh` and add :
+3. create file `touch $XDG_CONFIG_HOME/hypr/scripts/alttab/preview.sh && chmod +x $XDG_CONFIG_HOME/hypr/scripts/alttab/preview.sh` and add:
+
 ```bash {filename="preview.sh"}
 #!/usr/bin/env bash
 line="$1"
@@ -253,7 +278,9 @@ dim=${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}
 grim -t png -l 0 -w "$addr" ~.config/hypr/scripts/alttab/preview.png
 chafa --animate false -s "$dim" "$XDG_CONFIG_HOME/hypr/scripts/alttab/preview.png"
 ```
-4. create file `touch $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh && chmod +x $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh` and add :
+
+4. create file `touch $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh && chmod +x $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh` and add:
+
 ```bash {filename="disable.sh"}
 #!/usr/bin/env bash
 hyprctl -q keyword animations:enabled true
