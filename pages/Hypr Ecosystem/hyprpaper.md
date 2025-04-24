@@ -150,6 +150,23 @@ WALLPAPER=$(find "$WALLPAPER_DIR" -type f ! -name "$(basename "$CURRENT_WALL")" 
 hyprctl hyprpaper reload ,"$WALLPAPER"
 ```
 
+For a multiple-monitor setup, you can use this modified script that randomizes the wallpaper of your currently focused monitor:
+
+```bash
+#!/usr/bin/env bash
+
+WALLPAPER_DIR="$HOME/wallpapers/"
+CURRENT_WALL=$(hyprctl hyprpaper listloaded)
+# Get the name of the focused monitor with hyprctl
+FOCUSED_MONITOR=$(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name')
+# Get a random wallpaper that is not the current one
+WALLPAPER=$(find "$WALLPAPER_DIR" -type f ! -name "$(basename "$CURRENT_WALL")" | shuf -n 1)
+
+# Apply the selected wallpaper
+hyprctl hyprpaper reload "$FOCUSED_MONITOR","$WALLPAPER"
+
+```
+
 Make sure to change the `WALLPAPER_DIR` to your own wallpaper directory. You can then run this
 script in your Hyprland config with a keybind.
 
