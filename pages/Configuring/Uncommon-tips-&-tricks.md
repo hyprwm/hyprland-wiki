@@ -197,12 +197,9 @@ binde = $mod, minus, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getop
 binde = $mod, KP_ADD, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 * 1.1}')
 binde = $mod, KP_SUBTRACT,	exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 * 0.9}')
 
-
-
 bind = $mod SHIFT, mouse_up, exec, hyprctl -q keyword cursor:zoom_factor 1
 bind = $mod SHIFT, mouse_down, exec, hyprctl -q keyword cursor:zoom_factor 1
 bind = $mod SHIFT, minus, exec, hyprctl -q keyword cursor:zoom_factor 1
 bind = $mod SHIFT, KP_SUBTRACT, exec, hyprctl -q keyword cursor:zoom_factor 1
 bind = $mod SHIFT, 0, exec, hyprctl -q keyword cursor:zoom_factor 1
-
 ```
