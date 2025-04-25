@@ -114,6 +114,66 @@ bind = $mod, S, movetoworkspace, special:magic
 bind = $mod, S, togglespecialworkspace, magic
 ```
 
+## Show desktop
+
+This approach uses same principle as the `Minimize windows using special workspaces` section.
+It moves all windows from current workspace to a `special` workspace named `desktop`.
+Showing desktop state is remembered per workspace.
+
+Create a script:
+```sh
+#!/usr/bin/env sh
+
+TMP_FILE="/tmp/hyprland-show-desktop"
+
+NUMBER_HIDDEN_WINDOWS=$(hyprctl workspaces -j | jq '.[] | select (.name=="special:desktop") | .windows')
+
+CW=$(hyprctl monitors -j | jq '.[] | .activeWorkspace | .name' | sed 's/"//g')
+
+echo $CW
+echo $NUMBER_HIDDEN_WINDOWS
+
+if [ -s "$TMP_FILE-$CW" ]; then
+  readarray -d $'\n' -t AA <<< $(< "$TMP_FILE-$CW")
+
+  for address in "${AA[@]}"
+  do
+    echo "HERE"
+    cmd="hyprctl dispatch movetoworkspacesilent name:$CW,address:$address"
+    eval $cmd
+  done
+
+  rm "$TMP_FILE-$CW"
+else
+  COMMAND="hyprctl clients -j | jq '.[] | select (.workspace .name == \"$CW\")'"
+  echo $COMMAND
+  NHW="$( eval $COMMAND | jq '.address' )"
+ 
+  readarray -d $'\n' -t AA <<< $NHW
+
+  TMP_FILES=""
+
+  for address in "${AA[@]}"
+  do
+    address=$(sed 's/"//g' <<< $address )
+
+    if [[ -n address ]]; then
+      TMP_ADDRESS+="$address\n"
+    fi
+
+    cmd="hyprctl dispatch movetoworkspacesilent special:desktop,address:$address"
+    eval $cmd
+  done
+
+  echo -e "$TMP_ADDRESS" | sed -e '/^$/d' > "$TMP_FILE-$CW"
+fi
+```
+
+then bind it:
+```ini
+  bind = $mainMod , D, exec, [PATH TO SCRIPT]
+```
+
 ## Minimize Steam instead of killing
 
 Steam will exit entirely when its last window is closed using the `killactive`
