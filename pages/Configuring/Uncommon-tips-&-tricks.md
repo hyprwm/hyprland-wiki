@@ -121,6 +121,7 @@ It moves all windows from current workspace to a special workspace named `deskto
 Showing desktop state is remembered per workspace.
 
 Create a script:
+
 ```sh
 #!/usr/bin/env sh
 
