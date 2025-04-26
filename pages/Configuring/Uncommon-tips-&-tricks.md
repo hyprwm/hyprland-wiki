@@ -171,6 +171,7 @@ fi
 ```
 
 then bind it:
+
 ```ini
   bind = $mainMod , D, exec, <PATH TO SCRIPT>
 ```
