@@ -134,9 +134,10 @@ if [ -s "$TMP_FILE-$CURRENT_WORKSPACE" ]; then
 
   for address in "${ADDRESS_ARRAY[@]}"
   do
-    cmd="hyprctl dispatch movetoworkspacesilent name:$CURRENT_WORKSPACE,address:$address"
-    eval $cmd
+    CMDS+=" dispatch movetoworkspacesilent name:$CURRENT_WORKSPACE,address:$address;"
   done
+
+  hyprctl --batch$CMDS
 
   rm "$TMP_FILE-$CURRENT_WORKSPACE"
 else
