@@ -117,7 +117,7 @@ bind = $mod, S, togglespecialworkspace, magic
 ## Show desktop
 
 This approach uses same principle as the [Minimize windows using special workspaces](#minimize-windows-using-special-workspaces) section.
-It moves all windows from current workspace to a `special` workspace named `desktop`.
+It moves all windows from current workspace to a special workspace named `desktop`.
 Showing desktop state is remembered per workspace.
 
 Create a script:
