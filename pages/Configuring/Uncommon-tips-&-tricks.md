@@ -123,38 +123,30 @@ Showing desktop state is remembered per workspace.
 Create a script:
 
 ```sh
-#!/usr/bin/env sh
+#!/bin/env sh
 
-TMP_FILE="/tmp/hyprland-show-desktop"
+TMP_FILE="$XDG_RUNTIME_DIR/hyprland-show-desktop"
 
-NUMBER_HIDDEN_WINDOWS=$(hyprctl workspaces -j | jq '.[] | select (.name=="special:desktop") | .windows')
+CURRENT_WORKSPACE=$(hyprctl monitors -j | jq '.[] | .activeWorkspace | .name' | sed 's/"//g')
 
-CW=$(hyprctl monitors -j | jq '.[] | .activeWorkspace | .name' | sed 's/"//g')
+if [ -s "$TMP_FILE-$CURRENT_WORKSPACE" ]; then
+  readarray -d $'\n' -t ADDRESS_ARRAY <<< $(< "$TMP_FILE-$CURRENT_WORKSPACE")
 
-echo $CW
-echo $NUMBER_HIDDEN_WINDOWS
-
-if [ -s "$TMP_FILE-$CW" ]; then
-  readarray -d $'\n' -t AA <<< $(< "$TMP_FILE-$CW")
-
-  for address in "${AA[@]}"
+  for address in "${ADDRESS_ARRAY[@]}"
   do
-    echo "HERE"
-    cmd="hyprctl dispatch movetoworkspacesilent name:$CW,address:$address"
+    cmd="hyprctl dispatch movetoworkspacesilent name:$CURRENT_WORKSPACE,address:$address"
     eval $cmd
   done
 
-  rm "$TMP_FILE-$CW"
+  rm "$TMP_FILE-$CURRENT_WORKSPACE"
 else
-  COMMAND="hyprctl clients -j | jq '.[] | select (.workspace .name == \"$CW\")'"
-  echo $COMMAND
-  NHW="$( eval $COMMAND | jq '.address' )"
+  COMMAND="hyprctl clients -j | jq '.[] | select (.workspace .name == \"$CURRENT_WORKSPACE\")'"
+
+  NUMBER_HIDDEN_WINDOWS="$( eval $COMMAND | jq '.address' )"
  
-  readarray -d $'\n' -t AA <<< $NHW
+  readarray -d $'\n' -t ADDRESS_ARRAY <<< $NUMBER_HIDDEN_WINDOWS
 
-  TMP_FILES=""
-
-  for address in "${AA[@]}"
+  for address in "${ADDRESS_ARRAY[@]}"
   do
     address=$(sed 's/"//g' <<< $address )
 
@@ -162,11 +154,12 @@ else
       TMP_ADDRESS+="$address\n"
     fi
 
-    cmd="hyprctl dispatch movetoworkspacesilent special:desktop,address:$address"
-    eval $cmd
+    CMDS+=" dispatch movetoworkspacesilent special:desktop,address:$address;"
   done
 
-  echo -e "$TMP_ADDRESS" | sed -e '/^$/d' > "$TMP_FILE-$CW"
+  hyprctl --batch$CMDS
+
+  echo -e "$TMP_ADDRESS" | sed -e '/^$/d' > "$TMP_FILE-$CURRENT_WORKSPACE"
 fi
 ```
 
