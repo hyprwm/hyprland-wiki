@@ -172,7 +172,7 @@ fi
 
 then bind it:
 ```ini
-  bind = $mainMod , D, exec, [PATH TO SCRIPT]
+  bind = $mainMod , D, exec, <PATH TO SCRIPT>
 ```
 
 ## Minimize Steam instead of killing
