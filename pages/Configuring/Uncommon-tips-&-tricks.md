@@ -134,18 +134,16 @@ if [ -s "$TMP_FILE-$CURRENT_WORKSPACE" ]; then
 
   for address in "${ADDRESS_ARRAY[@]}"
   do
-    CMDS+=" dispatch movetoworkspacesilent name:$CURRENT_WORKSPACE,address:$address;"
+    CMDS+="dispatch movetoworkspacesilent name:$CURRENT_WORKSPACE,address:$address;"
   done
 
-  hyprctl --batch$CMDS
+  hyprctl --batch $CMDS
 
   rm "$TMP_FILE-$CURRENT_WORKSPACE"
 else
-  COMMAND="hyprctl clients -j | jq '.[] | select (.workspace .name == \"$CURRENT_WORKSPACE\")'"
+  HIDDEN_WINDOWS=$(hyprctl clients -j | jq --arg CW "$CURRENT_WORKSPACE" '.[] | select (.workspace .name == $CW) | .address')
 
-  NUMBER_HIDDEN_WINDOWS="$( eval $COMMAND | jq '.address' )"
- 
-  readarray -d $'\n' -t ADDRESS_ARRAY <<< $NUMBER_HIDDEN_WINDOWS
+  readarray -d $'\n' -t ADDRESS_ARRAY <<< $HIDDEN_WINDOWS
 
   for address in "${ADDRESS_ARRAY[@]}"
   do
@@ -155,10 +153,10 @@ else
       TMP_ADDRESS+="$address\n"
     fi
 
-    CMDS+=" dispatch movetoworkspacesilent special:desktop,address:$address;"
+    CMDS+="dispatch movetoworkspacesilent special:desktop,address:$address;"
   done
 
-  hyprctl --batch$CMDS
+  hyprctl --batch $CMDS
 
   echo -e "$TMP_ADDRESS" | sed -e '/^$/d' > "$TMP_FILE-$CURRENT_WORKSPACE"
 fi
