@@ -137,7 +137,7 @@ if [ -s "$TMP_FILE-$CURRENT_WORKSPACE" ]; then
     CMDS+="dispatch movetoworkspacesilent name:$CURRENT_WORKSPACE,address:$address;"
   done
 
-  hyprctl --batch $CMDS
+  hyprctl --batch "$CMDS"
 
   rm "$TMP_FILE-$CURRENT_WORKSPACE"
 else
@@ -156,7 +156,7 @@ else
     CMDS+="dispatch movetoworkspacesilent special:desktop,address:$address;"
   done
 
-  hyprctl --batch $CMDS
+  hyprctl --batch "$CMDS"
 
   echo -e "$TMP_ADDRESS" | sed -e '/^$/d' > "$TMP_FILE-$CURRENT_WORKSPACE"
 fi
