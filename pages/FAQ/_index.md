@@ -137,6 +137,10 @@ rate, and rapidly changing refresh rates (for example, when the screen
 momentarily updates after pressing a key) will cause rapid changes in
 brightness.
 
+If you want VRR always enabled regardless,
+the flickering can be mitigated or even removed by changing the VRR range in your monitor's EDID.
+More information in [the ArchWiki](https://wiki.archlinux.org/title/Kernel_mode_setting#Forcing_modes_and_EDID).
+
 ### How do I update?
 
 Open a terminal where you cloned the repo.
