@@ -24,6 +24,13 @@ Before setting up permissions, make sure you enable them by setting
 
 ### Configuring permissions
 
+{{< callout type=important >}}
+
+Permissions set up in the config are **not** reloaded on-the-fly and require a Hyprland
+restart for security reasons.
+
+{{</ callout >}}
+
 Configuring them is simple:
 
 ```ini
