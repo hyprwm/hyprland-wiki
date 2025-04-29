@@ -52,6 +52,9 @@ There are 3 modes:
  - If denied, will render a black screen with a "permission denied" text.
  - Why deny? For apps / scripts that might maliciously try to capture your screen without your knowledge by using wayland protocols directly.
 
+`plugin`:
+ - Access to load a plugin. Can be either a regex for the app binary, or plugin path.
+ - Do _not_ allow `hyprctl` to load your plugins by default (attacker could issue `hyprctl plugin load /tmp/my-malicious-plugin.so`)
 
 ## Notes
 

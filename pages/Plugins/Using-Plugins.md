@@ -34,7 +34,22 @@ manual instructions, see [here](#manual).
 
 ### hyprpm
 
-Make sure you have the required dependencies: `cpio`, `cmake`.
+{{< callout type=info >}}
+
+If you are using [permission management](../Configuring/Permissions.md),
+you should allow hyprpm to load plugins by adding this to your config:
+
+```ini
+permission = /usr/(bin|local/bin)/hyprpm, plugin, allow
+```
+
+otherwise you'll get a popup asking for permission every time hyprpm tries to load a plugin.
+
+{{< /callout >}}
+
+Make sure you have the required dependencies: `cpio`, `cmake`, `git`, `meson` and `gcc`.
+You might also need `-dev` packages of Hyprland's dependencies if your distro splits
+binaries and headers (e.g. Fedora or Debian). 
 
 Find a repository you want to install plugins from. As an example, we will use
 [hyprland-plugins](https://github.com/hyprwm/hyprland-plugins).
