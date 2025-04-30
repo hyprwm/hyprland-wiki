@@ -9,6 +9,10 @@ Hello there, dear traveler! Welcome to the Hyprland Wiki!
 
 Take a tour of the pages on the left and read ones that you may need.
 
+***This wiki is versioned!*** By default, you are reading the wiki for _the latest Hyprland git commit_.
+Click on the version selector and select your version if you are running a tagged release
+(which you very likely are, you can check with `hyprctl version`).
+
 ## Wayland info (especially useful for Xorg users)
 
 A Wayland compositor is a fully autonomous Display Server, like Xorg itself. It
