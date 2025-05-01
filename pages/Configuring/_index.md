@@ -15,4 +15,4 @@ It links to other pages where necessary, and will walk you through:
 
 It also contains some sample configurations you can take inspiration from.
 
-Start with [the Start Page](../Start).
+Start with [the Start Page](./Start).
