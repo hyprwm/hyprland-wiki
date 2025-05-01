@@ -40,6 +40,7 @@ e.g.: `workspace>>2`
 | activewindowv2 | emitted on the active window being changed. | `WINDOWADDRESS` |
 | fullscreen | emitted when a fullscreen status of a window changes. | `0/1` (exit fullscreen / enter fullscreen) |
 | monitorremoved | emitted when a monitor is removed (disconnected) | `MONITORNAME` |
+| monitorremovedv2 | emitted when a monitor is removed (disconnected) | `MONITORID,MONITORNAME,MONITORDESCRIPTION` |
 | monitoradded | emitted when a monitor is added (connected) | `MONITORNAME` |
 | monitoraddedv2 | emitted when a monitor is added (connected) | `MONITORID,MONITORNAME,MONITORDESCRIPTION` |
 | createworkspace | emitted when a workspace is created | `WORKSPACENAME` |
