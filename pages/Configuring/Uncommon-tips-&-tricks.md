@@ -243,6 +243,9 @@ The hotkey toggle will be WIN+F1, but you can change this to whatever you want.
 ## Zoom
 
 To zoom using Hyprland's built-in zoom utility
+{{< callout >}}
+If mouse wheel bindings work only for the first time, you should probably reduce reset time with `binds:scroll_event_delay`
+{{< /callout >}}
 
 ```ini
 bind = $mod, mouse_down, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor | awk '/^float.*/ {print $2 * 1.1}')
