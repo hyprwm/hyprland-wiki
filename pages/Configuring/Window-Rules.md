@@ -82,6 +82,15 @@ size, you can use `hyprctl clients`.
 
 {{< /callout >}}
 
+
+{{< callout type=info >}}
+
+In the output of the `hyprctl clients` command:
+`fullscreen` refers to `fullscreenstate.internal` and
+`fullscreenClient` refers to `fullscreenstate.client`
+
+{{< /callout >}}
+
 ### RegEx writing
 
 Please note Hyprland uses Google's RE2 for parsing Regex. This means that all operations requiring polynomial
