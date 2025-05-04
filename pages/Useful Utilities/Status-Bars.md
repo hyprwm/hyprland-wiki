@@ -222,28 +222,6 @@ socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket
 
 </details>
 
-## Hybrid
-
-Like Waybar, [Hybrid](https://github.com/vars1ty/HybridBar) is a GTK status bar
-mainly focused on wlroots compositors.
-
-It can be installed using the `hybrid-bar` package from the AUR.
-
-### Configuration
-
-The configuration is done through JSON. More information is available
-[here](https://github.com/vars1ty/HybridBar).
-
-### How to launch
-
-After configuring HybridBar, it can be launched by typing `hybrid-bar` into a
-terminal. It is also possible to set it to launch at startup. To do this, add
-this line to `hyprland.conf`:
-
-```ini
-exec-once = hybrid-bar
-```
-
 #### Blur
 
 To activate blur for your status bar, have a look at [layer rules](https://wiki.hyprland.org/Configuring/Window-Rules/#layer-rules).
