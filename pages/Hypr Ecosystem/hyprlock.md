@@ -6,6 +6,16 @@ title: hyprlock
 hyprlock is a simple, yet fast, multi-threaded and GPU-accelerated screen lock
 for Hyprland.
 
+{{< callout type=warning >}}
+
+Hyprlock does not automatically create a config, and without one, hyprlock will _not render anything_,
+meaning you will just see your screen, but it will be locked and require a password followed by an
+enter to unlock.
+
+You can use the example config for a quick start, which can be found [here](https://github.com/hyprwm/hyprlock/blob/main/assets/example.conf).
+
+{{< /callout >}}
+
 ## Configuration
 
 Configuration is done via the config file at `~/.config/hypr/hyprlock.conf`. This file must exist to run `hyprlock`.
