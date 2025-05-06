@@ -284,6 +284,11 @@ Setting `misc:middle_click_paste` to `false` disables the feature altogether wit
 
 ### How do I make Hyprland draw as little power as possible on my laptop?
 
+# How do I get information about windows like the class on wayland? xprop no worky.
+
+Hyprctl can list available information about all open windows with the command `hyprctl clients`.
+To list only information about a single selected windows, Hyprctl has the command `hyprctl activewindow`. This will output information about the currently active window, which is probably your terminal emulator. You can get informationen from other windows by issueing this command in the shell `sleep 5 && hyprctl activewindow`, focusing the window you want info about and waiting until the five seconds are over. 
+
 **_Useful Optimizations_**:
 
 - `decoration:blur:enabled = false` and `decoration:shadow:enabled = false` to disable
