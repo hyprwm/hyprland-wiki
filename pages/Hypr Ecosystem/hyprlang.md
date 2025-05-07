@@ -108,6 +108,27 @@ category[keyvalue]:variable = value
 
 This is the syntax used by `hyprctl keyword`, for example.
 
+### Arithmetic operations
+
+Since 0.6.2, hyprlang supports _very_ basic arithmetic on your variables with `$()`
+
+You can use `+`, `-`, `*`, or `/`, on only _two_ variables (or constants). You _cannot_ nest them. (but you can use intermittent variables)
+
+Example:
+```ini
+$VAR1 = 2
+$VAR2 = $(VAR1 + 3)
+$VAR3 = $(VAR2 * 2)
+
+someVariable = $(VAR3 / 2)
+someVariable2 = VAR3
+```
+
+This may throw some errors if done incorrectly. Make sure that:
+- you only have two sides to the operation (**NOT** `$(a + b + c)`, that has three)
+- both sides either exist as numeric variables or are numeric themselves
+- you have spaces around the operator (**NOT** `$(a+b)`)
+
 ## Developer documentation
 
 See the documentation at [hyprland.org/hyprlang](https://hyprland.org/hyprlang/).
