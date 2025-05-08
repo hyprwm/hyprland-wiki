@@ -43,6 +43,11 @@ permission = /usr/bin/grim, screencopy, allow
 ```
 Will allow `/usr/bin/grim` to always capture your screen without asking.
 
+```ini
+permission = /usr/bin/appsuite-.*, screencopy, allow
+```
+Will allow any app whose path starts with `/usr/bin/appsuite-` to capture your screen without asking.
+
 
 ### Permisision modes
 
@@ -61,7 +66,7 @@ There are 3 modes:
 
 `plugin`:
  - Access to load a plugin. Can be either a regex for the app binary, or plugin path.
- - Do _not_ allow `hyprctl` to load your plugins by default (attacker could issue `hyprctl plugin load /tmp/my-malicious-plugin.so`)
+ - Do _not_ allow `hyprctl` to load your plugins by default (attacker could issue `hyprctl plugin load /tmp/my-malicious-plugin.so`) - use either `deny` to disable or `ask` to be prompted.
 
 ## Notes
 
