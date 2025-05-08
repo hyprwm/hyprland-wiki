@@ -132,6 +132,7 @@ It is not possible to `float` (or any other of the static rules) a window based 
 | group \[options\] | set window group properties. See the note below. |
 | suppressevent \[types...\] | ignores specific events from the window. Events are space separated, and can be: `fullscreen` `maximize` `activate` `activatefocus` `fullscreenoutput` |
 | content \[none\|photo\|video\|game\] | sets content type |
+| noclosefor \[ms\] | makes the window uncloseable with the `killactive` dispatcher for a given amount of ms on open |
 
 ### Dynamic rules
 
