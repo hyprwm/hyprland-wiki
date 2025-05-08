@@ -178,6 +178,15 @@ Some widgets are shadowable, meaning they can have a shadow. For those widgets, 
 | shadow_color | shadow color | color | rgb(0,0,0) |
 | shadow_boost | boost shadow's opacity | float | 1.2 |
 
+### Clickable
+
+Some widgets are clickable. Namely `label`, `image` and `shape`.
+You can launch arbitrary commands when clicking on them by configuring the following option within the widget:
+
+| variable | description | type | default |
+| -- | -- | -- | -- |
+| onclick | command to run when clicked | str | [[Empty]] |
+
 ### Background
 
 Draws a background image or fills with color.
@@ -227,6 +236,7 @@ background {
 ### Image
 
 &check; Shadowable
+&check; Clickable
 
 Draws an image.
 
@@ -268,6 +278,7 @@ image {
 ### Shape
 
 &check; Shadowable
+&check; Clickable
 
 Draws a shape.
 
@@ -388,6 +399,7 @@ input-field {
 ### Label
 
 &check; Shadowable
+&check; Clickable
 
 Draws a label.
 
