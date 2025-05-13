@@ -48,6 +48,10 @@ permission = /usr/bin/appsuite-.*, screencopy, allow
 ```
 Will allow any app whose path starts with `/usr/bin/appsuite-` to capture your screen without asking.
 
+```ini
+permission = /var/cache/hyprpm/$USER/hyprland-plugins/hyprexpo.so, plugin, allow
+```
+Will allow loading the hyprexpo plugin without asking.
 
 ### Permisision modes
 
