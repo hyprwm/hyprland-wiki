@@ -36,7 +36,7 @@ manual instructions, see [here](#manual).
 
 {{< callout type=info >}}
 
-If you are using [permission management](../Configuring/Permissions.md),
+If you are using [permission management](../../Configuring/Permissions),
 you should allow hyprpm to load plugins by adding this to your config:
 
 ```ini
