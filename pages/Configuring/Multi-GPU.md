@@ -85,3 +85,9 @@ export AQ_DRM_DEVICES="/dev/dri/card0:/dev/dri/card1"
 ```
 
 {{< /callout >}}
+
+{{< callout type=info >}}
+
+If you want to use "by-path" paths to gpu for example `/dev/dri/by-path/pci-0000:01:00.0-card` you may need to escape the `:` character e.g. `env = AQ_DRM_DEVICES, /dev/dri/by-path/pci-0000\:01\:00.0-card:/dev/dri/by-path/pci-0000\:06\:00.0-card`
+
+{{< /callout >}}
