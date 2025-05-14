@@ -40,8 +40,7 @@ Diagnose the issue by what is in the log:
   monitor is bork.
 - Other -> see the coredump. Use `coredumpctl`, find the latest one's PID and do
   `coredumpctl info PID`.
-- failing on a driver (e.g. `radeon`) -> try compiling with
-  `make legacyrenderer`, if that doesn't help, report an issue.
+- failing on a driver (e.g. `radeon`) -> report an issue.
 - failing on `Hyprland` -> report an issue.
 
 ## Crashes not at launch

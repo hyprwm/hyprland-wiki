@@ -345,12 +345,6 @@ epmi hyprland
 epmi hyprland-devel # If you want to use plugins
 ```
 
-or legacyrenderer version:
-
-```bash
-epmi hyprland-legacyrenderer
-```
-
 Ecosystem:
 
 ```bash
@@ -467,24 +461,17 @@ debug.
 
 See [Crashes and Bugs](../../Crashes-and-Bugs).
 
-## Custom installation (legacy renderer, etc)
+## Custom installation (debug build, etc)
 
 1. cd into the hyprland repo.
-2. for legacy renderer:
+2. for debug build:
 
 ```bash
-make legacyrenderer
+make debug
 sudo make install
 ```
 
-{{< callout type=info >}}
-
-_please note the legacy renderer may not support some graphical features._
-
-{{< /callout >}}
-
-3. Any other config: (replace `<PRESET>` with your preset: `release`, `debug`,
-   `legacyrenderer`, `legacyrendererdebug`)
+3. Any other config: (replace `<PRESET>` with your preset: `release`, `debug`)
 
 ```bash
 make <PRESET> && sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
@@ -497,7 +484,6 @@ To apply custom build flags, you'll have to ditch make.
 Supported custom build flags on CMake:
 
 ```bash
-LEGACY_RENDERER - Compiles with the legacy renderer (see above)
 NO_XWAYLAND - Removes XWayland support
 NO_SYSTEMD - Removes systemd dependencies
 NO_UWSM - Does not install the hyprland-uwsm.desktop file
