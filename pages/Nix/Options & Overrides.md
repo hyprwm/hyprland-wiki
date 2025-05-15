@@ -16,7 +16,6 @@ be changed by setting the appropriate option to `true`/`false`.
 ```nix
 (pkgs.hyprland.override { # or inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland
   enableXWayland = true;  # whether to enable XWayland
-  legacyRenderer = false; # whether to use the legacy renderer (for old GPUs)
   withSystemd = true;     # whether to build with systemd support
 })
 ```
