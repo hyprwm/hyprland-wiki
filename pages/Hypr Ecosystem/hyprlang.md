@@ -133,7 +133,7 @@ This may throw some errors if done incorrectly. Make sure that:
 
 After VERSION, hyprlang allows for escaping the arithmetic expressions `{{a + b}}`
 
-You need to use the `\` charecter for escaping these expression. they can be used on any of the starting positions of the expression braces.
+You need to use the `\` character for escaping these expression. They can be used on any of the starting positions of the expression braces.
 
 Example:
 ```ini
@@ -143,20 +143,22 @@ someVariable = \{\{10 + 10}}
 ```
 
 This will cancel the expression, and instead just be the value. 
-All of the `\` that were used to escape will be removed from the value aswell.
-so `\{{hello world}}` will turn into this: `{{hello world}}` without trying to parse it as an expression.
+All of the `\` that were used to escape will be removed from the value as well.
+So `\{{hello world}}` will turn into this: `{{hello world}}` without trying to parse it as an expression.
 
 ### Escaping escapes
 
-After VERSION, you are able to escape any `\` that were used to escape other things.
-This is only needed if it otherwise would have escaped an escapable charecter.
+After VERSION, you are able to escape any `\` that are used to escape other characters.
 
 For example:
-```ini
-#If you wanted to have an \ before a real expression
-someVariable = \\{{VAR1 + 10}}
 
-#If you wanted to have an \ before any of the escapable chars
+If you wanted to have an \ before a real expression
+```ini
+someVariable = \\{{VAR1 + 10}}
+```
+
+If you wanted to have an \ before any of the escapable charecters
+```ini
 someOtherVariable = \\{ hello \\} 
 ```
 
