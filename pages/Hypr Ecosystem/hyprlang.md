@@ -131,7 +131,7 @@ This may throw some errors if done incorrectly. Make sure that:
 
 ### Arithmetic escaping
 
-After VERSION, hyprlang allows for escaping the arithmetic expressions `{{a + b}}`
+After 0.6.4, hyprlang allows for escaping the arithmetic expressions `{{a + b}}`
 
 You need to use the `\` character for escaping these expression. They can be used on any of the starting positions of the expression braces.
 
@@ -148,16 +148,15 @@ So `\{{hello world}}` will turn into this: `{{hello world}}` without trying to p
 
 ### Escaping escapes
 
-After VERSION, you are able to escape any `\` that are used to escape other characters.
+After 0.6.4, you can escape any `\` that would have been used to escape other characters.
 
 For example:
-
-If you wanted to have an \ before a real expression
+If you want to have a `\` before a real expression
 ```ini
 someVariable = \\{{VAR1 + 10}}
 ```
 
-If you wanted to have an \ before any of the escapable charecters
+If you want to have an `\` before any of the escapable charecters
 ```ini
 someOtherVariable = \\{ hello \\} 
 ```
