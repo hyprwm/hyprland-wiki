@@ -64,7 +64,7 @@ environment on traditional Linux distros.
 ## Toolkit Backend Variables
 
 - `env = GDK_BACKEND,wayland,x11,*` - GTK: Use wayland if available. If not: try x11, then any other GDK backend.
-- `env = QT_QPA_PLATFORM,wayland;xcb` - Qt: Use wayland if available, fall back to
+- `env = QT_QPA_PLATFORM,wayland,xcb` - Qt: Use wayland if available, fall back to
   x11 if not.
 - `env = SDL_VIDEODRIVER,wayland` - Run SDL2 applications on Wayland. Remove or set to
   `x11` if games that provide older versions of SDL cause compatibility issues
@@ -85,7 +85,7 @@ If your [desktop portal](https://wiki.archlinux.org/title/XDG_Desktop_Portal) is
 no reason (no errors), it's likely your XDG env isn't set correctly.
 
  {{< callout type=info >}}
- 
+
  [uwsm](../../Useful-Utilities/Systemd-start) users don't need to explicitly set XDG environment variables, as uwsm sets them, automatically.
 
  {{< /callout >}}
@@ -95,7 +95,7 @@ no reason (no errors), it's likely your XDG env isn't set correctly.
 - `env = QT_AUTO_SCREEN_SCALE_FACTOR,1` -
   [(From the Qt documentation)](https://doc.qt.io/qt-5/highdpi.html) enables
   automatic scaling, based on the monitor's pixel density
-- `env = QT_QPA_PLATFORM,wayland;xcb` - Tell Qt applications to use the Wayland
+- `env = QT_QPA_PLATFORM,wayland,xcb` - Tell Qt applications to use the Wayland
   backend, and fall back to x11 if Wayland is unavailable
 - `env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1` - Disables window decorations on Qt
   applications
