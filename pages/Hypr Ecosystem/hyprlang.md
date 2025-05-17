@@ -129,6 +129,39 @@ This may throw some errors if done incorrectly. Make sure that:
 - both sides either exist as numeric variables or are numeric themselves
 - you have spaces around the operator (**NOT** `{{a+b}}`)
 
+### Arithmetic escaping
+
+After 0.6.4, hyprlang allows for escaping the arithmetic expressions `{{a + b}}`
+
+You need to use the `\` character for escaping these expression. They can be used on any of the starting positions of the expression braces.
+
+Example:
+```ini
+$VAR = \{{10 + 10}}
+bind = MOD, KEY, exec, COMMAND "{\{10 + 10}}"
+someVariable = \{\{10 + 10}}
+```
+
+This will cancel the expression, and instead just be the value. 
+All of the `\` that were used to escape will be removed from the value as well.
+So `\{{hello world}}` will turn into this: `{{hello world}}` without trying to parse it as an expression.
+
+### Escaping escapes
+
+After 0.6.4, you can escape any `\` that would have been used to escape other characters.
+
+For example:
+If you want to have a `\` before a real expression
+```ini
+someVariable = \\{{VAR1 + 10}}
+```
+
+If you want to have an `\` before any of the escapable charecters
+```ini
+someOtherVariable = \\{ hello \\} 
+```
+
+
 ## Developer documentation
 
 See the documentation at [hyprland.org/hyprlang](https://hyprland.org/hyprlang/).
