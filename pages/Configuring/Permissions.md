@@ -6,7 +6,7 @@ title: Permissions
 If you have `hyprland-qtutils` installed, you can make use of Hyprland's built-in
 permission system.
 
-For now, it only has one permission, but it might include more in the future.
+For now, it only has a few permissions, but it might include more in the future.
 
 ## Permissions
 
@@ -60,13 +60,21 @@ There are 3 modes:
 ### Permission list
 
 `screencopy`:
+ - Default: **ASK**
  - Access to your screen _without_ going through xdg-desktop-portal-hyprland. Examples include: `grim`, `wl-screenrec`, `wf-recorder`.
  - If denied, will render a black screen with a "permission denied" text.
  - Why deny? For apps / scripts that might maliciously try to capture your screen without your knowledge by using wayland protocols directly.
 
 `plugin`:
+ - Default: **ASK**
  - Access to load a plugin. Can be either a regex for the app binary, or plugin path.
  - Do _not_ allow `hyprctl` to load your plugins by default (attacker could issue `hyprctl plugin load /tmp/my-malicious-plugin.so`) - use either `deny` to disable or `ask` to be prompted.
+
+`keyboard`:
+ - Default: **ALLOW**
+ - Access to connecting a new keyboard. Regex of the device name.
+ - If you want to disable all keyboards not matching a regex, make a rule that sets `DENY` for `.*` _as the last keyboard permission rule_.
+ - Why deny? Rubber duckies, malicious virtual / usb keyboards.
 
 ## Notes
 
