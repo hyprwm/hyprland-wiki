@@ -175,6 +175,7 @@ _Subcategory `decoration:shadow:`_
 | --- | --- | --- | --- |
 | enabled | enable animations | bool | true |
 | first_launch_animation | enable first launch animation | bool | true |
+| workspace_wraparound | enable workspace wraparound, causing directional workspace animations to animate as if the first and last workspaces were adjacent | bool | false |
 
 {{< callout type=info >}}
 
