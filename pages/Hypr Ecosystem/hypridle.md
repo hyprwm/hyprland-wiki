@@ -59,7 +59,7 @@ listener {
 
 You can define as many listeners as you want.
 
-Full hypridle example with hyprlock:
+Full hypridle example with hyprlock, you may need to prepend the keys to look like $key :
 
 ```ini
 general {
