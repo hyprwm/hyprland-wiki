@@ -315,7 +315,7 @@ address=$(hyprctl -j clients | jq -r 'sort_by(.focusHistoryID) | .[] | select(.w
 	      awk -F"\t" '{print $1}')
 
 if [ -n "$address" ] ; then
-    hyprctl -q dispatch focuswindow address:$address
+    hyprctl --batch -q "dispatch focuswindow address:$address;dispatch alterzorder top"
 fi
 
 hyprctl -q dispatch submap reset
