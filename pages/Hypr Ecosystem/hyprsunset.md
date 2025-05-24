@@ -21,7 +21,7 @@ below the monitor's minimum.
 
 ## Installation
 
-`yay -S hyprsunset`
+`pacman -S hyprsunset`
 
 ## Usage
 
