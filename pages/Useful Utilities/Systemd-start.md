@@ -14,7 +14,7 @@ title: Systemd startup
 uwsm is available in Arch official repositories.
 
 ```sh
-pacman -S uwsm
+pacman -S uwsm libnewt
 ```
 
 {{% /details %}}
