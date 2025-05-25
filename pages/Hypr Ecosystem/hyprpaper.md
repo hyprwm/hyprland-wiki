@@ -122,7 +122,7 @@ to unload all images or `unload unused` to unload images that aren't being used.
 
 The `reload` keyword allows you to set / change wallpapers without
 having to preload them. For example, you could have a completely empty
-hyprpaper config (with [IPC](#IPC) enabled!!), and run the below command to
+hyprpaper config (with [IPC](#ipc) enabled!!), and run the below command to
 very simply set your wallpaper (this example sets the wallpaper for
 all monitors):
 ```
