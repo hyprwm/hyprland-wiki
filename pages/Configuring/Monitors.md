@@ -89,6 +89,7 @@ There are a few special values for the resolutions:
 - `preferred` - use the display's preferred size and refresh rate.
 - `highres` - use the highest supported resolution.
 - `highrr` - use the highest supported refresh rate.
+- `maxwidth` - use the widest supported resolution.
 
 Position also has a few special values:
 
