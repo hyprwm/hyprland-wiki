@@ -316,6 +316,8 @@ Described [here](../Keywords#per-device-input-configs).
 
 ### Gestures
 
+_Subcategory `gestures:`_
+
 | name | description | type | default |
 | --- | --- | --- | --- |
 | workspace_swipe | enable workspace swipe gesture on touchpad | bool | false |
@@ -334,6 +336,8 @@ Described [here](../Keywords#per-device-input-configs).
 | workspace_swipe_use_r | if enabled, swiping will use the `r` prefix instead of the `m` prefix for finding workspaces. | bool | false |
 
 ### Group
+
+_Subcategory `group:`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -385,6 +389,8 @@ _Subcategory `group:groupbar:`_
 
 ### Misc
 
+_Subcategory `misc:`_
+
 | name | description | type | default |
 |---|---|---|---|
 | disable_hyprland_logo | disables the random Hyprland logo / anime girl background. :( | bool | false |
@@ -425,6 +431,8 @@ _Subcategory `group:groupbar:`_
 
 ### Binds
 
+Subcategory `binds:`_
+
 | name | description | type | default |
 | --- | --- | --- | --- |
 | pass_mouse_when_bound | if disabled, will not pass the mouse events to apps / dragging windows around if a keybind has been triggered. | bool | false |
@@ -444,6 +452,8 @@ _Subcategory `group:groupbar:`_
 
 ### XWayland
 
+Subcategory `xwayland:`_ 
+
 | name | description | type | default |
 | --- | --- | --- | --- |
 | enabled | allow running applications using X11 | bool | true |
@@ -453,11 +463,15 @@ _Subcategory `group:groupbar:`_
 
 ### OpenGL
 
+Subcategory `opengl:`_ 
+
 | name | description | type | default |
 | --- | --- | --- | --- |
 | nvidia_anti_flicker | reduces flickering on nvidia at the cost of possible frame drops on lower-end GPUs. On non-nvidia, this is ignored. | bool | true |
 
 ### Render
+
+Subcategory `render:`_ 
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -472,6 +486,8 @@ _Subcategory `group:groupbar:`_
 | send_content_type | Report content type to allow monitor profile autoswitch (may result in a black screen during the switch) | bool | true |
 
 ### Cursor
+
+Subcategory `cursor:`_ 
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -496,6 +512,8 @@ _Subcategory `group:groupbar:`_
 
 ### Ecosystem
 
+_Subcategory `ecosystem:`_
+
 | name | description | type | default |
 | --- | --- | --- | --- |
 | no_update_news | disable the popup that shows up when you update hyprland to a new version. | bool | false |
@@ -503,6 +521,8 @@ _Subcategory `group:groupbar:`_
 | enforce_permissions | whether to enable [permission control](../Permissions). | bool | false |
 
 ### Experimental
+
+_Subcategory `experimental:`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -528,6 +548,8 @@ Video:
 
 
 ### Debug
+
+_Subcategory `debug:`_
 
 {{< callout type=warning >}}
 
