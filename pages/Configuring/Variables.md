@@ -508,6 +508,8 @@ _Subcategory `group:groupbar:`_
 | --- | --- | --- | --- |
 | xx_color_management_v4 | enable color management protocol | bool | false |
 
+Since The release of `Mesa 25.1.1` settings below are no longer required, so just skip.
+
 Requires a client with `frog-color-management-v1` or `xx-color-management-v4` support like gamescope or https://github.com/Zamundaaa/VK_hdr_layer
 
 Steam:
