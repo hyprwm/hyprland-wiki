@@ -287,6 +287,7 @@ bind = ALT, tab, sendshortcut, , tab, class:alttab
 bind = ALT SHIFT, tab, sendshortcut, shift, tab, class:alttab
 
 bindrt = ALT, ALT_L, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut ,return,class:alttab
+bind = ALT, Return, exec, $HOME/.config/hypr/scripts/alttab/disable.sh;hyprctl -q dispatch sendshortcut ,return,class:alttab
 bind = ALT, escape, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut ,escape,class:alttab
 submap = reset
 
