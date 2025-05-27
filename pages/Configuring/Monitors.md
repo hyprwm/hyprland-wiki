@@ -93,11 +93,15 @@ There are a few special values for the resolutions:
 
 Position also has a few special values:
 
-- `auto` - let Hyprland decide on a position. By default, it places each new monitor to the right of existing ones.
-- `auto-right/left/up/down` - place the monitor to the right/left, above or below other monitors.
+- `auto` - let Hyprland decide on a position. By default, it places each new monitor to the right of existing ones,
+  using the monitor's top left corner as the root point.
+- `auto-right/left/up/down` - place the monitor to the right/left, above or below other monitors,
+  also based on each monitor's top left corner as the root.
+- `auto-center-right/left/up/down` - place the monitor to the right/left, above or below other monitors,
+  but calculate placement from each monitor's center rather than its top left corner.
 
 _**Please Note:**_ While specifying a monitor direction for your first monitor is allowed, this does nothing and it will
-be positioned at (0,0). Also the direction is always from the center out, so you can specify `auto-up` then `auto-left`,
+be positioned at (0,0). Also, the direction is always from the center out, so you can specify `auto-up` then `auto-left`,
 but the left monitors will just be left of the origin and above the origin. You can also specify duplicate directions and
 monitors will continue to go in that direction.
 
