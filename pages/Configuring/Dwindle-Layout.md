@@ -29,7 +29,7 @@ category name: `dwindle`
 | use_active_for_splits | whether to prefer the active window or the mouse position for splits | bool | true |
 | default_split_ratio | the default split ratio on window open. 1 means even 50/50 split. [0.1 - 1.9] | float | 1.0 |
 | split_bias | specifies which window will receive the larger half of a split. positional - 0, current window - 1, opening window - 2 [0/1/2] | int | 0 |
-| precise_move | bindm movewindow will drop the window more precisely depending on where your mouse is. | bool | true |
+| precise_mouse_move | bindm movewindow will drop the window more precisely depending on where your mouse is. | bool | false |
 
 ## Bind Dispatchers
 
