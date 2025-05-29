@@ -5,38 +5,29 @@ title: Installation
 
 {{< callout type=warning >}}
 
-Hyprland is not meant for beginners! It is expected that you read this wiki,
-understand Linux's workings and are able to search online and troubleshoot issues
-on your own.
+Hyprland is not meant to be a full and user-friendly Desktop Environment. In a nutshell, it's a set of
+tools to allow you to create your own Desktop Environment.
 
-If you are a Linux beginner, consider reading this wiki in **its entirety** and all
-the other pages it refers to, otherwise you might have a really hard time
-getting a usable desktop.
+Apps, integrations, shells, etc, are **your** responsibility to pick, install and configure.
 
-Online forums (e.g. Reddit) should be used as a last resort, as most information
-can be found in this wiki and it's guaranteed to be _up-to-date and accurate_,
-unlike most online "tips and tricks".
-
-Follow the [Master tutorial](../Master-Tutorial) **FROM START TO FINISH** unless
-you really know what you are doing!
+This wiki is _very_ verbose. It's highly recommended to scour and read the wiki first before
+assuming something is not working or not available.
 
 {{< /callout >}}
 
-{{< callout type=warning >}}
+{{< callout type=info >}}
 
-Due to their proprietary nature, Nvidia GPUs have limited compatibility with
-Hyprland. If you want to try Hyprland on Nvidia regardless (many people have
-reported successes), follow the [Nvidia page](../../Nvidia) after installing
-Hyprland.
+NVIDIA GPUs are often not usable out-of-the-box, follow the [Nvidia page](../../Nvidia) after installing
+Hyprland if you plan to use one. Blame NVIDIA for this.
 
 {{< /callout >}}
 
 ## Distros
 
-Arch, NixOS and openSUSE Tumbleweed are very supported. For any other distro
-(not based on Arch/Nix/openSUSE) you might have varying amounts of success. However,
+We officially run and test Hyprland on Arch and NixOS, and we guarantee Hyprland will work there. For any other distro
+(not based on Arch/Nix) you might have varying amounts of success. However,
 since Hyprland is extremely bleeding-edge, distros like Pop!\_OS, Ubuntu, etc.
-might have **major** issues running Hyprland.
+will have **major** issues running Hyprland. Rolling release distros like Fedora, OpenSUSE, etc. will likely be fine.
 
 ## Installation
 
@@ -46,7 +37,7 @@ Installing Hyprland is very easy. Simply install it with your package manager.
 
 It is **heavily** recommended you use **what the distro packages for you**, and **not** compiling manually
 or using `-git` packages.
-Hyprland's ecosystem and dependencies change often, and compiling manually will only potentially expose you to outdated,
+Hyprland's ecosystem and dependencies are vast and intertwined, and compiling manually will only potentially expose you to outdated,
 or incompatible versions of these dependencies.
 
 If you get `.so` file mismatch / missing errors, it's _entirely your fault_ for doing this!
