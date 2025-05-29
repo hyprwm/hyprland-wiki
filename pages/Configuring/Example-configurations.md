@@ -46,9 +46,9 @@ more configurations will not be merged.
 
 ### iamverysimp1e
 
-![iamverysimp1e/dots screenshot](https://github.com/iamverysimp1e/dots/raw/main/ScreenShots/HyprLand/Rice1.png)
+![1amSimp1e/dots screenshot](https://github.com/1amSimp1e/dots/blob/main/ScreenShots/HyprLand/preview.png)
 
-[https://github.com/iamverysimp1e/dots](https://github.com/iamverysimp1e/dots)
+[https://github.com/1amSimp1e/dots](https://github.com/1amSimp1e/dots)
 
 ### notusknot
 
