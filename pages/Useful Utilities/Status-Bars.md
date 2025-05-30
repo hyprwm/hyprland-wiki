@@ -266,6 +266,30 @@ socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket
 [Quickshell](https://quickshell.outfoxxed.me/) is a flexbile QtQuick-based desktop shell toolkit.
 Note that although Qt is notoriously hard to theme, Quickshell can be styled independently.
 
+To get started, see the [setup instructions](https://quickshell.outfoxxed.me/docs/configuration/getting-started/) and a [guided hello world](https://quickshell.outfoxxed.me/docs/configuration/intro/)
+
+<details>
+     <summary> A tiny example </summary>     
+     
+     ```qml
+     import QtQuick
+     import Quickshell
+     
+     PanelWindow {
+         anchors { top: true; left: true; right: true }
+         implicitHeight: text.implicitHeight
+     
+         SystemClock { id: clock }
+     
+         Text {
+             id: text
+             anchors.centerIn: parent
+             text: Qt.formatDateTime(clock.date, "MMMM dd, hh:mm:ss AP")
+         }
+     }
+     ```
+</details>
+
 ### Advantages
 - Can use KDE's libraries and C++ extensions
 - Good performance and flexibility with Qt
