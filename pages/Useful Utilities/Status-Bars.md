@@ -270,15 +270,15 @@ Note that although Qt is notoriously hard to theme, Quickshell can be styled ind
 - Can use KDE's libraries and C++ extensions
 - Good performance and flexibility with Qt
 - Provides advanced Wayland/Hyprland APIs, notable examples being
-  - [ScreenCopyView](https://quickshell.outfoxxed.me/docs/types/Quickshell.Wayland/ScreencopyView/) for live app previews
+  - [ScreenCopyView](https://quickshell.outfoxxed.me/docs/types/Quickshell.Wayland/ScreencopyView/) for live window previews
   - [HyprlandFocusGrab](https://quickshell.outfoxxed.me/docs/types/Quickshell.Hyprland/HyprlandFocusGrab/) to ease implementation of popup dismissal
-- Has config auto-reload
+- Automatically reloads config on changes out of the box
 
-### Considerations
+### Disadvantages
 - Qt can be less intuitive to work with compared to GTK
 - Does not yet provide a Wi-Fi or Bluetooth service at the time of writing
 - The author claims it is still under development and breaking changes are to be expected
-- Styles are declared with widgets instead of in a separate CSS, which might be less familiar for some people
+- Styles are declared with components instead of in a separate CSS, which might be less familiar for some people
 
 # Tips
 
