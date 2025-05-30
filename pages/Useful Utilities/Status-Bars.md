@@ -82,6 +82,7 @@ Use them when you want custom menus with fully customizable layout. You basicall
 |--------------------------|-------------------|-------------------|-------------------|
 | UI Toolkit               | GTK 3/4            | GTK 3             | Qt                |
 | Config language          | JS(X)/TS/languages that support [Gobject Introspection](https://en.wikipedia.org/wiki/List_of_language_bindings_for_GTK) | Yuck (EWW's flavor of Lisp)         | QML              |
+| Provides Hyprland modules out of the box | Yes | No (but see the scripts below) | Yes |
 
 ## AGS/Astal
 
