@@ -76,20 +76,29 @@ If you are using multiple monitors, you may want to insert the following option:
 ```
 # Widget systems
 
-Use them when you want custom menus with fully customizable layout. You basically need to write code, but widget systems significantly ease the process. Below are three popular choices in alphabetical order.
+Use them when you want custom menus with fully customizable layout. 
+You basically need to write code, but widget systems significantly 
+ease the process. 
+Below are three popular choices in alphabetical order.
 
 |   | [AGS/Astal](https://aylur.github.io/astal/) | [EWW](https://elkowar.github.io/eww/) | [Quickshell](https://quickshell.outfoxxed.me/) | 
 |--------------------------|-------------------|-------------------|-------------------|
 | UI Toolkit               | GTK 3/4            | GTK 3             | Qt                |
 | Config language          | JS(X)/TS/languages that support [Gobject Introspection](https://en.wikipedia.org/wiki/List_of_language_bindings_for_GTK) | Yuck (EWW's flavor of Lisp)         | QML              |
-| Provides Hyprland modules out of the box | Yes | No (but see the scripts below) | Yes |
 
 ## AGS/Astal
 
 - [Astal](https://aylur.github.io/astal/) is a suite and framework to craft desktop shells and Wayland widgets with GTK.
-- [AGS](https://aylur.github.io/ags/) (Aylur's GTK Shell) is a scaffolding commandline tool for Astal & TypeScript/Javascript(X). In simple words, it allows you to create Astal projects in those languages with ease.
+- [AGS](https://aylur.github.io/ags/) (Aylur's GTK Shell) is a scaffolding commandline tool for Astal + TypeScript/Javascript(X). In simple words, it allows you to create Astal projects in those languages with ease.
 
 A note on AGS for Arch Linux users: You'll want `aylurs-gtk-shell(-git)` package, not `ags`
+
+### Advantages
+- Language flexibility: You can use your favorite, as long as it supports [Gobject Introspection](https://en.wikipedia.org/wiki/List_of_language_bindings_for_GTK)
+- Comprehensive set of APIs, including Network (both Wi-Fi and Ethernet) and Bluetooth
+
+### Disadvantages
+- Config auto-reload has to be set up manually if desired
 
 ## Eww
 
@@ -101,6 +110,16 @@ manager/compositor.
 Install Eww either using your distro's package manager, by searching
 `eww-wayland`, or by manually compiling. In the latter case, you can follow the
 [instructions](https://elkowar.github.io/eww).
+
+### Advantages
+- Its Lisp-like config syntax is simple compared to other config languages
+
+### Disadvantages
+- Provides a very limited set of APIs compared to the other two
+- Performance
+  - Dynamic content in many cases forces destruction and recreation of widgets
+  - Only supports GTK 3, which does not support GPU acceleration
+  - Overhead from reliance on external scripts/programs
 
 ### Configuration
 
@@ -245,6 +264,21 @@ socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket
 ## Quickshell
 
 [Quickshell](https://quickshell.outfoxxed.me/) is a flexbile QtQuick-based desktop shell toolkit.
+Note that although Qt is notoriously hard to theme, Quickshell can be styled independently.
+
+### Advantages
+- Can use KDE's libraries and C++ extensions
+- Good performance and flexibility with Qt
+- Provides advanced Wayland/Hyprland APIs, notable examples being
+  - [ScreenCopyView](https://quickshell.outfoxxed.me/docs/types/Quickshell.Wayland/ScreencopyView/) for live app previews
+  - [HyprlandFocusGrab](https://quickshell.outfoxxed.me/docs/types/Quickshell.Hyprland/HyprlandFocusGrab/) to ease implementation of popup dismissal
+- Has config auto-reload
+
+### Considerations
+- Qt can be less intuitive to work with compared to GTK
+- Does not yet provide a Wi-Fi or Bluetooth service at the time of writing
+- The author claims it is still under development and breaking changes are to be expected
+- Styles are declared with widgets instead of in a separate CSS, which might be less familiar for some people
 
 # Tips
 
