@@ -95,10 +95,7 @@ To get started with Astal, see its [installation instructions](https://aylur.git
 
 ### Advantages
 - Language flexibility: You can use your favorite, as long as it supports [Gobject Introspection](https://en.wikipedia.org/wiki/List_of_language_bindings_for_GTK)
-- Comprehensive set of APIs, including Network (both Wi-Fi and Ethernet) and Bluetooth
-
-### Disadvantages
-- Config auto-reload has to be set up manually if desired
+- Provides arge set of libraries, including Network (both Wi-Fi and Ethernet) and Bluetooth
 
 ## Eww
 
@@ -115,7 +112,7 @@ Install Eww either using your distro's package manager, by searching
 - Its Lisp-like config syntax is simple compared to other config languages
 
 ### Disadvantages
-- Provides a limited set of APIs compared to the other two
+- Provides a limited set of reusable variables compared to the other two
 - Performance
   - Dynamic content in many cases forces destruction and recreation of widgets
   - Only supports GTK 3, which does not support GPU acceleration
@@ -269,10 +266,7 @@ Note that although Qt is notoriously hard to theme, Quickshell can be styled ind
 To get started, see the [setup instructions](https://quickshell.outfoxxed.me/docs/configuration/getting-started/) and a [guided hello world](https://quickshell.outfoxxed.me/docs/configuration/intro/)
 
 ### Advantages
-- Can use KDE's libraries and C++ extensions
-- Provides advanced Wayland/Hyprland APIs, notable examples being
-  - [ScreenCopyView](https://quickshell.outfoxxed.me/docs/types/Quickshell.Wayland/ScreencopyView/) for live window previews
-  - [HyprlandFocusGrab](https://quickshell.outfoxxed.me/docs/types/Quickshell.Hyprland/HyprlandFocusGrab/) to ease implementation of popup dismissal
+- Provides advanced Wayland/Hyprland integrations, for example live window previews
 - Automatically reloads config on changes out of the box
 
 ### Disadvantages
