@@ -286,8 +286,9 @@ submap=alttab
 bind = ALT, tab, sendshortcut, , tab, class:alttab
 bind = ALT SHIFT, tab, sendshortcut, shift, tab, class:alttab
 
-bindrt = ALT, ALT_L, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut ,return,class:alttab
-bind = ALT, escape, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut ,escape,class:alttab
+bindrt = ALT, ALT_L, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return,class:alttab
+bind = ALT, Return, exec, $HOME/.config/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut ,return, class:alttab
+bind = ALT, escape, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , escape,class:alttab
 submap = reset
 
 workspace = special:alttab, gapsout:0, gapsin:0, bordersize:0
@@ -315,7 +316,7 @@ address=$(hyprctl -j clients | jq -r 'sort_by(.focusHistoryID) | .[] | select(.w
 	      awk -F"\t" '{print $1}')
 
 if [ -n "$address" ] ; then
-    hyprctl --batch -q "dispatch focuswindow address:$address;dispatch alterzorder top"
+    hyprctl --batch -q "dispatch focuswindow address:$address ; dispatch alterzorder top"
 fi
 
 hyprctl -q dispatch submap reset
