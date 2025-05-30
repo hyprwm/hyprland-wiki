@@ -284,5 +284,5 @@ Note that although Qt is notoriously hard to theme, Quickshell can be styled ind
 
 ## Blur
 
-Use the `blur` and `ignorealpha` [layer rules](https://wiki.hyprland.org/Configuring/Window-Rules/#layer-rules). The former enables blur, and the latter makes it ignore insufficiently opaque regions. Ideally, the value used with `ignorealpha` is higher than the shadow opacity and lower than the bar/menu content's opacity.
+Use the `blur` and `ignorealpha` [layer rules](https://wiki.hyprland.org/Configuring/Window-Rules/#layer-rules). The former enables blur, and the latter makes it ignore insufficiently opaque regions. Ideally, the value used with `ignorealpha` is higher than the shadow opacity and lower than the bar/menu content's opacity. Additionally, if it has transparent popups, you can use the `blurpopups` rule.
 
