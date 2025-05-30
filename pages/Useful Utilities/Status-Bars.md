@@ -94,7 +94,7 @@ Below are three popular choices in alphabetical order.
 To get started with Astal, see its [installation instructions](https://aylur.github.io/astal/guide/getting-started/installation) and [examples](https://aylur.github.io/astal/guide/getting-started/supported-languages). For AGS, see its [Quick start](https://aylur.github.io/ags/guide/quick-start.html) page.
 
 ### Advantages
-- Language flexibility: You can use your favorite, as long as it supports [Gobject Introspection](https://en.wikipedia.org/wiki/List_of_language_bindings_for_GTK)
+- Language flexibility: You can use your favorite if it supports [Gobject Introspection](https://en.wikipedia.org/wiki/List_of_language_bindings_for_GTK) (although JS/TS are most well-supported (with AGS))
 - Provides arge set of libraries, including Network (both Wi-Fi and Ethernet) and Bluetooth
 
 ## Eww
