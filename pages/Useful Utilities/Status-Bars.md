@@ -268,30 +268,6 @@ Note that although Qt is notoriously hard to theme, Quickshell can be styled ind
 
 To get started, see the [setup instructions](https://quickshell.outfoxxed.me/docs/configuration/getting-started/) and a [guided hello world](https://quickshell.outfoxxed.me/docs/configuration/intro/)
 
-<details>
-     <summary> A small example </summary>     
-
-Install Quickshell, save this to `~/.config/quickshell/shell.qml` and run `qs`
-```qml
-import QtQuick
-import Quickshell
-
-PanelWindow {
-    anchors { top: true; left: true; right: true }
-    implicitHeight: text.implicitHeight
-
-    SystemClock { id: clock }
-
-    Text {
-        id: text
-        anchors.centerIn: parent
-        text: Qt.formatDateTime(clock.date, "MMMM dd, hh:mm:ss AP")
-    }
-}
-```
-     
-</details>
-
 ### Advantages
 - Can use KDE's libraries and C++ extensions
 - Provides advanced Wayland/Hyprland APIs, notable examples being
