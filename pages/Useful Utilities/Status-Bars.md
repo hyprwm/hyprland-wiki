@@ -89,9 +89,9 @@ Below are three popular choices in alphabetical order.
 ## AGS/Astal
 
 - [Astal](https://aylur.github.io/astal/) is a suite and framework to craft desktop shells and Wayland widgets with GTK.
-- [AGS](https://aylur.github.io/ags/) (Aylur's GTK Shell) is a scaffolding commandline tool for Astal + TypeScript/Javascript(X). In simple words, it allows you to create Astal projects in those languages with ease.
+- [AGS](https://aylur.github.io/ags/) (Aylur's GTK Shell) is a scaffolding commandline tool for Astal + TypeScript/Javascript(X). In simple words, it eases creation of Astal projects in those languages.
 
-A note on AGS for Arch Linux users: You'll want `aylurs-gtk-shell(-git)` package, not `ags`
+To get started with Astal, see its [installation instructions](https://aylur.github.io/astal/guide/getting-started/installation) and [examples](https://aylur.github.io/astal/guide/getting-started/supported-languages). For AGS, see its [Quick start](https://aylur.github.io/ags/guide/quick-start.html) page.
 
 ### Advantages
 - Language flexibility: You can use your favorite, as long as it supports [Gobject Introspection](https://en.wikipedia.org/wiki/List_of_language_bindings_for_GTK)
@@ -115,7 +115,7 @@ Install Eww either using your distro's package manager, by searching
 - Its Lisp-like config syntax is simple compared to other config languages
 
 ### Disadvantages
-- Provides a very limited set of APIs compared to the other two
+- Provides a limited set of APIs compared to the other two
 - Performance
   - Dynamic content in many cases forces destruction and recreation of widgets
   - Only supports GTK 3, which does not support GPU acceleration
@@ -294,17 +294,16 @@ PanelWindow {
 
 ### Advantages
 - Can use KDE's libraries and C++ extensions
-- Good performance and flexibility with Qt
 - Provides advanced Wayland/Hyprland APIs, notable examples being
   - [ScreenCopyView](https://quickshell.outfoxxed.me/docs/types/Quickshell.Wayland/ScreencopyView/) for live window previews
   - [HyprlandFocusGrab](https://quickshell.outfoxxed.me/docs/types/Quickshell.Hyprland/HyprlandFocusGrab/) to ease implementation of popup dismissal
 - Automatically reloads config on changes out of the box
 
 ### Disadvantages
-- Qt can be less intuitive to work with compared to GTK
+- Qt can be less intuitive to work with compared to GTK for its positioning system
 - Does not yet provide a Wi-Fi or Bluetooth service at the time of writing
-- The author claims it is still under development and breaking changes are to be expected
-- Styles are declared with components instead of in a separate CSS, which might be less familiar for some people
+- It is still in alpha and minor breaking changes are to be expected
+- Styles are declared with components instead of in CSS, which might be less familiar for some people
 
 # Tips
 
