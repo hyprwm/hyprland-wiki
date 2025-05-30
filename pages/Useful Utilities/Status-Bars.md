@@ -88,6 +88,8 @@ Use them when you want custom menus with fully customizable layout. You basicall
 - [Astal](https://aylur.github.io/astal/) is a suite and framework to craft desktop shells and Wayland widgets with GTK.
 - [AGS](https://aylur.github.io/ags/) (Aylur's GTK Shell) is a scaffolding commandline tool for Astal & TypeScript/Javascript(X). In simple words, it allows you to create Astal projects in those languages with ease.
 
+A note on AGS for Arch Linux users: You'll want `aylurs-gtk-shell(-git)` package, not `ags`
+
 ## Eww
 
 [Eww](https://github.com/elkowar/eww) (ElKowar's Wacky Widgets) is a widget
