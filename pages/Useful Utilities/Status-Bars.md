@@ -3,6 +3,10 @@ weight: 2
 title: Status bars
 ---
 
+# Simple status bars
+
+Typically you'll be able to configure the order and style of widgets with little to no coding skill.
+
 ## Waybar
 
 Waybar is a GTK status bar made specifically for wlroots compositors and
@@ -70,6 +74,19 @@ If you are using multiple monitors, you may want to insert the following option:
     "separate-outputs": true
 },
 ```
+# Widget systems
+
+Use them when you want custom menus with fully customizable layout. You basically need to write code, but widget systems significantly ease the process. Below are three popular choices in alphabetical order.
+
+|   | [AGS/Astal](https://aylur.github.io/astal/) | [EWW](https://elkowar.github.io/eww/) | [Quickshell](https://quickshell.outfoxxed.me/) | 
+|--------------------------|-------------------|-------------------|-------------------|
+| UI Toolkit               | GTK 3/4            | GTK 3             | Qt                |
+| Config language          | JS(X)/TS/languages that support [Gobject Introspection](https://en.wikipedia.org/wiki/List_of_language_bindings_for_GTK) | Yuck (EWW's flavor of Lisp)         | QML              |
+
+## AGS/Astal
+
+- [Astal](https://aylur.github.io/astal/) is a suite and framework to craft desktop shells and Wayland widgets with GTK.
+- [AGS](https://aylur.github.io/ags/) (Aylur's GTK Shell) is a scaffolding commandline tool for Astal & TypeScript/Javascript(X). In simple words, it allows you to create Astal projects in those languages with ease.
 
 ## Eww
 
@@ -222,6 +239,13 @@ socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket
 
 </details>
 
-#### Blur
+## Quickshell
 
-To activate blur for your status bar, have a look at [layer rules](https://wiki.hyprland.org/Configuring/Window-Rules/#layer-rules).
+[Quickshell](https://quickshell.outfoxxed.me/) is a flexbile QtQuick-based desktop shell toolkit.
+
+# Tips
+
+## Blur
+
+Use the `blur` and `ignorealpha` [layer rules](https://wiki.hyprland.org/Configuring/Window-Rules/#layer-rules). The former enables blur, and the latter makes it ignore insufficiently opaque regions. Ideally, the value used with `ignorealpha` is higher than the shadow opacity and lower than the bar/menu content's opacity.
+
