@@ -99,7 +99,7 @@ For AGS, see its [Quick start](https://aylur.github.io/ags/guide/quick-start.htm
 ### Advantages
 - Language flexibility: You can use your favorite if it supports
 [Gobject Introspection](https://en.wikipedia.org/wiki/List_of_language_bindings_for_GTK) (although JS(X)/TS are most well-supported by AGS)
-- Provides arge set of libraries, including Network (both Wi-Fi and Ethernet) and Bluetooth
+- Provides a large set of libraries, including Network (both Wi-Fi and Ethernet) and Bluetooth
 
 ### Disadvantages
 - Does not provide hot reload out of the box
