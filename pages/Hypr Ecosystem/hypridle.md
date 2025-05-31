@@ -25,6 +25,7 @@ Variables in the `general` category:
 | after_sleep_cmd | command to run when receiving a dbus post prepare_sleep event | string | empty |
 | ignore_dbus_inhibit | whether to ignore dbus-sent idle inhibit events (e.g. from firefox) | bool | false |
 | ignore_systemd_inhibit | whether to ignore `systemd-inhibit --what=idle` inhibitors | bool | false |
+| ignore_wayland_inhibit | whether to ignore Wayland protocol idle inhibitors | bool | false |
 | inhibit_sleep | sleep inhibition mode, 0 - disable, 1 - normal, 2 - auto, 3 - lock notify | int | 2 |
 
 {{< callout type=info >}}
@@ -58,6 +59,17 @@ listener {
 ```
 
 You can define as many listeners as you want.
+
+Variables in the `listener` category:
+
+| variable | description | type | default |
+| --- | --- | --- | --- |
+| timeout | idle time in seconds | int | none, value must be specified |
+| on-timeout | command to run when timeout has passed | string | empty |
+| on-resume | command to run when activity is detected after timeout has fired | string | empty |
+| ignore_inhibit | ignore idle inhibitors (of all types) for this rule | bool | false |
+
+### Examples
 
 Full hypridle example with hyprlock:
 
