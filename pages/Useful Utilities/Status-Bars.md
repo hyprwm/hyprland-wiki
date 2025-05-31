@@ -118,10 +118,8 @@ Install Eww either using your distro's package manager, by searching
 ### Disadvantages
 - Heavy reliance on external scripts/programs, as it does not provide many libraries
 - Performance
-  - Dynamic content in many cases forces destruction and recreation of widgets
   - Only supports GTK 3, which does not support GPU acceleration
-  - Performance overhead from the use of external scripts
-
+  - Overhead from the use of external scripts and unnecessary component recreations on re-evaluation when data changes
 
 ### Configuration
 
