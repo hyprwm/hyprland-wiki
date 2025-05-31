@@ -280,15 +280,19 @@ Dependencies :
 ```ini
 exec-once = foot --server
 
-bind = ALT, tab, exec, hyprctl -q keyword animations:enabled false ; hyprctl -q dispatch exec "footclient -a alttab $XDG_CONFIG_HOME/hypr/scripts/alttab/alttab.sh" ; hyprctl -q keyword unbind "ALT, TAB" ; hyprctl -q dispatch submap alttab
+bind = ALT, tab, exec, $HOME/.config/hypr/scripts/alttab/enable.sh 'down'
+bind = ALT SHIFT, tab, exec, $HOME/.config/hypr/scripts/alttab/enable.sh 'up'
 
 submap=alttab
 bind = ALT, tab, sendshortcut, , tab, class:alttab
 bind = ALT SHIFT, tab, sendshortcut, shift, tab, class:alttab
 
 bindrt = ALT, ALT_L, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return,class:alttab
-bind = ALT, Return, exec, $HOME/.config/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut ,return, class:alttab
+bindrt = ALT SHIFT, ALT_L, exec, $HOME/.config/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return,class:alttab
+bind = ALT, Return, exec, $HOME/.config/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return, class:alttab
+bind = ALT SHIFT, Return, exec, $HOME/.config/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return, class:alttab
 bind = ALT, escape, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , escape,class:alttab
+bind = ALT SHIFT, escape, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , escape,class:alttab
 submap = reset
 
 workspace = special:alttab, gapsout:0, gapsin:0, bordersize:0
@@ -302,11 +306,12 @@ windowrule = bordersize 0, class:alttab
 
 ```bash {filename="alttab.sh"}
 #!/usr/bin/env bash
+start=$1
 address=$(hyprctl -j clients | jq -r 'sort_by(.focusHistoryID) | .[] | select(.workspace.id >= 0) | "\(.address)\t\(.title)"' |
 	      fzf --color prompt:green,pointer:green,current-bg:-1,current-fg:green,gutter:-1,border:bright-black,current-hl:red,hl:red \
 		  --cycle \
 		  --sync \
-		  --bind tab:down,shift-tab:up,start:down,double-click:ignore \
+		  --bind tab:down,shift-tab:up,start:$start,double-click:ignore \
 		  --wrap \
 		  --delimiter=$'\t' \
 		  --with-nth=2 \
@@ -343,6 +348,11 @@ chafa --animate false -s "$dim" "$XDG_CONFIG_HOME/hypr/scripts/alttab/preview.pn
 #!/usr/bin/env bash
 hyprctl -q keyword animations:enabled true
 
-hyprctl -q keyword unbind "ALT, tab"
-hyprctl -q keyword bind ALT, tab, exec, "hyprctl -q keyword animations:enabled false ; hyprctl -q dispatch exec 'footclient -a alttab $XDG_CONFIG_HOME/hypr/scripts/alttab/alttab.sh' ; hyprctl -q keyword unbind 'ALT, tab' ; hyprctl -q dispatch submap alttab"
+hyprctl -q --batch "keyword unbind ALT, TAB ; keyword unbind ALT SHIFT, TAB ; keyword bind ALT, TAB, exec, $HOME/.config/hypr/scripts/alttab/enable.sh 'down' ; keyword bind ALT SHIFT, TAB, exec, $HOME/.config/hypr/scripts/alttab/enable.sh 'up'"
+```
+
+5. create file `touch $XDG_CONFIG_HOME/hypr/scripts/alttab/enable.sh && chmod +x $XDG_CONFIG_HOME/hypr/scripts/alttab/enable.sh` and add:
+```bash {filename="enable.sh"}
+#!/usr/bin/env bash
+hyprctl -q --batch "keyword animations:enabled false ; dispatch exec footclient -a alttab ~/.config/hypr/scripts/alttab/alttab.sh $1 ; keyword unbind ALT, TAB ; keyword unbind ALT SHIFT, TAB ; dispatch submap alttab"
 ```
