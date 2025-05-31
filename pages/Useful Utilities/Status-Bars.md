@@ -97,6 +97,9 @@ To get started with Astal, see its [installation instructions](https://aylur.git
 - Language flexibility: You can use your favorite if it supports [Gobject Introspection](https://en.wikipedia.org/wiki/List_of_language_bindings_for_GTK) (although JS/TS are most well-supported (with AGS))
 - Provides arge set of libraries, including Network (both Wi-Fi and Ethernet) and Bluetooth
 
+### Disadvantages
+- Does not provide hot reload out of the box
+
 ## Eww
 
 [Eww](https://github.com/elkowar/eww) (ElKowar's Wacky Widgets) is a widget
@@ -110,13 +113,15 @@ Install Eww either using your distro's package manager, by searching
 
 ### Advantages
 - Its Lisp-like config syntax is simple compared to other config languages
+- Supports styling with SCSS out of the box
 
 ### Disadvantages
-- Provides a limited set of reusable variables compared to the other two
+- Heavy reliance on external scripts/programs, as it does not provide many libraries
 - Performance
   - Dynamic content in many cases forces destruction and recreation of widgets
   - Only supports GTK 3, which does not support GPU acceleration
-  - Overhead from reliance on external scripts/programs
+  - Performance overhead from the use of external scripts
+
 
 ### Configuration
 
