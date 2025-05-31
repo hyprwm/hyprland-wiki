@@ -13,7 +13,7 @@ startup, edit `hyprland.conf` and add: `exec-once = hypridle`. If Hyprland is st
 
 ### General
 
-Variables in the `general` category:
+#### Variables in the `general` category:
 
 | variable | description | type | default |
 | --- | --- | --- | --- |
@@ -57,7 +57,19 @@ listener {
 }
 ```
 
+#### Variables in the `listener` category:
+
+| variable | description | type | default |
+| --- | --- | --- | --- |
+| timeout | idle time in seconds | int | none, value must be specified |
+| on-timeout | command to run when timeout has passed | string | empty |
+| on-resume | command to run when activity is detected after timeout has fired | string | empty |
+| ignore_inhibit | ignore idle inhibitors (of all types) for this rule | bool | false |
+
 You can define as many listeners as you want.
+
+
+### Examples
 
 Full hypridle example with hyprlock:
 
