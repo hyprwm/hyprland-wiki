@@ -60,7 +60,7 @@ listener {
 
 You can define as many listeners as you want.
 
-#### Variables in the `listener` category:
+Variables in the `listener` category:
 
 | variable | description | type | default |
 | --- | --- | --- | --- |
