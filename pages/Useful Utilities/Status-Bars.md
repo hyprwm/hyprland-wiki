@@ -84,17 +84,21 @@ Below are three popular choices in alphabetical order.
 |   | [AGS/Astal](https://aylur.github.io/astal/) | [EWW](https://elkowar.github.io/eww/) | [Quickshell](https://quickshell.outfoxxed.me/) | 
 |--------------------------|-------------------|-------------------|-------------------|
 | UI Toolkit               | GTK 3/4            | GTK 3             | Qt                |
-| Config language          | JS(X)/TS/languages that support [Gobject Introspection](https://en.wikipedia.org/wiki/List_of_language_bindings_for_GTK) | Yuck (EWW's flavor of Lisp)         | QML              |
+| Config language          | JS(X)/TS/languages that support [Gobject Introspection](https://en.wikipedia.org/wiki/List_of_language_bindings_for_GTK) | Yuck (EWW's flavor of Lisp) | QML |
 
 ## AGS/Astal
 
 - [Astal](https://aylur.github.io/astal/) is a suite and framework to craft desktop shells and Wayland widgets with GTK.
-- [AGS](https://aylur.github.io/ags/) (Aylur's GTK Shell) is a scaffolding commandline tool for Astal + TypeScript/Javascript(X). In simple words, it eases creation of Astal projects in those languages.
+- [AGS](https://aylur.github.io/ags/) (Aylur's GTK Shell) is a scaffolding tool for Astal and TypeScript/Javascript(X).
+In simple words, it eases creation of Astal projects in those languages.
 
-To get started with Astal, see its [installation instructions](https://aylur.github.io/astal/guide/getting-started/installation) and [examples](https://aylur.github.io/astal/guide/getting-started/supported-languages). For AGS, see its [Quick start](https://aylur.github.io/ags/guide/quick-start.html) page.
+To get started with Astal, see its [installation instructions](https://aylur.github.io/astal/guide/getting-started/installation)
+and [examples](https://aylur.github.io/astal/guide/getting-started/supported-languages).
+For AGS, see its [Quick start](https://aylur.github.io/ags/guide/quick-start.html) page.
 
 ### Advantages
-- Language flexibility: You can use your favorite if it supports [Gobject Introspection](https://en.wikipedia.org/wiki/List_of_language_bindings_for_GTK) (although JS/TS are most well-supported (with AGS))
+- Language flexibility: You can use your favorite if it supports
+[Gobject Introspection](https://en.wikipedia.org/wiki/List_of_language_bindings_for_GTK) (although JS(X)/TS are most well-supported by AGS)
 - Provides arge set of libraries, including Network (both Wi-Fi and Ethernet) and Bluetooth
 
 ### Disadvantages
@@ -119,7 +123,7 @@ Install Eww either using your distro's package manager, by searching
 - Heavy reliance on external scripts/programs, as it does not provide many libraries
 - Performance
   - Only supports GTK 3, which does not support GPU acceleration
-  - Overhead from the use of external scripts and unnecessary component recreations on re-evaluation when data changes
+  - Overhead from the use of external scripts and unnecessary component recreations on data re-evaluation
 
 ### Configuration
 
@@ -266,7 +270,9 @@ socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket
 [Quickshell](https://quickshell.outfoxxed.me/) is a flexbile QtQuick-based desktop shell toolkit.
 Note that although Qt is notoriously hard to theme, Quickshell can be styled independently.
 
-To get started, see the [setup instructions](https://quickshell.outfoxxed.me/docs/configuration/getting-started/) and a [guided hello world](https://quickshell.outfoxxed.me/docs/configuration/intro/)
+To get started, see the 
+[setup instructions](https://quickshell.outfoxxed.me/docs/configuration/getting-started/)
+and a [guided hello world](https://quickshell.outfoxxed.me/docs/configuration/intro/)
 
 ### Advantages
 - Provides advanced Wayland/Hyprland integrations, for example live window previews
@@ -282,5 +288,8 @@ To get started, see the [setup instructions](https://quickshell.outfoxxed.me/doc
 
 ## Blur
 
-Use the `blur` and `ignorealpha` [layer rules](https://wiki.hyprland.org/Configuring/Window-Rules/#layer-rules). The former enables blur, and the latter makes it ignore insufficiently opaque regions. Ideally, the value used with `ignorealpha` is higher than the shadow opacity and lower than the bar/menu content's opacity. Additionally, if it has transparent popups, you can use the `blurpopups` rule.
+Use the `blur` and `ignorealpha` [layer rules](https://wiki.hyprland.org/Configuring/Window-Rules/#layer-rules). 
+The former enables blur, and the latter makes it ignore insufficiently opaque regions. 
+Ideally, the value used with `ignorealpha` is higher than the shadow opacity and lower than the bar/menu content's opacity. 
+Additionally, if it has transparent popups, you can use the `blurpopups` rule.
 
