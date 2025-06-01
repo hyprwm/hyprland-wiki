@@ -280,17 +280,17 @@ Dependencies :
 ```ini
 exec-once = foot --server
 
-bind = ALT, tab, exec, $HOME/.config/hypr/scripts/alttab/enable.sh 'down'
-bind = ALT SHIFT, tab, exec, $HOME/.config/hypr/scripts/alttab/enable.sh 'up'
+bind = ALT, TAB, exec, $HOME/.config/hypr/scripts/alttab/enable.sh 'down'
+bind = ALT SHIFT, TAB, exec, $HOME/.config/hypr/scripts/alttab/enable.sh 'up'
 
 submap=alttab
 bind = ALT, tab, sendshortcut, , tab, class:alttab
 bind = ALT SHIFT, tab, sendshortcut, shift, tab, class:alttab
 
 bindrt = ALT, ALT_L, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return,class:alttab
-bindrt = ALT SHIFT, ALT_L, exec, $HOME/.config/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return,class:alttab
-bind = ALT, Return, exec, $HOME/.config/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return, class:alttab
-bind = ALT SHIFT, Return, exec, $HOME/.config/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return, class:alttab
+bindrt = ALT SHIFT, ALT_L, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return,class:alttab
+bind = ALT, Return, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return, class:alttab
+bind = ALT SHIFT, Return, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return, class:alttab
 bind = ALT, escape, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , escape,class:alttab
 bind = ALT SHIFT, escape, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , escape,class:alttab
 submap = reset
