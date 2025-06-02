@@ -67,7 +67,17 @@ bind = MOD, KEY, submap, reset
 submap = reset
 ```
 
-## Remap Caps-Lock to Ctrl
+## Remapping Caps Lock
+
+You can customize the behavior of the Caps Lock key using `kb_options`.
+
+To view all available options related to Caps Lock, run:
+
+```sh
+grep 'caps' /usr/share/X11/xkb/rules/base.lst
+```
+
+For example, to remap Caps lock to Ctrl:
 
 ```ini
 input {
@@ -75,13 +85,15 @@ input {
 }
 ```
 
-## Swap Caps-Lock and Escape
+To swap Caps Lock and Escape:
 
 ```ini
 input {
     kb_options = caps:swapescape
 }
 ```
+
+You can also find additional `kb_options` unrelated to Caps Lock in `/usr/share/X11/xkb/rules/base.lst`.
 
 ## Set F13-F24 as usual function keys
 
