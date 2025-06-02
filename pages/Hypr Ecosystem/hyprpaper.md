@@ -145,6 +145,13 @@ CURRENT_WALL=$(hyprctl hyprpaper listloaded)
 
 # Get a random wallpaper that is not the current one
 WALLPAPER=$(find "$WALLPAPER_DIR" -type f ! -name "$(basename "$CURRENT_WALL")" | shuf -n 1)
+MIME_TYPE=$(file --mime-type -b "$WALLPAPER")
+
+# if the mimetype is not an image, it probably won't load :-)
+if [[ !"$MIME_TYPE" =~ ^image/ ]]; then
+notify-send "WARNING" "The selected file '$WALLPAPER' is not an image (MIME type: $MIME_TYPE). Bailing out."
+exit 1;
+fi
 
 # Apply the selected wallpaper
 hyprctl hyprpaper reload ,"$WALLPAPER"
