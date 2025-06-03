@@ -274,6 +274,22 @@ Transform list:
 7 -> flipped + 270 degrees
 ```
 
+## Monitor v2
+
+Alternative syntax. `monitor = DP-1,1920x1080@144,0x0,1,transform,2` is the same as
+
+```ini
+monitorv2 {
+  output = DP-1
+  mode = 1920x1080@144
+  position = 0x0
+  scale = 1
+  transform = 2
+}
+```
+
+Other named settings keep their names: `name, value` &rarr; `name = value` (e.g. `bitdepth,10` &rarr; `bitdepth = 10`)
+
 ## Default workspace
 
 See [Workspace Rules](../Workspace-Rules).
