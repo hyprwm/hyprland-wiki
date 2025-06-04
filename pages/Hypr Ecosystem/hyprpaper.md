@@ -138,7 +138,7 @@ unload old sequence.
 You can also use this simple `reload` functionality to randomize your wallpaper. Using a simple script like so would do it very easily:
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 ATTEMPTS=0
 MAX_NUM=10
 FILES=()
