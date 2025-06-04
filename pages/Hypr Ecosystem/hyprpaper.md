@@ -138,16 +138,41 @@ unload old sequence.
 You can also use this simple `reload` functionality to randomize your wallpaper. Using a simple script like so would do it very easily:
 
 ```bash
-#!/usr/bin/env bash
+#!/bin/bash
+ATTEMPTS=0
+MAX_NUM=10
+FILES=()
+WALLPAPER_DIR="/usr/share/backgrounds"
+CURRENT_WALL=$(hyprctl --instance 0 hyprpaper listloaded)
+WALLPAPER=""
 
-WALLPAPER_DIR="$HOME/wallpapers/"
-CURRENT_WALL=$(hyprctl hyprpaper listloaded)
+while true; do
+    ((ATTEMPTS++))
+    echo "Attempt #$ATTEMPTS"
 
-# Get a random wallpaper that is not the current one
-WALLPAPER=$(find "$WALLPAPER_DIR" -type f ! -name "$(basename "$CURRENT_WALL")" | shuf -n 1)
+    if (( ATTEMPTS > MAX_NUM )); then
+        notify-send "Error: we tried to set the following files: ${FILES[*]}"
+        exit 1
+    fi
 
-# Apply the selected wallpaper
-hyprctl hyprpaper reload ,"$WALLPAPER"
+    WALLPAPER=$(find "$WALLPAPER_DIR" -type f ! -name "$(basename "$CURRENT_WALL")" | shuf -n 1)
+    if [[ -z "$WALLPAPER" ]]; then
+        notify-send "Error: No suitable wallpapers found."
+        exit 1
+    fi
+
+    MIME_TYPE=$(file --mime-type -b "$WALLPAPER")
+    if [[ ! "$MIME_TYPE" =~ ^image/ ]]; then
+        echo "$WALLPAPER - $MIME_TYPE"
+        FILES+=("$WALLPAPER")
+        notify-send "WARNING" "The selected file '$WALLPAPER' is not an image (MIME type: $MIME_TYPE)."
+    else
+        echo "Setting: $WALLPAPER"
+        # Apply the selected wallpaper
+        hyprctl --instance 0 hyprpaper reload ,"$WALLPAPER"
+        break
+    fi
+done
 ```
 
 For a multiple-monitor setup, you can use this modified script that randomizes the wallpaper of your currently focused monitor:
