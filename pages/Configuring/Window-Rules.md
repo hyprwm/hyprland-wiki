@@ -67,6 +67,7 @@ The supported fields for parameters are:
 | fullscreen:\[0/1\] | Fullscreen windows. |
 | pinned:\[0/1\] | Pinned windows. |
 | focus:\[0/1\] | Currently focused window. |
+| group:\[0/1\] | Grouped windows. |
 | fullscreenstate:\[internal\] \[client\] | Windows with matching `fullscreenstate`. `internal` and `client` can be `*` - any, `0` - none, `1` - maximize, `2` - fullscreen, `3` - maximize and fullscreen. |
 | workspace:\[w\] | Windows on matching workspace. `w` can be `id` or `name:string`. |
 | onworkspace:\[w\] | Windows on matching workspace. `w` can be `id`, `name:string` or `workspace selector`. |
