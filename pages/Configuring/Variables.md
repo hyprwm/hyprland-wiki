@@ -285,6 +285,7 @@ _Subcategory `input:touchpad:`_
 | tap-and-drag | Sets the tap and drag mode for the touchpad | bool | true |
 | flip_x | inverts the horizontal movement of the touchpad | bool | false |
 | flip_y | inverts the vertical movement of the touchpad | bool | false |
+| drag_3fg | enables three finger drag, 0 -> disabled, 1 -> 3 fingers, 2 -> 4 fingers [libinput#drag-3fg](https://wayland.freedesktop.org/libinput/doc/latest/drag-3fg.html) | int | 0 |
 
 #### Touchdevice
 
