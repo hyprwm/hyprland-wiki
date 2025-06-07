@@ -117,7 +117,7 @@ Hyprland will not work (e.g. window sharing).
 For a nuclear option, you can use this script and `exec-once` it:
 
 ```sh
-#!/usr/bin/env bash
+#!/bin/sh
 sleep 1
 killall -e xdg-desktop-portal-hyprland
 killall xdg-desktop-portal
