@@ -453,3 +453,12 @@ Keep in mind that this will run Discord under XWayland.
 {{< /callout >}}
 
 If it works, navigate to the Discord desktop entry (usually located in `/usr/share/applications/`). Duplicate it and replace `Exec=/usr/bin/discord` with `Exec=env ELECTRON_OZONE_PLATFORM_HINT= /usr/bin/discord`. You can also give it a new name, e.g. `Name=DiscordX`, to avoid confusion as to which is which.
+
+### Fullscreen applications/Steam Games open with secondary monitor's resolution
+
+The issue is likely the default monitor for X11 is not your desired primary monitor, to fix this, do the following:
+
+Add `exec-once=xrandr --output [MONITOR_ID] --primary` to your config, replacing [MONITOR_ID] with your main monitor's ID (e.g. DP-3). You can find your monitor ID by running `hyprctl monitors`.
+
+By adding this to your hyprland config, it will set the default monitor for X11 applications to your main monitor.
+
