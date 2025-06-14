@@ -290,6 +290,20 @@ monitorv2 {
 
 Other named settings keep their names: `name, value` &rarr; `name = value` (e.g. `bitdepth,10` &rarr; `bitdepth = 10`)
 
+EDID overrides and SDR &rarr; HDR settings:
+
+| name | description | type |
+|---|---|---|
+| supports_wide_color | Force wide color gamut support (1 - force on, 0 - does nothing) | bool |
+| supports_hdr | Force HDR support. Requires wide color gamut (1 - force on, 0 - does nothing) | bool |
+| sdr_min_luminance | SDR minimum lumninace used for SDR &rarr; HDR mapping. Set to 0.005 for true black matching HDR black | float |
+| sdr_max_luminance | SDR maximum luminance. Can be used to adjust overall SDR &rarr; HDR brightness. 80 - 400 is a reasonable range. The desired value is likely between 200 and 250 | int |
+| min_luminance | Monitor's minimum luminance | float |
+| max_luminance | Monitor's maximum possible luminance | int |
+| max_avg_luminance | Monitor's maximum luminance on average for a typical frame | int |
+
+Note: those values might get passed to the monitor itself and cause increased burn-in or other damage if it's firmware lacks some safety checks. 
+
 ## Default workspace
 
 See [Workspace Rules](../Workspace-Rules).
