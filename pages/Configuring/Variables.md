@@ -381,7 +381,10 @@ _Subcategory `group:groupbar:`_
 | gradient_rounding | how much to round the gradients | int | 2 |
 | round_only_edges | round only the indicator edges of the entire groupbar | bool | true |
 | gradient_round_only_edges | round only the gradient edges of the entire groupbar | bool | true |
-| text_color | controls the group bar text color | color | 0xffffffff |
+| text_color | color for window titles in the groupbar | color | 0xffffffff |
+| text_color_inactive | color for inactive windows' titles in the groupbar (if unset, defaults to text_color) | color | unset |
+| text_color_locked_active | color for the active window's title in a locked group (if unset, defaults to text_color) | color | unset |
+| text_color_locked_inactive | color for inactive windows' titles in locked groups (if unset, defaults to text_color_inactive) | color | unset |
 | col.active | active group bar background color | gradient | 0x66ffff00 |
 | col.inactive | inactive (out of focus) group bar background color | gradient | 0x66777700 |
 | col.locked_active | active locked group bar background color | gradient | 0x66ff5500 |
