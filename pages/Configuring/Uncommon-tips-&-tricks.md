@@ -238,9 +238,9 @@ if [ "$HYPRGAMEMODE" = 1 ] ; then
         keyword decoration:rounding 0"
     exit
 fi
-hyprctl reload
+hyprctl reload 
 ```
-
+Use `hyprctl reload config-only` if you don't want to reload monitor configs. 
 Edit to your liking of course. If animations are enabled, it disables all the
 pretty stuff. Otherwise, the script reloads your config to grab your defaults.
 
