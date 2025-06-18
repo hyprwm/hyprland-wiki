@@ -208,11 +208,12 @@ experimental support for Chromium, however there has not been much success.
 ## Other issues
 
 ### Multi-monitor with hybrid graphics
+If you experience issues with multi-monitor setup on a hybrid graphics device
+(a laptop with both an Intel and an Nvidia GPU), switching to discrete-only mode may help:
 
-On a hybrid graphics device (a laptop with both an Intel and an Nvidia GPU), you
-will need to remove the `optimus-manager` package if installed (disabling the
-service does not work). You also need to change your BIOS settings from hybrid
-graphics to discrete graphics.
+1. Remove the `optimus-manager` package if installed (disabling the
+   service does not work).
+2. Change your BIOS settings from hybrid graphics to discrete graphics.
 
 ### Flickering in XWayland games
 
