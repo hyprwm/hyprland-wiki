@@ -211,12 +211,14 @@ defined in your NixOS module, you can now do so as long as you're running
 or later by setting your `package` and `portalPackage` to `null`.
 
 ```nix {filename="home.nix"}
-wayland.windowManager.hyprland = {
-  enable = true;
-  # set the Hyprland and XDPH packages to null to use the ones from the NixOS module
-  package = null;
-  portalPackage = null;
-};
+{
+  wayland.windowManager.hyprland = {
+    enable = true;
+    # set the Hyprland and XDPH packages to null to use the ones from the NixOS module
+    package = null;
+    portalPackage = null;
+  };
+}
 ```
 
 Make sure **not** to mix versions of Hyprland and XDPH.
@@ -233,7 +235,9 @@ services. This is the most common with user-configured services such as
 To fix it, add to your config:
 
 ```nix {filename="home.nix"}
-wayland.windowManager.hyprland.systemd.variables = ["--all"];
+{
+  wayland.windowManager.hyprland.systemd.variables = ["--all"];
+}
 ```
 
 This setting will produce the following entry in the Hyprland config:

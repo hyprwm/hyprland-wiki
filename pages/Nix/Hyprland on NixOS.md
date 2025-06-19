@@ -155,15 +155,17 @@ If you prefer not to use Home Manager, you can also resolve the issues with GTK
 themes using dconf like so:
 
 ```nix {filename="configuration.nix"}
-programs.dconf.profiles.user.databases = [
-  {
-    settings."org/gnome/desktop/interface" = {
-      gtk-theme = "Adwaita";
-      icon-theme = "Flat-Remix-Red-Dark";
-      font-name = "Noto Sans Medium 11";
-      document-font-name = "Noto Sans Medium 11";
-      monospace-font-name = "Noto Sans Mono Medium 11";
-    };
-  }
-];
+{
+  programs.dconf.profiles.user.databases = [
+    {
+      settings."org/gnome/desktop/interface" = {
+        gtk-theme = "Adwaita";
+        icon-theme = "Flat-Remix-Red-Dark";
+        font-name = "Noto Sans Medium 11";
+        document-font-name = "Noto Sans Medium 11";
+        monospace-font-name = "Noto Sans Mono Medium 11";
+      };
+    }
+  ];
+}
 ```

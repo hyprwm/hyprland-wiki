@@ -247,7 +247,9 @@ you haven't already.
 For Nix users, the equivalent of the above is
 
 ```nix {filename="configuration.nix"}
-hardware.nvidia.powerManagement.enable = true;
+{
+  hardware.nvidia.powerManagement.enable = true;
+}
 ```
 
 {{< callout >}}
