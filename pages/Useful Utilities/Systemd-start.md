@@ -22,7 +22,9 @@ pacman -S uwsm libnewt
 {{% details title="Nix/NixOS" closed="true" %}}
 
 ```nix
-programs.hyprland.withUWSM  = true;
+{
+  programs.hyprland.withUWSM  = true;
+}
 ```
 
 The above option generates a new desktop entry, `hyprland-uwsm.desktop`, which will be available in display managers.
@@ -34,7 +36,9 @@ For more info, read the [option](https://search.nixos.org/options?channel=unstab
 If you use the [Home Manager module](../../Nix/Hyprland-on-Home-Manager), make sure to disable the systemd integration, as it conflicts with uwsm.
 
 ```nix
-wayland.windowManager.hyprland.systemd.enable = false;
+{
+  wayland.windowManager.hyprland.systemd.enable = false;
+}
 ```
 
 {{< /callout >}}

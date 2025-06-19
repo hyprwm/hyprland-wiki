@@ -83,7 +83,9 @@ In case of errors you can downgrade easily with [downgrade](https://github.com/a
 Enable Hyprland in your NixOS configuration:
 
 ```nix
-programs.hyprland.enable = true;
+{
+  programs.hyprland.enable = true;
+}
 ```
 
 For more details, read the [Nix page](../../Nix).
