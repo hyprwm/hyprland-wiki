@@ -87,6 +87,20 @@ if you are not allowing screencopy for all apps.
 
 <br/>
 
+NixOS does not have static paths for the binaries, so regex has to be used. These example rules allow `grim` and `xdg-desktop-portal-hyprland` to copy the screen:
+```ini
+permission = /nix/store/[a-z0-9]{32}-grim-[0-9.]*/bin/grim, screencopy, allow
+permission = /nix/store/[a-z0-9]{32}-xdg-desktop-portal-hyprland-[0-9.]*/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow
+```
+
+When rendering the configuration with Nix itself, string interpolation can also be used:
+```ini
+permission = ${pkgs.grim}/bin/grim, screencopy, allow
+permission = ${pkgs.xdg-desktop-portal-hyprland}/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow
+```
+
+<br/>
+
 On some **BSD** systems paths might not work. In such cases, you might want to disable permissions altogether, by setting
 ```ini
 ecosystem {
@@ -94,4 +108,3 @@ ecosystem {
 }
 ```
 otherwise, you have no _config_ control over permissions (popups will still work, although will not show paths, and "remember" will not be available).
-
