@@ -90,3 +90,20 @@ One exception you might notice in the code is absolute paths from the root are a
 
 ### Test your changes
 Run and test your changes to make sure they work!
+
+## Testing and CI
+
+Since [#9297](https://github.com/hyprwm/Hyprland/pull/9297), we require each MR that fixes an issue
+or adds a new feature to include test(s) for the feature, if possible.
+
+The testing framework is incapable of testing visual changes (e.g. graphical effects), and some very
+niche parts (real HID devices, etc). However, if your change is related to: binds, layouts, config options,
+window management, hyprctl, dispatchers, keywords, etc. your MR _needs_ tests.
+
+### How to run tests locally
+
+In order to run tests locally, build Hyprland, then:
+```sh
+cd hyprtester
+../build/hyprtester/hyprtester --plugin ./plugin/hyprtestplugin.so
+```
