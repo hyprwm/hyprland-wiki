@@ -93,9 +93,10 @@ permission = /nix/store/[a-z0-9]{32}-grim-[0-9.]*/bin/grim, screencopy, allow
 permission = /nix/store/[a-z0-9]{32}-xdg-desktop-portal-hyprland-[0-9.]*/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow
 ```
 
-When rendering the configuration with Nix itself, string interpolation can also be used:
+When rendering the configuration with Nix itself, string interpolation can also be used (be aware that if the path contains special regex characters (e.g. `+`) they need to be escaped):
 ```ini
-permission = ${pkgs.grim}/bin/grim, screencopy, allow
+permission = ${lib.getExe pkgs.grim}, screencopy, allow
+permission = ${lib.escapeRegex (lib.getExe config.programs.hyprlock.package)}, screencopy, allow
 permission = ${pkgs.xdg-desktop-portal-hyprland}/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow
 ```
 
