@@ -35,7 +35,6 @@ Variables in the `general` category:
 | variable | description | type | default |
 | -- | -- | -- | -- |
 | hide_cursor | hides the cursor instead of making it visible | bool | false |
-| grace | the amount of seconds for which the lockscreen will unlock on mouse movement. | int | 0 |
 | ignore_empty_input | skips validation when no password is provided | bool | false |
 | immediate_render | makes hyprlock immediately start to draw widgets. Backgrounds will render `background:color` until their `background:path` resource is available | bool | false |
 | text_trim | sets if the text should be trimmed, useful to avoid trailing newline in commands output | bool | true |
