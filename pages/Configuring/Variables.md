@@ -34,6 +34,7 @@ You have 3 options:
 
 rgba(), e.g. `rgba(b3ff1aee)`, or the decimal equivalent `rgba(179,255,26,0.933)`
 (decimal rgba/rgb values should have no spaces between numbers)
+
 rgb(), e.g. `rgb(b3ff1a)`, or the decimal equivalent  `rgb(179,255,26)`
 
 legacy, e.g. `0xeeb3ff1a` -> ARGB order
