@@ -107,3 +107,15 @@ In order to run tests locally, build Hyprland, then:
 cd hyprtester
 ../build/hyprtester/hyprtester --plugin ./plugin/hyprtestplugin.so
 ```
+
+### How to add tests
+
+In order to add a new test, you can either make a new test file, or add a test to an existing file.
+If you are adding a new test file, remember to end on a clean state: close all windows you've opened, and go back to workspace 1.
+
+If you are adding to an existing test file, find a file that's appropriate for the category
+of your test.
+
+Tests are done by having a hyprland process active, issuing hyprctl commands, and checking the result with hyprctl queries.
+
+Check the `hyprtester/` directory of the source repo for more.
