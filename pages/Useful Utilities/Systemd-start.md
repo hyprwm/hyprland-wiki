@@ -75,7 +75,7 @@ If you want to bypass compositor selection menu and launch Hyprland directly, us
 
 ```
 if uwsm check may-start; then
-    exec uwsm start hyprland.desktop
+    exec uwsm start hyprland-uwsm.desktop
 fi
 ```
 
