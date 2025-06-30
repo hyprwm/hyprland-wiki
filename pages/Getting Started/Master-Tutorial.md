@@ -69,7 +69,7 @@ list:
 - GDM → Works with the caveat of crashing Hyprland on the first launch.
 - greetd → Works flawlessly, especially with
   [ReGreet](https://github.com/rharish101/ReGreet).
-- ly → Works poorly.
+- ly → Works flawlessly.
 
 ## DE-like pre-configured setups
 
