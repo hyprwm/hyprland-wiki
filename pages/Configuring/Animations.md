@@ -59,6 +59,7 @@ global
     ↳ specialWorkspace - styles: same as workspaces
       ↳ specialWorkspaceIn - styles: same as workspaces
       ↳ specialWorkspaceOut - styles: same as workspaces
+  ↳ zoomFactor - animates the screen zoom
 ```
 
 {{< callout type=warning >}}
