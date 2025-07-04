@@ -9,8 +9,8 @@ for your system.
 This method is preferred to screen shaders as it will _not_ be captured via recording / screenshots.
 
 hyprsunset also provides a gamma filter, which can be used to
-adjust percieved display brightness on monitors that do not
-support software control, or to reduce percieved brightness
+adjust perceived display brightness on monitors that do not
+support software control, or to reduce perceived brightness
 below the monitor's minimum.
 
 {{< callout type=warning >}}
