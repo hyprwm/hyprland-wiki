@@ -92,8 +92,8 @@ Below are three popular choices in alphabetical order.
 - [AGS](https://aylur.github.io/ags/) (Aylur's GTK Shell) is a scaffolding tool for Astal and TypeScript/Javascript(X).
 In simple words, it eases creation of Astal projects in those languages.
 
-To get started with Astal, see its [installation instructions](https://aylur.github.io/astal/guide/getting-started/installation)
-and [examples](https://aylur.github.io/astal/guide/getting-started/supported-languages).
+To get started with Astal, see its [installation instructions](https://aylur.github.io/astal/guide/installation)
+and [examples](https://aylur.github.io/astal/guide/introduction#supported-languages).
 For AGS, see its [Quick start](https://aylur.github.io/ags/guide/quick-start.html) page.
 
 ### Advantages
