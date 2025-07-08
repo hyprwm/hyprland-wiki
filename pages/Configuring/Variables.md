@@ -491,6 +491,7 @@ Subcategory `render:`_
 | cm_enabled | Whether the color management pipeline should be enabled or not (requires a restart of Hyprland to fully take effect) | bool | true |
 | send_content_type | Report content type to allow monitor profile autoswitch (may result in a black screen during the switch) | bool | true |
 | cm_auto_hdr | Auto-switch to HDR in fullscreen when needed. 0 - off, 1 - switch to `cm, hdr`, 2 - switch to `cm, hdredid` | int | 1 |
+| new_render_scheduling | Automatically uses triple buffering when needed, improves FPS on underpowered devices. | bool | true |
 
 ### Cursor
 
