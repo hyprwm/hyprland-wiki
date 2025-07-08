@@ -161,8 +161,8 @@ one combination, e.g.:
 
 ```ini
 # to switch between windows in a floating workspace
-bind = SUPER, Tab, cyclenext,           # change focus to another window
-bind = SUPER, Tab, bringactivetotop,    # bring it to the top
+bind = SUPER, Tab, cyclenext           # change focus to another window
+bind = SUPER, Tab, bringactivetotop    # bring it to the top
 ```
 
 The keybinds will be executed in the order they were created. (top to bottom)
