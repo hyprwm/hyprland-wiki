@@ -86,6 +86,12 @@ e.g.:
 hyprctl setcursor Bibata-Modern-Classic 24
 ```
 
+As for setting your GTK Cursor, you can use a tool like `nwg-look`.
+
+You can also do this manually by editing both `~/.config/gtk-3.0/settings.ini` and `~/.config/gtk-4.0/settings.ini` to include `gtk-cursor-theme-name=$CURSOR_THEME_NAME`
+
+If you are not sure what your installed cursors are called, you can run `find /usr/share/icons ~/.local/share/icons ~/.icons -type d -name "cursors"` to get a list of available cursors on your system.
+
 ### output
 
 Allows you to add and remove fake outputs to your preferred backend.
