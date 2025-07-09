@@ -227,6 +227,14 @@ If you experience issues with multi-monitor setup on a hybrid graphics device
    service does not work).
 2. Change your BIOS settings from hybrid graphics to discrete graphics.
 
+
+### Multi-monitor with hybrid graphics stuttering/slow
+aquamarine might be hitting slow CPU copy blitting and causing slowdowns
+
+1. test set the `AQ_FORCE_LINEAR_BLIT` env var to force linear modifiers on buffers.
+
+might cause other bugs, which is why its behind an environment variable.
+
 ### Flickering in XWayland games
 
 XWayland games may flicker or present frames out-of-order in a way which makes
