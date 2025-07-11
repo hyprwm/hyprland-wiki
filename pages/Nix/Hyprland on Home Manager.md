@@ -247,3 +247,16 @@ exec-once = dbus-update-activation-environment --systemd --all
 ```
 
 Make sure to use the above command if you do not use the Home Manager module.
+
+#### NixOS UWSM
+
+If you're using the NixOS module with UWSM (`programs.hyprland.withUWSM =
+true`), you can [set environment variables][uwsm-env] like this:
+
+```nix {filename="home.nix"}
+{
+  xdg.configFile."uwsm/env".source = "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh"; 
+}
+```
+
+[uwsm-env]: https://github.com/Vladimir-csp/uwsm?tab=readme-ov-file#4-environments-and-shell-profile "Environments and shell profile - UWSM"
