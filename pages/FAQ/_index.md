@@ -95,6 +95,7 @@ windowrule = noanim, class:^(flameshot)$
 windowrule = float, class:^(flameshot)$
 windowrule = move 0 0, class:^(flameshot)$
 windowrule = pin, class:^(flameshot)$
+windowrule = noinitialfocus, class:^(flameshot)$
 # set this to your leftmost monitor id, otherwise you have to move your cursor to the leftmost monitor
 # before executing flameshot
 windowrule = monitor 1, class:^(flameshot)$
