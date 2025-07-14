@@ -421,7 +421,8 @@ _Subcategory `misc:`_
 | swallow_exception_regex | The _title_ regex to be used for windows that should _not_ be swallowed by the windows specified in swallow_regex  (e.g. wev). The regex is matched against the parent (e.g. Kitty) window's title on the assumption that it changes to whatever process it's running. | str | \[\[Empty\]\] |
 | focus_on_activate | Whether Hyprland should focus an app that requests to be focused (an `activate` request) | bool | false |
 | mouse_move_focuses_monitor | Whether mouse moving into a different monitor should focus it | bool | true |
-| allow_session_lock_restore | if true, will allow you to restart a lockscreen app in case it crashes (red screen of death) | bool | false |
+| allow_session_lock_restore | if true, will allow you to restart a lockscreen app in case it crashes | bool | false |
+| session_lock_xray | if true, keep rendering workspaces below your lockscreen | bool | false |
 | background_color | change the background color. (requires enabled `disable_hyprland_logo`) | color | 0x111111 |
 | close_special_on_empty | close the special workspace if the last window is removed | bool | true |
 | new_window_takes_over_fullscreen | if there is a fullscreen or maximized window, decide whether a new tiled window opened should replace it, stay behind or disable the fullscreen/maximized state. 0 - behind, 1 - takes over, 2 - unfullscreen/unmaxize [0/1/2] | int | 0 |
@@ -431,7 +432,7 @@ _Subcategory `misc:`_
 | render_unfocused_fps | the maximum limit for renderunfocused windows' fps in the background (see also [Window-Rules](../Window-Rules/#dynamic-rules) - `renderunfocused`)| int | 15 |
 | disable_xdg_env_checks | disable the warning if XDG environment is externally managed | bool | false |
 | disable_hyprland_qtutils_check | disable the warning if hyprland-qtutils is not installed | bool | false |
-| lockdead_screen_delay | the delay in ms after the lockdead screen appears if the lock screen did not appear after a lock event occurred | int | 1000 |
+| lockdead_screen_delay | delay after which the "lockdead" screen will apear in case a lockscreen app fails to cover all the outputs (5 seconds max) | int | 1000 |
 | enable_anr_dialog | whether to enable the ANR (app not responding) dialog when your apps hang | bool | true |
 | anr_missed_pings | number of missed pings before showing the ANR dialog | int | 1 |
 
