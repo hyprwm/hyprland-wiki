@@ -107,7 +107,7 @@ Static rules are evaluated once when the window is opened and never again. This 
 
 {{< callout type=warning >}}
 
-It is not possible to `float` (or any other of the static rule) a window based on a change in the `title` after the window has been created. This applies to all static rules listed here.
+It is not possible to `float` (or any other static rule) a window based on a change in the `title` after the window has been created. This applies to all static rules listed here.
 
 {{< /callout >}}
 
