@@ -11,7 +11,7 @@ Animations are declared with the `animation` keyword.
 animation = NAME, ONOFF, SPEED, CURVE [,STYLE]
 ```
 
-`ONOFF` can be either `0` or `1`, `0` to disable, `1` to enable. _Note:_ if it's `0`, you
+`ONOFF` use `0` to disable, `1` to enable. _Note:_ if it's `0`, you
 can omit further args.
 
 `SPEED` is the amount of ds (1ds = 100ms) the animation will take.
