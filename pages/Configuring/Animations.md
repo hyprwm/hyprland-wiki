@@ -11,14 +11,14 @@ Animations are declared with the `animation` keyword.
 animation = NAME, ONOFF, SPEED, CURVE [,STYLE]
 ```
 
-`ONOFF` can be either 0 or 1, 0 to disable, 1 to enable. _note:_ if it's 0, you
+`ONOFF` use `0` to disable, `1` to enable. _Note:_ if it's `0`, you
 can omit further args.
 
-`SPEED` is the amount of ds (1ds = 100ms) the animation will take
+`SPEED` is the amount of ds (1ds = 100ms) the animation will take.
 
 `CURVE` is the bezier curve name, see [curves](#curves).
 
-`STYLE` (optional) is the animation style
+`STYLE` (optional) is the animation style.
 
 The animations are a tree. If an animation is unset, it will inherit its
 parent's values. See [the animation tree](#animation-tree).
@@ -64,28 +64,27 @@ global
 
 {{< callout type=warning >}}
 
-Using borderangle style: loop requires Hyprland to constantly push out new frames at [your monitor's hz] times a second which might put stress on your CPU/GPU and affect battery life. This will be applied even if animation are disabled or borders are not visible.
+Using the `loop` style for `borderangle` requires Hyprland to _constantly_ render new frames at a frequency equal to your screen's refresh rate (e.g. 60 times per second for a 60hz monitor), which might stress your CPU/GPU and will impact battery life. <br>
+This will apply even if animations are disabled or borders are not visible.
 
 {{</ callout >}}
 
 ## Curves
 
-Defining your own Bezier curve can be done with the `bezier` keyword:
+Defining your own [Bézier curve](https://en.wikipedia.org/wiki/B%C3%A9zier_curve) can be done with the `bezier` keyword:
 
 ```ini
 bezier = NAME, X0, Y0, X1, Y1
 ```
 
-where `NAME` is the name, and the rest are two points for the Cubic Bezier. A
-good website to design your bezier can be found
-[here, on cssportal.com](https://www.cssportal.com/css-cubic-bezier-generator/),
-but if you want to instead choose from a list of beziers, you can check out
-[easings.net](https://easings.net).
+where `NAME` is a name of your choice and `X0, Y0, X1, Y1` are the the two control points for a Cubic Bézier curve. <br>
+A good website to design your own Bézier can be [cssportal.com](https://www.cssportal.com/css-cubic-bezier-generator/). <br>
+If you want to instead choose from a list of pre-made Béziers, you can check out [easings.net](https://easings.net).
 
 ### Example
 
 ```ini
-bezier = overshot, 0.05, 0.9, 0.1, 1.1
+bezier = overshoot, 0.05, 0.9, 0.1, 1.1
 ```
 
 ### Extras
@@ -106,11 +105,11 @@ specify a movement percentage. For example, the following will make windows move
 animation = workspaces, 1, 8, default, slidefade 20%
 ```
 
-For animation style `slide` in windows and layers you can specify a forced side,
-e.g.:
+For animation style `slide` in `windows` and `layers` you can specify a forced side. <br>
+You can choose between `top`, `bottom`, `left` or `right`.
 
 ```ini
 animation = windows, 1, 8, default, slide left
 ```
 
-You can use `top`, `bottom`, `left` or `right`.
+
