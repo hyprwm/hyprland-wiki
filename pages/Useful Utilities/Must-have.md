@@ -61,3 +61,11 @@ See [hyprpolkitagent](../../Hypr-Ecosystem/hyprpolkitagent)
 _Starting method:_ none (just a library)
 
 Install `qt5-wayland` and `qt6-wayland`.
+
+### Fonts
+
+_Starting method:_ none (just a library)
+
+A `sans-serif` font is required to render text. Without one, you may see squares instead of text. A common choice is `noto-fonts`.
+
+For icons to display correctly, installing a Nerd Font or FontAwesome is recommended. Nerd Fonts will be used by default if available, then FontAwesome, before falling back to text.
