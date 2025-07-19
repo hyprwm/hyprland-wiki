@@ -23,14 +23,51 @@ below the monitor's minimum.
 
 `pacman -S hyprsunset`
 
+## Configuration
+
+Configuration is done via the config file at `~/.config/hypr/hyprlock.conf`. This file is not required for running hyprsunset, though recommended.
+
+Hyprsunset uses profiles, to determine when to change temperature and gamma. You can define as many profiles as you like.
+
+**Example Configuration**
+```ini
+max-gamma = 150
+
+profile {
+    time = 7:30
+    identity = true
+}
+
+profile {
+    time = 21:00
+    temperature = 5500
+    gamma = 0.8
+}
+```
+
+
+| variable | description | type | default |
+| -- | -- | -- | -- |
+| max-gamma | The maximum the gamma value can be. Absolute maximum is 200%. Mostly useful when controlling hyprsunset via IPC. | int | 100 |
+
+### Profile
+
+| variable | description | type | default |
+| -- | -- | -- | -- |
+| time | The time at which the profile should be activated. Must be in the format {hours}:{minutes} | string | 00:00 |
+| temperature | The screen temperature. Lower means warmer. | int | 6000 |
+| gamma | The perceived brightness of the screen. This will allow you to lower the brightness beyond your screen's minimum. | int | 100 |
+| identity | When set, resets gamma to 100 and temperature to 6500 acting as if hyprsunset was not running. | bool | false |
+
+
 ## Usage
-
-See `hyprsunset --help`.
-
-## Run at startup
 
 To autostart hyprsunset, add: `exec-once = hyprsunset` to your `hyprland.conf`.
 Alternatively, use `systemctl --user enable --now hyprsunset.service` in order to use hyprsunset as a systemd user service.
+
+Hyprsunset can also be controlled by supplying arguments to the command. By specifying `hyprsunset --temperature 5000` you will override the current active config's temperature setting. This however, will be overridden once a new profile is activated.
+
+For more information on cli arguments, run `hyprsunset --help`
 
 ## IPC
 
