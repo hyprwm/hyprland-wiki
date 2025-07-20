@@ -25,7 +25,7 @@ below the monitor's minimum.
 
 ## Configuration
 
-Configuration is done via the config file at `~/.config/hypr/hyprsunset.conf This file is not required for running hyprsunset, though recommended.
+Configuration is done via the config file at `~/.config/hypr/hyprsunset.conf` This file is not required for running hyprsunset, though recommended.
 
 Hyprsunset uses profiles to determine when to change temperature and gamma. You can define as many profiles as you like. Each Profile is activated at it's specified time and resets all options set by other profiles.
 
