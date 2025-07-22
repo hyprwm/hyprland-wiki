@@ -76,7 +76,6 @@ environment on traditional Linux distros.
 
 - `env = XDG_CURRENT_DESKTOP,Hyprland`
 - `env = XDG_SESSION_TYPE,wayland`
-- `env = XDG_SESSION_DESKTOP,Hyprland`
 
 XDG specific environment variables are often detected through portals and
 applications that may set those for you, however it is not a bad idea to set
