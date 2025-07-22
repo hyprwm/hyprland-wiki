@@ -438,7 +438,7 @@ _Subcategory `misc:`_
 
 ### Binds
 
-Subcategory `binds:`_
+_Subcategory `binds:`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -459,7 +459,7 @@ Subcategory `binds:`_
 
 ### XWayland
 
-Subcategory `xwayland:`_ 
+_Subcategory `xwayland:`_ 
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -470,7 +470,7 @@ Subcategory `xwayland:`_
 
 ### OpenGL
 
-Subcategory `opengl:`_ 
+_Subcategory `opengl:`_ 
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -478,7 +478,7 @@ Subcategory `opengl:`_
 
 ### Render
 
-Subcategory `render:`_ 
+_Subcategory `render:`_ 
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -496,7 +496,7 @@ Subcategory `render:`_
 
 ### Cursor
 
-Subcategory `cursor:`_ 
+_Subcategory `cursor:`_ 
 
 | name | description | type | default |
 | --- | --- | --- | --- |
