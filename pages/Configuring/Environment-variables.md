@@ -58,7 +58,7 @@ environment on traditional Linux distros.
 - `AQ_TRACE=1` - Enables more verbose logging.
 - `AQ_DRM_DEVICES=` - Set an explicit list of DRM devices (GPUs) to use. It's a colon-separated list of paths, with the first being the primary.
   E.g. `/dev/dri/card1:/dev/dri/card0`
-- `AQ_FORCE_LINEAR_BLIT=1` - Forces linear explicit modifiers on buffers, to attempt avoid slow CPU blitting on multi-gpu/multi-monitor scenario.
+- `AQ_FORCE_LINEAR_BLIT=0` - Disables forcing linear explicit modifiers on Multi-GPU buffers to potentially workaround Nvidia issues.
 - `AQ_MGPU_NO_EXPLICIT=1` - Disables explicit syncing on mgpu buffers
 - `AQ_NO_MODIFIERS=1` - Disables modifiers for DRM buffers
 

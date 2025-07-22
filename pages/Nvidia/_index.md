@@ -228,12 +228,15 @@ If you experience issues with multi-monitor setup on a hybrid graphics device
 2. Change your BIOS settings from hybrid graphics to discrete graphics.
 
 
-### Multi-monitor with hybrid graphics stuttering/slow
-aquamarine might be hitting slow CPU copy blitting and causing slowdowns
+### Multi-GPU (or hybrid graphics) not working for monitors attached to Nvidia GPU
+Nvidia doesn't support important features for Multi-GPU which can result in a broken or slow setup.
+There are some workarounds to try:
 
-1. test set the `AQ_FORCE_LINEAR_BLIT` env var to force linear modifiers on buffers.
+1. Try changing the primary GPU [with the AQ_DRM_DEVICES environment variable](https://wiki.hypr.land/Configuring/Multi-GPU/#telling-hyprland-which-gpu-to-use).
+2. Try setting the environment variable `AQ_FORCE_LINEAR_BLIT=0` to not force linear modifiers on Multi-GPU buffers.
 
-might cause other bugs, which is why its behind an environment variable.
+This might slow down rendering to secondary monitors and make Hyprland a bit laggy on them,
+but it's better than not having a secondary monitor at all, and it's the best we can do on Nvidia.
 
 ### Flickering in XWayland games
 
