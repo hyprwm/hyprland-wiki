@@ -15,7 +15,7 @@ title: File Managers
   - [nemo-terminal](https://github.com/linuxmint/nemo-extensions/tree/master/nemo-terminal): Embedded terminal window.
 - [pcmanfm-qt](https://github.com/lxqt/pcmanfm-qt): File manager by LXQt.
 - [pcmanfm](https://github.com/lxde/pcmanfm): File manager by LXDE.
-- [thunar](https://github.com/neilbrown/thunar): File manager by XFCE.
+- [thunar](https://gitlab.xfce.org/xfce/thunar): File manager by XFCE.
 
 ## TUI
 
