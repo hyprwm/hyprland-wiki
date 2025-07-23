@@ -5,7 +5,9 @@ title: Environment variables
 
 {{< callout type=info >}}
 
-[uwsm](../../Useful-Utilities/Systemd-start) users should avoid placing environment variables in the `hyprland.conf` file. Instead, use `~/.config/uwsm/env` for theming, xcursor, nvidia and toolkit variables, and `~/.config/uwsm/env-hyprland` for `HYPR*` and `AQ_*` variables. The format is `export KEY=VAL`.
+[uwsm](../../Useful-Utilities/Systemd-start) users should avoid placing environment variables in the `hyprland.conf` file.  
+Instead, use `~/.config/uwsm/env` for theming, xcursor, Nvidia and toolkit variables, and `~/.config/uwsm/env-hyprland` for `HYPR*` and `AQ_*` variables.  
+The format is `export KEY=VAL`.
 
 ```plain
 export XCURSOR_SIZE=24
@@ -22,28 +24,37 @@ initialization of the Display Server, e.g.:
 env = GTK_THEME,Nord
 ```
 
-{{< callout >}}
+{{< callout type=warning >}}
 
-Hyprland puts the raw string to the envvar with the `env` keyword. You should
-_not_ add quotes around the values.
+Note that Hyprland puts the **raw string** to the envvar with the `env` keyword.  
+You should _not_ add quotes `""` around the values.
 
 e.g.:
 
-```ini
+```py
 env = QT_QPA_PLATFORM,wayland
+# or
+env = QT_QPA_PLATFORM,wayland;xcb
 ```
 
 and _**NOT**_
 
-```ini
+```py
 env = QT_QPA_PLATFORM,"wayland"
+# or
+env = QT_QPA_PLATFORM,"wayland;xcb"
 ```
 
 {{< /callout >}}
 
-Please avoid putting those environment variables in /etc/environment. That will
-cause all sessions (including Xorg ones) to pick up your wayland-specific
+
+{{< callout type=warning >}}
+
+Please avoid putting those environment variables in `/etc/environment`.  
+That will cause all sessions (including Xorg ones) to pick up your Wayland-specific
 environment on traditional Linux distros.
+
+{{< /callout >}}
 
 ## Hyprland Environment Variables
 
@@ -57,19 +68,19 @@ environment on traditional Linux distros.
 
 - `AQ_TRACE=1` - Enables more verbose logging.
 - `AQ_DRM_DEVICES=` - Set an explicit list of DRM devices (GPUs) to use. It's a colon-separated list of paths, with the first being the primary.
-  E.g. `/dev/dri/card1:/dev/dri/card0`
+  E.g.: `/dev/dri/card1:/dev/dri/card0`
 - `AQ_FORCE_LINEAR_BLIT=0` - Disables forcing linear explicit modifiers on Multi-GPU buffers to potentially workaround Nvidia issues.
-- `AQ_MGPU_NO_EXPLICIT=1` - Disables explicit syncing on mgpu buffers
-- `AQ_NO_MODIFIERS=1` - Disables modifiers for DRM buffers
+- `AQ_MGPU_NO_EXPLICIT=1` - Disables explicit syncing on mgpu buffers.
+- `AQ_NO_MODIFIERS=1` - Disables modifiers for DRM buffers.
 
 ## Toolkit Backend Variables
 
-- `env = GDK_BACKEND,wayland,x11,*` - GTK: Use wayland if available. If not: try x11, then any other GDK backend.
-- `env = QT_QPA_PLATFORM,wayland;xcb` - Qt: Use wayland if available, fall back to
-  x11 if not.
+- `env = GDK_BACKEND,wayland,x11,*` - GTK: Use Wayland if available, if not, try X11 and  then any other GDK backend.
+- `env = QT_QPA_PLATFORM,wayland;xcb` - Qt: Use Wayland if available, fall back to
+  X11 if not.
 - `env = SDL_VIDEODRIVER,wayland` - Run SDL2 applications on Wayland. Remove or set to
   `x11` if games that provide older versions of SDL cause compatibility issues
-- `env = CLUTTER_BACKEND,wayland` - Clutter package already has wayland enabled, this
+- `env = CLUTTER_BACKEND,wayland` - Clutter package already has Wayland enabled, this
   variable will force Clutter applications to try and use the Wayland backend
 
 ## XDG Specifications
@@ -87,7 +98,7 @@ no reason (no errors), it's likely your XDG env isn't set correctly.
 
  {{< callout type=info >}}
  
- [uwsm](../../Useful-Utilities/Systemd-start) users don't need to explicitly set XDG environment variables, as uwsm sets them, automatically.
+ [uwsm](../../Useful-Utilities/Systemd-start) users don't need to explicitly set XDG environment variables, as uwsm sets them automatically.
 
  {{< /callout >}}
 
@@ -97,7 +108,7 @@ no reason (no errors), it's likely your XDG env isn't set correctly.
   [(From the Qt documentation)](https://doc.qt.io/qt-5/highdpi.html) enables
   automatic scaling, based on the monitor's pixel density
 - `env = QT_QPA_PLATFORM,wayland;xcb` - Tell Qt applications to use the Wayland
-  backend, and fall back to x11 if Wayland is unavailable
+  backend, and fall back to X11 if Wayland is unavailable
 - `env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1` - Disables window decorations on Qt
   applications
 - `env = QT_QPA_PLATFORMTHEME,qt5ct` - Tells Qt based applications to pick your theme
@@ -136,7 +147,7 @@ To force GBM as a backend, set the following environment variables:
 ## Theming Related Variables
 
 - `GTK_THEME` - Set a GTK theme manually, for those who want to avoid appearance
-  tools such as lxappearance or nwg-look
+  tools such as lxappearance or nwg-look.
 - `XCURSOR_THEME` - Set your cursor theme. The theme needs to be installed and
   readable by your user.
 - `XCURSOR_SIZE` - Set cursor size. See [here](../../FAQ/) for why you might
