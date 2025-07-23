@@ -26,23 +26,27 @@ env = GTK_THEME,Nord
 
 {{< callout type=warning >}}
 
-Note that Hyprland puts the **raw string** to the envvar with the `env` keyword.  
-You should _not_ add quotes `""` around the values.
+Note that when using the `env` keyword, Hyprland read the value of the variable as a **raw string** and puts it into the environemnt as is.  
+You should **NOT** add quotes `""` around the values.
 
-e.g.:
+Some examples with differently formatted values:
+
+✗ DON'T:
 
 ```py
-env = QT_QPA_PLATFORM,wayland
-# or
-env = QT_QPA_PLATFORM,wayland;xcb
+env = QT_AUTO_SCREEN_SCALE_FACTOR,"1"
+env = QT_QPA_PLATFORM,"wayland"
+env = QT_QPA_PLATFORM,"wayland;xcb"
+env = AQ_DRM_DEVICES=,"/dev/dri/card1:/dev/dri/card0"
 ```
 
-and _**NOT**_
+✓ Instead, DO:
 
 ```py
-env = QT_QPA_PLATFORM,"wayland"
-# or
-env = QT_QPA_PLATFORM,"wayland;xcb"
+env = QT_AUTO_SCREEN_SCALE_FACTOR,1
+env = QT_QPA_PLATFORM,wayland
+env = QT_QPA_PLATFORM,wayland;xcb
+env = AQ_DRM_DEVICES=,/dev/dri/card1:/dev/dri/card0
 ```
 
 {{< /callout >}}
