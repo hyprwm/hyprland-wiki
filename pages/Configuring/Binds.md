@@ -215,6 +215,12 @@ s -> separate, will arbitrarily combine keys between each mod/key, see [Keysym c
 d -> has description, will allow you to write a description for your bind.
 p -> bypasses the app's requests to inhibit keybinds.
 ```
+{{< callout type=info >}}
+
+By default binds trigger on press of a key (as opposed to on release). There are some exceptions to this, notably tofi with the exec dispatcher.
+To force the on press behavior, use the l flag.
+
+{{< /callout >}}
 
 Example Usage:
 
