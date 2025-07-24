@@ -17,6 +17,13 @@ example, in the case of `kitty`:
 
 {{< /callout >}}
 
+{{< callout type=warning >}}
+
+Rules are evaluated top to bottom, so the order they're written in does matter!  
+More info in [Notes](#notes)
+
+{{< /callout >}}
+
 ## Window Rules
 
 You can set window rules to achieve different window behaviors based
