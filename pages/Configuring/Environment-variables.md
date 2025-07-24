@@ -26,7 +26,7 @@ env = GTK_THEME,Nord
 
 {{< callout type=warning >}}
 
-Note that when using the `env` keyword, Hyprland reads the value of the variable as a **raw string** and puts it into the environemnt _as is_.  
+Note that when using the `env` keyword, Hyprland reads the value of the variable as a **raw string** and puts it into the environment _as is_.  
 You should **NOT** add quotes `""` around the values.
 
 Some examples with differently formatted values:
