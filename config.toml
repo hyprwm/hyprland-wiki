@@ -1,0 +1,117 @@
+baseURL                = "https://wiki.hypr.land/"
+title                  = "Hyprland Wiki"
+enableRobotsTXT        = true
+enableGitInfo          = true
+defaultContentLanguage = "en"
+enableInlineShortcodes = true
+languageCode           = 'en-us'
+pluralizeListTitles    = false
+disablePathToLower     = true
+
+[outputs]
+home    = ["HTML"]
+page    = ["HTML"]
+section = ["HTML", "RSS"]
+
+[module.imports]
+path = "github.com/imfing/hextra"
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.goldmark.renderHooks.link]
+enableDefault = true
+
+[markup.highlight]
+noClasses = false
+
+[[menu.main]]
+identifier = "version"
+name       = "Latest git"
+url        = "https://wiki.hypr.land/version-selector/"
+weight     = 1
+[[menu.main.params]]
+type     = "version"
+outdated = false  # set for any version that isn't the current one
+version  = ""     # only change when setting the version, otherwise it is "Latest git" by default
+
+[[menu.main]]
+identifier = "Home"
+name       = "Home"
+url        = "https://hypr.land/"
+weight     = 2
+
+[[menu.main]]
+identifier = "showcase"
+name       = "Showcase"
+url        = "https://hypr.land/hall_of_fame"
+weight     = 3
+
+[[menu.main]]
+identifier = "News"
+name       = "News"
+url        = "https://hypr.land/news"
+weight     = 4
+
+[[menu.main]]
+name   = "Search"
+weight = 5
+[menu.main.params]
+type = "search"
+
+#[[menu.main]]
+#name   = "Discord"
+#weight = 6
+#url    = "https://discord.gg/hyprland-cathedral-961691461554950145"
+#[menu.main.params]
+#icon = "discord"
+
+[[menu.main]]
+name   = "GitHub"
+weight = 7
+url    = "https://github.com/hyprwm/Hyprland"
+[menu.main.params]
+icon = "github"
+
+[params]
+description        = "The documentation for Hyprland."
+displayUpdatedDate = true
+dateFormat         = "January 2, 2006"
+
+[params.navbar]
+displayTitle = true
+displayLogo  = true
+width        = "full"
+
+[params.navbar.logo]
+path = "favicon.svg"
+
+[params.page]
+width = "full"
+
+[params.theme]
+default       = "dark"
+displayToggle = true
+
+[params.footer]
+enable           = false
+displayCopyright = true
+displayPoweredBy = true
+width            = "normal"
+
+[params.search]
+enable = true
+type   = "flexsearch"
+
+[params.search.flexsearch]
+index = "content"
+
+[params.editURL]
+enable = true
+base   = "https://github.com/hyprwm/hyprland-wiki/edit/main/content/"
+
+[params.blog.list]
+displayTags = true
+
+[params.comments]
+enable = false
