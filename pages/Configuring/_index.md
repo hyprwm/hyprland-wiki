@@ -1,8 +1,6 @@
 ---
 weight: 3
 title: Configuring
-sidebar:
-  open: true
 ---
 
 This section is all about the configuring (aka ricing) of your Hyprland experience.
