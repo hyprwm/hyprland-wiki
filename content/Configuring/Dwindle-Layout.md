@@ -25,7 +25,7 @@ category name: `dwindle`
 | smart_resizing | if enabled, resizing direction will be determined by the mouse's position on the window (nearest to which corner). Else, it is based on the window's tiling position. | bool | true |
 | permanent_direction_override | if enabled, makes the preselect direction persist until either this mode is turned off, another direction is specified, or a non-direction is specified (anything other than l,r,u/t,d/b) | bool | false |
 | special_scale_factor | specifies the scale factor of windows on the special workspace [0 - 1] | float | 1 |
-| split_width_multiplier | specifies the auto-split width multiplier | float | 1.0 |
+| split_width_multiplier | specifies the auto-split width multiplier. Multiplying window size is useful on widescreen monitors where window W > H even after several splits. | float | 1.0 |
 | use_active_for_splits | whether to prefer the active window or the mouse position for splits | bool | true |
 | default_split_ratio | the default split ratio on window open. 1 means even 50/50 split. [0.1 - 1.9] | float | 1.0 |
 | split_bias | specifies which window will receive the larger half of a split. positional - 0, current window - 1, opening window - 2 [0/1/2] | int | 0 |
