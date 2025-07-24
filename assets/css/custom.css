@@ -1,0 +1,8 @@
+:root {
+  --primary-hue: 186deg;
+  --primary-saturation: 100%;
+}
+
+.outdated span {
+  color: #df1500;
+}
