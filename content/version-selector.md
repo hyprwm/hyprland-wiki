@@ -3,7 +3,8 @@ title: Version selector ⚙️
 weight: 1
 ---
 
-Select your preferred wiki version below:
+Select one of the entries below to view a specific hystorical version of the Hyprland Wiki.  
+Check out [self-hosting](../Self-Hosting) if you want to host your own local version.
 
 - [Latest Git](https://wiki.hyprland.org/)
 - [v0.50.0](https://wiki.hyprland.org/0.50.0/)
