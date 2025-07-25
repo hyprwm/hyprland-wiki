@@ -131,7 +131,7 @@ This may throw some errors if done incorrectly. Make sure that:
 
 ### Arithmetic escaping
 
-After 0.6.4, hyprlang allows for escaping the arithmetic expressions `{{a + b}}`
+Since 0.6.4, hyprlang allows for escaping the arithmetic expressions `{{a + b}}`
 
 You need to use the `\` character for escaping these expression. They can be used on any of the starting positions of the expression braces.
 
@@ -148,7 +148,7 @@ So `\{{hello world}}` will turn into this: `{{hello world}}` without trying to p
 
 ### Escaping escapes
 
-After 0.6.4, you can escape any `\` that would have been used to escape other characters.
+Since 0.6.4, you can escape any `\` that would have been used to escape other characters.
 
 For example:
 If you want to have a `\` before a real expression
@@ -161,6 +161,33 @@ If you want to have an `\` before any of the escapable charecters
 someOtherVariable = \\{ hello \\} 
 ```
 
+### Conditionals
+
+Since 0.6.4, you can add conditionals to your configs.
+
+You can make blocks conditional by using the `# hyprlang if` directive.
+
+Some examples:
+
+```ini
+# hyprlang if MY_VAR
+
+test = 24
+
+# hyprlang endif
+
+# hyprlang if !MY_VAR
+
+test = 12
+
+# hyprlang endif
+```
+
+Some important information:
+- no nesting of ifs is allowed
+- a variable is true if and only if it exists and is not an empty string
+- environment variables are supported
+- dynamic keywords (with `hyprctl keyword`) will NOT re-trigger or un-trigger these blocks. Changes need to be made to the files directly (or environment) and in the case of the latter, or a hypr* app that doesn't automatically reload its config, a relaunch of the app / `hyprctl reload` (for hl) will be required.
 
 ## Developer documentation
 
