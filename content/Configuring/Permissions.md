@@ -49,7 +49,7 @@ permission = /usr/bin/appsuite-.*, screencopy, allow
 Will allow any app whose path starts with `/usr/bin/appsuite-` to capture your screen without asking.
 
 
-### Permisision modes
+### Permission modes
 
 There are 3 modes:
 - `allow`: Don't ask, just allow the app to proceed.
