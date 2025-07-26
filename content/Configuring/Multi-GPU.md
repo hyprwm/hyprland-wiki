@@ -85,3 +85,48 @@ export AQ_DRM_DEVICES="/dev/dri/card0:/dev/dri/card1"
 ```
 
 {{< /callout >}}
+
+## Creating consistent device paths for specific cards
+
+As mentioned above, it's not recommended to use the `/dev/dri/card*` device paths since they
+periodically change which device they are symlinked to. Furthermore, the colons in the actual card
+device paths are not usable in the `AQ_DRM_DEVICES` environment variable since colons `:` are used
+as a separator for multiple paths.
+
+It's possible to use udev rules to create reliable symlinks to particular device cards. For example,
+to create a symlink to an AMD card at the path `/dev/dri/amd-igpu`, we can create a udev rule at
+`/etc/udev/rules.d/amd-igpu-dev-path.rules` programmatically like so:
+
+```sh
+SYMLINK_NAME="amd-igpu"
+RULE_PATH="/etc/udev/rules.d/amd-igpu-dev-path.rules"
+AMD_IGPU_ID=$(lspci -d ::03xx | grep 'AMD' | cut -f1 -d' ')
+UDEV_RULE="$(cat <<EOF
+KERNEL=="card*", \
+KERNELS=="0000:$AMD_IGPU_ID", \
+SUBSYSTEM=="drm", \
+SUBSYSTEMS=="pci", \
+SYMLINK+="dri/$SYMLINK_NAME"
+EOF
+)"
+
+echo "$UDEV_RULE" | sudo tee "$RULE_PATH"
+```
+Then reloading the udev rules with:
+```sh
+sudo udevadm control --reload
+sudo udevadm trigger
+```
+
+There should now be a symlink at `/dev/dri/amd-igpu` that points to your respective card file:
+```console
+$ ls -l /dev/dri/amd-igpu
+lrwxrwxrwx 1 root root 5 /dev/dri/amd-igpu -> card1
+```
+
+This symlink will automatically update to point to correct card file if it ever changes.
+
+Now it is possible to use the new symlink in the `AQ_DRM_DEVICES` environment variable:
+```plain
+env = AQ_DRM_DEVICES, /dev/dri/amd-igpu
+```
