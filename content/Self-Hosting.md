@@ -23,7 +23,7 @@ sudo pacman -Sy git hugo awk findutils
 {{< tab >}}
 
 ```shell
-TODO!
+nix shell nixpkgs#{gawk,go,hugo,fzf,git,findutils}
 ```
 
 {{< /tab >}}
