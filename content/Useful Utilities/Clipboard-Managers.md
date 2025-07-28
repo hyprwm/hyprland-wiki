@@ -1,45 +1,28 @@
 ---
 weight: 9
-title: Clipboard managers
+title: Clipboard Managers
 ---
 
 _Starting method:_ manual (`exec-once`)
 
 Clipboard Managers provide a convenient way to organize and access previously
-copied content, including both text and images.
+copied content, including both text and images.  
+Some common ones include:
 
-Some common ones used are `copyq`, `clipman`, `cliphist`, `clipse`.
+- [`cliphist`](https://github.com/sentriz/cliphist) - Utilizes Wayland with `wl-clipboard` and can store both images and
+text.
 
-`clipman` - Utilizes Wayland with `wl-clipboard` support and stores text only
-[GitHub](https://github.com/chmouel/clipman)
+- [`clipman`](https://github.com/chmouel/clipman) - Utilizes Wayland with `wl-clipboard` support and stores text only
 
-`cliphist` - Utilizes Wayland with `wl-clipboard` and can store both images and
-text [GitHub](https://github.com/sentriz/cliphist)
+- [`clipse`](https://github.com/savedra1/clipse) - Utilizes Wayland with `wl-clipboard` support and runs from a single
+binary.  
+Stores text and images indefinitely, accessible via a nice TUI that can be bound to a floating window in your Hyprland config.  
+Allows custom themes, image/text previews, multi-select, pinned items and more.
 
-`wl-clip-persist` - When copying something on Wayland, the copied data remains
-in the clipboard until the application that was copied from is closed.
-After that, the data disappears and can no longer be pasted.
-To fix this problem, you can use `wl-clip-persist` which will preserve the data
-in the clipboard after the application is closed.
-[GitHub](https://github.com/Linus789/wl-clip-persist)
+- [`copyq`](https://github.com/hluk/CopyQ) - Supports text, images, and various other formats. It offers searchable history, editing capabilities, and a scripting interface. You can also organize items into tabs and synchronize clipboards across different devices.
 
-`clipse` - Utilizes Wayland with `wl-clipboard` support and runs from a single
-binary. Stores text and images indefinitely, accessible via a nice TUI that can
-be bound to a floating window in your Hyprland config. Allows custom themes,
-image/text previews, multi-select, pinned items and more.
-[GitHub](https://github.com/savedra1/clipse)
-
-## copyq
-
-Start by adding the following lines to your `~/.config/hypr/hyprland.conf`
-
-```ini
-exec-once = copyq --start-server
-```
-
-If the main window of `copyq` cannot close/hide properly, try to enable its
-"Hide main window" option in the Layout configuration tab in the Preferences
-dialog.
+- [`wl-clip-persist`](https://github.com/Linus789/wl-clip-persist) - When copying something on Wayland, the copied data remains in the clipboard until the application that was copied from is closed; after that, the data disappears and can no longer be pasted.  
+To fix this problem, you can use `wl-clip-persist` which will preserve the data in the clipboard after the application is closed.
 
 ## cliphist
 
@@ -47,7 +30,6 @@ Start by adding the following lines to your `~/.config/hypr/hyprland.conf`
 
 ```ini
 exec-once = wl-paste --type text --watch cliphist store # Stores only text data
-
 exec-once = wl-paste --type image --watch cliphist store # Stores only image data
 ```
 
@@ -56,33 +38,36 @@ Note that any of the above lines can be disabled based on your needs.
 To bind `cliphist` to a hotkey and display it under `rofi`, `dmenu`, `wofi` or `fuzzel`,
 you can edit it in `hyprland.conf`.
 
-### For `rofi` users
+{{< tabs items="rofi,dmenu,wofi,fuzzel" >}}
 
+{{< tab >}}
 ```ini
 bind = SUPER, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
 ```
+{{< /tab >}}
 
-### For `dmenu` users
-
+{{< tab >}}
 ```ini
 bind = SUPER, V, exec, cliphist list | dmenu | cliphist decode | wl-copy
 ```
+{{< /tab >}}
 
-### For `wofi` users
-
+{{< tab >}}
 ```ini
 bind = SUPER, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy
 ```
+{{< /tab >}}
 
-### For `fuzzel` users
-
-```ìni
+{{< tab >}}
+```ini
 bind = SUPER, V, exec, cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
 ```
+{{< /tab >}}
 
-The binds above allow `SUPER + V` to be used to access the clipboard history.
+{{< /tabs >}}
 
-For further info, please refer to the repository mentioned above.
+The binds above bind `SUPER + V` to access the clipboard history.  
+For further info, please refer to the program's GitHub repository linked above.
 
 ## clipman
 
@@ -102,46 +87,36 @@ Ensure that `~/.local/share/clipman-primary.json` is already created.
 
 Now you can bind `clipman` like this:
 
-### For `rofi` users
+{{< tabs items="rofi,dmenu,wofi,fuzzel" >}}
 
+{{< tab >}}
 ```ini
 bind = SUPER, V, exec, clipman pick -t rofi
 ```
+{{< /tab >}}
 
-### For `dmenu` users
-
+{{< tab >}}
 ```ini
 bind = SUPER, V, exec, clipman pick -t dmenu
 ```
+{{< /tab >}}
 
-### For `wofi` users
-
+{{< tab >}}
 ```ini
 bind = SUPER, V, exec, clipman pick -t wofi
 ```
+{{< /tab >}}
 
-### For `fuzzel` users
-
-```ìni
+{{< tab >}}
+```ini
 bind = SUPER, V, exec, clipman pick -t STDOUT | fuzzel --dmenu | wl-copy
 ```
+{{< /tab >}}
 
-...and so on. For further information, please refer to the repository
-mentioned above.
+{{< /tabs >}}
 
-## wl-clip-persist
-
-Add the following line to `hyprland.conf`. No other changes are required. The basic wayland copy/paste mechanisms will now persist even when the source window is closed.
-
-```ini
-exec-once = wl-clip-persist --clipboard regular
-```
-
-Can also be applied to the primary selection (i.e. middle click to paste selection) too, but this is not recommended because the primary selection [has unintended side-effects for some GTK applications.](https://github.com/Linus789/wl-clip-persist#primary-selection-mode-breaks-the-selection-system-3)
-
-```ini
-exec-once = wl-clip-persist --clipboard primary
-```
+...and so on.  
+For further information, please refer to the program's GitHub repository linked above.
 
 ## clipse
 
@@ -161,9 +136,36 @@ windowrule = stayfocused, class:(clipse)
 bind = SUPER, V, exec, alacritty --class clipse -e clipse
 ```
 
-Replace `alacritty` with the terminal environment you use if necessary. The
-class is optional, but it's recommended to use a floating window to achieve more
+Replace `alacritty` with the terminal environment you use if necessary.  
+The class is optional, but it's recommended to use a floating window to achieve more
 GUI-like behavior.
 
 For more details on `clipse`, please refer to its GitHub repo linked at the top
 of the page.
+
+## copyq
+
+Start by adding the following lines to your `~/.config/hypr/hyprland.conf`
+
+```ini
+exec-once = copyq --start-server
+```
+
+If the main window of `copyq` cannot close or hide properly, try to enable its
+"Hide main window" option in the Layout configuration tab in the Preferences
+dialog.
+
+## wl-clip-persist
+
+Add the following line to `hyprland.conf`.  
+No other changes are required. The basic wayland copy/paste mechanisms will now persist even when the source window is closed.
+
+```ini
+exec-once = wl-clip-persist --clipboard regular
+```
+
+Can also be applied to the primary selection (i.e. middle click to paste selection) too, but this is not recommended because the primary selection [has unintended side-effects for some GTK applications.](https://github.com/Linus789/wl-clip-persist#primary-selection-mode-breaks-the-selection-system-3)
+
+```ini
+exec-once = wl-clip-persist --clipboard primary
+```
