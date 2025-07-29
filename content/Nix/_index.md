@@ -31,10 +31,10 @@ To install Hyprland on NixOS, we provide a NixOS and a Home Manager module.
 }
 ```
 
-For more options, see
+For other NixOS options, see [Hyprland on NixOS](./Hyprland-on-NixOS).  
+For additional options, see
 [module options](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=hyprland).
 
-For other NixOS options, see [Hyprland on NixOS](./Hyprland-on-NixOS).
 
 ## Home Manager module
 
