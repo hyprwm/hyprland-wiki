@@ -6,20 +6,21 @@ weight: 2
 For a list of available options, check the
 [Home Manager options](https://nix-community.github.io/home-manager/options.xhtml#opt-wayland.windowManager.hyprland.enable).
 
-{{< callout >}}
+{{< callout type=warning >}}
 
-- _**(Required)** NixOS Module_: enables critical components needed to run
-  Hyprland properly.
-  - _Without this, you may have issues with missing session files in your
-    Display Manager._
-- _(Optional) Home Manager module_: lets you configure Hyprland declaratively
-  through Home Manager.
-  - _This module configures Hyprland and adds it to your user's `$PATH`, but
+**Required:**
+- **NixOS Module:** enables critical components needed to run Hyprland properly.  
+  Without this, you may have issues with missing session files in your
+    Display Manager.
+
+**Optional**:
+- **Home Manager module:** lets you configure Hyprland declaratively through Home Manager.  
+- Configures Hyprland and adds it to your user's `$PATH`, but
     does not make certain system-level changes such as adding a desktop session
-    file for your display manager. This is handled by the NixOS module once you
-    enable it._
+    file for your display manager.  
+    This is handled by the NixOS module, once you enable it.
 
-  {{< /callout >}}
+{{< /callout >}}
 
 ## Installation
 

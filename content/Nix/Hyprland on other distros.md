@@ -1,5 +1,5 @@
 ---
-title: Hyprland on other distros
+title: Hyprland on Other Distros
 weight: 4
 ---
 
