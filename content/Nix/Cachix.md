@@ -1,5 +1,6 @@
 ---
 title: Cachix
+weight: 3
 ---
 
 NOTE: This page only applies to the flake package. You can safely skip this if

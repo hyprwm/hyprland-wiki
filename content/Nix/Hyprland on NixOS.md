@@ -1,5 +1,6 @@
 ---
 title: Hyprland on NixOS
+weight: 1
 ---
 
 The NixOS module enables critical components needed to run Hyprland properly,

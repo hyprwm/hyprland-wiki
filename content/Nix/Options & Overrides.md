@@ -1,5 +1,6 @@
 ---
 title: Options & Overrides
+weight: 5
 ---
 
 You can override the package through the `.override` or `.overrideAttrs`

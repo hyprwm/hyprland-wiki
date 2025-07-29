@@ -1,5 +1,6 @@
 ---
 title: Hyprland on other distros
+weight: 4
 ---
 
 If you use Nix on distros other than NixOS, you can still use Hyprland.

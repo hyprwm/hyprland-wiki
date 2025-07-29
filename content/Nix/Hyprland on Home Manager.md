@@ -1,5 +1,6 @@
 ---
 title: Hyprland on Home Manager
+weight: 2
 ---
 
 For a list of available options, check the

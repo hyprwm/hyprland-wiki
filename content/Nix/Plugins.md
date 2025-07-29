@@ -1,5 +1,6 @@
 ---
 title: Plugins
+weight: 6
 ---
 
 Hyprland plugins are managed differently on Nix than on other distros. The most
