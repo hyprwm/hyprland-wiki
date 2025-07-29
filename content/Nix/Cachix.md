@@ -1,9 +1,14 @@
 ---
 title: Cachix
+weight: 3
 ---
 
-NOTE: This page only applies to the flake package. You can safely skip this if
-you use the Nixpkgs package.
+{{< callout type=info >}}
+
+This page only applies to the flake package.  
+You can safely skip this if you use the Nixpkgs package.
+
+{{< /callout >}}
 
 The Hyprland flake is not built by Hydra, so it is not cached in
 [cache.nixos.org], like the rest of Nixpkgs.
@@ -15,7 +20,7 @@ your Nix configuration.
 The [Hyprland Cachix](https://app.cachix.org/cache/hyprland) exists to cache the
 `hyprland` packages and any dependencies not found in [cache.nixos.org].
 
-{{< callout >}}
+{{< callout type=warning >}}
 
 In order for Nix to take advantage of the cache, it has to be enabled **before**
 using the Hyprland flake package.
@@ -32,10 +37,9 @@ using the Hyprland flake package.
 }
 ```
 
-{{< callout type=important >}} Do **not** override Hyprland's `nixpkgs` input
-unless you know what you are doing.
-
-Doing so will make the cache useless, since you're building from a different
+{{< callout type=warning >}} Do **not** override Hyprland's `nixpkgs` input
+unless you know what you are doing.  
+Doing so will render the cache useless, since you're building from a different
 Nixpkgs commit. {{< /callout >}}
 
 [cache.nixos.org]: https://cache.nixos.org

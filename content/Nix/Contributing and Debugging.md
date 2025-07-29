@@ -1,5 +1,6 @@
 ---
 title: Contributing and Debugging
+weight: 7
 ---
 
 Everything needed to build and debug Hyprland and other hyprwm programs is
