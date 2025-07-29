@@ -3,8 +3,8 @@ title: Plugins
 weight: 6
 ---
 
-Hyprland plugins are managed differently on Nix than on other distros. The most
-notable change is that `hyprpm` is unsupported, but we have our own way of
+Hyprland plugins are managed differently on Nix than on other distros.  
+The most notable change is that `hyprpm` is unsupported, but we have our own way of
 building plugins.
 
 {{< callout type=warning >}}
@@ -34,7 +34,7 @@ You can find which plugins are included using
 
 Official plugins made/maintained by vaxry.
 
-To use these plugins, it is recommended that you are already using the Hyprland
+To use these plugins, it is recommended to be already using the Hyprland
 flake, and **not** the Nixpkgs version.
 
 First, add the flake to your flake inputs:
@@ -55,8 +55,8 @@ First, add the flake to your flake inputs:
 ```
 
 The `inputs.hyprland.follows` line makes hyprland-plugins use the exact Hyprland
-revision you have locked. This means there aren't any version mismatches, as
-long as you update both inputs at once.
+revision you have locked.  
+This means there aren't any version mismatches, as long as you update both inputs at once.
 
 The next step is adding the plugins to Hyprland:
 
@@ -75,8 +75,8 @@ The next step is adding the plugins to Hyprland:
 ## Building plugins with Nix
 
 The plugins inside Nixpkgs, as well as the ones in `hyprland-plugins`, are built
-using a general function, `mkHyprlandPlugin`. Any plugin can be made to work
-with it. The general usage is presented below, exemplified through hy3's
+using a general function: `mkHyprlandPlugin`.  
+Any plugin can be made to work with it. The general usage is presented below, exemplified through hy3's
 derivation:
 
 ```nix {filename="plugin.nix"}

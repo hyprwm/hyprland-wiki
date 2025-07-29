@@ -4,13 +4,14 @@ weight: 5
 ---
 
 You can override the package through the `.override` or `.overrideAttrs`
-mechanisms. This is easily achievable on [NixOS](../Hyprland-on-NixOS) or
+mechanisms.  
+This is easily achievable on [NixOS](../Hyprland-on-NixOS) or
 [Home Manager](../Hyprland-on-Home-Manager).
 
 ## Package options
 
-These are the default options that the Hyprland package is built with. These can
-be changed by setting the appropriate option to `true`/`false`.
+These are the default options that the Hyprland package is built with.  
+These can be changed by setting the appropriate option to `true` or `false`.
 
 ### Package
 
@@ -36,8 +37,8 @@ be changed by setting the appropriate option to `true`/`false`.
 
 ### XWayland
 
-XWayland is enabled by default in the Nix package. You can disable it either in
-the package itself, or through the module options.
+XWayland is enabled by default in the Nix package.  
+You can disable it either in the package itself, or through the module options.
 
 ## Using Nix repl
 
@@ -50,8 +51,7 @@ nix-repl> :lf github:hyprwm/Hyprland
 nix-repl> :bl outputs.packages.x86_64-linux.hyprland.override { /* flag here */ }
 ```
 
-Then you can run Hyprland from the built path.
-
+Then you can run Hyprland from the built path.  
 You can also use `overrideAttrs` to override `mkDerivation`'s arguments, such as
 `mesonBuildType`:
 
