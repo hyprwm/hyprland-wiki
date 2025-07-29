@@ -50,16 +50,15 @@ This will use the Hyprland version included in the Nixpkgs release you're using.
 
 {{< /tab >}}
 
-{{< tab "Flake Package" >}}
+{{< tab >}}
 
-{{< callout >}}
+{{< callout type=info >}}
 
-Please enable [Cachix](../Cachix) before using the flake package, so you don't
-have to compile Hyprland yourself.
+If you don't want to compile Hyprland yourself, make sure to enable [Cachix](../Cachix).
 
 {{< /callout >}}
 
-In case you want to use the development version of Hyprland, you can add it like
+In case you want to use the _development_ version of Hyprland, you can add it like
 this:
 
 ```nix {filename="flake.nix"}
@@ -119,10 +118,9 @@ For more details, see
 
 {{< tab "Nix stable" >}}
 
-{{< callout >}}
+{{< callout type=info >}}
 
-Please enable [Cachix](../Cachix) before using the flake package, so you don't
-have to compile Hyprland yourself.
+If you don't want to compile Hyprland yourself, make sure to enable [Cachix](../Cachix).
 
 {{< /callout >}}
 
@@ -150,7 +148,7 @@ in {
 
 ## Fixing problems with themes
 
-If your themes for mouse cursors, icons or windows don't load correctly, see the
+If your themes for your mouse cursors, icons or windows don't load correctly, see the
 relevant section in [Hyprland on Home Manager](../Hyprland-on-Home-Manager).
 
 If you prefer not to use Home Manager, you can also resolve the issues with GTK
