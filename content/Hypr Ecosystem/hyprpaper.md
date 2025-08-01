@@ -133,6 +133,13 @@ Running this command again with a new wallpaper would effectively swap
 the wallpaper with the new one, automating the whole preload, set,
 unload old sequence.
 
+{{< callout type=warning >}}
+
+`Monitor Specificity` Once a monitor has a wallpaper set specifically (e.g., `hyprctl hyprpaper reload "DP-1,~/amogus.png"`),
+it won't be affected by the wildcard (`hyprctl hyprpaper reload ,"~/amogus.png"`).
+
+{{< /callout >}}
+
 #### Using this keyword to randomize your wallpaper
 
 You can also use this simple `reload` functionality to randomize your wallpaper. Using a simple script like so would do it very easily:
