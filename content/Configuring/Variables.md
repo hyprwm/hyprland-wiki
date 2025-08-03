@@ -299,6 +299,15 @@ _Subcategory `input:touchdevice:`_
 | output | The monitor to bind touch devices. The default is auto-detection. To stop auto-detection, use an empty string or the "\[\[Empty\]\]" value. | string | \[\[Auto\]\] |
 | enabled | Whether input is enabled for touch devices. | bool | true |
 
+#### Virtualkeyboard
+
+_Subcategory `input:virtualkeyboard:`_
+
+| name | description | type | default |
+| --- | --- | --- | --- |
+| share_states | Unify key down states and modifier states with other keyboards. | bool | false |
+| release_pressed_on_close | Release all pressed keys by virtual keyboard on close. | bool | false |
+
 #### Tablet
 
 _Subcategory `input:tablet:`_
@@ -411,6 +420,7 @@ _Subcategory `misc:`_
 | vrr | controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on, 2 - fullscreen only, 3 - fullscreen with `video` or `game` content type [0/1/2/3] | int | 0 |
 | mouse_move_enables_dpms | If DPMS is set to off, wake up the monitors if the mouse moves. | bool | false |
 | key_press_enables_dpms | If DPMS is set to off, wake up the monitors if a key is pressed. | bool | false |
+| name_vk_after_proc | Name virtual keyboards after the processes that create them. E.g. /usr/bin/fcitx5 will have hl-virtual-keyboard-fcitx5. | bool | true |
 | always_follow_on_dnd | Will make mouse focus follow the mouse when drag and dropping. Recommended to leave it enabled, especially for people using focus follows mouse at 0. | bool | true |
 | layers_hog_keyboard_focus | If true, will make keyboard-interactive layers keep their focus on mouse move (e.g. wofi, bemenu) | bool | true |
 | animate_manual_resizes | If true, will animate manual window resizes/moves | bool | false |
