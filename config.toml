@@ -84,7 +84,8 @@ displayLogo  = true
 width        = "full"
 
 [params.navbar.logo]
-path = "favicon-dark.svg"
+path = "favicon.svg"
+dark = "favicon-dark.svg"
 
 [params.page]
 width = "full"
