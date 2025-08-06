@@ -67,7 +67,7 @@ To get the correct name for an `unmodified_key`, refer to [the section on uncomm
 {{< /callout >}}
 
 ```ini
-# On a french layout, instead of:
+# On a French layout, instead of:
 # bind = $mainMod, 1, workspace,  1
 
 # Use
