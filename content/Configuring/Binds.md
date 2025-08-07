@@ -106,21 +106,21 @@ bindrl = MOD, KEY, exec, amongus
 
 Available flags:
 
-| Flag | Name            | Description                                                                                                  |
-|------|-----------------|--------------------------------------------------------------------------------------------------------------|
-| `l`  | locked          | Will also work when an input inhibitor (e.g. a lockscreen) is active.                                        |
-| `r`  | release         | Will trigger on release of a key.                                                                            |
-| `c`  | click           | Will trigger on release of a key or button as long as the mouse cursor stays inside `binds:drag_threshold`.  |
-| `g`  | drag            | Will trigger on release of a key or button as long as the mouse cursor moves outside `binds:drag_threshold`. |
-| `o`  | long press      | Will trigger on long press of a key.                                                                         |
-| `e`  | repeat          | Will repeat when held.                                                                                       |
-| `n`  | non-consuming   | Key/mouse events will be passed to the active window in addition to triggering the dispatcher.               |
-| `m`  | mouse           | See the dedicated [Mouse Binds](#mouse-binds) section.                                                       |
-| `t`  | transparent     | Cannot be shadowed by other binds.                                                                           |
-| `i`  | ignore mods     | Will ignore modifiers.                                                                                       |
-| `s`  | separate        | Will arbitrarily combine keys between each mod/key, see [Keysym combos](#keysym-combos).                     |
-| `d`  | has description | Will allow you to write a description for your bind.                                                         |
-| `p`  | bypass          | Bypasses the app's requests to inhibit keybinds.                                                             |
+| Flag | Name | Description |
+|------|------|-------------|
+| `l` | locked | Will also work when an input inhibitor (e.g. a lockscreen) is active. |
+| `r` | release | Will trigger on release of a key. |
+| `c` | click | Will trigger on release of a key or button as long as the mouse cursor stays inside `binds:drag_threshold`. |
+| `g` | drag | Will trigger on release of a key or button as long as the mouse cursor moves outside `binds:drag_threshold`. |
+| `o` | long press | Will trigger on long press of a key. |
+| `e` | repeat | Will repeat when held. |
+| `n` | non-consuming | Key/mouse events will be passed to the active window in addition to triggering the dispatcher. |
+| `m` | mouse | See the dedicated [Mouse Binds](#mouse-binds) section. |
+| `t` | transparent | Cannot be shadowed by other binds. |
+| `i` | ignore mods | Will ignore modifiers. |
+| `s` | separate | Will arbitrarily combine keys between each mod/key, see [Keysym combos](#keysym-combos). |
+| `d` | has description | Will allow you to write a description for your bind. |
+| `p` | bypass | Bypasses the app's requests to inhibit keybinds. |
 
 Example Usage:
 
