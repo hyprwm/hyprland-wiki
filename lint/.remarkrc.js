@@ -1,45 +1,47 @@
-import remarkPresetLintConsistent from 'remark-preset-lint-consistent';
-import remarkLintHeadingStyle from 'remark-lint-heading-style';
-import remarkRetext from 'remark-retext';
-import retextCasePolice from 'retext-case-police';
-import { parser as retextEnglish } from 'retext-english';
-import unifiedLintRule from 'unified-lint-rule';
+import remarkLintWordCase from "./remark-lint-word-case.js";
 
+const WORDS_DO_NOT_CAPITALIZE_IN_HEADINGS = [
+  "swww",
+  "uwsm",
+  "wallrizz",
+  "swww",
+  "hyprpm",
+  "hyprpaper",
+  "swaybg",
+  "waypaper",
+  "wpaperd",
+  "mpvpaper",
+];
 
-import remarkLintHugoCallouts from './remark-lint-hugo-callouts.js';
+const WORDS_ENFORCE_EXACT_CAPITALIZATION = [
+  ...WORDS_DO_NOT_CAPITALIZE_IN_HEADINGS,
+  ["Hyprland", "XWayland", "RegEx"],
+];
 
 export default {
-    plugins: [
-        // Provides a great set of standard markdown rules
-        remarkPresetLintConsistent,
-
-        // Force ATX headings
-        [remarkLintHeadingStyle, { "style": "atx" }],
-
-        // Force title case for headings
-        ['remark-lint-heading-style', ['error', 'title-case']],
-
-        // Force specific capitalization for certain words (e.g., Hyprland, Wayland)
-        [
-            remarkRetext,
-            [
-                retextEnglish,
-                [
-                    retextCasePolice,
-                    {
-                        // Force specific words to be capitalized
-                        check: [
-                            'Hyprland',
-                            'Wayland',
-                            'RegEx',
-                            'XWayland',
-                        ],
-                    },
-                ],
-            ],
-        ],
-
-        // Force all Hugo callouts to have a type
-        [unifiedLintRule, 'remark-lint:hugo-callouts', remarkLintHugoCallouts],
+  plugins: [
+    [
+      "remark-lint-heading-capitalization",
+      {
+        ignorePattern: WORDS_DO_NOT_CAPITALIZE_IN_HEADINGS.join("|"),
+      },
     ],
+    ["remark-preset-lint-recommended"],
+    ["remark-preset-lint-consistent"],
+    ["remark-lint-heading-style", "atx"],
+    [
+      "remark-lint-table-cell-padding",
+      {
+        style: "padded",
+      },
+    ],
+    ["remark-lint-table-pipes"],
+    [
+      "remark-frontmatter",
+      {
+        type: "yaml",
+        fence: "---",
+      },
+    ],
+  ],
 };
