@@ -1,0 +1,28 @@
+{
+  "name": "hyprland-wiki-lint",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "fmt:check": "prettier ../content/* --check",
+    "fmt:fix": "prettier ../content/* --write",
+    "lint:check": "remark ../content/*",
+    "lint:fix": "remark ../content/* --output",
+    "check": "pnpm run fmt:check && pnpm run lint:check"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.14.0",
+  "devDependencies": {
+    "prettier": "^3.6.2",
+    "prettier-plugin-go-template": "^0.0.15",
+    "remark-cli": "^12.0.1",
+    "remark-lint": "^10.0.1",
+    "remark-lint-heading-style": "^4.0.1",
+    "remark-preset-lint-consistent": "^6.0.1",
+    "remark-retext": "^6.0.1",
+    "retext": "^9.0.0",
+    "retext-case-police": "^1.1.7",
+    "unified-lint-rule": "^3.0.1"
+  }
+}
