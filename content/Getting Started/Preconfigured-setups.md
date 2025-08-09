@@ -52,3 +52,11 @@ Prasanthrangan's HyDE dotfiles are a very popular choice that will suit your nee
 [GitHub](https://github.com/HyDE-Project/HyDE)
 
 ![Image of HyDE dotfiles](https://i.ibb.co/W3SYJCc/showcase-2-2412602747.png)
+
+## Omarchy
+
+An opinionated Arch + Hyprland Setup by DHH.
+
+[Website](https://omarchy.org/)
+
+![Image of Omarchy](https://i.ytimg.com/vi/Cft6mZDzIng/maxresdefault.jpg)
