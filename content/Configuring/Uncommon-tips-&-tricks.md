@@ -10,7 +10,7 @@ example:
 
 ```ini
 input {
-    kb_layout = us,cz
+    kb_layout = us,cz,gb
     kb_variant = ,qwerty
     kb_options = grp:alt_shift_toggle
 }
