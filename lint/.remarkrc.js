@@ -13,7 +13,9 @@ const WORDS_DO_NOT_CAPITALIZE_IN_HEADINGS = [
 
 const WORDS_ENFORCE_EXACT_CAPITALIZATION = [
   ...WORDS_DO_NOT_CAPITALIZE_IN_HEADINGS,
-  ["Hyprland", "XWayland", "RegEx"],
+  "Hyprland",
+  "XWayland",
+  "RegEx",
 ];
 
 export default {
@@ -22,6 +24,12 @@ export default {
       "remark-lint-heading-capitalization",
       {
         ignorePattern: WORDS_DO_NOT_CAPITALIZE_IN_HEADINGS.join("|"),
+      },
+    ],
+    [
+      "remark-lint-word-case",
+      {
+        words: WORDS_ENFORCE_EXACT_CAPITALIZATION,
       },
     ],
     ["remark-preset-lint-recommended"],

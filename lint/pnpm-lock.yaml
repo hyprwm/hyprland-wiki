@@ -32,6 +32,9 @@ importers:
       remark-lint-table-pipes:
         specifier: ^5.0.1
         version: 5.0.1
+      remark-lint-word-case:
+        specifier: ^1.0.3
+        version: 1.0.3
       remark-preset-lint-consistent:
         specifier: ^6.0.1
         version: 6.0.1
@@ -674,6 +677,9 @@ packages:
 
   remark-lint-table-pipes@5.0.1:
     resolution: {integrity: sha512-oOkRC0WRRDwvodfffGafoBFBTGwy9udQgKtxN53apmZpOmaUAxTi833ite0jMo078+LehNftO5bxrElZ9EQUlQ==}
+
+  remark-lint-word-case@1.0.3:
+    resolution: {integrity: sha512-nAmzQ8U55pHa0dvZQ1tRleRVjHPi4Kf4aTLa8gwvMw6rsnuG+R9ZpZuvmHBHA0RJ76+kdtRzwfL3WfG4F3yCYQ==}
 
   remark-lint@10.0.1:
     resolution: {integrity: sha512-1+PYGFziOg4pH7DDf1uMd4AR3YuO2EMnds/SdIWMPGT7CAfDRSnAmpxPsJD0Ds3IKpn97h3d5KPGf1WFOg6hXQ==}
@@ -1802,6 +1808,11 @@ snapshots:
       unified-lint-rule: 3.0.1
       unist-util-position: 5.0.0
       unist-util-visit-parents: 6.0.1
+
+  remark-lint-word-case@1.0.3:
+    dependencies:
+      unified-lint-rule: 3.0.1
+      unist-util-visit: 5.0.0
 
   remark-lint@10.0.1:
     dependencies:
