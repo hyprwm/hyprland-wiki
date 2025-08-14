@@ -1,5 +1,3 @@
-import remarkLintWordCase from "./remark-lint-word-case.js";
-
 const WORDS_DO_NOT_CAPITALIZE_IN_HEADINGS = [
   "swww",
   "uwsm",
