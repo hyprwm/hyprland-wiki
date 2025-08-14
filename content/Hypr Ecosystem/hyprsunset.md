@@ -59,7 +59,7 @@ profile {
 | time | The time at which the profile should be activated. Must be in the format {hours}:{minutes} | string | 00:00 |
 | temperature | The screen temperature. Lower means warmer. | int | 6000 |
 | gamma | The perceived brightness of the screen. This will allow you to lower the brightness beyond your screen's minimum. | float | 1.0 |
-| identity | When set, resets gamma to 100 and temperature to 6500 acting as if hyprsunset was not running. | bool | false |
+| identity | When set, the value of temperature is ignored and the only effect of hyprsunset is the change in apparent brightness by gamma. | bool | false |
 
 
 ## Usage
