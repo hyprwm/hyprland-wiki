@@ -41,7 +41,7 @@ category name: `dwindle`
 | `preserve_split` | If enabled, the split orientation will not change, regardless of the parent dimensions. | bool | `false` |
 | `smart_split` | If enabled, allows for more precise control over the split direction based on the cursor's position. <br><br> The window is conceptually divided into four triangles, and the one currently under the cursor determines the split direction. <br><br> This also enables `preserve_split`. | bool | `false` |
 | `smart_resizing` | If enabled, resizing direction will be determined by the cursor's nearest window corner. <br> Else, it is based on the window's tiling position. | bool | `true` |
-| `permanent_direction_override` | If enabled, makes the preselected direction persist until either: <ul> <li> this mode disabled </li> <li> another direction is specified </li> <li> a non-direction is specified </li> </ul> | bool \| direction \| string | `false` |
+| `permanent_direction_override` | If enabled, makes the preselected direction persist until either: <ul> <li> this mode disabled </li> <li> another direction is specified </li> <li> a non-direction is specified </li> </ul> | bool | `false` |
 | `special_scale_factor` | Specifies the scale factor of windows on the special workspace. | float [`0.0 .. 1.0`] | `1.0` |
 | `split_width_multiplier` | Specifies the auto-split width multiplier. <br> Multiplying window size is useful on widescreen monitors where window W > H even after several splits. | float | `1.0` |
 | `use_active_for_splits` | Whether to prefer the active window or the cursor position for splits. | bool | `true` |
