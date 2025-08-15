@@ -49,7 +49,7 @@ category name: `dwindle`
 | `split_bias` | Specifies which window will receive the larger half of a split. <br> `0` -> positional <br> `1` -> current window <br> `2` -> new window | int [`0\|1\|2`] | `0` |
 | `precise_mouse_move` | `bindm movewindow` will drop the window more precisely depending your cursor's position. | bool | `false` |
 | `single_window_aspect_ratio` | Whenever only a single window is shown on a screen, add padding so that it conforms to the specified aspect ratio. <br> A value like `4 3` on a 16:9 screen will make it a 4:3 window in the middle with padding to the sides. | Vec2D | `0 0` |
-| `single_window_aspect_ratio_tolerance` | Sets a tolerance for `single_window_aspect_ratio` so that if the padding to be added is smaller than the specified fraction of the height or width of the screen, it will not attempt to adjust the window size. [0 - 1] | int | `0.1` | 
+| `single_window_aspect_ratio_tolerance` | Sets a tolerance for `single_window_aspect_ratio` so that if the padding to be added is smaller than the specified fraction of the height or width of the screen, it will not attempt to adjust the window size. | float [`0.0 .. 1.0`] | `0.1` | 
 
 ## Bind Dispatchers
 
