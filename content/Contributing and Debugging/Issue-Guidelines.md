@@ -38,7 +38,7 @@ For bugs:
 - If a discussion is a Hyprland problem, but cannot be tied to Hyprland in a clear way, or is not reproducible, it stays a discussion until that changes.
 - If a discussion is reproducible, a member of Hyprland promotes the discussion to an issue by opening an issue with the key information and links the original discussion.
 
-{{< callout type=info>}}
+{{< callout type=info >}}
 To get logs for your bug please see [Crashes and Bugs](https://wiki.hypr.land/Crashes-and-Bugs/)
 {{< /callout >}}
 
