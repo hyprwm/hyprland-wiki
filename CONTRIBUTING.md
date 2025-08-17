@@ -38,4 +38,18 @@ hugo serve
 Open `http://localhost:1313` to see your locally-rendered wiki.
 
 ## Linting and Writing Style Guide
-TODO
+
+We provide a set of linting tools that you can run to make sure to catch common errors before pushing your commits.  
+To run the linter, make sure you have [pnpm](https://pnpm.io/) installed, the run:
+
+```shell
+cd lint
+pnpm i # only needed the first time, installs all dependencies
+pnpm run checkall
+# or `pnpm run check ../content/Configuring/Aniamtions.md` to lint a single file
+# or `pnpm run check ../content/Configuring/ to lint a all pages in a section`
+```
+
+You can find the linter configuration file in `lint/.remarkrc.js`.  
+This contains a list of [remark](https://github.com/remarkjs/remark) lint [plugins](https://github.com/remarkjs/remark-lint) and their options.  
+If you want to suggest any changes to this config, feel free to submit an issue.
