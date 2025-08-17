@@ -7,7 +7,7 @@ settings:
 importers:
 
   .:
-    devDependencies:
+    dependencies:
       remark:
         specifier: ^15.0.1
         version: 15.0.1
@@ -20,10 +20,22 @@ importers:
       remark-lint:
         specifier: ^10.0.1
         version: 10.0.1
+      remark-lint-blockquote-indentation:
+        specifier: ^4.0.1
+        version: 4.0.1
+      remark-lint-code-block-style:
+        specifier: ^4.0.1
+        version: 4.0.1
+      remark-lint-emphasis-marker:
+        specifier: ^4.0.1
+        version: 4.0.1
       remark-lint-heading-capitalization:
         specifier: ^1.3.0
         version: 1.3.0
       remark-lint-heading-style:
+        specifier: ^4.0.1
+        version: 4.0.1
+      remark-lint-strong-marker:
         specifier: ^4.0.1
         version: 4.0.1
       remark-lint-table-cell-padding:
@@ -41,12 +53,6 @@ importers:
       remark-preset-lint-recommended:
         specifier: ^7.0.1
         version: 7.0.1
-      unified-lint-rule:
-        specifier: ^3.0.1
-        version: 3.0.1
-      unist-util-visit:
-        specifier: ^5.0.0
-        version: 5.0.0
 
 packages:
 
