@@ -9,6 +9,10 @@ const WORDS_DO_NOT_CAPITALIZE_IN_HEADINGS = [
   "waypaper",
   "wpaperd",
   "mpvpaper",
+  "wofi",
+  "rofi",
+  "bmenu",
+  "tty",
 ];
 
 const WORDS_ENFORCE_EXACT_CAPITALIZATION = [
@@ -16,6 +20,7 @@ const WORDS_ENFORCE_EXACT_CAPITALIZATION = [
   "Hyprland",
   "XWayland",
   "RegEx",
+  "DRM"
 ];
 
 export default {
@@ -23,7 +28,9 @@ export default {
     [
       "remark-lint-heading-capitalization",
       {
-        ignorePattern: WORDS_DO_NOT_CAPITALIZE_IN_HEADINGS.join("|"),
+        ignorePattern:
+          "`[^`]*`|" + // Everything inside backticks
+          WORDS_DO_NOT_CAPITALIZE_IN_HEADINGS.join("|"), // Ignore words that already have a specific case defined
       },
     ],
     [
@@ -34,6 +41,10 @@ export default {
     ],
     ["remark-preset-lint-recommended"],
     ["remark-preset-lint-consistent"],
+    ["remark-lint-blockquote-indentation", 2],
+    ["remark-lint-code-block-style", "fenced"],
+    ["remark-lint-emphasis-marker", "_"],
+    ["remark-lint-strong-marker", "*"],
     ["remark-lint-heading-style", "atx"],
     [
       "remark-lint-table-cell-padding",
