@@ -195,6 +195,21 @@ To disable:
 hyprctl seterror disable
 ```
 
+### getprop
+
+Gets a property value of a window.
+
+```sh
+hyprctl getprop [window] [property]
+```
+
+Where `window` is as described [here](../Dispatchers#parameter-explanation), and `property` is any which can be set with [setprop](../Dispatchers/#setprop).
+
+#### Notes
+- If `animationstyle` is unset, `(unset)` is returned.
+- `minsize` defaults to `20 20`.
+- `maxsize` defaults to `inf inf` or `[null,null]` in JSON.
+
 ### notify
 
 Sends a notification using the built-in Hyprland notification system.
