@@ -195,7 +195,7 @@ _[More about Animations](../Animations)._
 | kb_variant | Appropriate XKB keymap parameter | str | \[\[Empty\]\] |
 | kb_options | Appropriate XKB keymap parameter | str | \[\[Empty\]\] |
 | kb_rules | Appropriate XKB keymap parameter | str | \[\[Empty\]\] |
-| kb_file | If you prefer, you can use a path to your custom .xkb file. | str | \[\[Empty\]\] |
+| kb_file | If you prefer, you can use a path to your custom .xkb file. Supports both the V1 and V2 formats of xkb. | str | \[\[Empty\]\] |
 | numlock_by_default | Engage numlock by default. | bool | false |
 | resolve_binds_by_sym | Determines how keybinds act when multiple layouts are used. If false, keybinds will always act as if the first specified layout is active. If true, keybinds specified by symbols are activated when you type the respective symbol with the current layout. | bool | false |
 | repeat_rate | The repeat rate for held-down keys, in repeats per second. | int | 25 |
