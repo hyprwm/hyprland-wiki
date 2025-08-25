@@ -345,7 +345,7 @@ _Subcategory `gestures:`_
 | workspace_swipe_direction_lock_threshold | in px, the distance to swipe before direction lock activates (touchpad only). | int | 10 |
 | workspace_swipe_forever | if enabled, swiping will not clamp at the neighboring workspaces but continue to the further ones. | bool | false |
 | workspace_swipe_use_r | if enabled, swiping will use the `r` prefix instead of the `m` prefix for finding workspaces. | bool | false |
-| close_max_timeout | the timeout for a window to close when using a 1:1 gesture, in seconds | float | 1 |
+| close_max_timeout | the timeout for a window to close when using a 1:1 gesture, in ms | int | 1000 |
 
 ### Group
 
