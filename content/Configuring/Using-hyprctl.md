@@ -1,5 +1,5 @@
 ---
-weight: 13
+weight: 15
 title: Using hyprctl
 ---
 

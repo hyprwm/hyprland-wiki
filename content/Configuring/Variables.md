@@ -334,9 +334,6 @@ _Subcategory `gestures:`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
-| workspace_swipe | enable workspace swipe gesture on touchpad | bool | false |
-| workspace_swipe_fingers | how many fingers for the touchpad gesture | int | 3 |
-| workspace_swipe_min_fingers | if enabled, workspace_swipe_fingers is considered the minimum number of fingers to swipe | bool | false |
 | workspace_swipe_distance | in px, the distance of the touchpad gesture | int | 300 |
 | workspace_swipe_touch | enable workspace swiping from the edge of a touchscreen | bool | false |
 | workspace_swipe_invert | invert the direction (touchpad only) | bool | true |
@@ -348,6 +345,7 @@ _Subcategory `gestures:`_
 | workspace_swipe_direction_lock_threshold | in px, the distance to swipe before direction lock activates (touchpad only). | int | 10 |
 | workspace_swipe_forever | if enabled, swiping will not clamp at the neighboring workspaces but continue to the further ones. | bool | false |
 | workspace_swipe_use_r | if enabled, swiping will use the `r` prefix instead of the `m` prefix for finding workspaces. | bool | false |
+| close_max_timeout | the timeout for a window to close when using a 1:1 gesture, in ms | int | 1000 |
 
 ### Group
 
