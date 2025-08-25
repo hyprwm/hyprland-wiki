@@ -1,5 +1,5 @@
 ---
-weight: 11
+weight: 12
 title: Dwindle Layout
 ---
 
