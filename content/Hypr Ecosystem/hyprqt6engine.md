@@ -7,7 +7,7 @@ hyprqt6engine provides a theme for QT6 apps. It's a replacement for qt6ct, compa
 
 ## Usage
 
-Install, then set `QT_QPA_PLATFORM=hyprqt6engine`. You can set this as `env=` in Hyprland, or in `/etc/environment` for system-wide.
+Install, then set `QT_QPA_PLATFORMTHEME=hyprqt6engine`. You can set this as `env=` in Hyprland, or in `/etc/environment` for setting it system-wide.
 
 ## Configuration
 

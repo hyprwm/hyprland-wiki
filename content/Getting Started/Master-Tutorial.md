@@ -132,9 +132,8 @@ If your cursor does not appear, see
 ## Themes
 
 Since Hyprland is not a fully-fledged Desktop Environment, you will need to use
-tools such as `lxappearance` or `nwg-look` (recommended) for GTK, and `qt5ct` /
-`qt6ct` for their respective Qt versions. Some older applications may also
-require `qt4ct`.
+tools such as `lxappearance` or `nwg-look` (recommended) for GTK, and `hyprqt6engine`
+for qt6 apps.
 
 ## Force apps to use Wayland
 
