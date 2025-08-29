@@ -177,12 +177,12 @@ layerrule = unset, NAMESPACE
 
 {{< callout type=info >}}
 
-The `env` keyword works just like `exec-once`, meaning it will only fire once on
-Hyprland's launch.
+A new environment cannot be passed to already running processes. If you change / add / remove an `env = ` entry
+when Hyprland is running, only newly spawned apps will pick up the changes.
 
 {{< /callout >}}
 
-You can use the `env` keyword to set environment variables when Hyprland starts,
+You can use the `env` keyword to set environment variables,
 e.g:
 
 ```ini
