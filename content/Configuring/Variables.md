@@ -113,7 +113,7 @@ Doing `general:snap {` is **invalid**!
 | name | description | type | default |
 | --- | --- | --- | --- |
 | rounding | rounded corners' radius (in layout px) | int | 0 |
-| rounding_power | adjusts the curve used for rounding corners, larger is smoother, 2.0 is a circle, 4.0 is a squircle. [2.0 - 10.0] | float | 2.0 |
+| rounding_power | adjusts the curve used for rounding corners, larger is smoother, 2.0 is a circle, 4.0 is a squircle, 1.0 is a triangular corner. [1.0 - 10.0] | float | 2.0 |
 | active_opacity | opacity of active windows. [0.0 - 1.0] | float | 1.0 |
 | inactive_opacity | opacity of inactive windows. [0.0 - 1.0] | float | 1.0 |
 | fullscreen_opacity | opacity of fullscreen windows. [0.0 - 1.0] | float | 1.0 |
@@ -387,9 +387,9 @@ _Subcategory `group:groupbar:`_
 | text_offset | adjust vertical position for titles | int | 0 |
 | scrolling | whether scrolling in the groupbar changes group active window | bool | true |
 | rounding | how much to round the indicator | int | 1 |
-| rounding_power |  adjusts the curve used for rounding broupbar corners, larger is smoother, 2.0 is a circle, 4.0 is a squircle. [2.0 - 10.0] | float |  2.0 |
+| rounding_power |  adjusts the curve used for rounding broupbar corners, larger is smoother, 2.0 is a circle, 4.0 is a squircle, 1.0 is a triangular corner. [1.0 - 10.0] | float |  2.0 |
 | gradient_rounding | how much to round the gradients | int | 2 |
-| gradient_rounding_power | adjusts the curve used for rounding gradient corners, larger is smoother, 2.0 is a circle, 4.0 is a squircle. [2.0 - 10.0] | float | 2.0 |
+| gradient_rounding_power | adjusts the curve used for rounding gradient corners, larger is smoother, 2.0 is a circle, 4.0 is a squircle, 1.0 is a triangular corner. [1.0 - 10.0] | float | 2.0 |
 | round_only_edges | round only the indicator edges of the entire groupbar | bool | true |
 | gradient_round_only_edges | round only the gradient edges of the entire groupbar | bool | true |
 | text_color | color for window titles in the groupbar | color | 0xffffffff |
