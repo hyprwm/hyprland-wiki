@@ -86,7 +86,6 @@ Inside of it, put your config options. All options from the `input` category
 - `force_no_accel`
 - `follow_mouse`
 - `float_switch_override_focus`
-- `scroll_factor`
 
 Properties that change names:
 
