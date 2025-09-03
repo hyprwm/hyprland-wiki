@@ -22,11 +22,33 @@ in
     installPhase = ''
       runHook preInstall
 
+      shopt -s dotglob
+
       mkdir -p $out/bin
 
-      cat << EOF > $out/bin/lint
+      cp -r * $out/
+
+      # Replace relative paths in package.json scripts with cwd paths
+      sed -i "s|\.\.|\$cwd|g" $out/package.json
+
+      cat << 'EOF' > $out/bin/lint
       #!/usr/bin/env bash
-      ${pnpm}/bin/pnpm run \$1
+      shopt -s dotglob
+
+      export cwd=$(pwd)
+
+      args=()
+      for arg in "$@"; do
+        if [[ "$arg" == ../* ]] || [[ "$arg" == ./* ]] || [[ "$arg" == */* && "$arg" != /* ]]; then
+          args+=("$(realpath -m "$cwd/$arg")")
+        else
+          args+=("$arg")
+        fi
+      done
+
+      cd ${placeholder "out"}
+
+      exec ${pnpm}/bin/pnpm run "''${args[@]}"
       EOF
 
       chmod +x $out/bin/lint
@@ -38,7 +60,7 @@ in
       runHook preFixup
 
       wrapProgram $out/bin/lint \
-      --suffix PATH : ${lib.makeBinPath [nodejs]}
+        --suffix PATH : ${lib.makeBinPath [nodejs]}:$out/node_modules/.bin
 
       runHook postFixup
     '';

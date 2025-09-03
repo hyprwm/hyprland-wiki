@@ -18,11 +18,8 @@
 
     devShells = eachSystem (system: {
       default = pkgsFor.${system}.mkShell {
-        packages = with pkgsFor.${system}; [
-          nodejs_22
-          pnpm
-          self.packages.${system}.default
-        ];
+        inputsFrom = self.packages.${system}.default;
+        packages = [self.packages.${system}.default];
         name = "hyprland-wiki";
       };
     });
