@@ -19,7 +19,11 @@
     devShells = eachSystem (system: {
       default = pkgsFor.${system}.mkShell {
         inputsFrom = self.packages.${system}.default;
-        packages = [self.packages.${system}.default];
+        packages = with pkgsFor.${system}; [
+          self.packages.${system}.default
+          go
+          hugo
+        ];
         name = "hyprland-wiki";
       };
     });
