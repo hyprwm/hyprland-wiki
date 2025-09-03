@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "check": "remark --rc-path .remarkrc.js",
-    "checkall": "remark --rc-path .remarkrc.js ../content/*",
+    "check": "remark --rc-path .remarkrc.js --frail",
+    "checkall": "remark --rc-path .remarkrc.js --frail ../content/*",
     "fix": "remark --rc-path .remarkrc.js ../content/* --output"
   },
   "keywords": [],
