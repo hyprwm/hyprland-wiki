@@ -7,7 +7,7 @@ This page documents a few advanced things about the Hyprland Plugin API.
 
 ## Accessing private members
 
-If you need access to a private member of a Hyprland class, you can surround includes with a macro which will change the visibility to public.
+If you need access to a private member of a Hyprland class, you can surround includes with a macro which will change the visibility to public. Note that some Hyprland files include the STL which may end up breaking if you attempt this. If you encounter this issue, make sure to include the offending STL import before the section where you include the Hyprland file.
 
 ```cpp
 #define private public
