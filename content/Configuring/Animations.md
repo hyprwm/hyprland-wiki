@@ -102,7 +102,7 @@ the size:
 animation = windows, 1, 8, default, popin 80%
 ```
 
-For animation styles `slidefade` and `slidefadevert` in `workspaces`, you can
+For animation styles `slide`, `slidevert`, `slidefade` and `slidefadevert` in `workspaces`, you can
 specify a movement percentage. For example, the following will make windows move
 20% of the screen width:
 
@@ -116,5 +116,3 @@ You can choose between `top`, `bottom`, `left` or `right`.
 ```ini
 animation = windows, 1, 8, default, slide left
 ```
-
-
