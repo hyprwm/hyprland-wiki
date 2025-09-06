@@ -15,7 +15,7 @@ pacman -S hyprpaper
 
 {{% /details %}}
 
-{{% details title="OpenSuse" closed="true" %}}
+{{% details title="openSUSE" closed="true" %}}
 
 ```sh
 zypper install hyprpaper
@@ -63,7 +63,7 @@ On Arch:
 sudo pacman -S ninja gcc wayland-protocols libjpeg-turbo libwebp pango cairo pkgconf cmake libglvnd wayland hyprutils hyprwayland-scanner hyprlang
 ```
 
-On OpenSUSE:
+On openSUSE:
 
 ```sh
 sudo zypper install ninja gcc-c++ wayland-protocols-devel Mesa-libGLESv3-devel file-devel hyprutils-devel hyprwayland-scanner

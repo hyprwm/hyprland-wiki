@@ -27,7 +27,7 @@ Hyprland if you plan to use one. Blame NVIDIA for this.
 We officially run and test Hyprland on Arch and NixOS, and we guarantee Hyprland will work there. For any other distro
 (not based on Arch/Nix) you might have varying amounts of success. However,
 since Hyprland is extremely bleeding-edge, distros like Pop!\_OS, Ubuntu, etc.
-will have **major** issues running Hyprland. Rolling release distros like Fedora, OpenSUSE, etc. will likely be fine.
+will have **major** issues running Hyprland. Rolling release distros like Fedora, openSUSE, etc. will likely be fine.
 
 ## Installation
 
@@ -384,7 +384,7 @@ the list)_
 
 {{% /details %}}
 
-{{% details title="OpenSuse" closed="true" %}}
+{{% details title="openSUSE" closed="true" %}}
 
 ```sh
 zypper in gcc-c++ git meson cmake "pkgconfig(cairo)" "pkgconfig(egl)" "pkgconfig(gbm)" "pkgconfig(gl)" "pkgconfig(glesv2)" "pkgconfig(libdrm)" "pkgconfig(libinput)" "pkgconfig(libseat)" "pkgconfig(libudev)" "pkgconfig(pango)" "pkgconfig(pangocairo)" "pkgconfig(pixman-1)" "pkgconfig(vulkan)" "pkgconfig(wayland-client)" "pkgconfig(wayland-protocols)" "pkgconfig(wayland-scanner)" "pkgconfig(wayland-server)" "pkgconfig(xcb)" "pkgconfig(xcb-icccm)" "pkgconfig(xcb-renderutil)" "pkgconfig(xkbcommon)" "pkgconfig(xwayland)" "pkgconfig(xcb-errors)" glslang-devel Mesa-libGLESv3-devel tomlplusplus-devel
