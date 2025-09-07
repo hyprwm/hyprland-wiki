@@ -280,7 +280,7 @@ and a [guided hello world](https://quickshell.outfoxxed.me/docs/configuration/in
 
 ### Disadvantages
 - Qt can be less intuitive to work with compared to GTK for its positioning system
-- Does not yet provide a Wi-Fi or Bluetooth service at the time of writing
+- Does not yet provide a Wi-Fi service at the time of writing
 - It is still in alpha and minor breaking changes are to be expected
 - Styles are declared with components instead of in CSS, which might be less familiar for some people
 
