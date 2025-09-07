@@ -3,11 +3,11 @@ weight: 2
 title: Status bars
 ---
 
-# Simple status bars
+## Simple status bars
 
 Typically you'll be able to configure the order and style of widgets with little to no coding skill.
 
-## Waybar
+### Waybar
 
 Waybar is a GTK status bar made specifically for wlroots compositors and
 supports Hyprland by default. To use it, it's recommended to use your distro's
@@ -22,7 +22,7 @@ with `hyprland/workspaces`. Addionally replace all occurences of `sway/mode` wit
 For more info regarding configuration, see
 [The Waybar Wiki](https://github.com/Alexays/Waybar/wiki/Module:-Hyprland).
 
-### How to launch
+#### How to launch
 
 Type `waybar` into your terminal. In order to have Waybar launch alongside
 Hyprland, add this line to your Hyprland configuration:
@@ -37,14 +37,14 @@ Waybar also provides a systemd service. If you use Hyprland with [uwsm](../../Us
 systemctl --user enable --now waybar.service
 ```
 
-### Waybar FAQ
+#### Waybar FAQ
 
-#### Active workspace doesn't show up
+##### Active workspace doesn't show up
 
 Replace `#workspaces button.focused` with `#workspaces button.active` in
 `~/.config/waybar/style.css`.
 
-#### Scrolling through workspaces
+##### Scrolling through workspaces
 
 Since a lot of configuration options from `sway/workspaces` are missing,
 you should deduce some of them by yourself. In the case of scrolling, it should
@@ -58,7 +58,7 @@ look like this:
 }
 ```
 
-### Window title is missing
+#### Window title is missing
 
 The prefix for the window module that provides the title is `hyprland` not `wlr`.
 In your Waybar config, insert this module:
@@ -74,7 +74,7 @@ If you are using multiple monitors, you may want to insert the following option:
     "separate-outputs": true
 },
 ```
-# Widget systems
+## Widget systems
 
 Use them when you want custom menus with fully customizable layout. 
 You basically need to write code, but widget systems significantly 
@@ -86,7 +86,7 @@ Below are three popular choices in alphabetical order.
 | UI Toolkit               | GTK 3/4            | GTK 3             | Qt                |
 | Config language          | JS(X)/TS/languages that support [Gobject Introspection](https://en.wikipedia.org/wiki/List_of_language_bindings_for_GTK) | Yuck (EWW's flavor of Lisp) | QML |
 
-## AGS/Astal
+### AGS/Astal
 
 - [Astal](https://aylur.github.io/astal/) is a suite and framework to craft desktop shells and Wayland widgets with GTK.
 - [AGS](https://aylur.github.io/ags/) (Aylur's GTK Shell) is a scaffolding tool for Astal and TypeScript/Javascript(X).
@@ -96,15 +96,15 @@ To get started with Astal, see its [installation instructions](https://aylur.git
 and [examples](https://aylur.github.io/astal/guide/introduction#supported-languages).
 For AGS, see its [Quick start](https://aylur.github.io/ags/guide/quick-start.html) page.
 
-### Advantages
+#### Advantages
 - Language flexibility: You can use your favorite if it supports
 [Gobject Introspection](https://en.wikipedia.org/wiki/List_of_language_bindings_for_GTK) (although JS(X)/TS are most well-supported by AGS)
 - Provides a large set of libraries, including Network (both Wi-Fi and Ethernet) and Bluetooth
 
-### Disadvantages
+#### Disadvantages
 - Does not provide hot reload out of the box
 
-## Eww
+### Eww
 
 [Eww](https://github.com/elkowar/eww) (ElKowar's Wacky Widgets) is a widget
 system made in Rust + GTK, which allows the creation of custom widgets
@@ -115,17 +115,17 @@ Install Eww either using your distro's package manager, by searching
 `eww-wayland`, or by manually compiling. In the latter case, you can follow the
 [instructions](https://elkowar.github.io/eww).
 
-### Advantages
+#### Advantages
 - Its Lisp-like config syntax is simple compared to other config languages
 - Supports styling with SCSS out of the box
 
-### Disadvantages
+#### Disadvantages
 - Heavy reliance on external scripts/programs, as it does not provide many libraries
 - Performance
   - Only supports GTK 3, which does not support GPU acceleration
   - Overhead from the use of external scripts and unnecessary component recreations on data re-evaluation
 
-### Configuration
+#### Configuration
 
 There are a few examples listed in the [Readme](https://github.com/elkowar/eww).
 It's also highly recommended to read through the
@@ -155,7 +155,7 @@ workspaces. It requires [bash](https://linux.die.net/man/1/bash),
 [socat](https://linux.die.net/man/1/socat),
 [jq](https://stedolan.github.io/jq/), and [Python 3](https://www.python.org/).
 
-#### `~/.config/eww.yuck`
+##### `~/.config/eww.yuck`
 
 ```lisp
 ...
@@ -178,7 +178,7 @@ workspaces. It requires [bash](https://linux.die.net/man/1/bash),
 ...
 ```
 
-#### `~/.config/eww/scripts/change-active-workspace`
+##### `~/.config/eww/scripts/change-active-workspace`
 
 ```sh
 #!/usr/bin/env bash
@@ -204,7 +204,7 @@ then
 fi
 ```
 
-#### `~/.config/eww/scripts/get-active-workspace`
+##### `~/.config/eww/scripts/get-active-workspace`
 
 ```sh
 #!/usr/bin/env bash
@@ -215,7 +215,7 @@ socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket
   stdbuf -o0 awk -F '>>|,' -e '/^workspace>>/ {print $2}' -e '/^focusedmon>>/ {print $3}'
 ```
 
-#### `~/.config/eww/scripts/get-workspaces`
+##### `~/.config/eww/scripts/get-workspaces`
 
 ```sh
 #!/usr/bin/env bash
@@ -242,7 +242,7 @@ This widget simply displays the title of the active window. It requires
 [socat](https://linux.die.net/man/1/socat), and
 [jq](https://stedolan.github.io/jq/).
 
-#### `~/.config/eww/eww.yuck`
+##### `~/.config/eww/eww.yuck`
 
 ```lisp
 ...
@@ -255,7 +255,7 @@ This widget simply displays the title of the active window. It requires
 ...
 ```
 
-#### `~/.config/eww/scripts/get-window-title`
+##### `~/.config/eww/scripts/get-window-title`
 
 ```sh
 #!/bin/sh
@@ -265,7 +265,7 @@ socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket
 
 </details>
 
-## Quickshell
+### Quickshell
 
 [Quickshell](https://quickshell.outfoxxed.me/) is a flexbile QtQuick-based desktop shell toolkit.
 Note that although Qt is notoriously hard to theme, Quickshell can be styled independently.
@@ -274,19 +274,19 @@ To get started, see the
 [setup instructions](https://quickshell.outfoxxed.me/docs/configuration/getting-started/)
 and a [guided hello world](https://quickshell.outfoxxed.me/docs/configuration/intro/)
 
-### Advantages
+#### Advantages
 - Provides advanced Wayland/Hyprland integrations, for example live window previews
 - Automatically reloads config on changes out of the box
 
-### Disadvantages
+#### Disadvantages
 - Qt can be less intuitive to work with compared to GTK for its positioning system
 - Does not yet provide a Wi-Fi service at the time of writing
 - It is still in alpha and minor breaking changes are to be expected
 - Styles are declared with components instead of in CSS, which might be less familiar for some people
 
-# Tips
+## Tips
 
-## Blur
+### Blur
 
 Use the `blur` and `ignorealpha` [layer rules](https://wiki.hyprland.org/Configuring/Window-Rules/#layer-rules). 
 The former enables blur, and the latter makes it ignore insufficiently opaque regions. 
