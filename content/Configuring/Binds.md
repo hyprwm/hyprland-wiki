@@ -212,6 +212,13 @@ bindl = , switch:on:[switch name], exec, hyprctl keyword monitor "eDP-1, disable
 bindl = , switch:off:[switch name], exec, hyprctl keyword monitor "eDP-1, 2560x1600, 0x0, 1"
 ```
 
+{{< callout type=warning >}}
+
+Reloading the config removes `hyprctl keyword` commands set in the switches. To make them persistent, add:
+`exec = sh -c 'if [ $(hyprctl monitors | grep -c "Monitor") -gt 1 ]; then hyprctl keyword monitor "eDP-1, disable"; fi'`
+
+{{< /callout >}}
+
 {{< callout type=info >}}
 
 You can view your switches with `hyprctl devices`.
