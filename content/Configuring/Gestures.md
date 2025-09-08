@@ -37,6 +37,9 @@ The following directions are supported:
 
 ## Available gestures
 
+Specifying `unset` as the gesture will unset a specific gesture that was previously set. Please note it needs to exactly match everything
+from the original gesture including direction, mods, fingers and scale.
+
 | gesture | description | arguments |
 | -- | -- | -- |
 | dispatcher | the most basic, executes a dispatcher once the gesture ends | `dispatcher, params` |
