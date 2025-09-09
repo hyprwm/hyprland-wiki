@@ -3,8 +3,6 @@ weight: 13
 title: Contributing and Debugging
 ---
 
-# Contributing guidelines
-
 PR, code styling and code FAQs are [here](./PR-Guidelines)
 
 For issues, please see
