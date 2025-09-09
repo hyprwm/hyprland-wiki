@@ -60,7 +60,7 @@ bind = SUPER, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy
 
 {{< tab >}}
 ```ini
-bind = SUPER, V, exec, cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
+bind = $mainMod, V, exec, cliphist list | fuzzel --dmenu --with-nth 2 | cliphist decode | wl-copy
 ```
 {{< /tab >}}
 
