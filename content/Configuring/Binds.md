@@ -90,6 +90,17 @@ This may be useful for dynamic keybindings with `hyprctl`, e.g.:
 hyprctl keyword unbind SUPER, O
 ```
 
+{{< callout type=info >}}
+In `unbind`, key is case-sensitve It must exactly match the case of the `bind` you are unbinding.
+
+```ini
+bind = SUPER, TAB, workspace, e+1
+unbind = SUPER, Tab # this will NOT unbind
+unbind = SUPER, TAB # this will unbind
+```
+
+{{< /callout >}}
+
 ## Bind flags
 
 `bind` supports flags in this format:
@@ -197,8 +208,6 @@ You can control the reset time with `binds:scroll_event_delay`.
 
 {{< /callout >}}
 
-
-
 ### Switches
 
 Switches are useful for binding events like closing and opening a laptop's lid:
@@ -251,7 +260,6 @@ bindd = SUPER, Q, Open my favourite terminal, exec, kitty
 
 If you want to access your description you can use `hyprctl binds`.  
 For more information have a look at [Using Hyprctl](../Using-hyprctl).
-
 
 ## Mouse Binds
 
@@ -307,7 +315,7 @@ bindm = SUPER, ALT_L, resizewindow
 Yes, you heard this right, Hyprland does support global keybinds for _ALL_ apps,
 including OBS, Discord, Firefox, etc.
 
-See the [`pass`](../Dispatchers/#list-of-dispatchers) and 
+See the [`pass`](../Dispatchers/#list-of-dispatchers) and
 [`sendshortcut`](../Dispatchers/#list-of-dispatchers) dispatchers for keybinds.
 
 Let's take OBS as an example: the "Start/Stop Recording" keybind is set to
@@ -392,7 +400,7 @@ submap = reset
 
 {{< callout type=warning >}}
 
-Do not forget a keybind (`escape`, in this case) to reset the keymap while inside it! 
+Do not forget a keybind (`escape`, in this case) to reset the keymap while inside it!
 
 If you get stuck inside a keymap, you can use `hyprctl dispatch submap reset` to go back.  
 If you do not have a terminal open, tough luck buddy. You have been warned.
