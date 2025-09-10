@@ -44,12 +44,13 @@ You can execute a shell script on:
 
 ## Sourcing (multi-file)
 
-Use the `source` keyword to source another file.
+Use the `source` keyword to source another file. Globbing is supported
 
 For example, in your `hyprland.conf` you can:
 
 ```ini
 source = ~/.config/hypr/myColors.conf
+source = ~/.config/hypr/custom/*
 ```
 
 And Hyprland will enter that file and parse it like a Hyprland config.
