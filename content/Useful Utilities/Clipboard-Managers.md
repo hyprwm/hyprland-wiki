@@ -9,10 +9,13 @@ Clipboard Managers provide a convenient way to organize and access previously
 copied content, including both text and images.  
 Some common ones include:
 
-- [`cliphist`](https://github.com/sentriz/cliphist) - Utilizes Wayland with `wl-clipboard` and can store both images and
-text.
+- [`cliphist`](https://github.com/sentriz/cliphist) - Utilizes Wayland with `wl-clipboard` and can store text,
+images and any binary data.
 
-- [`clipman`](https://github.com/chmouel/clipman) - Utilizes Wayland with `wl-clipboard` support and stores text only
+- [`clipman`](https://github.com/chmouel/clipman) - Utilizes Wayland with `wl-clipboard` support and stores text only.
+
+- [`clipvault`](https://github.com/rolv-apneseth/clipvault) - Utilizes Wayland with `wl-clipboard` and can store text, images and any binary data.  
+Alternative to `cliphist` with a couple extra features (e.g. max age for entries, min/max entry length).
 
 - [`clipse`](https://github.com/savedra1/clipse) - Utilizes Wayland with `wl-clipboard` support and runs from a single
 binary.  
@@ -117,6 +120,60 @@ bind = SUPER, V, exec, clipman pick -t STDOUT | fuzzel --dmenu | wl-copy
 
 ...and so on.  
 For further information, please refer to the program's GitHub repository linked above.
+
+## clipvault
+
+Start by adding the following line(s) to your `~/.config/hypr/hyprland.conf`
+
+```ini
+exec-once = wl-paste --watch clipvault store # Stores text, image and any other binary data
+# exec-once = wl-paste --type text --watch clipvault store # Stores only text data
+# exec-once = wl-paste --type image --watch clipvault store # Stores only image data
+# exec-once = wl-paste --watch clipvault store --min-entry-length 2 --max-entries 200 --max-entry-age 2d # Store any data, but with additional parameters
+```
+
+Note that you can uncomment any of the commented out lines above based on your needs. Refer to the setup
+section in the project's GitHub repository linked above for more information.
+
+To bind `clipvault` to a hotkey and display it using a picker of your choice (e.g. `rofi`, `dmenu`, `wofi`, etc.),
+you can add one of the below keybinds to your `hyprland.conf`:
+
+{{< tabs items="rofi,dmenu,wofi,fuzzel,tofi" >}}
+
+{{< tab >}}
+```ini
+bind = SUPER, V, exec, clipvault list | rofi -dmenu -display-columns 2 | clipvault get | wl-copy
+```
+{{< /tab >}}
+
+{{< tab >}}
+```ini
+bind = SUPER, V, exec, clipvault list | dmenu | clipvault get | wl-copy
+```
+{{< /tab >}}
+
+{{< tab >}}
+```ini
+bind = SUPER, V, exec, clipvault list | wofi -S dmenu --pre-display-cmd "echo '%s' | cut -f 2" | clipvault get | wl-copy
+```
+{{< /tab >}}
+
+{{< tab >}}
+```ini
+bind = $mainMod, V, exec, clipvault list | fuzzel --dmenu --with-nth 2 | clipvault get | wl-copy
+```
+{{< /tab >}}
+
+{{< tab >}}
+```ini
+bind = $mainMod, V, exec, clipvault list | tofi | clipvault get | wl-copy
+```
+{{< /tab >}}
+
+{{< /tabs >}}
+
+The binds above bind `SUPER + V` to access the clipboard history.  
+For further info, please refer to the program's GitHub repository linked above.
 
 ## clipse
 
