@@ -45,7 +45,7 @@ you can edit it in `hyprland.conf`.
 
 {{< tab >}}
 ```ini
-bind = SUPER, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
+bind = SUPER, V, exec, cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy
 ```
 {{< /tab >}}
 
@@ -57,7 +57,7 @@ bind = SUPER, V, exec, cliphist list | dmenu | cliphist decode | wl-copy
 
 {{< tab >}}
 ```ini
-bind = SUPER, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy
+bind = SUPER, V, exec, cliphist list | wofi --dmenu --pre-display-cmd "echo '%s' | cut -f 2" | cliphist decode | wl-copy
 ```
 {{< /tab >}}
 
