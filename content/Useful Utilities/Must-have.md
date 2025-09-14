@@ -11,7 +11,7 @@ not, as you might want to use something else.
 
 ### A notification daemon
 
-_Starting method:_ Automatically, via D-Bus activation, when a notification is emmitted. Alternatively, `exec-once` entry inside `hyprland.conf` can be used. The latter might be preferable, if there are several notification daemons installed on your system.
+_Starting method:_ Automatically, via D-Bus activation, when a notification is emitted. Alternatively, `exec-once` entry inside `hyprland.conf` can be used. The latter might be preferable, if there are several notification daemons installed on your system.
 
 Many apps (e.g. Discord) may freeze without one running.
 

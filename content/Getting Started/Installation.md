@@ -319,7 +319,7 @@ For detailed instructions on installing this build see
 {{% details title="Alpine*" closed="true" %}}
 
 Hyprland is currently available in Alpine's [community repository](https://wiki.alpinelinux.org/wiki/Repositories#Community)
-and it is maintaned by the community.
+and it is maintained by the community.
 
 The following command will install hyprland and its dependencies.
 

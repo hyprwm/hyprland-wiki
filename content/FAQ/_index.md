@@ -397,7 +397,7 @@ Steam has its own file picker, however, it's not functional. Install
 
 It seems there is a Kernel bug making the system think there is an extra
 phantom monitor, that causes all sorts of issues, crashes and weird behaviors
-like disapearing workspaces or clients when adding or removing an external
+like disappearing workspaces or clients when adding or removing an external
 monitor.
 
 First check the list of monitors detected by Hyprland by running:

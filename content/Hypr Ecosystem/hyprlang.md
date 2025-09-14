@@ -156,7 +156,7 @@ If you want to have a `\` before a real expression
 someVariable = \\{{VAR1 + 10}}
 ```
 
-If you want to have an `\` before any of the escapable charecters
+If you want to have an `\` before any of the escapable characters
 ```ini
 someOtherVariable = \\{ hello \\} 
 ```

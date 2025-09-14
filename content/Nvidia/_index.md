@@ -34,7 +34,7 @@ proprietary Nvidia drivers.
 According to
 [Nvidia](https://developer.nvidia.com/blog/nvidia-transitions-fully-towards-open-source-gpu-kernel-modules/),
 the open source kernel modules are also recommended to be used by the
-architechtures Turing and Ampere. In short, this includes the 16xx and 20xx
+architectures Turing and Ampere. In short, this includes the 16xx and 20xx
 series of consumer cards and later. Your mileage may vary, so please try both of
 them if your card is supported by both.
 
