@@ -54,6 +54,7 @@ global
     ↳ fadePopups - for controlling fade on wayland popups
       ↳ fadePopupsIn - fade in for wayland popup open
       ↳ fadePopupsOut - fade out for wayland popup close
+    ↳ fadeDpms - for controlling fade when dpms is toggled
   ↳ border - for animating the border's color switch speed
   ↳ borderangle - for animating the border's gradient angle - styles: once (default), loop
   ↳ workspaces - styles: slide, slidevert, fade, slidefade, slidefadevert
@@ -63,6 +64,7 @@ global
       ↳ specialWorkspaceIn - styles: same as workspaces
       ↳ specialWorkspaceOut - styles: same as workspaces
   ↳ zoomFactor - animates the screen zoom
+  ↳ monitorAdded - monitor added zoom animation
 ```
 
 {{< callout type=warning >}}
@@ -100,7 +102,7 @@ the size:
 animation = windows, 1, 8, default, popin 80%
 ```
 
-For animation styles `slidefade` and `slidefadevert` in `workspaces`, you can
+For animation styles `slide`, `slidevert`, `slidefade` and `slidefadevert` in `workspaces`, you can
 specify a movement percentage. For example, the following will make windows move
 20% of the screen width:
 
@@ -114,5 +116,3 @@ You can choose between `top`, `bottom`, `left` or `right`.
 ```ini
 animation = windows, 1, 8, default, slide left
 ```
-
-

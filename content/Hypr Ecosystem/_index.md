@@ -24,6 +24,7 @@ These docs always target latest -git branch of respective apps.
 - **[hyprsunset](./hyprsunset)**
 - **[hyprpolkitagent](./hyprpolkitagent)**
 - **[hyprland-qt-support](./hyprland-qt-support)**
+- **[hyprqt6engine](./hyprqt6engine)**
 
 ### Libraries and other utilities
 

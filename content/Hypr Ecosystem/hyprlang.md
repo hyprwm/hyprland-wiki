@@ -184,7 +184,6 @@ test = 12
 ```
 
 Some important information:
-- no nesting of ifs is allowed
 - a variable is true if and only if it exists and is not an empty string
 - environment variables are supported
 - dynamic keywords (with `hyprctl keyword`) will NOT re-trigger or un-trigger these blocks. Changes need to be made to the files directly (or environment) and in the case of the latter, or a hypr* app that doesn't automatically reload its config, a relaunch of the app / `hyprctl reload` (for hl) will be required.

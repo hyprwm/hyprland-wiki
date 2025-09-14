@@ -19,7 +19,7 @@ example, in the case of `kitty`:
 
 {{< callout type=warning >}}
 
-Rules are evaluated top to bottom, so the order they're written in does matter!  
+Rules are evaluated top to bottom, so the order they're written in does matter!
 More info in [Notes](#notes)
 
 {{< /callout >}}
@@ -79,7 +79,7 @@ The supported fields for parameters are:
 | workspace:\[w\] | Windows on matching workspace. `w` can be `id` or `name:string`. |
 | onworkspace:\[w\] | Windows on matching workspace. `w` can be `id`, `name:string` or `workspace selector`. |
 | content:\[none\|photo\|video\|game\] | Windows with specified content type |
-| xdgtag:\[string\] | Match a window by its xdgTag (see `hyprctl clients` to check if it has one) | 
+| xdgtag:\[string\] | Match a window by its xdgTag (see `hyprctl clients` to check if it has one) |
 
 Keep in mind that you _have_ to declare at least one field, but not all.
 
@@ -188,6 +188,7 @@ The following rules can also be set with [`setprop`](../Dispatchers#setprop):
 | scrollmouse \[float\] | Forces the window to override the variable `input:scroll_factor`. |
 | scrolltouchpad \[float\] | Forces the window to override the variable `input:touchpad:scroll_factor`. |
 | noscreenshare \[on\] | Hides the window and its popups from screen sharing by drawing black rectangles in their place. The rectangles are drawn even if other windows are above. |
+| novrr \[on\] | Disables VRR for the window. Only works when [`misc:vrr`](../Variables/#Misc) is set to `2` or `3`. |
 
 {{< callout type=info >}}
 

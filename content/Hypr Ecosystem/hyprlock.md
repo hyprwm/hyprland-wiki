@@ -16,6 +16,22 @@ You can use the example config for a quick start, which can be found [here](http
 
 {{< /callout >}}
 
+## Commandline arguments
+
+See also: `hyprlock --help`.
+
+| argument | description |
+| -- | -- |
+| -v, --verbose | Enable verbose logging |
+| -q, --quiet | Disable logging |
+| -c FILE, --config FILE | Specify config file to use |
+| --display NAME | Specify the wayland display to connect to |
+| --grace SECONDS | Set grace period in seconds before requiring authentication |
+| --immediate-render | Do not wait for resources before drawing the background (Same as `general:immediate_render`) |
+| --no-fade-in | Disable the fade-in animation when the lock screen appears |
+| -V, --version | Show version information and exit |
+| -h, --help | Show help and exit |
+
 ## Configuration
 
 Configuration is done via the config file at `~/.config/hypr/hyprlock.conf`. This file must exist to run `hyprlock`.

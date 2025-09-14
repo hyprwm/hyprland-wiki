@@ -44,12 +44,13 @@ You can execute a shell script on:
 
 ## Sourcing (multi-file)
 
-Use the `source` keyword to source another file.
+Use the `source` keyword to source another file. Globbing is supported
 
 For example, in your `hyprland.conf` you can:
 
 ```ini
 source = ~/.config/hypr/myColors.conf
+source = ~/.config/hypr/custom/*
 ```
 
 And Hyprland will enter that file and parse it like a Hyprland config.
@@ -86,7 +87,6 @@ Inside of it, put your config options. All options from the `input` category
 - `force_no_accel`
 - `follow_mouse`
 - `float_switch_override_focus`
-- `scroll_factor`
 
 Properties that change names:
 
@@ -177,12 +177,12 @@ layerrule = unset, NAMESPACE
 
 {{< callout type=info >}}
 
-The `env` keyword works just like `exec-once`, meaning it will only fire once on
-Hyprland's launch.
+A new environment cannot be passed to already running processes. If you change / add / remove an `env = ` entry
+when Hyprland is running, only newly spawned apps will pick up the changes.
 
 {{< /callout >}}
 
-You can use the `env` keyword to set environment variables when Hyprland starts,
+You can use the `env` keyword to set environment variables,
 e.g:
 
 ```ini

@@ -110,7 +110,7 @@ See [here](../Development/Getting-Started).
 ### Where do I find plugins?
 
 You can find our featured plugins at
-[hyprland.org/plugins](https://hyprland.org/plugins/). You can also see a list
+[hypr.land/plugins](https://hypr.land/plugins/). You can also see a list
 at
 [awesome-hyprland](https://github.com/hyprland-community/awesome-hyprland#plugins).
 Note that it may not be complete. Lastly, you can try searching around github

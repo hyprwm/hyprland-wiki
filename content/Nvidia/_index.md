@@ -3,7 +3,7 @@ weight: 8
 title: NVidia
 ---
 
-# Foreword
+## Foreword
 
 There is no _official_ Hyprland support for Nvidia hardware. However, many
 people have had success with the instructions on this page. Please read
@@ -42,7 +42,7 @@ If either of the proprietary Nvidia driver setups do not work properly on your
 computer, the Nouveau driver might work fine. This will likely be the case for
 [older cards](https://wiki.archlinux.org/title/NVIDIA#Unsupported_drivers).
 
-# Proprietary driver setup
+## Proprietary driver setup
 
 On Arch Linux and other Arch-based distros, we recommend using the DKMS variety
 of the kernel modules, as it will support all installed kernels on your system.
@@ -59,7 +59,7 @@ kernels of choice. So please make sure you have all relevant headers packages
 installed on your system. For example, if you have the Zen kernel installed, you
 must ensure `linux-zen-headers` is also installed.
 
-## Further Installation
+### Further Installation
 
 The following packages must also be installed to ensure a smooth experience with
 the proprietary drivers.
@@ -72,7 +72,7 @@ the proprietary drivers.
    This is required in order to enable compatibility between the EGL API and the
    Wayland protocol. This should already be installed on most distros.
 
-## Early KMS, modeset and fbdev
+### Early KMS, modeset and fbdev
 
 As of Nvidia driver version 570.86.16, `fbdev` has now been enabled by default
 when `modeset` is also enabled. Therefore we simply need to enable `modeset`.
@@ -119,7 +119,7 @@ After rebooting, you can verify that DRM is actually enabled by running
 More information is available
 [here](https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting).
 
-## Environment variables
+### Environment variables
 
 Add these variables to your Hyprland config:
 
@@ -128,7 +128,7 @@ env = LIBVA_DRIVER_NAME,nvidia
 env = __GLX_VENDOR_LIBRARY_NAME,nvidia
 ```
 
-## Finishing up
+### Finishing up
 
 Install a few packages to get some apps to function natively with Wayland for
 the best compatibility and performance. See
@@ -140,7 +140,7 @@ Launch Hyprland.
 
 It _should_ work now.
 
-## Flickering in Electron / CEF apps
+### Flickering in Electron / CEF apps
 
 Electron and CEF apps flicker because:
 
@@ -193,7 +193,7 @@ to any Electron/CEF app:
 Using this in conjunction with native Wayland on these apps should solve all
 issues.
 
-## VA-API hardware video acceleration
+### VA-API hardware video acceleration
 
 Hardware video acceleration on Nvidia and Wayland is possible with the
 [nvidia-vaapi-driver](https://github.com/elFarto/nvidia-vaapi-driver). This may
@@ -217,9 +217,9 @@ will be given here:
 You can check the README to get it working for Firefox. There is also
 experimental support for Chromium, however there has not been much success.
 
-## Other issues
+### Other issues
 
-### Multi-monitor with hybrid graphics
+#### Multi-monitor with hybrid graphics
 If you experience issues with multi-monitor setup on a hybrid graphics device
 (a laptop with both an Intel and an Nvidia GPU), switching to discrete-only mode may help:
 
@@ -228,7 +228,7 @@ If you experience issues with multi-monitor setup on a hybrid graphics device
 2. Change your BIOS settings from hybrid graphics to discrete graphics.
 
 
-### Multi-GPU (or hybrid graphics) not working for monitors attached to Nvidia GPU
+#### Multi-GPU (or hybrid graphics) not working for monitors attached to Nvidia GPU
 Nvidia doesn't support important features for Multi-GPU which can result in a broken or slow setup.
 There are some workarounds to try:
 
@@ -238,7 +238,7 @@ There are some workarounds to try:
 This might slow down rendering to secondary monitors and make Hyprland a bit laggy on them,
 but it's better than not having a secondary monitor at all, and it's the best we can do on Nvidia.
 
-### Flickering in XWayland games
+#### Flickering in XWayland games
 
 XWayland games may flicker or present frames out-of-order in a way which makes
 them unplayable. This is due to the lack of implicit synchronization in the
@@ -257,7 +257,7 @@ There are a few fixes:
    the 535xx series of drivers. These can be installed on Arch via
    [these AUR packages](https://aur.archlinux.org/packages?O=0&K=535xx)
 
-### Suspend/wakeup issues
+#### Suspend/wakeup issues
 
 On Arch Linux and NixOS, the instructions below are already done for you, but
 for others:
@@ -284,7 +284,7 @@ worth trying the fully proprietary one.
 
 {{< /callout >}}
 
-# Still having issues?
+## Still having issues?
 
 If you're still having issues after following this guide, you can join the
 [Hyprland Discord](https://discord.gg/hQ9XvMUjjr) and ask for help in the

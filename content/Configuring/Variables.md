@@ -113,10 +113,11 @@ Doing `general:snap {` is **invalid**!
 | name | description | type | default |
 | --- | --- | --- | --- |
 | rounding | rounded corners' radius (in layout px) | int | 0 |
-| rounding_power | adjusts the curve used for rounding corners, larger is smoother, 2.0 is a circle, 4.0 is a squircle. [2.0 - 10.0] | float | 2.0 |
+| rounding_power | adjusts the curve used for rounding corners, larger is smoother, 2.0 is a circle, 4.0 is a squircle, 1.0 is a triangular corner. [1.0 - 10.0] | float | 2.0 |
 | active_opacity | opacity of active windows. [0.0 - 1.0] | float | 1.0 |
 | inactive_opacity | opacity of inactive windows. [0.0 - 1.0] | float | 1.0 |
 | fullscreen_opacity | opacity of fullscreen windows. [0.0 - 1.0] | float | 1.0 |
+| dim_modal | enables dimming of parents of modal windows | bool | true |
 | dim_inactive | enables dimming of inactive windows | bool | false |
 | dim_strength | how much inactive windows should be dimmed [0.0 - 1.0] | float | 0.5 |
 | dim_special | how much to dim the rest of the screen by when a special workspace is open. [0.0 - 1.0] | float | 0.2 |
@@ -178,7 +179,6 @@ _Subcategory `decoration:shadow:`_
 | name | description | type | default |
 | --- | --- | --- | --- |
 | enabled | enable animations | bool | true |
-| first_launch_animation | enable first launch animation | bool | true |
 | workspace_wraparound | enable workspace wraparound, causing directional workspace animations to animate as if the first and last workspaces were adjacent | bool | false |
 
 {{< callout type=info >}}
@@ -334,9 +334,6 @@ _Subcategory `gestures:`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
-| workspace_swipe | enable workspace swipe gesture on touchpad | bool | false |
-| workspace_swipe_fingers | how many fingers for the touchpad gesture | int | 3 |
-| workspace_swipe_min_fingers | if enabled, workspace_swipe_fingers is considered the minimum number of fingers to swipe | bool | false |
 | workspace_swipe_distance | in px, the distance of the touchpad gesture | int | 300 |
 | workspace_swipe_touch | enable workspace swiping from the edge of a touchscreen | bool | false |
 | workspace_swipe_invert | invert the direction (touchpad only) | bool | true |
@@ -348,6 +345,7 @@ _Subcategory `gestures:`_
 | workspace_swipe_direction_lock_threshold | in px, the distance to swipe before direction lock activates (touchpad only). | int | 10 |
 | workspace_swipe_forever | if enabled, swiping will not clamp at the neighboring workspaces but continue to the further ones. | bool | false |
 | workspace_swipe_use_r | if enabled, swiping will use the `r` prefix instead of the `m` prefix for finding workspaces. | bool | false |
+| close_max_timeout | the timeout for a window to close when using a 1:1 gesture, in ms | int | 1000 |
 
 ### Group
 
@@ -389,7 +387,9 @@ _Subcategory `group:groupbar:`_
 | text_offset | adjust vertical position for titles | int | 0 |
 | scrolling | whether scrolling in the groupbar changes group active window | bool | true |
 | rounding | how much to round the indicator | int | 1 |
+| rounding_power |  adjusts the curve used for rounding broupbar corners, larger is smoother, 2.0 is a circle, 4.0 is a squircle, 1.0 is a triangular corner. [1.0 - 10.0] | float |  2.0 |
 | gradient_rounding | how much to round the gradients | int | 2 |
+| gradient_rounding_power | adjusts the curve used for rounding gradient corners, larger is smoother, 2.0 is a circle, 4.0 is a squircle, 1.0 is a triangular corner. [1.0 - 10.0] | float | 2.0 |
 | round_only_edges | round only the indicator edges of the entire groupbar | bool | true |
 | gradient_round_only_edges | round only the gradient edges of the entire groupbar | bool | true |
 | text_color | color for window titles in the groupbar | color | 0xffffffff |
