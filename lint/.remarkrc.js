@@ -15,12 +15,17 @@ const WORDS_DO_NOT_CAPITALIZE_IN_HEADINGS = [
   "tty",
 ];
 
-const WORDS_ENFORCE_EXACT_CAPITALIZATION = [
+const WORDS_ENFORCE_EXACT_CASING = [
   ...WORDS_DO_NOT_CAPITALIZE_IN_HEADINGS,
   "Hyprland",
   "XWayland",
   "RegEx",
-  "DRM"
+  "DRM",
+  "QWERTY",
+  "AZERTY",
+  "OBS",
+  "GPU",
+  "CPU",
 ];
 
 export default {
@@ -36,7 +41,7 @@ export default {
     [
       "remark-lint-word-case",
       {
-        words: WORDS_ENFORCE_EXACT_CAPITALIZATION,
+        words: WORDS_ENFORCE_EXACT_CASING,
       },
     ],
     ["remark-preset-lint-recommended"],
