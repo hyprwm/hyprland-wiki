@@ -442,7 +442,7 @@ _Subcategory `misc:`_
 | render_unfocused_fps | the maximum limit for renderunfocused windows' fps in the background (see also [Window-Rules](../Window-Rules/#dynamic-rules) - `renderunfocused`)| int | 15 |
 | disable_xdg_env_checks | disable the warning if XDG environment is externally managed | bool | false |
 | disable_hyprland_qtutils_check | disable the warning if hyprland-qtutils is not installed | bool | false |
-| lockdead_screen_delay | delay after which the "lockdead" screen will apear in case a lockscreen app fails to cover all the outputs (5 seconds max) | int | 1000 |
+| lockdead_screen_delay | delay after which the "lockdead" screen will appear in case a lockscreen app fails to cover all the outputs (5 seconds max) | int | 1000 |
 | enable_anr_dialog | whether to enable the ANR (app not responding) dialog when your apps hang | bool | true |
 | anr_missed_pings | number of missed pings before showing the ANR dialog | int | 1 |
 

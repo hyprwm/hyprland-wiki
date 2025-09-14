@@ -91,7 +91,7 @@ hyprctl keyword unbind SUPER, O
 ```
 
 {{< callout type=info >}}
-In `unbind`, key is case-sensitve It must exactly match the case of the `bind` you are unbinding.
+In `unbind`, key is case-sensitive It must exactly match the case of the `bind` you are unbinding.
 
 ```ini
 bind = SUPER, TAB, workspace, e+1

@@ -241,7 +241,7 @@ hdredid - same as hdr with edid primaries (experimental)
 
 Fullscreen HDR is possible without hdr `cm` setting if `render:cm_fs_passthrough` is enabled.
 
-Use `sdrbrightness, B` and `sdrsaturation, S` to control SDR brighness and saturation in HDR mode. The default for both values is `1.0`. Typical brightness value should be in `1.0 ... 2.0` range.
+Use `sdrbrightness, B` and `sdrsaturation, S` to control SDR brightness and saturation in HDR mode. The default for both values is `1.0`. Typical brightness value should be in `1.0 ... 2.0` range.
 
 ```ini
 monitor = eDP-1, 2880x1800@90, 0x0, 1, bitdepth, 10, cm, hdr, sdrbrightness, 1.2, sdrsaturation, 0.98
