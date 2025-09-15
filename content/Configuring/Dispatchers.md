@@ -39,6 +39,7 @@ layout pages (See the sidebar).
 | movetoworkspace | moves the focused window to a workspace | workspace OR `workspace,window` for a specific window |
 | movetoworkspacesilent | same as above, but doesn't switch to the workspace | workspace OR `workspace,window` for a specific window |
 | togglefloating | toggles the current window's floating state | left empty / `active` for current, or `window` for a specific window |
+| workspaceopt | toggles all windows in the current workspace between floating and tiling, or between pseudo and non-pseudo | `allfloat`, `allpseudo` |
 | setfloating | sets the current window's floating state to true | left empty / `active` for current, or `window` for a specific window |
 | settiled | sets the current window's floating state to false | left empty / `active` for current, or `window` for a specific window |
 | fullscreen | toggles the focused window's fullscreen mode | 0 - fullscreen (takes your entire screen), 1 - maximize (keeps gaps and bar(s)) |
@@ -88,7 +89,6 @@ layout pages (See the sidebar).
 | event | Emits a custom event to socket2 in the form of `custom>>yourdata` | the data to send |
 | setprop | Sets a window property | `window property value` |
 | toggleswallow | If a window is swallowed by the focused window, unswallows it. Execute again to swallow it back | none |
-| workspaceopt | Toggles all windows in the current workspace between floating and tiling, or between pseudo and non-pseudo | `allfloat`, `allpseudo` |
 
 {{< callout type=warning >}}
 
