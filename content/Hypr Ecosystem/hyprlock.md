@@ -8,9 +8,9 @@ for Hyprland.
 
 {{< callout type=warning >}}
 
-Hyprlock does not automatically create a config, and without one, hyprlock will _not render anything_,
-meaning you will just see your screen, but it will be locked and require a password followed by an
-enter to unlock.
+Hyprlock does not automatically create a config, and without one, hyprlock will _not render anything_.
+But even without a config, your session will get locked and thus Hyprland will cover your session with a black screen.
+You can unlock normally by typing your password followed by hitting Enter, but you won't have any visual feedback.
 
 You can use the example config for a quick start, which can be found [here](https://github.com/hyprwm/hyprlock/blob/main/assets/example.conf).
 
