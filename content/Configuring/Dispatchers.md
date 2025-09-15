@@ -88,7 +88,7 @@ layout pages (See the sidebar).
 | event | Emits a custom event to socket2 in the form of `custom>>yourdata` | the data to send |
 | setprop | Sets a window property | `window property value` |
 | toggleswallow | If a window is swallowed by the focused window, unswallows it. Execute again to swallow it back | none |
-| workspaceopt | Toggles all windows in the current workspace between tiling, floating and pseudo modes | `allfloat`, `allpseudo` |
+| workspaceopt | Toggles all windows in the current workspace between floating and tiling, or between pseudo and non-pseudo | `allfloat`, `allpseudo` |
 
 {{< callout type=warning >}}
 
