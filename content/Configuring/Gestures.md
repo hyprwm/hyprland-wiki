@@ -20,6 +20,7 @@ or scale the animation's speed by a float by adding `scale: [SCALE]`.
 Examples:
 
 ```ini
+gesture = 3, horizontal, workspace
 gesture = 3, down, mod: ALT, close
 gesture = 3, up, mod: SUPER, scale: 1.5, fullscreen
 gesture = 3, left, scale: 1.5, float
