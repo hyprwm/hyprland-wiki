@@ -347,6 +347,18 @@ _Subcategory `gestures:`_
 | workspace_swipe_use_r | if enabled, swiping will use the `r` prefix instead of the `m` prefix for finding workspaces. | bool | false |
 | close_max_timeout | the timeout for a window to close when using a 1:1 gesture, in ms | int | 1000 |
 
+{{< callout type=info >}}
+
+`workspace_swipe`, `workspace_swipe_fingers` and `workspace_swipe_min_fingers` were removed in favor of the new gestures system.
+
+You can add this gesture config to replicate the swiping functionality with 3 fingers. See the [gestures](../Gestures) page for more info.
+
+```ini
+gesture = 3, horizontal, workspace
+```
+
+{{< /callout >}}
+
 ### Group
 
 _Subcategory `group:`_
