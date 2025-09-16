@@ -13,7 +13,7 @@ installed, enabled and running if you don't have them yet.
 
 Ensure that the `bitdepth` set in your configuration 
 matches that of your physical monitor.
-See [Monitors](../Configuring/Monitors).
+See [Monitors](../../Configuring/Monitors).
 
 ## Screensharing
 
