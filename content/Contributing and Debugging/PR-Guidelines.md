@@ -34,7 +34,7 @@ I've tweaked it so that in 99% of cases you absolutely should fix it.
 
 Some stuff clang-tidy / clang-format won't catch:
 - No uninitialized _primitives_ (int, float, double, size_t, etc.)
-- No short ifs. if your if/else body contains 1 _line_ (not 1 statement) do not put `{}` around it.
+- No short if braces. if your if/else body contains 1 _line_ (not 1 statement) do not put `{}` around it.
 - The above rule does not apply to loops / etc
 - Consider adding a `;` inside of empty function bodies
 - Whenever you're initializing vectors arrays or maps with a lot of elements, add a `,` after the last element to make the styling nicer
