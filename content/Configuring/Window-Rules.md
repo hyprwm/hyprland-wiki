@@ -142,6 +142,18 @@ It is not possible to `float` (or any other static rule) a window based on a cha
 | content \[none\|photo\|video\|game\] | Sets content type. |
 | noclosefor \[ms\] | Makes the window uncloseable with the `killactive` dispatcher for a given amount of ms on open. |
 
+{{< callout type=warning >}}
+
+When using tags with static rules, ensure tags are assigned using `class:` or `title:` matching rather than `initialClass:` or `initialTitle:`. Static rules like `workspace` may be processed before tags assigned via initial properties are available, causing the rule to be ignored.
+
+**Example of problematic configuration:**
+```ini
+windowrule = workspace 3, tag:myapp
+windowrule = tag +myapp, initialClass:^myapp.*  # May not work with workspace rule
+```
+
+{{< /callout >}}
+
 ### Dynamic rules
 
 Dynamic rules are re-evaluated every time a property changes.
