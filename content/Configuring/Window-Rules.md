@@ -43,6 +43,14 @@ Example rule:
 windowrule = float, class:kitty, title:kitty
 ```
 
+Several rules can be specified in a single line, separated by commas. But have to be followed by at least one parameter.
+
+Example:
+```ini
+windowrule = float, pin, size 400 400, move 0 0, class:kitty, initialTitle:kitty
+```
+Where float pin size and move are `RULES` and class and initialTitle are `PARAMETERS`.
+
 {{< callout type=info >}}
 
 In the case of dynamic window titles such as browser windows, keep in mind how
@@ -134,7 +142,7 @@ It is not possible to `float` (or any other static rule) a window based on a cha
 | workspace \[w\] | Sets the workspace on which a window should open (for workspace syntax, see [dispatchers->workspaces](../Dispatchers#workspaces)). <br> You can also set \[w\] to `unset`. This will unset all previous workspace rules applied to this window. Additionally you can add `silent` after the workspace to make the window open silently. |
 | noinitialfocus | Disables the initial focus to the window |
 | pin | Pins the window  (i.e. show it on all workspaces). _Note: floating only_. |
-| unset | Removes all previously set rules for the given parameters. Please note it has to match _exactly_. |
+| unset \[rule\] | Unset rules for the matching `PARAMETERS` (exact match required) or a specific `RULE`. No rule defaults to `all`. |
 | nomaxsize | Removes max size limitations. Especially useful with windows that report invalid max sizes (e.g. winecfg). |
 | stayfocused | Forces focus on the window as long as it's visible. |
 | group \[options\] | Sets window group properties. See the note below. |
