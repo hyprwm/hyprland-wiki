@@ -305,7 +305,7 @@ _Subcategory `input:virtualkeyboard:`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
-| share_states | Unify key down states and modifier states with other keyboards. | bool | false |
+| share_states | Unify key down states and modifier states with other keyboards. 0 -> no, 1 -> yes, 2 -> yes unless IME client | int | 2 |
 | release_pressed_on_close | Release all pressed keys by virtual keyboard on close. | bool | false |
 
 #### Tablet
