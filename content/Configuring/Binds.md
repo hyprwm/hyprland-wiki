@@ -477,12 +477,12 @@ bind = SUPER,a, submap, submapA
 # Sets the submap to submapB after pressing a.
 submap = submapA, submapB
 bind = ,a,exec, someCoolThing.sh
-submap reset
+submap = reset
 
 # Reset submap to default after pressing a.
 submap = submapB, reset
 bind = ,a,exec, soemOtherCoolThing.sh
-submap reset
+submap = reset
 ```
 
 ### Catch-All
