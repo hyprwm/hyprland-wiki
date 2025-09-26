@@ -467,6 +467,24 @@ bind = , escape, submap, reset
 submap = reset
 ```
 
+### Automatically close a submap on dispatch
+
+Submaps can be automatically closed or sent to another submap by appending ``,`` followed by a submap or _reset_.
+
+```ini
+bind = SUPER,a, submap, submapA
+
+# Sets the submap to submapB after pressing a.
+submap = submapA, submapB
+bind = ,a,exec, someCoolThing.sh
+submap = reset
+
+# Reset submap to default after pressing a.
+submap = submapB, reset
+bind = ,a,exec, soemOtherCoolThing.sh
+submap = reset
+```
+
 ### Catch-All
 
 You can also define a keybind via the special `catchall` keyword, which
