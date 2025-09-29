@@ -233,6 +233,9 @@ monitor = eDP-1, 2880x1800@90, 0x0, 1, bitdepth, 10, cm, wide
 ```plain
 auto    - srgb for 8bpc, wide for 10bpc if supported (recommended)
 srgb    - sRGB primaries (default)
+dcip3   - DCI P3 primaries
+dp3     - Apple P3 primaries
+adobe   - Adobe RGB primaries
 wide    - wide color gamut, BT2020 primaries
 edid    - primaries from edid (known to be inaccurate)
 hdr     - wide color gamut and HDR PQ transfer function (experimental)
