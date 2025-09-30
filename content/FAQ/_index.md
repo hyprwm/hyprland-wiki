@@ -3,6 +3,41 @@ weight: 11
 title: FAQ
 ---
 
+### Symbol lookup errors
+
+If you are getting an error like:
+```
+<app>: symbol lookup error: <app>: undefined symbol: <symbol>
+```
+or
+```
+<app>: error while loading shared libraries: <lib>: cannot open shared object file: No such file or directory.
+```
+
+This means that you have built Hyprland yourself and your stack has gotten mismatched. Each hypr* app depends on a bunch of libraries. If you update those libraries, and you don't rebuild the hypr* stack, you will get these errors.
+
+If you want to avoid these errors altogether, _use packages and don't build yourself_. By building yourself, the responsibility for maintaining this consistency falls on **you**!
+
+When building yourself, you need to _build all hypr* components_, you cannot use some from packages and some from repos.
+
+**For Arch users**: `-git` packages count as building yourself.
+
+The order in which you **must** build the stack is as follows:
+```
+hyprland-protocols
+hyprwayland-scanner
+hyprutils
+hyprgraphics
+hyprlang
+hyprcursor
+aquamarine
+xdg-desktop-portal-hyprland
+hyprland
+```
+
+Other things, e.g. hyprapps (hyprlock, hyprsunset, ...) can be built in any order
+after hyprland.
+
 ### My apps are pixelated
 
 This just means they are running through XWayland, which physically cannot scale
