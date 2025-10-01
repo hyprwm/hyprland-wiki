@@ -14,7 +14,9 @@ or
 <app>: error while loading shared libraries: <lib>: cannot open shared object file: No such file or directory.
 ```
 
-This means that you have built Hyprland yourself and your stack has gotten mismatched. Each hypr* app depends on a bunch of libraries. If you update those libraries, and you don't rebuild the hypr* stack, you will get these errors.
+or sometimes without errors, just crashing at start / randomly
+
+This means that you have built Hyprland yourself and your stack has gotten mismatched. Each hypr* app depends on a bunch of libraries. If you update those libraries, and you don't rebuild the hypr* stack, you will get these errors or crashes.
 
 If you want to avoid these errors altogether, _use packages and don't build yourself_. By building yourself, the responsibility for maintaining this consistency falls on **you**!
 
@@ -37,6 +39,9 @@ hyprland
 
 Other things, e.g. hyprapps (hyprlock, hyprsunset, ...) can be built in any order
 after hyprland.
+
+***Never, under any circumstances***, symbolically link different .so versions together, this will lead to memory bugs and crashes.
+I don't care what some random person tells you online. Don't do it.
 
 ### My apps are pixelated
 
