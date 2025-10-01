@@ -1,6 +1,6 @@
 ---
 weight: 8
-title: NVidia
+title: Nvidia
 ---
 
 ## Foreword
