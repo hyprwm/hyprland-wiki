@@ -57,7 +57,7 @@ If you are unsure of what your key's name or keycode is, you can use [`wev`](htt
 
 ### Workspace bindings on non-QWERTY layouts
 
-Keys used for keybinds need to be accessible without any modifiers in your layout.
+Keys used for keybinds need to be accessible without any modifiers in your layout.  
 For instance, the [French AZERTY](https://en.wikipedia.org/wiki/AZERTY) layout uses <key>SHIFT</key> + _`unmodified key`_ to write `0-9` numbers. As such, the workspace keybinds for this layout need to use the names of the _`unmodified keys`_ , and will not work when using the `0-9` numbers.
 
 {{< callout type=info >}}
@@ -117,21 +117,21 @@ bindrl = MOD, KEY, exec, amongus
 
 Available flags:
 
-| Flag | Name            | Description                                                                                                  |
-| ---- | --------------- | ------------------------------------------------------------------------------------------------------------ |
-| `l`  | locked          | Will also work when an input inhibitor (e.g. a lockscreen) is active.                                        |
-| `r`  | release         | Will trigger on release of a key.                                                                            |
-| `c`  | click           | Will trigger on release of a key or button as long as the mouse cursor stays inside `binds:drag_threshold`.  |
-| `g`  | drag            | Will trigger on release of a key or button as long as the mouse cursor moves outside `binds:drag_threshold`. |
-| `o`  | long press      | Will trigger on long press of a key.                                                                         |
-| `e`  | repeat          | Will repeat when held.                                                                                       |
-| `n`  | non-consuming   | Key/mouse events will be passed to the active window in addition to triggering the dispatcher.               |
-| `m`  | mouse           | See the dedicated [Mouse Binds](#mouse-binds) section.                                                       |
-| `t`  | transparent     | Cannot be shadowed by other binds.                                                                           |
-| `i`  | ignore mods     | Will ignore modifiers.                                                                                       |
-| `s`  | separate        | Will arbitrarily combine keys between each mod/key, see [Keysym combos](#keysym-combos).                     |
-| `d`  | has description | Will allow you to write a description for your bind.                                                         |
-| `p`  | bypass          | Bypasses the app's requests to inhibit keybinds.                                                             |
+| Flag | Name | Description |
+|------|------|-------------|
+| `l` | locked | Will also work when an input inhibitor (e.g. a lockscreen) is active. |
+| `r` | release | Will trigger on release of a key. |
+| `c` | click | Will trigger on release of a key or button as long as the mouse cursor stays inside `binds:drag_threshold`. |
+| `g` | drag | Will trigger on release of a key or button as long as the mouse cursor moves outside `binds:drag_threshold`. |
+| `o` | long press | Will trigger on long press of a key. |
+| `e` | repeat | Will repeat when held. |
+| `n` | non-consuming | Key/mouse events will be passed to the active window in addition to triggering the dispatcher. |
+| `m` | mouse | See the dedicated [Mouse Binds](#mouse-binds) section. |
+| `t` | transparent | Cannot be shadowed by other binds. |
+| `i` | ignore mods | Will ignore modifiers. |
+| `s` | separate | Will arbitrarily combine keys between each mod/key, see [Keysym combos](#keysym-combos). |
+| `d` | has description | Will allow you to write a description for your bind. |
+| `p` | bypass | Bypasses the app's requests to inhibit keybinds. |
 
 Example Usage:
 
@@ -188,7 +188,7 @@ binds = Escape&Apostrophe&F7, T&O&A&D, exec, battletoads 2: retoaded
 
 {{< callout type=info >}}
 
-Please note that this is only valid for keysyms and it makes all mods keysyms.
+Please note that this is only valid for keysyms and it makes all mods keysyms.  
 If you don't know what a keysym is use `wev` and press the key you want to use.
 
 {{< /callout >}}
@@ -251,7 +251,7 @@ The keybinds will be executed top to bottom, in the order they were written in.
 
 ### Description
 
-You can describe your keybind with the `d` flag.
+You can describe your keybind with the `d` flag.  
 Your description always goes in front of the `dispatcher`, and must not include commas (`,`)!
 
 ```ini
@@ -264,12 +264,12 @@ For example:
 bindd = SUPER, Q, Open my favourite terminal, exec, kitty
 ```
 
-If you want to access your description you can use `hyprctl binds`.
+If you want to access your description you can use `hyprctl binds`.  
 For more information have a look at [Using Hyprctl](../Using-hyprctl).
 
 ## Mouse Binds
 
-These are binds that rely on mouse movement. They will have one less arg.
+These are binds that rely on mouse movement. They will have one less arg.  
 `binds:drag_threshold` can be used to differentiate between clicks and drags with the same button:
 
 ```ini
@@ -282,9 +282,9 @@ bindc = ALT, mouse:272, togglefloating  # ALT + LMB: Floats a window by clicking
 
 Available mouse binds:
 
-| Name         | Description               | Params                                                                                                                                                     |
-| ------------ | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| movewindow   | moves the active window   | None                                                                                                                                                       |
+| Name | Description | Params |
+| ---- | ----------- | ------ |
+| movewindow | moves the active window | None |
 | resizewindow | resizes the active window | `1` -> Resize and keep window aspect ratio. <br> `2` -> Resize and ignore `keepaspectratio` window rule/prop. <br> None or anything else for normal resize |
 
 Common mouse button key codes (check `wev` for other buttons):
@@ -297,7 +297,7 @@ MMB -> 274
 
 {{< callout type=info >}}
 
-Mouse binds, despite their name, behave like normal binds.
+Mouse binds, despite their name, behave like normal binds.  
 You are free to use whatever keys / mods you please. When held, the mouse function will be
 activated.
 
@@ -333,7 +333,7 @@ bind = SUPER, F10, pass, class:^(com\.obsproject\.Studio)$
 
 to your config and you're done.
 
-`pass` will pass the `PRESS` and `RELEASE` events by itself, no need for a `bindr`.
+`pass` will pass the `PRESS` and `RELEASE` events by itself, no need for a `bindr`.  
 This also means that push-to-talk will work flawlessly with one `pass`, e.g.:
 
 ```ini
@@ -348,7 +348,7 @@ bind = SUPER, F10, sendshortcut, SUPER, F4, class:^(com\.obsproject\.Studio)$  #
 
 {{< callout type=warning >}}
 
-This works flawlessly with all native Wayland applications, however, XWayland is a bit wonky.
+This works flawlessly with all native Wayland applications, however, XWayland is a bit wonky.  
 Make sure that what you're passing is a "global Xorg keybind", otherwise passing from a different XWayland app may not work.
 
 {{< /callout >}}
@@ -356,10 +356,10 @@ Make sure that what you're passing is a "global Xorg keybind", otherwise passing
 ### DBus Global Shortcuts
 
 Some applications may already support the GlobalShortcuts portal in
-xdg-desktop-portal.
+xdg-desktop-portal.  
 If that's the case, it's recommended to use the following method instead of `pass`:
 
-Open your desired app and run `hyprctl globalshortcuts` in a terminal.
+Open your desired app and run `hyprctl globalshortcuts` in a terminal.  
 This will give you a list of currently registered shortcuts with their description(s).
 
 Choose whichever you like, for example `coolApp:myToggle`, and bind it to
@@ -379,7 +379,7 @@ Please note that this function will _only_ work with
 ## Submaps
 
 Keybind submaps, also known as _modes_ or _groups_, allow you to activate a
-separate set of keybinds.
+separate set of keybinds.  
 For example, if you want to enter a `resize` _mode_ that allows you to resize windows with the arrow keys, you can do it like this:
 
 ```ini
@@ -408,7 +408,7 @@ submap = reset
 
 Do not forget a keybind (`escape`, in this case) to reset the keymap while inside it!
 
-If you get stuck inside a keymap, you can use `hyprctl dispatch submap reset` to go back.
+If you get stuck inside a keymap, you can use `hyprctl dispatch submap reset` to go back.  
 If you do not have a terminal open, tough luck buddy. You have been warned.
 
 {{< /callout >}}
@@ -470,7 +470,7 @@ submap = reset
 ### Catch-All
 
 You can also define a keybind via the special `catchall` keyword, which
-activates no matter which key is pressed.
+activates no matter which key is pressed.  
 This can be used to prevent any keys from passing to your active application
 while in a submap or to exit it immediately when any unknown key is pressed:
 
