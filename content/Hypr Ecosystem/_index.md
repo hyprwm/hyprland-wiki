@@ -28,6 +28,7 @@ These docs always target latest -git branch of respective apps.
 
 ### Libraries and other utilities
 
+- **[hyprtoolkit](./hyprtoolkit)**
 - **[hyprcursor](./hyprcursor)**
 - **[hyprutils](./hyprutils)**
 - **[hyprlang](./hyprlang)**
