@@ -77,6 +77,8 @@ this:
 }
 ```
 
+Don't forget to change the `HOSTNAME` to your actual hostname!
+
 ```nix {filename="configuration.nix"}
 {inputs, pkgs, ...}: {
   programs.hyprland = {
@@ -89,7 +91,7 @@ this:
 }
 ```
 
-Don't forget to change the `HOSTNAME` to your actual hostname!
+If you are using the Home Manager module, you will need to add these lines there as well/instead
 
 If you start experiencing lag and FPS drops in games or programs like Blender on
 **stable** NixOS when using the Hyprland flake, it is most likely a `mesa`
