@@ -78,7 +78,7 @@ For help configuring the French AZERTY layout, see this [article](https://rherau
 
 ### Unbind
 
-You can also unbind a key with  the `unbind` keyword, e.g.:
+You can also unbind a key with the `unbind` keyword, e.g.:
 
 ```ini
 unbind = SUPER, O
@@ -292,7 +292,7 @@ Common mouse button key codes (check `wev` for other buttons):
 ```txt
 LMB -> 272
 RMB -> 273
-RMB -> 274
+MMB -> 274
 ```
 
 {{< callout type=info >}}
