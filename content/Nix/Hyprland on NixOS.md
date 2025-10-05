@@ -169,3 +169,26 @@ themes using dconf like so:
   ];
 }
 ```
+
+## Upstream module
+
+The [upstream module](https://github.com/hyprwm/Hyprland/blob/main/nix/module.nix)
+provides options similar to the ones in the [Home Manager module](../Hyprland-on-Home-Manager).
+
+To use it, simply add
+
+```nix
+{inputs, ...}: {
+  imports = [inputs.hyprland.nixosModules.default];
+
+  programs.hyprland = {
+    # usual Nixpkgs module options
+    plugins = [
+      #...
+    ];
+    settings = {
+      # ...
+    };
+  };
+}
+```

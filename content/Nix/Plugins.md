@@ -5,12 +5,13 @@ weight: 6
 
 Hyprland plugins are managed differently on Nix than on other distros.  
 The most notable change is that `hyprpm` is unsupported, but we have our own way of
-building plugins.
+building and managing plugins.
 
 {{< callout type=warning >}}
 
 Using plugins using the syntax below requires you to be using Hyprland through
-the [Home Manager module](../Hyprland-on-Home-Manager).
+the [Home Manager module](../Hyprland-on-Home-Manager) or the
+[upstream NixOS module](../Hyprland-on-NixOS#upstream-module).
 
 {{< /callout >}}
 
@@ -87,14 +88,14 @@ derivation:
   hyprland,
   hyprlandPlugins,
 }:
-hyprlandPlugins.mkHyprlandPlugin hyprland {
+hyprlandPlugins.mkHyprlandPlugin (finalAttrs: {
   pluginName = "hy3";
   version = "0.39.1";
 
   src = fetchFromGitHub {
     owner = "outfoxxed";
     repo = "hy3";
-    rev = "hl0.39.1";
+    rev = "hl${finalAttrs.version}";
     hash = "sha256-PqVld+oFziSt7VZTNBomPyboaMEAIkerPQFwNJL/Wjw=";
   };
 
@@ -111,7 +112,7 @@ hyprlandPlugins.mkHyprlandPlugin hyprland {
     license = lib.licenses.gpl3;
     platforms = lib.platforms.linux;
   };
-}
+})
 ```
 
 ```nix {filename="home.nix"}
@@ -125,10 +126,3 @@ hyprlandPlugins.mkHyprlandPlugin hyprland {
 In a similar manner to `stdenv.mkDerivation`, `mkHyprlandPlugin` takes an
 attrset with mostly the same options as `mkDerivation`, as it is essentially a
 wrapper around it.
-
-The exception is that it also takes a `hyprland` package before the attrset, in
-case you want to build with a different package than the one in Nixpkgs.
-
-This is not always the best way to build for a different version, and it is
-recommended that you use an overlay to apply your desired Hyprland package in
-Nixpkgs instead.
