@@ -14,9 +14,9 @@ more configurations will not be merged.
 
 {{< /callout >}}
 
-### end_4
+### end_4 (illogical-impulse)
 
-![end-4/dots-hyprland screenshot](https://github.com/end-4/dots-hyprland/assets/97237370/5e081770-0f1e-45c4-ad9c-3d19f488cd85)
+![end-4/dots-hyprland screenshot](https://raw.githubusercontent.com/end-4/dots-hyprland-wiki/bc4820a76fb4f4ab87fe8f2be80413ab72bee19c/public/screenshots/iiqs.1.jpg)
 
 [https://github.com/end-4/dots-hyprland](https://github.com/end-4/dots-hyprland)
 
