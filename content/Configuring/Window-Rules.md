@@ -161,8 +161,8 @@ Dynamic rules are re-evaluated every time a property changes.
 | idleinhibit \[mode\] | Sets an idle inhibit rule for the window. If active, apps like `hypridle` will not fire. Modes: `none`, `always`, `focus`, `fullscreen`. |
 | opacity \[a\] | Additional opacity multiplier. Options for a: `float` -> sets an overall opacity, `float float` -> sets activeopacity and inactiveopacity respectively, `float float float` -> sets activeopacity, inactiveopacity and fullscreenopacity respectively. |
 | tag \[name\] | Applies the tag `name` to the window, use prefix `+`/`-` to set/unset flag, or no prefix to toggle the flag. |
-| maxsize \[w\] \[h\] | Sets the maximum size (x,y -> int). |
-| minsize \[w\] \[h\] | Sets the minimum size (x,y -> int).|
+| maxsize \[w\] \[h\] | Sets the maximum size (x,y -> int). Applies to floating windows. (use `misc:size_limits_tiled` to include tiled windows.) |
+| minsize \[w\] \[h\] | Sets the minimum size (x,y -> int). Applies to floating windows. (use `misc:size_limits_tiled` to include tiled windows.) |
 
 The following rules can also be set with [`setprop`](../Dispatchers#setprop):
 

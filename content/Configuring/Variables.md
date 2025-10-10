@@ -459,6 +459,7 @@ _Subcategory `misc:`_
 | lockdead_screen_delay | delay after which the "lockdead" screen will appear in case a lockscreen app fails to cover all the outputs (5 seconds max) | int | 1000 |
 | enable_anr_dialog | whether to enable the ANR (app not responding) dialog when your apps hang | bool | true |
 | anr_missed_pings | number of missed pings before showing the ANR dialog | int | 5 |
+| size_limits_tiled | whether to apply minsize and maxsize rules to tiled windows | bool | false |
 
 ### Binds
 
