@@ -74,6 +74,29 @@ If you are using multiple monitors, you may want to insert the following option:
     "separate-outputs": true
 },
 ```
+
+### ashell
+
+[ashell](https://malpenzibo.github.io/ashell/) is a ready to go Wayland status bar for Hyprland
+
+- Ashell is ready to use out of the box. Just install it, start using it, and customize only what you need.
+- Ashell comes with essential modules like workspaces, time, battery, network, and more. No need to hunt for plugins or write custom scripts.
+- Powered by iced. A cross-platform GUI library for Rust
+- Has a pretty limited configuration options. It's a good and a bad thing at the same time. You can get a very decent result quickly and with a little effort, but some tricky waybar-alike tweaks are not possible.
+- Calendar is absent but in the [roadmap](https://github.com/MalpenZibo/ashell/issues/181)
+
+#### Workaround for calendar
+
+```toml
+[modules]
+center = [ "calendar", "Clock" ]
+# ...
+[[CustomModule]]
+name = "calendar"
+icon = ""
+command = "zenity --calendar --title=\"Calendar\""
+```
+
 ## Widget systems
 
 Use them when you want custom menus with fully customizable layout. 
