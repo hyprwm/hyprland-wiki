@@ -127,25 +127,32 @@ for you.
 ### Setting up a development environment
 
 In order to make your life easier, it's a good idea to work on a nested debug
-Hyprland session.
+Hyprland session. Unless you need to test some things that require real hardware
+(e.g. trackpad gestures), you definitely should use a nest.
 
-Enter your Hyprland directory and run `make debug`.
+See
+[the Contributing Section](../../../Contributing-and-Debugging/#development-environment)
+for instructions on setting up a development environment.
 
-Make a copy of your config in `~/.config/hypr` called `hyprlandd.conf`.
+### Loading / reloading plugins
 
-Remove _all_ `exec=` or `exec-once=` directives from your config.
+Build your plugin, and you can load it in your nest with
+```sh
+hyprctl plugin load /absolute/path/to/plugin.so
+```
+and unload with
+```sh
+hyprctl plugin unload /absolute/path/to/plugin.so
+```
 
-_recommended_: Change the modifier for your keybinds (e.g. `SUPER` -> `ALT`).
+The normal development cycle would usually mean loading the plugin, checking your changes,
+building the plugin with new changes, unload + load, and repeat.
 
-Launch the output `Hyprland` binary in `./build/` _when logged into a Hyprland
-session_.
-
-A new window should open with Hyprland running inside of it. You can now run
-your plugin in the nested session without worrying about nuking your actual
-session, and also being able to debug it easily.
-
-See more info in
-[the Contributing Section](../../../Contributing-and-Debugging/#nesting-hyprland)
+You can have a one-liner like so:
+```sh
+hyprctl plugin unload /absolute/path/to/plugin.so ; hyprctl plugin load /absolute/path/to/plugin.so
+```
+as a "reload" of the plugin.
 
 ### More advanced stuff
 

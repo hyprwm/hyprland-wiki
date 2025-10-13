@@ -54,21 +54,34 @@ hyprland.override {
 
 This code can go in the `package` attribute of the NixOS/Home Manager modules.
 
-## Running
+## Development environment
 
-When running Hyprland in Debug mode, the config is
-`~/.config/hypr/hyprlandd.conf` and the logs can be found at
-`$XDG_RUNTIME_DIR/hypr/[INSTANCE SIGNATURE]/hyprlandd.log`.
+### Setup
 
-## Nesting Hyprland
+Make a copy of your config in `~/.config/hypr` called `hyprlandd.conf`. `Debug`
+builds automatically use `hyprlandd.conf`, but you can also pass `--config ~/path/to/conf.conf`
+for an override on release / different file.
 
-Hyprland can run nested in a window. For that, make sure you did the following:
+#### Recommended debug config changes
 
-- built in debug
-- removed all `exec=` and `exec-once=` keywords from your debug config
-  (`hyprlandd.conf`)
-- made sure no keybinds overlap (use a different mod for your keybinds
-  altogether)
+- remove _all_ `exec=` or `exec-once=` directives from your config.
+- change default modifier for binds (e.g. `SUPER` -> `ALT`)
+
+#### Launch the dev env
+
+Launch the output `Hyprland` binary in `./build/` _when logged into a Hyprland
+session_.
+
+A new window should open with Hyprland running inside of it. You can now test stuff
+in the nested session without worrying about nuking your actual
+session, and also being able to debug it easily. I'd also recommend to launch Hyprland
+with some sort of a debugger, like `gdb`. Your IDE (if you use one) can likely do it
+for you, otherwise `gdb ./build/Hyprland` should suffice. This will help you debug
+crashes.
+
+For gdb, when Hyprland crashes, gdb will stop and allow you to inspect the current state
+with commands like `bt`, `frame`, `print`, etc. An IDE will allow you to do it
+graphically.
 
 ## LSP and Formatting
 
