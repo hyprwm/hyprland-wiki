@@ -35,7 +35,7 @@ _**→ If you don't have the Hyprland source cloned**_
 
 Clone the Hyprland source code to a subdirectory, in our example
 `MyPlugin/Hyprland`. Run
-`cd Hyprland && make all && sudo make installheaders && cd ..`.
+`cd Hyprland && make debug && sudo make installheaders && cd ..`.
 
 Now that you have the Hyprland sources set up, you can either start from scratch
 if you know how, or take a look at some simple plugins in the
