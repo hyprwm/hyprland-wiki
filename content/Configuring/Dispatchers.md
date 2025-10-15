@@ -44,6 +44,7 @@ layout pages (See the sidebar).
 | fullscreen | sets the focused window's fullscreen mode | `mode action`, where mode can be 0 - fullscreen (takes your entire screen) or 1 - maximize (keeps gaps and bar(s)), while action is optional and can be `toggle` (default), `set` or `unset`. |
 | fullscreenstate | sets the focused window's fullscreen mode and the one sent to the client | `internal client action`, where internal (the hyprland window) and client (the application) can be `-1` - current, `0` - none, `1` - maximize, `2` - fullscreen, `3` - maximize and fullscreen. action is optional and can be `toggle` (default) or `set`. |
 | dpms | sets all monitors' DPMS status. Do not use with a keybind directly. | `on`, `off`, or `toggle`. For specific monitor add monitor name after a space |
+| forceidle | sets elapsed time for all idle timers, ignoring idle inhibitors. Timers return to normal behavior upon the next activity. Do not use with a keybind directly. | floatvalue (number of seconds) |
 | pin | pins a window (i.e. show it on all workspaces) _note: floating only_ | left empty / `active` for current, or `window` for a specific window |
 | movefocus | moves the focus in a direction | direction |
 | movewindow | moves the active window in a direction or to a monitor. For floating windows, moves the window to the screen edge in that direction | direction or `mon:` and a monitor, optionally followed by a space and `silent` to prevent the focus from moving with the window|
@@ -99,8 +100,8 @@ It's also strongly advised to replace the `exit` dispatcher inside `hyprland.con
 
 {{< callout type=warning >}}
 
-It is NOT recommended to set DPMS with a keybind directly, as it might cause
-undefined behavior. Instead, consider something like
+It is NOT recommended to set DPMS or forceidle with a keybind directly, as it
+might cause undefined behavior. Instead, consider something like
 
 ```ini
 bind = MOD, KEY, exec, sleep 1 && hyprctl dispatch dpms off
