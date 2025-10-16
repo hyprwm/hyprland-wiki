@@ -3,6 +3,10 @@ weight: 6
 title: App launchers
 ---
 
+## Hyprlauncher
+Hyprlauncher is a first-party multipurpose and versatile launcher / picker for Hyprland.
+[GitHub](https://github.com/hyprwm/hyprlauncher)
+
 ## Wofi
 
 Wofi is a GTK-based customizable launcher for Wayland.
