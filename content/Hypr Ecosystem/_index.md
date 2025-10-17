@@ -17,6 +17,7 @@ These docs always target latest -git branch of respective apps.
 
 - **[hyprpaper](./hyprpaper)**
 - **[hyprpicker](./hyprpicker)**
+- **[hyprlauncher](./hyprlauncher)**
 - **[hypridle](./hypridle)**
 - **[hyprlock](./hyprlock)**
 - **[xdg-desktop-portal-hyprland](./xdg-desktop-portal-hyprland)**

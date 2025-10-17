@@ -1,5 +1,5 @@
 ---
-weight: 9
+weight: 12
 title: hyprland-qt-support
 ---
 
