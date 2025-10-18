@@ -84,6 +84,16 @@ hyprctl hyprsunset identity
 hyprctl hyprsunset gamma 50
 # Increase gamma by 10%
 hyprctl hyprsunset gamma +10
+
+# Reset config to current profile
+hyprctl hyprsunset reset
+# Reset value to current profile
+hyprctl hyprsunset reset temperature
+hyprctl hyprsunset reset gamma
+hyprctl hyprsunset reset identity
+
+# Print current profile
+hyprctl hyprsunset profile
 ```
 
 {{< callout type=warning >}}
