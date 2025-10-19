@@ -217,8 +217,8 @@ If you start Hyprland with [uwsm](../../Useful-Utilities/Systemd-start), you can
 
 ## IPC
 
-hyprpaper supports IPC via `hyprctl`. Every dispatcher mentioned in
-[Configuration](#configuration) can be called with
+hyprpaper supports IPC via `hyprctl`. Every dispatcher mentioned in the
+[List of Dispatchers](#list-of-dispatchers) can be called with
 `hyprctl hyprpaper <dispatcher> <arg(s)>`.
 
 {{< callout type=info >}}
