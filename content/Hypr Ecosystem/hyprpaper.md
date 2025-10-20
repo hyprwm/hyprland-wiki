@@ -91,23 +91,45 @@ cmake --install ./build
 The config file is located at `~/.config/hypr/hyprpaper.conf`. It is not
 required.
 
-Configuration is done using `preload`, which _loads_ an image into memory. Then,
-the `wallpaper` keyword is used to apply the preloaded image to your monitor(s):
+### List of Dispatchers
+
+| Dispatcher | Description | Params |
+| --- | --- | --- |
+| `preload` | Preloads an image into memory. | `/home/me/amogus.png` |
+| `wallpaper` | Applies `preload`ed images to your monitor(s). | `monitor_name, /home/me/amogus.png` |
+| `unload` | Removes `preload`ed images from memory. | `/home/me/amogus.png` \| `all` \| `unused`  |
+| `reload` | Sets/changes wallpapers without having to `preload` them, effectively automating the process of: `unload`->`preload`->set `wallpaper`. | `/home/me/amogus.png` |
+
+### The `preload` and `wallpaper` Keywords
+
+Configuration is done using `preload`, which _loads_ an image into memory.
+
+{{< callout type=warning >}}
+
+Note that all image paths must be absolute (or start with `~`).
+
+{{< /callout >}}
+
+The `wallpaper` keyword is then used to apply the preloaded image to your monitor(s):
 
 ```ini
 preload = /home/me/amongus.png
 wallpaper = monitor, /home/me/amongus.png
 ```
 
-`monitor` can be left empty to set to all monitors without a set wallpaper:
+{{< callout type=info >}}
+
+You can check names and other info for your monitors using `hyprctl monitors`.
+
+{{< /callout >}}
+
+The `monitor` argument can be left empty to set a wallpaper for all monitors that don't already have one set.
 
 ```ini
 wallpaper = , /home/me/amongus.png
 ```
 
-Monitor names can be checked with `hyprctl monitors`.
-
-Also can be used with `desc:` followed by the monitor's description without the (PORT) at the end.
+You can also refer to a monitor by its description by prefixing `desc:` followed by the monitor's description without the (PORT) at the end.
 
 You may add `contain:` or `tile:` before the file path in `wallpaper =` to set the mode to either contain or tile, respectively, instead of cover:
 
@@ -115,15 +137,16 @@ You may add `contain:` or `tile:` before the file path in `wallpaper =` to set t
 wallpaper = monitor, contain:/home/me/amongus.png
 ```
 
-You can use `unload` to unload preloaded images. You can also specify `unload all`
-to unload all images or `unload unused` to unload images that aren't being used.
+### The `unload` Keyword
 
-### The `reload` keyword
+You can use `unload` to unload preloaded images.  
+You can also specify `unload all` to unload all images or `unload unused` to unload images that aren't being used.
 
-The `reload` keyword allows you to set / change wallpapers without
-having to preload them. For example, you could have a completely empty
-hyprpaper config (with [IPC](#ipc) enabled!!), and run the below command to
-very simply set your wallpaper (this example sets the wallpaper for
+### The `reload` Keyword
+
+The `reload` keyword allows you to set or change wallpapers without
+having to preload them.  
+For example, you could have a completely empty hyprpaper config (with [IPC](#ipc) enabled!), and run the below command to quickly set your wallpaper (this example sets the wallpaper for
 all monitors):
 ```
 hyprctl hyprpaper reload ,"~/amogus.png"
@@ -135,12 +158,13 @@ unload old sequence.
 
 {{< callout type=warning >}}
 
-`Monitor Specificity` Once a monitor has a wallpaper set specifically (e.g., `hyprctl hyprpaper reload "DP-1,~/amogus.png"`),
+`Monitor Specificity`  
+Once a monitor has a wallpaper set specifically (e.g., `hyprctl hyprpaper reload "DP-1,~/amogus.png"`),
 it won't be affected by the wildcard (`hyprctl hyprpaper reload ,"~/amogus.png"`).
 
 {{< /callout >}}
 
-#### Using this keyword to randomize your wallpaper
+#### Using `reload` to Randomize Your Wallpaper
 
 You can also use this simple `reload` functionality to randomize your wallpaper. Using a simple script like so would do it very easily:
 
@@ -177,25 +201,29 @@ hyprctl hyprpaper reload "$FOCUSED_MONITOR","$WALLPAPER"
 Make sure to change the `WALLPAPER_DIR` to your own wallpaper directory. You can then run this
 script in your Hyprland config with a keybind.
 
-### Run at startup
+### Run at Startup
 
-To run hyprpaper at startup edit `hyprland.conf` and add: `exec-once =
-hyprpaper`. If you start Hyprland with [uwsm](../../Useful-Utilities/Systemd-start), you can also use `systemctl --user enable --now hyprpaper.service` command.
+To run hyprpaper at startup edit `hyprland.conf` and add: `exec-once = hyprpaper`.  
+If you start Hyprland with [uwsm](../../Useful-Utilities/Systemd-start), you can also use the `systemctl --user enable --now hyprpaper.service` command.
 
-### Misc options
+### Misc Options
 
 | variable | description | type | default |
 | --- | --- | --- | --- |
-| splash | enable rendering of the hyprland splash over the wallpaper | bool | false |
-| splash_offset | how far (in % of height) up should the splash be displayed | float | 2.0 |
-| splash_color | color to use when rendering splash | color | 55ffffff |
-| ipc | whether to enable IPC | bool | true |
+| `splash` | enable rendering of the hyprland splash over the wallpaper | bool | `false` |
+| `splash_offset` | how far (in % of height) up should the splash be displayed | float | `2.0` |
+| `splash_color` | color to use when rendering splash | color | `55ffffff` |
+| `ipc` | whether to enable IPC | bool | `true` |
 
 ## IPC
 
-hyprpaper supports IPC via `hyprctl`. Every dispatcher mentioned in
-[Configuration](#configuration) can be called with
+hyprpaper supports IPC via `hyprctl`. Every dispatcher mentioned in the
+[List of Dispatchers](#list-of-dispatchers) can be called with
 `hyprctl hyprpaper <dispatcher> <arg(s)>`.
+
+{{< callout type=info >}}
+Make sure to use valid [hyprlang](./hyprlang.md) syntax when passing arguments to the dispatchers.
+{{< /callout >}}
 
 Additionally, you can get some info about the current state of hyprpaper with
 `listloaded` and `listactive`.
@@ -210,5 +238,3 @@ hyprctl hyprpaper wallpaper "DP-1,~/Pictures/myepicpng.png"
 ```sh
 hyprctl hyprpaper listloaded
 ```
-
-Please note all paths have to be absolute (or start with `~`).
