@@ -50,4 +50,5 @@ Prefixes can only be one character.
 | desktop_prefix | prefix for the desktop finder to be used | string | empty |
 | unicode_prefix | prefix for the unicode finder to be used | string | . |
 | math_prefix | prefix for the math finder to be used | string | = |
+| desktop_launch_prefix | launch prefix for each desktop app, e.g. `uwsm app -- ` | string | empty |
 
