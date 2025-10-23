@@ -143,13 +143,11 @@ Debian's Hyprland is **extremely** outdated. I do not recommend using the packag
 
 {{< /callout >}}
 
-Hyprland recently made it into the SID and trixie repos and can be installed with
+Hyprland recently made it into the SID repository and can be installed with
 
 ```sh
 sudo apt install hyprland
 ```
-
-Note: Even though Hyprland is in the trixie repos, it is still recommended to install from SID, as some dependencies in the trixie repo are outdated.
 
 Alternatively, you can also follow the instructions under
 ["Manual (Manual Build)"](#manual-manual-build) to build Hyprland yourself.
