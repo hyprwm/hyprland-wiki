@@ -250,6 +250,8 @@ Use `sdrbrightness, B` and `sdrsaturation, S` to control SDR brightness and satu
 monitor = eDP-1, 2880x1800@90, 0x0, 1, bitdepth, 10, cm, hdr, sdrbrightness, 1.2, sdrsaturation, 0.98
 ```
 
+The default transfer function assumed on an SDR display for sRGB content is defined by `, cm_srgb_eotf, X`. The default (`0`) is the sRGB piecewise function. This can be changed to Gamma 2.2 by setting it to `1`.
+
 ### VRR
 
 Per-display VRR can be done by adding `, vrr, X` where `X` is the mode from the
