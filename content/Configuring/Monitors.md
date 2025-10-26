@@ -81,6 +81,13 @@ also rotated 90 degrees (vertical), you'd use `1080x0`.
 
 {{</ callout >}}
 
+{{< callout type=warning >}}
+
+No monitors can overlap. This means that if your set positions make any monitors
+overlap, you will get a warning.
+
+{{</ callout >}}
+
 Leaving the name empty will define a fallback rule to use when no other rules
 match.
 
