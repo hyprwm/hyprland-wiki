@@ -5,11 +5,8 @@ title: Hypr Ecosystem
 
 This wiki section hosts docs for various hypr* projects. See a list here:
 
-{{< callout type=info >}}
-
-These docs always target latest -git branch of respective apps.
-
-{{< /callout >}}
+> [!NOTE]
+> These docs always target latest -git branch of respective apps.
 
 ## Wiki pages
 

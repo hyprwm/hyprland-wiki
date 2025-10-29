@@ -75,13 +75,10 @@ e.g.: `workspace>>2`
 | minimized | emitted when an external taskbar-like app requests a window to be minimized | `WINDOWADDRESS,0/1` |
 | bell | emitted when an app requests to ring the system bell via `xdg-system-bell-v1`. Window address parameter may be empty. | `WINDOWADDRESS` |
 
-{{< callout type=warning >}}
-
-A fullscreen event is not guaranteed to fire on/off once in succession. Some windows
-may fire multiple requests to be fullscreened, resulting in multiple
-fullscreen events.
-
-{{< /callout >}}
+> [!WARNING]
+> A fullscreen event is not guaranteed to fire on/off once in succession. Some windows
+> may fire multiple requests to be fullscreened, resulting in multiple
+> fullscreen events.
 
 ## How to use socket2 with bash
 

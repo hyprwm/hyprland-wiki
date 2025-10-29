@@ -18,23 +18,20 @@ input {
 
 Variants are set per layout.
 
-{{< callout >}}
-
-The first layout defined in the input section will be the one used for binds by
-default.
-
-For example: `us,ua` -> config binds would be e.g. `SUPER, A`, while on `ua,us`
--> `SUPER, Cyrillic_ef`
-
-You can change this behavior globally or per-device by setting
-`resolve_binds_by_sym = 1`. In that case, binds will activate when the symbol
-typed matches the symbol specified in the bind.
-
-For example: if your layouts are `us,fr` and have a bind for `SUPER, A` you'd
-need to press the first letter on the second row while the `us` layout is active
-and the first letter on the first row while the `fr` layout is active.
-
-{{< /callout >}}
+> [!WARNING]
+> The first layout defined in the input section will be the one used for binds by
+> default.
+> 
+> For example: `us,ua` -> config binds would be e.g. `SUPER, A`, while on `ua,us`
+> -> `SUPER, Cyrillic_ef`
+> 
+> You can change this behavior globally or per-device by setting
+> `resolve_binds_by_sym = 1`. In that case, binds will activate when the symbol
+> typed matches the symbol specified in the bind.
+> 
+> For example: if your layouts are `us,fr` and have a bind for `SUPER, A` you'd
+> need to press the first letter on the second row while the `us` layout is active
+> and the first letter on the first row while the `fr` layout is active.
 
 You can also bind a key to execute `hyprctl switchxkblayout` for more keybind
 freedom. See [Using hyprctl](../Using-hyprctl).
@@ -102,10 +99,9 @@ issues in many programs. One example is OBS Studio, which does not detect the XF
 keysyms as usable keybindings, making you unable to use them for binds. This option
 simply maps them back to the expected F13-F24 values, which are bindable as normal.
 
-{{< callout >}}
-This option was only added recently to `xkeyboard-config`. Please ensure you are on version
-2.43 or greater for this option to do anything.
-{{< /callout >}}
+> [!WARNING]
+> This option was only added recently to `xkeyboard-config`. Please ensure you are on version
+> 2.43 or greater for this option to do anything.
 
 ```ini
 input {
@@ -208,12 +204,9 @@ windowrule = noshadow, class:com-group_finity-mascot-Main
 windowrule = noborder, class:com-group_finity-mascot-Main
 ```
 
-{{< callout type=info >}}
-
-The app indicator probably won't show, so you'll have to `killall -9 java` to
-kill them.
-
-{{< /callout >}}
+> [!NOTE]
+> The app indicator probably won't show, so you'll have to `killall -9 java` to
+> kill them.
 
 ![Demo GIF of Spamton Shimeji](https://github.com/hyprwm/hyprland-wiki/assets/36706276/261afd03-bf41-4513-b72b-3483d43d418c)
 
@@ -262,9 +255,8 @@ The hotkey toggle will be WIN+F1, but you can change this to whatever you want.
 ## Zoom
 
 To zoom using Hyprland's built-in zoom utility
-{{< callout >}}
-If mouse wheel bindings work only for the first time, you should probably reduce reset time with `binds:scroll_event_delay`
-{{< /callout >}}
+> [!WARNING]
+> If mouse wheel bindings work only for the first time, you should probably reduce reset time with `binds:scroll_event_delay`
 
 ```ini
 bind = $mod, mouse_down, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.1')
