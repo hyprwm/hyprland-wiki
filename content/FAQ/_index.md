@@ -76,7 +76,7 @@ For Nvidia graphics - This issue appears to be resolved when using Nvidia
 Drivers 525.60.11 or later, but it may persist with older drivers.
 
 For systems with limited hardware (Ex. iGPU, USB-C, USB Hubs) - Set `env = AQ_NO_MODIFIERS,1` in your config.
-To diagnose if you have the exact problem above you can get a [DRM log](https://wiki.hyprland.org/Crashes-and-Bugs/#debugging-drm-issues) and look for
+To diagnose if you have the exact problem above you can get a [DRM log](https://wiki.hypr.land/Crashes-and-Bugs/#debugging-drm-issues) and look for
 
 ```plain
 Requested display configuration exceeds system DDB limitations

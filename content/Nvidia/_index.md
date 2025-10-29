@@ -132,7 +132,7 @@ env = __GLX_VENDOR_LIBRARY_NAME,nvidia
 
 Install a few packages to get some apps to function natively with Wayland for
 the best compatibility and performance. See
-[the Master Tutorial](https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#force-apps-to-use-wayland).
+[the Master Tutorial](https://wiki.hypr.land/Getting-Started/Master-Tutorial/#force-apps-to-use-wayland).
 
 Reboot your computer.
 

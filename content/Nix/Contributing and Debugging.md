@@ -22,7 +22,7 @@ program.
 ## Bisecting an issue
 
 Follow the
-[Bisecting an issue](https://wiki.hyprland.org/Crashes-and-Bugs/#bisecting-an-issue)
+[Bisecting an issue](https://wiki.hypr.land/Crashes-and-Bugs/#bisecting-an-issue)
 guide. To build, run `nix build`.
 
 {{< callout >}}
@@ -39,7 +39,7 @@ To keep a failed build directory, pass the `--keep-failed` flag.
 ## Building the Wayland stack with ASan
 
 Run `nix develop` first, then follow the
-[Building with ASan](https://wiki.hyprland.org/Crashes-and-Bugs/#building-the-wayland-stack-with-asan)
+[Building with ASan](https://wiki.hypr.land/Crashes-and-Bugs/#building-the-wayland-stack-with-asan)
 guide.
 
 ## Getting a debug stacktrace
