@@ -91,10 +91,8 @@ them explicitly.
 If your [desktop portal](https://wiki.archlinux.org/title/XDG_Desktop_Portal) is malfunctioning for seemingly
 no reason (no errors), it's likely your XDG env isn't set correctly.
 
- > [!NOTE]
->  [uwsm](../../Useful-Utilities/Systemd-start) users don't need to explicitly set XDG environment variables, as uwsm sets them automatically.
-> 
->  
+> [!NOTE]
+> [uwsm](../../Useful-Utilities/Systemd-start) users don't need to explicitly set XDG environment variables, as uwsm sets them automatically.
 
 ## Qt Variables
 
