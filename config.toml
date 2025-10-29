@@ -20,7 +20,7 @@ path = "github.com/imfing/hextra"
 unsafe = true
 
 [markup.goldmark.renderHooks.link]
-enableDefault = true
+useEmbedded = "fallback"
 
 [markup.highlight]
 noClasses = false
