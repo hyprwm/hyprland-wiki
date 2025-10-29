@@ -71,10 +71,10 @@ Alternatively, install the `hyprland-meta` package to automatically fetch and co
 ```shell
 yay -S hyprland-meta-git
 ```
-
 If you decide to use the `git` version from the AUR, you can use the [Chaotic Aur](https://aur.chaotic.cx/) to get pre-built binaries.
+Be aware that updating dependencies like `hyprutils` might require you to recompile everything yourself as the Chaotic Aur does not do that automatically.
 
-In case of errors you can downgrade easily with [downgrade](https://github.com/archlinux-downgrade/downgrade).
+In case of errors though you can downgrade easily with [downgrade](https://github.com/archlinux-downgrade/downgrade).
 
 {{% /details %}}
 
