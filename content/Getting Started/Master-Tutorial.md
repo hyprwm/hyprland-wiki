@@ -19,22 +19,16 @@ repositories.
 
 ## Nvidia?
 
-{{< callout type=info >}}
-
-If not using an Nvidia card, skip this step.
-
-{{< /callout >}}
+> [!NOTE]
+> If not using an Nvidia card, skip this step.
 
 Please take a look at [The Nvidia page](../../Nvidia) before launching. It has
 information regarding the needed environment and tweaks.
 
 ## VM?
 
-{{< callout type=info >}}
-
-If not using a VM, skip this step.
-
-{{< /callout >}}
+> [!NOTE]
+> If not using a VM, skip this step.
 
 In a VM, make sure you have 3D acceleration enabled in your `virtio` config (or
 `virt-manager`) otherwise Hyprland _**will not work**_.
@@ -51,11 +45,8 @@ If you are adventurous and on systemd, you can also try uwsm. Please note uwsm h
 Uwsm provides additional features such as [xdg-autostart](https://www.freedesktop.org/software/systemd/man/latest/systemd-xdg-autostart-generator.html) support, launching any application as a systemd-unit with `uwsm app` helper, and the ability to enable services for programs that rely on a graphical session and provide such services (e.g waybar). See [uwsm](../../Useful-Utilities/Systemd-start) page for further instructions.
 
 
-{{< callout type=warning >}}
-
-Do **not** launch Hyprland with `root` permissions (don't `sudo`)
-
-{{< /callout >}}
+> [!WARNING]
+> Do **not** launch Hyprland with `root` permissions (don't `sudo`)
 
 You can see some launch flags by doing `Hyprland -h`, these include setting the
 config path, ignoring a check for the above, etc.

@@ -6,15 +6,12 @@ title: hyprlock
 hyprlock is a simple, yet fast, multi-threaded and GPU-accelerated screen lock
 for Hyprland.
 
-{{< callout type=warning >}}
-
-Hyprlock does not automatically create a config, and without one, hyprlock will _not render anything_.
-But even without a config, your session will get locked and thus Hyprland will cover your session with a black screen.
-You can unlock normally by typing your password followed by hitting Enter, but you won't have any visual feedback.
-
-You can use the example config for a quick start, which can be found [here](https://github.com/hyprwm/hyprlock/blob/main/assets/example.conf).
-
-{{< /callout >}}
+> [!WARNING]
+> Hyprlock does not automatically create a config, and without one, hyprlock will _not render anything_.
+> But even without a config, your session will get locked and thus Hyprland will cover your session with a black screen.
+> You can unlock normally by typing your password followed by hitting Enter, but you won't have any visual feedback.
+> 
+> You can use the example config for a quick start, which can be found [here](https://github.com/hyprwm/hyprlock/blob/main/assets/example.conf).
 
 ## Commandline arguments
 
@@ -71,11 +68,8 @@ Variables in the `auth` category:
 | fingerprint:present_message | sets the message that will be displayed when a finger is placed on the scanner. | str | Scanning fingerprint |
 | fingerprint:retry_delay | sets the delay in ms after an unrecognized finger is scanned before another finger can be scanned. | int | 250 |
 
-{{< callout type=info >}}
-
-At least one enabled authentication method is required.
-
-{{< /callout >}}
+> [!NOTE]
+> At least one enabled authentication method is required.
 
 ### Animations
 
@@ -228,12 +222,9 @@ If `path` is `screenshot`, a screenshot of your desktop at launch will be used.
 | crossfade_time | cross-fade time in seconds between old and new background on reload. A negative value means no cross-fade. | float | -1.0 |
 | zindex | z-index of the widget | int | -1 |
 
-{{< callout type=info >}}
-
-Blur options are taken from hyprland.
-See [Variables/#blur](../../Configuring/Variables/#blur).
-
-{{< /callout >}}
+> [!NOTE]
+> Blur options are taken from hyprland.
+> See [Variables/#blur](../../Configuring/Variables/#blur).
 
 {{% details title="Example background" closed="true" %}}
 
@@ -371,19 +362,16 @@ Draws a password input field.
 | valign | vertical alignment | str | center |
 | zindex | z-index of the widget | int | 0 |
 
-{{< callout type=info >}}
-
-#### Colors information
-
-When `outline_thickness` set to `0`, the color of the inner box will be changed instead of the outer.
-
-Behaviour of `swap_font_color` is as follows:
-
-- `outline_thickness` is `0`: if set, font color will be swapped with inner one on color change events (e.g. Caps-lock on or password check).
-- `outline_thickness` is not `0`: if set, font and inner colors will be swapped on password check and authentication failure.
-- `swap_font_color` will narrow the accent colors from a gradient to a single color by using the first specified color.
-
-{{< /callout >}}
+> [!NOTE]
+> #### Colors information
+> 
+> When `outline_thickness` set to `0`, the color of the inner box will be changed instead of the outer.
+> 
+> Behaviour of `swap_font_color` is as follows:
+> 
+> - `outline_thickness` is `0`: if set, font color will be swapped with inner one on color change events (e.g. Caps-lock on or password check).
+> - `outline_thickness` is not `0`: if set, font and inner colors will be swapped on password check and authentication failure.
+> - `swap_font_color` will narrow the accent colors from a gradient to a single color by using the first specified color.
 
 `placeholder_text` and `fail_text` both support [variable substitution](#variable-substitution).
 

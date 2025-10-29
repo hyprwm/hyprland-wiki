@@ -20,12 +20,9 @@ XDPH.
 
 {{< /callout >}}
 
-{{< callout >}}
-
-XDPH doesn't implement a file picker. For that, it is recommended to install
-`xdg-desktop-portal-gtk` alongside XDPH.
-
-{{< /callout >}}
+> [!WARNING]
+> XDPH doesn't implement a file picker. For that, it is recommended to install
+> `xdg-desktop-portal-gtk` alongside XDPH.
 
 ## Installing
 
