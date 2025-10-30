@@ -213,8 +213,7 @@ monitor = eDP-1, 2880x1800@90, 0x0, 1, bitdepth, 10
 
 > [!WARNING]
 > Colors registered in Hyprland (e.g. the border color) do _not_ support
-> 10 bit.
-> 
+> 10 bit.  
 > Some applications do _not_ support screen capture with 10 bit enabled.
 
 ### Color management presets

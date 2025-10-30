@@ -153,13 +153,12 @@ You have nine choices:
 - Special Workspace: `special` or `special:name` for named special workspaces.
 
 > [!WARNING]
-> `special` is supported ONLY on `movetoworkspace` and `movetoworkspacesilent`.
+> `special` is supported ONLY on `movetoworkspace` and `movetoworkspacesilent`.  
 > Any other dispatcher will result in undocumented behavior.
 
 > [!WARNING]
 > Numerical workspaces (e.g. `1`, `2`, `13371337`) are allowed **ONLY** between 1
-> and 2147483647 (inclusive)
-> 
+> and 2147483647 (inclusive).  
 > Neither `0` nor negative numbers are allowed.
 
 ## Special Workspace

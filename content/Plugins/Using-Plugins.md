@@ -8,11 +8,9 @@ This page will tell you how to use plugins.
 ## Disclaimers
 
 > [!WARNING]
-> Plugins are written in C++ and will run as a part of Hyprland.
-> 
+> Plugins are written in C++ and will run as a part of Hyprland.  
 > Make sure to _always_ read the source code of the plugins you are going to use
-> and to trust the source.
-> 
+> and to trust the source.  
 > Writing a plugin to wipe your computer is easy.
 > 
 > _**Never**_ trust random `.so` files you receive from other people.
