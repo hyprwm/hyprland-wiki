@@ -29,8 +29,7 @@ windowrule = immediate, class:^(cs2)$
 
 > [!WARNING]
 > If you experience graphical issues, you may be out of luck. Tearing support is
-> experimental.
-> 
+> experimental.  
 > See the likely culprits below.
 
 ## Common issues

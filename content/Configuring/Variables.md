@@ -26,21 +26,15 @@ the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 | gradient | a gradient, in the form of `color color ... [angle]` where `color` is a color (see above) and angle is an angle in degrees, in the format of `123deg` e.g. `45deg` (e.g. `rgba(11ee11ff) rgba(1111eeff) 45deg`) Angle is optional and will default to `0deg` |
 | font_weight | an integer between 100 and 1000, or one of the following presets: `thin` `ultralight` `light` `semilight` `book` `normal` `medium` `semibold` `bold` `ultrabold` `heavy` `ultraheavy` |
 
-> [!NOTE]
-> **_Colors:_**
+> [!NOTE] **Colors**
 > 
 > You have 3 options:
-> 
-> rgba(), e.g. `rgba(b3ff1aee)`, or the decimal equivalent `rgba(179,255,26,0.933)`
-> 
+> - rgba(), e.g. `rgba(b3ff1aee)`, or the decimal equivalent `rgba(179,255,26,0.933)`
 > (decimal rgba/rgb values should have no spaces between numbers)
-> 
-> rgb(), e.g. `rgb(b3ff1a)`, or the decimal equivalent  `rgb(179,255,26)`
-> 
-> legacy, e.g. `0xeeb3ff1a` -> ARGB order
+> - rgb(), e.g. `rgb(b3ff1a)`, or the decimal equivalent  `rgb(179,255,26)`
+> - legacy, e.g. `0xeeb3ff1a` -> ARGB order
 
-> [!NOTE]
-> **_Mod list:_**
+> [!NOTE] **Mod list**
 > 
 > ```ini
 > SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
@@ -206,9 +200,8 @@ _Subcategory `decoration:shadow:`_
 | off_window_axis_events | Handles axis events around (gaps/border for tiled, dragarea/border for floated) a focused window. `0` ignores axis events `1` sends out-of-bound coordinates `2` fakes pointer coordinates to the closest point inside the window `3` warps the cursor to the closest point inside the window | int | 1 |
 | emulate_discrete_scroll | Emulates discrete scrolling from high resolution scrolling events. `0` disables it, `1` enables handling of non-standard events only, and `2` force enables all scroll wheel events to be handled | int | 1 |
 
-> [!NOTE]
-> ### XKB Settings
-> 
+> [!NOTE] **XKB Settings**
+>
 > You can find a list of models, layouts, variants and options in
 > [`/usr/share/X11/xkb/rules/base.lst`](file:///usr/share/X11/xkb/rules/base.lst).
 > Alternatively, you can use the `localectl` command to discover what is available
@@ -217,17 +210,15 @@ _Subcategory `decoration:shadow:`_
 > For switchable keyboard configurations, take a look at
 > [the uncommon tips & tricks page entry](../Uncommon-tips--tricks/#switchable-keyboard-layouts).
 
-> [!NOTE]
-> ### Follow Mouse Cursor
-> 
+> [!NOTE] **Follow Mouse Cursor**
 > - 0 - Cursor movement will not change focus.
 > - 1 - Cursor movement will always change focus to the window under the cursor.
 > - 2 - Cursor focus will be detached from keyboard focus. Clicking on a window
 >   will move keyboard focus to that window.
 > - 3 - Cursor focus will be completely separate from keyboard focus. Clicking on
 >   a window will not change keyboard focus.
-> 
-> ### Custom accel profiles
+
+> [!NOTE] **Custom Accel Profiles**
 > 
 > #### `accel_profile`
 > 

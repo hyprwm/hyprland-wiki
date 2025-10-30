@@ -362,13 +362,10 @@ Draws a password input field.
 | valign | vertical alignment | str | center |
 | zindex | z-index of the widget | int | 0 |
 
-> [!NOTE]
-> #### Colors information
-> 
-> When `outline_thickness` set to `0`, the color of the inner box will be changed instead of the outer.
-> 
-> Behaviour of `swap_font_color` is as follows:
-> 
+> [!NOTE] **Colors information**
+>
+> When `outline_thickness` set to `0`, the color of the inner box will be changed instead of the outer.   
+> Behaviour of `swap_font_color` is as follows:  
 > - `outline_thickness` is `0`: if set, font color will be swapped with inner one on color change events (e.g. Caps-lock on or password check).
 > - `outline_thickness` is not `0`: if set, font and inner colors will be swapped on password check and authentication failure.
 > - `swap_font_color` will narrow the accent colors from a gradient to a single color by using the first specified color.

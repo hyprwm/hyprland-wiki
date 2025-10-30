@@ -7,8 +7,7 @@ we prefer to begin possible bug reports or feature requests as *discussions*,
 and elevate them to issues if they can be confirmed by a member to be relevant,
 and once enough information about the problem has been gathered.
 
-> [!NOTE]
-> ### Why?
+> [!NOTE] **Why?**
 > 
 > We are volunteers, doing this in our free time. Out of respect, please read this document
 > _fully_ before posting an issue _or_ discussion. If you can spend a few minutes reading this,
