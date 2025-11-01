@@ -300,7 +300,7 @@ monitorv2 {
 }
 ```
 
-Other named settings keep their names: `name, value` &rarr; `name = value` (e.g. `bitdepth,10` &rarr; `bitdepth = 10`)
+The `disable` flag turns into `disabled = true`, but other named settings keep their names: `name, value` &rarr; `name = value` (e.g. `bitdepth,10` &rarr; `bitdepth = 10`)
 
 EDID overrides and SDR &rarr; HDR settings:
 
