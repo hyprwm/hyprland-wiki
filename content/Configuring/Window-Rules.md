@@ -79,7 +79,7 @@ The supported fields for parameters are:
 | workspace:\[w\] | Windows on matching workspace. `w` can be `id` or `name:string`. |
 | onworkspace:\[w\] | Windows on matching workspace. `w` can be `id`, `name:string` or `workspace selector`. |
 | content:\[none\|photo\|video\|game\] | Windows with specified content type |
-| xdgtag:\[string\] | Match a window by its xdgTag (see `hyprctl clients` to check if it has one) | 
+| xdgTag:\[string\] | Match a window by its xdgTag (see `hyprctl clients` to check if it has one) | 
 
 Keep in mind that you _have_ to declare at least one field, but not all.
 
