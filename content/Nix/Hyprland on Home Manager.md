@@ -211,7 +211,7 @@ or later by pointing your `package` and `portalPackage` the system packages. See
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    # set the Hyprland and XDPH packages to null to use the ones from the NixOS module
+    # point the Hyprland and XDPH packages to the ones from the NixOS module
     package = hostConfig.program.hyprland.package;
     portalPackage = hostConfig.program.hyprland.portalPackage;
   };
