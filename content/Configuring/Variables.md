@@ -63,6 +63,7 @@ the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 | hover_icon_on_border | show a cursor icon when hovering over borders, only used when `general:resize_on_border` is on. | bool | true |
 | allow_tearing | master switch for allowing tearing to occur. See [the Tearing page](../Tearing). | bool | false |
 | resize_corner | force floating windows to use a specific corner when being resized (1-4 going clockwise from top left, 0 to disable) | int | 0 |
+| modal_parent_blocking | whether parent windows of modals will be interactive | bool | true |
 
 #### Snap
 
