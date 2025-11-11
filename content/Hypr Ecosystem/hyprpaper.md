@@ -3,7 +3,7 @@ weight: 1
 title: hyprpaper
 ---
 
-hyprpaper is a fast, IPC-controlled wallpaper utility for Hyprland.
+[hyprpaper](https://github.com/hyprwm/hyprpaper) is a fast, IPC-controlled wallpaper utility for Hyprland.
 
 ## Installation
 

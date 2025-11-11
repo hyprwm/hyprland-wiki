@@ -3,7 +3,7 @@ weight: 11
 title: hyprpolkitagent
 ---
 
-hyprpolkitagent is a polkit authentication daemon. It is required for GUI applications to
+[hyprpolkitagent](https://github.com/hyprwm/hyprpolkitagent) is a polkit authentication daemon. It is required for GUI applications to
 be able to request elevated privileges.
 
 If it's not available in your distro's repositories, you can either [build it from source](https://github.com/hyprwm/hyprpolkitagent)

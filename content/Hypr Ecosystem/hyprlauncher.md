@@ -3,7 +3,7 @@ weight: 3
 title: hyprlauncher
 ---
 
-Hyprlauncher is a multipurpose and versatile launcher / picker for hyprland. It's fast, simple, and provides
+[hyprlauncher](https://github.com/hyprwm/hyprlauncher) is a multipurpose and versatile launcher / picker for hyprland. It's fast, simple, and provides
 various modules.
 
 ## Usage

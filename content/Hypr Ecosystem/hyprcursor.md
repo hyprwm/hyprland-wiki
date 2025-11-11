@@ -3,7 +3,7 @@ weight: 101
 title: hyprcursor
 ---
 
-hyprcursor is a new cursor theme format that has many advantages
+[hyprcursor](https://github.com/hyprwm/hyprcursor) is a new cursor theme format that has many advantages
 over the widely used xcursor.
 
 ## Hyprcursor themes

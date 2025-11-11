@@ -3,7 +3,7 @@ weight: 13
 title: hyprqt6engine
 ---
 
-hyprqt6engine provides a theme for QT6 apps. It's a replacement for qt6ct, compatible with KDE Apps / KColorScheme.
+[hyprqt6engine](https://github.com/hyprwm/hyprqt6engine) provides a theme for QT6 apps. It's a replacement for qt6ct, compatible with KDE Apps / KColorScheme.
 
 ## Usage
 
