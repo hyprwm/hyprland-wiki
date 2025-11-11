@@ -33,33 +33,24 @@ The above option generates a new desktop entry, `hyprland-uwsm.desktop`, which w
 
 For more info, read the [option](https://search.nixos.org/options?channel=unstable&show=programs.uwsm.enable&from=0&size=50&sort=relevance&type=packages&query=uwsm).
 
-{{< callout >}}
-
-If you use the [Home Manager module](../../Nix/Hyprland-on-Home-Manager), make sure to disable the systemd integration, as it conflicts with uwsm.
-
-```nix
-{
-  wayland.windowManager.hyprland.systemd.enable = false;
-}
-```
-
-{{< /callout >}}
+> [!WARNING]
+> If you use the [Home Manager module](../../Nix/Hyprland-on-Home-Manager), make sure to disable the systemd integration, as it conflicts with uwsm.
+> 
+> ```nix
+> {
+>   wayland.windowManager.hyprland.systemd.enable = false;
+> }
+> ```
 
 {{% /details %}}
 
-{{< callout type=info >}}
-
-For instructions for other distros and manual building, see [building and installing](https://github.com/Vladimir-csp/uwsm?tab=readme-ov-file#installation) section on the project's page.
-
-{{< /callout >}}
+> [!NOTE]
+> For instructions for other distros and manual building, see [building and installing](https://github.com/Vladimir-csp/uwsm?tab=readme-ov-file#installation) section on the project's page.
 
 ## Launching Hyprland with uwsm
 
-{{< callout type=info >}}
-
-Pay attention to the warnings in [Environment variables](../../Configuring/Environment-variables), [Multi-GPU](../../Configuring/Multi-GPU) and [Dispatchers](../../Configuring/Dispatchers) sections.
-
-{{< /callout >}}
+> [!NOTE]
+> Pay attention to the warnings in [Environment variables](../../Configuring/Environment-variables), [Multi-GPU](../../Configuring/Multi-GPU) and [Dispatchers](../../Configuring/Dispatchers) sections.
 
 ### In tty
 

@@ -6,21 +6,18 @@ weight: 2
 For a list of available options, check the
 [Home Manager options](https://nix-community.github.io/home-manager/options.xhtml#opt-wayland.windowManager.hyprland.enable).
 
-{{< callout type=warning >}}
-
-**Required:**
-- **NixOS Module:** enables critical components needed to run Hyprland properly.  
-  Without this, you may have issues with missing session files in your
-    Display Manager.
-
-**Optional**:
-- **Home Manager module:** lets you configure Hyprland declaratively through Home Manager.  
-- Configures Hyprland and adds it to your user's `$PATH`, but
-    does not make certain system-level changes such as adding a desktop session
-    file for your display manager.  
-    This is handled by the NixOS module, once you enable it.
-
-{{< /callout >}}
+> [!WARNING]
+> **Required:**
+> - **NixOS Module:** enables critical components needed to run Hyprland properly.  
+>   Without this, you may have issues with missing session files in your
+>     Display Manager.
+> 
+> **Optional**:
+> - **Home Manager module:** lets you configure Hyprland declaratively through Home Manager.  
+> - Configures Hyprland and adds it to your user's `$PATH`, but
+>     does not make certain system-level changes such as adding a desktop session
+>     file for your display manager.  
+>     This is handled by the NixOS module, once you enable it.
 
 ## Installation
 
@@ -85,13 +82,10 @@ Don't forget to replace `user@hostname` with your username and hostname!
 
 {{< tab "Nix stable (with flake-compat)" >}}
 
-{{< callout >}}
-
-The flake module is merely an extension to the Home Manager downstream module.
-It is mainly used as a staging area for new options, so unless you're a tester
-you should use the downstream Home Manager module.
-
-{{< /callout >}}
+> [!WARNING]
+> The flake module is merely an extension to the Home Manager downstream module.
+> It is mainly used as a staging area for new options, so unless you're a tester
+> you should use the downstream Home Manager module.
 
 The following snippet of code tries to show how to bring the Hyprland flake from
 the flake input and use the package in the Home Manager option. Feel free to

@@ -25,12 +25,9 @@ Follow the
 [Bisecting an issue](https://wiki.hypr.land/Crashes-and-Bugs/#bisecting-an-issue)
 guide. To build, run `nix build`.
 
-{{< callout >}}
-
-To build with Tracy support, modify `nix/default.nix` to enable the flag, then run
-`nix build '.?submodules=1'`.
-
-{{< /callout >}}
+> [!WARNING]
+> To build with Tracy support, modify `nix/default.nix` to enable the flag, then run
+> `nix build '.?submodules=1'`.
 
 To view logs, pass the `--print-build-logs` (`-L`) flag.
 

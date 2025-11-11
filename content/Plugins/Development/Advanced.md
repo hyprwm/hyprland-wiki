@@ -20,12 +20,9 @@ If you need access to a private member of a Hyprland class, you can surround inc
 
 ## Using Function Hooks
 
-{{< callout >}}
-
-Function hooks are only available on `AMD64` (`x86_64`). Attempting to hook on
-any other arch will make Hyprland simply ignore your hooking attempt.
-
-{{</ callout >}}
+> [!WARNING]
+> Function hooks are only available on `AMD64` (`x86_64`). Attempting to hook on
+> any other arch will make Hyprland simply ignore your hooking attempt.
 
 Function hooks are intimidating at first, but when used properly can be
 _extremely_ powerful.
@@ -101,13 +98,10 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle) {
 }
 ```
 
-{{< callout type=warning >}}
-
-Please note method lookups are slow and should not be used often. The entries
-_will not_ change during runtime, so it's a good idea to make the lookups
-`static`.
-
-{{</ callout >}}
+> [!WARNING]
+> Please note method lookups are slow and should not be used often. The entries
+> _will not_ change during runtime, so it's a good idea to make the lookups
+> `static`.
 
 ### Why use findFunctionsByName?
 

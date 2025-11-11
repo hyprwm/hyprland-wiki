@@ -7,13 +7,10 @@ Hyprland plugins are managed differently on Nix than on other distros.
 The most notable change is that `hyprpm` is unsupported, but we have our own way of
 building and managing plugins.
 
-{{< callout type=warning >}}
-
-Using plugins using the syntax below requires you to be using Hyprland through
-the [Home Manager module](../Hyprland-on-Home-Manager) or the
-[upstream NixOS module](../Hyprland-on-NixOS#upstream-module).
-
-{{< /callout >}}
+> [!WARNING]
+> Using plugins using the syntax below requires you to be using Hyprland through
+> the [Home Manager module](../Hyprland-on-Home-Manager) or the
+> [upstream NixOS module](../Hyprland-on-NixOS#upstream-module).
 
 ## Using plugins from Nixpkgs
 

@@ -13,19 +13,13 @@ screen sharing.
 is Hyprland's xdg-desktop-portal implementation. It allows for screensharing,
 global shortcuts, etc.
 
-{{< callout type="info" >}}
+> [!NOTE]
+> Throughout this document, `xdg-desktop-portal-hyprland` will be referred to as
+> XDPH.
 
-Throughout this document, `xdg-desktop-portal-hyprland` will be referred to as
-XDPH.
-
-{{< /callout >}}
-
-{{< callout >}}
-
-XDPH doesn't implement a file picker. For that, it is recommended to install
-`xdg-desktop-portal-gtk` alongside XDPH.
-
-{{< /callout >}}
+> [!WARNING]
+> XDPH doesn't implement a file picker. For that, it is recommended to install
+> `xdg-desktop-portal-gtk` alongside XDPH.
 
 ## Installing
 

@@ -25,11 +25,8 @@ nix profile install nixpkgs#hyprland
 
 {{< tab "From the Flake" >}}
 
-{{< callout type=info >}}
-
-Make sure to enable [Cachix](../Cachix) first.
-
-{{< /callout >}}
+> [!NOTE]
+> Make sure to enable [Cachix](../Cachix) first.
 
 ```sh
 nix profile install github:hyprwm/Hyprland

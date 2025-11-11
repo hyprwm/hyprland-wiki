@@ -7,11 +7,8 @@ These are all the events that can be listened to using Event Hooks.
 
 ## Complete list
 
-{{< callout type=info >}}
-
-`M:` means `std::unordered_map<std::string, std::any>` following props are members.
-
-{{</ callout >}}
+> [!NOTE]
+> `M:` means `std::unordered_map<std::string, std::any>` following props are members.
 
 | name | description | argument(s) | cancellable |
 | --- | --- | --- | --- |

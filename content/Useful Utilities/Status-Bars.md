@@ -154,13 +154,10 @@ There are a few examples listed in the [Readme](https://github.com/elkowar/eww).
 It's also highly recommended to read through the
 [Configuration options](https://elkowar.github.io/eww/configuration.html).
 
-{{< callout >}}
-
-Read
-[the Wayland section](https://elkowar.github.io/eww/configuration.html#wayland)
-carefully, otherwise Eww won't work on Hyprland.
-
-{{< /callout >}}
+> [!WARNING]
+> Read
+> [the Wayland section](https://elkowar.github.io/eww/configuration.html#wayland)
+> carefully, otherwise Eww won't work on Hyprland.
 
 Here are some example widgets that might be useful for Hyprland:
 

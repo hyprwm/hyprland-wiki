@@ -28,17 +28,14 @@ Variables in the `general` category:
 | ignore_wayland_inhibit | whether to ignore Wayland protocol idle inhibitors | bool | false |
 | inhibit_sleep | sleep inhibition mode, 0 - disable, 1 - normal, 2 - auto, 3 - lock notify | int | 2 |
 
-{{< callout type=info >}}
-
-The `general:inhibit_sleep` option is used to make sure hypridle can do certain tasks before the system goes to sleep.
-
-Options:
-- `3` makes your system wait until the session gets locked by a lock screen app. This works with all wayland session-lock apps.
-- `2` (auto) selects either 3 or 1 depending on whether hypridle detects if you want to launch hyprlock before sleep.
-- `1` makes the system wait until hypridle launched `general:before_sleep_cmd`.
-- `0` disables sleep inhibition.
-
-{{< /callout >}}
+> [!NOTE]
+> The `general:inhibit_sleep` option is used to make sure hypridle can do certain tasks before the system goes to sleep.
+> 
+> Options:
+> - `3` makes your system wait until the session gets locked by a lock screen app. This works with all wayland session-lock apps.
+> - `2` (auto) selects either 3 or 1 depending on whether hypridle detects if you want to launch hyprlock before sleep.
+> - `1` makes the system wait until hypridle launched `general:before_sleep_cmd`.
+> - `0` disables sleep inhibition.
 
 ### Listeners
 

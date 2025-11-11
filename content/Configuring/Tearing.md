@@ -13,12 +13,9 @@ To enable tearing:
 - Add an `immediate` windowrule to your game of choice. This makes sure that
   Hyprland will tear it.
 
-{{< callout >}}
-
-Please note that tearing will only be in effect when the game is in fullscreen
-and the only thing visible on the screen.
-
-{{< /callout >}}
+> [!WARNING]
+> Please note that tearing will only be in effect when the game is in fullscreen
+> and the only thing visible on the screen.
 
 Example snippet:
 
@@ -30,14 +27,10 @@ general {
 windowrule = immediate, class:^(cs2)$
 ```
 
-{{< callout type=warning >}}
-
-If you experience graphical issues, you may be out of luck. Tearing support is
-experimental.
-
-See the likely culprits below.
-
-{{< /callout >}}
+> [!WARNING]
+> If you experience graphical issues, you may be out of luck. Tearing support is
+> experimental.  
+> See the likely culprits below.
 
 ## Common issues
 

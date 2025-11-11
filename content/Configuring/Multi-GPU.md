@@ -47,15 +47,12 @@ boot and is subject to frequent change, making it unsuitable as a marker for GPU
 After determining which "card" belongs to which GPU, we can now tell
 Hyprland which GPUs to use by setting the `AQ_DRM_DEVICES` environment variable.
 
-{{< callout type=info >}}
-
-It is generally a good idea for laptops to use the integrated GPU as the primary
-renderer as this preserves battery life and is practically indistinguishable
-from using the dedicated GPU on modern systems in most cases. Hyprland can be
-run on integrated GPUs just fine. The same principle applies for desktop setups
-with lower and higher power rating GPUs respectively.
-
-{{< /callout >}}
+> [!NOTE]
+> It is generally a good idea for laptops to use the integrated GPU as the primary
+> renderer as this preserves battery life and is practically indistinguishable
+> from using the dedicated GPU on modern systems in most cases. Hyprland can be
+> run on integrated GPUs just fine. The same principle applies for desktop setups
+> with lower and higher power rating GPUs respectively.
 
 If you would like to use another GPU, or the wrong GPU is picked by default,
 set `AQ_DRM_DEVICES` to a `:`-separated list of card paths, e.g.
@@ -75,16 +72,13 @@ it doesn't have to be the primary renderer.
 You should now be able to use an integrated GPU for lighter GPU loads,
 including Hyprland, or default to your dGPU if you prefer.
 
-{{< callout type=info >}}
-
-[uwsm](../../Useful-Utilities/Systemd-start) users are advised to export the `AQ_DRM_DEVICES` variable inside `~/.config/uwsm/env-hyprland`, instead. 
-This method ensures that the variable is properly exported to the systemd environment without conflicting with other compositors or desktop environments.
-
-```plain
-export AQ_DRM_DEVICES="/dev/dri/card0:/dev/dri/card1"
-```
-
-{{< /callout >}}
+> [!NOTE]
+> [uwsm](../../Useful-Utilities/Systemd-start) users are advised to export the `AQ_DRM_DEVICES` variable inside `~/.config/uwsm/env-hyprland`, instead. 
+> This method ensures that the variable is properly exported to the systemd environment without conflicting with other compositors or desktop environments.
+> 
+> ```plain
+> export AQ_DRM_DEVICES="/dev/dri/card0:/dev/dri/card1"
+> ```
 
 ## Creating consistent device paths for specific cards
 

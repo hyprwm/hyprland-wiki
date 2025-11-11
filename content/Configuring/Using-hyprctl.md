@@ -6,15 +6,12 @@ title: Using hyprctl
 `hyprctl` is a utility for controlling some parts of the compositor from a CLI
 or a script. It should automatically be installed along with Hyprland.
 
-{{< callout type=warning >}}
-
-_hyprctl_ calls will be dispatched by the compositor _synchronously_, meaning
-any spam of the utility will cause slowdowns. It's recommended to use `--batch`
-for many control calls, and limiting the amount of info calls.
-
-For live event handling, see the [socket2](../../IPC/).
-
-{{< /callout >}}
+> [!WARNING]
+> _hyprctl_ calls will be dispatched by the compositor _synchronously_, meaning
+> any spam of the utility will cause slowdowns. It's recommended to use `--batch`
+> for many control calls, and limiting the amount of info calls.
+> 
+> For live event handling, see the [socket2](../../IPC/).
 
 ## Commands
 
@@ -106,11 +103,8 @@ Where `[backend]` is the name of the backend and `(name)` is an optional name
 for the output. If `(name)` is not specified, the default naming scheme will be
 used (`HEADLESS-2`, `WL-1`, etc.)
 
-{{< callout type=info >}}
-
-`create` and `remove` can also be `add` or `destroy`, respectively.
-
-{{< /callout >}}
+> [!NOTE]
+> `create` and `remove` can also be `add` or `destroy`, respectively.
 
 Available backends:
 
@@ -164,22 +158,19 @@ Example command for a typical keyboard:
 hyprctl switchxkblayout at-translated-set-2-keyboard next
 ```
 
-{{< callout type=info >}}
-
-If you want a single variant i.e. pl/dvorak on one layout but us/qwerty on the
-other, xkb parameters can still be blank, however the amount of comma-separated
-parameters have to match. Alternatively, a single parameter can be specified for
-it to apply to all three.
-
-```ini
-input {
-    kb_layout = pl,us,ru
-    kb_variant = dvorak,,
-    kb_options = caps:ctrl_modifier
-}
-```
-
-{{< /callout >}}
+> [!NOTE]
+> If you want a single variant i.e. pl/dvorak on one layout but us/qwerty on the
+> other, xkb parameters can still be blank, however the amount of comma-separated
+> parameters have to match. Alternatively, a single parameter can be specified for
+> it to apply to all three.
+> 
+> ```ini
+> input {
+>     kb_layout = pl,us,ru
+>     kb_variant = dvorak,,
+>     kb_options = caps:ctrl_modifier
+> }
+> ```
 
 ### seterror
 

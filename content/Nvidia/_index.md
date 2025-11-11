@@ -23,13 +23,10 @@ For maximum performance and support with newer cards, running either of the
 first two setups is recommended as it contains some vital optimisations and
 power management support for newer GPUs.
 
-{{< callout >}}
-
-For those on the Nvidia 50xx series of graphics cards (5090, 5080, etc) or
-newer, the open source kernel modules are **REQUIRED** when using the
-proprietary Nvidia drivers.
-
-{{< /callout >}}
+> [!WARNING]
+> For those on the Nvidia 50xx series of graphics cards (5090, 5080, etc) or
+> newer, the open source kernel modules are **REQUIRED** when using the
+> proprietary Nvidia drivers.
 
 According to
 [Nvidia](https://developer.nvidia.com/blog/nvidia-transitions-fully-towards-open-source-gpu-kernel-modules/),
@@ -99,17 +96,14 @@ names:
 MODULES=(... nvidia nvidia_modeset nvidia_uvm nvidia_drm ...)
 ```
 
-{{< callout >}}
-
-Electron or Chromium-based apps can stall for up to a minute after boot on hybrid graphics systems with an Intel iGPU and an Nvidia dGPU.
-
-This can be fixed by loading the `i915` module **before** the Nvidia ones in `/etc/mkinitcpio.conf`. Just edit the `MODULES` line like this:
-
-```conf {filename="/etc/mkinitcpio.conf"}
-MODULES=(i915 nvidia nvidia_modeset nvidia_uvm nvidia_drm ...)
-```
-
-{{< /callout >}}
+> [!WARNING]
+> Electron or Chromium-based apps can stall for up to a minute after boot on hybrid graphics systems with an Intel iGPU and an Nvidia dGPU.
+> 
+> This can be fixed by loading the `i915` module **before** the Nvidia ones in `/etc/mkinitcpio.conf`. Just edit the `MODULES` line like this:
+> 
+> ```conf {filename="/etc/mkinitcpio.conf"}
+> MODULES=(i915 nvidia nvidia_modeset nvidia_uvm nvidia_drm ...)
+> ```
 
 You can then rebuild the initramfs with `sudo mkinitcpio -P`, and reboot.
 
@@ -276,13 +270,10 @@ For Nix users, the equivalent of the above is
 }
 ```
 
-{{< callout >}}
-
-According to Nvidia, suspend/wakeup issues should be solved on the Nvidia open
-driver. If it still doesn't work and you're using the open driver, it may be
-worth trying the fully proprietary one.
-
-{{< /callout >}}
+> [!WARNING]
+> According to Nvidia, suspend/wakeup issues should be solved on the Nvidia open
+> driver. If it still doesn't work and you're using the open driver, it may be
+> worth trying the fully proprietary one.
 
 ## Still having issues?
 

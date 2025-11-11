@@ -7,17 +7,13 @@ we prefer to begin possible bug reports or feature requests as *discussions*,
 and elevate them to issues if they can be confirmed by a member to be relevant,
 and once enough information about the problem has been gathered.
 
-{{< callout type=info >}}
-
-### Why?
-
-We are volunteers, doing this in our free time. Out of respect, please read this document
-_fully_ before posting an issue _or_ discussion. If you can spend a few minutes reading this,
-it saves us, the developers, much more time overall, so we can deliver fixes and features faster.
-
-Thank you!
-
-{{< /callout >}}
+> [!NOTE] **Why?**
+> 
+> We are volunteers, doing this in our free time. Out of respect, please read this document
+> _fully_ before posting an issue _or_ discussion. If you can spend a few minutes reading this,
+> it saves us, the developers, much more time overall, so we can deliver fixes and features faster.
+> 
+> Thank you!
 
 ## Issue Guidelines
 
@@ -38,9 +34,8 @@ For bugs:
 - If a discussion is a Hyprland problem, but cannot be tied to Hyprland in a clear way, or is not reproducible, it stays a discussion until that changes.
 - If a discussion is reproducible, a member of Hyprland promotes the discussion to an issue by opening an issue with the key information and links the original discussion.
 
-{{< callout type=info >}}
-To get logs for your bug please see [Crashes and Bugs](https://wiki.hypr.land/Crashes-and-Bugs/)
-{{< /callout >}}
+> [!NOTE]
+> To get logs for your bug please see [Crashes and Bugs](https://wiki.hypr.land/Crashes-and-Bugs/)
 
 For feature requests:
 - If a discussion describes a feature that is already possible (via scripts, features, or official tools), invalid, or not applicable, it gets closed.

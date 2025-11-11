@@ -487,11 +487,8 @@ You most likely have `env = ELECTRON_OZONE_PLATFORM_HINT, wayland` in your confi
 
 Try running Discord like this `ELECTRON_OZONE_PLATFORM_HINT= discord`.
 
-{{< callout >}}
-
-Keep in mind that this will run Discord under XWayland.
-
-{{< /callout >}}
+> [!WARNING]
+> Keep in mind that this will run Discord under XWayland.
 
 If it works, navigate to the Discord desktop entry (usually located in `/usr/share/applications/`). Duplicate it and replace `Exec=/usr/bin/discord` with `Exec=env ELECTRON_OZONE_PLATFORM_HINT= /usr/bin/discord`. You can also give it a new name, e.g. `Name=DiscordX`, to avoid confusion as to which is which.
 

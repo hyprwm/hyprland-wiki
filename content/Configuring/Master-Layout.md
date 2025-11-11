@@ -58,17 +58,14 @@ _category name `master`_
 
 Parameters for the commands are separated by a single space.
 
-{{< callout type=info >}}
-
-Example usage:
-
-```ini
-bind = MOD, KEY, layoutmsg, cyclenext
-# behaves like xmonads promote feature (https://hackage.haskell.org/package/xmonad-contrib-0.17.1/docs/XMonad-Actions-Promote.html)
-bind = MOD, KEY, layoutmsg, swapwithmaster master
-```
-
-{{< /callout >}}
+> [!NOTE]
+> Example usage:
+> 
+> ```ini
+> bind = MOD, KEY, layoutmsg, cyclenext
+> # behaves like xmonads promote feature (https://hackage.haskell.org/package/xmonad-contrib-0.17.1/docs/XMonad-Actions-Promote.html)
+> bind = MOD, KEY, layoutmsg, swapwithmaster master
+> ```
 
 ## Workspace Rules
 

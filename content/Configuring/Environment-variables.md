@@ -3,19 +3,16 @@ weight: 18
 title: Environment variables
 ---
 
-{{< callout type=info >}}
-
-[uwsm](../../Useful-Utilities/Systemd-start) users should avoid placing environment variables in the `hyprland.conf` file.  
-Instead, use `~/.config/uwsm/env` for theming, xcursor, Nvidia and toolkit variables, and `~/.config/uwsm/env-hyprland` for `HYPR*` and `AQ_*` variables.  
-The format is `export KEY=VAL`.
-
-```plain
-export XCURSOR_SIZE=24
-```
-
-See [uwsm readme](https://github.com/Vladimir-csp/uwsm?tab=readme-ov-file#4-environments-and-shell-profile) for additional information.
-
-{{< /callout >}}
+> [!NOTE]
+> [uwsm](../../Useful-Utilities/Systemd-start) users should avoid placing environment variables in the `hyprland.conf` file.  
+> Instead, use `~/.config/uwsm/env` for theming, xcursor, Nvidia and toolkit variables, and `~/.config/uwsm/env-hyprland` for `HYPR*` and `AQ_*` variables.  
+> The format is `export KEY=VAL`.
+> 
+> ```plain
+> export XCURSOR_SIZE=24
+> ```
+> 
+> See [uwsm readme](https://github.com/Vladimir-csp/uwsm?tab=readme-ov-file#4-environments-and-shell-profile) for additional information.
 
 You can use the `env` keyword to set environment variables prior to the
 initialization of the Display Server, e.g.:
@@ -24,41 +21,35 @@ initialization of the Display Server, e.g.:
 env = GTK_THEME,Nord
 ```
 
-{{< callout type=warning >}}
-
-Note that when using the `env` keyword, Hyprland reads the value of the variable as a **raw string** and puts it into the environment _as is_.  
-You should **NOT** add quotes `""` around the values.
-
-Some examples with differently formatted values:
-
-✗ DON'T:
-
-```py
-env = QT_AUTO_SCREEN_SCALE_FACTOR,"1"
-env = QT_QPA_PLATFORM,"wayland"
-env = QT_QPA_PLATFORM,"wayland;xcb"
-env = AQ_DRM_DEVICES=,"/dev/dri/card1:/dev/dri/card0"
-```
-
-✓ Instead, DO:
-
-```py
-env = QT_AUTO_SCREEN_SCALE_FACTOR,1
-env = QT_QPA_PLATFORM,wayland
-env = QT_QPA_PLATFORM,wayland;xcb
-env = AQ_DRM_DEVICES=,/dev/dri/card1:/dev/dri/card0
-```
-
-{{< /callout >}}
+> [!WARNING]
+> Note that when using the `env` keyword, Hyprland reads the value of the variable as a **raw string** and puts it into the environment _as is_.  
+> You should **NOT** add quotes `""` around the values.
+> 
+> Some examples with differently formatted values:
+> 
+> ✗ DON'T:
+> 
+> ```py
+> env = QT_AUTO_SCREEN_SCALE_FACTOR,"1"
+> env = QT_QPA_PLATFORM,"wayland"
+> env = QT_QPA_PLATFORM,"wayland;xcb"
+> env = AQ_DRM_DEVICES=,"/dev/dri/card1:/dev/dri/card0"
+> ```
+> 
+> ✓ Instead, DO:
+> 
+> ```py
+> env = QT_AUTO_SCREEN_SCALE_FACTOR,1
+> env = QT_QPA_PLATFORM,wayland
+> env = QT_QPA_PLATFORM,wayland;xcb
+> env = AQ_DRM_DEVICES=,/dev/dri/card1:/dev/dri/card0
+> ```
 
 
-{{< callout type=warning >}}
-
-Please avoid putting those environment variables in `/etc/environment`.  
-That will cause all sessions (including Xorg ones) to pick up your Wayland-specific
-environment on traditional Linux distros.
-
-{{< /callout >}}
+> [!WARNING]
+> Please avoid putting those environment variables in `/etc/environment`.  
+> That will cause all sessions (including Xorg ones) to pick up your Wayland-specific
+> environment on traditional Linux distros.
 
 ## Hyprland Environment Variables
 
@@ -100,11 +91,8 @@ them explicitly.
 If your [desktop portal](https://wiki.archlinux.org/title/XDG_Desktop_Portal) is malfunctioning for seemingly
 no reason (no errors), it's likely your XDG env isn't set correctly.
 
- {{< callout type=info >}}
- 
- [uwsm](../../Useful-Utilities/Systemd-start) users don't need to explicitly set XDG environment variables, as uwsm sets them automatically.
-
- {{< /callout >}}
+> [!NOTE]
+> [uwsm](../../Useful-Utilities/Systemd-start) users don't need to explicitly set XDG environment variables, as uwsm sets them automatically.
 
 ## Qt Variables
 

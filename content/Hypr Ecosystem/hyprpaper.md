@@ -104,11 +104,8 @@ required.
 
 Configuration is done using `preload`, which _loads_ an image into memory.
 
-{{< callout type=warning >}}
-
-Note that all image paths must be absolute (or start with `~`).
-
-{{< /callout >}}
+> [!WARNING]
+> Note that all image paths must be absolute (or start with `~`).
 
 The `wallpaper` keyword is then used to apply the preloaded image to your monitor(s):
 
@@ -117,11 +114,8 @@ preload = /home/me/amongus.png
 wallpaper = monitor, /home/me/amongus.png
 ```
 
-{{< callout type=info >}}
-
-You can check names and other info for your monitors using `hyprctl monitors`.
-
-{{< /callout >}}
+> [!NOTE]
+> You can check names and other info for your monitors using `hyprctl monitors`.
 
 The `monitor` argument can be left empty to set a wallpaper for all monitors that don't already have one set.
 
@@ -156,13 +150,10 @@ Running this command again with a new wallpaper would effectively swap
 the wallpaper with the new one, automating the whole preload, set,
 unload old sequence.
 
-{{< callout type=warning >}}
-
-`Monitor Specificity`  
-Once a monitor has a wallpaper set specifically (e.g., `hyprctl hyprpaper reload "DP-1,~/amogus.png"`),
-it won't be affected by the wildcard (`hyprctl hyprpaper reload ,"~/amogus.png"`).
-
-{{< /callout >}}
+> [!WARNING]
+> `Monitor Specificity`  
+> Once a monitor has a wallpaper set specifically (e.g., `hyprctl hyprpaper reload "DP-1,~/amogus.png"`),
+> it won't be affected by the wildcard (`hyprctl hyprpaper reload ,"~/amogus.png"`).
 
 #### Using `reload` to Randomize Your Wallpaper
 
@@ -221,9 +212,8 @@ hyprpaper supports IPC via `hyprctl`. Every dispatcher mentioned in the
 [List of Dispatchers](#list-of-dispatchers) can be called with
 `hyprctl hyprpaper <dispatcher> <arg(s)>`.
 
-{{< callout type=info >}}
-Make sure to use valid [hyprlang](./hyprlang.md) syntax when passing arguments to the dispatchers.
-{{< /callout >}}
+> [!NOTE]
+> Make sure to use valid [hyprlang](./hyprlang.md) syntax when passing arguments to the dispatchers.
 
 Additionally, you can get some info about the current state of hyprpaper with
 `listloaded` and `listactive`.

@@ -153,11 +153,8 @@ we can render to) and put it on your screen (via the gpu) instead of a window.
 Freezes, glitches, and others, can be caused by issues with Hyprland's communication with DRM, the driver
 or kernel. In those cases, a DRM log is helpful.
 
-{{< callout >}}
-
-Please note, these logs are EXTREMELY verbose. Please reproduce your bug(s) ASAP to avoid getting a 1GB log.
-
-{{< /callout >}}
+> [!WARNING]
+> Please note, these logs are EXTREMELY verbose. Please reproduce your bug(s) ASAP to avoid getting a 1GB log.
 
 ```sh
 echo 0x19F | sudo tee /sys/module/drm/parameters/debug  # enables verbose drm logging

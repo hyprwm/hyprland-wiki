@@ -7,18 +7,13 @@ This page will tell you how to use plugins.
 
 ## Disclaimers
 
-{{< callout type=warning >}}
-
-Plugins are written in C++ and will run as a part of Hyprland.
-
-Make sure to _always_ read the source code of the plugins you are going to use
-and to trust the source.
-
-Writing a plugin to wipe your computer is easy.
-
-_**Never**_ trust random `.so` files you receive from other people.
-
-{{< /callout >}}
+> [!WARNING]
+> Plugins are written in C++ and will run as a part of Hyprland.  
+> Make sure to _always_ read the source code of the plugins you are going to use
+> and to trust the source.  
+> Writing a plugin to wipe your computer is easy.
+> 
+> _**Never**_ trust random `.so` files you receive from other people.
 
 ## Getting plugins
 
@@ -34,18 +29,15 @@ manual instructions, see [here](#manual).
 
 ### hyprpm
 
-{{< callout type=info >}}
-
-If you are using [permission management](../../Configuring/Permissions),
-you should allow hyprpm to load plugins by adding this to your config:
-
-```ini
-permission = /usr/(bin|local/bin)/hyprpm, plugin, allow
-```
-
-otherwise you'll get a popup asking for permission every time hyprpm tries to load a plugin.
-
-{{< /callout >}}
+> [!NOTE]
+> If you are using [permission management](../../Configuring/Permissions),
+> you should allow hyprpm to load plugins by adding this to your config:
+> 
+> ```ini
+> permission = /usr/(bin|local/bin)/hyprpm, plugin, allow
+> ```
+> 
+> otherwise you'll get a popup asking for permission every time hyprpm tries to load a plugin.
 
 Make sure you have the required dependencies: `cpio`, `cmake`, `git`, `meson` and `gcc`.
 You might also need `-dev` packages of Hyprland's dependencies if your distro splits
@@ -87,11 +79,8 @@ To load plugins manually, use `hyprctl plugin load path`.
 
 You can unload plugins with `hyprctl plugin unload path`.
 
-{{< callout >}}
-
-Path has to be absolute!
-
-{{< /callout >}}
+> [!WARNING]
+> Path has to be absolute!
 
 ## FAQ About Plugins
 

@@ -13,11 +13,8 @@ adjust perceived display brightness on monitors that do not
 support software control, or to reduce perceived brightness
 below the monitor's minimum.
 
-{{< callout type=warning >}}
-
-`hyprsunset` is supported since Hyprland 0.45.0.
-
-{{< /callout >}}
+> [!WARNING]
+> `hyprsunset` is supported since Hyprland 0.45.0.
 
 ## Installation
 
@@ -96,11 +93,8 @@ hyprctl hyprsunset reset identity
 hyprctl hyprsunset profile
 ```
 
-{{< callout type=warning >}}
-
-`hyprsunset` is supported since Hyprland 0.45.0.
-
-{{< /callout >}}
+> [!WARNING]
+> `hyprsunset` is supported since Hyprland 0.45.0.
 
 This can be used by other software to change the temperature throughout the day, or to adjust perceieved
 monitor brightness, such as with the following Hyprland keybinds:
@@ -109,8 +103,5 @@ bindel = ,XF86MonBrightnessDown, exec, hyprctl hyprsunset gamma -10
 bindel = ,XF86MonBrightnessUp, exec, hyprctl hyprsunset gamma +10
 ```
 
-{{< callout type=warning >}}
-
-Using the gamma control will degrade color accuracy. If your monitor does support software control, it is highly recommended to use that instead.
-
-{{< /callout >}}
+> [!WARNING]
+> Using the gamma control will degrade color accuracy. If your monitor does support software control, it is highly recommended to use that instead.

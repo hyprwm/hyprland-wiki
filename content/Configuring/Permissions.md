@@ -14,22 +14,16 @@ Permissions work a bit like Android ones. If an app tries to do something sensit
 the compositor (Hyprland), Hyprland will pop up a notification asking you if you
 want to let it do that.
 
-{{< callout type=info >}}
-
-Before setting up permissions, make sure you enable them by setting
-`ecosystem:enforce_permissions = true`, as it's disabled by default.
-
-{{</ callout >}}
+> [!NOTE]
+> Before setting up permissions, make sure you enable them by setting
+> `ecosystem:enforce_permissions = true`, as it's disabled by default.
 
 
 ### Configuring permissions
 
-{{< callout type=important >}}
-
-Permissions set up in the config are **not** reloaded on-the-fly and require a Hyprland
-restart for security reasons.
-
-{{</ callout >}}
+> [!IMPORTANT]
+> Permissions set up in the config are **not** reloaded on-the-fly and require a Hyprland
+> restart for security reasons.
 
 Configuring them is simple:
 

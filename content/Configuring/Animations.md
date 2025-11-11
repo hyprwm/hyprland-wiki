@@ -67,12 +67,9 @@ global
   ↳ monitorAdded - monitor added zoom animation
 ```
 
-{{< callout type=warning >}}
-
-Using the `loop` style for `borderangle` requires Hyprland to _constantly_ render new frames at a frequency equal to your screen's refresh rate (e.g. 60 times per second for a 60hz monitor), which might stress your CPU/GPU and will impact battery life. <br>
-This will apply even if animations are disabled or borders are not visible.
-
-{{</ callout >}}
+> [!WARNING]
+> Using the `loop` style for `borderangle` requires Hyprland to _constantly_ render new frames at a frequency equal to your screen's refresh rate (e.g. 60 times per second for a 60hz monitor), which might stress your CPU/GPU and will impact battery life. <br>
+> This will apply even if animations are disabled or borders are not visible.
 
 ## Curves
 
