@@ -10,7 +10,7 @@ This wiki section hosts docs for various hypr* projects.
 
 ## Wiki Pages
 
-Check out the wiki pages for the apps, or their GitHub repo.
+Check out the wiki pages for each app, or their GitHub repo.
 
 ### User Apps and Utilities
 
