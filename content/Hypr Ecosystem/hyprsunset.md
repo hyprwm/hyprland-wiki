@@ -3,7 +3,7 @@ weight: 10
 title: hyprsunset
 ---
 
-hyprsunset is a small utility to provide a blue light filter
+[hyprsunset](https://github.com/hyprwm/hyprsunset) is a small utility to provide a blue light filter
 for your system.
 
 This method is preferred to screen shaders as it will _not_ be captured via recording / screenshots.

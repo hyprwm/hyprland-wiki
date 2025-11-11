@@ -3,7 +3,7 @@ weight: 5
 title: hyprlock
 ---
 
-hyprlock is a simple, yet fast, multi-threaded and GPU-accelerated screen lock
+[hyprlock](https://github.com/hyprwm/hyprlock) is a simple, yet fast, multi-threaded and GPU-accelerated screen lock
 for Hyprland.
 
 > [!WARNING]

@@ -3,7 +3,7 @@ weight: 105
 title: aquamarine
 ---
 
-aquamarine is a very light linux rendering backend library.
+[aquamarine](https://github.com/hyprwm/aquamarine) is a very light linux rendering backend library.
 
 It is not a replacement or competitor to any other wayland compositor library (e.g. wlroots, libweston), instead implementing only the low-level KMS/DRM/etc rendering backends.
 

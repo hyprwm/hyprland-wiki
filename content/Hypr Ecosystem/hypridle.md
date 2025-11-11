@@ -3,7 +3,7 @@ weight: 4
 title: hypridle
 ---
 
-hypridle is Hyprland's idle management daemon.
+[hypridle](https://github.com/hyprwm/hypridle) is Hyprland's idle management daemon.
 
 ## Configuration
 

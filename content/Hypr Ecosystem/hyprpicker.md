@@ -3,7 +3,7 @@ weight: 2
 title: hyprpicker
 ---
 
-hyprpicker is a neat utility for picking a color from your screen on Hyprland.
+[hyprpicker](https://github.com/hyprwm/hyprpicker) is a neat utility for picking a color from your screen on Hyprland.
 
 ## Configuration
 

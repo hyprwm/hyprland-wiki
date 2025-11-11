@@ -3,7 +3,7 @@ weight: 103
 title: hyprlang
 ---
 
-hyprlang is a library that implements parsing for the hypr configuration language.
+[hyprlang](https://github.com/hyprwm/hyprlang) is a library that implements parsing for the hypr configuration language.
 
 ## Syntax
 

@@ -3,7 +3,7 @@ weight: 12
 title: hyprland-qt-support
 ---
 
-hyprland-qt-support provides a QML style for hypr* qt6 apps. 
+[hyprland-qt-support](https://github.com/hyprwm/hyprland-qt-support) provides a QML style for hypr* qt6 apps. 
 
 ## Configuration
 
