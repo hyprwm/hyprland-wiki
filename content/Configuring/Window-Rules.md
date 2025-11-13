@@ -322,7 +322,7 @@ but they have different props and effects.
 | no_anim | \[on\] | Disables animations. |
 | blur | \[on\] | Enables blur for the layer. |
 | blur_popups | \[on\] | Enables blur for the popups. |
-| ignor_ealpha | \[a\] | Makes blur ignore pixels with opacity of `a` or lower. `a` is float value from `0` to `1`. `a = 0` if unspecified. |
+| ignore_alpha | \[a\] | Makes blur ignore pixels with opacity of `a` or lower. `a` is float value from `0` to `1`. `a = 0` if unspecified. |
 | dim_around | \[on\] | Dims everything behind the layer. |
 | xray | \[on\] | Sets the blur xray mode for a layer. `0` for off, `1` for on, `unset` for default. |
 | animation | \[style\] | Allows you to set a specific animation style for this layer. |
