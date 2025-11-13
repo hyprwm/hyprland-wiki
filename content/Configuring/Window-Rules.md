@@ -43,25 +43,25 @@ You can have as many props and effects per rule as you please, in any order as y
 
 The supported fields for props are:
 
-| Field | Description |
+| Field | Argument | Description |
 | -------------- | --------------- |
-| match:class \[RegEx\] | Windows with `class` matching `RegEx`. |
-| match:title \[RegEx\] | Windows with `title` matching `RegEx`. |
-| match:initial_class \[RegEx\] | Windows with `initialClass` matching `RegEx`. |
-| match:initial_title \[RegEx\] | Windows with `initialTitle` matching `RegEx`. |
-| match:tag \[name\] | Windows with matching `tag`. |
-| match:xwayland \[bool\] | Xwayland windows. |
-| match:floating \[bool\] | Floating windows. |
-| match:fullscreen \[bool\] | Fullscreen windows. |
-| match:pin \[bool\] | Pinned windows. |
-| match:focus \[bool\] | Currently focused window. |
-| match:group \[bool\] | Grouped windows. |
-| match:modal \[bool\] | Modal windows (e.g. "Are you sure" popups) |
-| match:fullscreen_state_client \[client\] | Windows with matching `fullscreenstate`. `client` can be `0` - none, `1` - maximize, `2` - fullscreen, `3` - maximize and fullscreen. |
-| match:fullscreen_state_internal \[internal\] | Windows with matching `fullscreenstate`. `internal` can be `0` - none, `1` - maximize, `2` - fullscreen, `3` - maximize and fullscreen. |
-| match:on_workspace \[workspace\] | Windows on matching workspace. `w` can be `id`, `name:string` or `workspace selector`. |
-| match:content \[int\] | Windows with specified content type (none = 0, photo = 1, video = 2, game = 3) |
-| match:xdg_tag \[RegEx\] | Match a window by its xdgTag (see `hyprctl clients` to check if it has one) | 
+| match:class | \[RegEx\] | Windows with `class` matching `RegEx`. |
+| match:title | \[RegEx\] | Windows with `title` matching `RegEx`. |
+| match:initial_class | \[RegEx\] | Windows with `initialClass` matching `RegEx`. |
+| match:initial_title |\[RegEx\] | Windows with `initialTitle` matching `RegEx`. |
+| match:tag | \[name\] | Windows with matching `tag`. |
+| match:xwayland | \[bool\] | Xwayland windows. |
+| match:floating | \[bool\] | Floating windows. |
+| match:fullscreen | \[bool\] | Fullscreen windows. |
+| match:pin | \[bool\] | Pinned windows. |
+| match:focus | \[bool\] | Currently focused window. |
+| match:group | \[bool\] | Grouped windows. |
+| match:modal | \[bool\] | Modal windows (e.g. "Are you sure" popups) |
+| match:fullscreen_state_client | \[client\] | Windows with matching `fullscreenstate`. `client` can be `0` - none, `1` - maximize, `2` - fullscreen, `3` - maximize and fullscreen. |
+| match:fullscreen_state_internal | \[internal\] | Windows with matching `fullscreenstate`. `internal` can be `0` - none, `1` - maximize, `2` - fullscreen, `3` - maximize and fullscreen. |
+| match:on_workspace | \[workspace\] | Windows on matching workspace. `w` can be `id`, `name:string` or `workspace selector`. |
+| match:content | \[int\] | Windows with specified content type (none = 0, photo = 1, video = 2, game = 3) |
+| match:xdg_tag | \[RegEx\] | Match a window by its xdgTag (see `hyprctl clients` to check if it has one) | 
 
 Keep in mind that you _have_ to declare at least one field, but not all.
 
@@ -311,9 +311,9 @@ but they have different props and effects.
 
 ### Props
 
-| Field | Description |
+| Field | Argument | Description |
 | -------------- | --------------- |
-| match:namespace \[RegEx\] | namespace of the layer, check `hyprctl layers`. |
+| match:namespace | \[RegEx\] | namespace of the layer, check `hyprctl layers`. |
 
 ### Effects
 
