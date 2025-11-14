@@ -51,7 +51,7 @@ The supported fields for props are:
 | match:initial_title |\[RegEx\] | Windows with `initialTitle` matching `RegEx`. |
 | match:tag | \[name\] | Windows with matching `tag`. |
 | match:xwayland | \[bool\] | Xwayland windows. |
-| match:floating | \[bool\] | Floating windows. |
+| match:float | \[bool\] | Floating windows. |
 | match:fullscreen | \[bool\] | Fullscreen windows. |
 | match:pin | \[bool\] | Pinned windows. |
 | match:focus | \[bool\] | Currently focused window. |
@@ -59,7 +59,7 @@ The supported fields for props are:
 | match:modal | \[bool\] | Modal windows (e.g. "Are you sure" popups) |
 | match:fullscreen_state_client | \[client\] | Windows with matching `fullscreenstate`. `client` can be `0` - none, `1` - maximize, `2` - fullscreen, `3` - maximize and fullscreen. |
 | match:fullscreen_state_internal | \[internal\] | Windows with matching `fullscreenstate`. `internal` can be `0` - none, `1` - maximize, `2` - fullscreen, `3` - maximize and fullscreen. |
-| match:on_workspace | \[workspace\] | Windows on matching workspace. `w` can be `id`, `name:string` or `workspace selector`. |
+| match:workspace | \[workspace\] | Windows on matching workspace. `w` can be `id`, `name:string` or `workspace selector`. |
 | match:content | \[int\] | Windows with specified content type (none = 0, photo = 1, video = 2, game = 3) |
 | match:xdg_tag | \[RegEx\] | Match a window by its xdgTag (see `hyprctl clients` to check if it has one) | 
 
