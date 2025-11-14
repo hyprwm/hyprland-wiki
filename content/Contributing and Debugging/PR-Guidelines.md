@@ -33,7 +33,7 @@ I've tweaked it so that in 99% of cases you absolutely should fix it.
 ### Other
 
 Some stuff clang-tidy / clang-format won't catch:
-- NCuo uninitialized _primitives_ (int, float, double, size_t, etc.)
+- No uninitialized _primitives_ (int, float, double, size_t, etc.)
 - No short if braces. if your if/else body contains 1 _line_ (not 1 statement) do not put `{}` around it.
 - The above rule does not apply to loops / etc
 - Consider adding a `;` inside of empty function bodies
