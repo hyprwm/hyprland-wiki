@@ -13,13 +13,13 @@ Configuration options are passed via environment variables starting with `AQ_` t
 
 ### Variables
 
-| name | description |
+| Name | Description |
 | --- | --- |
 | `AQ_TRACE` | Enables trace (very, very verbose) logging. |
-| `AQ_DRM_DEVICES` | A colon-separated list of DRM devices (aka. GPUs) to use. The first will be used as primary. Example: `/dev/dri/card1:/dev/dri/card0`. |
+| `AQ_DRM_DEVICES` | A colon-separated list of DRM devices (aka. GPUs) to use. <br> The first will be used as primary. <br> Example: `/dev/dri/card1:/dev/dri/card0`. |
 | `AQ_NO_MODIFIERS` | Disables modifiers for DRM buffers. |
 | `AQ_MGPU_NO_EXPLICIT` | Disables passing of explicit fences for multi-gpu scanouts |
-| `AQ_NO_ATOMIC` | (HEAVILY NOT RECOMMENDED) Disable atomic modesetting. |
+| `AQ_NO_ATOMIC` | **(HEAVILY NOT RECOMMENDED)** Disable atomic modesetting. |
 
 ## Documentation
 
