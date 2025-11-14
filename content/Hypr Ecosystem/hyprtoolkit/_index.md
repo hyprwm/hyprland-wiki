@@ -28,3 +28,5 @@ The general toolkit config is at `~/.config/hypr/hyprtoolkit.conf`. It contains 
 | font_size | font size for regular text elements | int | 11 |
 | small_font_size | font size for small text elements | int | 10 |
 | icon_theme | name of the icon theme to use, empty for "the first found" | string | empty |
+| font_family | name of the font family to use | string | Sans Serif |
+| font_family_monospace | name of the monospace font family to use | string | monospace |
