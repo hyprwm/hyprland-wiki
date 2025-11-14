@@ -121,6 +121,7 @@ Available flags:
 | `s` | separate | Will arbitrarily combine keys between each mod/key, see [Keysym combos](#keysym-combos). |
 | `d` | has description | Will allow you to write a description for your bind. |
 | `p` | bypass | Bypasses the app's requests to inhibit keybinds. |
+| `u` | submap universal | Will be active no matter the submap. |
 
 Example Usage:
 
@@ -392,6 +393,12 @@ submap = reset
 
 This works because the binds are executed in the order they appear, and
 assigning multiple actions per bind is possible.
+
+You can set a keybind that will be active no matter the current submap with the submap universal bind flag.
+
+```ini
+bindu = $mainMod, K, exec, kitty
+```
 
 ### Nesting
 

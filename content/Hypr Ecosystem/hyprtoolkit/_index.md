@@ -29,3 +29,5 @@ It contains theming and some minor adjustments.
 | `font_size` | Font size for regular text elements. | int | `11` |
 | `small_font_size` | Font size for small text elements. | int | `10` |
 | `icon_theme` | Name of the icon theme to use, empty for "the first found". | string | _empty_ |
+| `font_family` | Name of the font family to use. | string | `Sans Serif` |
+| `font_family_monospace` | Name of the monospace font family to use. | string | `monospace` |

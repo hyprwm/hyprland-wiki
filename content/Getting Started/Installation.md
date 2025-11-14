@@ -135,9 +135,6 @@ following the instructions
 {{% /details %}}
 {{% details title="Debian*" closed="true" %}}
 
-> [!WARNING]
-> Debian's Hyprland is **extremely** outdated. I do not recommend using the packaged versions at all. Build the entire stack manually instead.
-
 Hyprland recently made it into the SID repository and can be installed with
 
 ```sh
@@ -198,7 +195,7 @@ Hyprland and related are in the default repository:
 {{% details title="Ubuntu*" closed="true" %}}
 
 > [!WARNING]
-> Debian and Ubuntu's Hyprland is **extremely** outdated. I do not recommend using the packaged versions at all. Build the entire stack manually instead.
+> Ubuntu's Hyprland is **extremely** outdated. I do not recommend using the packaged versions at all. Build the entire stack manually instead.
 
 Hyprland made it into the Ubuntu 24.10 Oracular Oriole universe repo and can be installed with
 
