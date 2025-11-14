@@ -254,7 +254,7 @@ If `path` is empty or missing, nothing will be shown.
 | path | image path | str | [[Empty]] |
 | size | size scale based on the lesser side of the image | int | 150 |
 | rounding | negative values result in a circle | int | -1 |
-| border_size | border size | int | 0 |
+| border_size | border size | int | 4 |
 | border_color | border color | gradient | rgba(221, 221, 221, 1.0) |
 | rotate | rotation in degrees, counter-clockwise | int | 0 |
 | reload_time | seconds between reloading, 0 to reload with SIGUSR2 | int | -1 |
