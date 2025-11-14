@@ -204,17 +204,26 @@ Example configuration:
 If you want to use the Home Manager module while using the Hyprland package you've
 defined in your NixOS module, you can now do so as long as you're running
 [Home Manager `5dc1c2e40410f7dabef3ba8bf4fdb3145eae3ceb`](https://github.com/nix-community/home-manager/commit/5dc1c2e40410f7dabef3ba8bf4fdb3145eae3ceb)
-or later by setting your `package` and `portalPackage` to `null`.
+or later by pointing your `package` and `portalPackage` the system packages. See [hyprsunset/#96](https://github.com/hyprwm/hyprsunset/issues/69).
 
 ```nix {filename="home.nix"}
+{hostConfig, ...}:
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    # set the Hyprland and XDPH packages to null to use the ones from the NixOS module
-    package = null;
-    portalPackage = null;
+    # point the Hyprland and XDPH packages to the ones from the NixOS module
+    package = hostConfig.program.hyprland.package;
+    portalPackage = hostConfig.program.hyprland.portalPackage;
   };
 }
+```
+You need to make sure to make your system configuration available in home-manager:
+```nix {filename="system.nix"}
+home-manager = {
+  extraSpecialArgs = {
+    hostConfig = config;
+  };
+};
 ```
 
 Make sure **not** to mix versions of Hyprland and XDPH.
