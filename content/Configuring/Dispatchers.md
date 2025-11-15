@@ -200,33 +200,17 @@ bind = SUPER, E, exec, [workspace 2 silent; float; move 0 0] kitty
 
 ### setprop
 
-Prop List:
-
-| prop | comment |
-| --- | --- |
-| alpha | float 0.0 - 1.0 |
-| alphaoverride | 0/1, makes the next setting be override instead of multiply |
-| alphainactive | float 0.0 - 1.0 |
-| alphainactiveoverride | 0/1, makes the next setting be override instead of multiply |
-| alphafullscreen | float 0.0 - 1.0 |
-| alphafullscreenoverride | 0/1, makes the next setting be override instead of multiply |
-| animationstyle | string, cannot be locked |
-| activebordercolor | gradient, -1 means not set |
-| inactivebordercolor | gradient, -1 means not set |
-| maxsize | vec2 (`x y`) |
-| minsize | vec2 (`x y`) |
-
-Additional properties can be found in the [Window Rules](../Window-Rules#dynamic-rules) section.
+Props are any of the _dynamic effects_ of [Window Rules](../Window-Rules#dynamic-effects).
 
 For example:
 
 ```sh
-address:0x13371337 noanim 1
-address:0x13371337 nomaxsize 0
+address:0x13371337 no_anim 1
+address:0x13371337 no_max_size 0
 address:0x13371337 opaque toggle
 address:0x13371337 immediate unset
-address:0x13371337 bordersize relative -2
-address:0x13371337 roundingpower relative 0.1
+address:0x13371337 border_size relative -2
+address:0x13371337 rounding_power relative 0.1
 ```
 
 ### Fullscreenstate
