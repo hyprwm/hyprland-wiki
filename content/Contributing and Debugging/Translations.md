@@ -1,0 +1,48 @@
+---
+title: Translations
+---
+
+Some parts of the Hyprland ecosystem are localized. More and more are getting localization
+frameworks. This is a short page showing how to contribute translations to Hyprland apps.
+
+## Find the translation file
+
+Here you'll find a list of translation files for hyprapps ready to translate:
+
+- [hyprlauncher](https://github.com/hyprwm/hyprlauncher/blob/main/src/i18n/Engine.cpp)
+
+_more are coming, this list will be updated_
+
+## Translate
+
+Translations are in C++, but they are straightforward, and don't require much expertise.
+
+### Basic translations (unconditional)
+
+You register a translation for a key and your language code. For example, for key `TXT_KEY_HELLO`, and language
+`pl_PL` (polish), you can:
+```cpp
+registerEntry("pl_PL", TXT_KEY_HELLO, "Siemka!");
+```
+
+Some translations have variables, included like so:
+```cpp
+registerEntry("pl_PL", TXT_KEY_HELLO, "Siemka, {name}!");
+```
+
+### Conditional translations
+
+In some languages, you might want to change your translation based on e.g. the amount. (apple vs apples). In this
+case, it's a bit more complicated, but it looks like this:
+
+```cpp
+registerEntry("pl_PL", TXT_KEY_HELLO, [](const Hyprutils::I18n::translationVarMap& vars) {
+    int peopleAmount = std::stoi(vars.at("count"));
+    if (peopleAmount == 1)
+        return "Mam {count} dziewczynkę anime.";
+    return "Mam {count} dziewczynek anime.";
+});
+```
+
+As you can see, you can change the returned string based on some variable. Please note all variables
+are strings, so you need to call a standard function like `std::stoi` to obtain an integer.
