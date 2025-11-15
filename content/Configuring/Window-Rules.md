@@ -98,9 +98,8 @@ Static effects are evaluated once when the window is opened and never again. Thi
 | fullscreen | \[on\] | Fullscreens a window. |
 | maximize | \[on\] | Maximizes a window. |
 | fullscreen_state | \[internal\] \[client\]  | Sets the focused window's fullscreen mode and the one sent to the client, where internal and client can be `0` - none, `1` - maximize, `2` - fullscreen, `3` - maximize and fullscreen. |
-| move  | \[x\] \[y\] | Moves a floating window (`x, y` -> int or %, e.g. `100` or `20%`.<br>You are also allowed to do `100%-` for the right/bottom anchor, e.g. `100%-20`. In addition, the option supports the subtraction of the window's size with `100%-w-`, e.g. `100%-w-20`. This results in a gap at the right/bottom edge of the screen to the window with the defined subtracted size). <br> Additionally, you can also do `cursor [x] [y]` where x and y are either pixels or percent. Percent is calculated from the window's size. Specify `onscreen` before other parameters to force the window into the screen (e.g. `move onscreen cursor 50% 50%`) |
-| size | \[w\] \[h\] | Resizes a floating window (`w, h` -> int or %, e.g. `1280, 720` or `50%, 50%`.<br>`<` and `>` may also be prefixed in conjunction, to specify respectively the maximum or minimum allowed size. (e.g. `<1280` or `<40%` -> maximum size, `>300` or `>10%` -> minimum size).<br>Note that int values in pixels will be scaled by your monitor's scaling factor. |
-| center | \[on\] | If the window is floating, will center it on the monitor. |
+| move  | \[expr\] \[expr\] | Moves a floating window to a given coordinate, monitor-local. Two expressions are space-separated. |
+| size | \[expr\] \[expr\] | Resizes a floating window to a given size. Two expressions are space-separated. |
 | pseudo | \[on\] | Pseudotiles a window. |
 | monitor | \[id\] | Sets the monitor on which a window should open. `id` can be either the id number or the name (e.g. `1` or `DP-1`). |
 | workspace | \[w\] | Sets the workspace on which a window should open (for workspace syntax, see [dispatchers->workspaces](../Dispatchers#workspaces)). <br> You can also set \[w\] to `unset`. This will unset all previous workspace rules applied to this window. Additionally you can add `silent` after the workspace to make the window open silently. |
@@ -110,6 +109,24 @@ Static effects are evaluated once when the window is opened and never again. Thi
 | suppress_event | \[types...\] | Ignores specific events from the window. Events are space separated, and can be: `fullscreen`, `maximize`, `activate`, `activatefocus`, `fullscreenoutput`. |
 | content | \[none\|photo\|video\|game\] | Sets content type. |
 | no_close_for | \[ms\] | Makes the window uncloseable with the `killactive` dispatcher for a given amount of ms on open. |
+
+#### Expressions
+
+Expressions are space-separated, so your math cannot have spaces. They are regular, math expressions, with a few variables exposed,
+names of which are self-explanatory. All position variables are monitor-local.
+
+- `monitor_w` and `monitor_h` for monitor size
+- `window_x` and `window_y` for window position
+- `window_w` and `window_h` for window size
+- `cursor_x` and `cursor_y` for cursor position
+
+Example expressions:
+- `window_w*0.5`
+- `(monitor_w/2)+17`
+
+It's probably a good idea to surround your expressions with parentheses for clarity, with space-separation:
+- `(monitor_w*0.5) (monitor_h*0.5)`
+- `((monitor_w*0.5)+17) (monitor_h*0.2)`
 
 ### Dynamic effects
 
