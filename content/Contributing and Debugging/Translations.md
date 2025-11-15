@@ -16,6 +16,7 @@ _more are coming, this list will be updated_
 ## Translate
 
 Translations are in C++, but they are straightforward, and don't require much expertise.
+You submit a translation via a traditional MR on Github.
 
 ### Basic translations (unconditional)
 
