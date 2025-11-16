@@ -41,6 +41,10 @@ registerEntry("pl_PL", TXT_KEY_HELLO, [](const Hyprutils::I18n::translationVarMa
     int peopleAmount = std::stoi(vars.at("count"));
     if (peopleAmount == 1)
         return "Mam {count} dziewczynkę anime.";
+    int last = peopleAmount % 10;
+    int lastTwo = peopleAmount % 100;
+    if (last >= 2 && last <= 4 && !(lastTwo >= 12 && lastTwo <= 14))
+        return "Mam {count} dziewczynki anime.";
     return "Mam {count} dziewczynek anime.";
 });
 ```
