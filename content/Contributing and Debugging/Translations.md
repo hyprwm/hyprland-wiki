@@ -9,6 +9,7 @@ frameworks. This is a short page showing how to contribute translations to Hyprl
 
 Here you'll find a list of translation files for hyprapps ready to translate:
 
+- [hyprland](https://github.com/hyprwm/Hyprland/blob/main/src/i18n/Engine.cpp)
 - [hyprlauncher](https://github.com/hyprwm/hyprlauncher/blob/main/src/i18n/Engine.cpp)
 - [hyprpwcenter](https://github.com/hyprwm/hyprpwcenter/blob/main/src/i18n/Engine.cpp)
 
