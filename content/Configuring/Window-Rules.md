@@ -44,7 +44,7 @@ You can have as many props and effects per rule as you please, in any order as y
 The supported fields for props are:
 
 | Field | Argument | Description |
-| -------------- | --------------- |
+| -------------- | --------------- | --- |
 | match:class | \[RegEx\] | Windows with `class` matching `RegEx`. |
 | match:title | \[RegEx\] | Windows with `title` matching `RegEx`. |
 | match:initial_class | \[RegEx\] | Windows with `initialClass` matching `RegEx`. |
@@ -92,7 +92,7 @@ Static effects are evaluated once when the window is opened and never again. Thi
 > It is not possible to `float` (or any other static rule) a window based on a change in the `title` after the window has been created. This applies to all static effects listed here.
 
 | Effect | argument | Description |
-| ---- | ----------- |
+| ---- | ----------- | --- |
 | float | \[on\] | Floats a window. |
 | tile |  \[on\] |Tiles a window. |
 | fullscreen | \[on\] | Fullscreens a window. |
@@ -133,7 +133,7 @@ It's probably a good idea to surround your expressions with parentheses for clar
 Dynamic effects are re-evaluated every time a property changes.
 
 | Effect | argument | Description |
-| ---- | ----------- |
+| ---- | ----------- | --- |
 | persistent_size | \[on\] | Allows size persistence between application launches for floating windows. |
 | no_max_size | \[on\] | Removes max size limitations. Especially useful with windows that report invalid max sizes (e.g. winecfg). |
 | stay_focused | \[on\] | Forces focus on the window as long as it's visible. |
@@ -329,13 +329,13 @@ but they have different props and effects.
 ### Props
 
 | Field | Argument | Description |
-| -------------- | --------------- |
+| -------------- | --------------- | --- |
 | match:namespace | \[RegEx\] | namespace of the layer, check `hyprctl layers`. |
 
 ### Effects
 
 | effect | argument | description |
-| ---- | ----------- |
+| ---- | ----------- | --- |
 | no_anim | \[on\] | Disables animations. |
 | blur | \[on\] | Enables blur for the layer. |
 | blur_popups | \[on\] | Enables blur for the popups. |
