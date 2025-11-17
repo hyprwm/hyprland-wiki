@@ -3,10 +3,10 @@ weight: 101
 title: hyprcursor
 ---
 
-hyprcursor is a new cursor theme format that has many advantages
+[hyprcursor](https://github.com/hyprwm/hyprcursor) is a new cursor theme format that has many advantages
 over the widely used xcursor.
 
-## Hyprcursor themes
+## Hyprcursor Themes
 
 You will need to obtain those yourself. If you are on the Discord server, see
 `#hyprcursor-themes`.
@@ -37,7 +37,7 @@ Go to the [hyprcursor repo](https://github.com/hyprwm/hyprcursor)
 
 See the `docs/` and `hyprcursor-util/` directories for instructions.
 
-## Important notes
+## Important Notes
 
 Although many apps support server-side cursors (e.g. Qt, Chromium, Electron,
 Hypr Ecosystem) some apps still don't (e.g. GTK).
@@ -46,21 +46,34 @@ Apps that do not support server-side cursors and hyprcursor will still fall back
 to XCursor.
 
 For those apps, you need to export `XCURSOR_THEME` and `XCURSOR_SIZE` to a valid
-XCursor theme, and run `gsettings set org.gnome.desktop.interface cursor-theme
-'THEME_NAME'` for gtk. If `gsettings` schemas are not available to you (e.g. on
-NixOS you will get `No schemas installed`), you can run instead: `dconf write
-/org/gnome/desktop/interface/cursor-theme "'THEME_NAME'"`.
+XCursor theme, and run 
 
-If the app is a flatpak, run `flatpak override --filesystem=~/.themes:ro
---filesystem=~/.icons:ro --user` and put your themes in both `/usr/share/themes`
-and `~/.themes`, and put your icons and XCursors in both `/usr/share/icons`
-and `~/.icons`.
+```sh
+gsettings set org.gnome.desktop.interface cursor-theme 'THEME_NAME'
+```
 
-## I don't want to use hyprcursor
+for gtk.  
+
+If `gsettings` schemas are not available to you (e.g. on NixOS you will get `No schemas installed`), you can run instead: 
+
+```sh
+dconf write /org/gnome/desktop/interface/cursor-theme "'THEME_NAME'"
+```
+
+If the app is a flatpak, run:
+
+```sh
+flatpak override --filesystem=~/.themes:ro --filesystem=~/.icons:ro --user
+``` 
+
+and put your themes in both `/usr/share/themes` and `~/.themes`, 
+also put your icons and XCursors in both `/usr/share/icons` and `~/.icons`.
+
+## I Don't Want to Use hyprcursor
 
 If you don't have any hyprcursor themes installed, Hyprland will fall back to XCursor, and use
 whatever you define with `XCURSOR_THEME` and `XCURSOR_SIZE`.
 
-## My cursor is a hyprland icon?
+## My Cursor Is a hyprland Icon?
 
 See [FAQ](../../FAQ)

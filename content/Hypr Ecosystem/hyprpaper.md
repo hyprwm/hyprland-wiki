@@ -3,7 +3,7 @@ weight: 1
 title: hyprpaper
 ---
 
-hyprpaper is a fast, IPC-controlled wallpaper utility for Hyprland.
+[hyprpaper](https://github.com/hyprwm/hyprpaper) is a fast, IPC-controlled wallpaper utility for Hyprland.
 
 ## Installation
 
@@ -142,7 +142,8 @@ The `reload` keyword allows you to set or change wallpapers without
 having to preload them.  
 For example, you could have a completely empty hyprpaper config (with [IPC](#ipc) enabled!), and run the below command to quickly set your wallpaper (this example sets the wallpaper for
 all monitors):
-```
+
+```sh
 hyprctl hyprpaper reload ,"~/amogus.png"
 ```
 
@@ -186,7 +187,6 @@ WALLPAPER=$(find "$WALLPAPER_DIR" -type f ! -name "$(basename "$CURRENT_WALL")" 
 
 # Apply the selected wallpaper
 hyprctl hyprpaper reload "$FOCUSED_MONITOR","$WALLPAPER"
-
 ```
 
 Make sure to change the `WALLPAPER_DIR` to your own wallpaper directory. You can then run this

@@ -3,11 +3,11 @@ weight: 103
 title: hyprlang
 ---
 
-hyprlang is a library that implements parsing for the hypr configuration language.
+[hyprlang](https://github.com/hyprwm/hyprlang) is a library that implements parsing for the hypr configuration language.
 
 ## Syntax
 
-### Line style
+### Line Style
 
 Every config line is a command followed by a value.
 
@@ -16,10 +16,10 @@ COMMAND = VALUE
 ```
 
 The command can be a variable, or a special keyword (those are defined by the app
-you are using)
+you are using).
 
-Variables are like "options", while keywords are like "commands". Options can be specified
-only once (if you do it more times, it will overwrite the previous one),
+Variables are like "options", while keywords are like "commands".  
+Options can be specified only once (if you do it more times, the previous one will be overwritten),
 while commands invoke some behavior every time they are defined.
 
 The trailing spaces at the beginning and end of words are not necessary, and are
@@ -29,7 +29,7 @@ there only for legibility.
 
 Categories can be regular, and "special".
 
-Both are specified the same:
+Both are specified in the same way:
 
 ```ini
 category {
@@ -50,8 +50,8 @@ special {
 }
 ```
 
-This is like defining two "groups", one with the key of A, another with B. Hyprland for
-example uses those for per-device configs.
+This is like defining two "groups", one with the key of A, another with B.  
+Hyprland for example uses those for per-device configs.
 
 ### Defining variables
 
@@ -69,16 +69,17 @@ $NAME = Jeremy
 greeting = Hello, $NAME$SUFFIX.
 ```
 
-You do not need spaces to separate values, or spaces around values.
+> [!NOTE]
+> Spaces around or separating values are not mandatory
 
 ### Comments
 
 Comments are started with the `#` character.
 
-If you want to escape it (put an actual `#` and not start a comment) you can use
-`##`. It will be turned into a single `#` that _will_ be a part of your line.
+If you want to escape it (put an actual `#` and not start a comment) you can use `##`.  
+It will be turned into a single `#` that _will_ be a part of your line.
 
-### Escaping errors
+### Escaping Errors
 
 If you use plugins, you may want to ignore errors from missing options/keywords
 so that you don't get an error bar before they are loaded. To do so, do this:
@@ -92,15 +93,15 @@ someoption = blah
 # hyprlang noerror false
 ```
 
-### Inline options
+### Inline Options
 
-If you want to specify an option inline, without opening and closing a category, the separator is `:`:
+If you want to specify an option inline, without opening and closing a category, use the `:` separator:
 
 ```ini
 category:variable = value
 ```
 
-If the category is special and requires a key, you can do:
+If the category is special and requires a key, you can write:
 
 ```ini
 category[keyvalue]:variable = value
@@ -108,11 +109,12 @@ category[keyvalue]:variable = value
 
 This is the syntax used by `hyprctl keyword`, for example.
 
-### Arithmetic operations
+### Arithmetic Operations
 
-Since 0.6.3, hyprlang supports _very_ basic arithmetic on your variables with `{{}}`
+Since 0.6.3, hyprlang supports _very_ basic arithmetic operations on variables using `{{}}`
 
-You can use `+`, `-`, `*`, or `/`, on only _two_ variables (or constants). You _cannot_ nest them. (but you can use intermittent variables)
+You can use `+`, `-`, `*`, or `/`, on only _two_ variables (or constants) are a time.  
+You _cannot_ nest them, but you can use intermittent variables.
 
 Example:
 ```ini
@@ -129,11 +131,10 @@ This may throw some errors if done incorrectly. Make sure that:
 - both sides either exist as numeric variables or are numeric themselves
 - you have spaces around the operator (**NOT** `{{a+b}}`)
 
-### Arithmetic escaping
+### Arithmetic Escaping
 
-Since 0.6.4, hyprlang allows for escaping the arithmetic expressions `{{a + b}}`
-
-You need to use the `\` character for escaping these expression. They can be used on any of the starting positions of the expression braces.
+Since 0.6.4, hyprlang allows for escaping arithmetic expressions, e.g.`{{a + b}}`, by prefixing a `\`.  
+They can be used on any of the starting positions of the expression braces.
 
 Example:
 ```ini
@@ -142,29 +143,29 @@ bind = MOD, KEY, exec, COMMAND "{\{10 + 10}}"
 someVariable = \{\{10 + 10}}
 ```
 
-This will cancel the expression, and instead just be the value. 
+This will not evaluate the expression, and instead just assign the raw value you wrote verbatim.  
 All of the `\` that were used to escape will be removed from the value as well.
-So `\{{hello world}}` will turn into this: `{{hello world}}` without trying to parse it as an expression.
+So `\{{hello world}}` will turn into `{{hello world}}`, without trying to parse it as an expression.
 
-### Escaping escapes
+### Escaping Escapes
 
 Since 0.6.4, you can escape any `\` that would have been used to escape other characters.
 
-For example:
-If you want to have a `\` before a real expression
+For example, if you want to have a `\` before a real expression:
+
 ```ini
 someVariable = \\{{VAR1 + 10}}
 ```
 
-If you want to have an `\` before any of the escapable characters
+If you want to have an `\` before any of the escapable characters:
+
 ```ini
 someOtherVariable = \\{ hello \\} 
 ```
 
 ### Conditionals
 
-Since 0.6.4, you can add conditionals to your configs.
-
+Since 0.6.4, you can add conditionals to your configs.  
 You can make blocks conditional by using the `# hyprlang if` directive.
 
 Some examples:
@@ -183,11 +184,12 @@ test = 12
 # hyprlang endif
 ```
 
-Some important information:
-- a variable is true if and only if it exists and is not an empty string
-- environment variables are supported
-- dynamic keywords (with `hyprctl keyword`) will NOT re-trigger or un-trigger these blocks. Changes need to be made to the files directly (or environment) and in the case of the latter, or a hypr* app that doesn't automatically reload its config, a relaunch of the app / `hyprctl reload` (for hl) will be required.
+> [!NOTE] Some important information
+> - A variable is `true` if and only if it exists and is not an empty string.
+> - Environment variables are supported.
+> - Dynamic keywords (with `hyprctl keyword`) will **NOT** re-trigger or un-trigger these blocks.  
+Changes need to be made to the files directly (or environment) and in the case of the latter, or a hypr* app that doesn't automatically reload its config, a relaunch of the app / `hyprctl reload` (for hl) will be required.
 
-## Developer documentation
+## Developer Documentation
 
 See the documentation at [hyprland.org/hyprlang](https://hyprland.org/hyprlang/).

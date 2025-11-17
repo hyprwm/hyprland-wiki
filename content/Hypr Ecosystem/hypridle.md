@@ -3,47 +3,48 @@ weight: 4
 title: hypridle
 ---
 
-hypridle is Hyprland's idle management daemon.
+[hypridle](https://github.com/hyprwm/hypridle) is Hyprland's idle management daemon.
 
 ## Configuration
 
-Configuration is done via the config file at `~/.config/hypr/hypridle.conf`. A
-config file is required; hypridle won't run without one. To run hypridle at
-startup, edit `hyprland.conf` and add: `exec-once = hypridle`. If Hyprland is started with [uwsm](../../Useful-Utilities/Systemd-start), you can use `systemctl --user enable --now hypridle.service`.
+Configuration is done via the config file at `~/.config/hypr/hypridle.conf`.  
+A config file is required; hypridle won't run without one.  
+To run hypridle at startup, edit `hyprland.conf` and add: `exec-once = hypridle`.  
+If Hyprland is started with [uwsm](../../Useful-Utilities/Systemd-start), you can use `systemctl --user enable --now hypridle.service`.
 
 ### General
 
 Variables in the `general` category:
 
-| variable | description | type | default |
+| Variable | Description | Type | Default |
 | --- | --- | --- | --- |
-| lock_cmd | command to run when receiving a dbus lock event (e.g. `loginctl lock-session`) | string | empty |
-| unlock_cmd | command to run when receiving a dbus unlock event (e.g. `loginctl unlock-session`) | string | empty |
-| on_lock_cmd | command to run when the session gets locked by a lock screen app | string | empty |
-| on_unlock_cmd | command to run when the session gets unlocked by a lock screen app | string | empty |
-| before_sleep_cmd | command to run when receiving a dbus prepare_sleep event | string | empty |
-| after_sleep_cmd | command to run when receiving a dbus post prepare_sleep event | string | empty |
-| ignore_dbus_inhibit | whether to ignore dbus-sent idle inhibit events (e.g. from firefox) | bool | false |
-| ignore_systemd_inhibit | whether to ignore `systemd-inhibit --what=idle` inhibitors | bool | false |
-| ignore_wayland_inhibit | whether to ignore Wayland protocol idle inhibitors | bool | false |
-| inhibit_sleep | sleep inhibition mode, 0 - disable, 1 - normal, 2 - auto, 3 - lock notify | int | 2 |
+| `lock_cmd` | command to run when receiving a dbus lock event (e.g. `loginctl lock-session`) | string | empty |
+| `unlock_cmd` | command to run when receiving a dbus unlock event (e.g. `loginctl unlock-session`) | string | empty |
+| `on_lock_cmd` | command to run when the session gets locked by a lock screen app | string | empty |
+| `on_unlock_cmd` | command to run when the session gets unlocked by a lock screen app | string | empty |
+| `before_sleep_cmd` | command to run when receiving a dbus prepare_sleep event | string | empty |
+| `after_sleep_cmd` | command to run when receiving a dbus post prepare_sleep event | string | empty |
+| `ignore_dbus_inhibit` | whether to ignore dbus-sent idle inhibit events (e.g. from firefox) | bool | `false` |
+| `ignore_systemd_inhibit` | whether to ignore `systemd-inhibit --what=idle` inhibitors | bool | `false` |
+| `ignore_wayland_inhibit` | whether to ignore Wayland protocol idle inhibitors | bool | `false` |
+| `inhibit_sleep` | sleep inhibition mode: <br> `0`: disable <br> `1`: normal <br> `2`: auto <br> `3`: lock notify | int | `2` |
 
 > [!NOTE]
-> The `general:inhibit_sleep` option is used to make sure hypridle can do certain tasks before the system goes to sleep.
+> The `general:inhibit_sleep` option is used to make sure hypridle can perform certain tasks before the system goes to sleep.
 > 
 > Options:
-> - `3` makes your system wait until the session gets locked by a lock screen app. This works with all wayland session-lock apps.
-> - `2` (auto) selects either 3 or 1 depending on whether hypridle detects if you want to launch hyprlock before sleep.
-> - `1` makes the system wait until hypridle launched `general:before_sleep_cmd`.
 > - `0` disables sleep inhibition.
+> - `1` makes the system wait until hypridle launched `general:before_sleep_cmd`.
+> - `2` (auto) selects either `3` or `1` depending on whether hypridle detects if you want to launch hyprlock before sleep.
+> - `3` makes your system wait until the session gets locked by a lock screen app. This works with all wayland session-lock apps.
 
 ### Listeners
 
 Hypridle uses listeners to define actions on idleness.
 
 Every listener has a _timeout_ (in seconds). After idling for _timeout_ seconds,
-`on-timeout` will fire. When action is resumed after idle, `on-resume` will
-fire.
+`on-timeout` will fire.  
+When action is resumed after idle, `on-resume` will fire.
 
 Example listener:
 
@@ -61,10 +62,10 @@ Variables in the `listener` category:
 
 | variable | description | type | default |
 | --- | --- | --- | --- |
-| timeout | idle time in seconds | int | none, value must be specified |
-| on-timeout | command to run when timeout has passed | string | empty |
-| on-resume | command to run when activity is detected after timeout has fired | string | empty |
-| ignore_inhibit | ignore idle inhibitors (of all types) for this rule | bool | false |
+| `timeout` | Idle time in seconds. | int | none, value must be specified |
+| `on-timeout` | Command to run when timeout has passed. | string | empty |
+| `on-resume` | Command to run when activity is detected after timeout has fired. | string | empty |
+| `ignore_inhibit` | Ignore idle inhibitors (of all types) for this rule. | bool | `false` |
 
 ### Examples
 

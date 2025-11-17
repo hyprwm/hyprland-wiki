@@ -8,7 +8,7 @@ hyprutils, etc).
 
 It's recommended you are familiar with C++ before developing an app.
 
-## Getting started
+## Getting Started
 
 _If you prefer living off of examples, see the `tests/` directory in the hyprtoolkit repo._
 
@@ -29,7 +29,9 @@ First thing we need is a background rectangle, by doing this:
 ```cpp
 window->m_rootElement->addChild(CRectangleBuilder::begin()->color([] { return backend->getPalette()->m_colors.background; })->commence());
 ```
-Remember to always use the palette when possible for your app to adhere to the user's theme.
+
+> [!NOTE]
+> Remember to always use the palette when possible for your app to adhere to the user's theme.
 
 All elements are under `hyprtoolkit/elements/`, you can browse through them. Let's add a simple layout with
 some buttons:
@@ -68,11 +70,11 @@ window->open();
 backend->enterLoop();
 ```
 
-## Layout system
+## Layout System
 
 The layout system relies on absolute and layout positioning modes. Let's zoom into both:
 
-### Absolute mode
+### Absolute Mode
 
 This happens when the parent of your element is anything but a `ColumnLayout` or a `RowLayout`. Children are positioned within their parent, accoding to their
 position mode. You can set it with `setPositionMode` and add offsets with `setAbsolutePosition`.
@@ -82,7 +84,7 @@ For example:
 - `setPositionMode` with `ABSOLUTE` will make it be in the top left corner.
 - Adding `setAbsolutePosition` to the above with `{200, 200}` will move it 200 layout px down and right from the top left corner of the parent.
 
-### Layout mode
+### Layout Mode
 
 This happens when the parent of your element is a layout. These will attempt to position your child elements. They work similarly to CSS's `flex` and qt's `RowLayout` and `ColumnLayout`,
 but will not wrap. If elements overflow and cannot shrink, they will disappear.
@@ -96,12 +98,13 @@ All elements carry a `SizeType`. This tells the layout system how to size the el
 - `PERCENT` takes a percentage in the form of `(0, 0) - (1, 1)` and will be the size of the parent multiplied by the percentage.
 - `AUTO` ignores the passed vector (leave it empty) and instead will always attempt to contain the children\*
 
-\*_Some elements will force their own sizing, like e.g. Text. Leave them AUTO to avoid confusion._
+> [!NOTE]
+> Some elements will force their own sizing, e.g. `Text`.  
+Leave them `AUTO` to avoid confusion.
 
 ## Elements
 
-Most elements are self-explanatory. You can explore their builder fns to see what styling / behavior options they
-support.
+Most elements are self-explanatory. You can explore their builder functions to see what styling / behavior options they support.
 
 Each element is created with a `Builder` which is there to maintain ABI stability. After you call `->commence()`, you
 will get a `SP` to the newly created object.
@@ -115,19 +118,21 @@ You do not need to keep the `SP` after adding the element to the tree with `addC
 
 Other, miscellaneous stuff
 
-### System icons
+### System Icons
 
-Use the `CBackend::systemIcons()` fn to obtain a ref to `ISystemIconFactory` which allows
-you to query system icons by name. You can check the obtained result object for seeing if the icon was found.
-
+Use the `CBackend::systemIcons()` function to obtain a reference to `ISystemIconFactory` which allows
+you to query system icons by name.  
+You can check the obtained result object to see if the icon was found.  
 Then, you can take that object and slap it into an `ImageElement` to add it to your layout.
 
 ### Additional FDs
 
-If you have an app that depends on some other loop, e.g. pipewire, dbus, etc. You need to remember
-that hyprtoolkit is strictly single-threaded for layout and rendering. You cannot edit the layout from another thread.
+If you have an app that depends on some other loop, e.g. pipewire, dbus, etc. you need to remember
+that hyprtoolkit is strictly single-threaded for layout and rendering.  
+You cannot edit the layout from another thread.
 
 For this, use `CBackend::addFd()` to add a FD to the loop alongside a function that will be called once the fd
-is readable. This fn will be called from the main thread, so you can do whatever you want in there.
+is readable.  
+This function will be called from the main thread, so you can do whatever you want in there.
 
 
