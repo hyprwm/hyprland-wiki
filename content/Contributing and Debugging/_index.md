@@ -35,13 +35,6 @@ breakpoint and it will crash after you continue out of it.
 
 Attach and profile in your preferred way.
 
-### Meson
-
-```console
-meson setup build -Dbuildtype=debug
-ninja -C build
-```
-
 ### Nix
 
 To build the package in debug mode, you have to override it like this:

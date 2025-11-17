@@ -16,7 +16,7 @@ A debug build is already provided through
 Most hyprwm apps also provide their own `-debug` versions. For those that don't,
 one can build the debug version from the CLI by using
 [overrideAttrs](../Options-Overrides/#using-nix-repl) with
-`cmakeBuildType = "debug";` or `mesonBuildType = "debug";`, depending on the
+`cmakeBuildType = "Debug";` or `mesonBuildType = "debug";`, depending on the
 program.
 
 ## Bisecting an issue
@@ -67,8 +67,8 @@ For CMake:
 
 ```bash
 cmakeConfigurePhase # to run the CMake configure phase
-ninjaBuildPhase     # to run the Ninja build phase (or buildPhase when ninja is not available)
-ninjaInstallPhase   # to run the Ninja install phase (or installPhase when ninja is not available)
+buildPhase     # to run the build phase
+installPhase   # to run the install phase
 ```
 
 For Meson:

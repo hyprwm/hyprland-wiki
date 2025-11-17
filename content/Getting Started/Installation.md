@@ -6,9 +6,9 @@ title: Installation
 > [!WARNING]
 > Hyprland is not meant to be a full and user-friendly Desktop Environment. In a nutshell, it's a set of
 > tools to allow you to create your own Desktop Environment.
-> 
+>
 > Apps, integrations, shells, etc, are **your** responsibility to pick, install and configure.
-> 
+>
 > This wiki is _very_ verbose. It's highly recommended to scour and read the wiki first before
 > assuming something is not working or not available.
 
@@ -32,9 +32,9 @@ Installing Hyprland is very easy. Simply install it with your package manager.
 > or using `-git` packages.
 > Hyprland's ecosystem and dependencies are vast and intertwined, and compiling manually will only potentially expose you to outdated,
 > or incompatible versions of these dependencies.
-> 
+>
 > If you get `.so` file mismatch / missing errors, it's _entirely your fault_ for doing this!
-> 
+>
 > However, if you are an experienced user and want to beta-test new features, you're more than welcome to run the latest
 > git head. Please don't come asking about ".so file missing" errors though!
 
@@ -72,7 +72,7 @@ If you decide to use the `git` version from the AUR, you can use the [Chaotic Au
 Be aware that updating dependencies like `hyprutils` might still require you to recompile everything yourself as the Chaotic Aur does not do that automatically.
 
 > [!NOTE]
-> You can downgrade easily with [downgrade](https://github.com/archlinux-downgrade/downgrade) to get to a previous -git version. 
+> You can downgrade easily with [downgrade](https://github.com/archlinux-downgrade/downgrade) to get to a previous -git version.
 
 {{% /details %}}
 
@@ -236,11 +236,11 @@ for more information.
 
 > [!WARNING]
 > Always use the latest version of Ubuntu for the most up to date dependencies.
-> 
+>
 > Note: Your mileage may vary, as GDM has some bugs with Hyprland. Check the [Master Tutorial](../Master-Tutorial) for more info.
-> 
+>
 > Refer to the gist if anything fails.
-> 
+>
 > <!-- For some reason uncommenting the line below creates an unwanted <pre><div></pre> in the page. -->
 > <!--  -->
 
@@ -388,7 +388,7 @@ refer to the Ubuntu tab above
 > [!WARNING]
 > Additionally to those, you will also need a few hypr\* dependencies which may or may not be
 > packaged for your distro of choice:
-> 
+>
 > - aquamarine
 > - hyprlang
 > - hyprcursor
@@ -406,20 +406,6 @@ make all && sudo make install
 
 _CMake is always recommended as it's the intended way Hyprland should be
 installed._
-
-### Meson
-
-```sh
-meson subprojects update --reset
-meson setup build
-ninja -C build
-ninja -C build install --tags runtime,man
-```
-
-Custom build flags can be found in [`meson_options.txt`](https://github.com/hyprwm/Hyprland/blob/main/meson_options.txt).
-
-Refer to [Debugging](../../Contributing-and-Debugging) to see how to build &
-debug.
 
 ## Crash on launch
 
