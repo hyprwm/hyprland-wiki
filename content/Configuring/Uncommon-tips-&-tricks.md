@@ -367,3 +367,33 @@ hyprctl -q --batch "keyword unbind ALT, TAB ; keyword unbind ALT SHIFT, TAB ; ke
 #!/usr/bin/env bash
 hyprctl -q --batch "keyword animations:enabled false ; dispatch exec footclient -a alttab ~/.config/hypr/scripts/alttab/alttab.sh $1 ; keyword unbind ALT, TAB ; keyword unbind ALT SHIFT, TAB ; dispatch submap alttab"
 ```
+
+## Config versioning
+
+Some updates add breaking changes, which can be anticipated by looking at the git
+development branch.
+
+Since Hyprland 0.53, we export a variable for each major version, that looks like this:
+```
+$HYPRLAND_V_0_XX
+```
+
+You can make your configs conditional, e.g.:
+
+```
+# hyprlang if HYPRLAND_V_0_53
+
+someValue = 0.53
+
+# hyprlang endif
+
+# hyprlang if !HYPRLAND_V_0_53
+
+someValue = 0.52
+
+# hyprlang endif
+```
+
+The -git branch exports the variable for the next major release.
+
+All future releases will export all _past_ variables as well, e.g. 0.54 will also export 0.53.
