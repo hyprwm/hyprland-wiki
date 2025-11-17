@@ -183,6 +183,7 @@ test = 12
 
 # hyprlang endif
 ```
+
 > [!NOTE] Some important information
 > - A variable is `true` if and only if it exists and is not an empty string.
 > - Environment variables are supported.

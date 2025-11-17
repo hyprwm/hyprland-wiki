@@ -48,7 +48,7 @@ to XCursor.
 For those apps, you need to export `XCURSOR_THEME` and `XCURSOR_SIZE` to a valid
 XCursor theme, and run 
 
-```
+```sh
 gsettings set org.gnome.desktop.interface cursor-theme 'THEME_NAME'
 ```
 
@@ -56,13 +56,13 @@ for gtk.
 
 If `gsettings` schemas are not available to you (e.g. on NixOS you will get `No schemas installed`), you can run instead: 
 
-```
+```sh
 dconf write /org/gnome/desktop/interface/cursor-theme "'THEME_NAME'"
 ```
 
 If the app is a flatpak, run:
 
-```
+```sh
 flatpak override --filesystem=~/.themes:ro --filesystem=~/.icons:ro --user
 ``` 
 
