@@ -158,7 +158,6 @@ Dynamic effects are re-evaluated every time a property changes.
 | no_dim | \[on\] |  Disables window dimming for the window. |
 | no_focus | \[on\] |  Disables focus to the window. |
 | no_follow_mouse | \[on\] |  Prevents the window from being focused when the mouse moves over it when `input:follow_mouse=1` is set. |
-| no_rounding | \[on\] |  Disables rounding for the window. |
 | no_shadow | \[on\] |  Disables shadows for the window. |
 | no_shortcuts_inhibit | \[on\] |  Disallows the app from [inhibiting your shortcuts](https://wayland.app/protocols/keyboard-shortcuts-inhibit-unstable-v1). |
 | no_screen_share | \[on\] | Hides the window and its popups from screen sharing by drawing black rectangles in their place. The rectangles are drawn even if other windows are above. |
