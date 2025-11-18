@@ -24,7 +24,7 @@ general {
     allow_tearing = true
 }
 
-windowrule = immediate, class:^(cs2)$
+windowrule = match:class cs2, immediate yes
 ```
 
 > [!WARNING]

@@ -140,33 +140,6 @@ To set a wallpaper, use a wallpaper utility like
 
 More can be found in [Useful Utilities](../../Useful-Utilities).
 
-## Blurring layerSurfaces
-
-Layer surfaces are not windows. These are, for example: wallpapers,
-notification overlays, bars, etc.
-
-If you want to blur them, use a layer rule:
-
-```ini
-layerrule = blur, NAMESPACE
-# or
-layerrule = blur, address:0x<ADDRESS>
-```
-
-You can get the namespace / address from `hyprctl layers`.
-
-To remove a layer rule (useful in dynamic situations) use:
-
-```ini
-layerrule = unset, <whatever you used before>
-```
-
-For example:
-
-```ini
-layerrule = unset, NAMESPACE
-```
-
 ## Setting the environment
 
 > [!NOTE]

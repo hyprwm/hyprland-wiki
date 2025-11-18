@@ -38,10 +38,15 @@ the same effect. See
 more information. For example:
 
 ```ini
-windowrule = opacity 0.0 override, class:^(xwaylandvideobridge)$
-windowrule = noanim, class:^(xwaylandvideobridge)$
-windowrule = noinitialfocus, class:^(xwaylandvideobridge)$
-windowrule = maxsize 1 1, class:^(xwaylandvideobridge)$
-windowrule = noblur, class:^(xwaylandvideobridge)$
-windowrule = nofocus, class:^(xwaylandvideobridge)$
+windowrule {
+    name = xwayland-video-bridge-fixes
+    match:class = xwaylandvideobridge
+
+    no_initial_focus = true
+    no_focus = true
+    no_anim = true
+    no_blur = true
+    max_size = 1 1
+    opacity = 0.0
+}
 ```
