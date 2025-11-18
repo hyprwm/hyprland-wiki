@@ -148,9 +148,9 @@ notification overlays, bars, etc.
 If you want to blur them, use a layer rule:
 
 ```ini
-layerrule = blur, NAMESPACE
+layerrule = match:namespace NAMESPACE, blur
 # or
-layerrule = blur, address:0x<ADDRESS>
+layerrule = address:0x<ADDRESS>, blur
 ```
 
 You can get the namespace / address from `hyprctl layers`.
@@ -158,13 +158,13 @@ You can get the namespace / address from `hyprctl layers`.
 To remove a layer rule (useful in dynamic situations) use:
 
 ```ini
-layerrule = unset, <whatever you used before>
+layerrule = <whatever you used before>, unset
 ```
 
 For example:
 
 ```ini
-layerrule = unset, NAMESPACE
+layerrule = NAMESPACE, unset
 ```
 
 ## Setting the environment
