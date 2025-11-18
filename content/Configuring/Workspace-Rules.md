@@ -60,10 +60,9 @@ workspace = w[tg1-4], shadow:false
 To replicate "smart gaps" / "no gaps when only" from other WMs/Compositors, use this bad boy:
 
 ```ini
-workspace = w[tv1], gapsout:0, gapsin:0
-workspace = f[1], gapsout:0, gapsin:0
-windowrule = bordersize 0, rounding 0, floating: 0, onworkspace: f[1]s[0]
-windowrule = bordersize 0, rounding 0, floating: 0, onworkspace: w[tv1]s[0]
+workspace = f[1], w[tv1], gapsout:0, gapsin:0
+windowrule = bordersize 0, rounding 0, floating: 0, onworkspace: f[1]
+windowrule = bordersize 0, rounding 0, floating: 0, onworkspace: w[tv1]
 ```
 
 #### Smart gaps (ignoring special workspaces)
@@ -71,8 +70,7 @@ windowrule = bordersize 0, rounding 0, floating: 0, onworkspace: w[tv1]s[0]
 You can combine workspace selectors for more fine-grained control, for example, to ignore special workspaces:
 
 ```ini
-workspace = w[tv1]s[false], gapsout:0, gapsin:0
-workspace = f[1]s[false], gapsout:0, gapsin:0
+workspace = f[1]s[0], w[tv1]s[0], gapsout:0, gapsin:0
 windowrule = bordersize 0, rounding 0, floating: 0, onworkspace: f[1]s[0]
 windowrule = bordersize 0, rounding 0, floating: 0, onworkspace: w[tv1]s[0]
 ```
