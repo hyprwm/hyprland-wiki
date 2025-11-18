@@ -100,6 +100,7 @@ Static effects are evaluated once when the window is opened and never again. Thi
 | fullscreen_state | \[internal\] \[client\]  | Sets the focused window's fullscreen mode and the one sent to the client, where internal and client can be `0` - none, `1` - maximize, `2` - fullscreen, `3` - maximize and fullscreen. |
 | move  | \[expr\] \[expr\] | Moves a floating window to a given coordinate, monitor-local. Two expressions are space-separated. |
 | size | \[expr\] \[expr\] | Resizes a floating window to a given size. Two expressions are space-separated. |
+| center | \[on\] | If the window is floating, will center it on the monitor. |
 | pseudo | \[on\] | Pseudotiles a window. |
 | monitor | \[id\] | Sets the monitor on which a window should open. `id` can be either the id number or the name (e.g. `1` or `DP-1`). |
 | workspace | \[w\] | Sets the workspace on which a window should open (for workspace syntax, see [dispatchers->workspaces](../Dispatchers#workspaces)). <br> You can also set \[w\] to `unset`. This will unset all previous workspace rules applied to this window. Additionally you can add `silent` after the workspace to make the window open silently. |
