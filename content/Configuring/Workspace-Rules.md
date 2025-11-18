@@ -62,10 +62,8 @@ To replicate "smart gaps" / "no gaps when only" from other WMs/Compositors, use 
 ```ini
 workspace = w[tv1], gapsout:0, gapsin:0
 workspace = f[1], gapsout:0, gapsin:0
-windowrule = bordersize 0, floating:0, onworkspace:w[tv1]
-windowrule = rounding 0, floating:0, onworkspace:w[tv1]
-windowrule = bordersize 0, floating:0, onworkspace:f[1]
-windowrule = rounding 0, floating:0, onworkspace:f[1]
+windowrule = bordersize 0, rounding 0, floating: 0, onworkspace: f[1]s[0]
+windowrule = bordersize 0, rounding 0, floating: 0, onworkspace: w[tv1]s[0]
 ```
 
 #### Smart gaps (ignoring special workspaces)
@@ -75,10 +73,8 @@ You can combine workspace selectors for more fine-grained control, for example, 
 ```ini
 workspace = w[tv1]s[false], gapsout:0, gapsin:0
 workspace = f[1]s[false], gapsout:0, gapsin:0
-windowrule = bordersize 0, floating:0, onworkspace:w[tv1]s[false]
-windowrule = rounding 0, floating:0, onworkspace:w[tv1]s[false]
-windowrule = bordersize 0, floating:0, onworkspace:f[1]s[false]
-windowrule = rounding 0, floating:0, onworkspace:f[1]s[false]
+windowrule = bordersize 0, rounding 0, floating: 0, onworkspace: f[1]s[0]
+windowrule = bordersize 0, rounding 0, floating: 0, onworkspace: w[tv1]s[0]
 ```
 
 ## Rules
