@@ -107,7 +107,7 @@ _Subcategory `general:snap:`_
 | dim_inactive | enables dimming of inactive windows | bool | false |
 | dim_strength | how much inactive windows should be dimmed [0.0 - 1.0] | float | 0.5 |
 | dim_special | how much to dim the rest of the screen by when a special workspace is open. [0.0 - 1.0] | float | 0.2 |
-| dim_around | how much the `dimaround` window rule should dim by. [0.0 - 1.0] | float | 0.4 |
+| dim_around | how much the `dim_around` window rule should dim by. [0.0 - 1.0] | float | 0.4 |
 | screen_shader | a path to a custom shader to be applied at the end of rendering. See `examples/screenShader.frag` for an example. | str | \[\[Empty\]\] |
 | border_part_of_window | whether the window border should be a part of the window | bool | true |
 
@@ -130,9 +130,9 @@ _Subcategory `decoration:blur:`_
 | vibrancy_darkness | How strong the effect of `vibrancy` is on dark areas . [0.0 - 1.0] | float | 0.0 |
 | special | whether to blur behind the special workspace (note: expensive) | bool | false |
 | popups | whether to blur popups (e.g. right-click menus) | bool | false |
-| popups_ignorealpha | works like ignorealpha in layer rules. If pixel opacity is below set value, will not blur. [0.0 - 1.0] | float | 0.2 |
+| popups_ignorealpha | works like ignore_alpha in layer rules. If pixel opacity is below set value, will not blur. [0.0 - 1.0] | float | 0.2 |
 | input_methods | whether to blur input methods (e.g. fcitx5) | bool | false |
-| input_methods_ignorealpha | works like ignorealpha in layer rules. If pixel opacity is below set value, will not blur. [0.0 - 1.0] | float | 0.2 |
+| input_methods_ignorealpha | works like ignore_alpha in layer rules. If pixel opacity is below set value, will not blur. [0.0 - 1.0] | float | 0.2 |
 
 > [!NOTE]
 > `blur:size` and `blur:passes` have to be at least 1.
@@ -422,13 +422,13 @@ _Subcategory `misc:`_
 | exit_window_retains_fullscreen | if true, closing a fullscreen window makes the next focused window fullscreen | bool | false |
 | initial_workspace_tracking | if enabled, windows will open on the workspace they were invoked on. 0 - disabled, 1 - single-shot, 2 - persistent (all children too) | int | 1 |
 | middle_click_paste | whether to enable middle-click-paste (aka primary selection) | bool | true |
-| render_unfocused_fps | the maximum limit for renderunfocused windows' fps in the background (see also [Window-Rules](../Window-Rules/#dynamic-effects) - `render_unfocused`)| int | 15 |
+| render_unfocused_fps | the maximum limit for render_unfocused windows' fps in the background (see also [Window-Rules](../Window-Rules/#dynamic-effects) - `render_unfocused`)| int | 15 |
 | disable_xdg_env_checks | disable the warning if XDG environment is externally managed | bool | false |
 | disable_hyprland_qtutils_check | disable the warning if hyprland-qtutils is not installed | bool | false |
 | lockdead_screen_delay | delay after which the "lockdead" screen will appear in case a lockscreen app fails to cover all the outputs (5 seconds max) | int | 1000 |
 | enable_anr_dialog | whether to enable the ANR (app not responding) dialog when your apps hang | bool | true |
 | anr_missed_pings | number of missed pings before showing the ANR dialog | int | 5 |
-| size_limits_tiled | whether to apply minsize and maxsize rules to tiled windows | bool | false |
+| size_limits_tiled | whether to apply min_size and max_size rules to tiled windows | bool | false |
 
 ### Binds
 
