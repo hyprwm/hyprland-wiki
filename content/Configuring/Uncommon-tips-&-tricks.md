@@ -312,10 +312,10 @@ bind = ALT SHIFT, escape, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh 
 submap = reset
 
 workspace = special:alttab, gapsout:0, gapsin:0, bordersize:0
-windowrule = no_anim, match:class alttab
-windowrule = stay_focused, match:class alttab
-windowrule = workspace special:alttab, match:class alttab
-windowrule = border_size 0, match:class alttab
+windowrule = match:class alttab, no_anim
+windowrule = match:class alttab, stay_focused
+windowrule = match:class alttab, workspace special:alttab
+windowrule = match:class alttab, border_size 0
 ```
 
 2. create file `touch $XDG_CONFIG_HOME/hypr/scripts/alttab/alttab.sh && chmod +x $XDG_CONFIG_HOME/hypr/scripts/alttab/alttab.sh` and add:
