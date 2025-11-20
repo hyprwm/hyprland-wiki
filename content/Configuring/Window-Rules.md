@@ -94,7 +94,7 @@ Static effects are evaluated once when the window is opened and never again. Thi
 | Effect | argument | Description |
 | ---- | ----------- | --- |
 | float | \[on\] | Floats a window. |
-| tile |  \[on\] |Tiles a window. |
+| tile | \[on\] |Tiles a window. |
 | fullscreen | \[on\] | Fullscreens a window. |
 | maximize | \[on\] | Maximizes a window. |
 | fullscreen_state | \[internal\] \[client\]  | Sets the focused window's fullscreen mode and the one sent to the client, where internal and client can be `0` - none, `1` - maximize, `2` - fullscreen, `3` - maximize and fullscreen. |
@@ -139,9 +139,9 @@ Dynamic effects are re-evaluated every time a property changes.
 | no_max_size | \[on\] | Removes max size limitations. Especially useful with windows that report invalid max sizes (e.g. winecfg). |
 | stay_focused | \[on\] | Forces focus on the window as long as it's visible. |
 | animation | \[style\] (\[opt\]) | Forces an animation onto a window, with a selected opt. Opt is optional. |
-| border_color | \[c\] | Force the bordercolor of the window. <br> Options for c: `color`/`color ... color angle` -> sets the active border color/gradient OR `color color`/`color ... color angle color ... color [angle]` -> sets the active and inactive border color/gradient of the window. See [variables->colors](../Variables#variable-types) for color definition. |
+| border_color | \[c\] | Force the border color of the window. <br> Options for c: `color`/`color ... color angle` -> sets the active border color/gradient OR `color color`/`color ... color angle color ... color [angle]` -> sets the active and inactive border color/gradient of the window. See [variables->colors](../Variables#variable-types) for color definition. |
 | idle_inhibit  | \[mode\] | Sets an idle inhibit rule for the window. If active, apps like `hypridle` will not fire. Modes: `none`, `always`, `focus`, `fullscreen`. |
-| opacity  | \[a\] | Additional opacity multiplier. Options for a: `float` -> sets an overall opacity, `float float` -> sets activeopacity and inactiveopacity respectively, `float float float` -> sets activeopacity, inactiveopacity and fullscreenopacity respectively. |
+| opacity  | \[a\] | Additional opacity multiplier. Options for a: `float` -> sets an overall opacity, `float float` -> sets active_opacity and inactive_opacity respectively, `float float float` -> sets active_opacity, inactive_opacity and fullscreen_opacity respectively. |
 | tag | \[name\] | Applies the tag `name` to the window, use prefix `+`/`-` to set/unset flag, or no prefix to toggle the flag. |
 | max_size | \[w\] \[h\] | Sets the maximum size (x,y -> int). Applies to floating windows. (use `misc:size_limits_tiled` to include tiled windows.) |
 | min_size | \[w\] \[h\] | Sets the minimum size (x,y -> int). Applies to floating windows. (use `misc:size_limits_tiled` to include tiled windows.) |
@@ -249,8 +249,8 @@ windowrule {
 
 windowrule = no_blur, match:class firefox                                                 # Disable blur for firefox
 windowrule = move (cursor_x-(window_w*0.5)) (cursor_y-(window_h*0.5)), match:class kitty  # Move kitty to the center of the cursor
-windowrule = border_color rgb(FF0000) rgb(880808), match:fullscreen 1                     # Set bordercolor to red if window is fullscreen
-windowrule = border_color rgb(FFFF00), match:title .*Hyprland.*                           # Set bordercolor to yellow when title contains Hyprland
+windowrule = border_color rgb(FF0000) rgb(880808), match:fullscreen 1                     # Set border color to red if window is fullscreen
+windowrule = border_color rgb(FFFF00), match:title .*Hyprland.*                           # Set border color to yellow when title contains Hyprland
 windowrule = opacity 1.0 override 0.5 override 0.8 override, match:class kitty            # Set opacity to 1.0 active, 0.5 inactive and 0.8 fullscreen for kitty
 windowrule = match:class kitty, rounding 10                                               # Set rounding to 10 for kitty
 windowrule = match:class (pinentry-)(.*), stayfocused                                     # Fix pinentry losing focus
@@ -286,7 +286,7 @@ The rest of the floating windows will have `opacity 0.5`.
 
 > [!NOTE]
 > Opacity is a PRODUCT of all opacities by default. For example, setting
-> `activeopacity` to `0.5` and `opacity` to `0.5` will result in a total opacity of
+> `active_opacity` to `0.5` and `opacity` to `0.5` will result in a total opacity of
 > `0.25`. <br>
 > You are allowed to set opacities over `1.0`, but any opacity product over `1.0`
 > will cause graphical glitches. <br>
@@ -346,4 +346,3 @@ but they have different props and effects.
 | order | \[n\] | Sets the order relative to other layers. A higher `n` means closer to the edge of the monitor. Can be negative. `n = 0` if unspecified. |
 | abovelock | \[0/1/2\] | If non-zero, renders the layer above the lockscreen when the session is locked. If set to `2`, you can interact with the layer on the lockscreen, otherwise it will only be rendered above it. |
 | noscreenshare | \[on\] | Hides the layer from screen sharing by drawing a black rectangle over it. |
-
