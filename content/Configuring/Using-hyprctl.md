@@ -198,8 +198,8 @@ Where `window` is as described [here](../Dispatchers#parameter-explanation), and
 
 #### Notes
 - If `animationstyle` is unset, `(unset)` is returned.
-- `minsize` defaults to `20 20`.
-- `maxsize` defaults to `inf inf` or `[null,null]` in JSON.
+- `min_size` defaults to `20 20`.
+- `max_size` defaults to `inf inf` or `[null,null]` in JSON.
 
 ### notify
 
