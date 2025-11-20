@@ -197,11 +197,16 @@ To use Shimeji programs like
 following rules:
 
 ```ini
-windowrule = float, class:com-group_finity-mascot-Main
-windowrule = noblur, class:com-group_finity-mascot-Main
-windowrule = nofocus, class:com-group_finity-mascot-Main
-windowrule = noshadow, class:com-group_finity-mascot-Main
-windowrule = noborder, class:com-group_finity-mascot-Main
+windowrule {
+	name = shimeji
+	match:class = com-group_finity-mascot-Main
+	
+	float = true
+	no_blur = true
+	no_focus = true
+	no_shadow = true
+	border_size = 0
+}
 ```
 
 > [!NOTE]
@@ -307,10 +312,10 @@ bind = ALT SHIFT, escape, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh 
 submap = reset
 
 workspace = special:alttab, gapsout:0, gapsin:0, bordersize:0
-windowrule = noanim, class:alttab
-windowrule = stayfocused, class:alttab
-windowrule = workspace special:alttab, class:alttab
-windowrule = bordersize 0, class:alttab
+windowrule = match:class alttab, no_anim
+windowrule = match:class alttab, stay_focused
+windowrule = match:class alttab, workspace special:alttab
+windowrule = match:class alttab, border_size 0
 ```
 
 2. create file `touch $XDG_CONFIG_HOME/hypr/scripts/alttab/alttab.sh && chmod +x $XDG_CONFIG_HOME/hypr/scripts/alttab/alttab.sh` and add:
