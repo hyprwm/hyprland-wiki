@@ -186,9 +186,9 @@ exec-once = clipse -listen
 You can bind the TUI to a something nice like this:
 
 ```ini
-windowrule = float, class:(clipse)
-windowrule = size 622 652, class:(clipse)
-windowrule = stayfocused, class:(clipse)
+windowrule = match:class clipse, float
+windowrule = match:class clipse, size 622 652
+windowrule = match:class clipse, stay_focused
 
 bind = SUPER, V, exec, alacritty --class clipse -e clipse
 ```
