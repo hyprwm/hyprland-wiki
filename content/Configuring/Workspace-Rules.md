@@ -63,9 +63,9 @@ To replicate "smart gaps" / "no gaps when only" from other WMs/Compositors, use 
 workspace = w[tv1], gapsout:0, gapsin:0
 workspace = f[1], gapsout:0, gapsin:0
 windowrule = border_size 0, match:float 0, match:workspace w[tv1]
-windowrule = rounding 0, match:float 0, match:workspacew[tv1]
-windowrule = border_size 0, match:float 0, match:workspacef[1]
-windowrule = rounding 0, match:float 0, match:workspacef[1]
+windowrule = rounding 0, match:float 0, match:workspace w[tv1]
+windowrule = border_size 0, match:float 0, match:workspace f[1]
+windowrule = rounding 0, match:float 0, match:workspace f[1]
 ```
 
 #### Smart gaps (ignoring special workspaces)
