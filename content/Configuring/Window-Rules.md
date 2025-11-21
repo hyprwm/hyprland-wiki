@@ -345,4 +345,4 @@ but they have different props and effects.
 | animation | \[style\] | Allows you to set a specific animation style for this layer. |
 | order | \[n\] | Sets the order relative to other layers. A higher `n` means closer to the edge of the monitor. Can be negative. `n = 0` if unspecified. |
 | abovelock | \[0/1/2\] | If non-zero, renders the layer above the lockscreen when the session is locked. If set to `2`, you can interact with the layer on the lockscreen, otherwise it will only be rendered above it. |
-| noscreenshare | \[on\] | Hides the layer from screen sharing by drawing a black rectangle over it. |
+| no_screen_share | \[on\] | Hides the layer from screen sharing by drawing a black rectangle over it. |
