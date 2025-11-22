@@ -418,7 +418,7 @@ _Subcategory `misc:`_
 | session_lock_xray | if true, keep rendering workspaces below your lockscreen | bool | false |
 | background_color | change the background color. (requires enabled `disable_hyprland_logo`) | color | 0x111111 |
 | close_special_on_empty | close the special workspace if the last window is removed | bool | true |
-| new_window_takes_over_fullscreen | if there is a fullscreen or maximized window, decide whether a new tiled window opened should replace it, stay behind or disable the fullscreen/maximized state. 0 - behind, 1 - takes over, 2 - unfullscreen/unmaxize [0/1/2] | int | 0 |
+| on_focus_under_fullscreen | if there is a fullscreen or maximized window, decide whether a tiled window requested to focus should replace it, stay behind or disable the fullscreen/maximized state. 0 - ignore focus request (keep focus on fullscreen window), 1 - takes over, 2 - unfullscreen/unmaximize [0/1/2] | int | 2 |
 | exit_window_retains_fullscreen | if true, closing a fullscreen window makes the next focused window fullscreen | bool | false |
 | initial_workspace_tracking | if enabled, windows will open on the workspace they were invoked on. 0 - disabled, 1 - single-shot, 2 - persistent (all children too) | int | 1 |
 | middle_click_paste | whether to enable middle-click-paste (aka primary selection) | bool | true |
