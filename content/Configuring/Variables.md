@@ -47,7 +47,6 @@ the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 | name | description | type | default |
 |---|---|---|---|
 | border_size | size of the border around windows | int | 1 |
-| no_border_on_floating | disable borders for floating windows | bool | false |
 | gaps_in | gaps between windows, also supports css style gaps (top, right, bottom, left -> 5,10,15,20) | int | 5 |
 | gaps_out | gaps between windows and monitor edges, also supports css style gaps (top, right, bottom, left -> 5,10,15,20) | int | 20 |
 | float_gaps | gaps between windows and monitor edges for floating windows, also supports css style gaps (top, right, bottom, left -> 5 10 15 20). -1 means default | int | 0 |
