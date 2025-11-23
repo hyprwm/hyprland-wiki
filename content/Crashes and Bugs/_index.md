@@ -73,8 +73,8 @@ Try to reproduce your issue as fast as possible so we don't have to sift through
 
 First of all, **_READ THE [FAQ PAGE](../FAQ)_**
 
-If your bug is not listed there, you can ask on the Discord server or open an
-issue on GitHub.
+If your bug is not listed there, you can ask on the Discord server or open a
+[discussion on GitHub](https://github.com/hyprwm/Hyprland/discussions).
 
 ## Bisecting an issue
 
