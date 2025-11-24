@@ -47,7 +47,6 @@ the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 | name | description | type | default |
 |---|---|---|---|
 | border_size | size of the border around windows | int | 1 |
-| no_border_on_floating | disable borders for floating windows | bool | false |
 | gaps_in | gaps between windows, also supports css style gaps (top, right, bottom, left -> 5,10,15,20) | int | 5 |
 | gaps_out | gaps between windows and monitor edges, also supports css style gaps (top, right, bottom, left -> 5,10,15,20) | int | 20 |
 | float_gaps | gaps between windows and monitor edges for floating windows, also supports css style gaps (top, right, bottom, left -> 5 10 15 20). -1 means default | int | 0 |
@@ -64,6 +63,7 @@ the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 | allow_tearing | master switch for allowing tearing to occur. See [the Tearing page](../Tearing). | bool | false |
 | resize_corner | force floating windows to use a specific corner when being resized (1-4 going clockwise from top left, 0 to disable) | int | 0 |
 | modal_parent_blocking | whether parent windows of modals will be interactive | bool | true |
+| locale | overrides the system locale (e.g. en_US, es) | str | \[\[Empty\]\] |
 
 #### Snap
 

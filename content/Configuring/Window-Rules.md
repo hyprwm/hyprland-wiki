@@ -269,7 +269,7 @@ precedence. i.e.
 
 ```ini
 windowrule = opacity 0.8 0.8, match:class kitty
-windowrule = opacity 0.5 0.5, match:floating yes
+windowrule = opacity 0.5 0.5, match:float yes
 ```
 
 Here, all non-fullscreen kitty windows will have `opacity 0.8`, except if
@@ -277,7 +277,7 @@ they are floating. Otherwise, they will have `opacity 0.5`. The rest of the
 non-fullscreen floating windows will have `opacity 0.5`.
 
 ```ini
-windowrule = opacity 0.5 0.5, match:floating true
+windowrule = opacity 0.5 0.5, match:float true
 windowrule = opacity 0.8 0.8, match:class kitty
 ```
 
