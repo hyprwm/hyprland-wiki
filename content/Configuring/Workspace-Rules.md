@@ -89,7 +89,7 @@ windowrule = rounding 0, match:float 0, match:workspace f[1]s[false]
 | default:[b] | Whether this workspace should be the default workspace for the given monitor | bool |
 | gapsin:[x] | Set the gaps between windows (equivalent to [General->gaps_in](../Variables#general)) | int |
 | gapsout:[x] | Set the gaps between windows and monitor edges (equivalent to [General->gaps_out](../Variables#general)) | int |
-| border_size:[x] | Set the border size around windows (equivalent to [General->border_size](../Variables#general)) | int |
+| bordersize:[x] | Set the border size around windows (equivalent to [General->border_size](../Variables#general)) | int |
 | border:[b] | Whether to draw borders or not | bool |
 | shadow:[b] | Whether to draw shadows or not | bool |
 | rounding:[b] | Whether to draw rounded windows or not | bool |
