@@ -20,8 +20,8 @@ title: Installation
 
 We officially run and test Hyprland on Arch and NixOS, and we guarantee Hyprland will work there. For any other distro
 (not based on Arch/Nix) you might have varying amounts of success. However,
-since Hyprland is extremely bleeding-edge, distros like Pop!\_OS, Ubuntu, etc.
-will have **major** issues running Hyprland. Rolling release distros like Fedora, openSUSE, etc. will likely be fine.
+since Hyprland is extremely bleeding-edge, point release distros like Pop!\_OS, Fedora, Ubuntu, etc.
+will have **major** issues running Hyprland. Rolling release distros like openSUSE, Solus ,etc. will likely be fine.
 
 ## Installation
 
