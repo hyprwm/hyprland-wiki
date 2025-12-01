@@ -53,3 +53,9 @@ Prefixes can only be one character.
 | `desktop_launch_prefix` | Launch prefix for each desktop app, e.g. `uwsm app -- `. | string | empty |
 | `desktop_icons` | Whether to enable desktop icons in the results. | bool | `true` |
 
+#### UI
+
+| option | description | type | default |
+| -- | -- | -- | -- |
+| window_size | the size of the launcher | vec2 | `400 260` |
+
