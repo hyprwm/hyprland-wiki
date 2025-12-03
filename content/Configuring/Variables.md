@@ -553,6 +553,15 @@ Video:
 
 `ENABLE_HDR_WSI=1 mpv --vo=gpu-next --target-colorspace-hint --gpu-api=vulkan --gpu-context=waylandvk "filename"`
 
+### Quirks
+
+_Subcategory `quirks:`_
+
+| name | description | type | default |
+| --- | --- | --- | --- |
+| prefer_hdr | Report HDR mode as preferred. 0 - off, 1 - always, 2 - gamescope only | int | 0 |
+
+Some clients expect monitor to be in HDR mode prior to the client start. This breaks auto HDR activation and can cause whitescreen and flickering. Use `prefer_hdr` to fix it,
 
 ### Debug
 
