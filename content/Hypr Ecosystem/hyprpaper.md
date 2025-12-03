@@ -31,166 +31,32 @@ sudo dnf install hyprpaper
 
 {{% /details %}}
 
-{{% details title="Manual" closed="true" %}}
-
-### Dependencies
-The development files of these packages need to be installed on the system for `hyprpaper` to build correctly.
-(Development packages are usually suffixed with `-dev` or `-devel` in most distros' repos).
-
-- wayland
-- wayland-protocols
-- pango
-- cairo
-- file
-- libglvnd
-- libglvnd-core
-- libjpeg-turbo
-- libwebp
-- hyprlang
-- hyprutils
-- hyprgraphics
-- hyprwayland-scanner
-
-To install all of these in Fedora, run this command:
-
-```sh
-sudo dnf install wayland-devel wayland-protocols-devel hyprlang-devel pango-devel cairo-devel file-devel libglvnd-devel libglvnd-core-devel libjpeg-turbo-devel libwebp-devel gcc-c++ hyprutils-devel hyprwayland-scanner
-```
-
-On Arch:
-
-```sh
-sudo pacman -S ninja gcc wayland-protocols libjpeg-turbo libwebp pango cairo pkgconf cmake libglvnd wayland hyprutils hyprwayland-scanner hyprlang
-```
-
-On openSUSE:
-
-```sh
-sudo zypper install ninja gcc-c++ wayland-protocols-devel Mesa-libGLESv3-devel file-devel hyprutils-devel hyprwayland-scanner
-```
-
-### Building
-
-Building is done via CMake:
-
-```sh
-cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
-cmake --build ./build --config Release --target hyprpaper -j`nproc 2>/dev/null || getconf _NPROCESSORS_CONF`
-```
-
-Install with:
-
-```sh
-cmake --install ./build
-```
-
-{{% /details %}}
-
 ## Configuration
 
 The config file is located at `~/.config/hypr/hyprpaper.conf`. It is not
 required.
 
-### List of Dispatchers
+### Setting wallpapers
 
-| Dispatcher | Description | Params |
-| --- | --- | --- |
-| `preload` | Preloads an image into memory. | `/home/me/amogus.png` |
-| `wallpaper` | Applies `preload`ed images to your monitor(s). | `monitor_name, /home/me/amogus.png` |
-| `unload` | Removes `preload`ed images from memory. | `/home/me/amogus.png` \| `all` \| `unused`  |
-| `reload` | Sets/changes wallpapers without having to `preload` them, effectively automating the process of: `unload`->`preload`->set `wallpaper`. | `/home/me/amogus.png` |
-
-### The `preload` and `wallpaper` Keywords
-
-Configuration is done using `preload`, which _loads_ an image into memory.
-
-> [!WARNING]
-> Note that all image paths must be absolute (or start with `~`).
-
-The `wallpaper` keyword is then used to apply the preloaded image to your monitor(s):
+Wallpapers are set as anonymous special categories. Monitor can be left empty for a fallback.
 
 ```ini
-preload = /home/me/amongus.png
-wallpaper = monitor, /home/me/amongus.png
+wallpaper {
+    monitor = DP-3
+    file = ~/myFile.jxl
+    fit_mode = cover
+}
+
+wallpaper {
+    monitor = DP-2
+    file = ~/myFile2.jxl
+    fit_mode = cover
+}
+
+# ...
 ```
 
-> [!NOTE]
-> You can check names and other info for your monitors using `hyprctl monitors`.
-
-The `monitor` argument can be left empty to set a wallpaper for all monitors that don't already have one set.
-
-```ini
-wallpaper = , /home/me/amongus.png
-```
-
-You can also refer to a monitor by its description by prefixing `desc:` followed by the monitor's description without the (PORT) at the end.
-
-You may add `contain:` or `tile:` before the file path in `wallpaper =` to set the mode to either contain or tile, respectively, instead of cover:
-
-```ini
-wallpaper = monitor, contain:/home/me/amongus.png
-```
-
-### The `unload` Keyword
-
-You can use `unload` to unload preloaded images.  
-You can also specify `unload all` to unload all images or `unload unused` to unload images that aren't being used.
-
-### The `reload` Keyword
-
-The `reload` keyword allows you to set or change wallpapers without
-having to preload them.  
-For example, you could have a completely empty hyprpaper config (with [IPC](#ipc) enabled!), and run the below command to quickly set your wallpaper (this example sets the wallpaper for
-all monitors):
-
-```sh
-hyprctl hyprpaper reload ,"~/amogus.png"
-```
-
-Running this command again with a new wallpaper would effectively swap
-the wallpaper with the new one, automating the whole preload, set,
-unload old sequence.
-
-> [!WARNING]
-> `Monitor Specificity`  
-> Once a monitor has a wallpaper set specifically (e.g., `hyprctl hyprpaper reload "DP-1,~/amogus.png"`),
-> it won't be affected by the wildcard (`hyprctl hyprpaper reload ,"~/amogus.png"`).
-
-#### Using `reload` to Randomize Your Wallpaper
-
-You can also use this simple `reload` functionality to randomize your wallpaper. Using a simple script like so would do it very easily:
-
-```bash
-#!/usr/bin/env bash
-
-WALLPAPER_DIR="$HOME/wallpapers/"
-CURRENT_WALL=$(hyprctl hyprpaper listloaded)
-
-# Get a random wallpaper that is not the current one
-WALLPAPER=$(find "$WALLPAPER_DIR" -type f ! -name "$(basename "$CURRENT_WALL")" | shuf -n 1)
-
-# Apply the selected wallpaper
-hyprctl hyprpaper reload ,"$WALLPAPER"
-```
-
-For a multiple-monitor setup, you can use this modified script that randomizes the wallpaper of your currently focused monitor:
-
-```bash
-#!/usr/bin/env bash
-
-WALLPAPER_DIR="$HOME/wallpapers/"
-CURRENT_WALL=$(hyprctl hyprpaper listloaded)
-# Get the name of the focused monitor with hyprctl
-FOCUSED_MONITOR=$(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name')
-# Get a random wallpaper that is not the current one
-WALLPAPER=$(find "$WALLPAPER_DIR" -type f ! -name "$(basename "$CURRENT_WALL")" | shuf -n 1)
-
-# Apply the selected wallpaper
-hyprctl hyprpaper reload "$FOCUSED_MONITOR","$WALLPAPER"
-```
-
-Make sure to change the `WALLPAPER_DIR` to your own wallpaper directory. You can then run this
-script in your Hyprland config with a keybind.
+`fit_mode` is optional and defaults to cover.
 
 ### Run at Startup
 
@@ -202,29 +68,16 @@ If you start Hyprland with [uwsm](../../Useful-Utilities/Systemd-start), you can
 | variable | description | type | default |
 | --- | --- | --- | --- |
 | `splash` | enable rendering of the hyprland splash over the wallpaper | bool | `false` |
-| `splash_offset` | how far (in % of height) up should the splash be displayed | float | `2.0` |
-| `splash_color` | color to use when rendering splash | color | `55ffffff` |
+| `splash_offset` | how far up should the splash be displayed | float | `20` |
+| `splash_opacity` | how opaque the splash is | float | `0.8` |
 | `ipc` | whether to enable IPC | bool | `true` |
 
 ## IPC
 
-hyprpaper supports IPC via `hyprctl`. Every dispatcher mentioned in the
-[List of Dispatchers](#list-of-dispatchers) can be called with
-`hyprctl hyprpaper <dispatcher> <arg(s)>`.
-
-> [!NOTE]
-> Make sure to use valid [hyprlang](./hyprlang.md) syntax when passing arguments to the dispatchers.
-
-Additionally, you can get some info about the current state of hyprpaper with
-`listloaded` and `listactive`.
-
-Examples:
+hyprpaper supports IPC via `hyprctl`. You can set wallpapers like so:
 
 ```sh
-hyprctl hyprpaper preload "~/Pictures/myepicpng.png"
-hyprctl hyprpaper wallpaper "DP-1,~/Pictures/myepicpng.png"
+hyprctl hyprpaper wallpaper '[mon], [path], [fit_mode]
 ```
 
-```sh
-hyprctl hyprpaper listloaded
-```
+`fit_mode` is optional, and `mon` can be empty for a fallback, just like in the config file.
