@@ -51,7 +51,7 @@ workspace = WORKSPACE, RULES
 
 ```ini
 workspace = name:myworkspace, gapsin:0, gapsout:0
-workspace = 3, rounding:false, border_size:0
+workspace = 3, rounding:false, bordersize:0
 workspace = w[tg1-4], shadow:false
 ```
 
@@ -103,7 +103,7 @@ windowrule = rounding 0, match:float 0, match:workspace f[1]s[false]
 ```ini
 workspace = 3, rounding:false, decorate:false
 workspace = name:coding, rounding:false, decorate:false, gapsin:0, gapsout:0, border:false, monitor:DP-1
-workspace = 8,border_size:8
+workspace = 8,bordersize:8
 workspace = name:Hello, monitor:DP-1, default:true
 workspace = name:gaming, monitor:desc:Chimei Innolux Corporation 0x150C, default:true
 workspace = 5, on-created-empty:[float] firefox
