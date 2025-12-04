@@ -62,10 +62,10 @@ To replicate "smart gaps" / "no gaps when only" from other WMs/Compositors, use 
 ```ini
 workspace = w[tv1], gapsout:0, gapsin:0
 workspace = f[1], gapsout:0, gapsin:0
-windowrule = match:float false, match:workspace w[tv1], border_size 0
-windowrule = match:float false, match:workspace w[tv1], rounding 0
-windowrule = match:float false, match:workspace f[1], border_size 0
-windowrule = match:float false, match:workspace f[1], rounding 0
+windowrule = border_size 0, match:float 0, match:workspace w[tv1]
+windowrule = rounding 0, match:float 0, match:workspace w[tv1]
+windowrule = border_size 0, match:float 0, match:workspace f[1]
+windowrule = rounding 0, match:float 0, match:workspace f[1]
 ```
 
 #### Smart gaps (ignoring special workspaces)
@@ -75,10 +75,10 @@ You can combine workspace selectors for more fine-grained control, for example, 
 ```ini
 workspace = w[tv1]s[false], gapsout:0, gapsin:0
 workspace = f[1]s[false], gapsout:0, gapsin:0
-windowrule = match:float false, match:workspace w[tv1]s[false], border_size 0
-windowrule = match:float false, match:workspace w[tv1]s[false], rounding 0
-windowrule = match:float false, match:workspace f[1]s[false], border_size 0
-windowrule = match:float false, match:workspace f[1]s[false], rounding 0
+windowrule = border_size 0, match:float 0, match:workspace w[tv1]s[false]
+windowrule = rounding 0, match:float 0, match:workspace w[tv1]s[false]
+windowrule = border_size 0, match:float 0, match:workspace f[1]s[false]
+windowrule = rounding 0, match:float 0, match:workspace f[1]s[false]
 ```
 
 ## Rules
