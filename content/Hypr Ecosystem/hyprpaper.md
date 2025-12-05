@@ -43,13 +43,13 @@ Wallpapers are set as anonymous special categories. Monitor can be left empty fo
 ```ini
 wallpaper {
     monitor = DP-3
-    file = ~/myFile.jxl
+    path = ~/myFile.jxl
     fit_mode = cover
 }
 
 wallpaper {
     monitor = DP-2
-    file = ~/myFile2.jxl
+    path = ~/myFile2.jxl
     fit_mode = cover
 }
 
@@ -64,6 +64,8 @@ To run hyprpaper at startup edit `hyprland.conf` and add: `exec-once = hyprpaper
 If you start Hyprland with [uwsm](../../Useful-Utilities/Systemd-start), you can also use the `systemctl --user enable --now hyprpaper.service` command.
 
 ### Misc Options
+
+These should be set outside of the `wallpaper{...}` sections.
 
 | variable | description | type | default |
 | --- | --- | --- | --- |
