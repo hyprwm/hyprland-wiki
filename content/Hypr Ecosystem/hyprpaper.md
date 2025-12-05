@@ -40,6 +40,12 @@ required.
 
 Wallpapers are set as anonymous special categories. Monitor can be left empty for a fallback.
 
+| variable | description | value |
+| --- | --- | --- |
+| `monitor` | Monitor to display this wallpaper on. If empty or not set, will use this wallpaper as a fallback | monitor ID |
+| `path` | Path to the image file | path |
+| `fit_mode` | Determines how to display the image. Optional and defaults to `cover` | `contain`\|`cover`\|`tile`\|`fill` |
+
 ```ini
 wallpaper {
     monitor = DP-3
@@ -56,7 +62,6 @@ wallpaper {
 # ...
 ```
 
-`fit_mode` is optional and defaults to cover.
 
 ### Run at Startup
 
