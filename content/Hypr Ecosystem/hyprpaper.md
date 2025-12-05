@@ -42,7 +42,7 @@ Wallpapers are set as anonymous special categories. Monitor can be left empty fo
 
 | variable | description | value |
 | --- | --- | --- |
-| `monitor` | Monitor to display this wallpaper on. If empty or not set, will use this wallpaper as a fallback | monitor ID |
+| `monitor` | Monitor to display this wallpaper on. If empty, will use this wallpaper as a fallback | monitor ID |
 | `path` | Path to the image file | path |
 | `fit_mode` | Determines how to display the image. Optional and defaults to `cover` | `contain`\|`cover`\|`tile`\|`fill` |
 
