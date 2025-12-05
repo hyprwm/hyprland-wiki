@@ -54,6 +54,60 @@ Additionally:
  - global pointers for singletons have a prefix of `g_`: `g_someManager`
  - constant variables are in CAPS: `const auto MYVARIABLE = ...`
 
+## Documentation and Comments
+
+Most users expect the documentation to be under README.md or CONTRIBUTING.md.
+A large number of issues created on Hypr projects are because of not reading the documentation.
+It is better to include a line in every README.md, declaring that [wiki.hypr.land](https://wiki.hypr.land/) is the official documentation for all Hypr projects, and to read the documentation before making an issue.
+
+It is best practice to include comments for code.
+Good documentation and comments is as important as good code.
+You can still contribute to the development of open source projects even without development skills, by helping out with documentations and non-technical work.
+
+### PRs specifically for comment changes
+If your PR is entirely for comment related changes, declare it in the title that it is comments only.
+
+### Comment guidelines
+ - Comments are for _others_ to understand code, not as logs for what has been done to the code
+ - Explain what the code does, rather than how it does it; avoid explaining how, unless the logic is non-obvious.
+ - Clarify why certain decisions were made for the code, if it is relevant on a technical standpoint
+ - Prefer adding comments to function and class definitions
+ - Use terms like NOTE or TODO, to communicate current limitations and/or future plans.
+ - Follow the style of existing comments
+
+### Comment examples
+
+Some good comments:
+```
+// Provides clipboard implementation
+
+// Function to start GUI for input
+
+// Enable cache functionality based on config
+
+// NOTE: The following workaround is due to a bug in LibraryForLLM v4.20
+
+// NOTE: The following line is redundant, but removing it breaks the code. Further examination is needed.
+
+// TODO: Refactor function before version 6.9 release
+
+// TODO: Implement VR support, through the following libraries:
+
+```
+
+Some bad comments:
+```
+//fixes bugs
+
+//create a for loop
+
+// Add the two numbers
+
+// I don't feel like this function is necessary
+
+// TODO: fix this bug
+```
+
 ## General code requirements
 
 ### No raw pointers
