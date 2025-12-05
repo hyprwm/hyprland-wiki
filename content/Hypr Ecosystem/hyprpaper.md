@@ -84,7 +84,7 @@ These should be set outside of the `wallpaper{...}` sections.
 hyprpaper supports IPC via `hyprctl`. You can set wallpapers like so:
 
 ```sh
-hyprctl hyprpaper wallpaper '[mon], [path], [fit_mode]
+hyprctl hyprpaper wallpaper '[mon], [path], [fit_mode]'
 ```
 
 `fit_mode` is optional, and `mon` can be empty for a fallback, just like in the config file.
