@@ -40,23 +40,28 @@ required.
 
 Wallpapers are set as anonymous special categories. Monitor can be left empty for a fallback.
 
+| variable | description | value |
+| --- | --- | --- |
+| `monitor` | Monitor to display this wallpaper on. If empty, will use this wallpaper as a fallback | monitor ID |
+| `path` | Path to the image file | path |
+| `fit_mode` | Determines how to display the image. Optional and defaults to `cover` | `contain`\|`cover`\|`tile`\|`fill` |
+
 ```ini
 wallpaper {
     monitor = DP-3
-    file = ~/myFile.jxl
+    path = ~/myFile.jxl
     fit_mode = cover
 }
 
 wallpaper {
     monitor = DP-2
-    file = ~/myFile2.jxl
+    path = ~/myFile2.jxl
     fit_mode = cover
 }
 
 # ...
 ```
 
-`fit_mode` is optional and defaults to cover.
 
 ### Run at Startup
 
@@ -64,6 +69,8 @@ To run hyprpaper at startup edit `hyprland.conf` and add: `exec-once = hyprpaper
 If you start Hyprland with [uwsm](../../Useful-Utilities/Systemd-start), you can also use the `systemctl --user enable --now hyprpaper.service` command.
 
 ### Misc Options
+
+These should be set outside of the `wallpaper{...}` sections.
 
 | variable | description | type | default |
 | --- | --- | --- | --- |
@@ -77,7 +84,7 @@ If you start Hyprland with [uwsm](../../Useful-Utilities/Systemd-start), you can
 hyprpaper supports IPC via `hyprctl`. You can set wallpapers like so:
 
 ```sh
-hyprctl hyprpaper wallpaper '[mon], [path], [fit_mode]
+hyprctl hyprpaper wallpaper '[mon], [path], [fit_mode]'
 ```
 
 `fit_mode` is optional, and `mon` can be empty for a fallback, just like in the config file.
