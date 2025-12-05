@@ -63,7 +63,7 @@ layout pages (See the sidebar).
 | movecursortocorner | moves the cursor to the corner of the active window | direction, 0 - 3, bottom left - 0, bottom right - 1, top right - 2, top left - 3 |
 | movecursor | moves the cursor to a specified position | `x y` |
 | renameworkspace | rename a workspace | `id name`, e.g. `2 work` |
-| exit | exits the compositor with no questions asked. | none |
+| exit | exits the compositor with no questions asked. It's recommended to use `hyprshutdown` instead of this. | none |
 | forcerendererreload | forces the renderer to reload all resources and outputs | none |
 | movecurrentworkspacetomonitor | Moves the active workspace to a monitor | monitor |
 | focusworkspaceoncurrentmonitor | Focuses the requested workspace on the current monitor, swapping the current workspace to a different monitor if necessary. If you want XMonad/Qtile-style workspace switching, replace `workspace` in your config with this. | workspace |

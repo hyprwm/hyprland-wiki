@@ -25,6 +25,8 @@ Check out the wiki pages for each app, or their GitHub repo.
 - [hyprpolkitagent](./hyprpolkitagent) | [GitHub](https://github.com/hyprwm/hyprpolkitagent)
 - [hyprland-qt-support](./hyprland-qt-support) | [GitHub](https://github.com/hyprwm/hyprland-qt-support)
 - [hyprqt6engine](./hyprqt6engine) | [GitHub](https://github.com/hyprwm/hyprqt6engine)
+- [hyprpwcenter](./hyprpwcenter) | [GitHub](https://github.com/hyprwm/hyprpwcenter)
+- [hyprshutdown](./hyprshutdown) | [GitHub](https://github.com/hyprwm/hyprshutdown)
 
 ### Dev Libraries and Toolkits
 
