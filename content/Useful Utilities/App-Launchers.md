@@ -5,7 +5,7 @@ title: App launchers
 
 ## Hyprlauncher
 Hyprlauncher is a first-party multipurpose and versatile launcher / picker for Hyprland.
-[GitHub](https://github.com/hyprwm/hyprlauncher)
+See its usage and config [here](../../Hypr-Ecosystem/hyprlauncher).
 
 ## Wofi
 
