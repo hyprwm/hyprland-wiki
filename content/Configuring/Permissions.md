@@ -3,7 +3,7 @@ weight: 14
 title: Permissions
 ---
 
-If you have `hyprland-qtutils` installed, you can make use of Hyprland's built-in
+If you have `hyprland-guiutils` installed, you can make use of Hyprland's built-in
 permission system.
 
 For now, it only has a few permissions, but it might include more in the future.
