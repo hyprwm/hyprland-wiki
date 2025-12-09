@@ -50,6 +50,7 @@ Prefixes can only be one character.
 | `desktop_prefix` | Prefix for the desktop finder to be used. | string | empty |
 | `unicode_prefix` | Prefix for the unicode finder to be used. | string | `.` |
 | `math_prefix` | Prefix for the math finder to be used. | string | `=` |
+| `font_prefix` | Prefix for the font finder to be used. | string | `'` |
 | `desktop_launch_prefix` | Launch prefix for each desktop app, e.g. `uwsm app -- `. | string | empty |
 | `desktop_icons` | Whether to enable desktop icons in the results. | bool | `true` |
 
