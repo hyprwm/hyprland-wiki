@@ -1,6 +1,6 @@
 ---
 weight: 8
-title: NVidia
+title: Nvidia
 ---
 
 ## Foreword
@@ -98,9 +98,9 @@ MODULES=(... nvidia nvidia_modeset nvidia_uvm nvidia_drm ...)
 
 > [!WARNING]
 > Electron or Chromium-based apps can stall for up to a minute after boot on hybrid graphics systems with an Intel iGPU and an Nvidia dGPU.
-> 
+>
 > This can be fixed by loading the `i915` module **before** the Nvidia ones in `/etc/mkinitcpio.conf`. Just edit the `MODULES` line like this:
-> 
+>
 > ```conf {filename="/etc/mkinitcpio.conf"}
 > MODULES=(i915 nvidia nvidia_modeset nvidia_uvm nvidia_drm ...)
 > ```
