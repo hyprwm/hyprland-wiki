@@ -21,7 +21,7 @@ title: Installation
 We officially run and test Hyprland on Arch and NixOS, and we guarantee Hyprland will work there. For any other distro
 (not based on Arch/Nix) you might have varying amounts of success. However,
 since Hyprland is extremely bleeding-edge, point release distros like Pop!\_OS, Fedora, Ubuntu, etc.
-will have **major** issues running Hyprland. Rolling release distros like openSUSE, Solus ,etc. will likely be fine.
+will have **major** issues running Hyprland. Rolling release distros like openSUSE, Solus, etc. will likely be fine.
 
 ## Installation
 
@@ -117,16 +117,16 @@ Hyprland needs are too old._
 
 {{% details title="Fedora*" closed="true" %}}
 
-On Fedora 40+, run:
+On Fedora 40-42, run:
 
 ```sh
 sudo dnf install hyprland
 sudo dnf install hyprland-devel # If you want to build plugins (use hyprpm)
 ```
 
-Faster updates and additional packages are available in the
+As of Fedora 43 Hyprland has been removed from the Fedora repositories. Use the
 [solopasha/hyprland](https://copr.fedorainfracloud.org/coprs/solopasha/hyprland)
-Copr repository.
+Copr repository instead.
 
 If you are on an older version of Fedora, you can also compile it yourself by
 following the instructions
