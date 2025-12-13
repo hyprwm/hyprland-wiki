@@ -34,6 +34,8 @@ hyprlang
 hyprcursor
 aquamarine
 xdg-desktop-portal-hyprland
+hyprwire
+hyprtoolkit
 hyprland
 ```
 
