@@ -338,7 +338,7 @@ address=$(hyprctl -j clients | jq -r 'sort_by(.focusHistoryID) | .[] | select(.w
 	      awk -F"\t" '{print $1}')
 
 if [ -n "$address" ] ; then
-	echo "$address" > /tmp/alttab/address
+	echo "$address" > $XDG_RUNTIME_DIR/hypr/alttab/address
 fi
 
 hyprctl -q dispatch submap reset
@@ -355,8 +355,8 @@ line="$1"
 IFS=$'\t' read -r addr _ <<< "$line"
 dim=${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}
 
-grim -t png -l 0 -w "$addr" /tmp/alttab/preview.png
-chafa --animate false --dither=none -s "$dim" "/tmp/alttab/preview.png"
+grim -t png -l 0 -w "$addr" $XDG_RUNTIME_DIR/hypr/alttab/preview.png
+chafa --animate false --dither=none -s "$dim" "$XDG_RUNTIME_DIR/hypr/alttab/preview.png"
 ```
 
 4. create file `touch $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh && chmod +x $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh` and add:
@@ -371,10 +371,10 @@ hyprctl -q --batch "keyword unbind ALT, TAB ; keyword unbind ALT SHIFT, TAB ; ke
 5. create file `touch $XDG_CONFIG_HOME/hypr/scripts/alttab/enable.sh && chmod +x $XDG_CONFIG_HOME/hypr/scripts/alttab/enable.sh` and add:
 ```bash {filename="enable.sh"}
 #!/usr/bin/env bash
-mkdir -p /tmp/alttab
+mkdir -p $XDG_RUNTIME_DIR/hypr/alttab
 hyprctl -q --batch "keyword animations:enabled false; keyword unbind ALT, TAB ; keyword unbind ALT SHIFT, TAB"
 footclient -a alttab $HOME/.config/hypr/scripts/alttab/alttab.sh $1
-hyprctl --batch -q "dispatch focuswindow address:$(cat /tmp/alttab/address) ; dispatch alterzorder top"
+hyprctl --batch -q "dispatch focuswindow address:$(cat $XDG_RUNTIME_DIR/hypr/alttab/address) ; dispatch alterzorder top"
 ```
 
 ## Config versioning
