@@ -125,7 +125,7 @@ sudo dnf install hyprland-devel # If you want to build plugins (use hyprpm)
 ```
 
 As of Fedora 43 Hyprland has been removed from the Fedora repositories. Use the
-[solopasha/hyprland](https://copr.fedorainfracloud.org/coprs/solopasha/hyprland)
+[sdegler/hyprland](https://copr.fedorainfracloud.org/coprs/sdegler/hyprland/)
 Copr repository instead.
 
 If you are on an older version of Fedora, you can also compile it yourself by
