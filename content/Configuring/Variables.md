@@ -514,6 +514,7 @@ _Subcategory `cursor:`_
 | enable_hyprcursor | whether to enable hyprcursor support | bool | true |
 | hide_on_key_press | Hides the cursor when you press any key until the mouse is moved. | bool | false |
 | hide_on_touch | Hides the cursor when the last input was a touch input until a mouse input is done. | bool | true |
+| hide_on_tablet | Hides the cursor when the last input was a tablet input until a mouse input is done. | bool | true |
 | use_cpu_buffer | Makes HW cursors use a CPU buffer. Required on Nvidia to have HW cursors. 0 - off, 1 - on, 2 - auto (nvidia only) | int | 2 |
 | warp_back_after_non_mouse_input | Warp the cursor back to where it was after using a non-mouse input to move it, and then returning back to mouse. | bool | false |
 | zoom_disable_aa | disable antialiasing when zooming, which means things will be pixelated instead of blurry | bool | false |
