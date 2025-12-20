@@ -61,5 +61,12 @@ Walker is an extensible Wayland-native runner with various built-in modules
 be run as a service for faster startups.
 [GitHub](https://github.com/abenz1267/walker)
 
+## Vicinae
+
+Vicinae is a C++ and Qt native launcher with a focus on wayland. Comes with many
+built-in modules. It runs as a server in background. It supports raycast extensions
+via a compatibility layer.
+[GitHub](https://github.com/vicinaehq/vicinae)
+
 For a more comprehensive list of launchers, check
 [awesome-hyprland](https://github.com/hyprland-community/awesome-hyprland#runners-menus-and-application-launchers).
