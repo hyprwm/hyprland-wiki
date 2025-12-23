@@ -12,8 +12,7 @@ For developer docs, see [development](./development)
 ## Configuration
 
 The general toolkit config is at `~/.config/hypr/hyprtoolkit.conf`.  
-It contains theming and some minor adjustments. ARGB hex colors expect a preceding `0x` such as `0xFF181818`.
-The `rgb()` and `rgba()` functions are supported too.
+It contains theming and some minor adjustments and supports the same color options as hyprland.
 
 | Variable | Description | Type | Default |
 | --- | --- | --- | --- |
