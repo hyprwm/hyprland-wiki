@@ -429,6 +429,7 @@ _Subcategory `misc:`_
 | enable_anr_dialog | whether to enable the ANR (app not responding) dialog when your apps hang | bool | true |
 | anr_missed_pings | number of missed pings before showing the ANR dialog | int | 5 |
 | size_limits_tiled | whether to apply min_size and max_size rules to tiled windows | bool | false |
+| disable_watchdog_warning | whether to disable the warning about not using start-hyprland | bool | false |
 
 ### Binds
 
