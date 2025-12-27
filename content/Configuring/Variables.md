@@ -487,7 +487,7 @@ _Subcategory `render:`_
 | cm_auto_hdr | Auto-switch to HDR in fullscreen when needed. 0 - off, 1 - switch to `cm, hdr`, 2 - switch to `cm, hdredid` | int | 1 |
 | new_render_scheduling | Automatically uses triple buffering when needed, improves FPS on underpowered devices. | bool | false |
 | non_shader_cm | Enable CM without shader. 0 - disable, 1 - whenever possible, 2 - DS and passthrough only, 3 - disable and ignore CM issues | int | 3 |
-| cm_sdr_eotf | Default transfer function for displaying SDR apps. 0 - Treat unspecified as sRGB, 1 - Treat unspecified as Gamma 2.2, 2 - Treat unspecified and sRGB as Gamma 2.2 | int | 0 |
+| cm_sdr_eotf | Default transfer function for displaying SDR apps. 0 - Default (currently gamma22), 1 - Treat unspecified as Gamma 2.2, 2 - Treat unspecified and sRGB as Gamma 2.2, 3 - Treat unspecified as sRGB (previous default) | int | 0 |
 
 `cm_auto_hdr` requires `--target-colorspace-hint-mode=source` mpv option to work with mpv versions greater than v0.40.0
 
@@ -529,32 +529,6 @@ _Subcategory `ecosystem:`_
 | no_update_news | disable the popup that shows up when you update hyprland to a new version. | bool | false |
 | no_donation_nag | disable the popup that shows up twice a year encouraging to donate. | bool | false |
 | enforce_permissions | whether to enable [permission control](../Permissions). | bool | false |
-
-### Experimental
-
-_Subcategory `experimental:`_
-
-| name | description | type | default |
-| --- | --- | --- | --- |
-| xx_color_management_v4 | enable color management protocol | bool | false |
-
-Since The release of `Mesa 25.1.1` settings below are no longer required, so just skip.
-
-Requires a client with `frog-color-management-v1` or `xx-color-management-v4` support like gamescope or https://github.com/Zamundaaa/VK_hdr_layer
-
-Steam:
-
-`DXVK_HDR=1 gamescope -f --hdr-enabled -- %command%`
-
-`ENABLE_HDR_WSI=1 DXVK_HDR=1 DISPLAY= %command%` (requires wayland-enabled proton version)
-
-Non-steam:
-
-`ENABLE_HDR_WSI=1 DXVK_HDR=1 DISPLAY= wine executable.exe`
-
-Video:
-
-`ENABLE_HDR_WSI=1 mpv --vo=gpu-next --target-colorspace-hint --gpu-api=vulkan --gpu-context=waylandvk "filename"`
 
 ### Quirks
 
