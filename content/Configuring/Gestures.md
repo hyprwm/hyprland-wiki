@@ -56,3 +56,17 @@ from the original gesture including direction, mods, fingers and scale.
 | `fullscreen` | fullscreens the active window | none for fullscreen, `maximize` for maximize |
 | `float` | floats the active window | none for toggle, `float` or `tile` for one-way | 
 
+
+### Flags
+
+Gestures support flags though the syntax:
+
+```ini
+gesture[flags] = ...
+```
+
+Supported flags:
+
+| Flag | Name | Description |
+| -- | -- | -- |
+| `p` | bypass | Allows the gesture to bypass shortcut inhibitors. |
