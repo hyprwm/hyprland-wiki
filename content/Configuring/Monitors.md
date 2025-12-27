@@ -293,8 +293,8 @@ EDID overrides and SDR &rarr; HDR settings:
 
 | name | description | type |
 |---|---|---|
-| supports_wide_color | Force wide color gamut support (1 - force on, 0 - does nothing) | bool |
-| supports_hdr | Force HDR support. Requires wide color gamut (1 - force on, 0 - does nothing) | bool |
+| supports_wide_color | Force wide color gamut support (0 - auto, 1 - force on, -1 - force off) | int |
+| supports_hdr | Force HDR support. Requires wide color gamut (0 - auto, 1 - force on, -1 - force off) | int |
 | sdr_min_luminance | SDR minimum lumninace used for SDR &rarr; HDR mapping. Set to 0.005 for true black matching HDR black | float |
 | sdr_max_luminance | SDR maximum luminance. Can be used to adjust overall SDR &rarr; HDR brightness. 80 - 400 is a reasonable range. The desired value is likely between 200 and 250 | int |
 | min_luminance | Monitor's minimum luminance | float |
