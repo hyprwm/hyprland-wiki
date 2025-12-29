@@ -346,3 +346,22 @@ but they have different props and effects.
 | order | \[n\] | Sets the order relative to other layers. A higher `n` means closer to the edge of the monitor. Can be negative. `n = 0` if unspecified. |
 | above_lock | \[0/1/2\] | If non-zero, renders the layer above the lockscreen when the session is locked. If set to `2`, you can interact with the layer on the lockscreen, otherwise it will only be rendered above it. |
 | no_screen_share | \[on\] | Hides the layer from screen sharing by drawing a black rectangle over it. |
+
+## Migration from v0.52
+
+v0.53 completely overhauled window rule syntax. 
+
+You may want to migrate some of your configs with `sed`:
+
+
+- Flip syntax and drop windowrulev2 in favor of windowrule
+```bash
+sed -i -E 's/^(\s*windowrule(v2)?\s*=\s*)([^,]+),\s*(class|title):\s*([^#]+)(\s*#.*)?$/windowrule = match:\4 \5, \3 \6/g' hyprland.conf
+```
+
+
+
+- Fix boolean actions (add 'on' suffix)
+```bash
+sed -i -E 's/, (float|tile|fullscreen|maximize)(\s+)(#|$)/, \1 on\2\3/g' hyprland.conf
+```
