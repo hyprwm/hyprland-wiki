@@ -12,17 +12,17 @@ For developer docs, see [development](./development)
 ## Configuration
 
 The general toolkit config is at `~/.config/hypr/hyprtoolkit.conf`.  
-It contains theming and some minor adjustments.
+It contains theming and some minor adjustments and supports the same color options as hyprland.
 
 | Variable | Description | Type | Default |
 | --- | --- | --- | --- |
-| `background` | Background color. | color | `FF181818` |
-| `base` | Base color. | color | `FF202020` |
-| `text` | Text color. | color | `FFDADADA` |
-| `alternate_base` | Alternative base color. | color | `FF272727` |
-| `bright_text` | Bright text color. | color | `FFFFDEDE` |
-| `accent` | Accent color. | color | `FF00FFCC` |
-| `accent_secondary` | Secondary accent color. | color | `FF0099F0` |
+| `background` | Background color. | color | `0xFF181818` |
+| `base` | Base color. | color | `0xFF202020` |
+| `text` | Text color. | color | `0xFFDADADA` |
+| `alternate_base` | Alternative base color. | color | `0xFF272727` |
+| `bright_text` | Bright text color. | color | `0xFFFFDEDE` |
+| `accent` | Accent color. | color | `0xFF00FFCC` |
+| `accent_secondary` | Secondary accent color. | color | `0xFF0099F0` |
 | `h1_size` | Font size for H1. | int | `19` |
 | `h2_size` | Font size for H2. | int | `15` |
 | `h3_size` | Font size for H3. | int | `13` |
