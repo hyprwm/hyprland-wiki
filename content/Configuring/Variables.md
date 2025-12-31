@@ -428,6 +428,7 @@ _Subcategory `misc:`_
 | lockdead_screen_delay | delay after which the "lockdead" screen will appear in case a lockscreen app fails to cover all the outputs (5 seconds max) | int | 1000 |
 | enable_anr_dialog | whether to enable the ANR (app not responding) dialog when your apps hang | bool | true |
 | anr_missed_pings | number of missed pings before showing the ANR dialog | int | 5 |
+| anr_follow_parent_workspace | whether to open the ANR dialog on the workspace of the parent | bool | false |
 | size_limits_tiled | whether to apply min_size and max_size rules to tiled windows | bool | false |
 | disable_watchdog_warning | whether to disable the warning about not using start-hyprland | bool | false |
 
