@@ -43,8 +43,9 @@ Wallpapers are set as anonymous special categories. Monitor can be left empty fo
 | variable | description | value |
 | --- | --- | --- |
 | `monitor` | Monitor to display this wallpaper on. If empty, will use this wallpaper as a fallback | monitor ID |
-| `path` | Path to the image file | path |
+| `path` | Path to an image file or a directory containing image files (non recursively) | path |
 | `fit_mode` | Determines how to display the image. Optional and defaults to `cover` | `contain`\|`cover`\|`tile`\|`fill` |
+| `timeout` | Timeout between each wallpaper change (in seconds, if `path` is a directory). Optional and defaults to 30 seconds | int |
 
 ```ini
 wallpaper {
@@ -78,6 +79,16 @@ These should be set outside of the `wallpaper{...}` sections.
 | `splash_offset` | how far up should the splash be displayed | float | `20` |
 | `splash_opacity` | how opaque the splash is | float | `0.8` |
 | `ipc` | whether to enable IPC | bool | `true` |
+
+### Sourcing
+
+Use the `source` keyword to source another file. Globbing, tilde expansion and relative paths are supported.
+
+```ini
+source = ~/.config/hypr/hyprpaper.d/*.conf
+```
+
+Please note it’s LINEAR. Meaning lines above the `source =` will be parsed first, then lines inside `~/.config/hypr/hyprpaper.d/*.conf` files, then lines below.
 
 ## IPC
 
