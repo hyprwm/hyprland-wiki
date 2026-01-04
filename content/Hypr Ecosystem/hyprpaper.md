@@ -98,4 +98,4 @@ hyprpaper supports IPC via `hyprctl`. You can set wallpapers like so:
 hyprctl hyprpaper wallpaper '[mon], [path], [fit_mode]'
 ```
 
-`fit_mode` is optional, and `mon` can be empty for a fallback, just like in the config file.
+`fit_mode` is optional, and `mon` can be empty for a fallback, just like in the config file. The fallback wallpaper only applies to monitors that have never had a specific monitor target assigned.
