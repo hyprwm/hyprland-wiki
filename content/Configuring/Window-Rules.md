@@ -346,3 +346,14 @@ but they have different props and effects.
 | order | \[n\] | Sets the order relative to other layers. A higher `n` means closer to the edge of the monitor. Can be negative. `n = 0` if unspecified. |
 | above_lock | \[0/1/2\] | If non-zero, renders the layer above the lockscreen when the session is locked. If set to `2`, you can interact with the layer on the lockscreen, otherwise it will only be rendered above it. |
 | no_screen_share | \[on\] | Hides the layer from screen sharing by drawing a black rectangle over it. |
+
+### Examples
+```
+layerrule = blur on, match:namespace waybar
+
+layerrule {
+  name = no_anim_for_selection
+  no_anim = on
+  match:namespace = selection
+}
+```
