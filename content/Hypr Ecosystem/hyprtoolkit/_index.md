@@ -31,3 +31,5 @@ It contains theming and some minor adjustments and supports the same color optio
 | `icon_theme` | Name of the icon theme to use, empty for "the first found". | string | _empty_ |
 | `font_family` | Name of the font family to use. | string | `Sans Serif` |
 | `font_family_monospace` | Name of the monospace font family to use. | string | `monospace` |
+| `rounding_large` | Big rounding in logical px | int | `10` |
+| `rounding_small` | Small rounding in logical px | int | `5` |
