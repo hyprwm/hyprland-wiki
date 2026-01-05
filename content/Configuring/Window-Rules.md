@@ -235,6 +235,12 @@ windowrule = opacity 0.4 override, match:tag alpha_0.4
 
 The `tag` rule can only manipulate dynamic tags, and the `tagwindow` dispatcher only works with static tags (i.e. once the dispatcher is called, dynamic tags will be cleared).
 
+The `tag` rule can be used with the negative: prefix to match any window not containing said tag.
+
+```ini
+windowrule = noshadow, tag:negative:someTag
+```
+
 ### Example Rules
 
 ```ini
