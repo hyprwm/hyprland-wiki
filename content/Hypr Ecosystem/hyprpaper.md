@@ -60,6 +60,12 @@ wallpaper {
     fit_mode = cover
 }
 
+wallpaper {
+    monitor = 
+    path = ~/fallback.jxl
+    fit_mode = cover
+}
+
 # ...
 ```
 
