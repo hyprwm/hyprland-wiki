@@ -204,7 +204,7 @@ _Subcategory `decoration:shadow:`_
 > [!NOTE] **XKB Settings**
 >
 > You can find a list of models, layouts, variants and options in
-> [`/usr/share/X11/xkb/rules/base.lst`](file:///usr/share/X11/xkb/rules/base.lst).
+> [`/usr/share/X11/xkb/rules/evdev.lst`](file:///usr/share/X11/xkb/rules/evdev.lst).
 > Alternatively, you can use the `localectl` command to discover what is available
 > on your system.
 > 
