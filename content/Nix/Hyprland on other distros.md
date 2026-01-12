@@ -6,10 +6,16 @@ weight: 4
 If you use Nix on distros other than NixOS, you can still use Hyprland.  
 The best option for advanced users would be through [Home Manager](../Hyprland-on-Home-Manager).
 
-However, if Home Manager is not for you, Hyprland can be installed as a normal
-package.  
-First, [enable flakes](https://nixos.wiki/wiki/Flakes#Enable_flakes), then, once you
-have flakes working, install Hyprland through `nix profile`:
+However, for most people, Home Manager is too complicated and not worth it outside NixOS. In those cases,
+Hyprland can be installed as a normal package.  
+First, install nix with your system's package manager (usually just called `nix`),
+then [enable flakes](https://nixos.wiki/wiki/Flakes#Enable_flakes), by adding this to `/etc/nix/nix.conf` or `~/.config/nix/nix.conf`:
+
+```ini
+experimental-features = nix-command flakes
+```
+
+once that is done, install Hyprland through `nix profile`:
 
 {{< tabs items="From Nixpkgs,From the Flake,From hyprnix (Experimental)" >}}
 
