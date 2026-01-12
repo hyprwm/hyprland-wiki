@@ -284,6 +284,10 @@ windowrule = opacity 0.8 0.8, match:class kitty
 Here, all kitty windows will have `opacity 0.8`, even if they are floating.
 The rest of the floating windows will have `opacity 0.5`.
 
+> [!IMPORTANT]
+> Named rules take precedence over anonymous ones. That is, rules are evaluated top
+> to bottom, but all named rules get evaluated first, then all anonymous ones.
+
 > [!NOTE]
 > Opacity is a PRODUCT of all opacities by default. For example, setting
 > `active_opacity` to `0.5` and `opacity` to `0.5` will result in a total opacity of
