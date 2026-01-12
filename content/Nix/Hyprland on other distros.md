@@ -66,8 +66,8 @@ nix profile install github:guibou/nixGL --impure
 
 `--impure` is needed due to `nixGL`'s reliance on hardware information.
 
-Since 0.53, `start-hyprland` will automatically use `nixGL` if needed. Otherwise,
-you must use `nixGL Hyprland`. It's recommended to just stick with `start-hyprland`.
+Since 0.54, `start-hyprland` will automatically use `nixGL` if needed. For versions before that,
+you must use `nixGL start-hyprland`.
 
 ## Upgrading
 
