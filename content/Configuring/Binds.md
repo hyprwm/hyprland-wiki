@@ -29,6 +29,32 @@ _For a complete mod list, see [Variables](../Variables/#variable-types)._
 _The dispatcher list can be found in
 [Dispatchers](../Dispatchers/#list-of-dispatchers)._
 
+### Comma Syntax
+
+Binds use commas as **argument separators**. The `bind` keyword expects exactly
+4 arguments, so you need exactly 3 commas:
+
+```ini
+bind = MODS, key, dispatcher, params
+#      1     2    3          4
+```
+
+> [!NOTE]
+> Trailing commas in example configs (e.g., `bind = SUPER, Tab, cyclenext,`) indicate
+> an empty `params` argument. Only include a trailing comma when the last argument
+> is intentionally empty.
+
+```ini
+bind = SUPER, F, exec, firefox   # OK - 4 args
+bind = , Print, exec, grim       # OK - 4 args (empty first = no modifier)
+bind = SUPER, F, exec, firefox,  # NOT OK - tries to exec `firefox,` which doesn't exist
+bind = SUPER, Tab, cyclenext,    # OK - 4 args (empty last arg (dispatcher needs no params))
+```
+
+> [!WARNING]
+> An accidental trailing comma becomes part of the argument (e.g., `firefox,` instead
+> of `firefox`). If a keybind isn't working, check for trailing commas!
+
 ## Uncommon syms / binding with a keycode
 
 See the
