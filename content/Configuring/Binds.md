@@ -450,7 +450,7 @@ submap = reset
 
 # Reset submap to default after pressing a.
 submap = submapB, reset
-bind = ,a,exec, soemOtherCoolThing.sh
+bind = ,a,exec, someOtherCoolThing.sh
 submap = reset
 ```
 

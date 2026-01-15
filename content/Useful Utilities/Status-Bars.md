@@ -287,7 +287,7 @@ socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket
 
 ### Quickshell
 
-[Quickshell](https://quickshell.outfoxxed.me/) is a flexbile QtQuick-based desktop shell toolkit.
+[Quickshell](https://quickshell.outfoxxed.me/) is a flexible QtQuick-based desktop shell toolkit.
 Note that although Qt is notoriously hard to theme, Quickshell can be styled independently.
 
 To get started, see the 
