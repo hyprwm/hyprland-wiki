@@ -4,14 +4,20 @@ weight: 4
 ---
 
 If you use Nix on distros other than NixOS, you can still use Hyprland.  
-The best option would be through [Home Manager](../Hyprland-on-Home-Manager).
+The best option for advanced users would be through [Home Manager](../Hyprland-on-Home-Manager).
 
-However, if Home Manager is not for you, Hyprland can be installed as a normal
-package.  
-First, [enable flakes](https://nixos.wiki/wiki/Flakes#Enable_flakes), then, once you
-have flakes working, install Hyprland through `nix profile`:
+However, for most people, Home Manager is too complicated and not worth it outside NixOS. In those cases,
+Hyprland can be installed as a normal package.  
+First, install nix with your system's package manager (usually just called `nix`),
+then [enable flakes](https://nixos.wiki/wiki/Flakes#Enable_flakes), by adding this to `/etc/nix/nix.conf` or `~/.config/nix/nix.conf`:
 
-{{< tabs items="From Nixpkgs,From the Flake" >}}
+```ini
+experimental-features = nix-command flakes
+```
+
+once that is done, install Hyprland through `nix profile`:
+
+{{< tabs items="From Nixpkgs,From the Flake,From hyprnix (Experimental)" >}}
 
 {{< tab "From Nixpkgs" >}}
 
@@ -34,6 +40,17 @@ nix profile install github:hyprwm/Hyprland
 
 {{< /tab >}}
 
+{{< tab "From hyprnix (Experimental)" >}}
+
+Installing Hyprland (and other hypr* tools) can be done like so:
+```sh
+nix profile install github:hyprwm/hyprnix#hyprland
+```
+
+Replace `#hyprland` with a different app from the flake to install it (e.g. `#hyprpaper`)
+
+{{< /tab >}}
+
 {{< /tabs >}}
 
 Since you're using Hyprland outside of NixOS, it won't be able to find graphics
@@ -41,7 +58,7 @@ drivers.
 To get around that, you can use
 [nixGL](https://github.com/guibou/nixGL).
 
-First, install it:
+Just install it like so:
 
 ```sh
 nix profile install github:guibou/nixGL --impure
@@ -49,13 +66,8 @@ nix profile install github:guibou/nixGL --impure
 
 `--impure` is needed due to `nixGL`'s reliance on hardware information.
 
-From now on, you can run Hyprland by invoking it with nixGL.
-
-```sh
-nixGL Hyprland
-```
-
-Or by creating a wrapper script that runs the above command inside.
+Since 0.54, `start-hyprland` will automatically use `nixGL` if needed. For versions before that,
+you must use `nixGL start-hyprland`.
 
 ## Upgrading
 

@@ -284,6 +284,10 @@ windowrule = opacity 0.8 0.8, match:class kitty
 Here, all kitty windows will have `opacity 0.8`, even if they are floating.
 The rest of the floating windows will have `opacity 0.5`.
 
+> [!IMPORTANT]
+> Named rules take precedence over anonymous ones. That is, rules are evaluated top
+> to bottom, but all named rules get evaluated first, then all anonymous ones.
+
 > [!NOTE]
 > Opacity is a PRODUCT of all opacities by default. For example, setting
 > `active_opacity` to `0.5` and `opacity` to `0.5` will result in a total opacity of
@@ -346,3 +350,14 @@ but they have different props and effects.
 | order | \[n\] | Sets the order relative to other layers. A higher `n` means closer to the edge of the monitor. Can be negative. `n = 0` if unspecified. |
 | above_lock | \[0/1/2\] | If non-zero, renders the layer above the lockscreen when the session is locked. If set to `2`, you can interact with the layer on the lockscreen, otherwise it will only be rendered above it. |
 | no_screen_share | \[on\] | Hides the layer from screen sharing by drawing a black rectangle over it. |
+
+### Examples
+```
+layerrule = blur on, match:namespace waybar
+
+layerrule {
+  name = no_anim_for_selection
+  no_anim = on
+  match:namespace = selection
+}
+```

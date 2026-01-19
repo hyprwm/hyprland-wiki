@@ -123,6 +123,8 @@ The following keys and key-combinations describe hyprlock's default behaviour:
 | `Ctrl + u` | Clear password buffer |
 | `Ctrl + Backspace` | Clear password buffer |
 
+The [bind flag](../../Configuring/Binds/#bind-flags) `l` can be used to allow specific hyprland keybinds to also work while hyprlock is active (e.g. brightness/volume/media control).
+
 ## Widgets
 
 The entire configuration of how hyprlock looks is done via widgets.

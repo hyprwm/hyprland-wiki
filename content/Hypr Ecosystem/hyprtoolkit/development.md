@@ -76,7 +76,7 @@ The layout system relies on absolute and layout positioning modes. Let's zoom in
 
 ### Absolute Mode
 
-This happens when the parent of your element is anything but a `ColumnLayout` or a `RowLayout`. Children are positioned within their parent, accoding to their
+This happens when the parent of your element is anything but a `ColumnLayout` or a `RowLayout`. Children are positioned within their parent, according to their
 position mode. You can set it with `setPositionMode` and add offsets with `setAbsolutePosition`.
 
 For example:

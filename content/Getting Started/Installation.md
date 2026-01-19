@@ -51,7 +51,12 @@ Install a tagged release from the arch packages:
 sudo pacman -S hyprland
 ```
 
-or install from the AUR, which compiles the latest source:
+##### Compile from source automatically
+
+> [!WARNING]
+> Read the warning about using `-git` packages or compiling from source under [Installation](#installation) first!
+
+Install from the AUR, which compiles the latest source:
 
 ```shell
 yay -S hyprland-git

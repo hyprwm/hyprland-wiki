@@ -204,7 +204,7 @@ _Subcategory `decoration:shadow:`_
 > [!NOTE] **XKB Settings**
 >
 > You can find a list of models, layouts, variants and options in
-> [`/usr/share/X11/xkb/rules/base.lst`](file:///usr/share/X11/xkb/rules/base.lst).
+> [`/usr/share/X11/xkb/rules/evdev.lst`](file:///usr/share/X11/xkb/rules/evdev.lst).
 > Alternatively, you can use the `localectl` command to discover what is available
 > on your system.
 > 
@@ -366,6 +366,7 @@ _Subcategory `group:groupbar:`_
 | priority | sets the decoration priority for groupbars | int | 3 |
 | render_titles | whether to render titles in the group bar decoration | bool | true |
 | text_offset | adjust vertical position for titles | int | 0 |
+| text_padding | set horizontal padding for titles | int | 0 |
 | scrolling | whether scrolling in the groupbar changes group active window | bool | true |
 | rounding | how much to round the indicator | int | 1 |
 | rounding_power |  adjusts the curve used for rounding groupbar corners, larger is smoother, 2.0 is a circle, 4.0 is a squircle, 1.0 is a triangular corner. [1.0 - 10.0] | float |  2.0 |

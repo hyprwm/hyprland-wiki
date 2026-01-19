@@ -213,6 +213,10 @@ address:0x13371337 border_size relative -2
 address:0x13371337 rounding_power relative 0.1
 ```
 
+Some props are expanded from their window rule parents which take multiple arguments:
+- `border_color` -> `active_border_color`, `inactive_border_color`
+- `opacity` -> `opacity`, `opacity_inactive`, `opacity_fullscreen`, `opacity_override`, `opacity_inactive_override`, `opacity_fullscreen_override`
+
 ### Fullscreenstate
 
 `fullscreenstate internal client`

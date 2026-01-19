@@ -23,7 +23,6 @@ _category name `master`_
 | new_on_top | whether a newly open window should be on the top of the stack | bool | false |
 | new_on_active | `before`, `after`: place new window relative to the focused window; `none`: place new window according to the value of `new_on_top`.  | string | `none` |
 | orientation | default placement of the master area, can be left, right, top, bottom or center | string | left |
-| inherit_fullscreen | inherit fullscreen status when cycling/swapping to another window (e.g. monocle layout) | bool | true |
 | slave_count_for_center_master | when using orientation=center, make the master window centered only when at least this many slave windows are open. (Set 0 to always_center_master) | int | 2 |
 | center_master_fallback | Set fallback for center master when slaves are less than slave_count_for_center_master, can be left ,right ,top ,bottom | string | left |
 | smart_resizing | if enabled, resizing direction will be determined by the mouse's position on the window (nearest to which corner). Else, it is based on the window's tiling position. | bool | true |
