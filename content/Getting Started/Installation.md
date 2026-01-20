@@ -122,19 +122,10 @@ Hyprland needs are too old._
 
 {{% details title="Fedora*" closed="true" %}}
 
-On Fedora 40+, run:
-
-```sh
-sudo dnf install hyprland
-sudo dnf install hyprland-devel # If you want to build plugins (use hyprpm)
-```
-
-Faster updates and additional packages are available in the
 [solopasha/hyprland](https://copr.fedorainfracloud.org/coprs/solopasha/hyprland)
 Copr repository.
 
-If you are on an older version of Fedora, you can also compile it yourself by
-following the instructions
+You can also compile it yourself by following the instructions
 [here](https://github.com/hyprwm/Hyprland/discussions/284)
 
 {{% /details %}}
