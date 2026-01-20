@@ -135,7 +135,7 @@ Dynamic effects are re-evaluated every time a property changes.
 
 | Effect | argument | Description |
 | ---- | ----------- | --- |
-| persistent_size | \[on\] | Allows size persistence between application launches for floating windows. |
+| persistent_size | \[on\] | For floating windows, internally store their size. When a new floating window opens with the same class and title, restore the saved size. |
 | no_max_size | \[on\] | Removes max size limitations. Especially useful with windows that report invalid max sizes (e.g. winecfg). |
 | stay_focused | \[on\] | Forces focus on the window as long as it's visible. |
 | animation | \[style\] (\[opt\]) | Forces an animation onto a window, with a selected opt. Opt is optional. |
