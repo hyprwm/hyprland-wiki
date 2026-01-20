@@ -192,4 +192,4 @@ Changes need to be made to the files directly (or environment) and in the case o
 
 ## Developer Documentation
 
-See the documentation at [hyprland.org/hyprlang](https://hyprland.org/hyprlang/).
+See the documentation at [standards.hyprland.org/hyprlang](https://standards.hyprland.org/hyprlang/).
