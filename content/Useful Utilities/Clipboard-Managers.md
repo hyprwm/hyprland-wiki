@@ -17,10 +17,7 @@ images and any binary data.
 - [`clipvault`](https://github.com/rolv-apneseth/clipvault) - Utilizes Wayland with `wl-clipboard` and can store text, images and any binary data.  
 Alternative to `cliphist` with a couple extra features (e.g. max age for entries, min/max entry length).
 
-- [`clipse`](https://github.com/savedra1/clipse) - Utilizes Wayland with `wl-clipboard` support and runs from a single
-binary.  
-Stores text and images indefinitely, accessible via a nice TUI that can be bound to a floating window in your Hyprland config.  
-Allows custom themes, image/text previews, multi-select, pinned items and more.
+- [`clipse`](https://github.com/savedra1/clipse) - Utilizes Wayland with `wl-clipboard` and supports text and images. Accessible via a TUI that can be bound to a floating window in your Hyprland config. Features include custom themes, image/text previews, multi-select, pinned items, auto-paste, sensitive content handling and more. Example setup in `hyprland.conf`:
 
 - [`copyq`](https://github.com/hluk/CopyQ) - Supports text, images, and various other formats. It offers searchable history, editing capabilities, and a scripting interface. You can also organize items into tabs and synchronize clipboards across different devices.
 
@@ -190,12 +187,14 @@ windowrule = match:class clipse, float
 windowrule = match:class clipse, size 622 652
 windowrule = match:class clipse, stay_focused
 
-bind = SUPER, V, exec, alacritty --class clipse -e clipse
+bind = SUPER, V, exec, kitty --class clipse -e clipse
 ```
 
-Replace `alacritty` with the terminal environment you use if necessary.  
-The class is optional, but it's recommended to use a floating window to achieve more
-GUI-like behavior.
+The `kitty` terminal emulator is recommended due to having the most compatible image rendering, but you can swap
+this for any other terminal of your choosing. 
+
+The class is optional, but it's recommended to use a floating window for a more traditional, 
+GUI-like feel.
 
 For more details on `clipse`, please refer to its GitHub repo linked at the top
 of the page.
