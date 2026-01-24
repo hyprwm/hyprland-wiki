@@ -21,6 +21,11 @@ Hyprland.
 
 [HyprLS](https://github.com/hyprland-community/hyprls) by _gwennlbh_: A LSP server to provide auto-completion and more for Hyprland's configuration files in neovim, VS Code & others
 
+### Keybind Management
+
+[hyprKCS](https://github.com/kosa12/hyprKCS) by _kosa12_: A fast, minimal
+Hyprland keybind manager written in Rust/GTK4.
+
 ### IPC wrappers
 
 [hyprland-rs](https://github.com/yavko/hyprland-rs) by _yavko_: A neat wrapper
