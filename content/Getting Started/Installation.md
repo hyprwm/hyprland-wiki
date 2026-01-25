@@ -302,6 +302,29 @@ apk add hyprland
 
 {{% /details %}}
 
+{{% details title="ALT Linux*" closed="true" %}}
+
+Install from the Sisyphus:
+
+```bash
+su -
+apt-get update
+apt-get install hyprland
+apt-get install hyprland-devel # If you want to use plugins
+```
+
+Ecosystem:
+
+```bash
+apt-get install xdg-desktop-portal-hyprland
+apt-get install hypridle
+apt-get install hyprpaper
+apt-get install hyprpicker
+```
+
+{{% /details %}}
+
+
 {{% details title="Ximper*" closed="true" %}}
 
 Install from the Sisyphus:
