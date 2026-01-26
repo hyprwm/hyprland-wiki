@@ -307,7 +307,6 @@ apk add hyprland
 Install from the Sisyphus:
 
 ```bash
-su -
 apt-get update
 apt-get install hyprland
 apt-get install hyprland-devel # If you want to use plugins
