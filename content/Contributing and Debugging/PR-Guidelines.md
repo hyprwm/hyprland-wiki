@@ -15,7 +15,7 @@ the time for the maintainers.
 
 ### Before you submit
 
-Make sure you ran clang-format: `clang-format -i src/**/*{cpp,hpp}`
+Make sure you ran clang-format: `clang-format -i src/*{cpp,hpp} src/**/*{cpp,hpp}`
 
 Check if your changes don't violate `clang-tidy`. Usually this is built into your IDE.
 
