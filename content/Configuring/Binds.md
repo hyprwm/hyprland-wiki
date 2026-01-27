@@ -272,7 +272,8 @@ For more information have a look at [Using Hyprctl](../Using-hyprctl).
 ### Per-Device Binds
 
 You can set keybinds to be device specific with the `k` flag.  
-Devices are provided in a whitespace separated list that goes in front of `dispatcher`.  
+Devices are provided in a whitespace separated list that goes in front of `dispatcher`.
+You can include [tags](../Keywords#per-device-input-configs) in the list to group devices together.  
 An `!` can be prepended to the list to exclude the those devices, allowing all other devices to use that bind instead.
 
 ```ini
