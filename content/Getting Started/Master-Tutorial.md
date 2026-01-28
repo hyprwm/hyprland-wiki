@@ -58,6 +58,7 @@ list:
   [latest git version](https://github.com/sddm/sddm) (or
   [sddm-git](https://aur.archlinux.org/packages/sddm-git) from AUR) to prevent
   SDDM bug [1476](https://github.com/sddm/sddm/issues/1476) (90s shutdowns).
+- plasma-login-manager → Works flawlessly, but depends on systemd.
 - GDM → Works with the caveat of crashing Hyprland on the first launch.
 - greetd → Works flawlessly, especially with
   [ReGreet](https://github.com/rharish101/ReGreet).
