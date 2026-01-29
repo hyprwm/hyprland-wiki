@@ -538,6 +538,7 @@ _Subcategory `quirks:`_
 | name | description | type | default |
 | --- | --- | --- | --- |
 | prefer_hdr | Report HDR mode as preferred. 0 - off, 1 - always, 2 - gamescope only | int | 0 |
+| skip_non_kms_dmabuf_formats | Do not report dmabuf formats which cannot be imported into KMS | bool | false |
 
 Some clients expect monitor to be in HDR mode prior to the client start. This breaks auto HDR activation and can cause whitescreen and flickering. Use `prefer_hdr` to fix it,
 
