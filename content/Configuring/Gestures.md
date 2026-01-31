@@ -48,13 +48,14 @@ from the original gesture including direction, mods, fingers and scale.
 | `action` | Description | Arguments |
 | -- | -- | -- |
 | `dispatcher` | the most basic, executes a dispatcher once the gesture ends | `dispatcher, params` |
-| `workspace` | workspace swipe gesture, for switching workspaces |
+| `workspace` | workspace swipe gesture, for switching workspaces | none |
 | `move` | moves the active window | none |
 | `resize` | resizes the active window | none |
 | `special` | toggles a special workspace | special workspace without the `special:`, e.g. `mySpecialWorkspace` |
 | `close` | closes the active window | none |
 | `fullscreen` | fullscreens the active window | none for fullscreen, `maximize` for maximize |
 | `float` | floats the active window | none for toggle, `float` or `tile` for one-way | 
+| `cursorZoom` | zooms into the cursor | zoom factor, toggles by default, add `mult` for a multiplier instead |
 
 
 ### Flags
