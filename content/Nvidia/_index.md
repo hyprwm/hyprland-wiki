@@ -97,6 +97,10 @@ MODULES=(... nvidia nvidia_modeset nvidia_uvm nvidia_drm ...)
 ```
 
 > [!WARNING]
+> Loading the Nvidia modules early may cause resuming from hibernation to not work anymore (i.e. the system will just boot instead of resuming).
+> If you have issues with that, try disabling early KMS.
+
+> [!WARNING]
 > Electron or Chromium-based apps can stall for up to a minute after boot on hybrid graphics systems with an Intel iGPU and an Nvidia dGPU.
 >
 > This can be fixed by loading the `i915` module **before** the Nvidia ones in `/etc/mkinitcpio.conf`. Just edit the `MODULES` line like this:
@@ -269,6 +273,10 @@ For Nix users, the equivalent of the above is
   hardware.nvidia.powerManagement.enable = true;
 }
 ```
+
+> [!WARNING]
+> [Loading the Nvidia modules early](https://wiki.hypr.land/Nvidia/#early-kms-modeset-and-fbdev) may cause resuming from hibernation to not work anymore (i.e. the system will just boot instead of resuming).
+> If you have issues with that, try disabling early KMS.
 
 > [!WARNING]
 > According to Nvidia, suspend/wakeup issues should be solved on the Nvidia open
