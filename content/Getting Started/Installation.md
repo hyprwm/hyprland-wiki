@@ -129,6 +129,7 @@ You can also compile it yourself by following the instructions
 [here](https://github.com/hyprwm/Hyprland/discussions/284)
 
 {{% /details %}}
+
 {{% details title="Debian*" closed="true" %}}
 
 Hyprland recently made it into the SID repository and can be installed with
