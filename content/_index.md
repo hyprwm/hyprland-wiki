@@ -1,9 +1,8 @@
 ---
 cascade:
   type: docs
+title: Hyprland Wiki
 ---
-
-# Hyprland Wiki
 
 Hello there, dear traveler! Welcome to the Hyprland Wiki!
 
