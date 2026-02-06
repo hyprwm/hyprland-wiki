@@ -552,6 +552,7 @@ _Subcategory `debug:`_
 | --- | --- | --- | --- |
 | overlay | print the debug performance overlay. Disable VFR for accurate results. | bool | false |
 | damage_blink | (epilepsy warning!) flash areas updated with damage tracking | bool | false |
+| gl_debugging | enables OpenGL debugging with glGetError and EGL_KHR_debug, requires a restart after changing. | bool | false |
 | disable_logs | disable logging to a file | bool | true |
 | disable_time | disables time logging | bool | true |
 | damage_tracking | redraw only the needed bits of the display. Do **not** change. (default: full - 2) monitor - 1, none - 0 | int | 2 |
