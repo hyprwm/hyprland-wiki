@@ -11,6 +11,11 @@ above categories.
 [hyprsome](https://github.com/sopa0/hyprsome) by _sopa0_: Awesome-like
 workspaces for Hyprland.
 
+### Window switchers
+
+[snappy-switcher](https://github.com/OpalAayan/snappy-switcher) by _OpalAayan_: A blazing-fast, animated Alt+Tab window switcher for Hyprland 
+with native (C, Pango, Cairo).
+
 ### Keyboard layout management
 
 [hyprland-per-window-layout](https://github.com/coffebar/hyprland-per-window-layout/)
