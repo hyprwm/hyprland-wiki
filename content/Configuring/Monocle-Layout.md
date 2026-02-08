@@ -8,7 +8,7 @@ Monocle is a layout where windows are always taking up the entire available spac
 ## Quirks
 
 Due to how layouts work, `cyclenext` will not work with Monocle. For cycling monocle
-windows, either use `layoutopt, cyclenext` or `cyclenext tiled`.
+windows, either use `layoutmsg, cyclenext` or `cyclenext, tiled`.
 
 ## Layout messages
 
