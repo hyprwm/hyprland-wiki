@@ -432,6 +432,15 @@ _Subcategory `misc:`_
 | size_limits_tiled | whether to apply min_size and max_size rules to tiled windows | bool | false |
 | disable_watchdog_warning | whether to disable the warning about not using start-hyprland | bool | false |
 
+### Layout
+
+_Subcategory `layout:`_
+
+| name | description | type | default |
+|---|---|---|---|
+| single_window_aspect_ratio | whenever only a single window is shown on a screen, add padding so that it conforms to the specified aspect ratio. A value like `4 3` on a 16:9 screen will make it a 4:3 window in the middle with padding to the sides. | Vec2D | 0 0 |
+| single_window_aspect_ratio_tolerance | sets a tolerance for `single_window_aspect_ratio`, so that if the padding that would have been added is smaller than the specified fraction of the height or width of the screen, it will not attempt to adjust the window size [0 - 1] | int | 0.1 | 
+
 ### Binds
 
 _Subcategory `binds:`_
