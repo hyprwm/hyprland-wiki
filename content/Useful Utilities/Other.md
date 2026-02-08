@@ -8,7 +8,7 @@ above categories.
 
 ### Workspace management
 
-[hyprsome](https://github.com/sopa0/hyprsome) by _sopa0_: Awesome-like
+[split-monitor-workspaces](https://github.com/Duckonaut/split-monitor-workspaces) by _Stanisław Zagórowski_: Awesome-like
 workspaces for Hyprland.
 
 ### Keyboard layout management
