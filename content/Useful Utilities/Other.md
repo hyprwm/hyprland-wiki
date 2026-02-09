@@ -13,8 +13,7 @@ workspaces for Hyprland.
 
 ### Window switchers
 
-[snappy-switcher](https://github.com/OpalAayan/snappy-switcher) by _OpalAayan_: A blazing-fast, animated Alt+Tab window switcher for Hyprland 
-with native (C, Pango, Cairo).
+[snappy-switcher](https://github.com/OpalAayan/snappy-switcher) by _OpalAayan_: A blazing-fast, animated Alt+Tab window switcher for Hyprland written in C (using Pango and Cairo).
 
 ### Keyboard layout management
 
