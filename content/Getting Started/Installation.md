@@ -148,28 +148,30 @@ Alternatively, you can also follow the instructions under
 
 {{% details title="Gentoo*" closed="true" %}}
 
-The hyprland package is available in the main tree:
+The hypr packages are available in the [hyproverlay](https://codeberg.org/hyproverlay/hyproverlay). Enable the overlay with:
+
+```sh
+eselect repository enable hyproverlay
+emaint sync -r hyproverlay
+```
+
+Hyprland can be installed with:
 
 ```sh
 emerge --ask gui-wm/hyprland
 ```
 
 Additional packages like hyprlock, hypridle, xdg-desktop-portal-hyprland,
-hyprland-plugins, hyprpaper and hyprpicker are available in the
-[GURU](https://wiki.gentoo.org/wiki/Project:GURU) overlay. Community-contributed
-scripts are also available in GURU as part of the hyprland-contrib package.
+hyprland-plugins, hyprpaper and hyprpicker are in the overlay. Some of the community-contributed
+scripts of [hyprwm/contrib](https://github.com/hyprwm/contrib) are also available in their own package
+(app-misc/grimblast, app-misc/hdrop, etc.) .
 
 ```sh
-eselect repository enable guru
-emaint sync -r guru
-
 emerge --ask gui-apps/hyprlock
 emerge --ask gui-apps/hypridle
 emerge --ask gui-libs/xdg-desktop-portal-hyprland
-emerge --ask gui-apps/hyprland-plugins
 emerge --ask gui-apps/hyprpaper
 emerge --ask gui-apps/hyprpicker
-emerge --ask gui-wm/hyprland-contrib
 ```
 
 For USE flags and more details, read the
