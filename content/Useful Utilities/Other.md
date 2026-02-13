@@ -11,6 +11,10 @@ above categories.
 [split-monitor-workspaces](https://github.com/Duckonaut/split-monitor-workspaces) by _Stanisław Zagórowski_: Awesome-like
 workspaces for Hyprland.
 
+### Window switchers
+
+[snappy-switcher](https://github.com/OpalAayan/snappy-switcher) by _OpalAayan_: A blazing-fast, animated Alt+Tab window switcher for Hyprland written in C (using Pango and Cairo).
+
 ### Keyboard layout management
 
 [hyprland-per-window-layout](https://github.com/coffebar/hyprland-per-window-layout/)
