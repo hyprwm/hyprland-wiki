@@ -91,7 +91,7 @@ dark = "favicon-dark.svg"
 width = "full"
 
 [params.theme]
-default       = "dark"
+default       = "system"
 displayToggle = true
 
 [params.footer]
