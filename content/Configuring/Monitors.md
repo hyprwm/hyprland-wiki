@@ -82,6 +82,12 @@ will tell Hyprland to put DP-2 _below_.
 > No monitors can overlap. This means that if your set positions make any monitors
 > overlap, you will get a warning.
 
+> [!NOTE]
+> "Invalid scale" warnings will pop up if your scale does not create valid
+> logical pixels. A valid scale must divide your resolution cleanly (without
+> decimals). For example 1920x1080 / 1.5 = 1280x720 -> OK, but
+> when / 1.4 -> 1371.4286x771.42857 -> not ok.
+
 Leaving the name empty will define a fallback rule to use when no other rules
 match.
 
