@@ -74,6 +74,12 @@ exec-once = udiskie
 
 [See more uses here](https://github.com/coldfix/udiskie/wiki/Usage).
 
+### Monitor configuration
+
+[Monique](https://github.com/ToRvaLDz/monique) by _ToRvaLDz_: Graphical monitor
+configurator for Hyprland and Sway with drag-and-drop layout, profile system,
+and hotplug daemon for automatic configuration.
+
 ### Other useful utilities
 
 The website [We Are Wayland Now](https://wearewaylandnow.com/) details some other useful utilities and applications for Wayland like docks, email clients, and so on, along with some other useful information about compatibility on Wayland.
