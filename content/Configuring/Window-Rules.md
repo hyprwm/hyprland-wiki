@@ -162,7 +162,7 @@ Dynamic effects are re-evaluated every time a property changes.
 | no_shadow | \[on\] |  Disables shadows for the window. |
 | no_shortcuts_inhibit | \[on\] |  Disallows the app from [inhibiting your shortcuts](https://wayland.app/protocols/keyboard-shortcuts-inhibit-unstable-v1). |
 | no_screen_share | \[on\] | Hides the window and its popups from screen sharing by drawing black rectangles in their place. The rectangles are drawn even if other windows are above. |
-| no_vrr | \[on\] | Disables VRR for the window. Only works when [`misc:vrr`](../Variables/#Misc) is set to `2` or `3`. |
+| no_vrr | \[on\] | Disables VRR for the fullscreen window. |
 | opaque | \[on\] |  Forces the window to be opaque. |
 | force_rgbx | \[on\] |  Forces Hyprland to ignore the alpha channel on the whole window's surfaces, effectively making it _actually, fully 100% opaque_. |
 | sync_fullscreen | \[on\] |  Whether the fullscreen mode should always be the same as the one sent to the window (will only take effect on the next fullscreen mode change). |
