@@ -21,5 +21,5 @@ necessary to use
 `exec-once=/usr/lib64/libexec/hyprpolkitagent` instead.
 
 Other possible paths include
-`/usr/lib/hyprpolkitagent` and
+`/usr/lib/hyprpolkitagent/hyprpolkitagent` and
 `/usr/libexec/hyprpolkitagent`.
