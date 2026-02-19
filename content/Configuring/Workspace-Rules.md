@@ -97,6 +97,7 @@ windowrule = rounding 0, match:float 0, match:workspace f[1]s[false]
 | persistent:[b] | Keep this workspace alive even if empty and inactive | bool |
 | on-created-empty:[c] | A command to be executed once a workspace is created empty (i.e. not created by moving a window to it). See the [command syntax](../Dispatchers#executing-with-rules) | string |
 | defaultName:[s] | A default name for the workspace. | string |
+| layout:[s] | The layout to use for this workspace. | string |
 
 ### Example Rules
 

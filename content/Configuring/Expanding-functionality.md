@@ -1,5 +1,5 @@
 ---
-weight: 16
+weight: 32
 title: Expanding functionality
 ---
 

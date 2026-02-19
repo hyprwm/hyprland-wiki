@@ -1,5 +1,5 @@
 ---
-weight: 20
+weight: 36
 title: Uncommon tips & tricks
 ---
 
@@ -406,3 +406,11 @@ someValue = 0.52
 The -git branch exports the variable for the next major release.
 
 All future releases will export all _past_ variables as well, e.g. 0.54 will also export 0.53.
+
+## Per-workspace layouts
+
+Use workspace rules to set per-workspace layouts:
+
+```ini
+workspace = 2, layout:scrolling
+```
