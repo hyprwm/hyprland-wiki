@@ -55,7 +55,7 @@ the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 | col.active_border | border color for the active window | gradient | 0xffffffff |
 | col.nogroup_border | inactive border color for window that cannot be added to a group (see `denywindowfromgroup` dispatcher) | gradient | 0xffffaaff |
 | col.nogroup_border_active | active border color for window that cannot be added to a group | gradient | 0xffff00ff |
-| layout | which layout to use. [dwindle/master] | str | dwindle |
+| layout | which layout to use. \[dwindle/master/scrolling/monocle\] | str | dwindle |
 | no_focus_fallback | if true, will not fall back to the next available window when moving focus in a direction where no window was found | bool | false |
 | resize_on_border | enables resizing windows by clicking and dragging on borders and gaps | bool | false |
 | extend_border_grab_area | extends the area around the border where you can click and drag on, only used when `general:resize_on_border` is on. | int | 15 |
@@ -432,6 +432,15 @@ _Subcategory `misc:`_
 | size_limits_tiled | whether to apply min_size and max_size rules to tiled windows | bool | false |
 | disable_watchdog_warning | whether to disable the warning about not using start-hyprland | bool | false |
 
+### Layout
+
+_Subcategory `layout:`_
+
+| name | description | type | default |
+|---|---|---|---|
+| single_window_aspect_ratio | whenever only a single window is shown on a screen, add padding so that it conforms to the specified aspect ratio. A value like `4 3` on a 16:9 screen will make it a 4:3 window in the middle with padding to the sides. | Vec2D | 0 0 |
+| single_window_aspect_ratio_tolerance | sets a tolerance for `single_window_aspect_ratio`, so that if the padding that would have been added is smaller than the specified fraction of the height or width of the screen, it will not attempt to adjust the window size [0 - 1] | int | 0.1 | 
+
 ### Binds
 
 _Subcategory `binds:`_
@@ -449,7 +458,6 @@ _Subcategory `binds:`_
 | movefocus_cycles_fullscreen | If enabled, when on a fullscreen window, `movefocus` will cycle fullscreen, if not, it will move the focus in a direction. | bool | false |
 | movefocus_cycles_groupfirst | If enabled, when in a grouped window, movefocus will cycle windows in the groups first, then at each ends of tabs, it'll move on to other windows/groups | bool | false |
 | disable_keybind_grabbing | If enabled, apps that request keybinds to be disabled (e.g. VMs) will not be able to do so. | bool | false |
-| window_direction_monitor_fallback | If enabled, moving a window or focus over the edge of a monitor with a direction will move it to the next monitor in that direction. | bool | true |
 | allow_pin_fullscreen | If enabled, Allow fullscreen to pinned windows, and restore their pinned status afterwards | bool | false |
 | drag_threshold | Movement threshold in pixels for window dragging and c/g bind flags. 0 to disable and grab on mousedown. | int | 0 |
 
