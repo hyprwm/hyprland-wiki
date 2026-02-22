@@ -78,6 +78,7 @@ layout pages (See the sidebar).
 | lockgroups | Locks the groups (all groups will not accept new windows) | `lock` for locking, `unlock` for unlocking, `toggle` for toggle |
 | lockactivegroup | Lock the focused group (the current group will not accept new windows or be moved to other groups) | `lock` for locking, `unlock` for unlocking, `toggle` for toggle |
 | moveintogroup | Moves the active window into a group in a specified direction. No-op if there is no group in the specified direction. | direction |
+| moveintoorcreategroup | Moves the active window into a group in a specified direction. If there is no group in the specified direction but there is a window, creates a group from that window first. | direction |
 | moveoutofgroup | Moves the active window out of a group. No-op if not in a group | left empty / `active` for current, or `window` for a specific window |
 | movewindoworgroup | Behaves as `moveintogroup` if there is a group in the given direction. Behaves as `moveoutofgroup` if there is no group in the given direction relative to the active group. Otherwise behaves like `movewindow`. | direction |
 | movegroupwindow | Swaps the active window with the next or previous in a group | `b` for back, anything else for forward |
