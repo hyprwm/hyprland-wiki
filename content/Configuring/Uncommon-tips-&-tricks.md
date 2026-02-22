@@ -294,45 +294,47 @@ Dependencies :
 1. add this to your config
 
 ```ini
-exec-once = foot --server -c $XDG_CONFIG_HOME/foot/foot.ini
+exec-once = foot --server -c $HOME/.config/foot/foot.ini
 
 bind = ALT, TAB, exec, $HOME/.config/hypr/scripts/alttab/enable.sh 'down'
 bind = ALT SHIFT, TAB, exec, $HOME/.config/hypr/scripts/alttab/enable.sh 'up'
 
-submap=alttab
+submap = alttab
 bind = ALT, tab, sendshortcut, , tab, class:alttab
 bind = ALT SHIFT, tab, sendshortcut, shift, tab, class:alttab
 
-bindrt = ALT, ALT_L, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return,class:alttab
-bindrt = ALT SHIFT, ALT_L, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return,class:alttab
-bind = ALT, Return, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return, class:alttab
-bind = ALT SHIFT, Return, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return, class:alttab
-bind = ALT, escape, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , escape,class:alttab
-bind = ALT SHIFT, escape, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , escape,class:alttab
+bindrt = ALT, ALT_L, exec, $HOME/.config/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return, class:alttab
+bindrt = ALT SHIFT, ALT_L, exec, $HOME/.config/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return, class:alttab
+bind = ALT, Return, exec, $HOME/.config/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return, class:alttab
+bind = ALT SHIFT, Return, exec, $HOME/.config/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return, class:alttab
+bind = ALT, escape, exec, $HOME/.config/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , escape, class:alttab
+bind = ALT SHIFT, escape, exec, $HOME/.config/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , escape, class:alttab
 submap = reset
 
 workspace = special:alttab, gapsout:0, gapsin:0, bordersize:0
-windowrule = match:class alttab, no_anim
-windowrule = match:class alttab, stay_focused
-windowrule = match:class alttab, workspace special:alttab
-windowrule = match:class alttab, border_size 0
+windowrule {
+  name = alttab
+  match:class = alttab
+  no_anim = true
+  stay_focused = true
+  workspace = special:alttab
+}
 ```
 
-2. create file `touch $XDG_CONFIG_HOME/hypr/scripts/alttab/alttab.sh && chmod +x $XDG_CONFIG_HOME/hypr/scripts/alttab/alttab.sh` and add:
+2. create file `touch $HOME/.config/hypr/scripts/alttab/alttab.sh && chmod +x $HOME/.config/hypr/scripts/alttab/alttab.sh` and add:
 
 ```bash {filename="alttab.sh"}
 #!/usr/bin/env bash
 hyprctl -q dispatch submap alttab
-start=$1
 address=$(hyprctl -j clients | jq -r 'sort_by(.focusHistoryID) | .[] | select(.workspace.id >= 0) | "\(.address)\t\(.title)"' |
 	      fzf --color prompt:green,pointer:green,current-bg:-1,current-fg:green,gutter:-1,border:bright-black,current-hl:red,hl:red \
 		  --cycle \
 		  --sync \
-		  --bind tab:down,shift-tab:up,start:$start,double-click:ignore \
+		  --bind tab:down,shift-tab:up,start:"$1",double-click:ignore \
 		  --wrap \
 		  --delimiter=$'\t' \
 		  --with-nth=2 \
-		  --preview "$XDG_CONFIG_HOME/hypr/scripts/alttab/preview.sh {}" \
+		  --preview "$HOME/.config/hypr/scripts/alttab/preview.sh {}" \
 		  --preview-window=down:80% \
 		  --layout=reverse |
 	      awk -F"\t" '{print $1}')
@@ -346,20 +348,18 @@ hyprctl -q dispatch submap reset
 
 I chose to exclude windows that are in special workspaces but it can be modified by removing `select(.workspace.id >= 0)`
 
-3. create file `touch $XDG_CONFIG_HOME/hypr/scripts/alttab/preview.sh && chmod +x $XDG_CONFIG_HOME/hypr/scripts/alttab/preview.sh` and add:
+3. create file `touch $HOME/.config/hypr/scripts/alttab/preview.sh && chmod +x $HOME/.config/hypr/scripts/alttab/preview.sh` and add:
 
 ```bash {filename="preview.sh"}
 #!/usr/bin/env bash
-line="$1"
-
-IFS=$'\t' read -r addr _ <<< "$line"
+IFS=$'\t' read -r addr _ <<< "$1"
 dim=${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}
 
 grim -t png -l 0 -w "$addr" $XDG_RUNTIME_DIR/hypr/alttab/preview.png
 chafa --animate false --dither=none -s "$dim" "$XDG_RUNTIME_DIR/hypr/alttab/preview.png"
 ```
 
-4. create file `touch $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh && chmod +x $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh` and add:
+4. create file `touch $HOME/.config/hypr/scripts/alttab/disable.sh && chmod +x $HOME/.config/hypr/scripts/alttab/disable.sh` and add:
 
 ```bash {filename="disable.sh"}
 #!/usr/bin/env bash
@@ -368,12 +368,12 @@ hyprctl -q keyword animations:enabled true
 hyprctl -q --batch "keyword unbind ALT, TAB ; keyword unbind ALT SHIFT, TAB ; keyword bind ALT, TAB, exec, $HOME/.config/hypr/scripts/alttab/enable.sh 'down' ; keyword bind ALT SHIFT, TAB, exec, $HOME/.config/hypr/scripts/alttab/enable.sh 'up'"
 ```
 
-5. create file `touch $XDG_CONFIG_HOME/hypr/scripts/alttab/enable.sh && chmod +x $XDG_CONFIG_HOME/hypr/scripts/alttab/enable.sh` and add:
+5. create file `touch $HOME/.config/hypr/scripts/alttab/enable.sh && chmod +x $HOME/.config/hypr/scripts/alttab/enable.sh` and add:
 ```bash {filename="enable.sh"}
 #!/usr/bin/env bash
 mkdir -p $XDG_RUNTIME_DIR/hypr/alttab
-hyprctl -q --batch "keyword animations:enabled false; keyword unbind ALT, TAB ; keyword unbind ALT SHIFT, TAB"
-footclient -a alttab $HOME/.config/hypr/scripts/alttab/alttab.sh $1
+hyprctl -q --batch "keyword animations:enabled false ; keyword unbind ALT, TAB ; keyword unbind ALT SHIFT, TAB"
+footclient -a alttab $HOME/.config/hypr/scripts/alttab/alttab.sh "$1"
 hyprctl --batch -q "dispatch focuswindow address:$(cat $XDG_RUNTIME_DIR/hypr/alttab/address) ; dispatch alterzorder top"
 ```
 
