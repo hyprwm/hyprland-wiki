@@ -472,14 +472,6 @@ _Subcategory `xwayland:`_
 | force_zero_scaling | forces a scale of 1 on xwayland windows on scaled displays. | bool | false |
 | create_abstract_socket | Create the [abstract Unix domain socket](../XWayland/#abstract-unix-domain-socket) for XWayland connections. (XWayland restart is required for changes to take effect; Linux only) | bool | false |
 
-### OpenGL
-
-_Subcategory `opengl:`_ 
-
-| name | description | type | default |
-| --- | --- | --- | --- |
-| nvidia_anti_flicker | reduces flickering on nvidia at the cost of possible frame drops on lower-end GPUs. On non-nvidia, this is ignored. | bool | true |
-
 ### Render
 
 _Subcategory `render:`_ 
