@@ -103,6 +103,9 @@ Additional properties only present in per-device configs:
 - `keybinds` -> (only for devices that send key events)
   - enables / disables keybinds for the device
   - default: Enabled
+- `tags` -> (only for mice and keyboards)
+  - comma separated list of tags to be used in per-device binds
+  - default: [[Empty]]
 
 Example config section:
 
