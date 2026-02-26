@@ -97,6 +97,7 @@ windowrule = rounding 0, floating:0, onworkspace:f[1]s[false]
 | persistent:[b] | Keep this workspace alive even if empty and inactive | bool |
 | on-created-empty:[c] | A command to be executed once a workspace is created empty (i.e. not created by moving a window to it). See the [command syntax](../Dispatchers#executing-with-rules) | string |
 | defaultName:[s] | A default name for the workspace. | string |
+| animation:[s] | Set animation style for workspace. | string |
 
 ### Example Rules
 
@@ -108,4 +109,5 @@ workspace = name:Hello, monitor:DP-1, default:true
 workspace = name:gaming, monitor:desc:Chimei Innolux Corporation 0x150C, default:true
 workspace = 5, on-created-empty:[float] firefox
 workspace = special:scratchpad, on-created-empty:foot
+workspace = 15, animation:slidevert, defaultName:slider
 ```
