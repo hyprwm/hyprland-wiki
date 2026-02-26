@@ -1,5 +1,5 @@
 ---
-weight: 17
+weight: 33
 title: XWayland
 ---
 
@@ -34,11 +34,8 @@ env = XCURSOR_SIZE,32
 
 The GDK_SCALE variable won't conflict with Wayland-native GTK programs.
 
-{{< callout >}}
-
-XWayland HiDPI patches are no longer supported. Do not use them.
-
-{{</ callout >}}
+> [!WARNING]
+> XWayland HiDPI patches are no longer supported. Do not use them.
 
 ## Abstract Unix domain socket
 

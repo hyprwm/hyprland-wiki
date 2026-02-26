@@ -1,5 +1,5 @@
 ---
-weight: 6
+weight: 7
 title: xdg-desktop-portal-hyprland
 ---
 
@@ -13,19 +13,13 @@ screen sharing.
 is Hyprland's xdg-desktop-portal implementation. It allows for screensharing,
 global shortcuts, etc.
 
-{{< callout type="info" >}}
+> [!NOTE]
+> Throughout this document, `xdg-desktop-portal-hyprland` will be referred to as
+> XDPH.
 
-Throughout this document, `xdg-desktop-portal-hyprland` will be referred to as
-XDPH.
-
-{{< /callout >}}
-
-{{< callout >}}
-
-XDPH doesn't implement a file picker. For that, it is recommended to install
-`xdg-desktop-portal-gtk` alongside XDPH.
-
-{{< /callout >}}
+> [!WARNING]
+> XDPH doesn't implement a file picker. For that, it is recommended to install
+> `xdg-desktop-portal-gtk` alongside XDPH.
 
 ## Installing
 
@@ -55,7 +49,7 @@ On NixOS, XDPH is already enabled by the
 
 {{< tab "Gentoo" >}}
 
-## Unmask dependencies
+### Unmask Dependencies
 
 ```plain {filename="/etc/portage/profile/package.unmask"}
 dev-qt/qtbase
@@ -64,7 +58,7 @@ dev-qt/qtdeclarative
 dev-qt/qtshadertools
 ```
 
-## Apply necessary useflags
+### Apply Necessary useflags
 
 ```plain {filename="/etc/portage/package.use"}
 dev-qt/qtbase opengl egl eglfs gles2-only
@@ -72,7 +66,7 @@ dev-qt/qtdeclarative opengl
 sys-apps/xdg-desktop-portal screencast
 ```
 
-## Unmask dependencies and xdph
+### Unmask Dependencies and xdph
 
 ```plain {filename="/etc/portage/package.accept_keywords"}
 gui-libs/xdg-desktop-portal-hyprland 
@@ -84,7 +78,7 @@ dev-qt/qtshadertools
 
 btw those are the useflags that I have tested, you could also test others.
 
-## Installation
+### Installation
 
 ```sh
 eselect repository enable guru
@@ -108,8 +102,8 @@ See
 XDPH is automatically started by D-Bus, once Hyprland starts.
 
 To check if everything is OK is, try to screenshare anything, or opening OBS and
-select the PipeWire source. If XDPH is running, a Qt menu will pop up asking you
-what to share.
+select the PipeWire source.  
+If XDPH is running, a Qt menu will pop up asking you what to share.
 
 XDPH will work on other wlroots compositors, but features available only on
 Hyprland will not work (e.g. window sharing).
@@ -128,7 +122,7 @@ sleep 2
 
 Adjust the paths if they're incorrect.
 
-## Share picker doesn't use the system theme
+## Share Picker Doesn't Use the System Theme
 
 Try one or both:
 
@@ -139,7 +133,7 @@ systemctl --user import-environment QT_QPA_PLATFORMTHEME
 
 If it works, add it to your config in `exec-once`.
 
-## Using the KDE file picker with XDPH
+## Using the KDE File Picker With XDPH
 
 XDPH does not implement a file picker and uses the GTK one as a fallback by
 default (see `/usr/share/xdg-desktop-portal/hyprland-portals.conf`). If you want
@@ -185,8 +179,8 @@ Config file `~/.config/hypr/xdph.conf` allows for these variables:
 
 ### category screencopy
 
-| variable | description                                               | type | default value |
-| -------- | --------------------------------------------------------- | ---- | ------------- |
-| max_fps  | Maximum fps of a screensharing session. 0 means no limit. | int  | 120 |
-| allow_token_by_default  | If enabled, will tick the "Allow restore token" box by default | bool  | false |
-| custom_picker_binary  | If non-empty, will use that **binary** as your share picker. Please note that it has to conform to the stdout selection layout of `hyprland-share-picker`. | string  | "hyprland-share-picker" |
+| Variable | Description | Type | Default |
+| -- | -- | -- | -- |
+| `max_fps`  | Maximum fps of a screensharing session. <br> `0` means no limit. | int | `120` |
+| `allow_token_by_default`  | If enabled, will tick the "Allow restore token" box by default. | bool  | `false` |
+| `custom_picker_binary`  | If non-empty, will use that **binary** as your share picker. <br> Please note that it has to conform to the stdout selection layout of `hyprland-share-picker`. | string  | `"hyprland-share-picker"` |

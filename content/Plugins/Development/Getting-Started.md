@@ -35,7 +35,7 @@ _**→ If you don't have the Hyprland source cloned**_
 
 Clone the Hyprland source code to a subdirectory, in our example
 `MyPlugin/Hyprland`. Run
-`cd Hyprland && make all && sudo make installheaders && cd ..`.
+`cd Hyprland && make debug && sudo make installheaders && cd ..`.
 
 Now that you have the Hyprland sources set up, you can either start from scratch
 if you know how, or take a look at some simple plugins in the
@@ -79,11 +79,12 @@ Skipping over some example handlers, we have two important functions:
 APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle) {
     PHANDLE = handle;
 
-    const std::string HASH = __hyprland_api_get_hash();
+    const std::string COMPOSITOR_HASH = __hyprland_api_get_hash();
+    const std::string CLIENT_HASH = __hyprland_api_get_client_hash();
 
     // ALWAYS add this to your plugins. It will prevent random crashes coming from
     // mismatched header versions.
-    if (HASH != GIT_COMMIT_HASH) {
+    if (COMPOSITOR_HASH != CLIENT_HASH) {
         HyprlandAPI::addNotification(PHANDLE, "[MyPlugin] Mismatched headers! Can't proceed.",
                                      CHyprColor{1.0, 0.2, 0.2, 1.0}, 5000);
         throw std::runtime_error("[MyPlugin] Version mismatch");
@@ -127,25 +128,32 @@ for you.
 ### Setting up a development environment
 
 In order to make your life easier, it's a good idea to work on a nested debug
-Hyprland session.
+Hyprland session. Unless you need to test some things that require real hardware
+(e.g. trackpad gestures), you definitely should use a nest.
 
-Enter your Hyprland directory and run `make debug`.
+See
+[the Contributing Section](../../../Contributing-and-Debugging/#development-environment)
+for instructions on setting up a development environment.
 
-Make a copy of your config in `~/.config/hypr` called `hyprlandd.conf`.
+### Loading / reloading plugins
 
-Remove _all_ `exec=` or `exec-once=` directives from your config.
+Build your plugin, and you can load it in your nest with
+```sh
+hyprctl plugin load /absolute/path/to/plugin.so
+```
+and unload with
+```sh
+hyprctl plugin unload /absolute/path/to/plugin.so
+```
 
-_recommended_: Change the modifier for your keybinds (e.g. `SUPER` -> `ALT`).
+The normal development cycle would usually mean loading the plugin, checking your changes,
+building the plugin with new changes, unload + load, and repeat.
 
-Launch the output `Hyprland` binary in `./build/` _when logged into a Hyprland
-session_.
-
-A new window should open with Hyprland running inside of it. You can now run
-your plugin in the nested session without worrying about nuking your actual
-session, and also being able to debug it easily.
-
-See more info in
-[the Contributing Section](../../../Contributing-and-Debugging/#nesting-hyprland)
+You can have a one-liner like so:
+```sh
+hyprctl plugin unload /absolute/path/to/plugin.so ; hyprctl plugin load /absolute/path/to/plugin.so
+```
+as a "reload" of the plugin.
 
 ### More advanced stuff
 

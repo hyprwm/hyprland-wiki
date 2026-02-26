@@ -8,6 +8,10 @@ title: PR Guidelines
 - Described changes and _why_ they were there
 - Following the style (see below)
 
+## AI Policy
+
+Using an AI tool? Please check our [AI Policy](https://github.com/hyprwm/.github/blob/main/policies/AI_USAGE.md).
+
 ## Code Style
 
 Please read this if you are submitting a PR, in order to minimize the amount of style nits received, and save
@@ -15,7 +19,7 @@ the time for the maintainers.
 
 ### Before you submit
 
-Make sure you ran clang-format: `clang-format -i src/**/*{cpp,hpp}`
+Make sure you ran clang-format: `clang-format -i $(find src -type f \( -name "*.cpp" -o -name "*.hpp" \))`
 
 Check if your changes don't violate `clang-tidy`. Usually this is built into your IDE.
 
@@ -29,6 +33,14 @@ Clang-tidy violations are not hard requirements, but please try to minimize them
 _only_ ignore them if it's absolutely necessary.
 
 I've tweaked it so that in 99% of cases you absolutely should fix it.
+
+### Testing
+
+Please check the [Tests](../Tests) page for information about tests in Hyprland, and related
+projects.
+
+No test regressions is a _must_, while new tests are _required_ if possible to test (e.g.
+graphical stuff is not testable).
 
 ### Other
 
@@ -49,7 +61,6 @@ The current, and new code, should use `camelCase` with an `m_` prefix if the var
 Additionally:
  - classes have a prefix of `C`: `CMyClass`
  - structs have a prefix of `S`: `SMyStruct`
- - namespaces have a prefix of `N`: `NMyNamespace`
  - interfaces have a prefix of `I`: `IMyInterface`
  - global pointers for singletons have a prefix of `g_`: `g_someManager`
  - constant variables are in CAPS: `const auto MYVARIABLE = ...`
@@ -87,35 +98,3 @@ src/
 If you are in `a.hpp` and want to include `b.hpp`, you _must_ use `../b/b.hpp`, and _cannot_ use `b/b.hpp`. The latter will break plugins.
 
 One exception you might notice in the code is absolute paths from the root are allowed, e.g. `protocols/some-protocol.hpp`.
-
-### Test your changes
-Run and test your changes to make sure they work!
-
-## Testing and CI
-
-Since [#9297](https://github.com/hyprwm/Hyprland/pull/9297), we require each MR that fixes an issue
-or adds a new feature to include test(s) for the feature, if possible.
-
-The testing framework is incapable of testing visual changes (e.g. graphical effects), and some very
-niche parts (real HID devices, etc). However, if your change is related to: binds, layouts, config options,
-window management, hyprctl, dispatchers, keywords, etc. your MR _needs_ tests.
-
-### How to run tests locally
-
-In order to run tests locally, build Hyprland, then:
-```sh
-cd hyprtester
-../build/hyprtester/hyprtester --plugin ./plugin/hyprtestplugin.so
-```
-
-### How to add tests
-
-In order to add a new test, you can either make a new test file, or add a test to an existing file.
-If you are adding a new test file, remember to end on a clean state: close all windows you've opened, and go back to workspace 1.
-
-If you are adding to an existing test file, find a file that's appropriate for the category
-of your test.
-
-Tests are done by having a hyprland process active, issuing hyprctl commands, and checking the result with hyprctl queries.
-
-Check the `hyprtester/` directory of the source repo for more.

@@ -33,33 +33,24 @@ The above option generates a new desktop entry, `hyprland-uwsm.desktop`, which w
 
 For more info, read the [option](https://search.nixos.org/options?channel=unstable&show=programs.uwsm.enable&from=0&size=50&sort=relevance&type=packages&query=uwsm).
 
-{{< callout >}}
-
-If you use the [Home Manager module](../../Nix/Hyprland-on-Home-Manager), make sure to disable the systemd integration, as it conflicts with uwsm.
-
-```nix
-{
-  wayland.windowManager.hyprland.systemd.enable = false;
-}
-```
-
-{{< /callout >}}
+> [!WARNING]
+> If you use the [Home Manager module](../../Nix/Hyprland-on-Home-Manager), make sure to disable the systemd integration, as it conflicts with uwsm.
+> 
+> ```nix
+> {
+>   wayland.windowManager.hyprland.systemd.enable = false;
+> }
+> ```
 
 {{% /details %}}
 
-{{< callout type=info >}}
-
-For instructions for other distros and manual building, see [building and installing](https://github.com/Vladimir-csp/uwsm?tab=readme-ov-file#installation) section on the project's page.
-
-{{< /callout >}}
+> [!NOTE]
+> For instructions for other distros and manual building, see [building and installing](https://github.com/Vladimir-csp/uwsm?tab=readme-ov-file#installation) section on the project's page.
 
 ## Launching Hyprland with uwsm
 
-{{< callout type=info >}}
-
-Pay attention to the warnings in [Environment variables](../../Configuring/Environment-variables), [Multi-GPU](../../Configuring/Multi-GPU) and [Dispatchers](../../Configuring/Dispatchers) sections.
-
-{{< /callout >}}
+> [!NOTE]
+> Pay attention to the warnings in [Environment variables](../../Configuring/Environment-variables), [Multi-GPU](../../Configuring/Multi-GPU) and [Dispatchers](../../Configuring/Dispatchers) sections.
 
 ### In tty
 
@@ -77,13 +68,13 @@ If you want to bypass compositor selection menu and launch Hyprland directly, us
 
 ```
 if uwsm check may-start; then
-    exec uwsm start hyprland-uwsm.desktop
+    exec uwsm start hyprland.desktop
 fi
 ```
 
 ### Using a display manager
 
-If you use a display manager, choose `hyprland (uwsm-managed)` entry in a display manager selection menu.
+If you use a display manager, choose `Hyprland (uwsm-managed)` entry in a display manager selection menu.
 
 ## Launching applications inside session
 
@@ -97,6 +88,11 @@ Examples for autostart and bind entries:
 exec-once = uwsm app -- mycommand --arg1 --arg2
 bind = SUPER, E, exec, uwsm app -- pcmanfm-qt.desktop
 ```
+
+Faster alternatives are: 
+- `uwsm-app`: a shell client working with on-demand daemon, optional part of uwsm.
+- `app2unit`: ([link](https://github.com/Vladimir-csp/app2unit)), pure shell alternative, file opener, usually ahead on features.
+- `runapp`: ([link](https://github.com/c4rlo/runapp/)), C++ alternative, even faster, features may vary.
 
 ## Autostart
 

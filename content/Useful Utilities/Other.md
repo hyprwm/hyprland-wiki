@@ -8,8 +8,12 @@ above categories.
 
 ### Workspace management
 
-[hyprsome](https://github.com/sopa0/hyprsome) by _sopa0_: Awesome-like
+[split-monitor-workspaces](https://github.com/Duckonaut/split-monitor-workspaces) by _Stanisław Zagórowski_: Awesome-like
 workspaces for Hyprland.
+
+### Window switchers
+
+[snappy-switcher](https://github.com/OpalAayan/snappy-switcher) by _OpalAayan_: A blazing-fast, animated Alt+Tab window switcher for Hyprland written in C (using Pango and Cairo).
 
 ### Keyboard layout management
 
@@ -20,6 +24,11 @@ Hyprland.
 ### Editor support for config files
 
 [HyprLS](https://github.com/hyprland-community/hyprls) by _gwennlbh_: A LSP server to provide auto-completion and more for Hyprland's configuration files in neovim, VS Code & others
+
+### Keybind Management
+
+[hyprKCS](https://github.com/kosa12/hyprKCS) by _kosa12_: A fast, minimal
+Hyprland keybind manager written in Rust/GTK4.
 
 ### IPC wrappers
 
@@ -64,6 +73,12 @@ exec-once = udiskie
 ```
 
 [See more uses here](https://github.com/coldfix/udiskie/wiki/Usage).
+
+### Monitor configuration
+
+[Monique](https://github.com/ToRvaLDz/monique) by _ToRvaLDz_: Graphical monitor
+configurator for Hyprland and Sway with drag-and-drop layout, profile system,
+and hotplug daemon for automatic configuration.
 
 ### Other useful utilities
 

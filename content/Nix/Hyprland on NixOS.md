@@ -12,21 +12,18 @@ your Display Manager.
 Make sure to check out the options of the
 [NixOS module](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=hyprland).
 
-{{< callout type=warning >}}
-
-**Required:**
-- **NixOS Module:** enables critical components needed to run Hyprland properly.  
-  Without this, you may have issues with missing session files in your
-    Display Manager.
-
-**Optional**:
-- **Home Manager module:** lets you configure Hyprland declaratively through Home Manager.  
-- Configures Hyprland and adds it to your user's `$PATH`, but
-    does not make certain system-level changes such as adding a desktop session
-    file for your display manager.  
-    This is handled by the NixOS module, once you enable it.
-
-{{< /callout >}}
+> [!WARNING]
+> **Required:**
+> - **NixOS Module:** enables critical components needed to run Hyprland properly.  
+>   Without this, you may have issues with missing session files in your
+>     Display Manager.
+> 
+> **Optional**:
+> - **Home Manager module:** lets you configure Hyprland declaratively through Home Manager.  
+> - Configures Hyprland and adds it to your user's `$PATH`, but
+>     does not make certain system-level changes such as adding a desktop session
+>     file for your display manager.  
+>     This is handled by the NixOS module, once you enable it.
 
 {{< tabs items="Nixpkgs,Flakes,Nix stable (flake-compat)" >}}
 
@@ -52,11 +49,8 @@ This will use the Hyprland version included in the Nixpkgs release you're using.
 
 {{< tab >}}
 
-{{< callout type=info >}}
-
-If you don't want to compile Hyprland yourself, make sure to enable [Cachix](../Cachix).
-
-{{< /callout >}}
+> [!NOTE]
+> If you don't want to compile Hyprland yourself, make sure to enable [Cachix](../Cachix).
 
 In case you want to use the _development_ version of Hyprland, you can add it like
 this:
@@ -77,6 +71,8 @@ this:
 }
 ```
 
+Don't forget to change the `HOSTNAME` to your actual hostname!
+
 ```nix {filename="configuration.nix"}
 {inputs, pkgs, ...}: {
   programs.hyprland = {
@@ -89,7 +85,7 @@ this:
 }
 ```
 
-Don't forget to change the `HOSTNAME` to your actual hostname!
+If you are using the Home Manager module, you will need to add these lines there as well/instead
 
 If you start experiencing lag and FPS drops in games or programs like Blender on
 **stable** NixOS when using the Hyprland flake, it is most likely a `mesa`
@@ -118,11 +114,8 @@ For more details, see
 
 {{< tab "Nix stable" >}}
 
-{{< callout type=info >}}
-
-If you don't want to compile Hyprland yourself, make sure to enable [Cachix](../Cachix).
-
-{{< /callout >}}
+> [!NOTE]
+> If you don't want to compile Hyprland yourself, make sure to enable [Cachix](../Cachix).
 
 ```nix {filename="configuration.nix"}
 {pkgs, ...}: let
@@ -167,5 +160,28 @@ themes using dconf like so:
       };
     }
   ];
+}
+```
+
+## Upstream module
+
+The [upstream module](https://github.com/hyprwm/Hyprland/blob/main/nix/module.nix)
+provides options similar to the ones in the [Home Manager module](../Hyprland-on-Home-Manager).
+
+To use it, simply add
+
+```nix
+{inputs, ...}: {
+  imports = [inputs.hyprland.nixosModules.default];
+
+  programs.hyprland = {
+    # usual Nixpkgs module options
+    plugins = [
+      #...
+    ];
+    settings = {
+      # ...
+    };
+  };
 }
 ```

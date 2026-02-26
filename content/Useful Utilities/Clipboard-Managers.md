@@ -17,16 +17,14 @@ images and any binary data.
 - [`clipvault`](https://github.com/rolv-apneseth/clipvault) - Utilizes Wayland with `wl-clipboard` and can store text, images and any binary data.  
 Alternative to `cliphist` with a couple extra features (e.g. max age for entries, min/max entry length).
 
-- [`clipse`](https://github.com/savedra1/clipse) - Utilizes Wayland with `wl-clipboard` support and runs from a single
-binary.  
-Stores text and images indefinitely, accessible via a nice TUI that can be bound to a floating window in your Hyprland config.  
-Allows custom themes, image/text previews, multi-select, pinned items and more.
+- [`clipse`](https://github.com/savedra1/clipse) - Utilizes Wayland with `wl-clipboard` and supports text and images. Accessible via a TUI that can be bound to a floating window in your Hyprland config. Features include custom themes, image/text previews, multi-select, pinned items, auto-paste, sensitive content handling and more. Example setup in `hyprland.conf`:
 
 - [`copyq`](https://github.com/hluk/CopyQ) - Supports text, images, and various other formats. It offers searchable history, editing capabilities, and a scripting interface. You can also organize items into tabs and synchronize clipboards across different devices.
 
 - [`wl-clip-persist`](https://github.com/Linus789/wl-clip-persist) - When copying something on Wayland, the copied data remains in the clipboard until the application that was copied from is closed; after that, the data disappears and can no longer be pasted.  
 To fix this problem, you can use `wl-clip-persist` which will preserve the data in the clipboard after the application is closed.
 
+- [`cursor-clip`](https://github.com/Sirulex/cursor-clip) - A modern wayland clipboard manager built with Rust, GTK4, Libadwaita and Layer Shell that makes clipboard handling more reliable. Features a Windows 11–style clipboard history interface with native GNOME design, which is always positioned at the current mouse pointer location. Supports all clipboard formats, including text, images, and files. 
 ## cliphist
 
 Start by adding the following lines to your `~/.config/hypr/hyprland.conf`
@@ -186,16 +184,16 @@ exec-once = clipse -listen
 You can bind the TUI to a something nice like this:
 
 ```ini
-windowrule = float, class:(clipse)
-windowrule = size 622 652, class:(clipse)
-windowrule = stayfocused, class:(clipse)
+windowrule = float on, size 622 652, stay_focused on, match:class ^(clipse)$
 
-bind = SUPER, V, exec, alacritty --class clipse -e clipse
+bind = SUPER, V, exec, kitty --class clipse -e clipse
 ```
 
-Replace `alacritty` with the terminal environment you use if necessary.  
-The class is optional, but it's recommended to use a floating window to achieve more
-GUI-like behavior.
+The `kitty` terminal emulator is recommended due to having the most compatible image rendering, but you can swap
+this for any other terminal of your choosing. 
+
+The class is optional, but it's recommended to use a floating window for a more traditional, 
+GUI-like feel.
 
 For more details on `clipse`, please refer to its GitHub repo linked at the top
 of the page.
@@ -226,3 +224,23 @@ Can also be applied to the primary selection (i.e. middle click to paste selecti
 ```ini
 exec-once = wl-clip-persist --clipboard primary
 ```
+
+## cursor-clip
+
+Start by adding the following line to your `~/.config/hypr/hyprland.conf`
+
+```ini
+exec-once = cursor-clip --daemon
+```
+
+This starts the background daemon that monitors clipboard changes.
+
+To bind `cursor-clip` to a hotkey for quick access, you can add the following keybind to your `hyprland.conf`:
+
+```ini
+bind = SUPER, V, exec, cursor-clip
+```
+
+When triggered, `cursor-clip` will automatically position its overlay window at your current mouse location, providing a Windows 11-style clipboard history interface. The overlay supports all clipboard formats including text, images, and files, with a native GNOME design built using GTK4 and Libadwaita.
+
+For further information, please refer to the program's GitHub repository linked at the top of the page.

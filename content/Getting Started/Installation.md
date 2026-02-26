@@ -3,49 +3,40 @@ weight: 1
 title: Installation
 ---
 
-{{< callout type=warning >}}
+> [!WARNING]
+> Hyprland is not meant to be a full and user-friendly Desktop Environment. In a nutshell, it's a set of
+> tools to allow you to create your own Desktop Environment.
+>
+> Apps, integrations, shells, etc, are **your** responsibility to pick, install and configure.
+>
+> This wiki is _very_ verbose. It's highly recommended to scour and read the wiki first before
+> assuming something is not working or not available.
 
-Hyprland is not meant to be a full and user-friendly Desktop Environment. In a nutshell, it's a set of
-tools to allow you to create your own Desktop Environment.
-
-Apps, integrations, shells, etc, are **your** responsibility to pick, install and configure.
-
-This wiki is _very_ verbose. It's highly recommended to scour and read the wiki first before
-assuming something is not working or not available.
-
-{{< /callout >}}
-
-{{< callout type=info >}}
-
-NVIDIA GPUs are often not usable out-of-the-box, follow the [Nvidia page](../../Nvidia) after installing
-Hyprland if you plan to use one. Blame NVIDIA for this.
-
-{{< /callout >}}
+> [!NOTE]
+> NVIDIA GPUs are often not usable out-of-the-box, follow the [Nvidia page](../../Nvidia) after installing
+> Hyprland if you plan to use one. Blame NVIDIA for this.
 
 ## Distros
 
 We officially run and test Hyprland on Arch and NixOS, and we guarantee Hyprland will work there. For any other distro
 (not based on Arch/Nix) you might have varying amounts of success. However,
-since Hyprland is extremely bleeding-edge, distros like Pop!\_OS, Ubuntu, etc.
-will have **major** issues running Hyprland. Rolling release distros like Fedora, openSUSE, etc. will likely be fine.
+since Hyprland is extremely bleeding-edge, point release distros like Pop!\_OS, Fedora, Ubuntu, etc.
+will have **major** issues running Hyprland. Rolling release distros like openSUSE, Solus ,etc. will likely be fine.
 
 ## Installation
 
 Installing Hyprland is very easy. Simply install it with your package manager.
 
-{{< callout type=warning >}}
-
-It is **heavily** recommended you use **what the distro packages for you**, and **not** compiling manually
-or using `-git` packages.
-Hyprland's ecosystem and dependencies are vast and intertwined, and compiling manually will only potentially expose you to outdated,
-or incompatible versions of these dependencies.
-
-If you get `.so` file mismatch / missing errors, it's _entirely your fault_ for doing this!
-
-However, if you are an experienced user and want to beta-test new features, you're more than welcome to run the latest
-git head. Please don't come asking about ".so file missing" errors though!
-
-{{< /callout >}}
+> [!WARNING]
+> It is **heavily** recommended you use **what the distro packages for you**, and **not** compiling manually
+> or using `-git` packages.
+> Hyprland's ecosystem and dependencies are vast and intertwined, and compiling manually will only potentially expose you to outdated,
+> or incompatible versions of these dependencies.
+>
+> If you get `.so` file mismatch / missing errors, it's _entirely your fault_ for doing this!
+>
+> However, if you are an experienced user and want to beta-test new features, you're more than welcome to run the latest
+> git head. Please don't come asking about ".so file missing" errors though!
 
 ### Packages
 
@@ -60,7 +51,12 @@ Install a tagged release from the arch packages:
 sudo pacman -S hyprland
 ```
 
-or install from the AUR, which compiles the latest source:
+##### Compile from source automatically
+
+> [!WARNING]
+> Read the warning about using `-git` packages or compiling from source under [Installation](#installation) first!
+
+Install from the AUR, which compiles the latest source:
 
 ```shell
 yay -S hyprland-git
@@ -72,9 +68,16 @@ Alternatively, install the `hyprland-meta` package to automatically fetch and co
 yay -S hyprland-meta-git
 ```
 
-If you decide to use the `git` version from the AUR, you can use the [Chaotic Aur](https://aur.chaotic.cx/) to get pre-built binaries.
+> [!WARNING]
+> With `-git` everytime a direct dependency like `hyprutils` has an ABI breaking update you need to recompile Hyprland and all other dependent tools.
+> Otherwise you get a ".so not found" error.
 
-In case of errors you can downgrade easily with [downgrade](https://github.com/archlinux-downgrade/downgrade).
+
+If you decide to use the `git` version from the AUR, you can use the [Chaotic Aur](https://aur.chaotic.cx/) to get pre-built binaries.
+Be aware that updating dependencies like `hyprutils` might still require you to recompile everything yourself as the Chaotic Aur does not do that automatically.
+
+> [!NOTE]
+> You can downgrade easily with [downgrade](https://github.com/archlinux-downgrade/downgrade) to get to a previous -git version.
 
 {{% /details %}}
 
@@ -119,73 +122,56 @@ Hyprland needs are too old._
 
 {{% details title="Fedora*" closed="true" %}}
 
-On Fedora 40+, run:
-
-```sh
-sudo dnf install hyprland
-sudo dnf install hyprland-devel # If you want to build plugins (use hyprpm)
-```
-
-Faster updates and additional packages are available in the
 [solopasha/hyprland](https://copr.fedorainfracloud.org/coprs/solopasha/hyprland)
 Copr repository.
 
-If you are on an older version of Fedora, you can also compile it yourself by
-following the instructions
+You can also compile it yourself by following the instructions
 [here](https://github.com/hyprwm/Hyprland/discussions/284)
 
 {{% /details %}}
+
 {{% details title="Debian*" closed="true" %}}
 
-{{< callout type=warning >}}
-
-Debian's Hyprland is **extremely** outdated. I do not recommend using the packaged versions at all. Build the entire stack manually instead.
-
-{{< /callout >}}
-
-Hyprland recently made it into the SID and trixie repos and can be installed with
+Hyprland recently made it into the SID repository and can be installed with
 
 ```sh
 sudo apt install hyprland
 ```
 
-Note: Even though Hyprland is in the trixie repos, it is still recommended to install from SID, as some dependencies in the trixie repo are outdated.
-
 Alternatively, you can also follow the instructions under
 ["Manual (Manual Build)"](#manual-manual-build) to build Hyprland yourself.
 
-{{< callout type=info >}}
-
-Hyprland is not available for Bookworm as its packages are too old.
-
-{{< /callout >}}
+> [!NOTE]
+> Hyprland is not available for Bookworm as its packages are too old.
 
 {{% /details %}}
 
 {{% details title="Gentoo*" closed="true" %}}
 
-The hyprland package is available in the main tree:
+The hypr packages are available in the [hyproverlay](https://codeberg.org/hyproverlay/hyproverlay). Enable the overlay with:
+
+```sh
+eselect repository enable hyproverlay
+emaint sync -r hyproverlay
+```
+
+Hyprland can be installed with:
 
 ```sh
 emerge --ask gui-wm/hyprland
 ```
 
 Additional packages like hyprlock, hypridle, xdg-desktop-portal-hyprland,
-hyprland-plugins, hyprpaper and hyprpicker are available in the
-[GURU](https://wiki.gentoo.org/wiki/Project:GURU) overlay. Community-contributed
-scripts are also available in GURU as part of the hyprland-contrib package.
+hyprland-plugins, hyprpaper and hyprpicker are in the overlay. Some of the community-contributed
+scripts of [hyprwm/contrib](https://github.com/hyprwm/contrib) are also available in their own package
+(app-misc/grimblast, app-misc/hdrop, etc.) .
 
 ```sh
-eselect repository enable guru
-emaint sync -r guru
-
 emerge --ask gui-apps/hyprlock
 emerge --ask gui-apps/hypridle
 emerge --ask gui-libs/xdg-desktop-portal-hyprland
-emerge --ask gui-apps/hyprland-plugins
 emerge --ask gui-apps/hyprpaper
 emerge --ask gui-apps/hyprpicker
-emerge --ask gui-wm/hyprland-contrib
 ```
 
 For USE flags and more details, read the
@@ -207,11 +193,8 @@ Hyprland and related are in the default repository:
 
 {{% details title="Ubuntu*" closed="true" %}}
 
-{{< callout type=warning >}}
-
-Debian and Ubuntu's Hyprland is **extremely** outdated. I do not recommend using the packaged versions at all. Build the entire stack manually instead.
-
-{{< /callout >}}
+> [!WARNING]
+> Ubuntu's Hyprland is **extremely** outdated. I do not recommend using the packaged versions at all. Build the entire stack manually instead.
 
 Hyprland made it into the Ubuntu 24.10 Oracular Oriole universe repo and can be installed with
 
@@ -219,11 +202,8 @@ Hyprland made it into the Ubuntu 24.10 Oracular Oriole universe repo and can be 
 sudo add-apt-repository universe && sudo apt-get update && sudo apt-get install -y hyprland
 ```
 
-{{< callout type=info >}}
-
-NOTE: Above is for Ubuntu 24.10 (Unreleased) version
-
-{{< /callout >}}
+> [!NOTE]
+> NOTE: Above is for Ubuntu 24.10 (Unreleased) version
 
 For installing Hyprland from Source, install first the dependencies below:
 
@@ -248,24 +228,20 @@ See
 [Ubuntu Guide For Installing And Building Hyprland Gist](https://gist.github.com/Vertecedoc4545/3b077301299c20c5b9b4db00f4ca6000)
 for more information.
 
-{{< callout type=warning >}}
+> [!WARNING]
+> Please note that since Ubuntu is generally behind with dependencies, it's not
+> guaranteed that the build process will work at all. Even if it is, it's likely
+> that it will break at some point in the future.
 
-Please note that since Ubuntu is generally behind with dependencies, it's not
-guaranteed that the build process will work at all. Even if it is, it's likely
-that it will break at some point in the future.
-
-{{< /callout >}}
-
-{{< callout >}}
-
-Always use the latest version of Ubuntu for the most up to date dependencies.
-
-Note: Your mileage may vary, as GDM has some bugs with Hyprland. Check the [Master Tutorial](../Master-Tutorial) for more info.
-
-Refer to the gist if anything fails.
-
-<!-- For some reason uncommenting the line below creates an unwanted <pre><div></pre> in the page. -->
-<!-- {{< /callout >}} -->
+> [!WARNING]
+> Always use the latest version of Ubuntu for the most up to date dependencies.
+>
+> Note: Your mileage may vary, as GDM has some bugs with Hyprland. Check the [Master Tutorial](../Master-Tutorial) for more info.
+>
+> Refer to the gist if anything fails.
+>
+> <!-- For some reason uncommenting the line below creates an unwanted <pre><div></pre> in the page. -->
+> <!--  -->
 
 {{% /details %}}
 
@@ -366,17 +342,14 @@ community-driven, and no guarantee is provided for their validity.**_
 
 Dependencies:
 
-{{< callout type=info >}}
-
-Please note that Hyprland uses the C++26 standard, so both your compiler and your
-C++ standard library has to support that (`gcc>=15` or `clang>=19`).
-
-{{< /callout >}}
+> [!NOTE]
+> Please note that Hyprland uses the C++26 standard, so both your compiler and your
+> C++ standard library has to support that (`gcc>=15` or `clang>=19`).
 
 {{% details title="Arch" closed="true" %}}
 
 ```plain
-yay -S ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite libxrender libxcursor pixman wayland-protocols cairo pango libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio tomlplusplus hyprlang-git hyprcursor-git hyprwayland-scanner-git xcb-util-errors hyprutils-git glaze hyprgraphics-git aquamarine-git re2 hyprland-qtutils
+yay -S ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite libxrender libxcursor pixman wayland-protocols cairo pango libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio tomlplusplus hyprlang-git hyprcursor-git hyprwayland-scanner-git hyprwire-git xcb-util-errors hyprutils-git glaze hyprgraphics-git aquamarine-git re2 hyprland-qtutils-git muparser
 ```
 
 _(Please make a pull request or open an issue if any packages are missing from
@@ -411,19 +384,16 @@ refer to the Ubuntu tab above
 
 {{% /details %}}
 
-{{< callout type=warning >}}
-
-Additionally to those, you will also need a few hypr\* dependencies which may or may not be
-packaged for your distro of choice:
-
-- aquamarine
-- hyprlang
-- hyprcursor
-- hyprutils
-- hyprgraphics
-- hyprwayland-scanner (build-only)
-
-{{< /callout >}}
+> [!WARNING]
+> Additionally to those, you will also need a few hypr\* dependencies which may or may not be
+> packaged for your distro of choice:
+>
+> - aquamarine
+> - hyprlang
+> - hyprcursor
+> - hyprutils
+> - hyprgraphics
+> - hyprwayland-scanner (build-only)
 
 ### CMake (recommended)
 
@@ -435,20 +405,6 @@ make all && sudo make install
 
 _CMake is always recommended as it's the intended way Hyprland should be
 installed._
-
-### Meson
-
-```sh
-meson subprojects update --reset
-meson setup build
-ninja -C build
-ninja -C build install --tags runtime,man
-```
-
-Custom build flags can be found in [`meson_options.txt`](https://github.com/hyprwm/Hyprland/blob/main/meson_options.txt).
-
-Refer to [Debugging](../../Contributing-and-Debugging) to see how to build &
-debug.
 
 ## Crash on launch
 
@@ -551,14 +507,11 @@ virt-install \
 Connect with `virt-viewer`, this will open a `virt-viewer` graphical session on
 the tty. The default login is 'arch' for user and 'arch' for password.
 
-{{< callout >}}
-
-Make sure the --attach flag is used, enabling virgl makes it so that
-we had to disable listen. This means that we can't make a direct TCP/UNIX
-socket connection to the remote display. --attach asks libvirt to provide a
-pre-connected socket to the display.\*
-
-{{</ callout >}}
+> [!WARNING]
+> Make sure the --attach flag is used, enabling virgl makes it so that
+> we had to disable listen. This means that we can't make a direct TCP/UNIX
+> socket connection to the remote display. --attach asks libvirt to provide a
+> pre-connected socket to the display.\*
 
 ```sh
 virt-viewer --attach hypr-vm
@@ -567,9 +520,6 @@ virt-viewer --attach hypr-vm
 Finally on the guest follow the instructions above for either
 [installing hyprland-git from the aur](#installation) or
 [building manually](#manual-manual-build).
-{{< callout >}}
-
-Make sure you install `mesa` as the OpenGL driver. The virgl drivers are
-included in `mesa`.
-
-{{</ callout >}}
+> [!WARNING]
+> Make sure you install `mesa` as the OpenGL driver. The virgl drivers are
+> included in `mesa`.

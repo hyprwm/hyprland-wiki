@@ -6,6 +6,9 @@ title: Crashes and Bugs
 ## Getting the log
 
 Firstly, make sure you have enabled logs in the Hyprland config. Set `debug:disable_logs` to `false`.
+then to make OpenGL produce error messages set `debug:gl_debugging` to `true`.
+
+dont forget to disable these when done logging as they cause a performance hit.
 
 If you are in a TTY, and the Hyprland session that crashed was the last one you
 launched, the log can be printed with
@@ -73,8 +76,8 @@ Try to reproduce your issue as fast as possible so we don't have to sift through
 
 First of all, **_READ THE [FAQ PAGE](../FAQ)_**
 
-If your bug is not listed there, you can ask on the Discord server or open an
-issue on GitHub.
+If your bug is not listed there, you can ask on the Discord server or open a
+[discussion on GitHub](https://github.com/hyprwm/Hyprland/discussions).
 
 ## Bisecting an issue
 
@@ -153,11 +156,8 @@ we can render to) and put it on your screen (via the gpu) instead of a window.
 Freezes, glitches, and others, can be caused by issues with Hyprland's communication with DRM, the driver
 or kernel. In those cases, a DRM log is helpful.
 
-{{< callout >}}
-
-Please note, these logs are EXTREMELY verbose. Please reproduce your bug(s) ASAP to avoid getting a 1GB log.
-
-{{< /callout >}}
+> [!WARNING]
+> Please note, these logs are EXTREMELY verbose. Please reproduce your bug(s) ASAP to avoid getting a 1GB log.
 
 ```sh
 echo 0x19F | sudo tee /sys/module/drm/parameters/debug  # enables verbose drm logging

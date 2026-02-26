@@ -17,20 +17,43 @@ bind = SUPER_SHIFT, Q, exec, firefox
 
 will bind opening Firefox to <key>SUPER</key> + <key>SHIFT</key> + <key>Q</key>
 
-{{< callout type=info >}}
-
-For binding keys without a modkey, leave it empty:
-
-```ini
-bind = , Print, exec, grim
-```
-
-{{< /callout >}}
+> [!NOTE]
+> For binding keys without a modkey, leave it empty:
+>
+> ```ini
+> bind = , Print, exec, grim
+> ```
 
 _For a complete mod list, see [Variables](../Variables/#variable-types)._
 
 _The dispatcher list can be found in
 [Dispatchers](../Dispatchers/#list-of-dispatchers)._
+
+### Comma Syntax
+
+Binds use commas as **argument separators**. The `bind` keyword expects exactly
+4 arguments, so you need exactly 3 commas:
+
+```ini
+bind = MODS, key, dispatcher, params
+#      1     2    3          4
+```
+
+> [!NOTE]
+> Trailing commas in example configs (e.g., `bind = SUPER, Tab, cyclenext,`) indicate
+> an empty `params` argument. Only include a trailing comma when the last argument
+> is intentionally empty.
+
+```ini
+bind = SUPER, F, exec, firefox   # OK - 4 args
+bind = , Print, exec, grim       # OK - 4 args (empty first = no modifier)
+bind = SUPER, F, exec, firefox,  # NOT OK - tries to exec `firefox,` which doesn't exist
+bind = SUPER, Tab, cyclenext,    # OK - 4 args (empty last arg (dispatcher needs no params))
+```
+
+> [!WARNING]
+> An accidental trailing comma becomes part of the argument (e.g., `firefox,` instead
+> of `firefox`). If a keybind isn't working, check for trailing commas!
 
 ## Uncommon syms / binding with a keycode
 
@@ -47,11 +70,8 @@ bind = SUPER, code:28, exec, amongus
 
 This will bind <key>SUPER</key> + <key>t</key> since <key>t</key> is keycode 28.
 
-{{< callout type=info >}}
-
-If you are unsure of what your key's name or keycode is, you can use [`wev`](https://github.com/jwrdegoede/wev) to find out.
-
-{{< /callout >}}
+> [!NOTE]
+> If you are unsure of what your key's name or keycode is, you can use [`wev`](https://github.com/jwrdegoede/wev) to find out.
 
 ## Misc
 
@@ -60,11 +80,8 @@ If you are unsure of what your key's name or keycode is, you can use [`wev`](htt
 Keys used for keybinds need to be accessible without any modifiers in your layout.  
 For instance, the [French AZERTY](https://en.wikipedia.org/wiki/AZERTY) layout uses <key>SHIFT</key> + _`unmodified key`_ to write `0-9` numbers. As such, the workspace keybinds for this layout need to use the names of the _`unmodified keys`_ , and will not work when using the `0-9` numbers.
 
-{{< callout type=info >}}
-
-To get the correct name for an `unmodified_key`, refer to [the section on uncommon syms](#uncommon-syms--binding-with-a-keycode)
-
-{{< /callout >}}
+> [!NOTE]
+> To get the correct name for an `unmodified_key`, refer to [the section on uncommon syms](#uncommon-syms--binding-with-a-keycode)
 
 ```ini
 # On a French layout, instead of:
@@ -78,7 +95,7 @@ For help configuring the French AZERTY layout, see this [article](https://rherau
 
 ### Unbind
 
-You can also unbind a key with  the `unbind` keyword, e.g.:
+You can also unbind a key with the `unbind` keyword, e.g.:
 
 ```ini
 unbind = SUPER, O
@@ -90,16 +107,14 @@ This may be useful for dynamic keybindings with `hyprctl`, e.g.:
 hyprctl keyword unbind SUPER, O
 ```
 
-{{< callout type=info >}}
-In `unbind`, key is case-sensitive It must exactly match the case of the `bind` you are unbinding.
-
-```ini
-bind = SUPER, TAB, workspace, e+1
-unbind = SUPER, Tab # this will NOT unbind
-unbind = SUPER, TAB # this will unbind
-```
-
-{{< /callout >}}
+> [!NOTE]
+> In `unbind`, key is case-sensitive It must exactly match the case of the `bind` you are unbinding.
+>
+> ```ini
+> bind = SUPER, TAB, workspace, e+1
+> unbind = SUPER, Tab # this will NOT unbind
+> unbind = SUPER, TAB # this will unbind
+> ```
 
 ## Bind flags
 
@@ -117,21 +132,22 @@ bindrl = MOD, KEY, exec, amongus
 
 Available flags:
 
-| Flag | Name | Description |
-|------|------|-------------|
-| `l` | locked | Will also work when an input inhibitor (e.g. a lockscreen) is active. |
-| `r` | release | Will trigger on release of a key. |
-| `c` | click | Will trigger on release of a key or button as long as the mouse cursor stays inside `binds:drag_threshold`. |
-| `g` | drag | Will trigger on release of a key or button as long as the mouse cursor moves outside `binds:drag_threshold`. |
-| `o` | long press | Will trigger on long press of a key. |
-| `e` | repeat | Will repeat when held. |
-| `n` | non-consuming | Key/mouse events will be passed to the active window in addition to triggering the dispatcher. |
-| `m` | mouse | See the dedicated [Mouse Binds](#mouse-binds) section. |
-| `t` | transparent | Cannot be shadowed by other binds. |
-| `i` | ignore mods | Will ignore modifiers. |
-| `s` | separate | Will arbitrarily combine keys between each mod/key, see [Keysym combos](#keysym-combos). |
-| `d` | has description | Will allow you to write a description for your bind. |
-| `p` | bypass | Bypasses the app's requests to inhibit keybinds. |
+| Flag | Name             | Description                                                                                                  |
+| ---- | ---------------- | ------------------------------------------------------------------------------------------------------------ |
+| `l`  | locked           | Will also work when an input inhibitor (e.g. a lockscreen) is active.                                        |
+| `r`  | release          | Will trigger on release of a key.                                                                            |
+| `c`  | click            | Will trigger on release of a key or button as long as the mouse cursor stays inside `binds:drag_threshold`.  |
+| `g`  | drag             | Will trigger on release of a key or button as long as the mouse cursor moves outside `binds:drag_threshold`. |
+| `o`  | long press       | Will trigger on long press of a key.                                                                         |
+| `e`  | repeat           | Will repeat when held.                                                                                       |
+| `n`  | non-consuming    | Key/mouse events will be passed to the active window in addition to triggering the dispatcher.               |
+| `m`  | mouse            | See the dedicated [Mouse Binds](#mouse-binds) section.                                                       |
+| `t`  | transparent      | Cannot be shadowed by other binds.                                                                           |
+| `i`  | ignore mods      | Will ignore modifiers.                                                                                       |
+| `s`  | separate         | Will arbitrarily combine keys between each mod/key, see [Keysym combos](#keysym-combos).                     |
+| `d`  | has description  | Will allow you to write a description for your bind.                                                         |
+| `p`  | bypass           | Bypasses the app's requests to inhibit keybinds.                                                             |
+| `u`  | submap universal | Will be active no matter the submap.                                                                         |
 
 Example Usage:
 
@@ -186,12 +202,9 @@ binds = Control_R&Super_R&Alt_L, J&K&L, exec, kitty
 binds = Escape&Apostrophe&F7, T&O&A&D, exec, battletoads 2: retoaded
 ```
 
-{{< callout type=info >}}
-
-Please note that this is only valid for keysyms and it makes all mods keysyms.  
-If you don't know what a keysym is use `wev` and press the key you want to use.
-
-{{< /callout >}}
+> [!NOTE]
+> Please note that this is only valid for keysyms and it makes all mods keysyms.  
+> If you don't know what a keysym is use `wev` and press the key you want to use.
 
 ### Mouse wheel
 
@@ -202,11 +215,8 @@ You can also bind mouse wheel events with `mouse_up` and `mouse_down` (or
 bind = SUPER, mouse_down, workspace, e-1
 ```
 
-{{< callout type=info >}}
-
-You can control the reset time with `binds:scroll_event_delay`.
-
-{{< /callout >}}
+> [!NOTE]
+> You can control the reset time with `binds:scroll_event_delay`.
 
 ### Switches
 
@@ -221,17 +231,11 @@ bindl = , switch:on:[switch name], exec, hyprctl keyword monitor "eDP-1, disable
 bindl = , switch:off:[switch name], exec, hyprctl keyword monitor "eDP-1, 2560x1600, 0x0, 1"
 ```
 
-{{< callout type=warning >}}
+> [!WARNING]
+> Systemd `HandleLidSwitch` settings in `logind.conf` may conflict with Hyprland's laptop lid switch configurations.
 
-Systemd `HandleLidSwitch` settings in `logind.conf` may conflict with Hyprland's laptop lid switch configurations.
-
-{{< /callout >}}
-
-{{< callout type=info >}}
-
-You can view your switches with `hyprctl devices`.
-
-{{< /callout >}}
+> [!NOTE]
+> You can view your switches with `hyprctl devices`.
 
 ### Multiple binds to one key
 
@@ -243,11 +247,8 @@ bind = SUPER, Tab, cyclenext         # Change focus to another window
 bind = SUPER, Tab, bringactivetotop  # Bring it to the top
 ```
 
-{{< callout type=warning >}}
-
-The keybinds will be executed top to bottom, in the order they were written in.
-
-{{< /callout >}}
+> [!WARNING]
+> The keybinds will be executed top to bottom, in the order they were written in.
 
 ### Description
 
@@ -282,9 +283,9 @@ bindc = ALT, mouse:272, togglefloating  # ALT + LMB: Floats a window by clicking
 
 Available mouse binds:
 
-| Name | Description | Params |
-| ---- | ----------- | ------ |
-| movewindow | moves the active window | None |
+| Name         | Description               | Params                                                                                                                                                     |
+| ------------ | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| movewindow   | moves the active window   | None                                                                                                                                                       |
 | resizewindow | resizes the active window | `1` -> Resize and keep window aspect ratio. <br> `2` -> Resize and ignore `keepaspectratio` window rule/prop. <br> None or anything else for normal resize |
 
 Common mouse button key codes (check `wev` for other buttons):
@@ -292,16 +293,13 @@ Common mouse button key codes (check `wev` for other buttons):
 ```txt
 LMB -> 272
 RMB -> 273
-RMB -> 274
+MMB -> 274
 ```
 
-{{< callout type=info >}}
-
-Mouse binds, despite their name, behave like normal binds.  
-You are free to use whatever keys / mods you please. When held, the mouse function will be
-activated.
-
-{{< /callout >}}
+> [!NOTE]
+> Mouse binds, despite their name, behave like normal binds.  
+> You are free to use whatever keys / mods you please. When held, the mouse function will be
+> activated.
 
 ### Touchpad
 
@@ -346,12 +344,9 @@ You may also add shortcuts, where other keys are passed to the window.
 bind = SUPER, F10, sendshortcut, SUPER, F4, class:^(com\.obsproject\.Studio)$  # Send SUPER + F4 to OBS when SUPER + F10 is pressed.
 ```
 
-{{< callout type=warning >}}
-
-This works flawlessly with all native Wayland applications, however, XWayland is a bit wonky.  
-Make sure that what you're passing is a "global Xorg keybind", otherwise passing from a different XWayland app may not work.
-
-{{< /callout >}}
+> [!WARNING]
+> This works flawlessly with all native Wayland applications, however, XWayland is a bit wonky.  
+> Make sure that what you're passing is a "global Xorg keybind", otherwise passing from a different XWayland app may not work.
 
 ### DBus Global Shortcuts
 
@@ -369,12 +364,9 @@ whatever you want with the `global` dispatcher:
 bind = SUPERSHIFT, A, global, coolApp:myToggle
 ```
 
-{{< callout type=info >}}
-
-Please note that this function will _only_ work with
-[XDPH](../../Hypr-Ecosystem/xdg-desktop-portal-hyprland).
-
-{{</ callout >}}
+> [!NOTE]
+> Please note that this function will _only_ work with
+> [XDPH](../../Hypr-Ecosystem/xdg-desktop-portal-hyprland).
 
 ## Submaps
 
@@ -404,14 +396,11 @@ submap = reset
 # Keybinds further down will be global again...
 ```
 
-{{< callout type=warning >}}
-
-Do not forget a keybind (`escape`, in this case) to reset the keymap while inside it!
-
-If you get stuck inside a keymap, you can use `hyprctl dispatch submap reset` to go back.  
-If you do not have a terminal open, tough luck buddy. You have been warned.
-
-{{< /callout >}}
+> [!WARNING]
+> Do not forget a keybind (`escape`, in this case) to reset the keymap while inside it!
+>
+> If you get stuck inside a keymap, you can use `hyprctl dispatch submap reset` to go back.  
+> If you do not have a terminal open, tough luck buddy. You have been warned.
 
 You can also set the same keybind to perform multiple actions, such as resize
 and close the submap, like so:
@@ -430,6 +419,12 @@ submap = reset
 
 This works because the binds are executed in the order they appear, and
 assigning multiple actions per bind is possible.
+
+You can set a keybind that will be active no matter the current submap with the submap universal bind flag.
+
+```ini
+bindu = $mainMod, K, exec, kitty
+```
 
 ### Nesting
 
@@ -469,7 +464,7 @@ submap = reset
 
 ### Automatically close a submap on dispatch
 
-Submaps can be automatically closed or sent to another submap by appending ``,`` followed by a submap or _reset_.
+Submaps can be automatically closed or sent to another submap by appending `,` followed by a submap or _reset_.
 
 ```ini
 bind = SUPER,a, submap, submapA
@@ -477,12 +472,12 @@ bind = SUPER,a, submap, submapA
 # Sets the submap to submapB after pressing a.
 submap = submapA, submapB
 bind = ,a,exec, someCoolThing.sh
-submap reset
+submap = reset
 
 # Reset submap to default after pressing a.
 submap = submapB, reset
 bind = ,a,exec, soemOtherCoolThing.sh
-submap reset
+submap = reset
 ```
 
 ### Catch-All

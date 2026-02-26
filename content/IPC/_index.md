@@ -19,6 +19,12 @@ Used for hyprctl-like requests. See the
 
 basically, write `[flag(s)]/command args`.
 
+> [!NOTE]
+> Hyprland evaluates connections to this socket completely synchronously,
+> which means that any unclosed connections *will cause Hyprland to freeze*
+> until the five-second timeout is reached. Ensure that you always open the socket
+> immediately before writing requests and close it afterward.
+
 ## `$XDG_RUNTIME_DIR/hypr/[HIS]/.socket2.sock`
 
 Used for events. Hyprland will write to each connected client live events like
@@ -75,13 +81,10 @@ e.g.: `workspace>>2`
 | minimized | emitted when an external taskbar-like app requests a window to be minimized | `WINDOWADDRESS,0/1` |
 | bell | emitted when an app requests to ring the system bell via `xdg-system-bell-v1`. Window address parameter may be empty. | `WINDOWADDRESS` |
 
-{{< callout type=warning >}}
-
-A fullscreen event is not guaranteed to fire on/off once in succession. Some windows
-may fire multiple requests to be fullscreened, resulting in multiple
-fullscreen events.
-
-{{< /callout >}}
+> [!WARNING]
+> A fullscreen event is not guaranteed to fire on/off once in succession. Some windows
+> may fire multiple requests to be fullscreened, resulting in multiple
+> fullscreen events.
 
 ## How to use socket2 with bash
 

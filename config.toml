@@ -20,20 +20,10 @@ path = "github.com/imfing/hextra"
 unsafe = true
 
 [markup.goldmark.renderHooks.link]
-enableDefault = true
+useEmbedded = "fallback"
 
 [markup.highlight]
 noClasses = false
-
-[[menu.main]]
-identifier = "version"
-name       = "Latest git"
-url        = "https://wiki.hypr.land/version-selector/"
-weight     = 1
-[[menu.main.params]]
-type     = "version"
-outdated = false  # set for any version that isn't the current one
-version  = ""     # only change when setting the version, otherwise it is "Latest git" by default
 
 [[menu.main]]
 identifier = "Home"
@@ -77,6 +67,13 @@ icon = "github"
 description        = "The documentation for Hyprland."
 displayUpdatedDate = true
 dateFormat         = "January 2, 2006"
+keywords           = ["hyprland", "wiki", "hypr", "land"]
+
+[params.version]
+name       = "Latest git"
+url        = "/version-selector/"
+outdated   = false  # set for any version that isn't the current one
+version    = ""     # only change when setting the version, otherwise it is "Latest git" by default
 
 [params.navbar]
 displayTitle = true
@@ -91,7 +88,7 @@ dark = "favicon-dark.svg"
 width = "full"
 
 [params.theme]
-default       = "dark"
+default       = "system"
 displayToggle = true
 
 [params.footer]

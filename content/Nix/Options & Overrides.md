@@ -53,10 +53,10 @@ nix-repl> :bl outputs.packages.x86_64-linux.hyprland.override { /* flag here */ 
 
 Then you can run Hyprland from the built path.  
 You can also use `overrideAttrs` to override `mkDerivation`'s arguments, such as
-`mesonBuildType`:
+`cmakeBuildType`:
 
 ```nix
 $ nix repl
 nix-repl> :lf github:hyprwm/Hyprland
-nix-repl> :bl outputs.packages.x86_64-linux.hyprland.overrideAttrs (self: super: { mesonBuildType = "debug" })
+nix-repl> :bl outputs.packages.x86_64-linux.hyprland.overrideAttrs (self: super: { cmakeBuildType = "Debug" })
 ```

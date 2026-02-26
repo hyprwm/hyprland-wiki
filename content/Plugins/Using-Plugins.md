@@ -7,18 +7,13 @@ This page will tell you how to use plugins.
 
 ## Disclaimers
 
-{{< callout type=warning >}}
-
-Plugins are written in C++ and will run as a part of Hyprland.
-
-Make sure to _always_ read the source code of the plugins you are going to use
-and to trust the source.
-
-Writing a plugin to wipe your computer is easy.
-
-_**Never**_ trust random `.so` files you receive from other people.
-
-{{< /callout >}}
+> [!WARNING]
+> Plugins are written in C++ and will run as a part of Hyprland.  
+> Make sure to _always_ read the source code of the plugins you are going to use
+> and to trust the source.  
+> Writing a plugin to wipe your computer is easy.
+> 
+> _**Never**_ trust random `.so` files you receive from other people.
 
 ## Getting plugins
 
@@ -34,18 +29,15 @@ manual instructions, see [here](#manual).
 
 ### hyprpm
 
-{{< callout type=info >}}
-
-If you are using [permission management](../../Configuring/Permissions),
-you should allow hyprpm to load plugins by adding this to your config:
-
-```ini
-permission = /usr/(bin|local/bin)/hyprpm, plugin, allow
-```
-
-otherwise you'll get a popup asking for permission every time hyprpm tries to load a plugin.
-
-{{< /callout >}}
+> [!NOTE]
+> If you are using [permission management](../../Configuring/Permissions),
+> you should allow hyprpm to load plugins by adding this to your config:
+> 
+> ```ini
+> permission = /usr/(bin|local/bin)/hyprpm, plugin, allow
+> ```
+> 
+> otherwise you'll get a popup asking for permission every time hyprpm tries to load a plugin.
 
 Make sure you have the required dependencies: `cpio`, `cmake`, `git`, `meson` and `gcc`.
 You might also need `-dev` packages of Hyprland's dependencies if your distro splits
@@ -68,8 +60,11 @@ Then, enable or disable them via `hyprpm enable name` and `hyprpm disable name`.
 
 In order for the plugins to be loaded into Hyprland, run `hyprpm reload`.
 
-You can add `exec-once = hyprpm reload -n` to your Hyprland config to have
-plugins loaded at startup. `-n` will make hyprpm send a notification for good and bad events (e.g. update needed, plugin loaded successfully) or use `-nn` to get notified only on failed events.
+You can add `exec-once = hyprpm reload` to your Hyprland config to have
+plugins loaded at startup. Optionally add `-n` flag to get notification
+that plugin loaded successfully (eye candy). Note regardless of whether
+`-n` is present or not, `reload` command will generate notification for
+warning and error events.
 
 To update your plugins, run `hyprpm update`.
 
@@ -87,11 +82,8 @@ To load plugins manually, use `hyprctl plugin load path`.
 
 You can unload plugins with `hyprctl plugin unload path`.
 
-{{< callout >}}
-
-Path has to be absolute!
-
-{{< /callout >}}
+> [!WARNING]
+> Path has to be absolute!
 
 ## FAQ About Plugins
 

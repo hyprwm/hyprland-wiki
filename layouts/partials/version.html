@@ -1,11 +1,10 @@
-{{- $version := .params.version | default "Latest git" -}}
-{{- $url := .url | default "https://wiki.hyprland.org/version-selector" -}}
+{{- $version := .params.version | default .params.name -}}
 
 {{- $outdated := "" -}}
 {{- if .params.outdated -}}
   {{- $outdated = "outdated" -}}
 {{- end -}}
 
-<a href="{{ $url }}" rel="noreferer" class="{{ $outdated }} hx-text-sm contrast-more:hx-text-gray-700 contrast-more:dark:hx-text-gray-100 hx-relative -hx-ml-2 hx-hidden hx-whitespace-nowrap hx-p-2 md:hx-inline-block hx-text-gray-600 hover:hx-text-gray-800 dark:hx-text-gray-400 dark:hover:hx-text-gray-200 ltr:hx-mr-auto rtl:hx-ml-auto">
-  <span class="hx-text-center">{{ $version }}</span>
+<a href="{{ .params.url }}" rel="noreferer" class="{{ $outdated }} hx:flex hx:items-center hx:hover:opacity-75 hx:ltr:mr-auto hx:rtl:ml-auto">
+  <span class="hx:text-center">{{ $version }}</span>
 </a>

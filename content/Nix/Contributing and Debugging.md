@@ -16,21 +16,18 @@ A debug build is already provided through
 Most hyprwm apps also provide their own `-debug` versions. For those that don't,
 one can build the debug version from the CLI by using
 [overrideAttrs](../Options-Overrides/#using-nix-repl) with
-`cmakeBuildType = "debug";` or `mesonBuildType = "debug";`, depending on the
+`cmakeBuildType = "Debug";` or `mesonBuildType = "debug";`, depending on the
 program.
 
 ## Bisecting an issue
 
 Follow the
-[Bisecting an issue](https://wiki.hyprland.org/Crashes-and-Bugs/#bisecting-an-issue)
+[Bisecting an issue](https://wiki.hypr.land/Crashes-and-Bugs/#bisecting-an-issue)
 guide. To build, run `nix build`.
 
-{{< callout >}}
-
-To build with Tracy support, modify `nix/default.nix` to enable the flag, then run
-`nix build '.?submodules=1'`.
-
-{{< /callout >}}
+> [!WARNING]
+> To build with Tracy support, modify `nix/default.nix` to enable the flag, then run
+> `nix build '.?submodules=1'`.
 
 To view logs, pass the `--print-build-logs` (`-L`) flag.
 
@@ -39,7 +36,7 @@ To keep a failed build directory, pass the `--keep-failed` flag.
 ## Building the Wayland stack with ASan
 
 Run `nix develop` first, then follow the
-[Building with ASan](https://wiki.hyprland.org/Crashes-and-Bugs/#building-the-wayland-stack-with-asan)
+[Building with ASan](https://wiki.hypr.land/Crashes-and-Bugs/#building-the-wayland-stack-with-asan)
 guide.
 
 ## Getting a debug stacktrace
@@ -70,8 +67,8 @@ For CMake:
 
 ```bash
 cmakeConfigurePhase # to run the CMake configure phase
-ninjaBuildPhase     # to run the Ninja build phase (or buildPhase when ninja is not available)
-ninjaInstallPhase   # to run the Ninja install phase (or installPhase when ninja is not available)
+buildPhase     # to run the build phase
+installPhase   # to run the install phase
 ```
 
 For Meson:

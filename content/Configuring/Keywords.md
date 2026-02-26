@@ -9,20 +9,17 @@ this page, you will be presented with some that do not deserve their own page.
 See the sidebar for more keywords to control binds, animations, monitors, et
 cetera.
 
-{{< callout >}}
-
-Please remember, that for ALL arguments separated by a comma, if you want to
-leave one of them empty, you cannot reduce the number of commas, _unless told
-otherwise in a specific section_:
-
-```ini
-three_param_keyword = A, B, C # OK
-three_param_keyword = A, C    # NOT OK
-three_param_keyword = A, , C  # OK
-three_param_keyword = A, B,   # OK
-```
-
-{{< /callout >}}
+> [!WARNING]
+> Please remember, that for ALL arguments separated by a comma, if you want to
+> leave one of them empty, you cannot reduce the number of commas, _unless told
+> otherwise in a specific section_:
+> 
+> ```ini
+> three_param_keyword = A, B, C # OK
+> three_param_keyword = A, C    # NOT OK
+> three_param_keyword = A, , C  # OK
+> three_param_keyword = A, B,   # OK
+> ```
 
 ## Executing
 
@@ -124,16 +121,13 @@ Example modifying per-device config values using `hyprctl`:
 hyprctl -r -- keyword device[my-device]:sensitivity -1
 ```
 
-{{< callout type=info >}}
-
-Per-device layouts will by default not alter the keybind keymap, so for example
-with a global keymap of `us` and a per-device one of `fr`, the keybinds will
-still act as if you were on `us`.
-
-You can change this behavior by setting `resolve_binds_by_sym = 1`. In that case
-you'll need to type the symbol specified in the bind to activate it.
-
-{{< /callout >}}
+> [!NOTE]
+> Per-device layouts will by default not alter the keybind keymap, so for example
+> with a global keymap of `us` and a per-device one of `fr`, the keybinds will
+> still act as if you were on `us`.
+> 
+> You can change this behavior by setting `resolve_binds_by_sym = 1`. In that case
+> you'll need to type the symbol specified in the bind to activate it.
 
 ## Wallpapers
 
@@ -146,41 +140,11 @@ To set a wallpaper, use a wallpaper utility like
 
 More can be found in [Useful Utilities](../../Useful-Utilities).
 
-## Blurring layerSurfaces
-
-Layer surfaces are not windows. These are, for example: wallpapers,
-notification overlays, bars, etc.
-
-If you want to blur them, use a layer rule:
-
-```ini
-layerrule = blur, NAMESPACE
-# or
-layerrule = blur, address:0x<ADDRESS>
-```
-
-You can get the namespace / address from `hyprctl layers`.
-
-To remove a layer rule (useful in dynamic situations) use:
-
-```ini
-layerrule = unset, <whatever you used before>
-```
-
-For example:
-
-```ini
-layerrule = unset, NAMESPACE
-```
-
 ## Setting the environment
 
-{{< callout type=info >}}
-
-A new environment cannot be passed to already running processes. If you change / add / remove an `env = ` entry
-when Hyprland is running, only newly spawned apps will pick up the changes.
-
-{{< /callout >}}
+> [!NOTE]
+> A new environment cannot be passed to already running processes. If you change / add / remove an `env = ` entry
+> when Hyprland is running, only newly spawned apps will pick up the changes.
 
 You can use the `env` keyword to set environment variables,
 e.g:
@@ -196,21 +160,18 @@ You can also add a `d` flag if you want the env var to be exported to D-Bus
 envd = XCURSOR_SIZE,24
 ```
 
-{{< callout >}}
-
-Hyprland puts the raw string to the env var. You should _not_ add quotes around
-the values.
-
-e.g.:
-
-```ini
-env = QT_QPA_PLATFORM,wayland
-```
-
-and _**NOT**_
-
-```ini
-env = QT_QPA_PLATFORM,"wayland"
-```
-
-{{< /callout >}}
+> [!WARNING]
+> Hyprland puts the raw string to the env var. You should _not_ add quotes around
+> the values.
+> 
+> e.g.:
+> 
+> ```ini
+> env = QT_QPA_PLATFORM,wayland
+> ```
+> 
+> and _**NOT**_
+> 
+> ```ini
+> env = QT_QPA_PLATFORM,"wayland"
+> ```

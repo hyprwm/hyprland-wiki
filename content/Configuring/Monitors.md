@@ -72,14 +72,21 @@ monitor = DP-2, 1920x1080, 0x1080, 1
 
 will tell Hyprland to put DP-2 _below_.
 
-{{< callout type=info >}}
+> [!NOTE]
+> The position is calculated with the scaled (and transformed) resolution, meaning
+> if you want your 4K monitor with scale 2 to the left of your 1080p one, you'd
+> use the position `1920x0` for the second screen (3840 / 2). If the monitor is
+> also rotated 90 degrees (vertical), you'd use `1080x0`.
 
-The position is calculated with the scaled (and transformed) resolution, meaning
-if you want your 4K monitor with scale 2 to the left of your 1080p one, you'd
-use the position `1920x0` for the second screen (3840 / 2). If the monitor is
-also rotated 90 degrees (vertical), you'd use `1080x0`.
+> [!WARNING]
+> No monitors can overlap. This means that if your set positions make any monitors
+> overlap, you will get a warning.
 
-{{</ callout >}}
+> [!NOTE]
+> "Invalid scale" warnings will pop up if your scale does not create valid
+> logical pixels. A valid scale must divide your resolution cleanly (without
+> decimals). For example 1920x1080 / 1.5 = 1280x720 -> OK, but
+> when / 1.4 -> 1371.4286x771.42857 -> not ok.
 
 Leaving the name empty will define a fallback rule to use when no other rules
 match.
@@ -157,14 +164,11 @@ To disable a monitor, use
 monitor = name, disable
 ```
 
-{{< callout >}}
-
-Disabling a monitor will literally remove it from the layout, moving all windows
-and workspaces to any remaining ones. If you want to disable your monitor in a
-screensaver style (just turn off the monitor) use the `dpms`
-[dispatcher](../Dispatchers).
-
-{{</ callout >}}
+> [!WARNING]
+> Disabling a monitor will literally remove it from the layout, moving all windows
+> and workspaces to any remaining ones. If you want to disable your monitor in a
+> screensaver style (just turn off the monitor) use the `dpms`
+> [dispatcher](../Dispatchers).
 
 ## Custom reserved area
 
@@ -213,14 +217,10 @@ the end of the monitor rule, e.g:
 monitor = eDP-1, 2880x1800@90, 0x0, 1, bitdepth, 10
 ```
 
-{{< callout >}}
-
-Colors registered in Hyprland (e.g. the border color) do _not_ support
-10 bit.
-
-Some applications do _not_ support screen capture with 10 bit enabled.
-
-{{< /callout >}}
+> [!WARNING]
+> Colors registered in Hyprland (e.g. the border color) do _not_ support
+> 10 bit.  
+> Some applications do _not_ support screen capture with 10 bit enabled.
 
 ### Color management presets
 
@@ -233,6 +233,9 @@ monitor = eDP-1, 2880x1800@90, 0x0, 1, bitdepth, 10, cm, wide
 ```plain
 auto    - srgb for 8bpc, wide for 10bpc if supported (recommended)
 srgb    - sRGB primaries (default)
+dcip3   - DCI P3 primaries
+dp3     - Apple P3 primaries
+adobe   - Adobe RGB primaries
 wide    - wide color gamut, BT2020 primaries
 edid    - primaries from edid (known to be inaccurate)
 hdr     - wide color gamut and HDR PQ transfer function (experimental)
@@ -246,6 +249,8 @@ Use `sdrbrightness, B` and `sdrsaturation, S` to control SDR brightness and satu
 ```ini
 monitor = eDP-1, 2880x1800@90, 0x0, 1, bitdepth, 10, cm, hdr, sdrbrightness, 1.2, sdrsaturation, 0.98
 ```
+
+The default transfer function assumed to be in use on an SDR display for sRGB content is defined by `, sdr_eotf, X`. The default (`0`) is to follow `render:cm_sdr_eotf`. This can be changed to piecewise sRGB with `1`, or  Gamma 2.2 with `2`.
 
 ### VRR
 
@@ -288,14 +293,14 @@ monitorv2 {
 }
 ```
 
-Other named settings keep their names: `name, value` &rarr; `name = value` (e.g. `bitdepth,10` &rarr; `bitdepth = 10`)
+The `disable` flag turns into `disabled = true`, but other named settings keep their names: `name, value` &rarr; `name = value` (e.g. `bitdepth,10` &rarr; `bitdepth = 10`)
 
 EDID overrides and SDR &rarr; HDR settings:
 
 | name | description | type |
 |---|---|---|
-| supports_wide_color | Force wide color gamut support (1 - force on, 0 - does nothing) | bool |
-| supports_hdr | Force HDR support. Requires wide color gamut (1 - force on, 0 - does nothing) | bool |
+| supports_wide_color | Force wide color gamut support (0 - auto, 1 - force on, -1 - force off) | int |
+| supports_hdr | Force HDR support. Requires wide color gamut (0 - auto, 1 - force on, -1 - force off) | int |
 | sdr_min_luminance | SDR minimum lumninace used for SDR &rarr; HDR mapping. Set to 0.005 for true black matching HDR black | float |
 | sdr_max_luminance | SDR maximum luminance. Can be used to adjust overall SDR &rarr; HDR brightness. 80 - 400 is a reasonable range. The desired value is likely between 200 and 250 | int |
 | min_luminance | Monitor's minimum luminance | float |

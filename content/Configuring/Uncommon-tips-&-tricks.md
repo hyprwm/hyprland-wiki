@@ -1,5 +1,5 @@
 ---
-weight: 20
+weight: 36
 title: Uncommon tips & tricks
 ---
 
@@ -18,23 +18,20 @@ input {
 
 Variants are set per layout.
 
-{{< callout >}}
-
-The first layout defined in the input section will be the one used for binds by
-default.
-
-For example: `us,ua` -> config binds would be e.g. `SUPER, A`, while on `ua,us`
--> `SUPER, Cyrillic_ef`
-
-You can change this behavior globally or per-device by setting
-`resolve_binds_by_sym = 1`. In that case, binds will activate when the symbol
-typed matches the symbol specified in the bind.
-
-For example: if your layouts are `us,fr` and have a bind for `SUPER, A` you'd
-need to press the first letter on the second row while the `us` layout is active
-and the first letter on the first row while the `fr` layout is active.
-
-{{< /callout >}}
+> [!WARNING]
+> The first layout defined in the input section will be the one used for binds by
+> default.
+> 
+> For example: `us,ua` -> config binds would be e.g. `SUPER, A`, while on `ua,us`
+> -> `SUPER, Cyrillic_ef`
+> 
+> You can change this behavior globally or per-device by setting
+> `resolve_binds_by_sym = 1`. In that case, binds will activate when the symbol
+> typed matches the symbol specified in the bind.
+> 
+> For example: if your layouts are `us,fr` and have a bind for `SUPER, A` you'd
+> need to press the first letter on the second row while the `us` layout is active
+> and the first letter on the first row while the `fr` layout is active.
 
 You can also bind a key to execute `hyprctl switchxkblayout` for more keybind
 freedom. See [Using hyprctl](../Using-hyprctl).
@@ -102,10 +99,9 @@ issues in many programs. One example is OBS Studio, which does not detect the XF
 keysyms as usable keybindings, making you unable to use them for binds. This option
 simply maps them back to the expected F13-F24 values, which are bindable as normal.
 
-{{< callout >}}
-This option was only added recently to `xkeyboard-config`. Please ensure you are on version
-2.43 or greater for this option to do anything.
-{{< /callout >}}
+> [!WARNING]
+> This option was only added recently to `xkeyboard-config`. Please ensure you are on version
+> 2.43 or greater for this option to do anything.
 
 ```ini
 input {
@@ -201,19 +197,21 @@ To use Shimeji programs like
 following rules:
 
 ```ini
-windowrule = float, class:com-group_finity-mascot-Main
-windowrule = noblur, class:com-group_finity-mascot-Main
-windowrule = nofocus, class:com-group_finity-mascot-Main
-windowrule = noshadow, class:com-group_finity-mascot-Main
-windowrule = noborder, class:com-group_finity-mascot-Main
+windowrule {
+	name = shimeji
+	match:class = com-group_finity-mascot-Main
+	
+	float = true
+	no_blur = true
+	no_focus = true
+	no_shadow = true
+	border_size = 0
+}
 ```
 
-{{< callout type=info >}}
-
-The app indicator probably won't show, so you'll have to `killall -9 java` to
-kill them.
-
-{{< /callout >}}
+> [!NOTE]
+> The app indicator probably won't show, so you'll have to `killall -9 java` to
+> kill them.
 
 ![Demo GIF of Spamton Shimeji](https://github.com/hyprwm/hyprland-wiki/assets/36706276/261afd03-bf41-4513-b72b-3483d43d418c)
 
@@ -262,9 +260,8 @@ The hotkey toggle will be WIN+F1, but you can change this to whatever you want.
 ## Zoom
 
 To zoom using Hyprland's built-in zoom utility
-{{< callout >}}
-If mouse wheel bindings work only for the first time, you should probably reduce reset time with `binds:scroll_event_delay`
-{{< /callout >}}
+> [!WARNING]
+> If mouse wheel bindings work only for the first time, you should probably reduce reset time with `binds:scroll_event_delay`
 
 ```ini
 bind = $mod, mouse_down, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.1')
@@ -297,7 +294,7 @@ Dependencies :
 1. add this to your config
 
 ```ini
-exec-once = foot --server
+exec-once = foot --server -c $XDG_CONFIG_HOME/foot/foot.ini
 
 bind = ALT, TAB, exec, $HOME/.config/hypr/scripts/alttab/enable.sh 'down'
 bind = ALT SHIFT, TAB, exec, $HOME/.config/hypr/scripts/alttab/enable.sh 'up'
@@ -315,16 +312,17 @@ bind = ALT SHIFT, escape, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh 
 submap = reset
 
 workspace = special:alttab, gapsout:0, gapsin:0, bordersize:0
-windowrule = noanim, class:alttab
-windowrule = stayfocused, class:alttab
-windowrule = workspace special:alttab, class:alttab
-windowrule = bordersize 0, class:alttab
+windowrule = match:class alttab, no_anim
+windowrule = match:class alttab, stay_focused
+windowrule = match:class alttab, workspace special:alttab
+windowrule = match:class alttab, border_size 0
 ```
 
 2. create file `touch $XDG_CONFIG_HOME/hypr/scripts/alttab/alttab.sh && chmod +x $XDG_CONFIG_HOME/hypr/scripts/alttab/alttab.sh` and add:
 
 ```bash {filename="alttab.sh"}
 #!/usr/bin/env bash
+hyprctl -q dispatch submap alttab
 start=$1
 address=$(hyprctl -j clients | jq -r 'sort_by(.focusHistoryID) | .[] | select(.workspace.id >= 0) | "\(.address)\t\(.title)"' |
 	      fzf --color prompt:green,pointer:green,current-bg:-1,current-fg:green,gutter:-1,border:bright-black,current-hl:red,hl:red \
@@ -340,7 +338,7 @@ address=$(hyprctl -j clients | jq -r 'sort_by(.focusHistoryID) | .[] | select(.w
 	      awk -F"\t" '{print $1}')
 
 if [ -n "$address" ] ; then
-    hyprctl --batch -q "dispatch focuswindow address:$address ; dispatch alterzorder top"
+	echo "$address" > $XDG_RUNTIME_DIR/hypr/alttab/address
 fi
 
 hyprctl -q dispatch submap reset
@@ -357,8 +355,8 @@ line="$1"
 IFS=$'\t' read -r addr _ <<< "$line"
 dim=${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}
 
-grim -t png -l 0 -w "$addr" ~/.config/hypr/scripts/alttab/preview.png
-chafa --animate false -s "$dim" "$XDG_CONFIG_HOME/hypr/scripts/alttab/preview.png"
+grim -t png -l 0 -w "$addr" $XDG_RUNTIME_DIR/hypr/alttab/preview.png
+chafa --animate false --dither=none -s "$dim" "$XDG_RUNTIME_DIR/hypr/alttab/preview.png"
 ```
 
 4. create file `touch $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh && chmod +x $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh` and add:
@@ -373,5 +371,46 @@ hyprctl -q --batch "keyword unbind ALT, TAB ; keyword unbind ALT SHIFT, TAB ; ke
 5. create file `touch $XDG_CONFIG_HOME/hypr/scripts/alttab/enable.sh && chmod +x $XDG_CONFIG_HOME/hypr/scripts/alttab/enable.sh` and add:
 ```bash {filename="enable.sh"}
 #!/usr/bin/env bash
-hyprctl -q --batch "keyword animations:enabled false ; dispatch exec footclient -a alttab ~/.config/hypr/scripts/alttab/alttab.sh $1 ; keyword unbind ALT, TAB ; keyword unbind ALT SHIFT, TAB ; dispatch submap alttab"
+mkdir -p $XDG_RUNTIME_DIR/hypr/alttab
+hyprctl -q --batch "keyword animations:enabled false; keyword unbind ALT, TAB ; keyword unbind ALT SHIFT, TAB"
+footclient -a alttab $HOME/.config/hypr/scripts/alttab/alttab.sh $1
+hyprctl --batch -q "dispatch focuswindow address:$(cat $XDG_RUNTIME_DIR/hypr/alttab/address) ; dispatch alterzorder top"
+```
+
+## Config versioning
+
+Some updates add breaking changes, which can be anticipated by looking at the git
+development branch.
+
+Since Hyprland 0.53, we export a variable for each major version, that looks like this:
+```
+$HYPRLAND_V_0_XX
+```
+
+You can make your configs conditional, e.g.:
+
+```
+# hyprlang if HYPRLAND_V_0_53
+
+someValue = 0.53
+
+# hyprlang endif
+
+# hyprlang if !HYPRLAND_V_0_53
+
+someValue = 0.52
+
+# hyprlang endif
+```
+
+The -git branch exports the variable for the next major release.
+
+All future releases will export all _past_ variables as well, e.g. 0.54 will also export 0.53.
+
+## Per-workspace layouts
+
+Use workspace rules to set per-workspace layouts:
+
+```ini
+workspace = 2, layout:scrolling
 ```

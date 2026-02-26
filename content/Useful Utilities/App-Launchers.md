@@ -3,6 +3,10 @@ weight: 6
 title: App launchers
 ---
 
+## Hyprlauncher
+Hyprlauncher is a first-party multipurpose and versatile launcher / picker for Hyprland.
+See its usage and config [here](../../Hypr-Ecosystem/hyprlauncher).
+
 ## Wofi
 
 Wofi is a GTK-based customizable launcher for Wayland.
@@ -16,6 +20,11 @@ Rofi, a window switcher, application launcher and `dmenu` replacement. supports 
 
 bemenu is a Wayland-native replacement for dmenu.
 [GitHub](https://github.com/Cloudef/bemenu).
+
+## HyprTile
+HyprTile is a Mega-Launcher for Hyprland. Tiny in size, easy to use with nifty features like app grid, very flexible per app configuration, integrated music search, notes system, screenshot and screenrecording for full screen or selected area, system monitor, volume control, starfield background and very nice optics. A ton of features still to come. Everything so simple, you don't need a man page.
+
+[HyprTile](https://hyprtile.org/).
 
 ## fuzzel
 
@@ -51,6 +60,13 @@ Walker is an extensible Wayland-native runner with various built-in modules
 (applications, runner, hyprland windows, websearch [as of 2024-03-15]). It can
 be run as a service for faster startups.
 [GitHub](https://github.com/abenz1267/walker)
+
+## Vicinae
+
+Vicinae is a C++ and Qt native launcher with a focus on wayland. Comes with many
+built-in modules. It runs as a server in background. It supports raycast extensions
+via a compatibility layer.
+[GitHub](https://github.com/vicinaehq/vicinae)
 
 For a more comprehensive list of launchers, check
 [awesome-hyprland](https://github.com/hyprland-community/awesome-hyprland#runners-menus-and-application-launchers).

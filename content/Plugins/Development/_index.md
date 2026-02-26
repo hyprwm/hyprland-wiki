@@ -8,5 +8,4 @@ indented to be read by developers, not end users.
 
 - [Getting started](./Getting-Started)
 - [Plugin guidelines](./Plugin-Guidelines)
-- [Event list](./Event-list)
 - [Advanced](./Advanced)

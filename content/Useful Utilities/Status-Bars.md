@@ -74,6 +74,29 @@ If you are using multiple monitors, you may want to insert the following option:
     "separate-outputs": true
 },
 ```
+
+### ashell
+
+[ashell](https://malpenzibo.github.io/ashell/) is a ready to go Wayland status bar for Hyprland
+
+- Ashell is ready to use out of the box. Just install it, start using it, and customize only what you need.
+- Ashell comes with essential modules like workspaces, time, battery, network, and more. No need to hunt for plugins or write custom scripts.
+- Powered by iced. A cross-platform GUI library for Rust
+- Has a pretty limited configuration options. It's a good and a bad thing at the same time. You can get a very decent result quickly and with a little effort, but some tricky waybar-alike tweaks are not possible.
+- Calendar is absent but in the [roadmap](https://github.com/MalpenZibo/ashell/issues/181)
+
+#### Workaround for calendar
+
+```toml
+[modules]
+center = [ "calendar", "Clock" ]
+# ...
+[[CustomModule]]
+name = "calendar"
+icon = ""
+command = "zenity --calendar --title=\"Calendar\""
+```
+
 ## Widget systems
 
 Use them when you want custom menus with fully customizable layout. 
@@ -131,13 +154,10 @@ There are a few examples listed in the [Readme](https://github.com/elkowar/eww).
 It's also highly recommended to read through the
 [Configuration options](https://elkowar.github.io/eww/configuration.html).
 
-{{< callout >}}
-
-Read
-[the Wayland section](https://elkowar.github.io/eww/configuration.html#wayland)
-carefully, otherwise Eww won't work on Hyprland.
-
-{{< /callout >}}
+> [!WARNING]
+> Read
+> [the Wayland section](https://elkowar.github.io/eww/configuration.html#wayland)
+> carefully, otherwise Eww won't work on Hyprland.
 
 Here are some example widgets that might be useful for Hyprland:
 
@@ -267,7 +287,7 @@ socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket
 
 ### Quickshell
 
-[Quickshell](https://quickshell.outfoxxed.me/) is a flexbile QtQuick-based desktop shell toolkit.
+[Quickshell](https://quickshell.outfoxxed.me/) is a flexible QtQuick-based desktop shell toolkit.
 Note that although Qt is notoriously hard to theme, Quickshell can be styled independently.
 
 To get started, see the 
@@ -288,8 +308,8 @@ and a [guided hello world](https://quickshell.outfoxxed.me/docs/configuration/in
 
 ### Blur
 
-Use the `blur` and `ignorealpha` [layer rules](https://wiki.hyprland.org/Configuring/Window-Rules/#layer-rules). 
+Use the `blur` and `ignore_alpha` [layer rules](https://wiki.hypr.land/Configuring/Window-Rules/#layer-rules). 
 The former enables blur, and the latter makes it ignore insufficiently opaque regions. 
-Ideally, the value used with `ignorealpha` is higher than the shadow opacity and lower than the bar/menu content's opacity. 
-Additionally, if it has transparent popups, you can use the `blurpopups` rule.
+Ideally, the value used with `ignore_alpha` is higher than the shadow opacity and lower than the bar/menu content's opacity. 
+Additionally, if it has transparent popups, you can use the `blur_popups` rule.
 
