@@ -306,6 +306,7 @@ EDID overrides and SDR &rarr; HDR settings:
 | min_luminance | Monitor's minimum luminance | float |
 | max_luminance | Monitor's maximum possible luminance | int |
 | max_avg_luminance | Monitor's maximum luminance on average for a typical frame | int |
+| sdr_eotf | Transfer function for displaying SDR apps. default - Use default value (Gamma 2.2), gamma22 - Gamma 2.2, srgb - sRGB piecewise | str |
 
 Note: those values might get passed to the monitor itself and cause increased burn-in or other damage if it's firmware lacks some safety checks. 
 
