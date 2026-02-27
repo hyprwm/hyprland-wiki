@@ -203,7 +203,7 @@ sudo add-apt-repository universe && sudo apt-get update && sudo apt-get install 
 ```
 
 > [!NOTE]
-> NOTE: Above is for Ubuntu 24.10 (Unreleased) version
+> NOTE: Above is for Ubuntu 24.10 version
 
 For installing Hyprland from Source, install first the dependencies below:
 
@@ -380,7 +380,7 @@ export CC=gcc CXX=g++ LDFLAGS="-static-libstdc++ -static-libgcc"
 
 {{% details title="Ubuntu" closed="true" %}}
 
-refer to the Ubuntu tab above
+Ubuntu 26.04 LTS - A build script available at [gitlab.com/kralos/hyprbuntu](https://gitlab.com/kralos/hyprbuntu).
 
 {{% /details %}}
 
