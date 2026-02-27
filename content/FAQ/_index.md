@@ -118,7 +118,7 @@ Here's an example binding:
 utility, try our own screenshotting utility:
 [Grimblast](https://github.com/hyprwm/contrib).
 
-**Option 2:** You can also use hyprshot, more info [here](https://github.com/Gustash/Hyprshot).
+**Option 2:** You could use [hyprshot (unmaintained)](https://github.com/Gustash/Hyprshot) or a clone like [Hyprcap](https://github.com/alonso-herreros/hyprcap).
 
 **Option 3:** Install `flameshot`.
 

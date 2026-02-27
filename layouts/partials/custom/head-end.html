@@ -1,0 +1,10 @@
+{{- if .Params.keywords -}}
+  {{/* Use keywords defined in the page front matter */}}
+  <meta name="keywords" content="{{ delimit .Params.keywords ", " }}">
+{{- else if .Params.tags -}}
+  {{/* Fallback to tags if no keywords are defined */}}
+  <meta name="keywords" content="{{ delimit .Params.tags ", " }}">
+{{- else if .Site.Params.keywords -}}
+  {{/* Global fallback from hugo.yaml */}}
+  <meta name="keywords" content="{{ delimit .Site.Params.keywords ", " }}">
+{{- end -}}

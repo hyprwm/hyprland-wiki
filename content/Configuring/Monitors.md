@@ -82,6 +82,12 @@ will tell Hyprland to put DP-2 _below_.
 > No monitors can overlap. This means that if your set positions make any monitors
 > overlap, you will get a warning.
 
+> [!NOTE]
+> "Invalid scale" warnings will pop up if your scale does not create valid
+> logical pixels. A valid scale must divide your resolution cleanly (without
+> decimals). For example 1920x1080 / 1.5 = 1280x720 -> OK, but
+> when / 1.4 -> 1371.4286x771.42857 -> not ok.
+
 Leaving the name empty will define a fallback rule to use when no other rules
 match.
 
@@ -300,6 +306,7 @@ EDID overrides and SDR &rarr; HDR settings:
 | min_luminance | Monitor's minimum luminance | float |
 | max_luminance | Monitor's maximum possible luminance | int |
 | max_avg_luminance | Monitor's maximum luminance on average for a typical frame | int |
+| sdr_eotf | Transfer function for displaying SDR apps. default - Use default value (Gamma 2.2), gamma22 - Gamma 2.2, srgb - sRGB piecewise | str |
 
 Note: those values might get passed to the monitor itself and cause increased burn-in or other damage if it's firmware lacks some safety checks. 
 

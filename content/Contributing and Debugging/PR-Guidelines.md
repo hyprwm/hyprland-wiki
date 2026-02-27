@@ -8,6 +8,10 @@ title: PR Guidelines
 - Described changes and _why_ they were there
 - Following the style (see below)
 
+## AI Policy
+
+Using an AI tool? Please check our [AI Policy](https://github.com/hyprwm/.github/blob/main/policies/AI_USAGE.md).
+
 ## Code Style
 
 Please read this if you are submitting a PR, in order to minimize the amount of style nits received, and save
