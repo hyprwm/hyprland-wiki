@@ -13,7 +13,7 @@ category name: `scrolling`
 | --- | --- | --- | --- |
 |fullscreen_on_one_column|when enabled, a single column on a workspace will always span the entire screen. | bool | true |
 | column_width | the default width of a column, [0.1 - 1.0]. | float | 0.5 |
-| focus_fit_method | When a column is focused, what method should be used to bring it into view. 0 = center, 1 = fit | int | 0 |
+| focus_fit_method | When a column is focused, what method should be used to bring it into view. 0 = center, 1 = fit | int | 1 |
 | follow_focus | when a window is focused, should the layout move to bring it into view automatically | bool | true |
 | follow_min_visible | when a window is focused, require that at least a given fraction of it is visible for focus to follow. Hard input (e.g. binds, clicks) will always follow. [0.0 - 1.0] | float | 0.4 |
 | explicit_column_widths | A comma-separated list of preconfigured widths for colresize +conf/-conf | str | 0.333, 0.5, 0.667, 1.0 |
