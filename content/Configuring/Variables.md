@@ -497,6 +497,7 @@ _Subcategory `render:`_
 | new_render_scheduling | Automatically uses triple buffering when needed, improves FPS on underpowered devices. | bool | false |
 | non_shader_cm | Enable CM without shader. 0 - disable, 1 - whenever possible, 2 - DS and passthrough only, 3 - disable and ignore CM issues | int | 3 |
 | cm_sdr_eotf | Default transfer function for displaying SDR apps. default - Use default value (Gamma 2.2), gamma22 - Treat unspecified as Gamma 2.2, gamma22force - Treat unspecified and sRGB as Gamma 2.2, srgb - Treat unspecified as sRGB| str | default |
+| commit_timing_enabled | Enable commit timing proto. Requires restart | bool | true |
 
 `cm_auto_hdr` requires `--target-colorspace-hint-mode=source` mpv option to work with mpv versions greater than v0.40.0
 
