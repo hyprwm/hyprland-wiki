@@ -26,7 +26,13 @@ useEmbedded = "fallback"
 noClasses = false
 
 [[menu.main]]
-identifier = "Home"
+identifier = "wiki"
+name       = "Wiki"
+pageRef    = "/"
+weight     = 1
+
+[[menu.main]]
+identifier = "home"
 name       = "Home"
 url        = "https://hypr.land/"
 weight     = 2
@@ -38,7 +44,7 @@ url        = "https://hypr.land/hall_of_fame"
 weight     = 3
 
 [[menu.main]]
-identifier = "News"
+identifier = "news"
 name       = "News"
 url        = "https://hypr.land/news"
 weight     = 4
