@@ -1,0 +1,21 @@
+<div
+  class="hx:font-medium hx:text-xs hx:text-gray-500 hx:hover:text-gray-900 hx:dark:text-gray-400 hx:dark:hover:text-gray-100 hx:contrast-more:text-gray-800 hx:contrast-more:dark:text-gray-50"
+>
+  <p>Our sponsors</p>
+</div>
+<div
+  id="sponsors"
+  class="hx:flex hx:flex-col hx:items-start hx:gap-y-2 hx:font-medium hx:text-xs"
+>
+  {{- range $sponsor := site.Params.sponsors.list -}}
+  <a href="{{ $sponsor.url }}">
+    <img
+      class="filter-invert"
+      style="max-height: 20px; max-width: 100px"
+      src="{{ $sponsor.image }}"
+      alt="{{ $sponsor.name }}"
+    />
+  </a>
+  {{- end -}}
+</div>
+<hr />

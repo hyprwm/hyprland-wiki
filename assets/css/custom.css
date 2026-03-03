@@ -3,6 +3,11 @@
   --primary-saturation: 100%;
 }
 
+/* Stolen from Tailwind */
+.filter-invert:is(html[class~="light"] *) {
+  filter: invert(100%);
+}
+
 .outdated span {
   color: #df1500;
 }
