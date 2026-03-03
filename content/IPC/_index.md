@@ -61,6 +61,7 @@ e.g.: `workspace>>2`
 | activelayout | emitted on a layout change of the active keyboard | `KEYBOARDNAME,LAYOUTNAME` |
 | openwindow | emitted when a window is opened | `WINDOWADDRESS`,`WORKSPACENAME`,`WINDOWCLASS`,`WINDOWTITLE` |
 | closewindow | emitted when a window is closed | `WINDOWADDRESS` |
+| kill | emitted when a window is killed (via `hyprctl kill`) | `WINDOWADDRESS` |
 | movewindow | emitted when a window is moved to a workspace | `WINDOWADDRESS`,`WORKSPACENAME` |
 | movewindowv2 | emitted when a window is moved to a workspace | `WINDOWADDRESS`,`WORKSPACEID`,`WORKSPACENAME` |
 | openlayer | emitted when a layerSurface is mapped | `NAMESPACE` |
