@@ -132,14 +132,11 @@ You can also compile it yourself by following the instructions
 
 {{% details title="Debian*" closed="true" %}}
 
-Hyprland recently made it into the SID repository and can be installed with
+`hyprland` is available as of Debian 14 (Forky)
 
-```sh
+```bash
 sudo apt install hyprland
 ```
-
-Alternatively, you can also follow the instructions under
-["Manual (Manual Build)"](#manual-manual-build) to build Hyprland yourself.
 
 > [!NOTE]
 > Hyprland is not available for Bookworm as its packages are too old.
@@ -194,54 +191,19 @@ Hyprland and related are in the default repository:
 {{% details title="Ubuntu*" closed="true" %}}
 
 > [!WARNING]
-> Ubuntu's Hyprland is **extremely** outdated. I do not recommend using the packaged versions at all. Build the entire stack manually instead.
+> Ubuntu's Hyprland is **extremely** outdated. I do not recommend using the packaged versions at all. Build the entire stack [manually](#manual) instead.
 
-Hyprland made it into the Ubuntu 24.10 Oracular Oriole universe repo and can be installed with
-
-```bash
-sudo add-apt-repository universe && sudo apt-get update && sudo apt-get install -y hyprland
-```
-
-> [!NOTE]
-> NOTE: Above is for Ubuntu 24.10 version
-
-For installing Hyprland from Source, install first the dependencies below:
+#### Ubuntu 26.04 LTS (Resolute Raccoon) universe repository
 
 ```bash
-sudo apt install -y meson wget build-essential ninja-build cmake-extras cmake gettext gettext-base fontconfig libfontconfig-dev libffi-dev libxml2-dev libdrm-dev libxkbcommon-x11-dev libxkbregistry-dev libxkbcommon-dev libpixman-1-dev libudev-dev libseat-dev seatd libxcb-dri3-dev libegl-dev libgles2 libegl1-mesa-dev glslang-tools libinput-bin libinput-dev libxcb-composite0-dev libavutil-dev libavcodec-dev libavformat-dev libxcb-ewmh2 libxcb-ewmh-dev libxcb-present-dev libxcb-icccm4-dev libxcb-render-util0-dev libxcb-res0-dev libxcb-xinput-dev libtomlplusplus3 libre2-dev
+sudo add-apt-repository universe && sudo apt update && sudo apt install hyprland
 ```
 
-You will also need to build the latest wayland, wayland-protocols, and
-libdisplay-info tagged releases from source.
-
-For screensharing, you can also install `xdg-desktop-portal-wlr` or `xdg-desktop-portal-hyprland`
+#### Ubuntu 24.10 (Oracular Oriole) universe repository
 
 ```bash
-sudo apt install -y xdg-desktop-portal-wlr
+sudo add-apt-repository universe && sudo apt update && sudo apt install hyprland
 ```
-
-_Unfortunately, `xdg-desktop-portal-hyprland` still not in Ubuntu Repo so you have to build it from source_
-
-See
-[The xdph GitHub repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland). Refer to
-[XDPH](../../Hypr-Ecosystem/xdg-desktop-portal-hyprland) and
-[Ubuntu Guide For Installing And Building Hyprland Gist](https://gist.github.com/Vertecedoc4545/3b077301299c20c5b9b4db00f4ca6000)
-for more information.
-
-> [!WARNING]
-> Please note that since Ubuntu is generally behind with dependencies, it's not
-> guaranteed that the build process will work at all. Even if it is, it's likely
-> that it will break at some point in the future.
-
-> [!WARNING]
-> Always use the latest version of Ubuntu for the most up to date dependencies.
->
-> Note: Your mileage may vary, as GDM has some bugs with Hyprland. Check the [Master Tutorial](../Master-Tutorial) for more info.
->
-> Refer to the gist if anything fails.
->
-> <!-- For some reason uncommenting the line below creates an unwanted <pre><div></pre> in the page. -->
-> <!--  -->
 
 {{% /details %}}
 
@@ -380,7 +342,46 @@ export CC=gcc CXX=g++ LDFLAGS="-static-libstdc++ -static-libgcc"
 
 {{% details title="Ubuntu" closed="true" %}}
 
-Ubuntu 26.04 LTS - A build script available at [gitlab.com/kralos/hyprbuntu](https://gitlab.com/kralos/hyprbuntu).
+#### Ubuntu 26.04 LTS (Resolute Raccoon)
+
+A build script is available at [gitlab.com/kralos/hyprbuntu](https://gitlab.com/kralos/hyprbuntu).
+
+#### Ubuntu 24.10 (Oracular Oriole)
+
+To install Hyprland from Source, you will need the dependencies below:
+
+```bash
+sudo apt install -y meson wget build-essential ninja-build cmake-extras cmake gettext gettext-base fontconfig libfontconfig-dev libffi-dev libxml2-dev libdrm-dev libxkbcommon-x11-dev libxkbregistry-dev libxkbcommon-dev libpixman-1-dev libudev-dev libseat-dev seatd libxcb-dri3-dev libegl-dev libgles2 libegl1-mesa-dev glslang-tools libinput-bin libinput-dev libxcb-composite0-dev libavutil-dev libavcodec-dev libavformat-dev libxcb-ewmh2 libxcb-ewmh-dev libxcb-present-dev libxcb-icccm4-dev libxcb-render-util0-dev libxcb-res0-dev libxcb-xinput-dev libtomlplusplus3 libre2-dev
+```
+
+You will also need to build the latest wayland, wayland-protocols, and
+libdisplay-info tagged releases from source.
+
+For screensharing, you can also install `xdg-desktop-portal-wlr` or `xdg-desktop-portal-hyprland`
+
+```bash
+sudo apt install -y xdg-desktop-portal-wlr
+```
+
+_Unfortunately, `xdg-desktop-portal-hyprland` still not in Ubuntu Repo so you have to build it from source_
+
+See
+[The xdph GitHub repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland). Refer to
+[XDPH](../../Hypr-Ecosystem/xdg-desktop-portal-hyprland) and
+[Ubuntu Guide For Installing And Building Hyprland Gist](https://gist.github.com/Vertecedoc4545/3b077301299c20c5b9b4db00f4ca6000)
+for more information.
+
+> [!WARNING]
+> Please note that since Ubuntu is generally behind with dependencies, it's not
+> guaranteed that the build process will work at all. Even if it is, it's likely
+> that it will break at some point in the future.
+
+> [!WARNING]
+> Always use the latest version of Ubuntu for the most up to date dependencies.
+>
+> Note: Your mileage may vary, as GDM has some bugs with Hyprland. Check the [Master Tutorial](../Master-Tutorial) for more info.
+>
+> Refer to the gist if anything fails.
 
 {{% /details %}}
 
