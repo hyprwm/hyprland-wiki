@@ -45,6 +45,7 @@ Dispatcher `layoutmsg` params:
 | --- | --- | --- |
 | togglesplit | toggles the split (top/side) of the current window. `preserve_split` must be enabled for toggling to work. | none |
 | swapsplit | swaps the two halves of the split of the current window. | none |
+| rotatesplit | rotates the split of the current window by an optionally specified angle. Angle must be a multiple of 90. Positive numbers are clockwise, negative numbers are counter-clockwise. Default is 90. | [angle] |
 | preselect | A one-time override for the split direction. (valid for the next window to be opened, only works on tiled windows) | direction |
 | movetoroot | moves the selected window (active window if unspecified) to the root of its workspace tree. The default behavior maximizes the window in its current subtree. If `unstable` is provided as the second argument, the window will be swapped with the other subtree instead. It is not possible to only provide the second argument, but `movetoroot active unstable` will achieve the same result. | [window, [ string ]] |
 
