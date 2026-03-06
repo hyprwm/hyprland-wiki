@@ -43,10 +43,11 @@ Wallpapers are set as anonymous special categories. Monitor can be left empty fo
 | variable | description | value |
 | --- | --- | --- |
 | `monitor` | Monitor to display this wallpaper on. If empty, will use this wallpaper as a fallback | monitor ID |
-| `path` | Path to an image file or a directory containing image files (non recursively) | path |
+| `path` | Path to an image file or a directory containing image files | path |
 | `fit_mode` | Determines how to display the image. Optional and defaults to `cover` | `contain`\|`cover`\|`tile`\|`fill` |
 | `timeout` | Timeout between each wallpaper change (in seconds, if `path` is a directory). Optional and defaults to 30 seconds | int |
 | `order`    | Determines the order to display images when a directory is passed to the `path` option. Optional, currently only supported value is `random` | `random`                             |
+| `recursive` | Whether to scan subdirectories recursively when `path` is a directory. Optional and defaults to `false` | bool |
 
 ```ini
 wallpaper {
