@@ -148,6 +148,7 @@ Available flags:
 | `d` | has description | Will allow you to write a description for your bind. |
 | `p` | bypass | Bypasses the app's requests to inhibit keybinds. |
 | `u` | submap universal | Will be active no matter the submap. |
+| `k` | per-device | Allow binds to be set per device. See [Per-Device Binds](#per-device-binds) |
 
 Example Usage:
 
@@ -267,6 +268,32 @@ bindd = SUPER, Q, Open my favourite terminal, exec, kitty
 
 If you want to access your description you can use `hyprctl binds`.  
 For more information have a look at [Using Hyprctl](../Using-hyprctl).
+
+### Per-Device Binds
+
+You can set keybinds to be device specific with the `k` flag.  
+Devices are provided in a whitespace separated list that goes in front of `dispatcher`.  
+An `!` can be prepended to the list to exclude the those devices, allowing all other devices to use that bind instead.
+
+```ini
+bindk = MODS, key, [!]device1 device2 ..., dispatcher, params
+```
+
+```ini
+# Only example-keyboard-1 can use this bind
+bindk = SUPER, Q, example-keyboard-1,exec, kitty
+
+# Every keyboard other than razer-keyboard and asus-keyboard can use this bind
+bindk = SUPER, Q !razer-keyboard asus-keyboard, exec, kitty
+```
+
+You can check device names with `hyprctl devices`.
+
+> [!WARNING]
+> Devices must appear before description in arguments
+> ```ini
+> binddk = MODS, key, devices, description, dispatcher, params
+> ```
 
 ## Mouse Binds
 
