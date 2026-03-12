@@ -112,14 +112,22 @@ input {
 ## Minimize windows using special workspaces
 
 This approach uses special workspaces to mimic the "minimize window" function, by using a single keybind to toggle the minimized state.
-Note that one keybind can only handle one window.
+Note that this can only handle one window at a time. 
+
+```sh
+#!/bin/env sh
+
+if [[ -z $(hyprctl workspaces | grep special:magic) ]]; then
+    hyprctl dispatch movetoworkspacesilent special:magic
+else
+    hyprctl --batch 'dispatch togglespecialworkspace magic;dispatch movetoworkspace +0'
+fi
+```
+
+then bind it:
 
 ```ini
-bind = $mod, S, togglespecialworkspace, magic
-bind = $mod, S, movetoworkspace, +0
-bind = $mod, S, togglespecialworkspace, magic
-bind = $mod, S, movetoworkspace, special:magic
-bind = $mod, S, togglespecialworkspace, magic
+  bind = $mainMod , S, exec, <PATH TO SCRIPT>
 ```
 
 ## Show desktop
