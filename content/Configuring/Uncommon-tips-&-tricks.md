@@ -324,7 +324,7 @@ windowrule = match:class alttab, border_size 0
 #!/usr/bin/env bash
 hyprctl -q dispatch submap alttab
 
-address=$(hyprctl -j clients | jq -r 'sort_by(.focusHistoryID) | .[] | select(.workspace.id >= 0) | "\(.stableId)\t\(.title)"' |
+address=$(hyprctl -j clients | jq -r 'sort_by(.focusHistoryID) | .[] | select(.workspace.id >= 0) | "\(.stableId)\t\(.title)\t\(.address)"' |
 	      fzf --color prompt:green,pointer:green,current-bg:-1,current-fg:green,gutter:-1,border:bright-black,current-hl:red,hl:red \
 		  --cycle \
 		  --sync \
@@ -335,7 +335,7 @@ address=$(hyprctl -j clients | jq -r 'sort_by(.focusHistoryID) | .[] | select(.w
 		  --preview "$XDG_CONFIG_HOME/hypr/scripts/alttab/preview.sh {}" \
 		  --preview-window=down:80% \
 		  --layout=reverse |
-	      awk -F"\t" '{print $1}')
+	      awk -F"\t" '{print $3}')
 
 if [ -n "$address" ] ; then
 	echo "$address" > $XDG_RUNTIME_DIR/hypr/alttab/address
