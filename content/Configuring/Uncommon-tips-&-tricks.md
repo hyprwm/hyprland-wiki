@@ -115,7 +115,7 @@ This approach uses special workspaces to mimic the "minimize window" function, b
 Note that this can only handle one window at a time. 
 
 ```sh
-#!/bin/env sh
+#!/usr/bin/env bash
 
 if [[ -z $(hyprctl workspaces | grep special:magic) ]]; then
     hyprctl dispatch movetoworkspacesilent special:magic
@@ -127,7 +127,7 @@ fi
 then bind it:
 
 ```ini
-  bind = $mainMod , S, exec, <PATH TO SCRIPT>
+  bind = $mainMod, S, exec, <PATH_TO_SCRIPT>
 ```
 
 ## Show desktop
