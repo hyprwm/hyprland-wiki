@@ -52,3 +52,15 @@ Example key bindings for your Hyprland config:
 bind = $mainMod, period, layoutmsg, move +col
 bind = $mainMod, comma, layoutmsg, swapcol l
 ```
+
+## Window rules
+
+With the static rule scrolling_width you can set a starting column width for a window.
+
+```
+windowrule {
+  name = kitty_starting_width
+  match:class = kitty
+  scrolling_width = 0.5
+}
+```
