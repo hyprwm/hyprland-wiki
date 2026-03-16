@@ -272,28 +272,24 @@ For more information have a look at [Using Hyprctl](../Using-hyprctl).
 ### Per-Device Binds
 
 You can set keybinds to be device specific with the `k` flag.  
-Devices are provided in a whitespace separated list that goes in front of `dispatcher`.  
-An `!` can be prepended to the list to exclude the those devices, allowing all other devices to use that bind instead.
+Devices are specified in a comma separated list enclosed within curly braces next to the flag.  
+An `!` can be prepended to the list to exclude the those devices, allowing all other devices to use that bind instead.  
+Other bind flags can be specified after the curly braces.
 
 ```ini
-bindk = MODS, key, [!]device1 device2 ..., dispatcher, params
+bindk{[!]keyboard1, keyboard2, ...} = MODS, key, dispatcher, params
 ```
 
 ```ini
 # Only example-keyboard-1 can use this bind
-bindk = SUPER, Q, example-keyboard-1,exec, kitty
+bindk{example-keyboard-1} = SUPER, Q, exec, kitty
 
 # Every keyboard other than razer-keyboard and asus-keyboard can use this bind
-bindk = SUPER, Q !razer-keyboard asus-keyboard, exec, kitty
+bindk{!razer-keyboard, asus-keyboard} = SUPER, Q, exec, kitty
 ```
 
 You can check device names with `hyprctl devices`.
 
-> [!WARNING]
-> Devices must appear before description in arguments
-> ```ini
-> binddk = MODS, key, devices, description, dispatcher, params
-> ```
 
 ## Mouse Binds
 
