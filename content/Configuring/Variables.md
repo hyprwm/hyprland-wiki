@@ -342,6 +342,7 @@ _Subcategory `group:`_
 | merge_groups_on_groupbar | whether one group will be merged with another when dragged into its groupbar | bool | true |
 | merge_floated_into_tiled_on_groupbar | whether dragging a floating window into a tiled window groupbar will merge them | bool | false |
 | group_on_movetoworkspace | whether using movetoworkspace[silent] will merge the window into the workspace's solitary unlocked group | bool | false |
+| disband_on_empty | whether to automatically disband a group when only one window remains | bool | false |
 | col.border_active | active group border color | gradient | 0x66ffff00 |
 | col.border_inactive | inactive (out of focus) group border color | gradient | 0x66777700 |
 | col.border_locked_active | active locked group border color | gradient | 0x66ff5500 |
