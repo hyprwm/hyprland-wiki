@@ -351,6 +351,7 @@ Draws a password input field.
 | `hide_input_base_color` | This color's hue is randomly rotated (oklab color space) to get colors for `hide_input`. | color | `rgba(153, 170, 187)` |
 | `rounding` | `-1` means complete rounding (circle/oval). | int | `-1` |
 | `check_color` | Color accent when waiting for the authentication result. | gradient | `rgba(204, 136, 34, 1.0)` |
+| `check_text` | Text rendered when waiting for the authentication result. | str | _empty_ |
 | `fail_color` | Color accent when authentication fails. | gradient | `rgba(204, 34, 34, 1.0)` |
 | `fail_text` | Text rendered when authentication fails. | str | `<i>$FAIL <b>($ATTEMPTS)</b></i>` |
 | `capslock_color` | Color accent when capslock is active. | gradient | _empty_ |
