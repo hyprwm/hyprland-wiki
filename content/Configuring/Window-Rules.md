@@ -110,6 +110,7 @@ Static effects are evaluated once when the window is opened and never again. Thi
 | suppress_event | \[types...\] | Ignores specific events from the window. Events are space separated, and can be: `fullscreen`, `maximize`, `activate`, `activatefocus`, `fullscreenoutput`. |
 | content | \[none\|photo\|video\|game\] | Sets content type. |
 | no_close_for | \[ms\] | Makes the window uncloseable with the `killactive` dispatcher for a given amount of ms on open. |
+| scrolling_width | \[float\] | Set column width for window when starting on a workspace with the scrolling layout. |
 
 #### Expressions
 
