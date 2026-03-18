@@ -43,6 +43,7 @@ Dispatcher `layoutmsg` params:
 
 | param | description | args |
 | --- | --- | --- |
+| splitratio | changes the split ratio | floatvalue |
 | togglesplit | toggles the split (top/side) of the current window. `preserve_split` must be enabled for toggling to work. | none |
 | swapsplit | swaps the two halves of the split of the current window. | none |
 | preselect | A one-time override for the split direction. (valid for the next window to be opened, only works on tiled windows) | direction |
