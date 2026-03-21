@@ -11,7 +11,13 @@ is almost always called `nix`.
 For example:
 
 ```sh
-pacman -S nix
+sudo pacman -S nix
+```
+
+Then enable the daemon:
+
+```sh
+sudo systemctl enable --now nix-daemon
 ```
 
 Advanced users might want to use [Home Manager](../Hyprland-on-Home-Manager). If you don't know what
