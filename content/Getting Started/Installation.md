@@ -19,13 +19,13 @@ title: Installation
 ## Distros
 
 We officially run and test Hyprland on Arch and NixOS, and we guarantee Hyprland will work there. For any other distro
-(not based on Arch/Nix) you might have varying amounts of success. However,
-since Hyprland is extremely bleeding-edge, point release distros like Pop!\_OS, Fedora, Ubuntu, etc.
-will have **major** issues running Hyprland. Rolling release distros like openSUSE, Solus ,etc. will likely be fine.
+(not based on Arch/Nix) you might have varying amounts of success. We provide specifically packaged Nix flakes
+for all other distros that *should* work without major issues, but we can't guarantee anything.
+See installation instructions further down.
 
 ## Installation
 
-Installing Hyprland is very easy. Simply install it with your package manager on supported distros, or use Nix.
+Installing Hyprland is very easy. Simply install it with your package manager on supported distros, or use hyprnix.
 
 > [!WARNING]
 > It is **heavily** recommended you use **what the distro packages for you, or hyprnix**, and **not** compiling manually
