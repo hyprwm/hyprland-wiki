@@ -37,7 +37,7 @@ once that is done, install Hyprland through `nix profile`:
 
 Installing Hyprland (and other hypr* tools) can be done like so:
 ```sh
-nix profile install github:hyprwm/hyprnix#hyprland
+sudo nix profile add --profile /nix/var/nix/profiles/default github:hyprwm/hyprnix#hyprland
 ```
 
 Replace `#hyprland` with a different app from the flake to install it (e.g. `#hyprpaper`)
@@ -49,7 +49,7 @@ Replace `#hyprland` with a different app from the flake to install it (e.g. `#hy
 You can get Hyprland directly from Nixpkgs:
 
 ```sh
-nix profile install nixpkgs#hyprland
+sudo nix profile install --profile /nix/var/nix/profiles/default nixpkgs#hyprland
 ```
 
 {{< /tab >}}
@@ -63,7 +63,7 @@ nix profile install nixpkgs#hyprland
 > This builds the latest, unstable git branch.
 
 ```sh
-nix profile install github:hyprwm/Hyprland
+sudo nix profile add --profile /nix/var/nix/profiles/default github:hyprwm/Hyprland
 ```
 
 {{< /tab >}}
@@ -76,7 +76,7 @@ drivers. To get around that, you can use [nixGL](https://github.com/guibou/nixGL
 Just install it like so:
 
 ```sh
-nix profile install github:guibou/nixGL --impure
+sudo nix profile add --profile /nix/var/nix/profiles/default github:guibou/nixGL --impure
 ```
 
 `--impure` is needed due to `nixGL`'s reliance on hardware information.
@@ -84,12 +84,22 @@ nix profile install github:guibou/nixGL --impure
 Since 0.53.2, `start-hyprland` will automatically use `nixGL` if needed. For versions before that,
 you must use `nixGL start-hyprland`.
 
+Lastly, if you are using a Login Manager, like SDDM or GDM, you need to symlink the `.desktop` file
+like so:
+
+```sh
+sudo mkdir -p /usr/share/wayland-sessions
+sudo ln -sf /nix/var/nix/profiles/default/share/wayland-sessions/hyprland.desktop /usr/share/wayland-sessions/hyprland.desktop
+```
+
+so that the login manager can find Hyprland.
+
 ## Upgrading / updating
 
 In order to upgrade all your packages, you can run:
 
 ```sh
-nix profile upgrade '.*'
+sudo nix profile upgrade --profile /nix/var/nix/profiles/default '.*'
 ```
 
 Check the
