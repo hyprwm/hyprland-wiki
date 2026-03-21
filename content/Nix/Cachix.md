@@ -1,6 +1,6 @@
 ---
 title: Cachix
-weight: 3
+weight: 4
 ---
 
 > [!NOTE]

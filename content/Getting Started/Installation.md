@@ -25,10 +25,10 @@ will have **major** issues running Hyprland. Rolling release distros like openSU
 
 ## Installation
 
-Installing Hyprland is very easy. Simply install it with your package manager.
+Installing Hyprland is very easy. Simply install it with your package manager on supported distros, or use Nix.
 
 > [!WARNING]
-> It is **heavily** recommended you use **what the distro packages for you**, and **not** compiling manually
+> It is **heavily** recommended you use **what the distro packages for you, or hyprnix**, and **not** compiling manually
 > or using `-git` packages.
 > Hyprland's ecosystem and dependencies are vast and intertwined, and compiling manually will only potentially expose you to outdated,
 > or incompatible versions of these dependencies.
@@ -40,8 +40,8 @@ Installing Hyprland is very easy. Simply install it with your package manager.
 
 ### Packages
 
-**WARNING:** I do not maintain any packages. If they are broken, try building
-from source first.
+**WARNING:** The only packages maintained by us are the hyprnix ones. Any others could be
+broken / outdated!
 
 {{% details title="Arch" closed="true" %}}
 
@@ -95,210 +95,14 @@ For more details, read the [Nix page](../../Nix).
 
 {{% /details %}}
 
-{{% details title="openSUSE*" closed="true" %}}
+{{% details title="Other distros" closed="true" %}}
 
-Hyprland is part of factory, starting with snapshot 20230411. To install it
-simply use zypper
+For other distros, we highly recommend to install via hyprnix, which can be used on
+any Linux-based OS and is powered by Nix.
 
-```sh
-sudo zypper in hyprland
-```
-
-or install the "hyprland" package via YaST2 Software.
-
-For `hyprpm` to recognize it's dependencies, you'll also need to install `hyprland-devel`:
-
-```sh
-sudo zypper in hyprland-devel
-```
-
-Alternatively, you can also follow the instructions under
-["Manual (Manual Build)"](#manual-manual-build) to build Hyprland yourself.
-
-Note: _Hyprland is not available for Leap, as most libraries (and compiler) that
-Hyprland needs are too old._
+See [Nix > Hyprland on other distros](../../Nix/Hyprland-on-other-distros/).
 
 {{% /details %}}
-
-{{% details title="Fedora*" closed="true" %}}
-
-[solopasha/hyprland](https://copr.fedorainfracloud.org/coprs/solopasha/hyprland)
-Copr repository.
-
-You can also compile it yourself by following the instructions
-[here](https://github.com/hyprwm/Hyprland/discussions/284)
-
-{{% /details %}}
-
-{{% details title="Debian*" closed="true" %}}
-
-`hyprland` is available as of Debian 14 (Forky)
-
-```bash
-sudo apt install hyprland
-```
-
-> [!NOTE]
-> Hyprland is not available for Bookworm as its packages are too old.
-
-{{% /details %}}
-
-{{% details title="Gentoo*" closed="true" %}}
-
-The hypr packages are available in the [hyproverlay](https://codeberg.org/hyproverlay/hyproverlay). Enable the overlay with:
-
-```sh
-eselect repository enable hyproverlay
-emaint sync -r hyproverlay
-```
-
-Hyprland can be installed with:
-
-```sh
-emerge --ask gui-wm/hyprland
-```
-
-Additional packages like hyprlock, hypridle, xdg-desktop-portal-hyprland,
-hyprland-plugins, hyprpaper and hyprpicker are in the overlay. Some of the community-contributed
-scripts of [hyprwm/contrib](https://github.com/hyprwm/contrib) are also available in their own package
-(app-misc/grimblast, app-misc/hdrop, etc.) .
-
-```sh
-emerge --ask gui-apps/hyprlock
-emerge --ask gui-apps/hypridle
-emerge --ask gui-libs/xdg-desktop-portal-hyprland
-emerge --ask gui-apps/hyprpaper
-emerge --ask gui-apps/hyprpicker
-```
-
-For USE flags and more details, read the
-[Gentoo wiki page](https://wiki.gentoo.org/wiki/Hyprland) about Hyprland.
-
-{{% /details %}}
-
-{{% details title="FreeBSD*" closed="true" %}}
-
-Hyprland and related are in the default repository:
-
-- [hyprland](https://www.freshports.org/x11-wm/hyprland)
-- [hyprpaper](https://www.freshports.org/x11/hyprpaper)
-- [hyprpicker](https://www.freshports.org/x11/hyprpicker)
-- [xdg-desktop-portal-hyprland](https://www.freshports.org/x11/xdg-desktop-portal-hyprland)
-- [Other Wayland stuff](https://www.freshports.org/wayland/)
-
-{{% /details %}}
-
-{{% details title="Ubuntu*" closed="true" %}}
-
-> [!WARNING]
-> Ubuntu's Hyprland is **extremely** outdated. I do not recommend using the packaged versions at all. Build the entire stack [manually](#manual) instead.
-
-#### Ubuntu 26.04 LTS (Resolute Raccoon) universe repository
-
-```bash
-sudo add-apt-repository universe && sudo apt update && sudo apt install hyprland
-```
-
-#### Ubuntu 24.10 (Oracular Oriole) universe repository
-
-```bash
-sudo add-apt-repository universe && sudo apt update && sudo apt install hyprland
-```
-
-{{% /details %}}
-
-{{% details title="Void Linux*" closed="true" %}}
-
-Hyprland is not available from Void Linux's official repositories
-due to the void developers being salty and personally disliking our main developer.
-However, a [third party repository](https://github.com/Makrennel/hyprland-void)
-is available with
-[binary packages](https://github.com/Makrennel/hyprland-void/tree/repository-x86_64-glibc)
-built in CI by GitHub Actions.
-
-You can add this repository by creating a file such as
-`/etc/xbps.d/hyprland-void.conf` with the following contents:
-
-```plain {filename="/etc/xbps.d/hyprland-void.conf"}
-repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-glibc
-```
-
-Then you can install the packages as you would any other:
-
-```sh
-sudo xbps-install -S hyprland
-sudo xbps-install -S hyprland-devel # If you want to use plugins
-sudo xbps-install -S xdg-desktop-portal-hyprland
-
-xbps-query -Rs hypr # This will require you to have already accepted the repository's fingerprint using xbps-install -S
-```
-
-More information is available in the
-[hyprland-void README](https://github.com/Makrennel/hyprland-void/blob/master/README.md),
-including information about how you can
-[manually build](https://github.com/Makrennel/hyprland-void?tab=readme-ov-file#manually-building)
-Hyprland for Void Linux using the templates provided.
-
-{{% /details %}}
-
-{{% details title="Slackware*" closed="true" %}}
-
-```plain
-hyprland-bin (SlackBuilds) - Prebuilt release for Slackware ready for install
-```
-
-Hyprland is not installed by default on the current release of Slackware.
-
-For detailed instructions on installing this build see
-[here](https://slackbuilds.org/repository/15.0/desktop/hyprland-bin/)
-
-{{% /details %}}
-
-{{% details title="Alpine*" closed="true" %}}
-
-Hyprland is currently available in Alpine's [community repository](https://wiki.alpinelinux.org/wiki/Repositories#Community)
-and it is maintained by the community.
-
-The following command will install hyprland and its dependencies.
-
-```plain
-apk add hyprland
-```
-
-{{% /details %}}
-
-{{% details title="Ximper*" closed="true" %}}
-
-Install from the Sisyphus:
-
-```bash
-epmi hyprland
-epmi hyprland-devel # If you want to use plugins
-```
-
-Ecosystem:
-
-```bash
-epmi xdg-desktop-portal-hyprland
-epmi hypridle
-epmi hyprpaper
-epmi hyprpicker
-```
-
-{{% /details %}}
-
-{{% details title="Solus*" closed="true" %}}
-
-For Solus, run:
-
-```bash
-sudo eopkg install hyprland
-```
-
-{{% /details %}}
-
-_**\* Unofficial, no official support is provided. These instructions are
-community-driven, and no guarantee is provided for their validity.**_
 
 ### Manual
 
