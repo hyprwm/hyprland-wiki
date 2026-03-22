@@ -254,7 +254,7 @@ windowrule = border_color rgb(FF0000) rgb(880808), match:fullscreen 1           
 windowrule = border_color rgb(FFFF00), match:title .*Hyprland.*                           # Set border color to yellow when title contains Hyprland
 windowrule = opacity 1.0 override 0.5 override 0.8 override, match:class kitty            # Set opacity to 1.0 active, 0.5 inactive and 0.8 fullscreen for kitty
 windowrule = match:class kitty, rounding 10                                               # Set rounding to 10 for kitty
-windowrule = match:class (pinentry-)(.*), stay_focused on                                  # Fix pinentry losing focus
+windowrule = match:class (pinentry-)(.*), stay_focused on                                 # Fix pinentry losing focus
 ```
 
 ### Notes
