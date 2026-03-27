@@ -157,6 +157,18 @@ _Subcategory `decoration:shadow:`_
 | offset | shadow's rendering offset. | vec2 | [0, 0] |
 | scale | shadow's scale. [0.0 - 1.0] | float | 1.0 |
 
+#### Glow
+
+_Subcategory `decoration:glow:`_
+
+| name | description | type | default |
+| --- | --- | --- | --- |
+| enabled | enable inner glow on windows | bool | false |
+| range | Glow range ("size") in layout px | int | 10 |
+| render_power | in what power to render the falloff (more power, the faster the falloff) [1 - 4] | int | 3 |
+| color | glow's color. Alpha dictates glow's opacity. | color | 0xee1a1a1a |
+| color_inactive | inactive glow color. (if not set, will fall back to color) | color | unset |
+
 ### Animations
 
 | name | description | type | default |
