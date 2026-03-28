@@ -25,6 +25,8 @@ and other fancy stuff. [GitHub](https://github.com/danyspin97/wpaperd).
 A neat mpv wrapper to play a video as your wallpaper.
 [GitHub](https://github.com/GhostNaN/mpvpaper).
 
+*Tip : you can use [mpvpaper-stop](https://github.com/pvtoari/mpvpaper-stop) to pause the wallpaper when it's in background to save on resources and battery usage.*
+
 ## awww
 
 An efficient animated wallpaper daemon for Wayland, controlled at runtime, which
