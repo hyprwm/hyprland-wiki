@@ -122,7 +122,7 @@ Hyprland needs are too old._
 
 {{% details title="Fedora*" closed="true" %}}
 
-[solopasha/hyprland](https://copr.fedorainfracloud.org/coprs/solopasha/hyprland)
+[lionheartp/hyprland](https://copr.fedorainfracloud.org/coprs/lionheartp/hyprland)
 Copr repository.
 
 You can also compile it yourself by following the instructions
