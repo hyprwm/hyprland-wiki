@@ -44,3 +44,18 @@ Hyprland module that can be used in Home Manager and NixOS. It can be found
 ## Options and overrides
 
 Read [Options & Overrides](./Options-Overrides).
+
+## Overlays
+
+### default
+
+The `default` Hyprland overlay only contains the Hyprland package along with xdg-desktop-portal-hyprland, and Hyprland's internal dependencies (udis86-hyprland and glaze-hyprland).
+
+This means you need to import all the overlays for the hypr* dependencies yourself if you want them up to date. Otherwise Hyprland will build with the versions available in Nixpkgs.
+
+### hyprland-packages
+
+If you instead want an overlay with all dependencies, import both `hyprland-packages` and `hyprland-extras` overlays.
+
+> [!NOTE]
+> The dependencies can sometimes be out of date and impact other hypr* apps. E.g. <https://github.com/hyprwm/Hyprland/discussions/13396>. In such cases, either ping the maintainers to update the lockfiles, or use the `default` overlay.
