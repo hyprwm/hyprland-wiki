@@ -113,7 +113,7 @@ This is the syntax used by `hyprctl keyword`, for example.
 
 Since 0.6.3, hyprlang supports _very_ basic arithmetic operations on variables using `{{}}`
 
-You can use `+`, `-`, `*`, or `/`, on only _two_ variables (or constants) are a time.  
+You can use `+`, `-`, `*`, or `/`, on only _two_ variables (or constants) at a time.  
 You _cannot_ nest them, but you can use intermittent variables.
 
 Example:
