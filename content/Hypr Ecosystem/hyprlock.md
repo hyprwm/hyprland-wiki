@@ -335,7 +335,7 @@ Draws a password input field.
 | `monitor` | Monitor to draw on. | str | _empty_ |
 | `size` | Size of the input field. | layoutxy | `400, 90` |
 | `outline_thickness` | Thickness of the outline. | int | `4` |
-| `dots_size` | Size of the dots. [0.2 - 0.8] | float | `0.25` |
+| `dots_size` | Size of the dots. [0.001 - 0.8] | float | `0.25` |
 | `dots_spacing` | Spacing between dots. [-1.0 - 1.0] | float | `0.15` |
 | `dots_center` | Whether to center the dots. Align left otherwise.  | bool | `true` |
 | `dots_rounding` | Rounding of the dots. | int | `-1` |
