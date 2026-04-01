@@ -288,6 +288,24 @@ bindk{example-keyboard-1} = SUPER, Q, exec, kitty
 bindk{!razer-keyboard, asus-keyboard} = SUPER, Q, exec, kitty
 ```
 
+An alternative syntax is using the devicemap keyword.  
+This is similar to the syntax used by submaps.
+
+```ini
+devicemap = [!]keyboard-1, keyboard-2, ...
+```
+
+```ini
+devicemap = example-keyboard-1  // All binds defined below this will only work with example-keyboard-1
+bind = SUPER, Q, exec, kitty
+bind = SUPER, T, togglefloating
+```
+
+`reset` can be used to return control to all devices.
+```ini
+devicemap = reset  // All binds defied below this can be used by all devices
+```
+
 You can check device names with `hyprctl devices`.
 
 
