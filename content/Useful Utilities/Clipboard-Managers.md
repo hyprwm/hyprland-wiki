@@ -24,7 +24,10 @@ Alternative to `cliphist` with a couple extra features (e.g. max age for entries
 - [`wl-clip-persist`](https://github.com/Linus789/wl-clip-persist) - When copying something on Wayland, the copied data remains in the clipboard until the application that was copied from is closed; after that, the data disappears and can no longer be pasted.  
 To fix this problem, you can use `wl-clip-persist` which will preserve the data in the clipboard after the application is closed.
 
-- [`cursor-clip`](https://github.com/Sirulex/cursor-clip) - A modern wayland clipboard manager built with Rust, GTK4, Libadwaita and Layer Shell that makes clipboard handling more reliable. Features a Windows 11–style clipboard history interface with native GNOME design, which is always positioned at the current mouse pointer location. Supports all clipboard formats, including text, images, and files. 
+- [`cursor-clip`](https://github.com/Sirulex/cursor-clip) - A modern wayland clipboard manager built with Rust, GTK4, Libadwaita and Layer Shell that makes clipboard handling more reliable. Features a Windows 11–style clipboard history interface with native GNOME design, which is always positioned at the current mouse pointer location. Supports all clipboard formats, including text, images, and files.
+
+- [`clipryx`](https://github.com/Yot360/clipryx) -  Utilizes Wayland with `wl-clipboard` and supports text (text, files, links) and images. Instant startup times, accessible via a GUI. Has options to be persistent, to have max items limit. Runs with a daemon.
+
 ## cliphist
 
 Start by adding the following lines to your `~/.config/hypr/hyprland.conf`
@@ -244,3 +247,21 @@ bind = SUPER, V, exec, cursor-clip
 When triggered, `cursor-clip` will automatically position its overlay window at your current mouse location, providing a Windows 11-style clipboard history interface. The overlay supports all clipboard formats including text, images, and files, with a native GNOME design built using GTK4 and Libadwaita.
 
 For further information, please refer to the program's GitHub repository linked at the top of the page.
+
+## clipryx
+
+Start by adding the following line to your `~/.config/hypr/hyprland.conf`
+
+```ini
+exec-once = clipryx -d
+```
+
+This daemon is used to save all copied text/images and display them on the GUI on demand.
+
+You can bind `clipryx` to a hotkey for quick access, add the following to your `hyprland.conf`:
+
+```ini
+bind = SUPER, V, exec, clipryx
+```
+
+For more details on `clipryx`, please refer to its GitHub repo linked at the top of the page.
