@@ -141,6 +141,7 @@ Available flags:
 | `o` | long press | Will trigger on long press of a key. |
 | `e` | repeat | Will repeat when held. |
 | `n` | non-consuming | Key/mouse events will be passed to the active window in addition to triggering the dispatcher. |
+| `a` | auto-consuming | Key/mouse events will be passed to the active window if the dispatcher doesn't succeed. |
 | `m` | mouse | See the dedicated [Mouse Binds](#mouse-binds) section. |
 | `t` | transparent | Cannot be shadowed by other binds. |
 | `i` | ignore mods | Will ignore modifiers. |
