@@ -15,7 +15,7 @@ Doesn't require configuration, only launch flags:
 | `-f` \| `--format=` | Specifies the output format | `cmyk` \| `hex` \| `rgb` \| `hsl` \| `hsv` |
 | `-o` \| `--output-format=` | Specifies how the output color should be formatted | string format e.g. "rgb({0}, {1}, {2})" |
 | `-n` \| `--notify` | Sends a desktop notification when a color is picked (requires notify-send and a notification daemon like dunst) | none |
-| `-n` \| `--no-fancy` | Disables the "fancy" (aka. colored) outputting | none |
+| `-b` \| `--no-fancy` | Disables the "fancy" (aka. colored) outputting | none |
 | `-h` \| `--help` | Shows the help message | none |
 | `-r` \| `--render-inactive` | Render (freeze) inactive displays | none |
 | `-z` \| `--no-zoom` | Disable the zoom lens | none |
