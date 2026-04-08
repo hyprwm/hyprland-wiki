@@ -54,6 +54,29 @@ For more info, read the [option](https://search.nixos.org/options?channel=unstab
 
 ### In tty
 
+{{% details title="GNOME Keyring PAM setup" closed="true" %}}
+
+When launching from a tty instead of a display manager, some session integrations that display managers normally handle may not be configured. One common example is [GNOME Keyring](https://wiki.gnome.org/Projects/GnomeKeyring) — if `pam_gnome_keyring.so` is not present in your PAM login configuration, the keyring will not auto-unlock, and applications may prompt you to unlock it manually.
+
+To set this up, add the `pam_gnome_keyring.so` lines to the PAM configuration file used by your login method (e.g. `/etc/pam.d/login` for `login(1)`). Consult your distribution's documentation for the correct file and syntax. For example, on Arch Linux:
+
+```ini {hl_lines=[5,8,10]}
+#%PAM-1.0
+
+auth       requisite    pam_nologin.so
+auth       include      system-local-login
+-auth      optional     pam_gnome_keyring.so
+account    include      system-local-login
+password   include      system-local-login
+-password  optional     pam_gnome_keyring.so    use_authtok
+session    include      system-local-login
+-session   optional     pam_gnome_keyring.so    auto_start
+```
+
+Display managers (GDM, SDDM, etc.) typically include this PAM configuration already. This step is only needed for console-based (tty) login.
+
+{{% /details %}}
+
 To launch Hyprland with uwsm, add this code in your shell profile.
 
 ```
