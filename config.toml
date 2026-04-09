@@ -137,5 +137,5 @@ url   = "https://frame.work"
 
 [[params.sponsors.list]]
 name  = "butterfly"
-image = "https://hypr.land/imgs/sponsors/butterfly-white.png"
+image = "https://hypr.land/imgs/sponsors/butterfly-white.svg"
 url   = "https://butterfly.so"
