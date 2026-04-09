@@ -69,7 +69,8 @@ e.g.: `workspace>>2`
 | submap | emitted when a keybind submap changes. Empty means default. |`SUBMAPNAME` |
 | changefloatingmode | emitted when a window changes its floating mode. `FLOATING` is either 0 or 1. | `WINDOWADDRESS`,`FLOATING` |
 | urgent | emitted when a window requests an `urgent` state | `WINDOWADDRESS` |
-| screencast | emitted when a screencopy state of a client changes. Keep in mind there might be multiple separate clients. State is 0/1, owner is 0 - monitor share, 1 - window share | `STATE,OWNER` |
+| screencast | emitted when a screencopy state of a client changes. Keep in mind there might be multiple separate clients. State is 0/1, owner is monitor/window/region | `STATE,OWNER` |
+| screencastv2 | emitted when a screencopy state of a client changes. Keep in mind there might be multiple separate clients. State is 0/1, owner is monitor/window/region, name is the identifier of the shared target (monitor name or window title) | `STATE,OWNER,NAME` |
 | windowtitle | emitted when a window title changes. | `WINDOWADDRESS` |
 | windowtitlev2 | emitted when a window title changes. | `WINDOWADDRESS,WINDOWTITLE` |
 | togglegroup | emitted when `togglegroup` command is used. <br> returns `state,handle` where the `state` is a toggle status and the `handle` is one or more window addresses separated by a comma<br> e.g. `0,64cea2525760,64cea2522380` where `0` means that a group has been destroyed and the rest informs which windows were part of it | `0/1,WINDOWADDRESS(ES)` |
