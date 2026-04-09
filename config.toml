@@ -134,3 +134,8 @@ url   = "https://37signals.com"
 name  = "framework"
 image = "https://hypr.land/imgs/sponsors/framework-white.png"
 url   = "https://frame.work"
+
+[[params.sponsors.list]]
+name  = "butterfly"
+image = "https://hypr.land/imgs/sponsors/butterfly-white.png"
+url   = "https://butterfly.so"
