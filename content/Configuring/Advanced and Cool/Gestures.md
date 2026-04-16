@@ -56,7 +56,21 @@ from the original gesture including direction, mods, fingers and scale.
 | close | Closes the active window. | none |
 | fullscreen | Fullscreens the active window. | `mode` can be `"maximize"` to do maximize instead of fullscreen |
 | float | Floats the active window. | `mode` can be `"float"` or `"tile"` to force a direction of floating |
-| cursorZoom | Zooms into the cursor. | `zoom_level` for a zoom factor, `mode` of `"mult"` to use a multiplier instead of a toggle |
+| cursorZoom | Zooms into the cursor. | `zoom_level` for a zoom factor, `mode` of `"mult"` to use a multiplier or `"live"` to update continuously during the pinch |
+
+#### cursorZoom
+
+Examples:
+
+```lua
+hl.gesture({ fingers = 2, direction = "pinch", action = "cursorZoom", zoom_level = "2" })
+hl.gesture({ fingers = 2, direction = "pinch", action = "cursorZoom", zoom_level = "1.2", mode = "mult" })
+hl.gesture({ fingers = 2, direction = "pinch", action = "cursorZoom", zoom_level = "1", mode = "live" })
+```
+
+`cursorZoom` toggles by default. `mult` multiplies the current zoom value.
+
+`live` adjusts the zoom continuously to the pinch scale and keeps the zoom anchored to the cursor position at the start of the gesture. The numeric argument is currently unused in `live` mode, so `"1"` is a good placeholder.
 
 #### Lua function
 
@@ -110,11 +124,11 @@ hl.gesture({ fingers = 4, direction = "up", action = function() hl.exec_cmd("kit
 Toggle a special workspace with a 4-finger swipe down, only when holding SUPER, bypassing inhibitors:
 
 ```lua
-hl.gesture({ fingers = 4, direction = "down", mods = "SUPER", action = "special", arg = "scratchpad", disable_inhibit = true })
+hl.gesture({ fingers = 4, direction = "down", mods = "SUPER", action = "special", workspace_name = "scratchpad", disable_inhibit = true })
 ```
 
 Zoom into the cursor with a pinch, using a multiplier instead of a fixed zoom level:
 
 ```lua
-hl.gesture({ fingers = 2, direction = "pinchin", action = "cursorZoom", arg = "2.0", arg2 = "mult" })
+hl.gesture({ fingers = 2, direction = "pinchin", action = "cursorZoom", zoom_level = "2.0", mode = "mult" })
 ```
