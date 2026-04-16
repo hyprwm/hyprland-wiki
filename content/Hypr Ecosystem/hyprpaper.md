@@ -43,11 +43,12 @@ Wallpapers are set as anonymous special categories. Monitor can be left empty fo
 | variable | description | value |
 | --- | --- | --- |
 | `monitor` | Monitor to display this wallpaper on. If empty, will use this wallpaper as a fallback | monitor ID |
-| `path` | Path to an image file or a directory containing image files | path |
+| `path` | Path to an image file or a directory containing image files. Mutually exclusive with `paths` | path |
+| `paths` | Comma-separated list of image files and/or directories. Picks one wallpaper for the current run. Mutually exclusive with `path` | string |
 | `fit_mode` | Determines how to display the image. Optional and defaults to `cover` | `contain`\|`cover`\|`tile`\|`fill` |
-| `timeout` | Timeout between each wallpaper change (in seconds, if `path` is a directory). Optional and defaults to 30 seconds | int |
-| `order`    | Determines the order to display images when a directory is passed to the `path` option. Optional, currently only supported value is `random` | `random`                             |
-| `recursive` | Whether to scan subdirectories recursively when `path` is a directory. Optional and defaults to `false` | bool |
+| `timeout` | Timeout between each wallpaper change (in seconds, if `path` is a directory). Optional and defaults to 30 seconds. Does not apply to `paths`, which always selects a single wallpaper for the current run | int |
+| `order`    | Determines the order to display images. For `path`, supported values are `random` and `random-shuffle`. For `paths`, supported values are `default` and `random`; `random` randomizes the startup choice | `path`: `random`\|`random-shuffle`; `paths`: `default`\|`random` |
+| `recursive` | Whether to scan subdirectories recursively when `path` points to a directory or `paths` contains directories. Optional and defaults to `false` | bool |
 
 ```ini
 wallpaper {
@@ -60,6 +61,13 @@ wallpaper {
     monitor = DP-2
     path = ~/myFile2.jxl
     fit_mode = cover
+}
+
+wallpaper {
+    monitor = DP-1
+    paths = ~/wallpapers/favs, ~/wallpapers/one.jxl, ~/wallpapers/two.jxl
+    fit_mode = cover
+    order = random
 }
 
 wallpaper {
