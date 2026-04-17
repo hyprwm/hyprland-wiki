@@ -45,6 +45,7 @@ Dispatcher `layoutmsg` params:
 | focus | moves the focus and centers the layout, while also wrapping instead of moving to neighbring monitors. | direction |
 | promote | moves a window to its own new column | none |
 | swapcol | Swaps the current column with its neighbor to the left (`l`) or right (`r`). The swap wraps around (e.g., swapping the first column left moves it to the end). | `l` or `r` |
+| inhibit_scroll | Prevents the scrolling view from moving for the currently active workspace. The switch is independent for each workspace | left empty for toggle, or `bool` for explicitly enabling/disabling |
 
 Example key bindings for your Hyprland config:
 
