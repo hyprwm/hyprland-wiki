@@ -25,8 +25,10 @@ Inside of it, put your config options. All options from the `input` category
 (and all subcategories, e.g. `input.touchpad`) can be put inside, **EXCEPT**:
 
 - `force_no_accel`
-- `follow_mouse`
-- `float_switch_override_focus`
+- Options that configure window management, such as: `follow_mouse`,
+  `follow_mouse_threshold`, `float_switch_override_focus`, `mouse_refocus`,
+  `special_fallthrough`, etc.
+
 
 You can also use the `output` setting for tablets to bind them to outputs.
 Remember to use the name of the `Tablet` and not `Tablet Pad` or `Tablet Tool`.
