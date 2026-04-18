@@ -151,7 +151,6 @@ _Subcategory `decoration:shadow:`_
 | range | Shadow range ("size") in layout px | int | 4 |
 | render_power | in what power to render the falloff (more power, the faster the falloff) [1 - 4] | int | 3 |
 | sharp | if enabled, will make the shadows sharp, akin to an infinite render power | bool | false |
-| ignore_window | if true, the shadow will not be rendered behind the window itself, only around it. | bool | true |
 | color | shadow's color. Alpha dictates shadow's opacity. | color | 0xee1a1a1a |
 | color_inactive | inactive shadow color. (if not set, will fall back to color) | color | unset |
 | offset | shadow's rendering offset. | vec2 | [0, 0] |
