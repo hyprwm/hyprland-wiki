@@ -5,17 +5,19 @@ title: Gestures
 
 ## General
 
-Hyprland supports 1:1 gestures for the trackpad for some operations. The basic syntax looks like this:
+Hyprland supports 1:1 gestures for the trackpad for some operations. The basic
+syntax looks like this:
 
 ```ini
 gesture = fingers, direction, action, options
 ```
 
-Various actions may have their own options, or none. You can drop the options altogether and end
-on the action arg if the action takes none.
+Various actions may have their own options, or none. You can drop the options
+altogether and end on the action arg if the action takes none.
 
-You can also restrict gestures to a modifier by adding `, mod: [MODMASK]` after `direction`,
-or scale the animation's speed by a float by adding `scale: [SCALE]`.
+You can also restrict gestures to a modifier by adding `, mod: [MODMASK]`
+after `direction`, or scale the animation's speed by a float by adding
+`scale: [SCALE]`.
 
 Examples:
 
@@ -29,34 +31,49 @@ gesture = 3, left, scale: 1.5, float
 ### Directions
 
 The following directions are supported:
+
 | `direction` | Description |
 | -- | -- |
-| `swipe` | any swipe
-| `horizontal` | horizontal swipe
-| `vertical` | vertical swipe
-| `left`, `right`, `up`, `down` | swipe directions
-| `pinch` | any pinch
-| `pinchin`, `pinchout` | directional pinch 
-
-
+| `swipe` | any swipe |
+| `horizontal` | horizontal swipe |
+| `vertical` | vertical swipe |
+| `left`, `right`, `up`, `down` | swipe directions |
+| `pinch` | any pinch |
+| `pinchin`, `pinchout` | directional pinch |
 
 ### Actions
 
-Specifying `unset` as the action will unset a specific gesture that was previously set. Please note it needs to exactly match everything
-from the original gesture including direction, mods, fingers and scale.
+Specifying `unset` as the action will unset a specific gesture that was
+previously set. Please note it needs to exactly match everything from the
+original gesture including direction, mods, fingers and scale.
 
 | `action` | Description | Arguments |
 | -- | -- | -- |
-| `dispatcher` | the most basic, executes a dispatcher once the gesture ends | `dispatcher, params` |
+| `dispatcher` | runs a dispatcher on gesture end | `dispatcher, params` |
 | `workspace` | workspace swipe gesture, for switching workspaces | none |
 | `move` | moves the active window | none |
 | `resize` | resizes the active window | none |
-| `special` | toggles a special workspace | special workspace without the `special:`, e.g. `mySpecialWorkspace` |
+| `special` | toggles a special workspace | workspace name without `special:` |
 | `close` | closes the active window | none |
-| `fullscreen` | fullscreens the active window | none for fullscreen, `maximize` for maximize |
-| `float` | floats the active window | none for toggle, `float` or `tile` for one-way | 
-| `cursorZoom` | zooms into the cursor | zoom factor, toggles by default, add `mult` for a multiplier instead |
+| `fullscreen` | fullscreens the active window | none, or `maximize` |
+| `float` | floats the active window | none, `float`, or `tile` |
+| `cursorZoom` | zooms into the cursor | zoom factor, `mult`, or `live` |
 
+#### `cursorZoom`
+
+Examples:
+
+```ini
+gesture = 2, pinch, cursorZoom, 2
+gesture = 2, pinch, cursorZoom, 1.2, mult
+gesture = 2, pinch, cursorZoom, 1, live
+```
+
+`cursorZoom` toggles by default. `mult` multiplies the current zoom value.
+
+`live` adjusts the zoom continuously to the pinch scale and keeps the zoom
+anchored to the cursor position at the start of the gesture. The numeric
+argument is currently unused in `live` mode, so `1` is a good placeholder.
 
 ### Flags
 
