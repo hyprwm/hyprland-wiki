@@ -3,13 +3,16 @@ weight: 9
 title: Animations
 ---
 
+> [!NOTE]
+> Looking for the old hyprlang syntax? Check the [0.54 wiki pages](https://wiki.hypr.land/0.54.0/).
+> Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
+
 ## General
 
 Animations are declared with the `hl.animation()` method.
-For legacy hyprlang configuration see the [0.54.0 aimations page](https://wiki.hypr.land/0.54.0/Configuring/Animations/)
 
 Example:
-```ini
+```lua
 hl.animation({ leaf = STRING, enabled = BOOLEAN, speed = FLOAT, curve = STRING[, style = STRING] })
 ```
 `leaf` is scope of the animation. See [Animation tree](#animation-tree)
@@ -25,7 +28,7 @@ can omit further args.
 
 ### Examples
 
-```ini
+```lua
 hl.animation({ leaf = "workspaces", enabled = true, speed = 8, curve = "default" })
 hl.animation({ leaf = window, enabled = true, speed = 10, curve = "myepiccurve", style = "slide"})
 hl.animation({} leaf = "fade", enabled = 0 })
@@ -77,7 +80,7 @@ global
 
 Defining your own [Bézier curve](https://en.wikipedia.org/wiki/B%C3%A9zier_curve) can be done with the `bezier` keyword:
 
-```ini
+```lua
 hl.curve( NAME, { type = STRING, points = { {X0, Y0}, {X1, Y1} } })
 ```
 
@@ -87,7 +90,7 @@ If you want to instead choose from a list of pre-made Béziers, you can check ou
 
 ### Example
 
-```ini
+```lua
 hl.curve({ "overshoot" { type = "bezier", points = { {0.5, 0.9}, {0.1, 1.1} } }
 ```
 
@@ -97,7 +100,7 @@ For animation style `popin` in `windows`, you can specify a minimum percentage
 to start from. For example, the following will make the animation 80% -> 100% of
 the size:
 
-```ini
+```lua
 hl.animation({ leaf = "windows", enabled = true, speed = 8, curve = "default", style = "popin 80%" })
 ```
 
@@ -105,13 +108,13 @@ For animation styles `slide`, `slidevert`, `slidefade` and `slidefadevert` in `w
 specify a movement percentage. For example, the following will make windows move
 20% of the screen width:
 
-```ini
+```lua
 hl.animation({ leaf = "workspaces", enabled = true, speed = 8, curve = "default", style = "slidefade 20%" })
 ```
 
 For animation style `slide` in `windows` and `layers` you can specify a forced side. <br>
 You can choose between `top`, `bottom`, `left` or `right`.
 
-```ini
+```lua
 hl.animation({ leaf = "windows", enabled = true, speed = 8, curve = "default", style = "slide left" })
 ```
