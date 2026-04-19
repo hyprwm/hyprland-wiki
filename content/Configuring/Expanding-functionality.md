@@ -3,6 +3,10 @@ weight: 32
 title: Expanding functionality
 ---
 
+> [!NOTE]
+> Looking for the old hyprlang syntax? Check the [0.54 wiki pages](https://wiki.hypr.land/0.54.0/).
+> Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
+
 ## Lua utilities
 
 Hyprland exposes a bunch of lua utilities for you to script your desktop
