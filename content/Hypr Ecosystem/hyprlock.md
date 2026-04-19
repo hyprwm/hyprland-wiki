@@ -7,9 +7,7 @@ title: hyprlock
 for Hyprland.
 
 > [!WARNING]
-> Hyprlock does not automatically create a config, and without one, hyprlock will _not render anything_.  
-> But even without a config, your session will get locked and thus Hyprland will cover your session with a black screen.  
-> You can unlock normally by typing your password followed by hitting Enter, but you won't have any visual feedback.
+> If no config file is found in any of the searched paths, hyprlock **exits with an error** and your session will not be locked.
 > 
 > You can use the example config for a quick start, which can be found [here](https://github.com/hyprwm/hyprlock/blob/main/assets/example.conf).
 
@@ -31,7 +29,14 @@ See also: `hyprlock --help`.
 
 ## Configuration
 
-Configuration is done via the config file at `~/.config/hypr/hyprlock.conf`. This file must exist to run `hyprlock`.
+Configuration is done via a config file named `hyprlock.conf`. Hyprlock searches for it in the following locations, in order:
+
+1. `$XDG_CONFIG_HOME/hypr/hyprlock.conf`
+2. `$HOME/.config/hypr/hyprlock.conf`
+3. Each directory in `$XDG_CONFIG_DIRS`, e.g. `<dir>/hypr/hyprlock.conf`
+4. `/etc/xdg/hypr/hyprlock.conf`
+
+The first match is used. You can also specify an explicit path with `hyprlock --config <path>`.
 
 ### Variable Types
 
