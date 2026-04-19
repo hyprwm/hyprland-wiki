@@ -3,31 +3,96 @@ weight: 32
 title: Expanding functionality
 ---
 
-Hyprland exposes two powerful sockets for you to use.
+## Lua utilities
 
-The first, socket1, can be fully controlled with `hyprctl`, see its usage
-[here](../Using-hyprctl).
+Hyprland exposes a bunch of lua utilities for you to script your desktop
+with custom functionality and more.
 
-The second, socket2, sends events for certain changes / actions and can be used
-to react to different events. See its description [here](../../IPC/).
+### Events
 
-## Example script
+With `hl.on`, you can define callbacks on events. You can register as many as you want.
 
-This bash script will change the outer gaps to 20 if the currently focused
-monitor is DP-1, and 30 otherwise.
-
-```bash
-#!/usr/bin/env bash
-
-function handle {
-  if [[ ${1:0:10} == "focusedmon" ]]; then
-    if [[ ${1:12:4} == "DP-1" ]]; then
-      hyprctl keyword general:gaps_out 20
-    else
-      hyprctl keyword general:gaps_out 30
-    fi
-  fi
-}
-
-socat - "UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock" | while read -r line; do handle "$line"; done
+```lua
+hl.on("window.active", function(w)
+  hl.notification.create({ text = "Window focused: " .. w.title, timeout = 5000, icon = "ok" })
+end)
 ```
+
+Event list:
+
+| Event | Description | Parameters |
+| --- | --- | --- |
+| window.open | Window was opened | Window |
+| window.open_early | Window was opened, early event, before rules, etc | Window |
+| window.close | Window was closed | Window |
+| window.destroy | Window was destroyed | Window |
+| window.kill | Window was killed | Window |
+| window.active | Window was focused | Window, int \[0/1\] |
+| window.urgent | Window requested urgent | Window |
+| window.title | Window changed title | Window |
+| window.class | Window changed class | Window |
+| window.pin | Window changed pin state | Window |
+| window.fullscreen | Window changed fullscreen state | Window |
+| window.update_rules | Window's rules were updated | Window |
+| window.move_to_workspace | Window was moved to a workspace | Window, Workspace |
+| layer.opened | A layer was opened | LayerSurface |
+| layer.closed | A layer was closed | LayerSurface |
+| monitor.added | A monitor was connected | Monitor |
+| monitor.removed | A monitor was disconnected | Monitor |
+| monitor.focused | A monitor was focused | Monitor |
+| monitor.layout_changed | The monitor layout changed | None |
+| workspace.active | A workspace was focused | Workspace |
+| workspace.created | A workspace was opened | Workspace |
+| workspace.removed | A workspace was closed | Workspace |
+| workspace.move_to_monitor | A workspace was moved | Workspace, Monitor |
+| config.reloaded | The config was reloaded | None |
+| keybinds.submap | The active keybind submap changed | String |
+| screenshare.state | The screensharing state changed | Bool, Integer, String |
+
+### Convenience functions
+
+Hyprland exposes a bunch of convenience functions:
+ - `hl.get_active_window()`
+ - `hl.get_windows()`
+ - `hl.get_window(selector)`
+ - `hl.get_urgent_window()`
+ - `hl.get_workspaces()`
+ - `hl.get_workspace(selector)`
+ - `hl.get_active_workspace()`
+ - `hl.get_active_special_workspace()`
+ - `hl.get_monitors()`
+ - `hl.get_monitor(selector)`
+ - `hl.get_active_monitor()`
+ - `hl.get_monitor_at({ x = num, y = num })`
+ - `hl.get_monitor_at_cursor()`
+ - `hl.get_cursor_pos()`
+ - `hl.get_last_window()`
+ - `hl.get_last_workspace()`
+ - `hl.get_layers()`
+ - `hl.get_workspace_windows(workspace_selector)`
+ - `hl.get_current_submap()`
+
+### Combining it all
+
+You can expand functionality e.g. like so:
+
+```lua
+-- bind to toggle floating, unless the window is htop,
+-- then only set floating
+
+hl.bind("SUPER + X", function()
+  local w = hl.get_active_window()
+  if w ~= nil and w.title == "htop" do
+    hl.dispatch(hl.window.float({ action = "set" }))
+  else
+    hl.dispatch(hl.window.float({ action = "toggle" }))
+  end
+end)
+```
+
+## Sockets (IPC)
+
+It's recommended to use Lua. Lua will be faster, less buggy, have more APIs,
+and is more integrated.
+
+However, if you want to use IPC instead, check the [IPC](../../IPC/) page.
