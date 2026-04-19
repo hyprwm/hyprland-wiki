@@ -3,6 +3,10 @@ weight: 1
 title: Start
 ---
 
+> [!NOTE]
+> Looking for the old hyprlang syntax? Check the [0.54 wiki pages](https://wiki.hypr.land/0.54.0/).
+> Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
+
 The config is located in `$XDG_CONFIG_HOME/hypr/hyprland.lua`. In most cases,
 that maps to `~/.config/hypr/hyprland.lua`.
 
