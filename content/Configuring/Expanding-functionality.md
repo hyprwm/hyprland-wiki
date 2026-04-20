@@ -87,6 +87,7 @@ Hyprland exposes a bunch of convenience functions:
  - `hl.get_layers()`
  - `hl.get_workspace_windows(workspace_selector)`
  - `hl.get_current_submap()`
+ - `hl.version()`
 
 ### Combining it all
 
