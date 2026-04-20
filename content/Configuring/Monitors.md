@@ -7,14 +7,24 @@ title: Monitors
 
 The general config of a monitor looks like this:
 
-```ini
-monitor = name, resolution, position, scale
+```lua
+hl.monitor({
+  output = "...",
+  mode = "...",
+  position = "...",
+  scale = "...",
+})
 ```
 
 A common example:
 
-```ini
-monitor = DP-1, 1920x1080@144, 0x0, 1
+```lua
+hl.monitor({
+  output = "DP-1",
+  mode = "1920x1080@144",
+  position = "0x0",
+  scale = "1",
+})
 ```
 
 This will make the monitor on `DP-1` a `1920x1080` display, at
@@ -31,16 +41,16 @@ in pixels, of said display in the layout. (calculated from the top-left corner)
 
 For example:
 
-```ini
-monitor = DP-1, 1920x1080, 0x0, 1
-monitor = DP-2, 1920x1080, 1920x0, 1
+```lua
+hl.monitor({ output = "DP-1", mode = "1920x1080", position = "0x0", scale = "1" })
+hl.monitor({ output = "DP-2", mode = "1920x1080", position = "1920x0", scale = "1" })
 ```
 
 will tell Hyprland to put DP-1 on the _left_ of DP-2, while
 
-```ini
-monitor = DP-1, 1920x1080, 1920x0, 1
-monitor = DP-2, 1920x1080, 0x0, 1
+```lua
+hl.monitor({ output = "DP-1", mode = "1920x1080", position = "1920x0", scale = "1" })
+hl.monitor({ output = "DP-2", mode = "1920x1080", position = "0x0", scale = "1" })
 ```
 
 will tell Hyprland to put DP-1 on the _right_.
@@ -48,9 +58,9 @@ will tell Hyprland to put DP-1 on the _right_.
 The `position` may contain _negative_ values, so the above example could also be
 written as
 
-```ini
-monitor = DP-1, 1920x1080, 0x0, 1
-monitor = DP-2, 1920x1080, -1920x0, 1
+```lua
+hl.monitor({ output = "DP-1", mode = "1920x1080", position = "0x0", scale = "1" })
+hl.monitor({ output = "DP-2", mode = "1920x1080", position = "-1920x0", scale = "1" })
 ```
 
 Hyprland uses an inverse Y cartesian system. Thus, a negative y coordinate
@@ -58,16 +68,16 @@ places a monitor higher, and a positive y coordinate will place it lower.
 
 For example:
 
-```ini
-monitor = DP-1, 1920x1080, 0x0, 1
-monitor = DP-2, 1920x1080, 0x-1080, 1
+```lua
+hl.monitor({ output = "DP-1", mode = "1920x1080", position = "0x0", scale = "1" })
+hl.monitor({ output = "DP-2", mode = "1920x1080", position = "0x-1080", scale = "1" })
 ```
 
 will tell Hyprland to put DP-2 _above_ DP-1, while
 
-```ini
-monitor = DP-1, 1920x1080, 0x0, 1
-monitor = DP-2, 1920x1080, 0x1080, 1
+```lua
+hl.monitor({ output = "DP-1", mode = "1920x1080", position = "0x0", scale = "1" })
+hl.monitor({ output = "DP-2", mode = "1920x1080", position = "0x1080", scale = "1" })
 ```
 
 will tell Hyprland to put DP-2 _below_.
@@ -88,17 +98,17 @@ will tell Hyprland to put DP-2 _below_.
 > decimals). For example 1920x1080 / 1.5 = 1280x720 -> OK, but
 > when / 1.4 -> 1371.4286x771.42857 -> not ok.
 
-Leaving the name empty will define a fallback rule to use when no other rules
+Leaving the `output` empty will define a fallback rule to use when no other rules
 match.
 
-There are a few special values for the resolutions:
+There are a few special values for the `mode` field:
 
 - `preferred` - use the display's preferred size and refresh rate.
 - `highres` - use the highest supported resolution.
 - `highrr` - use the highest supported refresh rate.
 - `maxwidth` - use the widest supported resolution.
 
-Position also has a few special values:
+`position` also has a few special values:
 
 - `auto` - let Hyprland decide on a position. By default, it places each new monitor to the right of existing ones,
   using the monitor's top left corner as the root point.
@@ -117,8 +127,8 @@ These depend on the PPI of the monitor.
 
 Recommended rule for quickly plugging in random monitors:
 
-```ini
-monitor = , preferred, auto, 1
+```lua
+hl.monitor({ output = "", mode = "preferred", position = "auto", scale = "1" })
 ```
 
 This will make any monitor that was not specified with an explicit rule
@@ -139,29 +149,33 @@ Monitor eDP-1 (ID 0):
 ```
 
 then the `description` value up to, but not including the portname `(eDP-1)` can
-be used to specify the monitor:
+be used as the `output` field with a `desc:` prefix:
 
-```ini
-monitor = desc:Chimei Innolux Corporation 0x150C, preferred, auto, 1.5
+```lua
+hl.monitor({ output = "desc:Chimei Innolux Corporation 0x150C", mode = "preferred", position = "auto", scale = "1.5" })
 ```
 
 Remember to remove the `(portname)`!
 
 ### Custom modelines
 
-You can set up a custom modeline by changing the resolution field to a modeline,
-for example:
+You can set up a custom modeline by passing a modeline string as the `mode` field:
 
-```ini
-monitor = DP-1, modeline 1071.101 3840 3848 3880 3920 2160 2263 2271 2277 +hsync -vsync, 0x0, 1
+```lua
+hl.monitor({
+  output = "DP-1",
+  mode = "modeline 1071.101 3840 3848 3880 3920 2160 2263 2271 2277 +hsync -vsync",
+  position = "0x0",
+  scale = "1",
+})
 ```
 
 ### Disabling a monitor
 
-To disable a monitor, use
+To disable a monitor, set `disabled = true`:
 
-```ini
-monitor = name, disable
+```lua
+hl.monitor({ output = "name", disabled = true })
 ```
 
 > [!WARNING]
@@ -173,34 +187,55 @@ monitor = name, disable
 ## Custom reserved area
 
 A reserved area is an area that remains unoccupied by tiled windows.
-If your workflow requires a custom reserved area, you can add it with:
+If your workflow requires a custom reserved area, you can add it with the `reserved_area` field.
+It accepts either a single integer (all sides) or a table with individual sides:
 
-```ini
-monitor = name, addreserved, TOP, BOTTOM, LEFT, RIGHT
+```lua
+-- all sides
+hl.monitor({ output = "name", reserved_area = 10 })
+
+-- individual sides
+hl.monitor({ output = "name", reserved_area = { top = 10, bottom = 10, left = 0, right = 0 } })
 ```
 
-Where `TOP` `BOTTOM` `LEFT` `RIGHT` are integers, i.e the number in pixels of
-the reserved area to add. This does stack on top of the calculated reserved area
-(e.g. bars), but you may only use one of these rules per monitor in the config.
+This stacks on top of the calculated reserved area (e.g. bars), but you may only use one of these rules per monitor in the config.
 
-## Extra args
+## Fields
 
-You can combine extra arguments at the end of the monitor rule, examples:
+All fields beyond `output` are optional and fall back to sensible defaults.
 
-```ini
-monitor = eDP-1, 2880x1800@90, 0x0, 1, transform, 1, mirror, DP-2, bitdepth, 10
-```
-
-See below for more details about each argument.
+| Field | Type | Default | Description |
+| --- | --- | --- | --- |
+| output | string | required | Output name or `desc:...` description prefix |
+| mode | string | preferred | Resolution and refresh rate, e.g. `1920x1080@144` |
+| position | string | auto | Position in the virtual layout, e.g. `1920x0` |
+| scale | string | auto | Scale factor, e.g. `1.5` |
+| disabled | boolean | false | Removes the monitor from the layout |
+| transform | integer | 0 | Rotation/flip transform (0–7) |
+| mirror | string | | Output name to mirror |
+| bitdepth | integer | 8 | Bit depth (8 or 10) |
+| cm | string | srgb | Color management preset |
+| sdr_eotf | string | default | SDR transfer function (default, gamma22, srgb) |
+| sdrbrightness | float | 1.0 | SDR brightness in HDR mode |
+| sdrsaturation | float | 1.0 | SDR saturation in HDR mode |
+| vrr | integer | 0 | VRR mode |
+| icc | string | | Absolute path to an ICC profile |
+| reserved_area | integer or table | 0 | Reserved area — integer for all sides, or table with top/right/bottom/left |
+| supports_wide_color | integer | 0 | Force wide color gamut (-1 = off, 0 = auto, 1 = on) |
+| supports_hdr | integer | 0 | Force HDR support (-1 = off, 0 = auto, 1 = on) |
+| sdr_min_luminance | float | 0.2 | SDR minimum luminance for SDR→HDR mapping |
+| sdr_max_luminance | integer | 80 | SDR maximum luminance |
+| min_luminance | float | -1 | Monitor minimum luminance |
+| max_luminance | integer | -1 | Monitor maximum possible luminance |
+| max_avg_luminance | integer | -1 | Monitor maximum average luminance |
 
 ### Mirrored displays
 
-If you want to mirror a display, add a `, mirror, <NAME>` at the end of the
-monitor rule, examples:
+If you want to mirror a display, use the `mirror` field:
 
-```ini
-monitor = DP-3, 1920x1080@60, 0x0, 1, mirror, DP-2
-monitor = , preferred, auto, 1, mirror, DP-1
+```lua
+hl.monitor({ output = "DP-3", mode = "1920x1080@60", position = "0x0", scale = "1", mirror = "DP-2" })
+hl.monitor({ output = "", mode = "preferred", position = "auto", scale = "1", mirror = "DP-1" })
 ```
 
 Please remember that mirroring displays will not "re-render" everything for your
@@ -210,11 +245,10 @@ will occur on aspect ratios that differ (e.g 16:9 and 16:10).
 
 ### 10 bit support
 
-If you want to enable 10 bit support for your display, add a `, bitdepth, 10` at
-the end of the monitor rule, e.g:
+If you want to enable 10 bit support for your display, set `bitdepth = 10`:
 
-```ini
-monitor = eDP-1, 2880x1800@90, 0x0, 1, bitdepth, 10
+```lua
+hl.monitor({ output = "eDP-1", mode = "2880x1800@90", position = "0x0", scale = "1", bitdepth = 10 })
 ```
 
 > [!WARNING]
@@ -224,10 +258,10 @@ monitor = eDP-1, 2880x1800@90, 0x0, 1, bitdepth, 10
 
 ### Color management presets
 
-Add a `, cm, X` to change default sRGB output preset
+Use the `cm` field to change the default sRGB output preset:
 
-```ini
-monitor = eDP-1, 2880x1800@90, 0x0, 1, bitdepth, 10, cm, wide
+```lua
+hl.monitor({ output = "eDP-1", mode = "2880x1800@90", position = "0x0", scale = "1", bitdepth = 10, cm = "wide" })
 ```
 
 ```plain
@@ -242,38 +276,53 @@ hdr     - wide color gamut and HDR PQ transfer function (experimental)
 hdredid - same as hdr with edid primaries (experimental)
 ```
 
-Fullscreen HDR is possible without hdr `cm` setting if `render:cm_fs_passthrough` is enabled.
+Fullscreen HDR is possible without the `hdr` cm setting if `render:cm_fs_passthrough` is enabled.
 
-Use `sdrbrightness, B` and `sdrsaturation, S` to control SDR brightness and saturation in HDR mode. The default for both values is `1.0`. Typical brightness value should be in `1.0 ... 2.0` range.
+Use `sdrbrightness` and `sdrsaturation` to control SDR brightness and saturation in HDR mode.
+The default for both values is `1.0`. Typical brightness value should be in the `1.0 ... 2.0` range.
 
-```ini
-monitor = eDP-1, 2880x1800@90, 0x0, 1, bitdepth, 10, cm, hdr, sdrbrightness, 1.2, sdrsaturation, 0.98
+```lua
+hl.monitor({
+  output = "eDP-1",
+  mode = "2880x1800@90",
+  position = "0x0",
+  scale = "1",
+  bitdepth = 10,
+  cm = "hdr",
+  sdrbrightness = 1.2,
+  sdrsaturation = 0.98,
+})
 ```
 
-The default transfer function assumed to be in use on an SDR display for sRGB content is defined by `, sdr_eotf, X`. The default (`0`) is to follow `render:cm_sdr_eotf`. This can be changed to piecewise sRGB with `1`, or  Gamma 2.2 with `2`.
+The default transfer function assumed to be in use on an SDR display for sRGB content is defined by `sdr_eotf`.
+The default (`"default"`) follows `render:cm_sdr_eotf`. This can be changed to piecewise sRGB with `"srgb"`,
+or Gamma 2.2 with `"gamma22"`.
 
 ### ICC Profiles
 
-You can load an icc profile via `, icc, /path/to/icc.icm` (or `icc = path` in v2).
+You can load an ICC profile via the `icc` field (path must be absolute):
+
+```lua
+hl.monitor({ output = "eDP-1", icc = "/path/to/icc.icm" })
+```
 
 Please note:
-- path needs to be absolute.
-- having an ICC applied will automatically force sdr_eotf to `sRGB` for that monitor (for color accuracy)
-- having an ICC applied overrides the CM preset.
+- Path needs to be absolute.
+- Having an ICC applied will automatically force `sdr_eotf` to `sRGB` for that monitor (for color accuracy).
+- Having an ICC applied overrides the CM preset.
 - ICCs are fundamentally incompatible with HDR gaming. Funky stuff may happen.
 
 ### VRR
 
-Per-display VRR can be done by adding `, vrr, X` where `X` is the mode from the
+Per-display VRR can be configured with the `vrr` field, where the value is the mode from the
 [variables page](../Variables).
 
 ## Rotating
 
-If you want to rotate a monitor, add a `, transform, X` at the end of the monitor
-rule, where `X` corresponds to a transform number, e.g.:
+If you want to rotate a monitor, use the `transform` field:
 
-```ini
-monitor = eDP-1, 2880x1800@90, 0x0, 1, transform, 1
+```lua
+hl.monitor({ output = "eDP-1", mode = "2880x1800@90", position = "0x0", scale = "1", transform = 1 })
 ```
 
 Transform list:
@@ -288,37 +337,6 @@ Transform list:
 6 -> flipped + 180 degrees
 7 -> flipped + 270 degrees
 ```
-
-## Monitor v2
-
-Alternative syntax. `monitor = DP-1,1920x1080@144,0x0,1,transform,2` is the same as
-
-```ini
-monitorv2 {
-  output = DP-1
-  mode = 1920x1080@144
-  position = 0x0
-  scale = 1
-  transform = 2
-}
-```
-
-The `disable` flag turns into `disabled = true`, but other named settings keep their names: `name, value` &rarr; `name = value` (e.g. `bitdepth,10` &rarr; `bitdepth = 10`)
-
-EDID overrides and SDR &rarr; HDR settings:
-
-| name | description | type |
-|---|---|---|
-| supports_wide_color | Force wide color gamut support (0 - auto, 1 - force on, -1 - force off) | int |
-| supports_hdr | Force HDR support. Requires wide color gamut (0 - auto, 1 - force on, -1 - force off) | int |
-| sdr_min_luminance | SDR minimum lumninace used for SDR &rarr; HDR mapping. Set to 0.005 for true black matching HDR black | float |
-| sdr_max_luminance | SDR maximum luminance. Can be used to adjust overall SDR &rarr; HDR brightness. 80 - 400 is a reasonable range. The desired value is likely between 200 and 250 | int |
-| min_luminance | Monitor's minimum luminance | float |
-| max_luminance | Monitor's maximum possible luminance | int |
-| max_avg_luminance | Monitor's maximum luminance on average for a typical frame | int |
-| sdr_eotf | Transfer function for displaying SDR apps. default - Use default value (Gamma 2.2), gamma22 - Gamma 2.2, srgb - sRGB piecewise | str |
-
-Note: those values might get passed to the monitor itself and cause increased burn-in or other damage if it's firmware lacks some safety checks. 
 
 ## Default workspace
 
