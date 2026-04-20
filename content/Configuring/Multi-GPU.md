@@ -57,8 +57,8 @@ Hyprland which GPUs to use by setting the `AQ_DRM_DEVICES` environment variable.
 If you would like to use another GPU, or the wrong GPU is picked by default,
 set `AQ_DRM_DEVICES` to a `:`-separated list of card paths, e.g.
 
-```plain
-env = AQ_DRM_DEVICES,/dev/dri/card0:/dev/dri/card1
+```lua
+hl.env("AQ_DRM_DEVICES", "/dev/dri/card0:/dev/dri/card1")
 ```
 
 Here, we tell Hyprland which GPUs it's allowed to use, in order of priority. 
@@ -121,6 +121,6 @@ lrwxrwxrwx 1 root root 5 /dev/dri/amd-igpu -> card1
 This symlink will automatically update to point to correct card file if it ever changes.
 
 Now it is possible to use the new symlink in the `AQ_DRM_DEVICES` environment variable:
-```plain
-env = AQ_DRM_DEVICES, /dev/dri/amd-igpu
+```lua
+hl.env("AQ_DRM_DEVICES", "/dev/dri/amd-igpu")
 ```

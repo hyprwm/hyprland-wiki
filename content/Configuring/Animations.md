@@ -31,7 +31,7 @@ can omit further args.
 ```lua
 hl.animation({ leaf = "workspaces", enabled = true, speed = 8, curve = "default" })
 hl.animation({ leaf = window, enabled = true, speed = 10, curve = "myepiccurve", style = "slide"})
-hl.animation({} leaf = "fade", enabled = 0 })
+hl.animation({ leaf = "fade", enabled = 0 })
 ```
 
 ### Animation tree
@@ -91,7 +91,7 @@ If you want to instead choose from a list of pre-made Béziers, you can check ou
 ### Example
 
 ```lua
-hl.curve({ "overshoot" { type = "bezier", points = { {0.5, 0.9}, {0.1, 1.1} } }
+hl.curve({ "overshoot", { type = "bezier", points = { {0.5, 0.9}, {0.1, 1.1} } } })
 ```
 
 ### Extras
