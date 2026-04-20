@@ -1,5 +1,5 @@
 ---
-weight: 36
+weight: 250
 title: Uncommon tips & tricks
 ---
 

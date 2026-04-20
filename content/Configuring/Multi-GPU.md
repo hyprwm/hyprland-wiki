@@ -1,5 +1,5 @@
 ---
-weight: 35
+weight: 80
 title: Multi-GPU
 ---
 
