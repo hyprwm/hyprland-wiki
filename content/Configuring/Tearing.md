@@ -9,8 +9,8 @@ Screen tearing is used to reduce latency and/or jitter in games.
 
 To enable tearing:
 
-- Set `general:allow_tearing` to `true`. This is a "master toggle"
-- Add an `immediate` windowrule to your game of choice. This makes sure that
+- Set `general.allow_tearing` to `true`. This is a "master toggle"
+- Add an `immediate` windowrule effect to your game of choice. This makes sure that
   Hyprland will tear it.
 
 > [!WARNING]
@@ -19,12 +19,16 @@ To enable tearing:
 
 Example snippet:
 
-```env
-general {
+```lua
+hl.config({
+  general = {
     allow_tearing = true
-}
+  }
+})
 
-windowrule = match:class cs2, immediate yes
+hl.window_rule({
+  match = { class = "cs2" }, immediate = true
+})
 ```
 
 > [!WARNING]
