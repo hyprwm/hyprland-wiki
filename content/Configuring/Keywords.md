@@ -82,8 +82,9 @@ Inside of it, put your config options. All options from the `input` category
 (and all subcategories, e.g. `input:touchpad`) can be put inside, **EXCEPT**:
 
 - `force_no_accel`
-- `follow_mouse`
-- `float_switch_override_focus`
+- Options that configure window management, such as: `follow_mouse`,
+  `follow_mouse_threshold`, `float_switch_override_focus`, `mouse_refocus`,
+  `special_fallthrough`, etc.
 
 Properties that change names:
 
