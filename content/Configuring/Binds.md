@@ -5,14 +5,14 @@ title: Binds
 
 ## Basic
 
-```ini
-bind = MODS, key, dispatcher, params
+```lua
+hl.bind(keys, dispatcher)
 ```
 
 for example,
 
-```ini
-bind = SUPER_SHIFT, Q, exec, firefox
+```lua
+hl.bind("SUPER + SHIFT + Q", hl.dsp.exec_cmd("firefox"))
 ```
 
 will bind opening Firefox to <key>SUPER</key> + <key>SHIFT</key> + <key>Q</key>
@@ -20,40 +20,14 @@ will bind opening Firefox to <key>SUPER</key> + <key>SHIFT</key> + <key>Q</key>
 > [!NOTE]
 > For binding keys without a modkey, leave it empty:
 > 
-> ```ini
-> bind = , Print, exec, grim
+> ```lua
+> hl.bind("Print", hl.dsp.exec_cmd("grim"))
 > ```
 
 _For a complete mod list, see [Variables](../Variables/#variable-types)._
 
 _The dispatcher list can be found in
 [Dispatchers](../Dispatchers/#list-of-dispatchers)._
-
-### Comma Syntax
-
-Binds use commas as **argument separators**. The `bind` keyword expects exactly
-4 arguments, so you need exactly 3 commas:
-
-```ini
-bind = MODS, key, dispatcher, params
-#      1     2    3          4
-```
-
-> [!NOTE]
-> Trailing commas in example configs (e.g., `bind = SUPER, Tab, cyclenext,`) indicate
-> an empty `params` argument. Only include a trailing comma when the last argument
-> is intentionally empty.
-
-```ini
-bind = SUPER, F, exec, firefox   # OK - 4 args
-bind = , Print, exec, grim       # OK - 4 args (empty first = no modifier)
-bind = SUPER, F, exec, firefox,  # NOT OK - tries to exec `firefox,` which doesn't exist
-bind = SUPER, Tab, cyclenext,    # OK - 4 args (empty last arg (dispatcher needs no params))
-```
-
-> [!WARNING]
-> An accidental trailing comma becomes part of the argument (e.g., `firefox,` instead
-> of `firefox`). If a keybind isn't working, check for trailing commas!
 
 ## Uncommon syms / binding with a keycode
 
@@ -64,8 +38,8 @@ for all the keysyms. The name you should use is the segment after `XKB_KEY_`.
 If you want to bind by a keycode, you can put it in the KEY position with
 a `code:` prefix, e.g.:
 
-```ini
-bind = SUPER, code:28, exec, amongus
+```lua
+hl.bind("SUPER + code:28", hl.dsp.exec_cmd("amongus"))
 ```
 
 This will bind <key>SUPER</key> + <key>t</key> since <key>t</key> is keycode 28.
@@ -83,12 +57,12 @@ For instance, the [French AZERTY](https://en.wikipedia.org/wiki/AZERTY) layout u
 > [!NOTE]
 > To get the correct name for an `unmodified_key`, refer to [the section on uncommon syms](#uncommon-syms--binding-with-a-keycode)
 
-```ini
-# On a French layout, instead of:
-# bind = $mainMod, 1, workspace,  1
+```lua
+-- On a French layout, instead of:
+-- hl.bind(mainMod .. " + 1", hl.workspace(1))
 
-# Use
-bind = $mainMod, ampersand, workspace,  1
+-- Use
+hl.bind(mainMod .. " + ampersand", hl.workspace(1))
 ```
 
 For help configuring the French AZERTY layout, see this [article](https://rherault.dev/articles/hyprland-fr-layout).
@@ -97,85 +71,83 @@ For help configuring the French AZERTY layout, see this [article](https://rherau
 
 You can also unbind a key with the `unbind` keyword, e.g.:
 
-```ini
-unbind = SUPER, O
+```lua
+hl.unbind("SUPER + O")
 ```
 
 This may be useful for dynamic keybindings with `hyprctl`, e.g.:
 
 ```bash
-hyprctl keyword unbind SUPER, O
+hyprctl eval hl.unbind("SUPER + O")
 ```
 
 > [!NOTE]
 > In `unbind`, key is case-sensitive It must exactly match the case of the `bind` you are unbinding.
 > 
-> ```ini
-> bind = SUPER, TAB, workspace, e+1
-> unbind = SUPER, Tab # this will NOT unbind
-> unbind = SUPER, TAB # this will unbind
+> ```lua
+> hl.bind("SUPER + TAB", hl.focus.workspace("e+1"))
+> hl.unbind("SUPER + Tab") -- this will NOT unbind
+> hl.unbind("SUPER + TAB") -- this will unbind
 > ```
 
 ## Bind flags
 
-`bind` supports flags in this format:
+`hl.bind()` supports flags in this format:
 
-```ini
-bind[flags] = ...
+```lua
+hl.bind(keys, dispatcher, { flag1 = true, flag2 = true })
+
 ```
 
 e.g.:
 
-```ini
-bindrl = MOD, KEY, exec, amongus
+```lua
+hl.bind(keys, hl.dsp.exec_cmd("amongus"), { release = true, locked = true })
 ```
 
 Available flags:
 
-| Flag | Name | Description |
-|------|------|-------------|
-| `l` | locked | Will also work when an input inhibitor (e.g. a lockscreen) is active. |
-| `r` | release | Will trigger on release of a key. |
-| `c` | click | Will trigger on release of a key or button as long as the mouse cursor stays inside `binds:drag_threshold`. |
-| `g` | drag | Will trigger on release of a key or button as long as the mouse cursor moves outside `binds:drag_threshold`. |
-| `o` | long press | Will trigger on long press of a key. |
-| `e` | repeat | Will repeat when held. |
-| `n` | non-consuming | Key/mouse events will be passed to the active window in addition to triggering the dispatcher. |
-| `m` | mouse | See the dedicated [Mouse Binds](#mouse-binds) section. |
-| `t` | transparent | Cannot be shadowed by other binds. |
-| `i` | ignore mods | Will ignore modifiers. |
-| `s` | separate | Will arbitrarily combine keys between each mod/key, see [Keysym combos](#keysym-combos). |
-| `d` | has description | Will allow you to write a description for your bind. |
-| `p` | bypass | Bypasses the app's requests to inhibit keybinds. |
-| `u` | submap universal | Will be active no matter the submap. |
-| `k` | per-device | Allow binds to be set per device. See [Per-Device Binds](#per-device-binds) |
+| Flag | Description |
+|------|-------------|
+| `locked` | Will also work when an input inhibitor (e.g. a lockscreen) is active. |
+| `release` | Will trigger on release of a key. |
+| `click` | Will trigger on release of a key or button as long as the mouse cursor stays inside `binds:drag_threshold`. |
+| `drag` | Will trigger on release of a key or button as long as the mouse cursor moves outside `binds:drag_threshold`. |
+| `long_press` | Will trigger on long press of a key. |
+| `repeating` | Will repeat when held. |
+| `non_consuming` | Key/mouse events will be passed to the active window in addition to triggering the dispatcher. |
+| `mouse`| See the dedicated [Mouse Binds](#mouse-binds) section. |
+| `transparent` | Cannot be shadowed by other binds. |
+| `ignore_mods` | Will ignore modifiers. |
+| `separate` | Will arbitrarily combine keys between each mod/key, see [Keysym combos](#keysym-combos). |
+| `description` or `desc` | Will allow you to write a description for your bind. |
+| `bypass` | Bypasses the app's requests to inhibit keybinds. |
+| `submap_universal` | Will be active no matter the submap. |
+| `devices` | Allow binds to be set per device. See [Per-Device Binds](#per-device-binds) |
 
 Example Usage:
 
-```ini
-# Example volume button that allows press and hold, volume limited to 150%
-binde = , XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
+```lua
+-- Example volume button that allows press and hold, volume limited to 150%
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"), { repeating = true })
 
-# Example volume button that will activate even while an input inhibitor is active
-bindl = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+-- Example volume button that will activate even while an input inhibitor is active
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true } )
 
-# Open wofi on first press, closes it on second
-bindr = SUPER, SUPER_L, exec, pkill wofi || wofi
+-- Open wofi on first press, closes it on second
+hl.bind("SUPER + SUPER_L" hl.dsp.exec_cmd("pkill wofi || wofi"), { release = true })
 
-# Describe a bind
-bindd = SUPER, Q, Open my favourite terminal, exec, kitty
-
-# Skip player on long press and only skip 5s on normal press
-bindo = SUPER, XF86AudioNext, exec, playerctl next
-bind = SUPER, XF86AudioNext, exec, playerctl position +5
+-- Skip player on long press and only skip 5s on normal press
+hl.bind("SUPER + XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { long_press = true })
+hl.bind("SUPER + XF86AudioNext", hl.dsp.exec_cmd("playerctl position +5"))
 ```
 
 ### Mouse buttons
 
 You can also bind or unbind mouse buttons by prefacing the mouse keycode with `mouse:`, e.g.:
 
-```ini
-bind = SUPER, mouse:272, exec, amongus  # bind `exec amogus` to SUPER + LMB.
+```lua
+hl.bind(SUPER + mouse:272), hl.exec("amongus"))  -- bind `exec amogus` to SUPER + LMB.
 ```
 
 ### Binding modkeys only
@@ -183,53 +155,34 @@ bind = SUPER, mouse:272, exec, amongus  # bind `exec amogus` to SUPER + LMB.
 To only bind modkeys, you need to use the TARGET modmask (with the
 activating mod) and the `r` flag, e.g.:
 
-```ini
-bindr = SUPER ALT, Alt_L, exec, amongus  # bind `exec amongus` to SUPER + ALT.
+```lua
+-- bind `exec amongus` to SUPER + ALT.
+hl.bind("ALT + ALT_L" hl.dsp.exec_cmd("amongus"), { release = true })
 ```
-
-### Keysym combos
-
-For an arbitrary combination of multiple keys, separate keysyms with `&` between
-each mod/key, and use the `s` flag, e.g.:
-
-```ini
-# You can use a single mod with multiple keys.
-binds = Control_L, A&Z, exec, kitty
-# You can also specify multiple specific mods.
-binds = Control_L&Shift_L, K, exec, kitty
-# You can also do both!
-binds = Control_R&Super_R&Alt_L, J&K&L, exec, kitty
-# If you are feeling a little wild... you can use other keys for binds...
-binds = Escape&Apostrophe&F7, T&O&A&D, exec, battletoads 2: retoaded
-```
-
-> [!NOTE]
-> Please note that this is only valid for keysyms and it makes all mods keysyms.  
-> If you don't know what a keysym is use `wev` and press the key you want to use.
 
 ### Mouse wheel
 
 You can also bind mouse wheel events with `mouse_up` and `mouse_down` (or
 `mouse_left` and `mouse_right` if your mouse supports horizontal scrolling):
 
-```ini
-bind = SUPER, mouse_down, workspace, e-1
+```lua
+hl.bind("SUPER + mouse_down", hl.focus.workspace("e-1"))
 ```
 
 > [!NOTE]
-> You can control the reset time with `binds:scroll_event_delay`.
+> You can control the reset time with `hl.config.binds.scroll_event_delay`.
 
 ### Switches
 
 Switches are useful for binding events like closing and opening a laptop's lid:
 
-```ini
-# Trigger when the switch is toggled.
-bindl = , switch:[switch name], exec, swaylock
-# Trigger when the switch is turning on.
-bindl = , switch:on:[switch name], exec, hyprctl keyword monitor "eDP-1, disable"
-# Trigger when the switch is turning off.
-bindl = , switch:off:[switch name], exec, hyprctl keyword monitor "eDP-1, 2560x1600, 0x0, 1"
+```lua
+-- Trigger when the switch is toggled.
+hl.bind("switch:[switch name]", hl.dsp.exec_cmd("swaylock"), { locked = true })
+-- Trigger when the switch is turning on.
+hl.bind("switch:on:[switch name]", hl.dsp.exec_cmd("hyprctl keyword monitor 'eDP-1, disable'"), { locked = true })
+-- Trigger when the switch is turning off.
+hl.bind("switch:off:[switch name]", hl.dsp.exec_cmd("hyprctl keyword monitor 'eDP-1, 2560x1600, 0x0, 1'"), { locked = true })
 ```
 
 > [!WARNING]
@@ -240,12 +193,14 @@ bindl = , switch:off:[switch name], exec, hyprctl keyword monitor "eDP-1, 2560x1
 
 ### Multiple binds to one key
 
-You can trigger multiple actions with the same keybind by assigning it multiple times, with different `disapatcher`s and `param`s:
+You can trigger multiple actions with the same keybind by using a lua lambda function, with different `disapatcher`s and `param`s:
 
-```ini
-# To switch between windows in a floating workspace:
-bind = SUPER, Tab, cyclenext         # Change focus to another window
-bind = SUPER, Tab, bringactivetotop  # Bring it to the top
+```lua
+-- To switch between windows in a floating workspace:
+hl.bind("SUPER + Tab", function()
+    hl.cyclenext()         -- Change focus to another window
+    hl.bringactivetotop()) -- Bring it to the top
+end)
 ```
 
 > [!WARNING]
@@ -253,17 +208,17 @@ bind = SUPER, Tab, bringactivetotop  # Bring it to the top
 
 ### Description
 
-You can describe your keybind with the `d` flag.  
-Your description always goes in front of the `dispatcher`, and must not include commas (`,`)!
+You can describe your keybind with the `description` flag.  
+Your description always goes in the flags section.
 
-```ini
-bindd = MODS, key, description, dispatcher, params
+```lua
+hl.bind(keys, dispatcher, { description = "your description here"}
 ```
 
 For example:
 
-```ini
-bindd = SUPER, Q, Open my favourite terminal, exec, kitty
+```lua
+hl.bind("SUPER + Q", hl.dsp.exec_cmd("kitty"), { description = "Open my favourite terminal" }
 ```
 
 If you want to access your description you can use `hyprctl binds`.  
@@ -271,41 +226,37 @@ For more information have a look at [Using Hyprctl](../Using-hyprctl).
 
 ### Per-Device Binds
 
-You can set keybinds to be device specific with the `k` flag.  
+You can set keybinds to be device specific with the `devices` flag.  
 Devices are provided in a whitespace separated list that goes in front of `dispatcher`.  
 An `!` can be prepended to the list to exclude the those devices, allowing all other devices to use that bind instead.
 
-```ini
-bindk = MODS, key, [!]device1 device2 ..., dispatcher, params
+```lua
+hl.bind(keys, dispatcher(params), { device = { inclusive = true, list = { "device1", "device1" } } })
 ```
 
-```ini
-# Only example-keyboard-1 can use this bind
-bindk = SUPER, Q, example-keyboard-1,exec, kitty
+```lua
+-- Only example-keyboard-1 can use this bind
+hl.bind("SUPER + Q", hl.dsp.exec_cmd("kitty"), { devices = { inclusive = true, list = { "example-keyboard-1" } } })
 
-# Every keyboard other than razer-keyboard and asus-keyboard can use this bind
-bindk = SUPER, Q !razer-keyboard asus-keyboard, exec, kitty
+-- Every keyboard other than razer-keyboard and asus-keyboard can use this bind
+hl.bind("SUPER + Q", hl.dsp.exec_cmd("kitty"), { devices = { inclusive = false, list = { "razer-keyboard", "asus-keyboard" } } })
 ```
 
 You can check device names with `hyprctl devices`.
 
-> [!WARNING]
-> Devices must appear before description in arguments
-> ```ini
-> binddk = MODS, key, devices, description, dispatcher, params
-> ```
-
 ## Mouse Binds
 
 These are binds that rely on mouse movement. They will have one less arg.  
-`binds:drag_threshold` can be used to differentiate between clicks and drags with the same button:
+`hl.config.binds.drag_threshold` can be used to differentiate between clicks and drags with the same button:
 
-```ini
-binds {
-    drag_threshold = 10  # Fire a drag event only after dragging for more than 10px
+```lua
+hl.config({
+    binds {
+        drag_threshold = 10  # Fire a drag event only after dragging for more than 10px
+    }
 }
-bindm = ALT, mouse:272, movewindow      # ALT + LMB: Move a window by dragging more than 10px.
-bindc = ALT, mouse:272, togglefloating  # ALT + LMB: Floats a window by clicking
+hl.bind("ALT + mouse:272", hl.movewindow(), { mouse = true })      -- ALT + LMB: Move a window by dragging more than 10px.
+hl.bind("ALT + mouse:272", hl.togglefloating(), { mouse = true })  -- ALT + LMB: Floats a window by clicking
 ```
 
 Available mouse binds:
@@ -332,11 +283,12 @@ MMB -> 274
 
 As clicking and moving the mouse on a touchpad is unergonomic, you can also use keyboard keys instead of mouse clicks.
 
-```ini
-bindm = SUPER, mouse:272, movewindow
-bindm = SUPER, Control_L, movewindow
-bindm = SUPER, mouse:273, resizewindow
-bindm = SUPER, ALT_L, resizewindow
+```lua
+hl.bind("SUPER + mouse:272", hl.movewindow(), { mouse = true })
+hl.bind("SUPER + CTRL_L", hl.movewindow(), { mouse = true })
+
+hl.bind("SUPER + mouse:273", hl.resizewindow(), { mouse = true })
+hl.bind("SUPER + ALT_L, hl.resizewindow(), { mouse = true })
 ```
 
 ## Global Keybinds
@@ -352,8 +304,8 @@ See the [`pass`](../Dispatchers/#list-of-dispatchers) and
 Let's take OBS as an example: the "Start/Stop Recording" keybind is set to
 <key>SUPER</key> + <key>F10</key>, to make it work globally, simply add:
 
-```ini
-bind = SUPER, F10, pass, class:^(com\.obsproject\.Studio)$
+```lua
+hl.bind("SUPER + F10", hl.dsp.pass("class:^(com\.obsproject\.Studio)$"))
 ```
 
 to your config and you're done.
@@ -361,14 +313,14 @@ to your config and you're done.
 `pass` will pass the `PRESS` and `RELEASE` events by itself, no need for a `bindr`.  
 This also means that push-to-talk will work flawlessly with one `pass`, e.g.:
 
-```ini
-bind = , mouse:276, pass, class:^(TeamSpeak 3)$  # Pass MOUSE5 to TeamSpeak3.
+```lua
+hl.bind("mouse:276", hl.dsp.pass("class:^(TeamSpeak 3)$"))    # Pass MOUSE5 to TeamSpeak3.
 ```
 
 You may also add shortcuts, where other keys are passed to the window.
 
-```ini
-bind = SUPER, F10, sendshortcut, SUPER, F4, class:^(com\.obsproject\.Studio)$  # Send SUPER + F4 to OBS when SUPER + F10 is pressed.
+```lua
+hl.bind("SUPER + F10", hl.dsp.send_shortcut("SUPER + F4", class:^(TeamSpeak 3)$"))    # Send SUPER + F4 to OBS when SUPER + F10 is pressedl.
 ```
 
 > [!WARNING]
@@ -387,8 +339,8 @@ This will give you a list of currently registered shortcuts with their descripti
 Choose whichever you like, for example `coolApp:myToggle`, and bind it to
 whatever you want with the `global` dispatcher:
 
-```ini
-bind = SUPERSHIFT, A, global, coolApp:myToggle
+```lua
+hl.bind("SUPER + SHIFT + A", hl.dsp.global("coolApp:myToggle"))
 ```
 
 > [!NOTE]
@@ -397,51 +349,48 @@ bind = SUPERSHIFT, A, global, coolApp:myToggle
 
 ## Submaps
 
-Keybind submaps, also known as _modes_ or _groups_, allow you to activate a
-separate set of keybinds.  
+Keybind submaps allow you to activate aseparate set of keybinds.  
 For example, if you want to enter a `resize` _mode_ that allows you to resize windows with the arrow keys, you can do it like this:
 
-```ini
-# Switch to a submap called `resize`.
-bind = ALT, R, submap, resize
+```lua
+-- Switch to a submap called `resize`.
+hl.bind("ALT + R", hl.dsp.submap("resize")
 
-# Start a submap called "resize".
-submap = resize
+-- Start a submap called "resize".
+hl.dsp.submap("resize", function()
 
-# Set repeatable binds for resizing the active window.
-binde = , right, resizeactive, 10 0
-binde = , left, resizeactive, -10 0
-binde = , up, resizeactive, 0 -10
-binde = , down, resizeactive, 0 10
+    -- Set repeating binds for resizing the active window.
+    hl.bind("right", hl.resize({ x = 10, y = 0, relative = true}), { repeating = true })
+    hl.bind("left", hl.resize({ x = -10, y = 0, relative = true}), { repeating = true })
+    hl.bind("up", hl.resize({ x = 0, y = 10, relative = true}), { repeating = true })
+    hl.bind("down", hl.resize({ x = 10, y = -10, relative = true}), { repeating = true })
 
-# Use `reset` to go back to the global submap
-bind = , escape, submap, reset
+    -- Use `reset` to go back to the global submap
+    hl.bind("escape", hl.dsp.submap("reset"))
 
-# Reset the submap, which will return to the global submap
-submap = reset
+end)
 
-# Keybinds further down will be global again...
+-- Keybinds further down will be global again...
 ```
 
 > [!WARNING]
 > Do not forget a keybind (`escape`, in this case) to reset the keymap while inside it!
 > 
-> If you get stuck inside a keymap, you can use `hyprctl dispatch submap reset` to go back.  
-> If you do not have a terminal open, tough luck buddy. You have been warned.
+> If you get stuck inside a keymap, you can use `hyprctl dispatch 'hl.dsp.submap("reset")'` to go back.  
+> If you do not have a terminal open, open a new tty and use the --instance flag to select which instanceof hyprland to operate on (if you only have one running this is 0). For example: `hyprctl dispatch --instace 0 'hl.dsp.submap("reset")'`
 
 You can also set the same keybind to perform multiple actions, such as resize
 and close the submap, like so:
 
-```ini
-bind = ALT, R, submap, resize
+```lua
+hl.bind("ALT + R", hl.dsp.submap("resize"))
 
-submap = resize
-
-bind = , right, resizeactive, 10 0
-bind = , right, submap, reset
-# ...
-
-submap = reset
+hl.dsp.submap("resize", function()
+    hl.bind("right", function()
+        hl.window.resize({ x = 10, y = 0, relative = true })
+        hl.dsp.submap("reset")
+    end)
+end)
 ```
 
 This works because the binds are executed in the order they appear, and
@@ -449,62 +398,64 @@ assigning multiple actions per bind is possible.
 
 You can set a keybind that will be active no matter the current submap with the submap universal bind flag.
 
-```ini
-bindu = $mainMod, K, exec, kitty
+```lua
+hl.bind(mainMod .. " + K", hl.dsp.exec_cmd("kitty"), { submap_universal = true })
 ```
 
 ### Nesting
 
 Submaps can be nested, see the following example:
 
-```ini
-bind = $mainMod, M, submap, main_submap
-submap = main_submap
+```lua
+hl.bind(mainMod .. " + M", hl.dsp.submap("main_submap"))
+hl.dsp.submap(main_submap, function()
 
-# ...
+    -- ...
 
-# nested_one
-bind = , 1, submap, nested_one
-submap = nested_one
+    -- nested_one
+    hl.bind("1", hl.dsp.submap("nested_one")
+    hl.dsp.submap("nested_one", function()
 
-# ...
+        -- ...
 
-bind = SHIFT, escape, submap, reset
-bind =      , escape, submap, main_submap
-submap = main_submap
-# /nested_one
+        hl.bind("SHIFT + escape", hl.dsp.submap("reset"))
+        hl.bind("escape", hl.dsp.submap("main_submap"))
 
-# nested_two
-bind = , 2, submap, nested_two
-submap = nested_two
+        -- nested_two
+        hl.bind("2", hl.dsp.submap("nested_two"))
+        hl.dsp.submap("nested_two", function()
 
-# ...
+                -- ...
 
-bind = SHIFT, escape, submap, reset
-bind =      , escape, submap, main_submap
-submap = main_submap
-# /nested_two
-
-bind = , escape, submap, reset
-submap = reset
+            hl.bind("SHIFT + escape", hl.dsp.submap("reset"))
+            hl.bind("escape", hl.dsp.submap("main_submap"))
+        
+        -- /nested_two
+        end)
+    -- /nested_one
+    end)
+    
+    hl.bind("escape", hl.dsp.submap("reset"))
+-- /main_submap
+end)
 ```
 
 ### Automatically close a submap on dispatch
 
 Submaps can be automatically closed or sent to another submap by appending ``,`` followed by a submap or _reset_.
 
-```ini
-bind = SUPER,a, submap, submapA
+```lua
+hl.bind("SUPER + a", hl.dsp.submap("submapA")
 
-# Sets the submap to submapB after pressing a.
-submap = submapA, submapB
-bind = ,a,exec, someCoolThing.sh
-submap = reset
+-- Sets the submap to submapB after pressing a.
+hl.dsp.submap("submapA", "submapB", function()
+    hl.bind("a", hl.dsp.exec_cmd("someCoolThing.sh"))
+end)
 
-# Reset submap to default after pressing a.
-submap = submapB, reset
-bind = ,a,exec, someOtherCoolThing.sh
-submap = reset
+-- Reset submap to default after pressing a.
+hl.dsp.submap("submapB", "reset", function()
+    hl.bind("a", hl.dsp.exec_cmd("someOtherCoolThing.sh")
+end)
 ```
 
 ### Catch-All
@@ -514,8 +465,8 @@ activates no matter which key is pressed.
 This can be used to prevent any keys from passing to your active application
 while in a submap or to exit it immediately when any unknown key is pressed:
 
-```ini
-bind = , catchall, submap, reset
+```lua
+hl.bind("catchall", hl.dsp.submap("reset"))
 ```
 
 ## Example Binds
@@ -525,12 +476,13 @@ bind = , catchall, submap, reset
 These binds set the expected behavior for regular keyboard media volume keys,
 including when the screen is locked:
 
-```ini
-bindel = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-bindel = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-bindl = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-# Requires playerctl
-bindl = , XF86AudioPlay, exec, playerctl play-pause
-bindl = , XF86AudioPrev, exec, playerctl previous
-bindl = , XF86AudioNext, exec, playerctl next
+```lua
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"), { repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { repeating = true })
+hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
+
+-- Requires playerctl
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"),       { locked = true })
 ```
