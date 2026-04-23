@@ -12,7 +12,7 @@ Wayland fractional scaling is a lot better than before, but it is not perfect.
 Some applications do not support it yet or the support is experimental at best.
 If you have problems with your graphics card having high usage or Hyprland
 feeling laggy, try setting the scaling to integer numbers such as `1` or `2`
-like in this example `monitor=,preferred,auto,2`.
+like in this example `hl.monitor({ output = "", mode = "preferred", position = "auto", scale = "2" })`.
 
 ## Low FPS/stutter/FPS drops on Intel iGPU with TLP (mainly laptops)
 
@@ -25,10 +25,10 @@ case, remove it completely.
 
 **_Useful Optimizations_**:
 
-- `decoration:blur:enabled = false` and `decoration:shadow:enabled = false` to disable
+- `hl.config({ decoration = { blur { enabled = false } } })` and `hl.config({ decoration = { shadow = { enabled = false } } })` to disable
   fancy but battery hungry effects.
 
-- `misc:vfr = true`, since it'll lower the amount of sent frames when nothing is
+- `hl.config({ misc = { vfr = true } })`, since it'll lower the amount of sent frames when nothing is
   happening on-screen.
 
 ## My games work poorly, especially proton ones
