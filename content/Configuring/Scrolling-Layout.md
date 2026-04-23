@@ -7,7 +7,7 @@ Scrolling is a layout where windows get positioned on an infinitely growing tape
 
 ## Config
 
-category name: `scrolling`
+category name: `scrolling` (`hl.config({ scrolling })`)
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -17,25 +17,25 @@ category name: `scrolling`
 | follow_focus | when a window is focused, should the layout move to bring it into view automatically | bool | true |
 | follow_min_visible | when a window is focused, require that at least a given fraction of it is visible for focus to follow. Hard input (e.g. binds, clicks) will always follow. [0.0 - 1.0] | float | 0.4 |
 | explicit_column_widths | A comma-separated list of preconfigured widths for colresize +conf/-conf | str | 0.333, 0.5, 0.667, 1.0 |
-| wrap_focus | When enabled, causes `layoutmsg focus l/r` to wrap around at the beginning and end. | bool | true |
-| wrap_swapcol | When enabled, causes `layoutmsg swapcol l/r` to wrap around at the beginning and end. | bool | true |
+| wrap_focus | When enabled, causes `hl.dsp.layoutmsg("focus", "l/r")` to wrap around at the beginning and end. | bool | true |
+| wrap_swapcol | When enabled, causes `hl.dsp.layoutmsg("swapcol", "l/r")` to wrap around at the beginning and end. | bool | true |
 | direction | Direction in which new windows appear and the layout scrolls. left/right/down/up | str | right |
 
 ## Workspace rules
 
 | name | description | type |
 | --- | --- | --- |
-| direction | Same as scrolling:direction | str |
+| direction | Same as hl.config({ scrolling{ direction } }) | str |
 
 e.g.
 
-```ini
-workspace = 2, layoutopt:direction:right
+```lua
+hl.workspace_rule({ workspace = "2", layout_opts = { direction = "right" } })
 ```
 
 ## Layout messages
 
-Dispatcher `layoutmsg` params:
+Dispatcher `hl.layout(msg)` params:
 
 | name | description | params |
 | --- | --- | --- |
@@ -48,19 +48,15 @@ Dispatcher `layoutmsg` params:
 
 Example key bindings for your Hyprland config:
 
-```
-bind = $mainMod, period, layoutmsg, move +col
-bind = $mainMod, comma, layoutmsg, swapcol l
+```lua
+hl.bind(mainMod .. "period", hl.dsp.layout("move", "+col"))
+hl.bind(mainMod .. "comma", hl.dsp.layout("swapcol", "l"))
 ```
 
 ## Window rules
 
 With the static rule scrolling_width you can set a starting column width for a window.
 
-```
-windowrule {
-  name = kitty_starting_width
-  match:class = kitty
-  scrolling_width = 0.5
-}
+```lua
+hl.windowrule({ name = kitty_starting_width, match = { class = "kitty" }, scrolling_width = "0.5"})
 ```
