@@ -37,8 +37,8 @@ Props:
 
 ### Syntax
 
-```ini
-workspace = WORKSPACE, RULES
+```lua
+hl.workspace_rule(workspace, rule1, rule2, ...)
 ```
 
 - WORKSPACE is a valid workspace identifier (see
@@ -49,66 +49,66 @@ workspace = WORKSPACE, RULES
 
 ### Examples
 
-```ini
-workspace = name:myworkspace, gapsin:0, gapsout:0
-workspace = 3, rounding:false, bordersize:0
-workspace = w[tg1-4], shadow:false
+```lua
+hl.workspace_rule({ workspace = "name:myworkspace", gaps_in = 0, gaps_out = 0 })
+hl.workspace_rule({ workspace = "3", no_rounding = true, border_size = 0 })
+hl.workspace_rule({ workspace = "w[tg1-4]", no_shadow = true })
 ```
 
 #### Smart gaps
 
 To replicate "smart gaps" / "no gaps when only" from other WMs/Compositors, use this bad boy:
 
-```ini
-workspace = w[tv1], gapsout:0, gapsin:0
-workspace = f[1], gapsout:0, gapsin:0
-windowrule = border_size 0, match:float 0, match:workspace w[tv1]
-windowrule = rounding 0, match:float 0, match:workspace w[tv1]
-windowrule = border_size 0, match:float 0, match:workspace f[1]
-windowrule = rounding 0, match:float 0, match:workspace f[1]
+```lua
+hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
+hl.workspace_rule({ workspace = "f[1]", gaps_out = 0, gaps_in = 0 })
+hl.window_rule({ match = { float = false, workspace = "w[tv1]" }, border_size = 0 })
+hl.window_rule({ match = { float = false, workspace = "w[tv1]" }, rounding = 0 })
+hl.window_rule({ match = { float = false, workspace = "f[1]" }, border_size = 0 })
+hl.window_rule({ match = { float = false, workspace = "f[1]" }, rounding = 0 })
 ```
 
 #### Smart gaps (ignoring special workspaces)
 
 You can combine workspace selectors for more fine-grained control, for example, to ignore special workspaces:
 
-```ini
-workspace = w[tv1]s[false], gapsout:0, gapsin:0
-workspace = f[1]s[false], gapsout:0, gapsin:0
-windowrule = border_size 0, match:float 0, match:workspace w[tv1]s[false]
-windowrule = rounding 0, match:float 0, match:workspace w[tv1]s[false]
-windowrule = border_size 0, match:float 0, match:workspace f[1]s[false]
-windowrule = rounding 0, match:float 0, match:workspace f[1]s[false]
+```lua
+hl.workspace_rule({ workspace = "w[tv1]s[false]", gaps_out = 0, gaps_in = 0 })
+hl.workspace_rule({ workspace = "f[1]s[false]", gaps_out = 0, gaps_in = 0 })
+hl.window_rule({ match = { float = false, workspace = "w[tv1]s[false]" }, border_size = 0 })
+hl.window_rule({ match = { float = false, workspace = "w[tv1]s[false]" }, rounding = 0 })
+hl.window_rule({ match = { float = false, workspace = "f[1]s[false]" }, border_size = 0 })
+hl.window_rule({ match = { float = false, workspace = "f[1]s[false]" }, rounding = 0 })
 ```
 
 ## Rules
 
 | Rule | Description | type |
 | --- | --- | --- |
-| monitor:[m] | Binds a workspace to a monitor. See [syntax](#syntax) and [Monitors](../Monitors). | string |
-| default:[b] | Whether this workspace should be the default workspace for the given monitor | bool |
-| gapsin:[x] | Set the gaps between windows (equivalent to [General->gaps_in](../Variables#general)) | int |
-| gapsout:[x] | Set the gaps between windows and monitor edges (equivalent to [General->gaps_out](../Variables#general)) | int |
-| bordersize:[x] | Set the border size around windows (equivalent to [General->border_size](../Variables#general)) | int |
-| border:[b] | Whether to draw borders or not | bool |
-| shadow:[b] | Whether to draw shadows or not | bool |
-| rounding:[b] | Whether to draw rounded windows or not | bool |
-| decorate:[b] | Whether to draw window decorations or not | bool |
-| persistent:[b] | Keep this workspace alive even if empty and inactive | bool |
-| on-created-empty:[c] | A command to be executed once a workspace is created empty (i.e. not created by moving a window to it). See the [command syntax](../Dispatchers#executing-with-rules) | string |
-| defaultName:[s] | A default name for the workspace. | string |
-| layout:[s] | The layout to use for this workspace. | string |
-| animations:s | The animation style to use for this workspace. | string |
+| monitor | Binds a workspace to a monitor. See [syntax](#syntax) and [Monitors](../Monitors). | string |
+| default | Whether this workspace should be the default workspace for the given monitor | bool |
+| gaps_in | Set the gaps between windows (equivalent to [General->gaps_in](../Variables#general)) | int |
+| gaps_out | Set the gaps between windows and monitor edges (equivalent to [General->gaps_out](../Variables#general)) | int |
+| border_size | Set the border size around windows (equivalent to [General->border_size](../Variables#general)) | int |
+| no_border | Whether to disable borders | bool |
+| no_shadow | Whether to disable shadows | bool |
+| no_rounding | Whether to disable rounded windows | bool |
+| decorate | Whether to draw window decorations or not | bool |
+| persistent | Keep this workspace alive even if empty and inactive | bool |
+| on_created_empty | A command to be executed once a workspace is created empty (i.e. not created by moving a window to it). See the [command syntax](../Dispatchers#executing-with-rules) | string |
+| default_name | A default name for the workspace. | string |
+| layout | The layout to use for this workspace. | string |
+| animation | The animation style to use for this workspace. | string |
 
 ### Example Rules
 
-```ini
-workspace = 3, rounding:false, decorate:false
-workspace = name:coding, rounding:false, decorate:false, gapsin:0, gapsout:0, border:false, monitor:DP-1
-workspace = 8,bordersize:8
-workspace = name:Hello, monitor:DP-1, default:true
-workspace = name:gaming, monitor:desc:Chimei Innolux Corporation 0x150C, default:true
-workspace = 5, on-created-empty:[float] firefox
-workspace = special:scratchpad, on-created-empty:foot
-workspace = 15, animation:slidevert, defaultName:slider
+```lua
+hl.workspace_rule({ workspace = "3", no_rounding = true, decorate = false })
+hl.workspace_rule({ workspace = "name:coding", no_rounding = true, decorate = false, gaps_in = 0, gaps_out = 0, no_border = true, monitor = "DP-1" })
+hl.workspace_rule({ workspace = "8", border_size = 8 })
+hl.workspace_rule({ workspace = "name:Hello", monitor = "DP-1", default = true })
+hl.workspace_rule({ workspace = "name:gaming", monitor = "desc:Chimei Innolux Corporation 0x150C", default = true })
+hl.workspace_rule({ workspace = "5", on_created_empty = "[float] firefox" })
+hl.workspace_rule({ workspace = "special:scratchpad", on_created_empty = "foot" })
+hl.workspace_rule({ workspace = "15", animation = "slidevert", default_name = "slider" })
 ```
