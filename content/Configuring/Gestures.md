@@ -44,15 +44,43 @@ from the original gesture including direction, mods, fingers and scale.
 
 | action | Description | Arguments |
 | --- | --- | --- |
-| dispatcher | executes a dispatcher once the gesture ends | `arg` = dispatcher name, `arg2` = dispatcher params |
-| workspace | workspace swipe gesture, for switching workspaces | none |
-| move | moves the active window | none |
-| resize | resizes the active window | none |
-| special | toggles a special workspace | `arg` = special workspace name without `special:`, e.g. `"mySpecialWorkspace"` |
-| close | closes the active window | none |
-| fullscreen | fullscreens the active window | none for fullscreen, `arg = "maximize"` for maximize |
-| float | floats the active window | none to toggle, `arg = "float"` or `arg = "tile"` for one-way |
-| cursorZoom | zooms into the cursor | `arg` = zoom factor, add `arg2 = "mult"` for a multiplier instead of toggle |
+| _lua function_ | Executes a named lua function or lua lambda function. See below. | none |
+| workspace | Workspace swipe gesture, for switching workspaces. | none |
+| move | Moves the active window. | none |
+| resize | Resizes the active window. | none |
+| special | Toggles a special workspace. | `arg` = special workspace name without `special:`, e.g. `"mySpecialWorkspace"` |
+| close | Closes the active window. | none |
+| fullscreen | Fullscreens the active window. | none for fullscreen, `arg = "maximize"` for maximize |
+| float | Floats the active window. | none to toggle, `arg = "float"` or `arg = "tile"` for one-way |
+| cursorZoom | Zooms into the cursor. | `arg` = zoom factor, add `arg2 = "mult"` for a multiplier instead of toggle |
+
+#### Lua function
+
+The lua function can be named or a lambda.
+
+Example of lambda:
+```lua
+hl.gesture({
+  fingers = 3,
+  direction = "up",
+  action = function()
+    hl.notification.create({ text = "I just swiped on my trackpad!", duration = 5000, icon = "ok" })
+  end
+})
+```
+
+Example of named function:
+```lua
+local swipe = function()
+  hl.notification.create({ text = "I just swiped on my trackpad!", duration = 5000, icon = "ok" })
+end
+
+hl.gesture({
+  fingers = 3,
+  direction = "up",
+  action = swipe
+})
+```
 
 ### Fields
 
@@ -69,10 +97,10 @@ from the original gesture including direction, mods, fingers and scale.
 
 ### Examples
 
-Run a dispatcher with arguments, open a terminal with a 4-finger swipe up:
+Run a lua lambda function, open a terminal with a 4-finger swipe up:
 
 ```lua
-hl.gesture({ fingers = 4, direction = "up", action = "dispatcher", arg = "exec", arg2 = "kitty" })
+hl.gesture({ fingers = 4, direction = "up", action = function() hl.exec_cmd("kitty") end })
 ```
 
 Toggle a special workspace with a 4-finger swipe down, only when holding SUPER, bypassing inhibitors:
