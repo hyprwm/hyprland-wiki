@@ -73,7 +73,7 @@ For help configuring the French AZERTY layout, see this [article](https://rherau
 
 ### Unbind
 
-You can also unbind a key with the `unbind` keyword, e.g.:
+You can also unbind a key with the `hl.unbind` method, e.g.:
 
 ```lua
 hl.unbind("SUPER + O")
@@ -82,7 +82,7 @@ hl.unbind("SUPER + O")
 This may be useful for dynamic keybindings with `hyprctl`, e.g.:
 
 ```bash
-hyprctl eval hl.unbind("SUPER + O")
+hyprctl eval 'hl.unbind("SUPER + O")'
 ```
 
 > [!NOTE]
@@ -183,9 +183,9 @@ Switches are useful for binding events like closing and opening a laptop's lid:
 -- Trigger when the switch is toggled.
 hl.bind("switch:[switch name]", hl.dsp.exec_cmd("swaylock"), { locked = true })
 -- Trigger when the switch is turning on.
-hl.bind("switch:on:[switch name]", hl.dsp.exec_cmd("hyprctl keyword monitor 'eDP-1, disable'"), { locked = true })
+hl.bind("switch:on:[switch name]", hl.dsp.exec_cmd("notify-send 'yooo'"), { locked = true })
 -- Trigger when the switch is turning off.
-hl.bind("switch:off:[switch name]", hl.dsp.exec_cmd("hyprctl keyword monitor 'eDP-1, 2560x1600, 0x0, 1'"), { locked = true })
+hl.bind("switch:off:[switch name]", hl.dsp.exec_cmd("notify-send 'among us'"), { locked = true })
 ```
 
 > [!WARNING]

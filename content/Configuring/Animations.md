@@ -78,7 +78,7 @@ global
 
 ## Curves
 
-Defining your own [Bézier curve](https://en.wikipedia.org/wiki/B%C3%A9zier_curve) can be done with the `bezier` keyword:
+Defining your own [Bézier curve](https://en.wikipedia.org/wiki/B%C3%A9zier_curve) can be done with the `hl.curve` function:
 
 ```lua
 hl.curve( NAME, { type = STRING, points = { {X0, Y0}, {X1, Y1} } })
