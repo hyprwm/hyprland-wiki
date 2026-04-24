@@ -38,6 +38,8 @@ Event list:
 
 | Event | Description | Parameters |
 | --- | --- | --- |
+| hyprland.start | Emitted once on start | None |
+| hyprland.shutdown | Emitted once before Hyprland exiting | None |
 | window.open | Emitted when a window is fully initialized with window rules applied. | Window |
 | window.open_early | Emitted when a window is created and mapped, but **before** window rules are applied. | Window |
 | window.close | Emitted when a window is closed. It may still be visible during its closing animation. | Window |
