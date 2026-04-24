@@ -35,7 +35,7 @@ hl.workspace_rule({ workspace = "2", layout_opts = { direction = "right" } })
 
 ## Layout messages
 
-Dispatcher `hl.layout(msg)` params:
+Dispatcher `hl.dsp.layout(msg)` params:
 
 | name | description | params |
 | --- | --- | --- |
@@ -58,5 +58,5 @@ hl.bind(mainMod .. "comma", hl.dsp.layout("swapcol", "l"))
 With the static rule scrolling_width you can set a starting column width for a window.
 
 ```lua
-hl.windowrule({ name = kitty_starting_width, match = { class = "kitty" }, scrolling_width = "0.5"})
+hl.window_rule({ name = "kitty_starting_width", match = { class = "kitty" }, scrolling_width = 0.5})
 ```
