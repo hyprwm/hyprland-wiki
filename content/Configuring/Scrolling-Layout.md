@@ -3,11 +3,15 @@ weight: 13
 title: Scrolling Layout
 ---
 
+> [!NOTE]
+> Looking for the old hyprlang syntax? Check the [0.54 wiki pages](https://wiki.hypr.land/0.54.0/).
+> Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
+
 Scrolling is a layout where windows get positioned on an infinitely growing tape.
 
 ## Config
 
-category name: `scrolling` (`hl.config({ scrolling })`)
+category name: `scrolling` (`hl.config({ scrolling = {...} })`)
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -17,8 +21,8 @@ category name: `scrolling` (`hl.config({ scrolling })`)
 | follow_focus | when a window is focused, should the layout move to bring it into view automatically | bool | true |
 | follow_min_visible | when a window is focused, require that at least a given fraction of it is visible for focus to follow. Hard input (e.g. binds, clicks) will always follow. [0.0 - 1.0] | float | 0.4 |
 | explicit_column_widths | A comma-separated list of preconfigured widths for colresize +conf/-conf | str | 0.333, 0.5, 0.667, 1.0 |
-| wrap_focus | When enabled, causes `hl.dsp.layoutmsg("focus", "l/r")` to wrap around at the beginning and end. | bool | true |
-| wrap_swapcol | When enabled, causes `hl.dsp.layoutmsg("swapcol", "l/r")` to wrap around at the beginning and end. | bool | true |
+| wrap_focus | When enabled, causes `hl.dsp.layoutmsg("focus l/r")` to wrap around at the beginning and end. | bool | true |
+| wrap_swapcol | When enabled, causes `hl.dsp.layoutmsg("swapcol l/r")` to wrap around at the beginning and end. | bool | true |
 | direction | Direction in which new windows appear and the layout scrolls. left/right/down/up | str | right |
 
 ## Workspace rules
@@ -49,8 +53,8 @@ Dispatcher `hl.dsp.layout(msg)` params:
 Example key bindings for your Hyprland config:
 
 ```lua
-hl.bind(mainMod .. "period", hl.dsp.layout("move", "+col"))
-hl.bind(mainMod .. "comma", hl.dsp.layout("swapcol", "l"))
+hl.bind(mainMod .. "period", hl.dsp.layout("move +col"))
+hl.bind(mainMod .. "comma", hl.dsp.layout("swapcol l"))
 ```
 
 ## Window rules

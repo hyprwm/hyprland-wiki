@@ -3,6 +3,10 @@ weight: 5
 title: Binds
 ---
 
+> [!NOTE]
+> Looking for the old hyprlang syntax? Check the [0.54 wiki pages](https://wiki.hypr.land/0.54.0/).
+> Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
+
 ## Basic
 
 ```lua
@@ -96,7 +100,6 @@ hyprctl eval hl.unbind("SUPER + O")
 
 ```lua
 hl.bind(keys, dispatcher, { flag1 = true, flag2 = true })
-
 ```
 
 e.g.:
@@ -120,7 +123,7 @@ Available flags:
 | `transparent` | Cannot be shadowed by other binds. |
 | `ignore_mods` | Will ignore modifiers. |
 | `separate` | Will arbitrarily combine keys between each mod/key, see [Keysym combos](#keysym-combos). |
-| `description` or `desc` | Will allow you to write a description for your bind. |
+| `description` | Will allow you to write a description for your bind. |
 | `bypass` | Bypasses the app's requests to inhibit keybinds. |
 | `submap_universal` | Will be active no matter the submap. |
 | `devices` | Allow binds to be set per device. See [Per-Device Binds](#per-device-binds) |
@@ -147,7 +150,7 @@ hl.bind("SUPER + XF86AudioNext", hl.dsp.exec_cmd("playerctl position +5"))
 You can also bind or unbind mouse buttons by prefacing the mouse keycode with `mouse:`, e.g.:
 
 ```lua
-hl.bind(SUPER + mouse:272), hl.exec("amongus"))  -- bind `exec amogus` to SUPER + LMB.
+hl.bind("SUPER + mouse:272", hl.dsp.exec_cmd("amongus"))  -- bind `exec amogus` to SUPER + LMB.
 ```
 
 ### Binding modkeys only
@@ -166,7 +169,7 @@ You can also bind mouse wheel events with `mouse_up` and `mouse_down` (or
 `mouse_left` and `mouse_right` if your mouse supports horizontal scrolling):
 
 ```lua
-hl.bind("SUPER + mouse_down", hl.focus.workspace("e-1"))
+hl.bind("SUPER + mouse_down", hl.dsp.focus({ workspace = "e-1" }))
 ```
 
 > [!NOTE]
@@ -198,8 +201,8 @@ You can trigger multiple actions with the same keybind by using a lua lambda fun
 ```lua
 -- To switch between windows in a floating workspace:
 hl.bind("SUPER + Tab", function()
-    hl.cyclenext()         -- Change focus to another window
-    hl.bringactivetotop()) -- Bring it to the top
+    hl.dispatch(hl.dsp.window.cycle_next())    -- Change focus to another window
+    hl.dispatch(hl.dsp.window.bring_to_top()) -- Bring it to the top
 end)
 ```
 
@@ -212,13 +215,13 @@ You can describe your keybind with the `description` flag.
 Your description always goes in the flags section.
 
 ```lua
-hl.bind(keys, dispatcher, { description = "your description here"}
+hl.bind(keys, dispatcher, { description = "your description here"})
 ```
 
 For example:
 
 ```lua
-hl.bind("SUPER + Q", hl.dsp.exec_cmd("kitty"), { description = "Open my favourite terminal" }
+hl.bind("SUPER + Q", hl.dsp.exec_cmd("kitty"), { description = "Open my favourite terminal" })
 ```
 
 If you want to access your description you can use `hyprctl binds`.  
@@ -252,19 +255,19 @@ These are binds that rely on mouse movement. They will have one less arg.
 ```lua
 hl.config({
     binds {
-        drag_threshold = 10  # Fire a drag event only after dragging for more than 10px
+        drag_threshold = 10 -- Fire a drag event only after dragging for more than 10px
     }
-}
-hl.bind("ALT + mouse:272", hl.movewindow(), { mouse = true })      -- ALT + LMB: Move a window by dragging more than 10px.
-hl.bind("ALT + mouse:272", hl.togglefloating(), { mouse = true })  -- ALT + LMB: Floats a window by clicking
+})
+hl.bind("ALT + mouse:272", hl.dsp.window.drag(), { mouse = true })    -- ALT + LMB: Move a window by dragging more than 10px.
+hl.bind("ALT + mouse:272", hl.dsp.window.resize(), { mouse = true })  -- ALT + LMB: Floats a window by clicking
 ```
 
 Available mouse binds:
 
 | Name | Description | Params |
 | ---- | ----------- | ------ |
-| movewindow | moves the active window | None |
-| resizewindow | resizes the active window | `1` -> Resize and keep window aspect ratio. <br> `2` -> Resize and ignore `keepaspectratio` window rule/prop. <br> None or anything else for normal resize |
+| `drag()` | moves the active window | None |
+| `resize()` | resizes the active window | None |
 
 Common mouse button key codes (check `wev` for other buttons):
 
@@ -284,11 +287,11 @@ MMB -> 274
 As clicking and moving the mouse on a touchpad is unergonomic, you can also use keyboard keys instead of mouse clicks.
 
 ```lua
-hl.bind("SUPER + mouse:272", hl.movewindow(), { mouse = true })
-hl.bind("SUPER + CTRL_L", hl.movewindow(), { mouse = true })
+hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind("SUPER + CTRL_L", hl.dsp.window.drag(), { mouse = true })
 
-hl.bind("SUPER + mouse:273", hl.resizewindow(), { mouse = true })
-hl.bind("SUPER + ALT_L, hl.resizewindow(), { mouse = true })
+hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
+hl.bind("SUPER + ALT_L", hl.dsp.window.resize(), { mouse = true })
 ```
 
 ## Global Keybinds
@@ -320,7 +323,7 @@ hl.bind("mouse:276", hl.dsp.pass("class:^(TeamSpeak 3)$"))    # Pass MOUSE5 to T
 You may also add shortcuts, where other keys are passed to the window.
 
 ```lua
-hl.bind("SUPER + F10", hl.dsp.send_shortcut("SUPER + F4", class:^(TeamSpeak 3)$"))    # Send SUPER + F4 to OBS when SUPER + F10 is pressedl.
+hl.bind("SUPER + F10", hl.dsp.send_shortcut({ mods = "SUPER", key = "F4", window = "class:^(TeamSpeak 3)$" }))  -- Send SUPER + F4 to OBS when SUPER + F10 is pressed.
 ```
 
 > [!WARNING]
@@ -354,10 +357,10 @@ For example, if you want to enter a `resize` _mode_ that allows you to resize wi
 
 ```lua
 -- Switch to a submap called `resize`.
-hl.bind("ALT + R", hl.dsp.submap("resize")
+hl.bind("ALT + R", hl.dsp.submap("resize"))
 
 -- Start a submap called "resize".
-hl.dsp.submap("resize", function()
+hl.define_submap("resize", function()
 
     -- Set repeating binds for resizing the active window.
     hl.bind("right", hl.resize({ x = 10, y = 0, relative = true}), { repeating = true })
@@ -385,7 +388,7 @@ and close the submap, like so:
 ```lua
 hl.bind("ALT + R", hl.dsp.submap("resize"))
 
-hl.dsp.submap("resize", function()
+hl.define_submap("resize", function()
     hl.bind("right", function()
         hl.window.resize({ x = 10, y = 0, relative = true })
         hl.dsp.submap("reset")
@@ -408,13 +411,13 @@ Submaps can be nested, see the following example:
 
 ```lua
 hl.bind(mainMod .. " + M", hl.dsp.submap("main_submap"))
-hl.dsp.submap(main_submap, function()
+hl.define_submap(main_submap, function()
 
     -- ...
 
     -- nested_one
-    hl.bind("1", hl.dsp.submap("nested_one")
-    hl.dsp.submap("nested_one", function()
+    hl.bind("1", hl.dsp.submap("nested_one"))
+    hl.define_submap("nested_one", function()
 
         -- ...
 
@@ -423,7 +426,7 @@ hl.dsp.submap(main_submap, function()
 
         -- nested_two
         hl.bind("2", hl.dsp.submap("nested_two"))
-        hl.dsp.submap("nested_two", function()
+        hl.define_submap("nested_two", function()
 
                 -- ...
 
@@ -445,16 +448,16 @@ end)
 Submaps can be automatically closed or sent to another submap by appending ``,`` followed by a submap or _reset_.
 
 ```lua
-hl.bind("SUPER + a", hl.dsp.submap("submapA")
+hl.bind("SUPER + a", hl.dsp.submap("submapA"))
 
 -- Sets the submap to submapB after pressing a.
-hl.dsp.submap("submapA", "submapB", function()
+hl.define_submap("submapA", "submapB", function()
     hl.bind("a", hl.dsp.exec_cmd("someCoolThing.sh"))
 end)
 
 -- Reset submap to default after pressing a.
 hl.dsp.submap("submapB", "reset", function()
-    hl.bind("a", hl.dsp.exec_cmd("someOtherCoolThing.sh")
+    hl.bind("a", hl.dsp.exec_cmd("someOtherCoolThing.sh"))
 end)
 ```
 
@@ -467,6 +470,58 @@ while in a submap or to exit it immediately when any unknown key is pressed:
 
 ```lua
 hl.bind("catchall", hl.dsp.submap("reset"))
+```
+
+
+## Switchable keyboard layouts
+
+The easiest way to accomplish this is to set this using XKB settings, for
+example:
+
+```lua
+hl.config({
+    input =  {
+	kb_layout = "us,cz",
+	kb_variant = "qwerty",
+	kb_options = "grp:alt_shift_toggle"
+    }
+})
+```
+
+Variants are set per layout.
+
+> [!WARNING]
+> The first layout defined in the input section will be the one used for binds by
+> default.
+> 
+> For example: `us,ua` -> config binds would be e.g. `"SUPER + A"`, while on `ua,us`
+> -> `"SUPER + Cyrillic_ef`
+> 
+> You can change this behavior globally or per-device by setting
+> `resolve_binds_by_sym = 1`. In that case, binds will activate when the symbol
+> typed matches the symbol specified in the bind.
+> 
+> For example: if your layouts are `us,fr` and have a bind for `"SUPER + A"` you'd
+> need to press the first letter on the second row while the `us` layout is active
+> and the first letter on the first row while the `fr` layout is active.
+
+You can also bind a key to execute `hyprctl switchxkblayout` for more keybind
+freedom. See [Using hyprctl](../Using-hyprctl).
+
+To find the valid layouts and `kb_options`, you can check out the
+`/usr/share/X11/xkb/rules/base.lst`. For example:
+
+To get the layout name of a language:
+
+```sh
+grep -i 'persian' /usr/share/X11/xkb/rules/base.lst
+```
+
+To get the list of keyboard shortcuts you can put in the `kb_options` to toggle
+keyboard layouts:
+
+```sh
+grep 'grp:.*toggle' /usr/share/X11/xkb/rules/base.lst
 ```
 
 ## Example Binds
@@ -486,3 +541,47 @@ hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tru
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"),       { locked = true })
 ```
+
+### Disabling keybinds with one master keybind
+
+If you want to disable all keybinds with another keybind (make a keybind toggle
+of sorts) you can just use a submap with only a keybind to exit it.
+
+```lua
+hl.bind(KEYS, hl.dsp.submap("clean"))
+hl.define_submap("clean", function()
+    hl.bind(KEYS, hl.dsp.submap("reset"))
+end)
+```
+
+### Remapping Caps Lock
+
+You can customize the behavior of the Caps Lock key using `kb_options`.
+
+To view all available options related to Caps Lock, run:
+
+```sh
+grep 'caps' /usr/share/X11/xkb/rules/base.lst
+```
+
+For example, to remap Caps lock to Ctrl:
+
+```lua
+hl.config({
+    input = {
+        kb_options = "ctrl:nocaps"
+    }
+})
+```
+
+To swap Caps Lock and Escape:
+
+```lua
+hl.config({
+    input =  {
+        kb_options = "caps:swapescape"
+    }
+})
+```
+
+You can also find additional `kb_options` unrelated to Caps Lock in `/usr/share/X11/xkb/rules/base.lst`.

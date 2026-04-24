@@ -3,6 +3,10 @@ weight: 60
 title: XWayland
 ---
 
+> [!NOTE]
+> Looking for the old hyprlang syntax? Check the [0.54 wiki pages](https://wiki.hypr.land/0.54.0/).
+> Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
+
 XWayland is the bridging mechanism between legacy Xorg programs and Wayland
 compositors.
 
@@ -18,18 +22,18 @@ which forces XWayland windows not to be scaled.
 This will get rid of the pixelated look, but will not scale applications
 properly. To do this, each toolkit has its own mechanism.
 
-```ini
-# change monitor to high resolution, the last argument is the scale factor
+```lua
+-- change monitor to high resolution, the last argument is the scale factor
 hl.monitor({ output = "", mode = "highres", position = "auto", scale = "2" })
 
-# unscale XWayland
+-- unscale XWayland
 hl.config({
   xwayland {
     force_zero_scaling = true
   }
 })
 
-# toolkit-specific scale
+-- toolkit-specific scale
 hl.env("GDK_SCALE", "2")
 hl.env("XCURSOR_SIZE", "32")
 ```

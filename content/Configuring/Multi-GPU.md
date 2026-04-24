@@ -3,6 +3,10 @@ weight: 80
 title: Multi-GPU
 ---
 
+> [!NOTE]
+> Looking for the old hyprlang syntax? Check the [0.54 wiki pages](https://wiki.hypr.land/0.54.0/).
+> Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
+
 ## General
 
 If your host machine uses multiple GPUs, you may want to use one GPU

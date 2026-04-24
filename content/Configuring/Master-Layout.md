@@ -3,6 +3,10 @@ weight: 13
 title: Master Layout
 ---
 
+> [!NOTE]
+> Looking for the old hyprlang syntax? Check the [0.54 wiki pages](https://wiki.hypr.land/0.54.0/).
+> Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
+
 The master layout makes one (or more) window(s) be the "master", taking (by
 default) the left part of the screen, and tiles the rest on the right. You can
 change the orientation on a per-workspace basis if you want to use anything other
@@ -12,7 +16,7 @@ than the default left/right split.
 
 ## Config
 
-_category name `master` (`hl.config({ master })`)
+_category name `master` (`hl.config({ master = {...} })`)
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -31,7 +35,7 @@ _category name `master` (`hl.config({ master })`)
 
 ## Layout messages
 
-Dispatcher `hl.dsp.layout(mds)` params:
+Dispatcher `hl.dsp.layout(string)` params:
 
 | command | description | params |
 | --- | --- | --- |
@@ -63,7 +67,7 @@ Parameters for the commands are separated by a single space.
 > ```lua
 > hl.bind(KEYS, hl.dsp.layout("cyclenext"))
 > -- behaves like xmonads promote feature (https://hackage.haskell.org/package/xmonad-contrib-0.17.1/docs/XMonad-Actions-Promote.html)
-> hl.bind(KEYS, hl.dsp.layout("swapwithmaster", "master"))
+> hl.bind(KEYS, hl.dsp.layout("swapwithmaster master"))
 > ```
 
 ## Workspace Rules

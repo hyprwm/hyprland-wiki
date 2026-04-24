@@ -3,6 +3,10 @@ weight: 12
 title: Dwindle Layout
 ---
 
+> [!NOTE]
+> Looking for the old hyprlang syntax? Check the [0.54 wiki pages](https://wiki.hypr.land/0.54.0/).
+> Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
+
 Dwindle is a BSPWM-like layout, where every window on a workspace is a member of
 a binary tree.
 

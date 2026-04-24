@@ -3,6 +3,10 @@ weight: 4
 title: Monitors
 ---
 
+> [!NOTE]
+> Looking for the old hyprlang syntax? Check the [0.54 wiki pages](https://wiki.hypr.land/0.54.0/).
+> Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
+
 ## General
 
 The general config of a monitor looks like this:
@@ -12,7 +16,7 @@ hl.monitor({
   output = "...",
   mode = "...",
   position = "...",
-  scale = "...",
+  scale = ...,
 })
 ```
 
@@ -23,7 +27,7 @@ hl.monitor({
   output = "DP-1",
   mode = "1920x1080@144",
   position = "0x0",
-  scale = "1",
+  scale = 1,
 })
 ```
 
@@ -42,15 +46,15 @@ in pixels, of said display in the layout. (calculated from the top-left corner)
 For example:
 
 ```lua
-hl.monitor({ output = "DP-1", mode = "1920x1080", position = "0x0", scale = "1" })
-hl.monitor({ output = "DP-2", mode = "1920x1080", position = "1920x0", scale = "1" })
+hl.monitor({ output = "DP-1", mode = "1920x1080", position = "0x0", scale = 1 })
+hl.monitor({ output = "DP-2", mode = "1920x1080", position = "1920x0", scale = 1 })
 ```
 
 will tell Hyprland to put DP-1 on the _left_ of DP-2, while
 
 ```lua
-hl.monitor({ output = "DP-1", mode = "1920x1080", position = "1920x0", scale = "1" })
-hl.monitor({ output = "DP-2", mode = "1920x1080", position = "0x0", scale = "1" })
+hl.monitor({ output = "DP-1", mode = "1920x1080", position = "1920x0", scale = 1 })
+hl.monitor({ output = "DP-2", mode = "1920x1080", position = "0x0", scale = 1 })
 ```
 
 will tell Hyprland to put DP-1 on the _right_.
@@ -59,8 +63,8 @@ The `position` may contain _negative_ values, so the above example could also be
 written as
 
 ```lua
-hl.monitor({ output = "DP-1", mode = "1920x1080", position = "0x0", scale = "1" })
-hl.monitor({ output = "DP-2", mode = "1920x1080", position = "-1920x0", scale = "1" })
+hl.monitor({ output = "DP-1", mode = "1920x1080", position = "0x0", scale = 1 })
+hl.monitor({ output = "DP-2", mode = "1920x1080", position = "-1920x0", scale = 1 })
 ```
 
 Hyprland uses an inverse Y cartesian system. Thus, a negative y coordinate
@@ -69,15 +73,15 @@ places a monitor higher, and a positive y coordinate will place it lower.
 For example:
 
 ```lua
-hl.monitor({ output = "DP-1", mode = "1920x1080", position = "0x0", scale = "1" })
-hl.monitor({ output = "DP-2", mode = "1920x1080", position = "0x-1080", scale = "1" })
+hl.monitor({ output = "DP-1", mode = "1920x1080", position = "0x0", scale = 1 })
+hl.monitor({ output = "DP-2", mode = "1920x1080", position = "0x-1080", scale = 1 })
 ```
 
 will tell Hyprland to put DP-2 _above_ DP-1, while
 
 ```lua
-hl.monitor({ output = "DP-1", mode = "1920x1080", position = "0x0", scale = "1" })
-hl.monitor({ output = "DP-2", mode = "1920x1080", position = "0x1080", scale = "1" })
+hl.monitor({ output = "DP-1", mode = "1920x1080", position = "0x0", scale = 1 })
+hl.monitor({ output = "DP-2", mode = "1920x1080", position = "0x1080", scale = 1 })
 ```
 
 will tell Hyprland to put DP-2 _below_.
@@ -128,7 +132,7 @@ These depend on the PPI of the monitor.
 Recommended rule for quickly plugging in random monitors:
 
 ```lua
-hl.monitor({ output = "", mode = "preferred", position = "auto", scale = "1" })
+hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
 ```
 
 This will make any monitor that was not specified with an explicit rule
@@ -152,7 +156,7 @@ then the `description` value up to, but not including the portname `(eDP-1)` can
 be used as the `output` field with a `desc:` prefix:
 
 ```lua
-hl.monitor({ output = "desc:Chimei Innolux Corporation 0x150C", mode = "preferred", position = "auto", scale = "1.5" })
+hl.monitor({ output = "desc:Chimei Innolux Corporation 0x150C", mode = "preferred", position = "auto", scale = 1.5 })
 ```
 
 Remember to remove the `(portname)`!
@@ -166,7 +170,7 @@ hl.monitor({
   output = "DP-1",
   mode = "modeline 1071.101 3840 3848 3880 3920 2160 2263 2271 2277 +hsync -vsync",
   position = "0x0",
-  scale = "1",
+  scale = 1,
 })
 ```
 
@@ -209,7 +213,7 @@ All fields beyond `output` are optional and fall back to sensible defaults.
 | output | string | required | Output name or `desc:...` description prefix |
 | mode | string | preferred | Resolution and refresh rate, e.g. `1920x1080@144` |
 | position | string | auto | Position in the virtual layout, e.g. `1920x0` |
-| scale | string | auto | Scale factor, e.g. `1.5` |
+| scale | string / float | auto | Scale factor, e.g. `1.5` |
 | disabled | boolean | false | Removes the monitor from the layout |
 | transform | integer | 0 | Rotation/flip transform (0–7) |
 | mirror | string | | Output name to mirror |
@@ -220,7 +224,7 @@ All fields beyond `output` are optional and fall back to sensible defaults.
 | sdrsaturation | float | 1.0 | SDR saturation in HDR mode |
 | vrr | integer | 0 | VRR mode |
 | icc | string | | Absolute path to an ICC profile |
-| reserved_area | integer or table | 0 | Reserved area — integer for all sides, or table with top/right/bottom/left |
+| reserved_area | integer or table | 0 | Reserved area - integer for all sides, or table with top/right/bottom/left |
 | supports_wide_color | integer | 0 | Force wide color gamut (-1 = off, 0 = auto, 1 = on) |
 | supports_hdr | integer | 0 | Force HDR support (-1 = off, 0 = auto, 1 = on) |
 | sdr_min_luminance | float | 0.2 | SDR minimum luminance for SDR→HDR mapping |
@@ -234,8 +238,8 @@ All fields beyond `output` are optional and fall back to sensible defaults.
 If you want to mirror a display, use the `mirror` field:
 
 ```lua
-hl.monitor({ output = "DP-3", mode = "1920x1080@60", position = "0x0", scale = "1", mirror = "DP-2" })
-hl.monitor({ output = "", mode = "preferred", position = "auto", scale = "1", mirror = "DP-1" })
+hl.monitor({ output = "DP-3", mode = "1920x1080@60", position = "0x0", scale = 1, mirror = "DP-2" })
+hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1, mirror = "DP-1" })
 ```
 
 Please remember that mirroring displays will not "re-render" everything for your
@@ -248,7 +252,7 @@ will occur on aspect ratios that differ (e.g 16:9 and 16:10).
 If you want to enable 10 bit support for your display, set `bitdepth = 10`:
 
 ```lua
-hl.monitor({ output = "eDP-1", mode = "2880x1800@90", position = "0x0", scale = "1", bitdepth = 10 })
+hl.monitor({ output = "eDP-1", mode = "2880x1800@90", position = "0x0", scale = 1, bitdepth = 10 })
 ```
 
 > [!WARNING]
@@ -261,7 +265,7 @@ hl.monitor({ output = "eDP-1", mode = "2880x1800@90", position = "0x0", scale = 
 Use the `cm` field to change the default sRGB output preset:
 
 ```lua
-hl.monitor({ output = "eDP-1", mode = "2880x1800@90", position = "0x0", scale = "1", bitdepth = 10, cm = "wide" })
+hl.monitor({ output = "eDP-1", mode = "2880x1800@90", position = "0x0", scale = 1, bitdepth = 10, cm = "wide" })
 ```
 
 ```plain
@@ -286,7 +290,7 @@ hl.monitor({
   output = "eDP-1",
   mode = "2880x1800@90",
   position = "0x0",
-  scale = "1",
+  scale = 1,
   bitdepth = 10,
   cm = "hdr",
   sdrbrightness = 1.2,
@@ -322,7 +326,7 @@ Per-display VRR can be configured with the `vrr` field, where the value is the m
 If you want to rotate a monitor, use the `transform` field:
 
 ```lua
-hl.monitor({ output = "eDP-1", mode = "2880x1800@90", position = "0x0", scale = "1", transform = 1 })
+hl.monitor({ output = "eDP-1", mode = "2880x1800@90", position = "0x0", scale = 1, transform = 1 })
 ```
 
 Transform list:

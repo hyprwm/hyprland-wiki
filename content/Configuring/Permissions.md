@@ -3,6 +3,10 @@ weight: 30
 title: Permissions
 ---
 
+> [!NOTE]
+> Looking for the old hyprlang syntax? Check the [0.54 wiki pages](https://wiki.hypr.land/0.54.0/).
+> Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
+
 If you have `hyprland-guiutils` installed, you can make use of Hyprland's built-in
 permission system.
 
@@ -16,7 +20,7 @@ want to let it do that.
 
 > [!NOTE]
 > Before setting up permissions, make sure you enable them by setting
-> `hl.config({ ecosystem = { enforce_permissions = true} })`, as it's disabled by default.
+> `hl.config({ ecosystem = { enforce_permissions = true } })`, as it's disabled by default.
 
 
 ### Configuring permissions

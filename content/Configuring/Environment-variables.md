@@ -41,7 +41,7 @@ hl.env("GTK_THEME", "Nord")
 ## Aquamarine Environment Variables <!-- ref https://github.com/hyprwm/aquamarine/blob/main/docs/env.md -->
 
 - `hl.env("AQ_TRACE", "1")` - Enables more verbose logging.
-- `hl.env("AQ_DRM_DEVICES", "`") - Set an explicit list of DRM devices (GPUs) to use. It's a colon-separated list of paths, with the first being the primary.
+- `hl.env("AQ_DRM_DEVICES", "...")` - Set an explicit list of DRM devices (GPUs) to use. It's a colon-separated list of paths, with the first being the primary.
   E.g.: `/dev/dri/card1:/dev/dri/card0`
 - `hl.env("AQ_FORCE_LINEAR_BLIT", "0")` - Disables forcing linear explicit modifiers on Multi-GPU buffers to potentially workaround Nvidia issues.
 - `hl.env("AQ_MGPU_NO_EXPLICIT", "1")` - Disables explicit syncing on mgpu buffers.

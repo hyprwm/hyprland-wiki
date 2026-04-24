@@ -3,6 +3,10 @@ weight: 7
 title: Window Rules
 ---
 
+> [!NOTE]
+> Looking for the old hyprlang syntax? Check the [0.54 wiki pages](https://wiki.hypr.land/0.54.0/).
+> Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
+
 > [!WARNING]
 > Rules are evaluated top to bottom, so the order they're written in does matter!
 > More info in [Notes](#notes)
@@ -168,19 +172,19 @@ Dynamic effects are re-evaluated every time a property changes.
 | no_blur | boolean | Disables blur for the window. |
 | no_dim | boolean | Disables window dimming for the window. |
 | no_focus | boolean | Disables focus to the window. |
-| no_follow_mouse | boolean | Prevents the window from being focused when the mouse moves over it when `input:follow_mouse=1` is set. |
+| no_follow_mouse | boolean | Prevents the window from being focused when the mouse moves over it when `input.follow_mouse=1` is set. |
 | no_shadow | boolean | Disables shadows for the window. |
 | no_shortcuts_inhibit | boolean | Disallows the app from inhibiting your shortcuts. |
 | no_screen_share | boolean | Hides the window and its popups from screen sharing by drawing black rectangles in their place. |
-| no_vrr | boolean | Disables VRR for the window. Only works when `misc:vrr` is set to `2` or `3`. |
+| no_vrr | boolean | Disables VRR for the window. Only works when `misc.vrr` is set to `2` or `3`. |
 | opaque | boolean | Forces the window to be opaque. |
 | force_rgbx | boolean | Forces Hyprland to ignore the alpha channel entirely. |
 | sync_fullscreen | boolean | Whether the fullscreen mode should always be the same as the one sent to the window. |
 | immediate | boolean | Forces the window to allow tearing. |
 | xray | boolean | Sets blur xray mode for the window. |
 | render_unfocused | boolean | Forces the window to think it's being rendered when it's not visible. |
-| scroll_mouse | number | Forces the window to override `input:scroll_factor`. |
-| scroll_touchpad | number | Forces the window to override `input:touchpad:scroll_factor`. |
+| scroll_mouse | number | Forces the window to override `input.scroll_factor`. |
+| scroll_touchpad | number | Forces the window to override `input.touchpad.scroll_factor`. |
 
 All dynamic effects can be set with `setprop`.
 
@@ -188,14 +192,14 @@ All dynamic effects can be set with `setprop`.
 
 The `group` effect takes a string with space-separated options:
 
-- `"set"` \[`"always"`\] — Open window as a group.
-- `"new"` — Shorthand for `"barred set"`.
-- `"lock"` \[`"always"`\] — Lock the group. Combine with `"set"` or `"new"`.
-- `"barred"` — Do not automatically group into the focused unlocked group.
-- `"deny"` — Do not allow the window to be toggled as or added to a group.
-- `"invade"` — Force open window in the locked group.
-- `"override"` \[other options\] — Override other `group` rules.
-- `"unset"` — Clear all `group` rules.
+- `"set"` \[`"always"`\] - Open window as a group.
+- `"new"` - Shorthand for `"barred set"`.
+- `"lock"` \[`"always"`\] - Lock the group. Combine with `"set"` or `"new"`.
+- `"barred"` - Do not automatically group into the focused unlocked group.
+- `"deny"` - Do not allow the window to be toggled as or added to a group.
+- `"invade"` - Force open window in the locked group.
+- `"override"` \[other options\] - Override other `group` rules.
+- `"unset"` - Clear all `group` rules.
 
 > [!NOTE]
 > `group` with no options is a shorthand for `group = "set"`.
@@ -211,13 +215,12 @@ Check window tags with `hyprctl clients`.
 Use the `tagwindow` dispatcher to add a static tag to a window:
 
 ```bash
-hyprctl dispatch tagwindow +code     # Add tag to current window.
-hyprctl dispatch tagwindow -- -code  # Remove tag from current window.
-hyprctl dispatch tagwindow code      # Toggle the tag of current window.
+hyprctl dispatch 'hl.dsp.window.tag({ tag = "+code" })'     # Add tag to current window.
+hyprctl dispatch 'hl.dsp.window.tag({ tag = "-code" })'     # Remove tag from current window.
+hyprctl dispatch 'hl.dsp.window.tag({ tag = "code" })'      # Toggle the tag of current window.
 
-# Or target windows by RegEx:
-hyprctl dispatch tagwindow +music deadbeef
-hyprctl dispatch tagwindow +media title:Celluloid
+# Or target windows:
+hyprctl dispatch 'hl.dsp.window.tag({ tag = "+music", window = "class:Celluloid" })'
 ```
 
 Use the `tag` effect to add a dynamic tag to a window:
@@ -235,8 +238,8 @@ hl.window_rule({ match = { tag = "term" },         tag = "-code" })   -- Remove 
 Or with a keybind for convenience:
 
 ```lua
-hl.bind("SUPER CTRL + 2", hl.dsp.exec_cmd("hyprctl dispatch tagwindow alpha_0.2"))
-hl.bind("SUPER CTRL + 4", hl.dsp.exec_cmd("hyprctl dispatch tagwindow alpha_0.4"))
+hl.bind("SUPER + CTRL + 2", function() hl.dispatch(hl.dsp.window.tag({ tag = "alpha_0.2" })))
+hl.bind("SUPER + CTRL + 4", function() hl.dispatch(hl.dsp.window.tag({ tag = "alpha_0.4" })))
 hl.window_rule({ match = { tag = "alpha_0.2" }, opacity = "0.2 override" })
 hl.window_rule({ match = { tag = "alpha_0.4" }, opacity = "0.4 override" })
 ```
@@ -299,7 +302,7 @@ Effects marked as _Dynamic_ are reevaluated whenever the matching property
 of the window changes. For instance, if a rule changes the `border_color`
 when a window is floating, the color reverts to default when it's tiled again.
 
-Effects are processed top to bottom — the _last_ match takes precedence:
+Effects are processed top to bottom - the _last_ match takes precedence:
 
 ```lua
 hl.window_rule({ match = { class = "kitty" },        opacity = "0.8 0.8" })
@@ -307,7 +310,7 @@ hl.window_rule({ match = { float = true },           opacity = "0.5 0.5" })
 ```
 
 Here, all non-fullscreen kitty windows have `opacity 0.8`, except when
-floating — those get `0.5`. All other floating windows get `0.5`.
+floating - those get `0.5`. All other floating windows get `0.5`.
 
 ```lua
 hl.window_rule({ match = { float = true },           opacity = "0.5 0.5" })
@@ -355,18 +358,9 @@ myRule:set_enabled(true)   -- re-enable
 myRule:is_enabled()        -- query status
 ```
 
-Via `hyprctl keyword` (single quotes required in shell):
-
-```sh
-hyprctl keyword 'windowrule[my-rule]:enable false'
-hyprctl keyword 'windowrule[my-rule]:match:class kitty'
-```
-
----
-
 ## Layer Rules
 
-Some things in Wayland are not windows, but layers — app launchers, status
+Some things in Wayland are not windows, but layers - app launchers, status
 bars, wallpapers, etc. These have separate rules using `hl.layer_rule()`.
 The syntax is the same as `hl.window_rule()`.
 

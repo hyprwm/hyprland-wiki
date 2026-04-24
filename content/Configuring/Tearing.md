@@ -3,6 +3,10 @@ weight: 11
 title: Tearing
 ---
 
+> [!NOTE]
+> Looking for the old hyprlang syntax? Check the [0.54 wiki pages](https://wiki.hypr.land/0.54.0/).
+> Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
+
 Screen tearing is used to reduce latency and/or jitter in games.
 
 ## Enabling tearing

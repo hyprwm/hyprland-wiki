@@ -3,6 +3,10 @@ weight: 10
 title: Gestures
 ---
 
+> [!NOTE]
+> Looking for the old hyprlang syntax? Check the [0.54 wiki pages](https://wiki.hypr.land/0.54.0/).
+> Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
+
 ## General
 
 Hyprland supports 1:1 gestures for the trackpad for some operations. The basic syntax looks like this:
@@ -42,23 +46,23 @@ The following directions are supported:
 Specifying `unset` as the action will unset a specific gesture that was previously set. Please note it needs to exactly match everything
 from the original gesture including direction, mods, fingers and scale.
 
-| action | Description | Arguments |
+| action | Description | Additional arguments |
 | --- | --- | --- |
 | _lua function_ | Executes a named lua function or lua lambda function. See below. | none |
 | workspace | Workspace swipe gesture, for switching workspaces. | none |
 | move | Moves the active window. | none |
 | resize | Resizes the active window. | none |
-| special | Toggles a special workspace. | `arg` = special workspace name without `special:`, e.g. `"mySpecialWorkspace"` |
+| special | Toggles a special workspace. | `workspace_name`, self-explanatory |
 | close | Closes the active window. | none |
-| fullscreen | Fullscreens the active window. | none for fullscreen, `arg = "maximize"` for maximize |
-| float | Floats the active window. | none to toggle, `arg = "float"` or `arg = "tile"` for one-way |
-| cursorZoom | Zooms into the cursor. | `arg` = zoom factor, add `arg2 = "mult"` for a multiplier instead of toggle |
+| fullscreen | Fullscreens the active window. | `mode` can be `"maximize"` to do maximize instead of fullscreen |
+| float | Floats the active window. | `mode` can be `"float"` or `"tile"` to force a direction of floating |
+| cursorZoom | Zooms into the cursor. | `zoom_level` for a zoom factor, `mode` of `"mult"` to use a multiplier instead of a toggle |
 
 #### Lua function
 
 The lua function can be named or a lambda.
 
-Example of lambda:
+An example of a lambda:
 ```lua
 hl.gesture({
   fingers = 3,
@@ -69,7 +73,7 @@ hl.gesture({
 })
 ```
 
-Example of named function:
+An example of a named function:
 ```lua
 local swipe = function()
   hl.notification.create({ text = "I just swiped on my trackpad!", duration = 5000, icon = "ok" })
@@ -91,9 +95,9 @@ hl.gesture({
 | action | string | Action to perform (see above) |
 | mods | string | Optional modifier mask, e.g. `"SUPER"` or `"ALT SHIFT"` |
 | scale | float | Optional animation speed multiplier |
-| arg | string | Optional first argument for the action |
-| arg2 | string | Optional second argument for the action |
 | disable_inhibit | boolean | If true, allows the gesture to bypass shortcut inhibitors |
+
+Some gestures might have their own additional fields, those were mentioned in the actions table further up.
 
 ### Examples
 
