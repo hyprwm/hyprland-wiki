@@ -8,12 +8,14 @@ title: Uncommon tips & tricks
 The easiest way to accomplish this is to set this using XKB settings, for
 example:
 
-```ini
-input {
-    kb_layout = us,cz
-    kb_variant = ,qwerty
-    kb_options = grp:alt_shift_toggle
-}
+```lua
+hl.config({
+    input =  {
+	kb_layout = "us,cz",
+	kb_variant = "qwerty",
+	kb_options = "grp:alt_shift_toggle"
+    }
+})
 ```
 
 Variants are set per layout.
@@ -22,14 +24,14 @@ Variants are set per layout.
 > The first layout defined in the input section will be the one used for binds by
 > default.
 > 
-> For example: `us,ua` -> config binds would be e.g. `SUPER, A`, while on `ua,us`
-> -> `SUPER, Cyrillic_ef`
+> For example: `us,ua` -> config binds would be e.g. `"SUPER + A"`, while on `ua,us`
+> -> `"SUPER + Cyrillic_ef`
 > 
 > You can change this behavior globally or per-device by setting
 > `resolve_binds_by_sym = 1`. In that case, binds will activate when the symbol
 > typed matches the symbol specified in the bind.
 > 
-> For example: if your layouts are `us,fr` and have a bind for `SUPER, A` you'd
+> For example: if your layouts are `us,fr` and have a bind for `"SUPER + A"` you'd
 > need to press the first letter on the second row while the `us` layout is active
 > and the first letter on the first row while the `fr` layout is active.
 
@@ -57,11 +59,11 @@ grep 'grp:.*toggle' /usr/share/X11/xkb/rules/base.lst
 If you want to disable all keybinds with another keybind (make a keybind toggle
 of sorts) you can just use a submap with only a keybind to exit it.
 
-```ini
-bind = MOD, KEY, submap, clean
-submap = clean
-bind = MOD, KEY, submap, reset
-submap = reset
+```lua
+hl.bind(KEYS, hl.dsp.submap("clean"))
+hl.define_submap("clean", function()
+    hl.bind(KEYS, hl.dsp.submap("reset"))
+end)
 ```
 
 ## Remapping Caps Lock
@@ -76,18 +78,22 @@ grep 'caps' /usr/share/X11/xkb/rules/base.lst
 
 For example, to remap Caps lock to Ctrl:
 
-```ini
-input {
-    kb_options = ctrl:nocaps
-}
+```lua
+hl.config({
+    input = {
+        kb_options = "ctrl:nocaps"
+    }
+})
 ```
 
 To swap Caps Lock and Escape:
 
-```ini
-input {
-    kb_options = caps:swapescape
-}
+```lua
+hl.config({
+    input =  {
+        kb_options = "caps:swapescape"
+    }
+})
 ```
 
 You can also find additional `kb_options` unrelated to Caps Lock in `/usr/share/X11/xkb/rules/base.lst`.
@@ -103,10 +109,12 @@ simply maps them back to the expected F13-F24 values, which are bindable as norm
 > This option was only added recently to `xkeyboard-config`. Please ensure you are on version
 > 2.43 or greater for this option to do anything.
 
-```ini
-input {
-    kb_options = fkeys:basic_13-24
-}
+```lua
+hl.config({
+    input = {
+        kb_options = "fkeys:basic_13-24"
+    }
+})
 ```
 
 ## Minimize windows using special workspaces
@@ -114,20 +122,20 @@ input {
 This approach uses special workspaces to mimic the "minimize window" function, by using a single keybind to toggle the minimized state.
 Note that this can only handle one window at a time. 
 
-```sh
+```bash
 #!/usr/bin/env bash
 
 if [[ -z $(hyprctl workspaces | grep special:magic) ]]; then
     hyprctl dispatch movetoworkspacesilent special:magic
 else
-    hyprctl --batch 'dispatch togglespecialworkspace magic;dispatch movetoworkspace +0'
+    hyprctl --batch "dispatch togglespecialworkspace magic; dispatch movetoworkspace +0"
 fi
 ```
 
 then bind it:
 
-```ini
-  bind = $mainMod, S, exec, <PATH_TO_SCRIPT>
+```lua
+  hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("<PATH_TO_SCRIPT>"))
 ```
 
 ## Show desktop
@@ -138,8 +146,8 @@ Showing desktop state is remembered per workspace.
 
 Create a script:
 
-```sh
-#!/bin/env sh
+```bash
+#!/usr/bin/env bash
 
 TMP_FILE="$XDG_RUNTIME_DIR/hyprland-show-desktop"
 
@@ -180,8 +188,8 @@ fi
 
 then bind it:
 
-```ini
-  bind = $mainMod , D, exec, <PATH TO SCRIPT>
+```lua
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("<PATH TO SCRIPT>"))
 ```
 
 ## Minimize Steam instead of killing
@@ -204,17 +212,16 @@ To use Shimeji programs like
 [this](https://codeberg.org/thatonecalculator/spamton-linux-shimeji), set the
 following rules:
 
-```ini
-windowrule {
-	name = shimeji
-	match:class = com-group_finity-mascot-Main
-	
-	float = true
-	no_blur = true
-	no_focus = true
-	no_shadow = true
-	border_size = 0
-}
+```lua
+hl.window_rule({
+    name  = "shimeji",
+    match = { class = "com-group_finity-mascot-Main" },
+    float       = true,
+    no_blur     = true,
+    no_focus    = true,
+    no_shadow   = true,
+    border_size = 0,
+})
 ```
 
 > [!NOTE]
@@ -257,10 +264,10 @@ exit 1
 Edit to your liking of course. If animations are enabled, it disables all the
 pretty stuff. Otherwise, the script reloads your config to grab your defaults.
 
-2. Add this to your `hyprland.conf`:
+2. Add this to your Lua config:
 
-```ini
-bind = WIN, F1, exec, ~/.config/hypr/gamemode.sh
+```lua
+hl.bind("SUPER + F1", hl.dsp.exec_cmd("~/.config/hypr/gamemode.sh"))
 ```
 
 The hotkey toggle will be WIN+F1, but you can change this to whatever you want.
@@ -271,20 +278,24 @@ To zoom using Hyprland's built-in zoom utility
 > [!WARNING]
 > If mouse wheel bindings work only for the first time, you should probably reduce reset time with `binds:scroll_event_delay`
 
-```ini
-bind = $mod, mouse_down, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.1')
-bind = $mod, mouse_up, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '(.float * 0.9) | if . < 1 then 1 else . end')
+```lua
+local zoomIn  = "hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.1')"
+local zoomOut = "hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '(.float * 0.9) | if . < 1 then 1 else . end')"
+local zoomReset = "hyprctl -q keyword cursor:zoom_factor 1"
 
-binde = $mod, equal, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.1')
-binde = $mod, minus, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '(.float * 0.9) | if . < 1 then 1 else . end')
-binde = $mod, KP_ADD, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.1')
-binde = $mod, KP_SUBTRACT, exec, hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '(.float * 0.9) | if . < 1 then 1 else . end')
+hl.bind(mainMod .. " + mouse_down", hl.dsp.exec_cmd(zoomIn))
+hl.bind(mainMod .. " + mouse_up",   hl.dsp.exec_cmd(zoomOut))
 
-bind = $mod SHIFT, mouse_up, exec, hyprctl -q keyword cursor:zoom_factor 1
-bind = $mod SHIFT, mouse_down, exec, hyprctl -q keyword cursor:zoom_factor 1
-bind = $mod SHIFT, minus, exec, hyprctl -q keyword cursor:zoom_factor 1
-bind = $mod SHIFT, KP_SUBTRACT, exec, hyprctl -q keyword cursor:zoom_factor 1
-bind = $mod SHIFT, 0, exec, hyprctl -q keyword cursor:zoom_factor 1
+hl.bind(mainMod .. " + equal",       hl.dsp.exec_cmd(zoomIn),    { repeating = true })
+hl.bind(mainMod .. " + minus",       hl.dsp.exec_cmd(zoomOut),   { repeating = true })
+hl.bind(mainMod .. " + KP_ADD",      hl.dsp.exec_cmd(zoomIn),    { repeating = true })
+hl.bind(mainMod .. " + KP_SUBTRACT", hl.dsp.exec_cmd(zoomOut),   { repeating = true })
+
+hl.bind(mainMod .. " SHIFT + mouse_up",    hl.dsp.exec_cmd(zoomReset))
+hl.bind(mainMod .. " SHIFT + mouse_down",  hl.dsp.exec_cmd(zoomReset))
+hl.bind(mainMod .. " SHIFT + minus",       hl.dsp.exec_cmd(zoomReset))
+hl.bind(mainMod .. " SHIFT + KP_SUBTRACT", hl.dsp.exec_cmd(zoomReset))
+hl.bind(mainMod .. " SHIFT + 0",           hl.dsp.exec_cmd(zoomReset))
 ```
 
 ## Alt tab behaviour
@@ -301,29 +312,32 @@ Dependencies :
 
 1. add this to your config
 
-```ini
-exec-once = foot --server -c $XDG_CONFIG_HOME/foot/foot.ini
+```lua
+hl.exec_once("foot --server -c $XDG_CONFIG_HOME/foot/foot.ini")
 
-bind = ALT, TAB, exec, $HOME/.config/hypr/scripts/alttab/enable.sh 'down'
-bind = ALT SHIFT, TAB, exec, $HOME/.config/hypr/scripts/alttab/enable.sh 'up'
+hl.bind("ALT + TAB",       hl.dsp.exec_cmd("$HOME/.config/hypr/scripts/alttab/enable.sh 'down'"))
+hl.bind("ALT SHIFT + TAB", hl.dsp.exec_cmd("$HOME/.config/hypr/scripts/alttab/enable.sh 'up'"))
 
-submap=alttab
-bind = ALT, tab, sendshortcut, , tab, class:alttab
-bind = ALT SHIFT, tab, sendshortcut, shift, tab, class:alttab
+hl.define_submap("alttab", function()
+    hl.bind("ALT + tab",       hl.dsp.send_shortcut("", "tab", "class:alttab"))
+    hl.bind("ALT SHIFT + tab", hl.dsp.send_shortcut("shift", "tab", "class:alttab"))
 
-bindrt = ALT, ALT_L, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return,class:alttab
-bindrt = ALT SHIFT, ALT_L, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return,class:alttab
-bind = ALT, Return, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return, class:alttab
-bind = ALT SHIFT, Return, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return, class:alttab
-bind = ALT, escape, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , escape,class:alttab
-bind = ALT SHIFT, escape, exec, $XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , escape,class:alttab
-submap = reset
+    hl.bind("ALT + ALT_L",       hl.dsp.exec_cmd("$XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return,class:alttab"), { release = true })
+    hl.bind("ALT SHIFT + ALT_L", hl.dsp.exec_cmd("$XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return,class:alttab"), { release = true })
+    hl.bind("ALT + Return",       hl.dsp.exec_cmd("$XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return, class:alttab"))
+    hl.bind("ALT SHIFT + Return", hl.dsp.exec_cmd("$XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , return, class:alttab"))
+    hl.bind("ALT + escape",       hl.dsp.exec_cmd("$XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , escape,class:alttab"))
+    hl.bind("ALT SHIFT + escape", hl.dsp.exec_cmd("$XDG_CONFIG_HOME/hypr/scripts/alttab/disable.sh ; hyprctl -q dispatch sendshortcut , escape,class:alttab"))
+end)
 
-workspace = special:alttab, gapsout:0, gapsin:0, bordersize:0
-windowrule = match:class alttab, no_anim
-windowrule = match:class alttab, stay_focused
-windowrule = match:class alttab, workspace special:alttab
-windowrule = match:class alttab, border_size 0
+hl.workspace_rule({ workspace = "special:alttab", gaps_out = 0, gaps_in = 0, border_size = 0 })
+hl.window_rule({
+    match        = { class = "alttab" },
+    no_anim      = true,
+    stay_focused = true,
+    workspace    = "special:alttab",
+    border_size  = 0,
+})
 ```
 
 2. create file `touch $XDG_CONFIG_HOME/hypr/scripts/alttab/alttab.sh && chmod +x $XDG_CONFIG_HOME/hypr/scripts/alttab/alttab.sh` and add:
@@ -390,35 +404,28 @@ hyprctl --batch -q "dispatch focuswindow address:$(cat $XDG_RUNTIME_DIR/hypr/alt
 Some updates add breaking changes, which can be anticipated by looking at the git
 development branch.
 
-Since Hyprland 0.53, we export a variable for each major version, that looks like this:
-```
-$HYPRLAND_V_0_XX
-```
+Since Hyprland 0.53, each major version exports a version identifier. In Lua
+configs, the `# hyprlang if` preprocessor directives don't exist — use standard
+Lua conditionals with `hl.version()` instead:
 
-You can make your configs conditional, e.g.:
-
-```
-# hyprlang if HYPRLAND_V_0_53
-
-someValue = 0.53
-
-# hyprlang endif
-
-# hyprlang if !HYPRLAND_V_0_53
-
-someValue = 0.52
-
-# hyprlang endif
+```lua
+local v = hl.version()
+if v and v >= "0.53" then
+    -- config for 0.53+
+else
+    -- config for older versions
+end
 ```
 
-The -git branch exports the variable for the next major release.
+The -git branch exports the version for the next major release.
 
-All future releases will export all _past_ variables as well, e.g. 0.54 will also export 0.53.
+All future releases will export all _past_ version identifiers as well, e.g.
+0.54 will also identify as 0.53.
 
 ## Per-workspace layouts
 
 Use workspace rules to set per-workspace layouts:
 
-```ini
-workspace = 2, layout:scrolling
+```lua
+hl.workspace_rule({ workspace = "2", layout = "scrolling" })
 ```
