@@ -9,6 +9,10 @@ title: Monocle Layout
 
 Monocle is a layout where windows are always taking up the entire available space.
 
+<video width="1024" height="566" autoplay muted>
+  <source src="https://dl.hypr.land/wiki/demo_monocle.mp4" type="video/mp4">
+</video>
+
 ## Quirks
 
 Due to how layouts work, `hl.dsp.window.cycle_next()` will not work with Monocle. For cycling monocle

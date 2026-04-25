@@ -12,7 +12,9 @@ default) the left part of the screen, and tiles the rest on the right. You can
 change the orientation on a per-workspace basis if you want to use anything other
 than the default left/right split.
 
-![master1](https://user-images.githubusercontent.com/43317083/179357849-321f042c-f536-44b3-9e6f-371df5321836.gif)
+<video width="1024" height="566" autoplay muted>
+  <source src="https://dl.hypr.land/wiki/demo_master.mp4" type="video/mp4">
+</video>
 
 ## Config
 

@@ -9,7 +9,7 @@ It links to other pages where necessary, and will walk you through:
 - The config file
 - Every option and function in it
 - Extending functionality via scripts
-- Some uncommon tips and tricks (e.g. switching layouts, disabling keybinds on-demand, etc)
+- Etc...
 
 It also contains some sample configurations you can take inspiration from.
 

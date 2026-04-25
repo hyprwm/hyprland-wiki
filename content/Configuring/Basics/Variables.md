@@ -3,7 +3,9 @@ weight: 2
 title: Variables
 ---
 
-For basic syntax info, see [Configuring Hyprland](..).
+> [!NOTE]
+> Looking for the old hyprlang syntax? Check the [0.54 wiki pages](https://wiki.hypr.land/0.54.0/).
+> Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
 
 This page documents all the "options" of Hyprland. For binds, monitors,
 animations, etc. see the sidebar.

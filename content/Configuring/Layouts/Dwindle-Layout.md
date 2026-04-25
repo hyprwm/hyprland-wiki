@@ -10,6 +10,10 @@ title: Dwindle Layout
 Dwindle is a BSPWM-like layout, where every window on a workspace is a member of
 a binary tree.
 
+<video width="1024" height="566" autoplay muted>
+  <source src="https://dl.hypr.land/wiki/demo_dwindle.mp4" type="video/mp4">
+</video>
+
 ## Quirks
 
 Dwindle splits are NOT PERMANENT. The split is determined dynamically with the

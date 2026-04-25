@@ -28,8 +28,6 @@ will bind opening Firefox to <key>SUPER</key> + <key>SHIFT</key> + <key>Q</key>
 > hl.bind("Print", hl.dsp.exec_cmd("grim"))
 > ```
 
-_For a complete mod list, see [Variables](../Variables/#variable-types)._
-
 _The dispatcher list can be found in
 [Dispatchers](../Dispatchers/#list-of-dispatchers)._
 
