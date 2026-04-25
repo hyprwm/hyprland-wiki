@@ -6,89 +6,150 @@ title: Dispatchers
 Please keep in mind some layout-specific dispatchers will be listed in the
 layout pages (See the sidebar).
 
-## Parameter explanation
+## Dispatchers
 
-| Param type | Description |
+Dispatchers return tables that describe an action you want to make. They do not invoke any action immediately, and their
+contents are not guaranteed to be stable at all. Their purpose is to be fed into `hl.bind()` or `hl.dispatch()`.
+
+### Parameter explanation
+
+#### Window
+
+A window. Can be:
+ - window object
+ - regexes:
+   - `class:...`
+   - `initialclass:...`
+   - `title:...`
+   - `initialtitle:...`
+   - `tag:...`
+ - exact selectors:
+   - `pid:...`
+   - `address:0x...`
+ - `activewindow`
+ - `floating`
+ - `tiled`
+
+If no window is provided, the active window is used.
+
+#### Workspace
+
+A workspace. Can be:
+ - workspace object
+ - workspace ID
+ - workspace selector, see [below]({{< relref "#workspace selectors" >}})
+
+#### Direction
+
+A simple direction. `l` / `r` / `u` / `d`
+
+#### Monitor
+
+A monitor. Can be:
+ - monitor object
+ - monitor ID
+ - direction
+ - name
+ - `desc:` and description
+ - `current`
+ - relative: `+1` / `-2`
+
+## Dispatchers
+
+### General
+
+`hl.dsp.` contains:
+
+| method | description |
 | --- | --- |
-| window | a window. Any of the following: class regex (by default, optionally `class:`), `initialclass:` initial class regex, `title:` title regex, `initialtitle` initial title regex, `tag:` window tag regex, `pid:` the pid, `address:` the address, `activewindow` an active window, `floating` the first floating window on the current workspace, `tiled` the first tiled window on the current workspace |
-| workspace | see [below]({{< relref "#workspaces" >}}). |
-| direction | `l` `r` `u` `d` left right up down |
-| monitor | One of: direction, ID, name, `current`, relative (e.g. `+1` or `-1`) |
-| resizeparams | relative pixel delta vec2 (e.g. `10 -10`), optionally a percentage of the window size (e.g. `20 25%`) or `exact` followed by an exact vec2 (e.g. `exact 1280 720`), optionally a percentage of the screen size (e.g. `exact 50% 50%`) |
-| floatvalue | a relative float delta (e.g `-0.2` or `+0.2`) or `exact` followed by a the exact float value (e.g. `exact 0.5`) |
-| zheight | `top` or `bottom` |
-| mod | `SUPER`, `SUPER_ALT`, etc. |
-| key | `g`, `code:42`, `42` or mouse clicks (`mouse:272`) |
+| `exec_cmd({ cmd, rules? })` | execute a command. Rules can be a table of window rule effects to apply. |
+| `exec_raw({ cmd })` | execute a raw command. While `exec_cmd` will do `bash -c`, this won't. |
+| `focus({ direction })` | move the focus in a direction |
+| `focus({ monitor })` | move the focus to a monitor |
+| `focus({ workspace, on_current_monitor? })` | move the focus to a workspace |
+| `focus({ window })` | move the focus to a window |
+| `focus({ urgent_or_last })` | move the focus to an urgent, or last window |
+| `focus({ last })` | move the focus to the last window |
+| `exit()` | quit Hyprland. It's recommended to use `hyprshutdown` instead of this. |
+| `submap(name)` | move to a submap |
+| `pass({ window? })` | pass the shortcut to a window |
+| `send_shortcut({ mods, key, window? })` | send a specific shortcut to a window |
+| `send_key_state({ mods, key, state, window? })` | same as above, but you control `down` / `up` |
+| `layout(message)` | send a layout message as a string |
+| `dpms({ action?, monitor? })` | toggle monitors on/off (not physically, as in idle-screensaver.) |
+| `event(string)` | send an event to socket2. |
+| `global(string)` | activate a dbus global shortcut. See [Binds > Global Shortcuts](../Binds#DBus-Global-Shortcuts) |
+| `force_idle(seconds)` | sets elapsed time for all idle timers, ignoring idle inhibitors. Timers return to normal behavior upon the next activity. Do not use with a keybind directly. |
 
-## List of Dispatchers
+### Window
 
-| Dispatcher | Description | Params |
-| --- | --- | --- |
-| exec | executes a shell command | command (supports rules, see [below]({{< relref "#executing-with-rules" >}})) |
-| execr | executes a raw shell command (does not support rules) | command |
-| pass | passes the key (with mods) to a specified window. Can be used as a workaround to global keybinds not working on Wayland. | window |
-| sendshortcut | sends specified keys (with mods) to an optionally specified window. Can be used like pass | mod, key[, window] |
-| sendkeystate | Send a key with specific state (down/repeat/up) to a specified window (window must keep focus for events to continue). | mod, key, state, window |
-| killactive | closes (not kills) the active window | none |
-| forcekillactive | kills the active window | none |
-| closewindow | closes a specified window | window |
-| killwindow | kills a specified window | window |
-| signal | sends a signal to the active window | signal |
-| signalwindow | sends a signal to a specified window | `window,signal`, e.g.`class:Alacritty,9` |
-| workspace | changes the workspace | workspace |
-| movetoworkspace | moves the focused window to a workspace | workspace OR `workspace,window` for a specific window |
-| movetoworkspacesilent | same as above, but doesn't switch to the workspace | workspace OR `workspace,window` for a specific window |
-| togglefloating | toggles the current window's floating state | left empty / `active` for current, or `window` for a specific window |
-| setfloating | sets the current window's floating state to true | left empty / `active` for current, or `window` for a specific window |
-| settiled | sets the current window's floating state to false | left empty / `active` for current, or `window` for a specific window |
-| fullscreen | sets the focused window's fullscreen mode | `mode action`, where mode can be 0 - fullscreen (takes your entire screen) or 1 - maximize (keeps gaps and bar(s)), while action is optional and can be `toggle` (default), `set` or `unset`. |
-| fullscreenstate | sets the focused window's fullscreen mode and the one sent to the client | `internal client action`, where internal (the hyprland window) and client (the application) can be `-1` - current, `0` - none, `1` - maximize, `2` - fullscreen, `3` - maximize and fullscreen. action is optional and can be `toggle` (default) or `set`. |
-| dpms | sets all monitors' DPMS status. Do not use with a keybind directly. | `on`, `off`, or `toggle`. For specific monitor add monitor name after a space |
-| forceidle | sets elapsed time for all idle timers, ignoring idle inhibitors. Timers return to normal behavior upon the next activity. Do not use with a keybind directly. | floatvalue (number of seconds) |
-| pin | pins a window (i.e. show it on all workspaces) _note: floating only_ | left empty / `active` for current, or `window` for a specific window |
-| movefocus | moves the focus in a direction | direction |
-| movewindow | moves the active window in a direction or to a monitor. For floating windows, moves the window to the screen edge in that direction | direction or `mon:` and a monitor, optionally followed by a space and `silent` to prevent the focus from moving with the window|
-| swapwindow | swaps the active window with another window in the given direction or with a specific window | direction or `window`|
-| centerwindow | center the active window _note: floating only_ | none (for monitor center) or 1 (to respect monitor reserved area) |
-| resizeactive | resizes the active window | resizeparams |
-| moveactive | moves the active window | resizeparams |
-| resizewindowpixel | resizes a selected window | `resizeparams,window`, e.g. `100 100,^(kitty)$` |
-| movewindowpixel | moves a selected window | `resizeparams,window` |
-| cyclenext | focuses the next window (on a workspace, if `visible` is not provided) | none (for next) or `prev` (for previous) additionally `tiled` for only tiled, `floating` for only floating. `prev tiled` is ok. `visible` for all monitors cycling. `visible prev floating` is ok. if `hist` arg provided - focus order will depends on focus history. All other modifiers is also working for it, `visible next floating hist` is ok. |
-| swapnext | swaps the focused window with the next window on a workspace | none (for next) or `prev` (for previous) |
-| tagwindow | apply tag to current or the first window matching | `tag [window]`, e.g. `+code ^(foot)$`, `music` |
-| focuswindow | focuses the first window matching | window |
-| focusmonitor | focuses a monitor | monitor |
-| movecursortocorner | moves the cursor to the corner of the active window | direction, 0 - 3, bottom left - 0, bottom right - 1, top right - 2, top left - 3 |
-| movecursor | moves the cursor to a specified position | `x y` |
-| renameworkspace | rename a workspace | `id name`, e.g. `2 work` |
-| exit | exits the compositor with no questions asked. It's recommended to use `hyprshutdown` instead of this. | none |
-| forcerendererreload | forces the renderer to reload all resources and outputs | none |
-| movecurrentworkspacetomonitor | Moves the active workspace to a monitor | monitor |
-| focusworkspaceoncurrentmonitor | Focuses the requested workspace on the current monitor, swapping the current workspace to a different monitor if necessary. If you want XMonad/Qtile-style workspace switching, replace `workspace` in your config with this. | workspace |
-| moveworkspacetomonitor | Moves a workspace to a monitor | workspace and a monitor separated by a space |
-| swapactiveworkspaces | Swaps the active workspaces between two monitors | two monitors separated by a space |
-| bringactivetotop | _Deprecated_ in favor of alterzorder. Brings the current window to the top of the stack | none |
-| alterzorder | Modify the window stack order of the active or specified window. Note: this cannot be used to move a floating window behind a tiled one. | zheight[,window] |
-| togglespecialworkspace | toggles a special workspace on/off | none (for the first) or name for named (name has to be a special workspace's name) |
-| focusurgentorlast | Focuses the urgent window or the last window | none |
-| togglegroup | toggles the current active window into a group | none |
-| changegroupactive | switches to the next window in a group. | b - back, f - forward, or index start at 1 |
-| focuscurrentorlast | Switch focus from current to previously focused window | none |
-| lockgroups | Locks the groups (all groups will not accept new windows) | `lock` for locking, `unlock` for unlocking, `toggle` for toggle |
-| lockactivegroup | Lock the focused group (the current group will not accept new windows or be moved to other groups) | `lock` for locking, `unlock` for unlocking, `toggle` for toggle |
-| moveintogroup | Moves the active window into a group in a specified direction. No-op if there is no group in the specified direction. | direction |
-| moveintoorcreategroup | Moves the active window into a group in a specified direction. If there is no group in the specified direction but there is a window, creates a group from that window first. | direction |
-| moveoutofgroup | Moves the active window out of a group. No-op if not in a group | left empty / `active` for current, or `window` for a specific window |
-| movewindoworgroup | Behaves as `moveintogroup` if there is a group in the given direction. Behaves as `moveoutofgroup` if there is no group in the given direction relative to the active group. Otherwise behaves like `movewindow`. | direction |
-| movegroupwindow | Swaps the active window with the next or previous in a group | `b` for back, anything else for forward |
-| denywindowfromgroup | Prohibit the active window from becoming or being inserted into group | `on`, `off` or, `toggle` |
-| setignoregrouplock | Temporarily enable or disable binds:ignore_group_lock | `on`, `off`, or `toggle` |
-| global | Executes a Global Shortcut using the GlobalShortcuts portal. See [here](../Binds/#global-keybinds) | name |
-| submap | Change the current mapping group. See [Submaps](../Binds/#submaps) | `reset` or name |
-| event | Emits a custom event to socket2 in the form of `custom>>yourdata` | the data to send |
-| setprop | Sets a window property | `window property value` |
-| toggleswallow | If a window is swallowed by the focused window, unswallows it. Execute again to swallow it back | none |
+`hl.dsp.window.` contains:
+
+| method | description |
+| --- | --- |
+| `close(window?)` | Close a window. |
+| `kill(window?)` | Kill a window |
+| `signal({ signal, window? })` | send a signal to a window process |
+| `float({ action?, window? })` | set a window's floating state. "enable", "disable" and "toggle" can be used. |
+| `fullscreen({ mode?, action?, window? })` | set a window's fullscreen state. `mode` can be "maximized" and "fullscreen" |
+| `fullscreen_state({ internal, client, action?, window? })` | set a window's fullscreen state with more precision. Action can be "toggle", "set" and "unset" |
+| `pseudo({ action?, window? })` | set a window's pseudotiling state |
+| `move({ direction })` | move a window in a direction |
+| `move({ workspace, follow? })` | move a window to a workspace |
+| `move({ monitor, follow? })` | move a window to a monitor |
+| `move({ x, y, relative? })` | move a window by / to a coord |
+| `move({ into_group, direction })` | move a window into a group in a direction |
+| `move({ into_or_create_group, direction })` | move a window into a group in a direction, or create a group |
+| `move({ out_of_group })` | move a window out of a group. `true` for directionless, direction for a direction |
+| `swap({ direction })` | swap the current window with another one in a given direction | 
+| `swap({ target })` | swap the current window with another one | 
+| `swap({ next })` | swap the current window with the next one | 
+| `swap({ prev })` | swap the current window with the previous one | 
+| `center({ window? })` | center the current window on screen |
+| `cycle_next({ next?, tiled?, floating?, window? })` | focus the next window |
+| `tag({ tag, window? })` | tag a window |
+| `toggle_swallow()` | toggle all swallowed windows visible |
+| `pin({ window? })` | pin a window |
+| `alter_zorder({ mode, window? })` | mode can be "top" or "bottom" |
+| `set_prop({ prop, value, window? })` | set a window property |
+| `deny_from_group({ action? })` | deny a window from entering a group |
+| `drag()` | begin an interactive drag. To be used with mouse binds. |
+| `resize()` | begin an interactive resize. To be used with mouse binds. |
+| `resize({ x, y, relative?, window? })` | resize a window |
+
+### Workspace
+
+`hl.dsp.workspace.` contains:
+
+| method | description |
+| --- | --- |
+| `rename({ workspace, name? })` | rename a workspace |
+| `move({ workspace?, monitor })` | move a workspace to a monitor |
+| `swap_monitors({ monitor1, monitor2 })` | swap current workspaces of two monitors |
+| `toggle_special(special_name)` | toggle a special workspace by name |
+
+### Group
+
+`hl.dsp.group.` contains:
+
+| method | description |
+| --- | --- |
+| `toggle({ window? })` | toggle a group |
+| `next({ window? })` | switch to the next window in a group | 
+| `prev({ window? })` | switch to the previous window in a group | 
+| `active({ index, window? })` | switch to a window in a group, indexed | 
+| `move_window({ forward?, window? })` | move a window in the group order | 
+| `lock({ action?, window? })` | lock a group | 
+| `lock_active({ action? })` | lock the active group | 
+
+### Cursor
+
+`hl.dsp.cursor.` contains:
+
+| method | description |
+| --- | --- |
+| `move_to_corner({ corner, window? })` | move the cursor to a given corner of the window. Corner is 0-3 |
+| `move({ x, y })` | move the cursor to agiven coordinate |
 
 > [!WARNING]
 > [uwsm](../../Useful-Utilities/Systemd-start) users should avoid using `exit` dispatcher, or terminating Hyprland process directly, as exiting Hyprland this way removes it from under its clients and interferes with ordered shutdown sequence. Use `exec, uwsm stop` (or [other variants](https://github.com/Vladimir-csp/uwsm#how-to-stop)) which will gracefully bring down graphical session (and login session bound to it, if any). If you experience problems with units entering inconsistent states, affecting subsequent sessions, use `exec, loginctl terminate-user ""` instead (terminates all units of the user).
@@ -99,33 +160,31 @@ layout pages (See the sidebar).
 > It is NOT recommended to set DPMS or forceidle with a keybind directly, as it
 > might cause undefined behavior. Instead, consider something like
 > 
-> ```ini
-> bind = MOD, KEY, exec, sleep 1 && hyprctl dispatch dpms off
+> ```lua
+> hl.bind("...", function()
+>                  hl.timer(function()
+>                    hl.dispatch(hl.dsp.dpms({ action = "disable" }))
+>                  end, {timeout = 500, type = "oneshot"})
+>                end)
 > ```
 
 ### Grouped (tabbed) windows
 
 Hyprland allows you to make a group from the current active window with the
-`togglegroup` bind dispatcher.
+`hl.dsp.group.toggle()` bind dispatcher.
 
 A group is like i3wm’s “tabbed” container. It takes the space of one window, and
-you can change the window to the next one in the tabbed “group” with the
-`changegroupactive` bind dispatcher.
+you can toggle the windows within it.
 
-The new group’s border colors are configurable with the appropriate `col.`
-settings in the `group` config section.
-
-You can lock a group with the `lockactivegroup` dispatcher in order to stop new
-windows from entering this group. In addition, the `lockgroups` dispatcher can be
-used to toggle an independent global group lock that will prevent new windows
-from entering any groups, regardless of their local group lock stat.
+You can lock a group with the `lock` dispatcher in order to stop new
+windows from entering this group.
 
 You can prevent a window from being added to a group or becoming a group with the
-`denywindowfromgroup` dispatcher. `movewindoworgroup` will behave like
-`movewindow` if the current active window or window in direction has this property
+`window.deny_from_group` dispatcher. `move({ window_or_group })` will behave like
+`move({ window })` if the current active window or window in direction has this property
 set.
 
-## Workspaces
+## Workspace selectors
 
 You have nine choices:
 
@@ -153,10 +212,6 @@ You have nine choices:
 - Special Workspace: `special` or `special:name` for named special workspaces.
 
 > [!WARNING]
-> `special` is supported ONLY on `movetoworkspace` and `movetoworkspacesilent`.  
-> Any other dispatcher will result in undocumented behavior.
-
-> [!WARNING]
 > Numerical workspaces (e.g. `1`, `2`, `13371337`) are allowed **ONLY** between 1
 > and 2147483647 (inclusive).  
 > Neither `0` nor negative numbers are allowed.
@@ -170,47 +225,15 @@ workspace that you can toggle on/off on any monitor.
 > You can define multiple named special workspaces, but the amount of those is
 > limited to 97 at a time.
 
-For example, to move a window/application to a special workspace you can use the
-following syntax:
-
-```ini
-bind = SUPER, C, movetoworkspace, special
-#The above syntax will move the window to a special workspace upon pressing 'SUPER'+'C'.
-#To see the hidden window you can use the togglespecialworkspace dispatcher mentioned above.
-```
-
-## Executing with rules
-
-The `exec` dispatcher supports adding rules. Please note some windows might work
-better, some worse. It records the PID of the spawned process and uses that.
-For example, if your process forks and then the fork opens a window, this will
-not work.
-
-The syntax is:
-
-```ini
-bind = mod, key, exec, [rules...] command
-```
-
-For example:
-
-```ini
-bind = SUPER, E, exec, [workspace 2 silent; float; move 0 0] kitty
-```
-
 ### setprop
 
 Props are any of the _dynamic effects_ of [Window Rules](../Window-Rules#dynamic-effects).
 
 For example:
 
-```sh
-address:0x13371337 no_anim 1
-address:0x13371337 no_max_size 0
-address:0x13371337 opaque toggle
-address:0x13371337 immediate unset
-address:0x13371337 border_size relative -2
-address:0x13371337 rounding_power relative 0.1
+```lua
+{ prop = "no_anim", value = "1" }
+{ prop = "no_anim", value = "1", window = "class:abc" }
 ```
 
 Some props are expanded from their window rule parents which take multiple arguments:
@@ -219,9 +242,7 @@ Some props are expanded from their window rule parents which take multiple argum
 
 ### Fullscreenstate
 
-`fullscreenstate internal client`
-
-The `fullscreenstate` dispatcher decouples the state that Hyprland maintains for a window from the fullscreen state that is communicated to the client.  
+The `fullscreen_state` dispatcher decouples the state that Hyprland maintains for a window from the fullscreen state that is communicated to the client.  
 
 `internal` is a reference to the state maintained by Hyprland.
 
@@ -237,8 +258,8 @@ The `fullscreenstate` dispatcher decouples the state that Hyprland maintains for
 
 For example:
 
-`fullscreenstate 2 0` Fullscreens the application and keeps the client in non-fullscreen mode.  
+`2 0` Fullscreens the application and keeps the client in non-fullscreen mode.  
 
 This can be used to prevent Chromium-based browsers from going into presentation mode when they detect they have been fullscreened.  
 
-`fullscreenstate 0 2` Keeps the window non-fullscreen, but the client goes into fullscreen mode within the window.
+`0 2` Keeps the window non-fullscreen, but the client goes into fullscreen mode within the window.
