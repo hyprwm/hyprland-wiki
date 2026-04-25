@@ -3,35 +3,40 @@ weight: 9
 title: Animations
 ---
 
+> [!NOTE]
+> Looking for the old hyprlang syntax? Check the [0.54 wiki pages](https://wiki.hypr.land/0.54.0/).
+> Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
+
 ## General
 
-Animations are declared with the `animation` keyword.
+Animations are declared with the `hl.animation()` method.
 
-```ini
-animation = NAME, ONOFF, SPEED, CURVE [,STYLE]
+Example:
+```lua
+hl.animation({ leaf = STRING, enabled = BOOLEAN, speed = FLOAT, curve = STRING[, style = STRING] })
 ```
+`leaf` is scope of the animation. See [Animation tree](#animation-tree)
 
-`ONOFF` use `0` to disable, `1` to enable. _Note:_ if it's `0`, you
+`enable` use `true` to disable, `false` to enable. _Note:_ if it's `false`, you
 can omit further args.
 
-`SPEED` is the amount of ds (1ds = 100ms) the animation will take.
+`speed` is the amount of ds (1ds = 100ms) the animation will take. For example `speed = 1` = 100ms
 
-`CURVE` is the bezier curve name, see [curves](#curves).
+`curve` is the bezier curve name, see [curves](#curves).
 
-`STYLE` (optional) is the animation style.
-
-The animations are a tree. If an animation is unset, it will inherit its
-parent's values. See [the animation tree](#animation-tree).
+`style` (optional) is the animation style. See [Animation tree](#animation-tree)
 
 ### Examples
 
-```ini
-animation = workspaces, 1, 8, default
-animation = windows, 1, 10, myepiccurve, slide
-animation = fade, 0
+```lua
+hl.animation({ leaf = "workspaces", enabled = true, speed = 8, curve = "default" })
+hl.animation({ leaf = window, enabled = true, speed = 10, curve = "myepiccurve", style = "slide"})
+hl.animation({ leaf = "fade", enabled = 0 })
 ```
 
 ### Animation tree
+The animations are a tree. If an animation is unset, it will inherit its
+parent's values.
 
 ```txt
 global
@@ -73,10 +78,10 @@ global
 
 ## Curves
 
-Defining your own [Bézier curve](https://en.wikipedia.org/wiki/B%C3%A9zier_curve) can be done with the `bezier` keyword:
+Defining your own [Bézier curve](https://en.wikipedia.org/wiki/B%C3%A9zier_curve) can be done with the `hl.curve` function:
 
-```ini
-bezier = NAME, X0, Y0, X1, Y1
+```lua
+hl.curve( NAME, { type = STRING, points = { {X0, Y0}, {X1, Y1} } })
 ```
 
 where `NAME` is a name of your choice and `X0, Y0, X1, Y1` are the the two control points for a Cubic Bézier curve. <br>
@@ -85,8 +90,8 @@ If you want to instead choose from a list of pre-made Béziers, you can check ou
 
 ### Example
 
-```ini
-bezier = overshoot, 0.05, 0.9, 0.1, 1.1
+```lua
+hl.curve({ "overshoot", { type = "bezier", points = { {0.5, 0.9}, {0.1, 1.1} } } })
 ```
 
 ### Extras
@@ -95,21 +100,21 @@ For animation style `popin` in `windows`, you can specify a minimum percentage
 to start from. For example, the following will make the animation 80% -> 100% of
 the size:
 
-```ini
-animation = windows, 1, 8, default, popin 80%
+```lua
+hl.animation({ leaf = "windows", enabled = true, speed = 8, curve = "default", style = "popin 80%" })
 ```
 
 For animation styles `slide`, `slidevert`, `slidefade` and `slidefadevert` in `workspaces`, you can
 specify a movement percentage. For example, the following will make windows move
 20% of the screen width:
 
-```ini
-animation = workspaces, 1, 8, default, slidefade 20%
+```lua
+hl.animation({ leaf = "workspaces", enabled = true, speed = 8, curve = "default", style = "slidefade 20%" })
 ```
 
 For animation style `slide` in `windows` and `layers` you can specify a forced side. <br>
 You can choose between `top`, `bottom`, `left` or `right`.
 
-```ini
-animation = windows, 1, 8, default, slide left
+```lua
+hl.animation({ leaf = "windows", enabled = true, speed = 8, curve = "default", style = "slide left" })
 ```

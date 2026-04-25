@@ -1,5 +1,5 @@
 ---
-weight: 31
+weight: 40
 title: Using hyprctl
 ---
 
@@ -15,46 +15,23 @@ or a script. It should automatically be installed along with Hyprland.
 
 ## Commands
 
+### eval
+
+Issue a lua string to execute dynamically.
+
+```sh
+hyprctl eval 'hl.dispatch(hl.dsp.focus({ workspace = "3" }))'
+```
+
 ### dispatch
 
-Issue a `dispatch` to call a keybind dispatcher with an argument.
-
-An argument has to be present, for dispatchers without parameters it can be
-anything.
-
-To pass an argument starting with `-` or `--`, such as command line options
-to `exec` programs, pass `--` as an option. This will disable any subsequent
-parsing of options by _hyprctl_.
-
-Examples:
+Dispatch is a shorthand for `eval 'hl.dispatch(...)'`:
 
 ```sh
-hyprctl dispatch exec kitty
-
-hyprctl dispatch -- exec kitty --single-instance
-
-hyprctl dispatch pseudo x
+hyprctl dispatch 'hl.dsp.focus({ workspace = "3" })'
 ```
-
-Returns: `ok` on success, an error message on fail.
 
 See [Dispatchers](../Dispatchers) for a list of dispatchers.
-
-### keyword
-
-issue a `keyword` to call a config keyword dynamically.
-
-Examples:
-
-```sh
-hyprctl keyword bind SUPER,O,pseudo
-
-hyprctl keyword general:border_size 10
-
-hyprctl keyword monitor DP-3,1920x1080@144,0x0,1
-```
-
-Returns: `ok` on success, an error message on fail.
 
 ### reload
 
@@ -133,11 +110,11 @@ Sets the xkb layout index for a keyboard.
 
 For example, if you set:
 
-```ini
-device {
-    name = my-epic-keyboard-v1
-    kb_layout = us,pl,de
-}
+```lua
+hl.device({
+  name = "my-epic-keyboard-v1",
+  kb_layout = "us,pl,de"
+})
 ```
 
 You can use this command to switch between them.
@@ -164,12 +141,14 @@ hyprctl switchxkblayout at-translated-set-2-keyboard next
 > parameters have to match. Alternatively, a single parameter can be specified for
 > it to apply to all three.
 > 
-> ```ini
-> input {
->     kb_layout = pl,us,ru
->     kb_variant = dvorak,,
->     kb_options = caps:ctrl_modifier
-> }
+> ```lua
+> hl.config({
+>   input = {
+>     kb_layout = "pl,us,ru",
+>      kb_variant = "dvorak,,",
+>      kb_options = "caps:ctrl_modifier"
+>   }
+> })
 > ```
 
 ### seterror
@@ -276,28 +255,20 @@ submap - prints the current submap the keybinds are in
 ```
 
 For the getoption command, the option name should be written as
-`section:option`, e.g.:
+`section.option`, e.g.:
 
 ```sh
-hyprctl getoption general:border_size
+hyprctl getoption general.border_size
 
 # For nested sections:
-hyprctl getoption input:touchpad:disable_while_typing
+hyprctl getoption input.touchpad.disable_while_typing
 ```
 
 See [Variables](../Variables) for sections and options you can use.
 
 ## Batch
 
-You can also use `--batch` to specify a batch of commands to execute.
-
-e.g.
-
-```sh
-hyprctl --batch "keyword general:border_size 2 ; keyword general:gaps_out 20"
-```
-
-`;` separates the commands
+You can use the legacy `--batch` flag to issue multiple commands separated with a `;`.
 
 ## Flags
 
@@ -312,4 +283,5 @@ flag list:
 ```txt
 j -> output in JSON
 i -> select instance (id or index in hyprctl instances)
+r -> force state refresh after issuing commands (e.g. layout or rule changes)
 ```
