@@ -90,6 +90,24 @@ Hyprland exposes a bunch of convenience functions:
  - `hl.get_workspace_windows(workspace_selector)`
  - `hl.get_current_submap()`
  - `hl.version()`
+ - `hl.exec_cmd()`
+
+### Timers
+
+You can spawn and manage timers via `hl.timer()`:
+
+```lua
+local demoTimer = hl.timer(function()
+  print("hello from timer")
+end, { timeout = 1000, type = "repeat" })
+
+demoTimer:set_enabled(false)
+
+hl.bind("SUPER + X", function()
+  -- toggle the timer
+  demoTimer:set_enabled(not demoTimer:is_enabled())
+end)
+```
 
 ### Combining it all
 

@@ -1,5 +1,5 @@
 ---
-weight: 14
+weight: 23
 title: Monocle Layout
 ---
 
