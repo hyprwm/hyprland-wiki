@@ -1,18 +1,24 @@
 ---
-weight: 13
+weight: 21
 title: Master Layout
 ---
+
+> [!NOTE]
+> Looking for the old hyprlang syntax? Check the [0.54 wiki pages](https://wiki.hypr.land/0.54.0/).
+> Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
 
 The master layout makes one (or more) window(s) be the "master", taking (by
 default) the left part of the screen, and tiles the rest on the right. You can
 change the orientation on a per-workspace basis if you want to use anything other
 than the default left/right split.
 
-![master1](https://user-images.githubusercontent.com/43317083/179357849-321f042c-f536-44b3-9e6f-371df5321836.gif)
+<video width="1024" height="566" autoplay muted>
+  <source src="https://dl.hypr.land/wiki/demo_master.mp4" type="video/mp4">
+</video>
 
 ## Config
 
-_category name `master`_
+_category name `master` (`hl.config({ master = {...} })`)
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -29,9 +35,9 @@ _category name `master`_
 | drop_at_cursor | when enabled, dragging and dropping windows will put them at the cursor position. Otherwise, when dropped at the stack side, they will go to the top/bottom of the stack depending on new_on_top. | bool | true |
 | always_keep_position | whether to keep the master window in its configured position when there are no slave windows | bool | false |
 
-## Dispatchers
+## Layout messages
 
-`layoutmsg` commands:
+Dispatcher `hl.dsp.layout(string)` params:
 
 | command | description | params |
 | --- | --- | --- |
@@ -60,22 +66,22 @@ Parameters for the commands are separated by a single space.
 > [!NOTE]
 > Example usage:
 > 
-> ```ini
-> bind = MOD, KEY, layoutmsg, cyclenext
-> # behaves like xmonads promote feature (https://hackage.haskell.org/package/xmonad-contrib-0.17.1/docs/XMonad-Actions-Promote.html)
-> bind = MOD, KEY, layoutmsg, swapwithmaster master
+> ```lua
+> hl.bind(KEYS, hl.dsp.layout("cyclenext"))
+> -- behaves like xmonads promote feature (https://hackage.haskell.org/package/xmonad-contrib-0.17.1/docs/XMonad-Actions-Promote.html)
+> hl.bind(KEYS, hl.dsp.layout("swapwithmaster master"))
 > ```
 
 ## Workspace Rules
 
-`layoutopt` rules:
+`layout_opts` rules:
 
 | rule | description | type |
 | --- | --- | --- |
-| orientation:[o] | Sets the orientation of a workspace. For available orientations, see [Config->orientation](#config) | string |
+| orientation = [o] | Sets the orientation of a workspace. For available orientations, see [Config->orientation](#config) | string |
 
 Example usage:
 
-```ini
-workspace = 2, layoutopt:orientation:top
+```lua
+hl.workspace_rule({ workspace = "2", layout_opts =  { orientation = "top" } })
 ```

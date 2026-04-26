@@ -1,13 +1,21 @@
 ---
-weight: 13
+weight: 22
 title: Scrolling Layout
 ---
 
+> [!NOTE]
+> Looking for the old hyprlang syntax? Check the [0.54 wiki pages](https://wiki.hypr.land/0.54.0/).
+> Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
+
 Scrolling is a layout where windows get positioned on an infinitely growing tape.
+
+<video width="1024" height="566" autoplay muted>
+  <source src="https://dl.hypr.land/wiki/demo_scrolling.mp4" type="video/mp4">
+</video>
 
 ## Config
 
-category name: `scrolling`
+category name: `scrolling` (`hl.config({ scrolling = {...} })`)
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -17,25 +25,25 @@ category name: `scrolling`
 | follow_focus | when a window is focused, should the layout move to bring it into view automatically | bool | true |
 | follow_min_visible | when a window is focused, require that at least a given fraction of it is visible for focus to follow. Hard input (e.g. binds, clicks) will always follow. [0.0 - 1.0] | float | 0.4 |
 | explicit_column_widths | A comma-separated list of preconfigured widths for colresize +conf/-conf | str | 0.333, 0.5, 0.667, 1.0 |
-| wrap_focus | When enabled, causes `layoutmsg focus l/r` to wrap around at the beginning and end. | bool | true |
-| wrap_swapcol | When enabled, causes `layoutmsg swapcol l/r` to wrap around at the beginning and end. | bool | true |
+| wrap_focus | When enabled, causes `hl.dsp.layoutmsg("focus l/r")` to wrap around at the beginning and end. | bool | true |
+| wrap_swapcol | When enabled, causes `hl.dsp.layoutmsg("swapcol l/r")` to wrap around at the beginning and end. | bool | true |
 | direction | Direction in which new windows appear and the layout scrolls. left/right/down/up | str | right |
 
 ## Workspace rules
 
 | name | description | type |
 | --- | --- | --- |
-| direction | Same as scrolling:direction | str |
+| direction | Same as hl.config({ scrolling{ direction } }) | str |
 
 e.g.
 
-```ini
-workspace = 2, layoutopt:direction:right
+```lua
+hl.workspace_rule({ workspace = "2", layout_opts = { direction = "right" } })
 ```
 
 ## Layout messages
 
-Dispatcher `layoutmsg` params:
+Dispatcher `hl.dsp.layout(msg)` params:
 
 | name | description | params |
 | --- | --- | --- |
@@ -48,19 +56,15 @@ Dispatcher `layoutmsg` params:
 
 Example key bindings for your Hyprland config:
 
-```
-bind = $mainMod, period, layoutmsg, move +col
-bind = $mainMod, comma, layoutmsg, swapcol l
+```lua
+hl.bind(mainMod .. "period", hl.dsp.layout("move +col"))
+hl.bind(mainMod .. "comma", hl.dsp.layout("swapcol l"))
 ```
 
 ## Window rules
 
 With the static rule scrolling_width you can set a starting column width for a window.
 
-```
-windowrule {
-  name = kitty_starting_width
-  match:class = kitty
-  scrolling_width = 0.5
-}
+```lua
+hl.window_rule({ name = "kitty_starting_width", match = { class = "kitty" }, scrolling_width = 0.5})
 ```

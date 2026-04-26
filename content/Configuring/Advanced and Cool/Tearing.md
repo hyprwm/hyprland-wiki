@@ -1,7 +1,11 @@
 ---
-weight: 11
+weight: 15
 title: Tearing
 ---
+
+> [!NOTE]
+> Looking for the old hyprlang syntax? Check the [0.54 wiki pages](https://wiki.hypr.land/0.54.0/).
+> Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
 
 Screen tearing is used to reduce latency and/or jitter in games.
 
@@ -9,8 +13,8 @@ Screen tearing is used to reduce latency and/or jitter in games.
 
 To enable tearing:
 
-- Set `general:allow_tearing` to `true`. This is a "master toggle"
-- Add an `immediate` windowrule to your game of choice. This makes sure that
+- Set `general.allow_tearing` to `true`. This is a "master toggle"
+- Add an `immediate` windowrule effect to your game of choice. This makes sure that
   Hyprland will tear it.
 
 > [!WARNING]
@@ -19,12 +23,16 @@ To enable tearing:
 
 Example snippet:
 
-```env
-general {
+```lua
+hl.config({
+  general = {
     allow_tearing = true
-}
+  }
+})
 
-windowrule = match:class cs2, immediate yes
+hl.window_rule({
+  match = { class = "cs2" }, immediate = true
+})
 ```
 
 > [!WARNING]

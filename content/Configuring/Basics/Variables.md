@@ -3,11 +3,12 @@ weight: 2
 title: Variables
 ---
 
-For basic syntax info, see [Configuring Hyprland](..).
+> [!NOTE]
+> Looking for the old hyprlang syntax? Check the [0.54 wiki pages](https://wiki.hypr.land/0.54.0/).
+> Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
 
 This page documents all the "options" of Hyprland. For binds, monitors,
-animations, etc. see the sidebar. For anything else, see
-[Keywords](../Keywords).
+animations, etc. see the sidebar.
 
 Please keep in mind some options that are layout-specific will be documented in
 the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
@@ -17,14 +18,14 @@ the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 | type | description |
 | --- | --- |
 | int | integer |
-| bool | boolean, `true` or `false` (`yes` or `no`, `on` or `off`, `0` or `1`) - any numerical value that is not `0` or `1` will cause undefined behavior. |
+| bool | boolean |
 | float | floating point number |
 | color | color (see hint below for color info) |
-| vec2 | vector with 2 float values, separated by a space (e.g. `0 0` or `-10.9 99.1`) |
-| MOD | a string modmask (e.g. `SUPER` or `SUPERSHIFT` or `SUPER + SHIFT` or `SUPER and SHIFT` or `CTRL_SHIFT` or empty for none. You are allowed to put any separators you please except for a `,`) |
+| vec2 | vector with 2 float values (e.g. `{ 20, 20 }`) |
 | str | a string |
-| gradient | a gradient, in the form of `color color ... [angle]` where `color` is a color (see above) and angle is an angle in degrees, in the format of `123deg` e.g. `45deg` (e.g. `rgba(11ee11ff) rgba(1111eeff) 45deg`) Angle is optional and will default to `0deg` |
+| gradient | a gradient, will accept a color, or `{ colors = { "rgba(...)", "rgba(...)" }, angle? = 45 }` |
 | font_weight | an integer between 100 and 1000, or one of the following presets: `thin` `ultralight` `light` `semilight` `book` `normal` `medium` `semibold` `bold` `ultrabold` `heavy` `ultraheavy` |
+| css_gaps | an integer, or `{ top?, left?, right?, bottom? }` |
 
 > [!NOTE] **Colors**
 > 
@@ -34,12 +35,6 @@ the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 > - rgb(), e.g. `rgb(b3ff1a)`, or the decimal equivalent  `rgb(179,255,26)`
 > - legacy, e.g. `0xeeb3ff1a` -> ARGB order
 
-> [!NOTE] **Mod list**
-> 
-> ```ini
-> SHIFT CAPS CTRL/CONTROL ALT MOD2 MOD3 SUPER/WIN/LOGO/MOD4 MOD5
-> ```
-
 ## Sections
 
 ### General
@@ -47,10 +42,10 @@ the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 | name | description | type | default |
 |---|---|---|---|
 | border_size | size of the border around windows | int | 1 |
-| gaps_in | gaps between windows, also supports css style gaps (top, right, bottom, left -> 5,10,15,20) | int | 5 |
-| gaps_out | gaps between windows and monitor edges, also supports css style gaps (top, right, bottom, left -> 5,10,15,20) | int | 20 |
-| float_gaps | gaps between windows and monitor edges for floating windows, also supports css style gaps (top, right, bottom, left -> 5 10 15 20). -1 means default | int | 0 |
-| gaps_workspaces | gaps between workspaces. Stacks with gaps_out. | int | 0 |
+| gaps_in | gaps between windows | css_gaps | 5 |
+| gaps_out | gaps between windows and monitor edges | css_gaps | 20 |
+| float_gaps | gaps between windows and monitor edges for floating windows -1 means default | css_gaps | 0 |
+| gaps_workspaces | gaps between workspaces. Stacks with gaps_out. | css_gaps | 0 |
 | col.inactive_border | border color for inactive windows | gradient | 0xff444444 |
 | col.active_border | border color for the active window | gradient | 0xffffffff |
 | col.nogroup_border | inactive border color for window that cannot be added to a group (see `denywindowfromgroup` dispatcher) | gradient | 0xffffaaff |
@@ -67,7 +62,7 @@ the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 
 #### Snap
 
-_Subcategory `general:snap:`_
+_Subcategory `general.snap.`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -76,23 +71,6 @@ _Subcategory `general:snap:`_
 | monitor_gap | minimum gap in pixels between window and monitor edges before snapping | int | 10 |
 | border_overlap | if true, windows snap such that only one border's worth of space is between them | bool | false |
 | respect_gaps | if true, snapping will respect gaps between windows(set in general:gaps_in) | bool | false |
-
-> [!IMPORTANT]
-> A subcategory is a nested category:
-> 
-> ```ini
-> general {
->     # ...
->     # ...
-> 
->     snap {
->         # ...
->         # ...
->     }
-> }
-> ```
-> 
-> Doing `general:snap {` is **invalid**!
 
 ### Decoration
 
@@ -113,7 +91,7 @@ _Subcategory `general:snap:`_
 
 #### Blur
 
-_Subcategory `decoration:blur:`_
+_Subcategory `decoration.blur.`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -135,15 +113,15 @@ _Subcategory `decoration:blur:`_
 | input_methods_ignorealpha | works like ignore_alpha in layer rules. If pixel opacity is below set value, will not blur. [0.0 - 1.0] | float | 0.2 |
 
 > [!NOTE]
-> `blur:size` and `blur:passes` have to be at least 1.
+> `blur.size` and `blur.passes` have to be at least 1.
 > 
-> Increasing `blur:passes` is necessary to prevent blur looking wrong on higher
-> `blur:size` values, but remember that higher `blur:passes` will require more
+> Increasing `blur.passes` is necessary to prevent blur looking wrong on higher
+> `blur.size` values, but remember that higher `blur.passes` will require more
 > strain on the GPU.
 
 #### Shadow
 
-_Subcategory `decoration:shadow:`_
+_Subcategory `decoration.shadow.`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -158,7 +136,7 @@ _Subcategory `decoration:shadow:`_
 
 #### Glow
 
-_Subcategory `decoration:glow:`_
+_Subcategory `decoration.glow.`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -256,7 +234,7 @@ _Subcategory `decoration:glow:`_
 
 #### Touchpad
 
-_Subcategory `input:touchpad:`_
+_Subcategory `input.touchpad.`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -266,16 +244,16 @@ _Subcategory `input:touchpad:`_
 | middle_button_emulation | Sending LMB and RMB simultaneously will be interpreted as a middle click. This disables any touchpad area that would normally send a middle click based on location. [libinput#middle-button-emulation](https://wayland.freedesktop.org/libinput/doc/latest/middle-button-emulation.html) | bool | false |
 | tap_button_map | Sets the tap button mapping for touchpad button emulation. Can be one of `lrm` (default) or `lmr` (Left, Middle, Right Buttons). [lrm/lmr] | str | \[\[Empty\]\] |
 | clickfinger_behavior | Button presses with 1, 2, or 3 fingers will be mapped to LMB, RMB, and MMB respectively. This disables interpretation of clicks based on location on the touchpad. [libinput#clickfinger-behavior](https://wayland.freedesktop.org/libinput/doc/latest/clickpad-softbuttons.html#clickfinger-behavior) | bool | false |
-| tap-to-click | Tapping on the touchpad with 1, 2, or 3 fingers will send LMB, RMB, and MMB respectively. | bool | true |
+| tap_to_click | Tapping on the touchpad with 1, 2, or 3 fingers will send LMB, RMB, and MMB respectively. | bool | true |
 | drag_lock | When enabled, lifting the finger off while dragging will not drop the dragged item. 0 -> disabled, 1 -> enabled with timeout, 2 -> enabled sticky. [libinput#tap-and-drag](https://wayland.freedesktop.org/libinput/doc/latest/tapping.html#tap-and-drag) | int | 0 |
-| tap-and-drag | Sets the tap and drag mode for the touchpad | bool | true |
+| tap_and_drag | Sets the tap and drag mode for the touchpad | bool | true |
 | flip_x | inverts the horizontal movement of the touchpad | bool | false |
 | flip_y | inverts the vertical movement of the touchpad | bool | false |
 | drag_3fg | enables three finger drag, 0 -> disabled, 1 -> 3 fingers, 2 -> 4 fingers [libinput#drag-3fg](https://wayland.freedesktop.org/libinput/doc/latest/drag-3fg.html) | int | 0 |
 
 #### Touchdevice
 
-_Subcategory `input:touchdevice:`_
+_Subcategory `input.touchdevice.`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -285,7 +263,7 @@ _Subcategory `input:touchdevice:`_
 
 #### Virtualkeyboard
 
-_Subcategory `input:virtualkeyboard:`_
+_Subcategory `input.virtualkeyboard.`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -294,7 +272,7 @@ _Subcategory `input:virtualkeyboard:`_
 
 #### Tablet
 
-_Subcategory `input:tablet:`_
+_Subcategory `input.tablet.`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -314,7 +292,7 @@ Described [here](../Keywords#per-device-input-configs).
 
 ### Gestures
 
-_Subcategory `gestures:`_
+_Subcategory `gestures.`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -342,7 +320,7 @@ _Subcategory `gestures:`_
 
 ### Group
 
-_Subcategory `group:`_
+_Subcategory `group.`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -361,12 +339,12 @@ _Subcategory `group:`_
 
 #### Groupbar
 
-_Subcategory `group:groupbar:`_
+_Subcategory `group.groupbar.`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
 | enabled | enables groupbars | bool | true |
-| font_family | font used to display groupbar titles, use `misc:font_family` if not specified | string | [\[Empty]] |
+| font_family | font used to display groupbar titles, use `misc.font_family` if not specified | string | \[\[Empty\]\] |
 | font_size | font size of groupbar title | int | 8 |
 | font_weight_active | font weight of active groupbar title | font_weight | normal |
 | font_weight_inactive | font weight of inactive groupbar title | font_weight | normal |
@@ -401,7 +379,7 @@ _Subcategory `group:groupbar:`_
 
 ### Misc
 
-_Subcategory `misc:`_
+_Subcategory `misc.`_
 
 | name | description | type | default |
 |---|---|---|---|
@@ -445,7 +423,7 @@ _Subcategory `misc:`_
 
 ### Layout
 
-_Subcategory `layout:`_
+_Subcategory `layout.`_
 
 | name | description | type | default |
 |---|---|---|---|
@@ -454,7 +432,7 @@ _Subcategory `layout:`_
 
 ### Binds
 
-_Subcategory `binds:`_
+_Subcategory `binds.`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -475,7 +453,7 @@ _Subcategory `binds:`_
 
 ### XWayland
 
-_Subcategory `xwayland:`_ 
+_Subcategory `xwayland.`_ 
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -486,7 +464,7 @@ _Subcategory `xwayland:`_
 
 ### OpenGL
 
-_Subcategory `opengl:`_ 
+_Subcategory `opengl.`_ 
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -494,7 +472,7 @@ _Subcategory `opengl:`_
 
 ### Render
 
-_Subcategory `render:`_ 
+_Subcategory `render.`_ 
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -514,14 +492,11 @@ _Subcategory `render:`_
 | keep_unmodified_copy | Keep umodified SDR frame copy for sreensharing. 0 - disabled, 1 - on, 2 - auto (enabled in HDR with SDR modifiers). Set to 1 if screenshots are transparent. | int | 2 |
 | use_shader_blur_blend | Use experimental blurred bg blending (glitched on rotated screens). Set to true if blur is missing with fp16 or keep_unmodified_copy | bool | false |
 
-
-
-
 `cm_auto_hdr` requires `--target-colorspace-hint-mode=source` mpv option to work with mpv versions greater than v0.40.0
 
 ### Cursor
 
-_Subcategory `cursor:`_ 
+_Subcategory `cursor.`_ 
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -550,7 +525,7 @@ _Subcategory `cursor:`_
 
 ### Ecosystem
 
-_Subcategory `ecosystem:`_
+_Subcategory `ecosystem.`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -560,7 +535,7 @@ _Subcategory `ecosystem:`_
 
 ### Quirks
 
-_Subcategory `quirks:`_
+_Subcategory `quirks.`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -570,7 +545,7 @@ Some clients expect monitor to be in HDR mode prior to the client start. This br
 
 ### Debug
 
-_Subcategory `debug:`_
+_Subcategory `debug.`_
 
 > [!WARNING]
 > Only for developers.
@@ -594,7 +569,7 @@ _Subcategory `debug:`_
 | colored_stdout_logs | enables colors in the stdout logs. | bool | true |
 | pass | enables render pass debugging. | bool | false |
 | full_cm_proto | claims support for all cm proto features (requires restart) | bool | false |
-| debug:invalidate_fp16 | Allow fp16 buffer invalidation (invalidation increases performance but produces glitches on some systems). 0 - not allowed, 1 - allowed, 2 - not allowed on nvidia | int | 2 |
+| invalidate_fp16 | Allow fp16 buffer invalidation (invalidation increases performance but produces glitches on some systems). 0 - not allowed, 1 - allowed, 2 - not allowed on nvidia | int | 2 |
 
 ### More
 

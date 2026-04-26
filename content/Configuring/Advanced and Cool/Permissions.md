@@ -3,6 +3,10 @@ weight: 30
 title: Permissions
 ---
 
+> [!NOTE]
+> Looking for the old hyprlang syntax? Check the [0.54 wiki pages](https://wiki.hypr.land/0.54.0/).
+> Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
+
 If you have `hyprland-guiutils` installed, you can make use of Hyprland's built-in
 permission system.
 
@@ -16,7 +20,7 @@ want to let it do that.
 
 > [!NOTE]
 > Before setting up permissions, make sure you enable them by setting
-> `ecosystem:enforce_permissions = true`, as it's disabled by default.
+> `hl.config({ ecosystem = { enforce_permissions = true } })`, as it's disabled by default.
 
 
 ### Configuring permissions
@@ -27,21 +31,20 @@ want to let it do that.
 
 Configuring them is simple:
 
-```ini
-permission = regex, permission, mode
+```lua
+hl.permission({ binary, type, mode })
 ```
 
 for example:
-```ini
-permission = /usr/bin/grim, screencopy, allow
+```lua
+hl.permission({ binary = "/usr/bin/grim", type = "screencopy", mode = "allow" })
 ```
 Will allow `/usr/bin/grim` to always capture your screen without asking.
 
-```ini
-permission = /usr/bin/appsuite-.*, screencopy, allow
+```lua
+hl.permission({ binary = "/usr/bin/appsuite-.*", type = "screencopy", mode = "allow" })
 ```
 Will allow any app whose path starts with `/usr/bin/appsuite-` to capture your screen without asking.
-
 
 ### Permission modes
 
@@ -70,36 +73,43 @@ There are 3 modes:
  - If you want to disable all keyboards not matching a regex, make a rule that sets `DENY` for `.*` _as the last keyboard permission rule_.
  - Why deny? Rubber duckies, malicious virtual / usb keyboards.
 
+`cursorpos`:                                                                                        
+ - Default: **ASK**
+ - Access to your cursor position and cursor image via Wayland protocols directly.                                                           
+ - Why deny? Prevents apps from silently tracking where your cursor is without going through xdg-desktop-portal.
+
 ## Notes
 
 **xdg-desktop-portal** implementations (including xdph) are just regular applications. They will go through permissions too. You might want to consider
 adding a rule like this:
-```ini
-permission = /usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland, screencopy, allow
+```lua
+hl.permission({ binary = "/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", type = "screencopy", mode = "allow" })
 ```
 if you are not allowing screencopy for all apps.
 
 <br/>
 
 NixOS does not have static paths for the binaries, so regex has to be used. These example rules allow `grim` and `xdg-desktop-portal-hyprland` to copy the screen:
-```ini
-permission = /nix/store/[a-z0-9]{32}-grim-[0-9.]*/bin/grim, screencopy, allow
-permission = /nix/store/[a-z0-9]{32}-xdg-desktop-portal-hyprland-[0-9.]*/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow
+```lua
+hl.permission({ binary = "/nix/store/[a-z0-9]{32}-grim-[0-9.]*/bin/grim", type = "screencopy", mode = "allow" })
+hl.permission({ binary = "/nix/store/[a-z0-9]{32}-xdg-desktop-portal-hyprland-[0-9.]*/libexec/.xdg-desktop-portal-hyprland-wrapped", type = "screencopy", mode = "allow" })
 ```
 
 When rendering the configuration with Nix itself, string interpolation can also be used (be aware that if the path contains special regex characters (e.g. `+`) they need to be escaped):
-```ini
-permission = ${lib.getExe pkgs.grim}, screencopy, allow
-permission = ${lib.escapeRegex (lib.getExe config.programs.hyprlock.package)}, screencopy, allow
-permission = ${pkgs.xdg-desktop-portal-hyprland}/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow
+```lua
+hl.permission({ binary = "${lib.getExe pkgs.grim}", type = "screencopy", mode = "allow" })
+hl.permission({ binary = "${lib.escapeRegex (lib.getExe config.programs.hyprlock.package)}", type = "screencopy", mode = "allow" })
+hl.permission({ binary = "${pkgs.xdg-desktop-portal-hyprland}/libexec/.xdg-desktop-portal-hyprland-wrapped", type = "screencopy", mode = "allow" })
 ```
 
 <br/>
 
 On some **BSD** systems paths might not work. In such cases, you might want to disable permissions altogether, by setting
-```ini
-ecosystem {
-  enforce_permissions = false
-}
+```lua
+hl.config({ 
+  ecosystem = {
+    enforce_permissions = false
+  }
+})
 ```
 otherwise, you have no _config_ control over permissions (popups will still work, although will not show paths, and "remember" will not be available).
