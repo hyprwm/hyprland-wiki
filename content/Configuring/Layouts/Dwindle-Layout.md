@@ -41,7 +41,6 @@ category name: `dwindle`
 ```lua
 hl.config({
   dwindle = {
-      pseudotile                   = false,
       force_split                  = 0,
       preserve_split               = false,
       smart_split                  = false,
