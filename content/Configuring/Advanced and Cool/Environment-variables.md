@@ -49,7 +49,7 @@ hl.env("GTK_THEME", "Nord")
 
 ## Toolkit Backend Variables
 
-- `hl.env("GDK_BACKEND", "wayland;x11;*")` - GTK: Use Wayland if available; if not, try X11 and  then any other GDK backend.
+- `hl.env("GDK_BACKEND", "wayland,x11,*")` - GTK: Use Wayland if available; if not, try X11 and  then any other GDK backend.
 - `hl.env("QT_QPA_PLATFORM", "wayland;xcb")` - Qt: Use Wayland if available, fall back to
   X11 if not.
 - `hl.env("SDL_VIDEODRIVER", "wayland")` - Run SDL2 applications on Wayland. Remove or set to
