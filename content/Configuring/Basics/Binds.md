@@ -31,6 +31,15 @@ will bind opening Firefox to <key>SUPER</key> + <key>SHIFT</key> + <key>Q</key>
 _The dispatcher list can be found in
 [Dispatchers](../Dispatchers/#list-of-dispatchers)._
 
+You can also put a lua function if you prefer as your bind dispatcher:
+
+```lua
+hl.bind("SUPER + SHIFT + X", function()
+    -- some logic...
+    hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
+end)
+```
+
 ## Uncommon syms / binding with a keycode
 
 See the
@@ -48,49 +57,6 @@ This will bind <key>SUPER</key> + <key>t</key> since <key>t</key> is keycode 28.
 
 > [!NOTE]
 > If you are unsure of what your key's name or keycode is, you can use [`wev`](https://github.com/jwrdegoede/wev) to find out.
-
-## Misc
-
-### Workspace bindings on non-QWERTY layouts
-
-Keys used for keybinds need to be accessible without any modifiers in your layout.  
-For instance, the [French AZERTY](https://en.wikipedia.org/wiki/AZERTY) layout uses <key>SHIFT</key> + _`unmodified key`_ to write `0-9` numbers. As such, the workspace keybinds for this layout need to use the names of the _`unmodified keys`_ , and will not work when using the `0-9` numbers.
-
-> [!NOTE]
-> To get the correct name for an `unmodified_key`, refer to [the section on uncommon syms](#uncommon-syms--binding-with-a-keycode)
-
-```lua
--- On a French layout, instead of:
--- hl.bind(mainMod .. " + 1", hl.workspace(1))
-
--- Use
-hl.bind(mainMod .. " + ampersand", hl.workspace(1))
-```
-
-For help configuring the French AZERTY layout, see this [article](https://rherault.dev/articles/hyprland-fr-layout).
-
-### Unbind
-
-You can also unbind a key with the `hl.unbind` method, e.g.:
-
-```lua
-hl.unbind("SUPER + O")
-```
-
-This may be useful for dynamic keybindings with `hyprctl`, e.g.:
-
-```bash
-hyprctl eval 'hl.unbind("SUPER + O")'
-```
-
-> [!NOTE]
-> In `unbind`, key is case-sensitive It must exactly match the case of the `bind` you are unbinding.
-> 
-> ```lua
-> hl.bind("SUPER + TAB", hl.focus.workspace("e+1"))
-> hl.unbind("SUPER + Tab") -- this will NOT unbind
-> hl.unbind("SUPER + TAB") -- this will unbind
-> ```
 
 ## Bind flags
 
@@ -521,6 +487,50 @@ keyboard layouts:
 ```sh
 grep 'grp:.*toggle' /usr/share/X11/xkb/rules/base.lst
 ```
+
+
+## Misc
+
+### Workspace bindings on non-QWERTY layouts
+
+Keys used for keybinds need to be accessible without any modifiers in your layout.  
+For instance, the [French AZERTY](https://en.wikipedia.org/wiki/AZERTY) layout uses <key>SHIFT</key> + _`unmodified key`_ to write `0-9` numbers. As such, the workspace keybinds for this layout need to use the names of the _`unmodified keys`_ , and will not work when using the `0-9` numbers.
+
+> [!NOTE]
+> To get the correct name for an `unmodified_key`, refer to [the section on uncommon syms](#uncommon-syms--binding-with-a-keycode)
+
+```lua
+-- On a French layout, instead of:
+-- hl.bind(mainMod .. " + 1", hl.workspace(1))
+
+-- Use
+hl.bind(mainMod .. " + ampersand", hl.workspace(1))
+```
+
+For help configuring the French AZERTY layout, see this [article](https://rherault.dev/articles/hyprland-fr-layout).
+
+### Unbind
+
+You can also unbind a key with the `hl.unbind` method, e.g.:
+
+```lua
+hl.unbind("SUPER + O")
+```
+
+This may be useful for dynamic keybindings with `hyprctl`, e.g.:
+
+```bash
+hyprctl eval 'hl.unbind("SUPER + O")'
+```
+
+> [!NOTE]
+> In `unbind`, key is case-sensitive It must exactly match the case of the `bind` you are unbinding.
+> 
+> ```lua
+> hl.bind("SUPER + TAB", hl.focus.workspace("e+1"))
+> hl.unbind("SUPER + Tab") -- this will NOT unbind
+> hl.unbind("SUPER + TAB") -- this will unbind
+> ```
 
 ## Example Binds
 
