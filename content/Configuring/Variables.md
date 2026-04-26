@@ -3,7 +3,7 @@ weight: 2
 title: Variables
 ---
 
-For basic syntax info, see [Configuring Hyprland](..).
+For basic syntax info, see [hyprlang](../../Hypr-Ecosystem/hyprlang).
 
 This page documents all the "options" of Hyprland. For binds, monitors,
 animations, etc. see the sidebar. For anything else, see
