@@ -124,7 +124,7 @@ activating mod) and the `r` flag, e.g.:
 
 ```lua
 -- bind `exec amongus` to SUPER + ALT.
-hl.bind("ALT + ALT_L" hl.dsp.exec_cmd("amongus"), { release = true })
+hl.bind("ALT + ALT_L", hl.dsp.exec_cmd("amongus"), { release = true })
 ```
 
 ### Mouse wheel
