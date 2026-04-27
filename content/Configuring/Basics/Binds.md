@@ -102,7 +102,7 @@ hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1.5 @DEFAUL
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true } )
 
 -- Open wofi on first press, closes it on second
-hl.bind("SUPER + SUPER_L" hl.dsp.exec_cmd("pkill wofi || wofi"), { release = true })
+hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd("pkill wofi || wofi"), { release = true })
 
 -- Skip player on long press and only skip 5s on normal press
 hl.bind("SUPER + XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { long_press = true })
