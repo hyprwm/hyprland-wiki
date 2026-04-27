@@ -11,7 +11,7 @@ or a script. It should automatically be installed along with Hyprland.
 > any spam of the utility will cause slowdowns. It's recommended to use `--batch`
 > for many control calls, and limiting the amount of info calls.
 > 
-> For live event handling, see the [socket2](../../IPC/).
+> For live event handling, see the [events](../Expanding-functionality/#events).
 
 ## Commands
 
