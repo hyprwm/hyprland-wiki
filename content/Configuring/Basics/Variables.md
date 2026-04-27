@@ -199,7 +199,7 @@ _Subcategory `decoration.glow.`_
 > on your system.
 > 
 > For switchable keyboard configurations, take a look at
-> [the uncommon tips & tricks page entry](../Uncommon-tips--tricks/#switchable-keyboard-layouts).
+> [the binds page entry](../Binds/#switchable-keyboard-layouts).
 
 > [!NOTE] **Follow Mouse Cursor**
 > - 0 - Cursor movement will not change focus.
