@@ -21,4 +21,4 @@ end)
 
 In the same vein, you can spawn processes on exit by listening to `hyprland.shutdown`.
 
-See more about `hl.on` over at [Expanding Functionality](../Expanding-functionality)
+See more about `hl.on` over at [Expanding Functionality](../Advanced%20and%20Cool/Expanding-functionality.md)
