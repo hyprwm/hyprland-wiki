@@ -89,7 +89,7 @@ no reason (no errors), it's likely your XDG env isn't set correctly.
 
 To force GBM as a backend, set the following environment variables:
 
-- `hl.env("GBM_BACKEND", "nvidia")-drm`
+- `hl.env("GBM_BACKEND", "nvidia-drm")`
 - `hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")`
 
 > See
