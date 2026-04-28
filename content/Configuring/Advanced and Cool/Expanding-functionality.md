@@ -70,6 +70,7 @@ Event list:
 ### Convenience functions
 
 Hyprland exposes a bunch of convenience functions:
+ - `hl.get_config()`
  - `hl.get_active_window()`
  - `hl.get_windows()`
  - `hl.get_window(selector)`
@@ -91,6 +92,50 @@ Hyprland exposes a bunch of convenience functions:
  - `hl.get_current_submap()`
  - `hl.version()`
  - `hl.exec_cmd()`
+
+
+
+
+### Dynamically changing a config option:
+
+You can use `hl.get_config()` to get the current value of a config option. Pass a config option like `"general.layout"`.
+
+Pay attention that the return type of `hl.get_config()` will be a table if that variable accepts values of table type.
+
+For example: If your `general.gaps_in` is set as `gaps_in = 3` in `hl.config()`, `hl.get_config()` returns a table of the form:
+```lua
+{
+  top = 3,
+  left = 3,
+  right = 3,
+  bottom = 3
+}
+```
+because `gaps_in` also accepts a table of the form `{ top?, left?, right?, bottom? }`
+
+
+You can change the value of a config option with a keybind with a script like:
+```lua
+-- Toggle gaps_in beween 0 and 3 (equivalent to  {3, 3, 3, 3} )
+hl.bind(mainMod .. " + SHIFT + G", function()
+
+    local gapsInValueTable = hl.get_config("general.gaps_in")
+
+    if gapsInValueTable.top == 3 and
+       gapsInValueTable.bottom == 3 and
+       gapsInValueTable.left == 3 and
+       gapsInValueTable.right == 3 then
+        hl.config({
+            general = {gaps_in = 0}
+        })
+    else
+        hl.config({
+            general = {gaps_in = 3}
+        })
+    end
+end)
+```
+
 
 ### Timers
 
