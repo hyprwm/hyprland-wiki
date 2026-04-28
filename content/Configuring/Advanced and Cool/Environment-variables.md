@@ -49,7 +49,7 @@ hl.env("GTK_THEME", "Nord")
 
 ## Toolkit Backend Variables
 
-- `hl.env("GDK_BACKEND", "wayland"),x11,*")` - GTK: Use Wayland if available; if not, try X11 and  then any other GDK backend.
+- `hl.env("GDK_BACKEND", "wayland;x11;*")` - GTK: Use Wayland if available; if not, try X11 and  then any other GDK backend.
 - `hl.env("QT_QPA_PLATFORM", "wayland;xcb")` - Qt: Use Wayland if available, fall back to
   X11 if not.
 - `hl.env("SDL_VIDEODRIVER", "wayland")` - Run SDL2 applications on Wayland. Remove or set to
@@ -78,7 +78,7 @@ no reason (no errors), it's likely your XDG env isn't set correctly.
 - `hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")` -
   [(From the Qt documentation)](https://doc.qt.io/qt-5/highdpi.html) enables
   automatic scaling, based on the monitor's pixel density
-- `hl.env("QT_QPA_PLATFORM", "wayland");xcb` - Tell Qt applications to use the Wayland
+- `hl.env("QT_QPA_PLATFORM", "wayland;xcb")` - Tell Qt applications to use the Wayland
   backend, and fall back to X11 if Wayland is unavailable
 - `hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")` - Disables window decorations on Qt
   applications
@@ -89,7 +89,7 @@ no reason (no errors), it's likely your XDG env isn't set correctly.
 
 To force GBM as a backend, set the following environment variables:
 
-- `hl.env("GBM_BACKEND", "nvidia")-drm`
+- `hl.env("GBM_BACKEND", "nvidia-drm")`
 - `hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")`
 
 > See
