@@ -140,7 +140,7 @@ Example expressions:
 
 ```lua
 move = "window_w*0.5 (monitor_h/2)+17"
-size = "(monitor_w*0.5) (monitor_h*0.5)"
+size = (monitor_w*0.5) (monitor_h*0.5)
 ```
 
 ### Dynamic effects
