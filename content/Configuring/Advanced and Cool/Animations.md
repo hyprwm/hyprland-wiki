@@ -22,15 +22,15 @@ can omit further args.
 
 `speed` is the amount of ds (1ds = 100ms) the animation will take. For example `speed = 1` = 100ms
 
-`curve` is the bezier curve name, see [curves](#curves).
+`bezier` / `spring` is the curve name, see [curves](#curves).
 
 `style` (optional) is the animation style. See [Animation tree](#animation-tree)
 
 ### Examples
 
 ```lua
-hl.animation({ leaf = "workspaces", enabled = true, speed = 8, curve = "default" })
-hl.animation({ leaf = window, enabled = true, speed = 10, curve = "myepiccurve", style = "slide"})
+hl.animation({ leaf = "workspaces", enabled = true, speed = 8, bezier = "my_epic_bezier" })
+hl.animation({ leaf = window, enabled = true, speed = 10, spring = "my_epic_spring", style = "slide"})
 hl.animation({ leaf = "fade", enabled = 0 })
 ```
 
@@ -78,20 +78,34 @@ global
 
 ## Curves
 
-Defining your own [Bézier curve](https://en.wikipedia.org/wiki/B%C3%A9zier_curve) can be done with the `hl.curve` function:
+### Bezier
+
+A cubic [Bézier curve](https://en.wikipedia.org/wiki/B%C3%A9zier_curve) is a simple spline defined by 4 points,
+two of which (the middle ones) are configurable.
 
 ```lua
-hl.curve( NAME, { type = STRING, points = { {X0, Y0}, {X1, Y1} } })
+hl.curve( NAME, { type = "bezier", points = { {X0, Y0}, {X1, Y1} } })
 ```
 
-where `NAME` is a name of your choice and `X0, Y0, X1, Y1` are the the two control points for a Cubic Bézier curve. <br>
 A good website to design your own Bézier can be [cssportal.com](https://www.cssportal.com/css-cubic-bezier-generator/). <br>
 If you want to instead choose from a list of pre-made Béziers, you can check out [easings.net](https://easings.net).
 
-### Example
+### Spring
+
+A spring curve is one commonly found on Apple's systems, and is defined by mass, stiffness
+and dampening. It's generally recommended to keep mass at 1, and adjust stiffness and dampening alone.
 
 ```lua
-hl.curve({ "overshoot", { type = "bezier", points = { {0.5, 0.9}, {0.1, 1.1} } } })
+hl.curve( NAME, { type = "spring", mass = MASS, stiffness = STIFF, dampening = DAMP })
+```
+
+The more "stiffness", the more speed, and the more "dampening", the less bounce.
+
+### Examples
+
+```lua
+hl.curve( "overshoot", { type = "bezier", points = { {0.5, 0.9}, {0.1, 1.1} } } )
+hl.curve( "rubber", { type = "spring", mass = 1, stiffness = 70, dampening = 10 } )
 ```
 
 ### Extras
