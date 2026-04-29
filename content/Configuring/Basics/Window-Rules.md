@@ -185,6 +185,7 @@ Dynamic effects are re-evaluated every time a property changes.
 | render_unfocused | boolean | Forces the window to think it's being rendered when it's not visible. |
 | scroll_mouse | number | Forces the window to override `input.scroll_factor`. |
 | scroll_touchpad | number | Forces the window to override `input.touchpad.scroll_factor`. |
+| confine_pointer | boolean | Locks the mouse cursor to the window. Mostly useful for keeping your mouse cursor locked to one monitor during gaming.
 
 All dynamic effects can be set with `setprop`.
 
