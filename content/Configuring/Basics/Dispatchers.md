@@ -17,6 +17,10 @@ contents are not guaranteed to be stable at all. Their purpose is to be fed into
 
 ### Parameter explanation
 
+|  Param type | Description  |
+|---|---|
+| `action` | `toggle`(default if no value given), `enable`/`on`, `disable`/`off` |
+
 #### Window
 
 A window. Can be:
@@ -80,7 +84,7 @@ A monitor. Can be:
 | `send_shortcut({ mods, key, window? })` | send a specific shortcut to a window |
 | `send_key_state({ mods, key, state, window? })` | same as above, but you control `down` / `up` |
 | `layout(message)` | send a layout message as a string |
-| `dpms({ action?, monitor? })` | toggle monitors on/off (not physically, as in idle-screensaver.). `action` can be `toggle`(default if not value given), `enable`/`on`, `disable`/`off` |
+| `dpms({ action?, monitor? })` | toggle monitors on/off (not physically, as in idle-screensaver.) |
 | `event(string)` | send an event to socket2. |
 | `global(string)` | activate a dbus global shortcut. See [Binds > Global Shortcuts](../Binds#DBus-Global-Shortcuts) |
 | `force_idle(seconds)` | sets elapsed time for all idle timers, ignoring idle inhibitors. Timers return to normal behavior upon the next activity. Do not use with a keybind directly. |
@@ -94,10 +98,10 @@ A monitor. Can be:
 | `close(window?)` | Close a window. |
 | `kill(window?)` | Kill a window |
 | `signal({ signal, window? })` | send a signal to a window process |
-| `float({ action?, window? })` | set a window's floating state. `action` can be `toggle`(default if not value given), `enable`/`on`, `disable`/`off` |
-| `fullscreen({ mode?, action?, window? })` | set a window's fullscreen state. `mode` can be "maximized" and "fullscreen". `action` can be `toggle`, `set` and `unset` |
-| `fullscreen_state({ internal, client, action?, window? })` | set a window's fullscreen state with more precision. `action` can be `toggle`, `set` and `unset` |
-| `pseudo({ action?, window? })` | set a window's pseudotiling state. `action` can be `toggle`(default if not value given), `enable`/`on`, `disable`/`off` |
+| `float({ action?, window? })` | set a window's floating state. |
+| `fullscreen({ mode?, action?, window? })` | set a window's fullscreen state. `mode` can be "maximized" and "fullscreen" |
+| `fullscreen_state({ internal, client, action?, window? })` | set a window's fullscreen state with more precision |
+| `pseudo({ action?, window? })` | set a window's pseudotiling state. |
 | `move({ direction })` | move a window in a direction |
 | `move({ workspace, follow? })` | move a window to a workspace |
 | `move({ monitor, follow? })` | move a window to a monitor |
@@ -116,7 +120,7 @@ A monitor. Can be:
 | `pin({ window? })` | pin a window |
 | `alter_zorder({ mode, window? })` | mode can be "top" or "bottom" |
 | `set_prop({ prop, value, window? })` | set a window property |
-| `deny_from_group({ action? })` | deny a window from entering a group. `action` can be `toggle`(default if not value given), `enable`/`on`, `disable`/`off` |
+| `deny_from_group({ action? })` | deny a window from entering a group |
 | `drag()` | begin an interactive drag. To be used with mouse binds. |
 | `resize()` | begin an interactive resize. To be used with mouse binds. |
 | `resize({ x, y, relative?, window? })` | resize a window |
@@ -143,8 +147,8 @@ A monitor. Can be:
 | `prev({ window? })` | switch to the previous window in a group | 
 | `active({ index, window? })` | switch to a window in a group, indexed | 
 | `move_window({ forward?, window? })` | move a window in the group order | 
-| `lock({ action?, window? })` | lock a group. `action` can be `toggle`(default if not value given), `enable`/`on`, `disable`/`off` | 
-| `lock_active({ action? })` | lock the active group. `action` can be `toggle`(default if not value given), `enable`/`on`, `disable`/`off` | 
+| `lock({ action?, window? })` | lock a group | 
+| `lock_active({ action? })` | lock the active group | 
 
 ### Cursor
 
