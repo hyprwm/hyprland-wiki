@@ -8,6 +8,9 @@ languageCode           = 'en-us'
 pluralizeListTitles    = false
 disablePathToLower     = true
 
+[security.http]
+  urls = ['.*']
+
 [outputs]
 home    = ["HTML"]
 page    = ["HTML"]
