@@ -9,8 +9,8 @@ pluralizeListTitles    = false
 disablePathToLower     = true
 
 [security.http]
-  urls = ['.*']
-
+  urls = ['(?i)^https?://[a-z]', '! (?i)localhost']
+  
 [outputs]
 home    = ["HTML"]
 page    = ["HTML"]
