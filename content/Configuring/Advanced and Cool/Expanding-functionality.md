@@ -100,7 +100,7 @@ Hyprland exposes a bunch of convenience functions:
 
 You can use `hl.get_config()` to get the current value of a config option. Pass a config option like `"general.layout"`.
 
-Pay attention that the return type of `hl.get_config()` will be a table if that variable accepts values of table type.
+Pay attention that the return type of `hl.get_config()` will be a representation of the actual underlying type.
 
 For example: If your `general.gaps_in` is set as `gaps_in = 3` in `hl.config()`, `hl.get_config()` returns a table of the form:
 ```lua
@@ -121,10 +121,7 @@ hl.bind(mainMod .. " + SHIFT + G", function()
 
     local gapsInValueTable = hl.get_config("general.gaps_in")
 
-    if gapsInValueTable.top == 3 and
-       gapsInValueTable.bottom == 3 and
-       gapsInValueTable.left == 3 and
-       gapsInValueTable.right == 3 then
+    if gapsInValueTable.top == 3 then
         hl.config({
             general = {gaps_in = 0}
         })
