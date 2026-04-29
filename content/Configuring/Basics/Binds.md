@@ -83,6 +83,7 @@ Available flags:
 | `long_press` | Will trigger on long press of a key. |
 | `repeating` | Will repeat when held. |
 | `non_consuming` | Key/mouse events will be passed to the active window in addition to triggering the dispatcher. |
+| `auto_consuming` | Key/mouse events will be passed to the active window if the dispatcher doesn't succeed. |
 | `mouse`| See the dedicated [Mouse Binds](#mouse-binds) section. |
 | `transparent` | Cannot be shadowed by other binds. |
 | `ignore_mods` | Will ignore modifiers. |
