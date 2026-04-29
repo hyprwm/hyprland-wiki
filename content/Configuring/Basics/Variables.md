@@ -312,7 +312,7 @@ _Subcategory `gestures.`_
 > [!NOTE]
 > `workspace_swipe`, `workspace_swipe_fingers` and `workspace_swipe_min_fingers` were removed in favor of the new gestures system.
 > 
-> You can add this gesture config to replicate the swiping functionality with 3 fingers. See the [gestures](../Gestures) page for more info.
+> You can add this gesture config to replicate the swiping functionality with 3 fingers. See the [gestures](../Advanced-and-Cool/Gestures) page for more info.
 > 
 > ```ini
 > gesture = 3, horizontal, workspace
