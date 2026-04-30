@@ -112,8 +112,8 @@ which will be found when matching on `title` and `class`, respectively.
 | fullscreen | boolean | Fullscreens a window. |
 | maximize | boolean | Maximizes a window. |
 | fullscreen_state | string | Sets the fullscreen mode, e.g. `"1 2"` (internal client). Values: `0` none, `1` maximize, `2` fullscreen, `3` maximize and fullscreen. |
-| move | string | Moves a floating window to a given coordinate, monitor-local. E.g. `"100 200"` or `"(cursor_x-(window_w*0.5)) (cursor_y-(window_h*0.5))"`. |
-| size | string | Resizes a floating window. E.g. `"800 600"` or `"(monitor_w*0.5) (monitor_h*0.5)"`. |
+| move | string | Moves a floating window to a given coordinate, monitor-local. E.g. `{100, 200}` or `"{"cursor_x-(window_w*0.5))", "(cursor_y-(window_h*0.5))"}`. |
+| size | string | Resizes a floating window. E.g. `{800, 600}` or `{"(monitor_w*0.5)", "(monitor_h*0.5)"}`. |
 | center | boolean | If the window is floating, will center it on the monitor. |
 | pseudo | boolean | Pseudotiles a window. |
 | monitor | string | Sets the monitor on which a window should open. E.g. `"1"` or `"DP-1"`. |
@@ -139,8 +139,8 @@ spaces within each expression). All position variables are monitor-local.
 Example expressions:
 
 ```lua
-move = "window_w*0.5 (monitor_h/2)+17"
-size = "(monitor_w*0.5) (monitor_h*0.5)"
+move = {"window_w * 0.5", "(monitor_h / 2) + 17"}
+size = {"monitor_w * 0.5", "monitor_h * 0.5"}
 ```
 
 ### Dynamic effects
@@ -255,7 +255,7 @@ dispatcher is called).
 hl.window_rule({
   name      = "move-kitty",
   match     = { class = "kitty" },
-  move      = "100 100",
+  move      = {100, 100},
   animation = "popin",
 })
 
@@ -265,7 +265,7 @@ hl.window_rule({ match = { class = "firefox" }, no_blur = true })
 -- Move kitty to the center of the cursor
 hl.window_rule({
   match = { class = "kitty" },
-  move  = "(cursor_x-(window_w*0.5)) (cursor_y-(window_h*0.5))",
+  move  = {"cursor_x-(window_w*0.5)", "cursor_y-(window_h*0.5)"},
 })
 
 -- Set border color to red if window is fullscreen
