@@ -106,8 +106,8 @@ A monitor. Can be:
 | `move({ workspace, follow? })` | move a window to a workspace |
 | `move({ monitor, follow? })` | move a window to a monitor |
 | `move({ x, y, relative? })` | move a window by / to a coord |
-| `move({ into_group, direction })` | move a window into a group in a direction |
-| `move({ into_or_create_group, direction })` | move a window into a group in a direction, or create a group |
+| `move({ into_group = direction })` | move a window into a group in a direction |
+| `move({ into_or_create_group = direction })` | move a window into a group in a direction, or create a group if no group exists in that direction |
 | `move({ out_of_group })` | move a window out of a group. `true` for directionless, direction for a direction |
 | `swap({ direction })` | swap the current window with another one in a given direction | 
 | `swap({ target })` | swap the current window with another one | 
