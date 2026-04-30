@@ -17,6 +17,10 @@ contents are not guaranteed to be stable at all. Their purpose is to be fed into
 
 ### Parameter explanation
 
+|  Param type | Description  |
+|---|---|
+| `action` | `toggle`(default if no value given), `enable`/`on`, `disable`/`off` |
+
 #### Window
 
 A window. Can be:
@@ -94,10 +98,10 @@ A monitor. Can be:
 | `close(window?)` | Close a window. |
 | `kill(window?)` | Kill a window |
 | `signal({ signal, window? })` | send a signal to a window process |
-| `float({ action?, window? })` | set a window's floating state. "enable", "disable" and "toggle" can be used. |
+| `float({ action?, window? })` | set a window's floating state. |
 | `fullscreen({ mode?, action?, window? })` | set a window's fullscreen state. `mode` can be "maximized" and "fullscreen" |
-| `fullscreen_state({ internal, client, action?, window? })` | set a window's fullscreen state with more precision. Action can be "toggle", "set" and "unset" |
-| `pseudo({ action?, window? })` | set a window's pseudotiling state |
+| `fullscreen_state({ internal, client, action?, window? })` | set a window's fullscreen state with more precision |
+| `pseudo({ action?, window? })` | set a window's pseudotiling state. |
 | `move({ direction })` | move a window in a direction |
 | `move({ workspace, follow? })` | move a window to a workspace |
 | `move({ monitor, follow? })` | move a window to a monitor |

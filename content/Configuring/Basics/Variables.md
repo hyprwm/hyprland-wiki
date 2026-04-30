@@ -288,7 +288,7 @@ _Subcategory `input.tablet.`_
 
 ### Per-device input config
 
-Described [here](../Keywords#per-device-input-configs).
+Described [here](../../Advanced-and-Cool/Devices).
 
 ### Gestures
 
