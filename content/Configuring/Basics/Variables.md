@@ -154,7 +154,7 @@ _Subcategory `decoration.glow.`_
 | workspace_wraparound | enable workspace wraparound, causing directional workspace animations to animate as if the first and last workspaces were adjacent | bool | false |
 
 > [!NOTE]
-> _[More about Animations](../../advanced-and-cool/Animations)._
+> _[More about Animations](../../Advanced-and-Cool/Animations)._
 
 ### Input
 
