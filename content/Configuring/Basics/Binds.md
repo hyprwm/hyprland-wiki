@@ -281,7 +281,7 @@ to your config and you're done.
 This also means that push-to-talk will work flawlessly with one `pass`, e.g.:
 
 ```lua
-hl.bind("mouse:276", hl.dsp.pass("class:^(TeamSpeak 3)$"))    # Pass MOUSE5 to TeamSpeak3.
+hl.bind("mouse:276", hl.dsp.pass({window = "class:^(TeamSpeak 3)$"}))    # Pass MOUSE5 to TeamSpeak3.
 ```
 
 You may also add shortcuts, where other keys are passed to the window.
