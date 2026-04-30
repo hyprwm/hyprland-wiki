@@ -69,7 +69,9 @@ Install `udiskie` via your package manager, or
 Head over to your `hyprland.conf` and add the following line:
 
 ```ini
-exec-once = udiskie
+hl.on("hyprland.start", function () 
+    hl.exec_cmd("udiskie")
+end)
 ```
 
 [See more uses here](https://github.com/coldfix/udiskie/wiki/Usage).
