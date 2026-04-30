@@ -55,23 +55,6 @@ To force them to run in native Wayland mode, see
 
 If they can't, see [the XWayland page](../Configuring/XWayland).
 
-### Nothing renders / screen is empty / crash on opening first app
-
-Possible causes:
-
-> Your themes are not set up properly, making apps crash.
-
-Use something like `qt6ct` (Qt) and `nwg-look` (GTK) (\*for GTK you can also set
-up themes with envvars) to set up your themes.
-
-> Your PC is very, _very_ old.
-
-In that case, see the [Installation Page](../Getting-Started/Installation)
-and try compiling with LEGACY_RENDERER
-
-_For more info about bugs and crashes, see this_
-_[wiki page](../Crashes-and-Bugs)_
-
 ### My external monitor is blank / doesn't render / receives no signal (laptop)
 
 For Nvidia graphics - This issue appears to be resolved when using Nvidia
