@@ -308,7 +308,7 @@ and a [guided hello world](https://quickshell.outfoxxed.me/docs/configuration/in
 
 ### Blur
 
-Use the `blur` and `ignore_alpha` [layer rules](https://wiki.hypr.land/Configuring/Window-Rules/#layer-rules). 
+Use the `blur` and `ignore_alpha` [layer rules](../Configuring/Basics/Window-Rules/#layer-rules). 
 The former enables blur, and the latter makes it ignore insufficiently opaque regions. 
 Ideally, the value used with `ignore_alpha` is higher than the shadow opacity and lower than the bar/menu content's opacity. 
 Additionally, if it has transparent popups, you can use the `blur_popups` rule.

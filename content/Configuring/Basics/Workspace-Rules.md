@@ -12,7 +12,7 @@ instance, you can define a workspace where all windows are drawn without borders
 or gaps.
 
 For layout-specific rules, see the specific layout page. For example:
-[Master Layout->Workspace Rules](../Master-Layout#workspace-rules).
+[Master Layout->Workspace Rules](../Layouts/Master-Layout#workspace-rules).
 
 ## Syntax
 

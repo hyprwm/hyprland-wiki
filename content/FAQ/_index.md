@@ -53,7 +53,7 @@ by fractional amounts.
 To force them to run in native Wayland mode, see
 [the Master Tutorial](../Getting-Started/Master-Tutorial/#force-apps-to-use-wayland).
 
-If they can't, see [the XWayland page](../Configuring/XWayland).
+If they can't, see [the XWayland page](../Configuring/Advanced-and-Cool/XWayland).
 
 ### My external monitor is blank / doesn't render / receives no signal (laptop)
 
@@ -296,7 +296,7 @@ taste.
 
 ### How do I export envvars for Hyprland?
 
-See [Environment Variables](../Configuring/Environment-variables)
+See [Environment Variables](../Configuring/Advanced-and-Cool/Environment-variables)
 
 The `env` keyword is used for this purpose. For example:
 
@@ -457,11 +457,11 @@ This means you have no hyprcursor theme installed, and hyprland failed to find a
 
 ### Smart gaps please?
 
-[Here](../Configuring/Workspace-Rules/#smart-gaps).
+[Here](../Configuring/Basics/Workspace-Rules/#smart-gaps).
 
 ### Hyprwinwrap is not visible through blurred windows
 
-This is a side effect of the [decoration:blur:new_optimizations](../Configuring/Variables/#blur).
+This is a side effect of the [decoration:blur:new_optimizations](../Configuring/Basics/Variables/#blur).
 You have two options to resolve it.
 1. Set `decoration:blur:new_optimizations` to `false` - This will preserve the exact same appearance, but may have a slight performance cost.
 2. Set `decoration:blur:ignore_opacity` to `false` - This will drastically affect the appearance, but should maintain the original performance.

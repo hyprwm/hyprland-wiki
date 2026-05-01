@@ -174,4 +174,4 @@ end)
 It's recommended to use Lua. Lua will be faster, less buggy, have more APIs,
 and is more integrated.
 
-However, if you want to use IPC instead, check the [IPC](../../IPC/) page.
+However, if you want to use IPC instead, check the [IPC](../../IPC) page.

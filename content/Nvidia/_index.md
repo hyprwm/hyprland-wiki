@@ -230,7 +230,7 @@ If you experience issues with multi-monitor setup on a hybrid graphics device
 Nvidia doesn't support important features for Multi-GPU which can result in a broken or slow setup.
 There are some workarounds to try:
 
-1. Try changing the primary GPU [with the AQ_DRM_DEVICES environment variable](https://wiki.hypr.land/Configuring/Multi-GPU/#telling-hyprland-which-gpu-to-use).
+1. Try changing the primary GPU [with the AQ_DRM_DEVICES environment variable](../Configuring/Advanced-and-Cool/Multi-GPU/#telling-hyprland-which-gpu-to-use).
 2. Try setting the environment variable `AQ_FORCE_LINEAR_BLIT=0` to not force linear modifiers on Multi-GPU buffers.
 
 This might slow down rendering to secondary monitors and make Hyprland a bit laggy on them,

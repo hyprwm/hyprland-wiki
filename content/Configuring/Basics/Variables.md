@@ -55,7 +55,7 @@ the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 | resize_on_border | enables resizing windows by clicking and dragging on borders and gaps | bool | false |
 | extend_border_grab_area | extends the area around the border where you can click and drag on, only used when `general:resize_on_border` is on. | int | 15 |
 | hover_icon_on_border | show a cursor icon when hovering over borders, only used when `general:resize_on_border` is on. | bool | true |
-| allow_tearing | master switch for allowing tearing to occur. See [the Tearing page](../Tearing). | bool | false |
+| allow_tearing | master switch for allowing tearing to occur. See [the Tearing page](../Advanced-and-Cool/Tearing). | bool | false |
 | resize_corner | force floating windows to use a specific corner when being resized (1-4 going clockwise from top left, 0 to disable) | int | 0 |
 | modal_parent_blocking | whether parent windows of modals will be interactive | bool | true |
 | locale | overrides the system locale (e.g. en_US, es) | str | \[\[Empty\]\] |
@@ -154,7 +154,7 @@ _Subcategory `decoration.glow.`_
 | workspace_wraparound | enable workspace wraparound, causing directional workspace animations to animate as if the first and last workspaces were adjacent | bool | false |
 
 > [!NOTE]
-> _[More about Animations](../../advanced-and-cool/Animations)._
+> _[More about Animations](../Advanced-and-Cool/Animations)._
 
 ### Input
 
@@ -312,7 +312,7 @@ _Subcategory `gestures.`_
 > [!NOTE]
 > `workspace_swipe`, `workspace_swipe_fingers` and `workspace_swipe_min_fingers` were removed in favor of the new gestures system.
 > 
-> You can add this gesture config to replicate the swiping functionality with 3 fingers. See the [gestures](../Gestures) page for more info.
+> You can add this gesture config to replicate the swiping functionality with 3 fingers. See the [gestures](../Advanced-and-Cool/Gestures) page for more info.
 > 
 > ```ini
 > gesture = 3, horizontal, workspace
@@ -460,7 +460,7 @@ _Subcategory `xwayland.`_
 | enabled | allow running applications using X11 | bool | true |
 | use_nearest_neighbor | uses the nearest neighbor filtering for xwayland apps, making them pixelated rather than blurry | bool | true |
 | force_zero_scaling | forces a scale of 1 on xwayland windows on scaled displays. | bool | false |
-| create_abstract_socket | Create the [abstract Unix domain socket](../XWayland/#abstract-unix-domain-socket) for XWayland connections. (XWayland restart is required for changes to take effect; Linux only) | bool | false |
+| create_abstract_socket | Create the [abstract Unix domain socket](../Advanced-and-Cool/XWayland/#abstract-unix-domain-socket) for XWayland connections. (XWayland restart is required for changes to take effect; Linux only) | bool | false |
 
 ### OpenGL
 
@@ -527,11 +527,11 @@ _Subcategory `cursor.`_
 
 _Subcategory `ecosystem.`_
 
-| name | description | type | default |
-| --- | --- | --- | --- |
+| name | description                                                              | type | default |
+| --- |--------------------------------------------------------------------------| --- | --- |
 | no_update_news | disable the popup that shows up when you update hyprland to a new version. | bool | false |
-| no_donation_nag | disable the popup that shows up twice a year encouraging to donate. | bool | false |
-| enforce_permissions | whether to enable [permission control](../Permissions). | bool | false |
+| no_donation_nag | disable the popup that shows up twice a year encouraging to donate.      | bool | false |
+| enforce_permissions | whether to enable [permission control](../Advanced-and-Cool/Permissions).                  | bool | false |
 
 ### Quirks
 
