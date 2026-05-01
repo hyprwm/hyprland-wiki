@@ -16,7 +16,7 @@ XWayland currently looks pixelated on HiDPI screens, due to Xorg's inability to
 scale.
 
 This problem is mitigated by the
-[`hl.config({ xwayland = { force_zero_scaling = true } })`](../Variables/#xwayland) option,
+[`hl.config({ xwayland = { force_zero_scaling = true } })`](../../Basics/Variables/#xwayland) option,
 which forces XWayland windows not to be scaled.
 
 This will get rid of the pixelated look, but will not scale applications
@@ -53,7 +53,7 @@ for some kinds of sandboxes like Flatpak. However, removing the abstract socket
 has [potential](https://gitlab.gnome.org/GNOME/mutter/-/issues/1613) security
 and compatibility issues.
 
-Keeping that in mind, we add the [`xwayland:create_abstract_socket`](../Variables/#xwayland) option.
+Keeping that in mind, we add the [`xwayland:create_abstract_socket`](../../Basics/Variables/#xwayland) option.
 When the abstract socket is disabled, only the regular Unix domain
 socket will be created.
 

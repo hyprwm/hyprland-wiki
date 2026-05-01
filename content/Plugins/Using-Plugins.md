@@ -30,7 +30,7 @@ manual instructions, see [here](#manual).
 ### hyprpm
 
 > [!NOTE]
-> If you are using [permission management](../../Configuring/Permissions),
+> If you are using [permission management](../../Configuring/Advanced-and-Cool/Permissions),
 > you should allow hyprpm to load plugins by adding this to your config:
 > 
 > ```ini

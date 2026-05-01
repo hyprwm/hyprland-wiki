@@ -190,7 +190,7 @@ hl.bind("SUPER + Q", hl.dsp.exec_cmd("kitty"), { description = "Open my favourit
 ```
 
 If you want to access your description you can use `hyprctl binds`.  
-For more information have a look at [Using Hyprctl](../Using-hyprctl).
+For more information have a look at [Using Hyprctl](../../Advanced-and-Cool/Using-hyprctl).
 
 ### Per-Device Binds
 
@@ -313,7 +313,7 @@ hl.bind("SUPER + SHIFT + A", hl.dsp.global("coolApp:myToggle"))
 
 > [!NOTE]
 > Please note that this function will _only_ work with
-> [XDPH](../../Hypr-Ecosystem/xdg-desktop-portal-hyprland).
+> [XDPH](../../../Hypr-Ecosystem/xdg-desktop-portal-hyprland).
 
 ## Submaps
 
@@ -471,7 +471,7 @@ Variants are set per layout.
 > and the first letter on the first row while the `fr` layout is active.
 
 You can also bind a key to execute `hyprctl switchxkblayout` for more keybind
-freedom. See [Using hyprctl](../Using-hyprctl).
+freedom. See [Using hyprctl](../../Advanced-and-Cool/Using-hyprctl).
 
 To find the valid layouts and `kb_options`, you can check out the
 `/usr/share/X11/xkb/rules/base.lst`. For example:
