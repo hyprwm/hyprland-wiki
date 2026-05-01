@@ -8,7 +8,7 @@ title: Environment variables
 > Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
 
 > [!NOTE]
-> [uwsm](../../Useful-Utilities/Systemd-start) users should avoid placing environment variables in the `hyprland.lua` file.  
+> [uwsm](../../../Useful-Utilities/Systemd-start) users should avoid placing environment variables in the `hyprland.lua` file.  
 > Instead, use `~/.config/uwsm/env` for theming, xcursor, Nvidia and toolkit variables, and `~/.config/uwsm/env-hyprland` for `HYPR*` and `AQ_*` variables.  
 > The format is `export KEY=VAL`.
 > 
@@ -71,7 +71,7 @@ If your [desktop portal](https://wiki.archlinux.org/title/XDG_Desktop_Portal) is
 no reason (no errors), it's likely your XDG env isn't set correctly.
 
 > [!NOTE]
-> [uwsm](../../Useful-Utilities/Systemd-start) users don't need to explicitly set XDG environment variables, as uwsm sets them automatically.
+> [uwsm](../../../Useful-Utilities/Systemd-start) users don't need to explicitly set XDG environment variables, as uwsm sets them automatically.
 
 ## Qt Variables
 
@@ -121,5 +121,5 @@ To force GBM as a backend, set the following environment variables:
   tools such as lxappearance or nwg-look.
 - `XCURSOR_THEME` - Set your cursor theme. The theme needs to be installed and
   readable by your user.
-- `XCURSOR_SIZE` - Set cursor size. See [here](../../FAQ/) for why you might
+- `XCURSOR_SIZE` - Set cursor size. See [here](../../../FAQ) for why you might
   want this variable set.

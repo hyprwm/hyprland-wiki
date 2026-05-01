@@ -31,7 +31,7 @@ Dispatch is a shorthand for `eval 'hl.dispatch(...)'`:
 hyprctl dispatch 'hl.dsp.focus({ workspace = "3" })'
 ```
 
-See [Dispatchers](../Dispatchers) for a list of dispatchers.
+See [Dispatchers](../../Basics/Dispatchers) for a list of dispatchers.
 
 ### reload
 
@@ -173,7 +173,7 @@ Gets a property value of a window.
 hyprctl getprop [window] [property]
 ```
 
-Where `window` is as described [here](../Dispatchers#parameter-explanation), and `property` is any which can be set with [setprop](../Dispatchers/#setprop).
+Where `window` is as described [here](../../Basics/Dispatchers#parameter-explanation), and `property` is any which can be set with [setprop](../../Basics/Dispatchers/#setprop).
 
 #### Notes
 - If `animationstyle` is unset, `(unset)` is returned.
@@ -264,7 +264,7 @@ hyprctl getoption general.border_size
 hyprctl getoption input.touchpad.disable_while_typing
 ```
 
-See [Variables](../Variables) for sections and options you can use.
+See [Variables](../../Basics/Variables) for sections and options you can use.
 
 ## Batch
 

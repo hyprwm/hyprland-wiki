@@ -96,7 +96,7 @@ crucial things to make Wayland / Hyprland / other apps work correctly.
 
 ## Monitors config
 
-See [Configuring Hyprland page](../../Configuring/Monitors) to learn all about
+See [Configuring Hyprland page](../../Configuring/Basics/Monitors) to learn all about
 configuring your displays.
 
 ## Apps / X11 replacements
@@ -141,7 +141,7 @@ For most electron apps, you should put the above in
 it.
 
 A few more environment variables for forcing Wayland mode are documented
-[here](../../Configuring/Environment-variables).
+[here](../../Configuring/Advanced-and-Cool/Environment-variables).
 
 You can check whether an app is running in xwayland or not with
 `hyprctl clients`.
