@@ -27,13 +27,15 @@ For more info regarding configuration, see
 Type `waybar` into your terminal. In order to have Waybar launch alongside
 Hyprland, add this line to your Hyprland configuration:
 
-```ini
-exec-once = waybar
+```lua
+hl.on("hyprland.start", function()
+  hl.exec_cmd("waybar")
+end)
 ```
 
 Waybar also provides a systemd service. If you use Hyprland with [uwsm](../../Useful-Utilities/Systemd-start), you can enable it, using the following command.
 
-```ini
+```sh
 systemctl --user enable --now waybar.service
 ```
 
@@ -308,7 +310,7 @@ and a [guided hello world](https://quickshell.outfoxxed.me/docs/configuration/in
 
 ### Blur
 
-Use the `blur` and `ignore_alpha` [layer rules](https://wiki.hypr.land/Configuring/Window-Rules/#layer-rules). 
+Use the `blur` and `ignore_alpha` [layer rules](../../Configuring/Basics/Window-Rules/#layer-rules).
 The former enables blur, and the latter makes it ignore insufficiently opaque regions. 
 Ideally, the value used with `ignore_alpha` is higher than the shadow opacity and lower than the bar/menu content's opacity. 
 Additionally, if it has transparent popups, you can use the `blur_popups` rule.

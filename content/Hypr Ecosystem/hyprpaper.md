@@ -74,7 +74,7 @@ wallpaper {
 
 ### Run at Startup
 
-To run hypridle at startup, edit `hyprland.lua` and add: 
+To run hyprpaper at startup, edit `hyprland.lua` and add:
 ```lua
 hl.on("hyprland.start", function()
   hl.exec_cmd("hyprpaper")
