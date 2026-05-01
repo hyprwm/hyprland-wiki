@@ -74,7 +74,12 @@ wallpaper {
 
 ### Run at Startup
 
-To run hyprpaper at startup edit `hyprland.conf` and add: `exec-once = hyprpaper`.  
+To run hypridle at startup, edit `hyprland.lua` and add: 
+```lua
+hl.on("hyprland.start", function()
+  hl.exec_cmd("hyprpaper")
+end)
+```
 If you start Hyprland with [uwsm](../../Useful-Utilities/Systemd-start), you can also use the `systemctl --user enable --now hyprpaper.service` command.
 
 ### Misc Options

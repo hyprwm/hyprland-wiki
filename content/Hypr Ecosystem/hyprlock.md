@@ -85,13 +85,31 @@ Variables in the `animations` category:
 | enabled | whether to enable animations | bool | `true` |
 
 #### Keywords
+The `bezier` and `animation` keywords can be used to define animations and bezier curves. 
 
-The `animation` and `bezier` keywords can be used to define animations and bezier curves. 
+##### Bezier
 
 ```ini
 bezier = NAME, X0, Y0, X1, Y1
+```
+where `NAME` is the name of the bezier curve, and `X0, Y0, X1, Y1` are the two control points for a Cubic Bézier curve. 
+
+
+##### Animation
+
+```ini
 animation = NAME, ONOFF, SPEED, CURVE
 ```
+
+where: 
+
+`NAME` is the name of the animation, 
+
+`ONOFF` is either `0` for disabled or `1` for enabled,
+
+`SPEED` is the amount of ds (1ds = 100ms) the animation will take and 
+
+`CURVE` is the bezier curve name.
 
 For Example:
 ```ini
@@ -100,7 +118,7 @@ animation = fade, 1, 1.8, linear
 ```
 
 Available animations can be found in the [animation tree](#animation-tree).
-The optional `STYLE` parameter for the `animation` keyword is currently unused by hyprlock.
+The optional `STYLE` parameter for the `animation` keyword that you might be familiar with from Hyprland is currently unused by hyprlock.
 
 #### Animation Tree
 
@@ -131,7 +149,7 @@ The following keys and key-combinations describe hyprlock's default behaviour:
 | `Ctrl + u` | Clear password buffer |
 | `Ctrl + Backspace` | Clear password buffer |
 
-The [bind flag](../../Configuring/Binds/#bind-flags) `l` can be used to allow specific hyprland keybinds to also work while hyprlock is active (e.g. brightness/volume/media control).
+The [bind flag](../../Configuring/Basics/Binds/#bind-flags) `locked` can be used to allow specific hyprland keybinds to also work while hyprlock is active (e.g. brightness/volume/media control).
 
 ## Widgets
 
@@ -150,7 +168,7 @@ widget_name {
 It takes the same string that is used to reference monitors in the hyprland configuration.
 So either use the portname (e.g. `eDP-1`) or the monitor description (e.g. `desc:Chimei Innolux Corporation 0x150C`).
 
-See [Monitors](../../Configuring/Monitors).
+See [Monitors](../../Configuring/Basics/Monitors).
 
 ### Variable Substitution
 The following variables in widget text options will be substituted.
@@ -233,7 +251,7 @@ If `path` is `screenshot`, a screenshot of your desktop at launch will be used.
 
 > [!NOTE]
 > Blur options are taken from hyprland.
-> See [Variables/#blur](../../Configuring/Variables/#blur).
+> See [Variables/#blur](../../Configuring/Basics/Variables/#blur).
 
 {{% details title="Example background" closed="true" %}}
 
