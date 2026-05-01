@@ -24,5 +24,5 @@ Dispatcher `hl.dsp.layout(msg)` params:
 
 | name | description | params |
 | --- | --- | --- |
-| cyclenext | cycle to the next window | none | 
-| cycleprev | cycle to the previous window | none | 
+| cyclenext | cycle to the next window | none |
+| cycleprev | cycle to the previous window | none |

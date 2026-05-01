@@ -10,7 +10,7 @@ or a script. It should automatically be installed along with Hyprland.
 > _hyprctl_ calls will be dispatched by the compositor _synchronously_, meaning
 > any spam of the utility will cause slowdowns. It's recommended to use `--batch`
 > for many control calls, and limiting the amount of info calls.
-> 
+>
 > For live event handling, see the [events](../Expanding-functionality/#events).
 
 ## Commands
@@ -31,7 +31,7 @@ Dispatch is a shorthand for `eval 'hl.dispatch(...)'`:
 hyprctl dispatch 'hl.dsp.focus({ workspace = "3" })'
 ```
 
-See [Dispatchers](../Dispatchers) for a list of dispatchers.
+See [Dispatchers](../../Basics/Dispatchers) for a list of dispatchers.
 
 ### reload
 
@@ -140,13 +140,13 @@ hyprctl switchxkblayout at-translated-set-2-keyboard next
 > other, xkb parameters can still be blank, however the amount of comma-separated
 > parameters have to match. Alternatively, a single parameter can be specified for
 > it to apply to all three.
-> 
+>
 > ```lua
 > hl.config({
 >   input = {
 >     kb_layout = "pl,us,ru",
->      kb_variant = "dvorak,,",
->      kb_options = "caps:ctrl_modifier"
+>     kb_variant = "dvorak,,",
+>     kb_options = "caps:ctrl_modifier"
 >   }
 > })
 > ```
@@ -173,7 +173,7 @@ Gets a property value of a window.
 hyprctl getprop [window] [property]
 ```
 
-Where `window` is as described [here](../Dispatchers#parameter-explanation), and `property` is any which can be set with [setprop](../Dispatchers/#setprop).
+Where `window` is as described [here](../../Basics/Dispatchers#parameter-explanation), and `property` is any which can be set with [setprop](../../Basics/Dispatchers/#setprop).
 
 #### Notes
 - If `animationstyle` is unset, `(unset)` is returned.
@@ -264,7 +264,7 @@ hyprctl getoption general.border_size
 hyprctl getoption input.touchpad.disable_while_typing
 ```
 
-See [Variables](../Variables) for sections and options you can use.
+See [Variables](../../Basics/Variables) for sections and options you can use.
 
 ## Batch
 

@@ -13,7 +13,7 @@ installed, enabled and running if you don't have them yet.
 
 Ensure that the `bitdepth` set in your configuration 
 matches that of your physical monitor.
-See [Monitors](../../Configuring/Monitors).
+See [Monitors](../../Configuring/Basics/Monitors).
 
 ## Screensharing
 
@@ -37,16 +37,16 @@ the same effect. See
 [this issue](https://invent.kde.org/system/xwaylandvideobridge/-/issues/1) for
 more information. For example:
 
-```ini
-windowrule {
-    name = xwayland-video-bridge-fixes
-    match:class = xwaylandvideobridge
+```lua
+hl.window_rule({
+  name = "xwayland-video-bridge-fixes",
+  match = { class = "xwaylandvideobridge" },
 
-    no_initial_focus = true
-    no_focus = true
-    no_anim = true
-    no_blur = true
-    max_size = 1 1
-    opacity = 0.0
-}
+  no_initial_focus = true,
+  no_focus = true,
+  no_anim = true,
+  no_blur = true,
+  max_size = { 1, 1 },
+  opacity = "0.0"
+})
 ```

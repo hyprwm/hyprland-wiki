@@ -28,7 +28,7 @@ the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 | css_gaps | an integer, or `{ top?, left?, right?, bottom? }` |
 
 > [!NOTE] **Colors**
-> 
+>
 > You have 3 options:
 > - rgba(), e.g. `rgba(b3ff1aee)`, or the decimal equivalent `rgba(179,255,26,0.933)`
 > (decimal rgba/rgb values should have no spaces between numbers)
@@ -55,7 +55,7 @@ the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 | resize_on_border | enables resizing windows by clicking and dragging on borders and gaps | bool | false |
 | extend_border_grab_area | extends the area around the border where you can click and drag on, only used when `general:resize_on_border` is on. | int | 15 |
 | hover_icon_on_border | show a cursor icon when hovering over borders, only used when `general:resize_on_border` is on. | bool | true |
-| allow_tearing | master switch for allowing tearing to occur. See [the Tearing page](../Tearing). | bool | false |
+| allow_tearing | master switch for allowing tearing to occur. See [the Tearing page](../../Advanced-and-Cool/Tearing). | bool | false |
 | resize_corner | force floating windows to use a specific corner when being resized (1-4 going clockwise from top left, 0 to disable) | int | 0 |
 | modal_parent_blocking | whether parent windows of modals will be interactive | bool | true |
 | locale | overrides the system locale (e.g. en_US, es) | str | \[\[Empty\]\] |
@@ -114,7 +114,7 @@ _Subcategory `decoration.blur.`_
 
 > [!NOTE]
 > `blur.size` and `blur.passes` have to be at least 1.
-> 
+>
 > Increasing `blur.passes` is necessary to prevent blur looking wrong on higher
 > `blur.size` values, but remember that higher `blur.passes` will require more
 > strain on the GPU.
@@ -154,7 +154,7 @@ _Subcategory `decoration.glow.`_
 | workspace_wraparound | enable workspace wraparound, causing directional workspace animations to animate as if the first and last workspaces were adjacent | bool | false |
 
 > [!NOTE]
-> _[More about Animations](../../advanced-and-cool/Animations)._
+> _[More about Animations](../../Advanced-and-Cool/Animations)._
 
 ### Input
 
@@ -171,7 +171,7 @@ _Subcategory `decoration.glow.`_
 | repeat_rate | The repeat rate for held-down keys, in repeats per second. | int | 25 |
 | repeat_delay | Delay before a held-down key is repeated, in milliseconds. | int | 600 |
 | sensitivity | Sets the mouse input sensitivity. Value is clamped to the range -1.0 to 1.0. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) | float | 0.0 |
-| accel_profile | Sets the cursor acceleration profile. Can be one of `adaptive`, `flat`. Can also be `custom`, see [below](#custom-accel-profiles). Leave empty to use `libinput`'s default mode for your input device. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) [adaptive/flat/custom]| str | \[\[Empty\]\] |
+| accel_profile | Sets the cursor acceleration profile. Can be one of `adaptive`, `flat`. Can also be `custom`, see [below](#accel-profiles). Leave empty to use `libinput`'s default mode for your input device. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) [adaptive/flat/custom]| str | \[\[Empty\]\] |
 | force_no_accel | Force no cursor acceleration. This bypasses most of your pointer settings to get as raw of a signal as possible. **Enabling this is not recommended due to potential cursor desynchronization.** | bool | false |
 | rotation | Sets the rotation of a device in degrees clockwise off the logical neutral position. Value is clamped to the range 0 to 359. | int | 0 |
 | left_handed | Switches RMB and LMB | bool | false |
@@ -197,7 +197,7 @@ _Subcategory `decoration.glow.`_
 > [`/usr/share/X11/xkb/rules/evdev.lst`](file:///usr/share/X11/xkb/rules/evdev.lst).
 > Alternatively, you can use the `localectl` command to discover what is available
 > on your system.
-> 
+>
 > For switchable keyboard configurations, take a look at
 > [the binds page entry](../Binds/#switchable-keyboard-layouts).
 
@@ -210,24 +210,24 @@ _Subcategory `decoration.glow.`_
 >   a window will not change keyboard focus.
 
 > [!NOTE] **Custom Accel Profiles**
-> 
+>
 > #### `accel_profile`
-> 
+>
 > `custom <step> <points...>`
-> 
+>
 > Example: `custom 200 0.0 0.5`
-> 
+>
 > #### `scroll_points`
-> 
+>
 > NOTE: Only works when `accel_profile` is set to `custom`.
-> 
+>
 > `<step> <points...>`
-> 
+>
 > Example: `0.2 0.0 0.5 1 1.2 1.5`
-> 
+>
 > To mimic the Windows acceleration curves, take a look at
 > [this script](https://gist.github.com/fufexan/de2099bc3086f3a6c83d61fc1fcc06c9).
-> 
+>
 > See
 > [the libinput doc](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html)
 > for more insights on how it works.
@@ -308,15 +308,6 @@ _Subcategory `gestures.`_
 | workspace_swipe_forever | if enabled, swiping will not clamp at the neighboring workspaces but continue to the further ones. | bool | false |
 | workspace_swipe_use_r | if enabled, swiping will use the `r` prefix instead of the `m` prefix for finding workspaces. | bool | false |
 | close_max_timeout | the timeout for a window to close when using a 1:1 gesture, in ms | int | 1000 |
-
-> [!NOTE]
-> `workspace_swipe`, `workspace_swipe_fingers` and `workspace_swipe_min_fingers` were removed in favor of the new gestures system.
-> 
-> You can add this gesture config to replicate the swiping functionality with 3 fingers. See the [gestures](../Gestures) page for more info.
-> 
-> ```ini
-> gesture = 3, horizontal, workspace
-> ```
 
 ### Group
 
@@ -428,7 +419,7 @@ _Subcategory `layout.`_
 | name | description | type | default |
 |---|---|---|---|
 | single_window_aspect_ratio | whenever only a single window is shown on a screen, add padding so that it conforms to the specified aspect ratio. A value like `4 3` on a 16:9 screen will make it a 4:3 window in the middle with padding to the sides. | Vec2D | 0 0 |
-| single_window_aspect_ratio_tolerance | sets a tolerance for `single_window_aspect_ratio`, so that if the padding that would have been added is smaller than the specified fraction of the height or width of the screen, it will not attempt to adjust the window size [0 - 1] | int | 0.1 | 
+| single_window_aspect_ratio_tolerance | sets a tolerance for `single_window_aspect_ratio`, so that if the padding that would have been added is smaller than the specified fraction of the height or width of the screen, it will not attempt to adjust the window size [0 - 1] | int | 0.1 |
 
 ### Binds
 
@@ -453,18 +444,18 @@ _Subcategory `binds.`_
 
 ### XWayland
 
-_Subcategory `xwayland.`_ 
+_Subcategory `xwayland.`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
 | enabled | allow running applications using X11 | bool | true |
 | use_nearest_neighbor | uses the nearest neighbor filtering for xwayland apps, making them pixelated rather than blurry | bool | true |
 | force_zero_scaling | forces a scale of 1 on xwayland windows on scaled displays. | bool | false |
-| create_abstract_socket | Create the [abstract Unix domain socket](../XWayland/#abstract-unix-domain-socket) for XWayland connections. (XWayland restart is required for changes to take effect; Linux only) | bool | false |
+| create_abstract_socket | Create the [abstract Unix domain socket](../../Advanced-and-Cool/XWayland/#abstract-unix-domain-socket) for XWayland connections. (XWayland restart is required for changes to take effect; Linux only) | bool | false |
 
 ### OpenGL
 
-_Subcategory `opengl.`_ 
+_Subcategory `opengl.`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -472,7 +463,7 @@ _Subcategory `opengl.`_
 
 ### Render
 
-_Subcategory `render.`_ 
+_Subcategory `render.`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -496,7 +487,7 @@ _Subcategory `render.`_
 
 ### Cursor
 
-_Subcategory `cursor.`_ 
+_Subcategory `cursor.`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |

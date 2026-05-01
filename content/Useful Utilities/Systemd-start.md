@@ -50,7 +50,7 @@ For more info, read the [option](https://search.nixos.org/options?channel=unstab
 ## Launching Hyprland with uwsm
 
 > [!NOTE]
-> Pay attention to the warnings in [Environment variables](../../Configuring/Environment-variables), [Multi-GPU](../../Configuring/Multi-GPU) and [Dispatchers](../../Configuring/Dispatchers) sections.
+> Pay attention to the warnings in [Environment variables](../../Configuring/Advanced-and-Cool/Environment-variables), [Multi-GPU](../../Configuring/Advanced-and-Cool/Multi-GPU) and [Dispatchers](../../Configuring/Basics/Dispatchers) sections.
 
 ### In tty
 

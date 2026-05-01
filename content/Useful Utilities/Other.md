@@ -66,10 +66,12 @@ CDs or flash drives from userspace.
 Install `udiskie` via your package manager, or
 [build manually](https://github.com/coldfix/udiskie/wiki/installation)
 
-Head over to your `hyprland.conf` and add the following line:
+Head over to your `hyprland.lua` and add the following lines:
 
-```ini
-exec-once = udiskie
+```lua
+hl.on("hyprland.start", function()
+  hl.exec_cmd("udiskie")
+end)
 ```
 
 [See more uses here](https://github.com/coldfix/udiskie/wiki/Usage).

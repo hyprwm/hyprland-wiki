@@ -48,7 +48,7 @@ from the original gesture including direction, mods, fingers and scale.
 
 | action | Description | Additional arguments |
 | --- | --- | --- |
-| _lua function_ | Executes a named lua function or lua lambda function. See below. | none |
+| _lua function_ | Executes a named lua function or lua lambda function. [See below.](#lua-function) | none |
 | workspace | Workspace swipe gesture, for switching workspaces. | none |
 | move | Moves the active window. | none |
 | resize | Resizes the active window. | none |
@@ -110,11 +110,24 @@ hl.gesture({ fingers = 4, direction = "up", action = function() hl.exec_cmd("kit
 Toggle a special workspace with a 4-finger swipe down, only when holding SUPER, bypassing inhibitors:
 
 ```lua
-hl.gesture({ fingers = 4, direction = "down", mods = "SUPER", action = "special", arg = "scratchpad", disable_inhibit = true })
+hl.gesture({
+    fingers = 4,
+    direction = "down",
+    mods = "SUPER",
+    action = "special",
+    workspace_name = "scratchpad",
+    disable_inhibit = true
+})
 ```
 
 Zoom into the cursor with a pinch, using a multiplier instead of a fixed zoom level:
 
 ```lua
-hl.gesture({ fingers = 2, direction = "pinchin", action = "cursorZoom", arg = "2.0", arg2 = "mult" })
+hl.gesture({
+    fingers = 2,
+    direction = "pinchin",
+    action = "cursorZoom",
+    cursor_zoom = "2.0",
+    mode = "mult"
+})
 ```

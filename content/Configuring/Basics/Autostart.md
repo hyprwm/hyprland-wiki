@@ -10,7 +10,7 @@ title: Autostart
 Autostarting apps can be done by executing things on the `hyprland.start` event:
 
 ```lua
-hl.on("hyprland.start", function () 
+hl.on("hyprland.start", function ()
   hl.exec_cmd(terminal)
   hl.exec_cmd("nm-applet")
   hl.exec_cmd("waybar & hyprpaper & firefox")
@@ -21,4 +21,4 @@ end)
 
 In the same vein, you can spawn processes on exit by listening to `hyprland.shutdown`.
 
-See more about `hl.on` over at [Expanding Functionality](../Advanced%20and%20Cool/Expanding-functionality.md)
+See more about `hl.on` over at [Expanding Functionality](../../Advanced-and-Cool/Expanding-functionality/#events)

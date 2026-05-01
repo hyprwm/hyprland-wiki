@@ -23,7 +23,7 @@ will bind opening Firefox to <key>SUPER</key> + <key>SHIFT</key> + <key>Q</key>
 
 > [!NOTE]
 > For binding keys without a modkey, leave it empty:
-> 
+>
 > ```lua
 > hl.bind("Print", hl.dsp.exec_cmd("grim"))
 > ```
@@ -121,7 +121,7 @@ hl.bind("SUPER + mouse:272", hl.dsp.exec_cmd("amongus"))  -- bind `exec amogus` 
 ### Binding modkeys only
 
 To only bind modkeys, you need to use the TARGET modmask (with the
-activating mod) and the `r` flag, e.g.:
+activating mod) and the `repeating` flag, e.g.:
 
 ```lua
 -- bind `exec amongus` to SUPER + ALT.
@@ -176,7 +176,7 @@ end)
 
 ### Description
 
-You can describe your keybind with the `description` flag.  
+You can describe your keybind with the `description` flag.
 Your description always goes in the flags section.
 
 ```lua
@@ -189,14 +189,14 @@ For example:
 hl.bind("SUPER + Q", hl.dsp.exec_cmd("kitty"), { description = "Open my favourite terminal" })
 ```
 
-If you want to access your description you can use `hyprctl binds`.  
-For more information have a look at [Using Hyprctl](../Using-hyprctl).
+If you want to access your description you can use `hyprctl binds`.
+For more information have a look at [Using Hyprctl](../../Advanced-and-Cool/Using-hyprctl).
 
 ### Per-Device Binds
 
-You can set keybinds to be device specific with the `devices` flag.  
-Devices are provided in a whitespace separated list that goes in front of `dispatcher`.  
-An `!` can be prepended to the list to exclude the those devices, allowing all other devices to use that bind instead.
+You can set keybinds to be device specific with the `devices` flag.
+Devices are provided in a whitespace separated list that goes in front of `dispatcher`.
+`inclusive` can be set to `false` to exclude those devices, allowing all other devices to use that bind instead.
 
 ```lua
 hl.bind(keys, dispatcher(params), { device = { inclusive = true, list = { "device1", "device1" } } })
@@ -214,12 +214,12 @@ You can check device names with `hyprctl devices`.
 
 ## Mouse Binds
 
-These are binds that rely on mouse movement. They will have one less arg.  
+These are binds that rely on mouse movement. They will have one less arg.
 `hl.config.binds.drag_threshold` can be used to differentiate between clicks and drags with the same button:
 
 ```lua
 hl.config({
-    binds {
+    binds = {
         drag_threshold = 10 -- Fire a drag event only after dragging for more than 10px
     }
 })
@@ -243,7 +243,7 @@ MMB -> 274
 ```
 
 > [!NOTE]
-> Mouse binds, despite their name, behave like normal binds.  
+> Mouse binds, despite their name, behave like normal binds.
 > You are free to use whatever keys / mods you please. When held, the mouse function will be
 > activated.
 
@@ -266,8 +266,8 @@ hl.bind("SUPER + ALT_L", hl.dsp.window.resize(), { mouse = true })
 Yes, you heard this right, Hyprland does support global keybinds for _ALL_ apps,
 including OBS, Discord, Firefox, etc.
 
-See the [`pass`](../Dispatchers/#list-of-dispatchers) and
-[`sendshortcut`](../Dispatchers/#list-of-dispatchers) dispatchers for keybinds.
+See the [`pass`](../Dispatchers/#general) and
+[`sendshortcut`](../Dispatchers/#general) dispatchers for keybinds.
 
 Let's take OBS as an example: the "Start/Stop Recording" keybind is set to
 <key>SUPER</key> + <key>F10</key>, to make it work globally, simply add:
@@ -278,7 +278,7 @@ hl.bind("SUPER + F10", hl.dsp.pass("class:^(com\.obsproject\.Studio)$"))
 
 to your config and you're done.
 
-`pass` will pass the `PRESS` and `RELEASE` events by itself, no need for a `bindr`.  
+`pass` will pass the `PRESS` and `RELEASE` events by itself, no need for a `release = true`.
 This also means that push-to-talk will work flawlessly with one `pass`, e.g.:
 
 ```lua
@@ -292,16 +292,16 @@ hl.bind("SUPER + F10", hl.dsp.send_shortcut({ mods = "SUPER", key = "F4", window
 ```
 
 > [!WARNING]
-> This works flawlessly with all native Wayland applications, however, XWayland is a bit wonky.  
+> This works flawlessly with all native Wayland applications, however, XWayland is a bit wonky.
 > Make sure that what you're passing is a "global Xorg keybind", otherwise passing from a different XWayland app may not work.
 
 ### DBus Global Shortcuts
 
 Some applications may already support the GlobalShortcuts portal in
-xdg-desktop-portal.  
+xdg-desktop-portal.
 If that's the case, it's recommended to use the following method instead of `pass`:
 
-Open your desired app and run `hyprctl globalshortcuts` in a terminal.  
+Open your desired app and run `hyprctl globalshortcuts` in a terminal.
 This will give you a list of currently registered shortcuts with their description(s).
 
 Choose whichever you like, for example `coolApp:myToggle`, and bind it to
@@ -313,11 +313,11 @@ hl.bind("SUPER + SHIFT + A", hl.dsp.global("coolApp:myToggle"))
 
 > [!NOTE]
 > Please note that this function will _only_ work with
-> [XDPH](../../Hypr-Ecosystem/xdg-desktop-portal-hyprland).
+> [XDPH](../../../Hypr-Ecosystem/xdg-desktop-portal-hyprland).
 
 ## Submaps
 
-Keybind submaps allow you to activate aseparate set of keybinds.  
+Keybind submaps allow you to activate aseparate set of keybinds.
 For example, if you want to enter a `resize` _mode_ that allows you to resize windows with the arrow keys, you can do it like this:
 
 ```lua
@@ -343,8 +343,8 @@ end)
 
 > [!WARNING]
 > Do not forget a keybind (`escape`, in this case) to reset the keymap while inside it!
-> 
-> If you get stuck inside a keymap, you can use `hyprctl dispatch 'hl.dsp.submap("reset")'` to go back.  
+>
+> If you get stuck inside a keymap, you can use `hyprctl dispatch 'hl.dsp.submap("reset")'` to go back.
 > If you do not have a terminal open, open a new tty and use the --instance flag to select which instanceof hyprland to operate on (if you only have one running this is 0). For example: `hyprctl dispatch --instace 0 'hl.dsp.submap("reset")'`
 
 You can also set the same keybind to perform multiple actions, such as resize
@@ -397,12 +397,12 @@ hl.define_submap(main_submap, function()
 
             hl.bind("SHIFT + escape", hl.dsp.submap("reset"))
             hl.bind("escape", hl.dsp.submap("main_submap"))
-        
+
         -- /nested_two
         end)
     -- /nested_one
     end)
-    
+
     hl.bind("escape", hl.dsp.submap("reset"))
 -- /main_submap
 end)
@@ -429,7 +429,7 @@ end)
 ### Catch-All
 
 You can also define a keybind via the special `catchall` keyword, which
-activates no matter which key is pressed.  
+activates no matter which key is pressed.
 This can be used to prevent any keys from passing to your active application
 while in a submap or to exit it immediately when any unknown key is pressed:
 
@@ -458,20 +458,20 @@ Variants are set per layout.
 > [!WARNING]
 > The first layout defined in the input section will be the one used for binds by
 > default.
-> 
+>
 > For example: `us,ua` -> config binds would be e.g. `"SUPER + A"`, while on `ua,us`
 > -> `"SUPER + Cyrillic_ef`
-> 
+>
 > You can change this behavior globally or per-device by setting
 > `resolve_binds_by_sym = 1`. In that case, binds will activate when the symbol
 > typed matches the symbol specified in the bind.
-> 
+>
 > For example: if your layouts are `us,fr` and have a bind for `"SUPER + A"` you'd
 > need to press the first letter on the second row while the `us` layout is active
 > and the first letter on the first row while the `fr` layout is active.
 
 You can also bind a key to execute `hyprctl switchxkblayout` for more keybind
-freedom. See [Using hyprctl](../Using-hyprctl).
+freedom. See [Using hyprctl](../../Advanced-and-Cool/Using-hyprctl).
 
 To find the valid layouts and `kb_options`, you can check out the
 `/usr/share/X11/xkb/rules/base.lst`. For example:
@@ -494,7 +494,7 @@ grep 'grp:.*toggle' /usr/share/X11/xkb/rules/base.lst
 
 ### Workspace bindings on non-QWERTY layouts
 
-Keys used for keybinds need to be accessible without any modifiers in your layout.  
+Keys used for keybinds need to be accessible without any modifiers in your layout.
 For instance, the [French AZERTY](https://en.wikipedia.org/wiki/AZERTY) layout uses <key>SHIFT</key> + _`unmodified key`_ to write `0-9` numbers. As such, the workspace keybinds for this layout need to use the names of the _`unmodified keys`_ , and will not work when using the `0-9` numbers.
 
 > [!NOTE]
@@ -526,7 +526,7 @@ hyprctl eval 'hl.unbind("SUPER + O")'
 
 > [!NOTE]
 > In `unbind`, key is case-sensitive It must exactly match the case of the `bind` you are unbinding.
-> 
+>
 > ```lua
 > hl.bind("SUPER + TAB", hl.focus.workspace("e+1"))
 > hl.unbind("SUPER + Tab") -- this will NOT unbind
