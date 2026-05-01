@@ -28,7 +28,7 @@ the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 | css_gaps | an integer, or `{ top?, left?, right?, bottom? }` |
 
 > [!NOTE] **Colors**
-> 
+>
 > You have 3 options:
 > - rgba(), e.g. `rgba(b3ff1aee)`, or the decimal equivalent `rgba(179,255,26,0.933)`
 > (decimal rgba/rgb values should have no spaces between numbers)
@@ -114,7 +114,7 @@ _Subcategory `decoration.blur.`_
 
 > [!NOTE]
 > `blur.size` and `blur.passes` have to be at least 1.
-> 
+>
 > Increasing `blur.passes` is necessary to prevent blur looking wrong on higher
 > `blur.size` values, but remember that higher `blur.passes` will require more
 > strain on the GPU.
@@ -197,7 +197,7 @@ _Subcategory `decoration.glow.`_
 > [`/usr/share/X11/xkb/rules/evdev.lst`](file:///usr/share/X11/xkb/rules/evdev.lst).
 > Alternatively, you can use the `localectl` command to discover what is available
 > on your system.
-> 
+>
 > For switchable keyboard configurations, take a look at
 > [the binds page entry](../Binds/#switchable-keyboard-layouts).
 
@@ -210,24 +210,24 @@ _Subcategory `decoration.glow.`_
 >   a window will not change keyboard focus.
 
 > [!NOTE] **Custom Accel Profiles**
-> 
+>
 > #### `accel_profile`
-> 
+>
 > `custom <step> <points...>`
-> 
+>
 > Example: `custom 200 0.0 0.5`
-> 
+>
 > #### `scroll_points`
-> 
+>
 > NOTE: Only works when `accel_profile` is set to `custom`.
-> 
+>
 > `<step> <points...>`
-> 
+>
 > Example: `0.2 0.0 0.5 1 1.2 1.5`
-> 
+>
 > To mimic the Windows acceleration curves, take a look at
 > [this script](https://gist.github.com/fufexan/de2099bc3086f3a6c83d61fc1fcc06c9).
-> 
+>
 > See
 > [the libinput doc](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html)
 > for more insights on how it works.
@@ -419,7 +419,7 @@ _Subcategory `layout.`_
 | name | description | type | default |
 |---|---|---|---|
 | single_window_aspect_ratio | whenever only a single window is shown on a screen, add padding so that it conforms to the specified aspect ratio. A value like `4 3` on a 16:9 screen will make it a 4:3 window in the middle with padding to the sides. | Vec2D | 0 0 |
-| single_window_aspect_ratio_tolerance | sets a tolerance for `single_window_aspect_ratio`, so that if the padding that would have been added is smaller than the specified fraction of the height or width of the screen, it will not attempt to adjust the window size [0 - 1] | int | 0.1 | 
+| single_window_aspect_ratio_tolerance | sets a tolerance for `single_window_aspect_ratio`, so that if the padding that would have been added is smaller than the specified fraction of the height or width of the screen, it will not attempt to adjust the window size [0 - 1] | int | 0.1 |
 
 ### Binds
 
@@ -444,7 +444,7 @@ _Subcategory `binds.`_
 
 ### XWayland
 
-_Subcategory `xwayland.`_ 
+_Subcategory `xwayland.`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -455,7 +455,7 @@ _Subcategory `xwayland.`_
 
 ### OpenGL
 
-_Subcategory `opengl.`_ 
+_Subcategory `opengl.`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -463,7 +463,7 @@ _Subcategory `opengl.`_
 
 ### Render
 
-_Subcategory `render.`_ 
+_Subcategory `render.`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -487,7 +487,7 @@ _Subcategory `render.`_
 
 ### Cursor
 
-_Subcategory `cursor.`_ 
+_Subcategory `cursor.`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
@@ -522,7 +522,7 @@ _Subcategory `ecosystem.`_
 | --- | --- | --- | --- |
 | no_update_news | disable the popup that shows up when you update hyprland to a new version. | bool | false |
 | no_donation_nag | disable the popup that shows up twice a year encouraging to donate. | bool | false |
-| enforce_permissions | whether to enable [permission control](../../Advanced-and-CoolPermissions). | bool | false |
+| enforce_permissions | whether to enable [permission control](../Permissions). | bool | false |
 
 ### Quirks
 

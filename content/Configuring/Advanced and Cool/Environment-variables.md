@@ -8,14 +8,14 @@ title: Environment variables
 > Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
 
 > [!NOTE]
-> [uwsm](../../../Useful-Utilities/Systemd-start) users should avoid placing environment variables in the `hyprland.lua` file.  
-> Instead, use `~/.config/uwsm/env` for theming, xcursor, Nvidia and toolkit variables, and `~/.config/uwsm/env-hyprland` for `HYPR*` and `AQ_*` variables.  
+> [uwsm](../../../Useful-Utilities/Systemd-start) users should avoid placing environment variables in the `hyprland.lua` file.
+> Instead, use `~/.config/uwsm/env` for theming, xcursor, Nvidia and toolkit variables, and `~/.config/uwsm/env-hyprland` for `HYPR*` and `AQ_*` variables.
 > The format is `export KEY=VAL`.
-> 
+>
 > ```plain
 > export XCURSOR_SIZE=24
 > ```
-> 
+>
 > See [uwsm readme](https://github.com/Vladimir-csp/uwsm?tab=readme-ov-file#4-environments-and-shell-profile) for additional information.
 
 You can use the `hl.env()` method to set environment variables prior to the
@@ -26,7 +26,7 @@ hl.env("GTK_THEME", "Nord")
 ```
 
 > [!WARNING]
-> Please avoid putting those environment variables in `/etc/environment`.  
+> Please avoid putting those environment variables in `/etc/environment`.
 > That will cause all sessions (including Xorg ones) to pick up your Wayland-specific
 > environment on traditional Linux distros.
 

@@ -109,10 +109,10 @@ A monitor. Can be:
 | `move({ into_group, direction })` | move a window into a group in a direction |
 | `move({ into_or_create_group, direction })` | move a window into a group in a direction, or create a group |
 | `move({ out_of_group })` | move a window out of a group. `true` for directionless, direction for a direction |
-| `swap({ direction })` | swap the current window with another one in a given direction | 
-| `swap({ target })` | swap the current window with another one | 
-| `swap({ next })` | swap the current window with the next one | 
-| `swap({ prev })` | swap the current window with the previous one | 
+| `swap({ direction })` | swap the current window with another one in a given direction |
+| `swap({ target })` | swap the current window with another one |
+| `swap({ next })` | swap the current window with the next one |
+| `swap({ prev })` | swap the current window with the previous one |
 | `center({ window? })` | center the current window on screen |
 | `cycle_next({ next?, tiled?, floating?, window? })` | focus the next window |
 | `tag({ tag, window? })` | tag a window |
@@ -143,12 +143,12 @@ A monitor. Can be:
 | method | description |
 | --- | --- |
 | `toggle({ window? })` | toggle a group |
-| `next({ window? })` | switch to the next window in a group | 
-| `prev({ window? })` | switch to the previous window in a group | 
-| `active({ index, window? })` | switch to a window in a group, indexed | 
-| `move_window({ forward?, window? })` | move a window in the group order | 
-| `lock({ action?, window? })` | lock a group | 
-| `lock_active({ action? })` | lock the active group | 
+| `next({ window? })` | switch to the next window in a group |
+| `prev({ window? })` | switch to the previous window in a group |
+| `active({ index, window? })` | switch to a window in a group, indexed |
+| `move_window({ forward?, window? })` | move a window in the group order |
+| `lock({ action?, window? })` | lock a group |
+| `lock_active({ action? })` | lock the active group |
 
 ### Cursor
 
@@ -161,13 +161,13 @@ A monitor. Can be:
 
 > [!WARNING]
 > [uwsm](../../../Useful-Utilities/Systemd-start) users should avoid using `exit` dispatcher, or terminating Hyprland process directly, as exiting Hyprland this way removes it from under its clients and interferes with ordered shutdown sequence. Use `exec, uwsm stop` (or [other variants](https://github.com/Vladimir-csp/uwsm#how-to-stop)) which will gracefully bring down graphical session (and login session bound to it, if any). If you experience problems with units entering inconsistent states, affecting subsequent sessions, use `exec, loginctl terminate-user ""` instead (terminates all units of the user).
-> 
+>
 > It's also strongly advised to replace the `exit` dispatcher inside `hyprland.conf` keybinds section accordingly.
 
 > [!WARNING]
 > It is NOT recommended to set DPMS or forceidle with a keybind directly, as it
 > might cause undefined behavior. Instead, consider something like
-> 
+>
 > ```lua
 > hl.bind("...", function()
 >                  hl.timer(function()
@@ -221,7 +221,7 @@ You have nine choices:
 
 > [!WARNING]
 > Numerical workspaces (e.g. `1`, `2`, `13371337`) are allowed **ONLY** between 1
-> and 2147483647 (inclusive).  
+> and 2147483647 (inclusive).
 > Neither `0` nor negative numbers are allowed.
 
 ## Special Workspace
@@ -250,7 +250,7 @@ Some props are expanded from their window rule parents which take multiple argum
 
 ### Fullscreenstate
 
-The `fullscreen_state` dispatcher decouples the state that Hyprland maintains for a window from the fullscreen state that is communicated to the client.  
+The `fullscreen_state` dispatcher decouples the state that Hyprland maintains for a window from the fullscreen state that is communicated to the client.
 
 `internal` is a reference to the state maintained by Hyprland.
 
@@ -266,8 +266,8 @@ The `fullscreen_state` dispatcher decouples the state that Hyprland maintains fo
 
 For example:
 
-`2 0` Fullscreens the application and keeps the client in non-fullscreen mode.  
+`2 0` Fullscreens the application and keeps the client in non-fullscreen mode.
 
-This can be used to prevent Chromium-based browsers from going into presentation mode when they detect they have been fullscreened.  
+This can be used to prevent Chromium-based browsers from going into presentation mode when they detect they have been fullscreened.
 
 `0 2` Keeps the window non-fullscreen, but the client goes into fullscreen mode within the window.

@@ -73,9 +73,9 @@ There are 3 modes:
  - If you want to disable all keyboards not matching a regex, make a rule that sets `DENY` for `.*` _as the last keyboard permission rule_.
  - Why deny? Rubber duckies, malicious virtual / usb keyboards.
 
-`cursorpos`:                                                                                        
+`cursorpos`:
  - Default: **ASK**
- - Access to your cursor position and cursor image via Wayland protocols directly.                                                           
+ - Access to your cursor position and cursor image via Wayland protocols directly.
  - Why deny? Prevents apps from silently tracking where your cursor is without going through xdg-desktop-portal.
 
 ## Notes
@@ -106,7 +106,7 @@ hl.permission({ binary = "${pkgs.xdg-desktop-portal-hyprland}/libexec/.xdg-deskt
 
 On some **BSD** systems paths might not work. In such cases, you might want to disable permissions altogether, by setting
 ```lua
-hl.config({ 
+hl.config({
   ecosystem = {
     enforce_permissions = false
   }

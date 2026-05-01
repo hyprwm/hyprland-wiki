@@ -10,7 +10,7 @@ or a script. It should automatically be installed along with Hyprland.
 > _hyprctl_ calls will be dispatched by the compositor _synchronously_, meaning
 > any spam of the utility will cause slowdowns. It's recommended to use `--batch`
 > for many control calls, and limiting the amount of info calls.
-> 
+>
 > For live event handling, see the [events](../Expanding-functionality/#events).
 
 ## Commands
@@ -140,7 +140,7 @@ hyprctl switchxkblayout at-translated-set-2-keyboard next
 > other, xkb parameters can still be blank, however the amount of comma-separated
 > parameters have to match. Alternatively, a single parameter can be specified for
 > it to apply to all three.
-> 
+>
 > ```lua
 > hl.config({
 >   input = {

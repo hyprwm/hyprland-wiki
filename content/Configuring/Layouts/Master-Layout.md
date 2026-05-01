@@ -65,7 +65,7 @@ Parameters for the commands are separated by a single space.
 
 > [!NOTE]
 > Example usage:
-> 
+>
 > ```lua
 > hl.bind(KEYS, hl.dsp.layout("cyclenext"))
 > -- behaves like xmonads promote feature (https://hackage.haskell.org/package/xmonad-contrib-0.17.1/docs/XMonad-Actions-Promote.html)

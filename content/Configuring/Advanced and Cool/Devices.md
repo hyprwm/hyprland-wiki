@@ -46,6 +46,6 @@ Additional properties only present in per-device configs:
 > Per-device layouts will by default not alter the keybind keymap, so for example
 > with a global keymap of `us` and a per-device one of `fr`, the keybinds will
 > still act as if you were on `us`.
-> 
+>
 > You can change this behavior by setting `resolve_binds_by_sym = 1`. In that case
 > you'll need to type the symbol specified in the bind to activate it.
