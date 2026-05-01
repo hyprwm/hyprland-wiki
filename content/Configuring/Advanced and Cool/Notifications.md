@@ -30,4 +30,4 @@ From hyprctl, you can create a notification with the `hyprctl notify` command:
 hyprctl notify [ICON] [TIME_MS] [COLOR] [MESSAGE]
 ```
 
-See more in [Using Hyprctl](/Configuring/Using-hyprctl/#notify)
+See more in [Using Hyprctl](../Using-hyprctl/#notify)

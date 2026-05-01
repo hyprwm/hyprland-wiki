@@ -76,7 +76,14 @@ profile {
 
 ## Usage
 
-To autostart hyprsunset, add: `exec-once = hyprsunset` to your `hyprland.conf`.
+To autostart hyprsunset, add:
+```lua 
+hl.on("hyprland.start", function()
+  hl.exec_cmd("hyprsunset")
+end)
+```
+to your `hyprland.lua`.
+
 Alternatively, use `systemctl --user enable --now hyprsunset.service` in order to use hyprsunset as a systemd user service.
 
 Hyprsunset can also be controlled by supplying arguments to the command.  
@@ -113,9 +120,9 @@ hyprctl hyprsunset profile
 
 This can be used by other software to change the temperature throughout the day, or to adjust perceieved
 monitor brightness, such as with the following Hyprland keybinds:
-```ini
-bindel = ,XF86MonBrightnessDown, exec, hyprctl hyprsunset gamma -10
-bindel = ,XF86MonBrightnessUp, exec, hyprctl hyprsunset gamma +10
+```lua
+hl.bind("XF86MonBrightnessDown", hl.exec_cmd("hyprctl hyprsunset gamma -10"), { repeating = true, locked = true })
+hl.bind("XF86MonBrightnessUp", hl.exec_cmd("hyprctl hyprsunset gamma +10"), { repeating = true, locked = true })
 ```
 
 > [!WARNING]

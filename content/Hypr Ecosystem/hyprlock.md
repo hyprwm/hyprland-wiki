@@ -40,7 +40,7 @@ The first match is used. You can also specify an explicit path with `hyprlock --
 
 ### Variable Types
 
-Hyprlock uses the following types in addition to [Hyprland's variable types](../../Configuring/Variables#Variable_types).
+Hyprlock uses the following types in addition to [Hyprland's variable types](../../Configuring/Basics/Variables#variable-types).
 
 | type | description |
 | -- | -- |
@@ -86,7 +86,12 @@ Variables in the `animations` category:
 
 #### Keywords
 
-The `animation` and `bezier` keywords can be used just like in `hyprland.conf`.
+The `animation` and `bezier` keywords can be used to define animations and bezier curves. 
+
+```ini
+bezier = NAME, X0, Y0, X1, Y1
+animation = NAME, ONOFF, SPEED, CURVE
+```
 
 For Example:
 ```ini
@@ -96,8 +101,6 @@ animation = fade, 1, 1.8, linear
 
 Available animations can be found in the [animation tree](#animation-tree).
 The optional `STYLE` parameter for the `animation` keyword is currently unused by hyprlock.
-
-Check out Hyprland's [animation documentation](../../Configuring/Animations) for more information.
 
 #### Animation Tree
 

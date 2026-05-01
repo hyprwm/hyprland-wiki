@@ -8,7 +8,7 @@ title: hyprqt6engine
 ## Usage
 
 Install, then set `QT_QPA_PLATFORMTHEME=hyprqt6engine`.  
-You can set this as `env=` in Hyprland, or in `/etc/environment` for setting it system-wide.
+You can set this with `hl.env()` in Hyprland, or in `/etc/environment` for setting it system-wide.
 
 ## Configuration
 

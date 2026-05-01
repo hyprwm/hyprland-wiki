@@ -121,7 +121,7 @@ hl.bind("SUPER + mouse:272", hl.dsp.exec_cmd("amongus"))  -- bind `exec amogus` 
 ### Binding modkeys only
 
 To only bind modkeys, you need to use the TARGET modmask (with the
-activating mod) and the `r` flag, e.g.:
+activating mod) and the `repeating` flag, e.g.:
 
 ```lua
 -- bind `exec amongus` to SUPER + ALT.
@@ -190,13 +190,13 @@ hl.bind("SUPER + Q", hl.dsp.exec_cmd("kitty"), { description = "Open my favourit
 ```
 
 If you want to access your description you can use `hyprctl binds`.  
-For more information have a look at [Using Hyprctl](../Using-hyprctl).
+For more information have a look at [Using Hyprctl](../../Advanced-and-Cool/Using-hyprctl).
 
 ### Per-Device Binds
 
 You can set keybinds to be device specific with the `devices` flag.  
 Devices are provided in a whitespace separated list that goes in front of `dispatcher`.  
-An `!` can be prepended to the list to exclude the those devices, allowing all other devices to use that bind instead.
+`inclusive` can be set to `false` to exclude those devices, allowing all other devices to use that bind instead.
 
 ```lua
 hl.bind(keys, dispatcher(params), { device = { inclusive = true, list = { "device1", "device1" } } })
@@ -219,7 +219,7 @@ These are binds that rely on mouse movement. They will have one less arg.
 
 ```lua
 hl.config({
-    binds {
+    binds = {
         drag_threshold = 10 -- Fire a drag event only after dragging for more than 10px
     }
 })
@@ -266,8 +266,8 @@ hl.bind("SUPER + ALT_L", hl.dsp.window.resize(), { mouse = true })
 Yes, you heard this right, Hyprland does support global keybinds for _ALL_ apps,
 including OBS, Discord, Firefox, etc.
 
-See the [`pass`](../Dispatchers/#list-of-dispatchers) and
-[`sendshortcut`](../Dispatchers/#list-of-dispatchers) dispatchers for keybinds.
+See the [`pass`](../Dispatchers/#general) and
+[`sendshortcut`](../Dispatchers/#general) dispatchers for keybinds.
 
 Let's take OBS as an example: the "Start/Stop Recording" keybind is set to
 <key>SUPER</key> + <key>F10</key>, to make it work globally, simply add:
@@ -278,7 +278,7 @@ hl.bind("SUPER + F10", hl.dsp.pass("class:^(com\.obsproject\.Studio)$"))
 
 to your config and you're done.
 
-`pass` will pass the `PRESS` and `RELEASE` events by itself, no need for a `bindr`.  
+`pass` will pass the `PRESS` and `RELEASE` events by itself, no need for a `release = true`.  
 This also means that push-to-talk will work flawlessly with one `pass`, e.g.:
 
 ```lua
@@ -313,7 +313,7 @@ hl.bind("SUPER + SHIFT + A", hl.dsp.global("coolApp:myToggle"))
 
 > [!NOTE]
 > Please note that this function will _only_ work with
-> [XDPH](../../Hypr-Ecosystem/xdg-desktop-portal-hyprland).
+> [XDPH](../../../Hypr-Ecosystem/xdg-desktop-portal-hyprland).
 
 ## Submaps
 
@@ -471,7 +471,7 @@ Variants are set per layout.
 > and the first letter on the first row while the `fr` layout is active.
 
 You can also bind a key to execute `hyprctl switchxkblayout` for more keybind
-freedom. See [Using hyprctl](../Using-hyprctl).
+freedom. See [Using hyprctl](../../Advanced-and-Cool/Using-hyprctl).
 
 To find the valid layouts and `kb_options`, you can check out the
 `/usr/share/X11/xkb/rules/base.lst`. For example:

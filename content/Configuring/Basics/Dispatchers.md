@@ -45,7 +45,7 @@ If no window is provided, the active window is used.
 A workspace. Can be:
  - workspace object
  - workspace ID
- - workspace selector, see [below]({{< relref "#workspace selectors" >}})
+ - workspace selector, see [below](#workspace-selectors)
 
 #### Direction
 
@@ -86,7 +86,7 @@ A monitor. Can be:
 | `layout(message)` | send a layout message as a string |
 | `dpms({ action?, monitor? })` | toggle monitors on/off (not physically, as in idle-screensaver.) |
 | `event(string)` | send an event to socket2. |
-| `global(string)` | activate a dbus global shortcut. See [Binds > Global Shortcuts](../Binds#DBus-Global-Shortcuts) |
+| `global(string)` | activate a dbus global shortcut. See [Binds > Global Shortcuts](../Binds#dbus-global-shortcuts) |
 | `force_idle(seconds)` | sets elapsed time for all idle timers, ignoring idle inhibitors. Timers return to normal behavior upon the next activity. Do not use with a keybind directly. |
 
 ### Window
@@ -160,7 +160,7 @@ A monitor. Can be:
 | `move({ x, y })` | move the cursor to agiven coordinate |
 
 > [!WARNING]
-> [uwsm](../../Useful-Utilities/Systemd-start) users should avoid using `exit` dispatcher, or terminating Hyprland process directly, as exiting Hyprland this way removes it from under its clients and interferes with ordered shutdown sequence. Use `exec, uwsm stop` (or [other variants](https://github.com/Vladimir-csp/uwsm#how-to-stop)) which will gracefully bring down graphical session (and login session bound to it, if any). If you experience problems with units entering inconsistent states, affecting subsequent sessions, use `exec, loginctl terminate-user ""` instead (terminates all units of the user).
+> [uwsm](../../../Useful-Utilities/Systemd-start) users should avoid using `exit` dispatcher, or terminating Hyprland process directly, as exiting Hyprland this way removes it from under its clients and interferes with ordered shutdown sequence. Use `exec, uwsm stop` (or [other variants](https://github.com/Vladimir-csp/uwsm#how-to-stop)) which will gracefully bring down graphical session (and login session bound to it, if any). If you experience problems with units entering inconsistent states, affecting subsequent sessions, use `exec, loginctl terminate-user ""` instead (terminates all units of the user).
 > 
 > It's also strongly advised to replace the `exit` dispatcher inside `hyprland.conf` keybinds section accordingly.
 
