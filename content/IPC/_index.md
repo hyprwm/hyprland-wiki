@@ -15,7 +15,7 @@ echo $HYPRLAND_INSTANCE_SIGNATURE
 ## `$XDG_RUNTIME_DIR/hypr/[HIS]/.socket.sock`
 
 Used for hyprctl-like requests. See the
-[Hyprctl page](../Configuring/Using-hyprctl) for commands.
+[Hyprctl page](../Configuring/Advanced-and-Cool/Using-hyprctl) for commands.
 
 basically, write `[flag(s)]/command args`.
 
