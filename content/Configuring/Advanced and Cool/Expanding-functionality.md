@@ -70,30 +70,165 @@ Event list:
 ### Convenience functions
 
 Hyprland exposes a bunch of convenience functions:
- - `hl.get_config()`
- - `hl.get_active_window()`
- - `hl.get_windows()`
- - `hl.get_window(selector)`
- - `hl.get_urgent_window()`
- - `hl.get_workspaces()`
- - `hl.get_workspace(selector)`
- - `hl.get_active_workspace()`
- - `hl.get_active_special_workspace()`
- - `hl.get_monitors()`
- - `hl.get_monitor(selector)`
- - `hl.get_active_monitor()`
- - `hl.get_monitor_at({ x = num, y = num })`
- - `hl.get_monitor_at_cursor()`
- - `hl.get_cursor_pos()`
- - `hl.get_last_window()`
- - `hl.get_last_workspace()`
- - `hl.get_layers()`
- - `hl.get_workspace_windows(workspace_selector)`
- - `hl.get_current_submap()`
- - `hl.version()`
- - `hl.exec_cmd()`
+ - `hl.get_config()` --> `any`, `string?`
+ - `hl.get_active_window()` --> `HL.Window`|`nil`
+ - `hl.get_windows()` --> `HL.Window[]`
+ - `hl.get_window(selector)` --> `HL.Window`|`nil`
+ - `hl.get_urgent_window()` --> `HL.Window`|`nil`
+ - `hl.get_workspaces()` --> `HL.Workspace[]`
+ - `hl.get_workspace(selector)` --> `HL.Workspace`|`nil`
+ - `hl.get_active_workspace()` --> `HL.Workspace`|`nil`
+ - `hl.get_active_special_workspace()` --> `HL.Workspace`|`nil`
+ - `hl.get_monitors()` --> `HL.Monitor[]`
+ - `hl.get_monitor(selector)` --> `HL.Monitor`|`nil`
+ - `hl.get_active_monitor()` --> `HL.Monitor`|`nil`
+ - `hl.get_monitor_at({ x = num, y = num })` --> `HL.Monitor`|`nil`
+ - `hl.get_monitor_at_cursor()` --> `HL.Monitor`|`nil`
+ - `hl.get_cursor_pos()` --> `HL.Vec2`|`nil`
+ - `hl.get_last_window()` --> `HL.Window`|`nil`
+ - `hl.get_last_workspace()` --> `HL.Workspace`|`nil`
+ - `hl.get_layers()` --> `HL.LayerSurface[]`
+ - `hl.get_workspace_windows(workspace_selector)` --> `HL.Window[]`
+ - `hl.get_current_submap()` --> `string`
+ - `hl.version()` --> `any`
+ - `hl.exec_cmd()` --> `nil`
 
 
+
+#### Convenience functions class reference 
+
+
+<details>
+<summary><code>HL.Vec2</code></summary>
+
+
+
+| Field | Type |
+| :--- | :--- |
+| `x` | `number` |
+| `y` | `number` |
+
+
+</details>
+
+
+<details>
+
+<summary><code>HL.Window</code></summary>
+
+| Field | Type |
+| :--- | :--- |
+| `accepts_input` | `boolean` |
+| `active` | `boolean \| nil` |
+| `address` | `string` |
+| `at` | `integer \| table` |
+| `class` | `string` |
+| `content_type` | `string` |
+| `floating` | `boolean` |
+| `focus_history_id` | `integer` |
+| `fullscreen` | `integer` |
+| `fullscreen_client` | `integer` |
+| `group` | `HL.Group \| nil` |
+| `hidden` | `boolean` |
+| `inhibiting_idle` | `boolean` |
+| `initial_class` | `string` |
+| `initial_title` | `string` |
+| `layout` | `HL.Window \| boolean \| integer \| number \| string \| table \| nil` |
+| `mapped` | `boolean` |
+| `monitor` | `HL.Monitor \| nil` |
+| `over_fullscreen` | `boolean` |
+| `pid` | `integer` |
+| `pinned` | `boolean` |
+| `size` | `integer \| table` |
+| `stable_id` | `integer` |
+| `swallowing` | `HL.Window \| nil` |
+| `tags` | `string \| table` |
+| `title` | `string` |
+| `visible` | `boolean` |
+| `workspace` | `HL.Workspace \| nil` |
+| `xdg_description` | `string \| nil` |
+| `xdg_tag` | `string \| nil` |
+| `xwayland` | `boolean` |
+
+</details>
+
+
+<details>
+
+<summary><code>HL.Workspace</code></summary>
+
+| Field | Type |
+| :--- | :--- |
+| `get_groups` | `HL.Group[]` |
+| `get_windows` | `HL.Window[]` |
+| `active` | `boolean` |
+| `config_name` | `string` |
+| `fullscreen_mode` | `integer` |
+| `fullscreen_window` | `HL.Window \| nil` |
+| `groups` | `integer \| nil` |
+| `has_fullscreen` | `boolean` |
+| `has_urgent` | `boolean` |
+| `id` | `integer` |
+| `is_empty` | `boolean` |
+| `is_persistent` | `boolean` |
+| `last_window` | `HL.Window \| nil` |
+| `monitor` | `HL.Monitor \| nil` |
+| `name` | `string` |
+| `special` | `boolean` |
+| `tiled_layout` | `string` |
+| `visible` | `boolean` |
+| `windows` | `integer` |
+
+</details>
+
+
+<details>
+<summary><code>HL.Monitor</code></summary>
+
+| Field | Type |
+| :--- | :--- |
+| `active_special_workspace` | `HL.Workspace \| nil` |
+| `active_workspace` | `HL.Workspace \| nil` |
+| `description` | `string` |
+| `dpms_status` | `boolean` |
+| `focused` | `boolean \| nil` |
+| `height` | `integer` |
+| `id` | `integer` |
+| `is_mirror` | `boolean` |
+| `mirrors` | `HL.Monitor \| table` |
+| `name` | `string` |
+| `position` | `integer \| table` |
+| `refresh_rate` | `number` |
+| `scale` | `number` |
+| `size` | `integer \| table` |
+| `transform` | `integer` |
+| `vrr_active` | `boolean` |
+| `width` | `integer` |
+| `x` | `integer` |
+| `y` | `integer` |
+
+</details>
+
+
+<details>
+<summary><code>HL.LayerSurface</code></summary>
+
+| Field | Type |
+| :--- | :--- |
+| `above_fullscreen` | `boolean \| nil` |
+| `address` | `string` |
+| `h` | `integer` |
+| `interactivity` | `integer` |
+| `layer` | `integer` |
+| `mapped` | `boolean` |
+| `monitor` | `HL.Monitor \| nil` |
+| `namespace` | `string` |
+| `pid` | `integer` |
+| `w` | `integer` |
+| `x` | `integer` |
+| `y` | `integer` |
+
+</details>
 
 
 ### Dynamically changing a config option:
