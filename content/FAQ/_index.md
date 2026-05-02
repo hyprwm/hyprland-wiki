@@ -485,3 +485,10 @@ Add `exec-once=xrandr --output [MONITOR_ID] --primary` to your config, replacing
 
 By adding this to your hyprland config, it will set the default monitor for X11 applications to your main monitor.
 
+### My mouse cursor keeps escaping the game window!
+
+Whilst most games should be able to lock your cursor seamlessly, you can lock the cursor from Hyprland's side instead using the `confine_pointer` window rule. To apply this rule to all fullscreen apps with content type 'game', the below rule would suffice:
+
+```lua
+hl.window_rule({ match = { content = "game", fullscreen = true }, confine_pointer = true })
+```
