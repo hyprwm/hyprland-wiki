@@ -117,6 +117,7 @@ A monitor. Can be:
 | `center({ window? })` | center the current window on screen |
 | `cycle_next({ next?, tiled?, floating?, window? })` | focus the next window |
 | `tag({ tag, window? })` | tag a window |
+| `clear_tags({ window? })` | clear all tags from a window |
 | `toggle_swallow()` | toggle all swallowed windows visible |
 | `pin({ window? })` | pin a window |
 | `alter_zorder({ mode, window? })` | mode can be "top" or "bottom" |
