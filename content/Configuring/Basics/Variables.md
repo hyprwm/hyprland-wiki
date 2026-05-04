@@ -286,6 +286,17 @@ _Subcategory `input.tablet.`_
 | active_area_size | size of tablet's active area in mm | vec2 | [0, 0] |
 | active_area_position | position of the active area in mm | vec2 | [0, 0] |
 
+#### Tablettool
+
+_Subcategory `input.tablettool.`_
+
+| name | description | type | default |
+| --- | --- | --- | --- |
+| eraser_button_mode | Change the eraser button behavior on the tool. When set to `0`, use the default hardware behavior of the tool. When set to `1`, the eraser button on the tool sends a button event instead. | int | 0 |
+| eraser_button_override | Set a button to be button event when eraser_button_mode is set to `1`. Has to be an int, cannot be a string. Must be a valid button (e.g. BTN_STYLUS) excluding fake buttons (e.g. BTN_TOOL_*) and keys (KEY_*). Check wev if you have any doubts regarding the ID. `0` means default. | int | 0 |
+| pressure_range_min | Set the minimum pressure range for the tool, a negative number will set the default minimum pressure value. This is usually `0.0` | float | -1.0 |
+| pressure_range_max | Set the maximum pressure range for the tool, a negative number will set the default maximum pressure value. This is usually `1.0` | float | -1.0 |
+
 ### Per-device input config
 
 Described [here](../../Advanced-and-Cool/Devices).
