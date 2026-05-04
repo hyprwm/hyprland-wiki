@@ -11,7 +11,8 @@ not, as you might want to use something else.
 
 ### A notification daemon
 
-_Starting method:_ Automatically, via D-Bus activation, when a notification is emitted. Alternatively, `exec-once` entry inside `hyprland.conf` can be used. The latter might be preferable, if there are several notification daemons installed on your system.
+_Starting method:_ Automatically, via D-Bus activation, when a notification is emitted. Alternatively,
+autostart entry inside `hyprland.lua` can be used. The latter might be preferable, if there are several notification daemons installed on your system.
 
 Many apps (e.g. Discord) may freeze without one running.
 
@@ -49,7 +50,7 @@ See the [Hyprland Desktop Portal Page.](../../Hypr-Ecosystem/xdg-desktop-portal-
 
 ### Authentication Agent
 
-_Starting method:_ manual (`exec-once`)
+_Starting method:_ manual (autostart in config)
 
 Authentication agents are the things that pop up a window asking you for a
 password whenever an app wants to elevate its privileges.

@@ -25,11 +25,7 @@ For more info regarding configuration, see
 #### How to launch
 
 Type `waybar` into your terminal. In order to have Waybar launch alongside
-Hyprland, add this line to your Hyprland configuration:
-
-```ini
-exec-once = waybar
-```
+Hyprland, add `waybar` to your hyprland config's autostarts.
 
 Waybar also provides a systemd service. If you use Hyprland with [uwsm](../../Useful-Utilities/Systemd-start), you can enable it, using the following command.
 

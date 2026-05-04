@@ -51,13 +51,13 @@ This code can go in the `package` attribute of the NixOS/Home Manager modules.
 
 ### Setup
 
-Make a copy of your config in `~/.config/hypr` called `hyprlandd.conf`. `Debug`
-builds automatically use `hyprlandd.conf`, but you can also pass `--config ~/path/to/conf.conf`
+Make a copy of your config in `~/.config/hypr` called `hyprlandd.lua`. `Debug`
+builds automatically use `hyprlandd.lua`, but you can also pass `--config ~/path/to/conf.lua`
 for an override on release / different file.
 
 #### Recommended debug config changes
 
-- remove _all_ `exec=` or `exec-once=` directives from your config.
+- remove _all_ autoexec directives from your config.
 - change default modifier for binds (e.g. `SUPER` -> `ALT`)
 
 #### Launch the dev env

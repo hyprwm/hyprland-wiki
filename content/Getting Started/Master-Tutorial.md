@@ -84,8 +84,8 @@ You're good to go with your adventure, technically.
 
 Use <key>SUPER</key> + <key>Q</key> to launch kitty. If you wish to choose the
 default terminal before you proceed, you can do so in
-`~/.config/hypr/hyprland.conf`
-([example config](https://github.com/hyprwm/Hyprland/blob/main/example/hyprland.conf)).
+`~/.config/hypr/hyprland.lua`
+([example config](https://github.com/hyprwm/Hyprland/blob/main/example/hyprland.lua)).
 
 If you want the best experience with less hassle googling, keep reading.
 

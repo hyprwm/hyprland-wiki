@@ -24,11 +24,11 @@ Env:
 - `HYPRCURSOR_THEME` controls the theme.
 - `HYPRCURSOR_SIZE` controls the cursor size.
 
-example snippet of `hyprland.conf`:
+example snippet of `hyprland.lua`:
 
-```ini
-env = HYPRCURSOR_THEME,MyCursor
-env = HYPRCURSOR_SIZE,24
+```lua
+hl.env("HYPRCURSOR_THEME", "MyCursor")
+hl.env("HYPRCURSOR_SIZE", "24")
 ```
 
 ## Creating / Porting Themes

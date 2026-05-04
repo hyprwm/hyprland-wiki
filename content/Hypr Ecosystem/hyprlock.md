@@ -86,7 +86,7 @@ Variables in the `animations` category:
 
 #### Keywords
 
-The `animation` and `bezier` keywords can be used just like in `hyprland.conf`.
+The `animation` and `bezier` keywords can be used:
 
 For Example:
 ```ini
@@ -439,7 +439,7 @@ text = cmd[update:1000] echo "<span foreground='##ff2222'>$(date)</span>"
 > - `$ATTEMPTS[<string>]` format can be used to show `<string>` when there are no failed attempts.  
 You can use pango-markup here. `<string>` can be empty to hide.
 > - `$LAYOUT[<str0>,<str1>,...]` format is available to replace indexed layouts.  
-You can use settings from `hyprland.conf`, e.g. `$LAYOUT[en,ru,de]`.  
+You can use settings from `hyprland.lua`, e.g. `$LAYOUT[en,ru,de]`.  
 Also, a single `!` character will hide layout. E.g. `$LAYOUT[!]` will hide default (0 indexed) and show others.
 > - `$TIME` and `$TIME12` will use timezone from the TZ environment variable.  
 If it's not set, the system timezone will be used, falling back to UTC in case of errors.

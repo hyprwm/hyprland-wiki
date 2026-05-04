@@ -105,13 +105,6 @@ The concept of a session managed by Systemd implies also running applications as
 
 Prefix application startup commands with `uwsm app --`. It also supports launching Desktop Entries by IDs or paths. See `man uwsm` or `uwsm app --help`.
 
-Examples for autostart and bind entries:
-
-```
-exec-once = uwsm app -- mycommand --arg1 --arg2
-bind = SUPER, E, exec, uwsm app -- pcmanfm-qt.desktop
-```
-
 Faster alternatives are: 
 - `uwsm-app`: a shell client working with on-demand daemon, optional part of uwsm.
 - `app2unit`: ([link](https://github.com/Vladimir-csp/app2unit)), pure shell alternative, file opener, usually ahead on features.

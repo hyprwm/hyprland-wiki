@@ -9,7 +9,7 @@ title: hypridle
 
 Configuration is done via the config file at `~/.config/hypr/hypridle.conf`.  
 A config file is required; hypridle won't run without one.  
-To run hypridle at startup, edit `hyprland.conf` and add: `exec-once = hypridle`.  
+To run hypridle at startup, add `hypridle` to your autostart commands in your hyprland config.
 If Hyprland is started with [uwsm](../../Useful-Utilities/Systemd-start), you can use `systemctl --user enable --now hypridle.service`.
 
 ### General

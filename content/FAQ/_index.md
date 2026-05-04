@@ -60,7 +60,7 @@ If they can't, see [the XWayland page](../Configuring/Advanced-and-Cool/XWayland
 For Nvidia graphics - This issue appears to be resolved when using Nvidia
 Drivers 525.60.11 or later, but it may persist with older drivers.
 
-For systems with limited hardware (Ex. iGPU, USB-C, USB Hubs) - Set `env = AQ_NO_MODIFIERS,1` in your config.
+For systems with limited hardware (Ex. iGPU, USB-C, USB Hubs) - Set env `AQ_NO_MODIFIERS` to `1` in your config.
 To diagnose if you have the exact problem above you can get a [DRM log](https://wiki.hypr.land/Crashes-and-Bugs/#debugging-drm-issues) and look for
 
 ```plain
@@ -96,39 +96,12 @@ GitHub pages).
 
 If you want those screenshots to go directly to your clipboard, consider using
 `wl-copy`, from [`wl-clipboard`](https://github.com/bugaevc/wl-clipboard).
-Here's an example binding:
-`bind = , Print, exec, grim -g "$(slurp -d)" - | wl-copy` For a more complete
+Here's an example command to bind:
+`grim -g "$(slurp -d)" - | wl-copy` For a more complete
 utility, try our own screenshotting utility:
 [Grimblast](https://github.com/hyprwm/contrib).
 
-**Option 2:** You could use [hyprshot (unmaintained)](https://github.com/Gustash/Hyprshot) or a clone like [Hyprcap](https://github.com/alonso-herreros/hyprcap).
-
-**Option 3:** Install `flameshot`.
-
-Flameshot has many built-in features like allowing you to draw with a paintbrush,
-add lines, add shapes, etc.
-
-Flameshot was built originally for X and **it has many issues on Wayland** and users
-with HiDPI and multi-monitor setups have had mixed experiences with Flameshot.
-The options above are smoother and more native to Wayland. If you still want to
-use Flameshot, here are some configuration recommendations by users who've found
-workarounds.
-
-```ini
-# no_anim isn't necessary but animations with these rules might look bad. use at your own discretion.
-windowrule = match:class flameshot, no_anim
-windowrule = match:class flameshot, float
-windowrule = match:class flameshot, move 0 0
-windowrule = match:class flameshot, pin
-windowrule = match:class flameshot, no_initial_focus
-# set this to your leftmost monitor id, otherwise you have to move your cursor to the leftmost monitor
-# before executing flameshot
-windowrule = match:class flameshot, monitor 1
-
-# ctrl-c to copy from the flameshot gui gives warped images sometimes, but
-# setting the env fixes it
-bind = ..., exec, XDG_CURRENT_DESKTOP=sway flameshot gui
-```
+There are many screenshot tools out there, one search away in your favorite search engine.
 
 For recording videos, [wf-recorder](https://github.com/ammen99/wf-recorder),
 [wl-screenrec](https://github.com/russelltg/wl-screenrec) or
@@ -189,14 +162,14 @@ Be aware that they will not prevent tty-changing using Ctrl-Alt-F1...F7.
 See [hyprcursor](../Hypr-Ecosystem/hyprcursor)
 
 1. Set the GTK cursor using [nwg-look](https://github.com/nwg-piotr/nwg-look).
-2. Add `exec-once=hyprctl setcursor [THEME] [SIZE]` to your config and restart Hyprland.
+2. Add `hyprctl setcursor [THEME] [SIZE]` to your autoexecs in your config and restart Hyprland.
 
 If using flatpak, run `flatpak override --filesystem=~/.themes:ro --filesystem=~/.icons:ro --user` and put your themes in both `/usr/share/themes` and `~/.themes`, and put your icons and cursors in both `/usr/share/icons` and `~/.icons`.
 
 For Qt applications, Hyprland exports XCURSOR_SIZE as 24, which is the default.
 You can overwrite this by exporting XCURSOR_SIZE to a different value with `env`.
 
-You can also try running `gsettings set org.gnome.desktop.interface cursor-theme 'theme-name'` or adding it after `exec-once=` in your config.
+You can also try running `gsettings set org.gnome.desktop.interface cursor-theme 'theme-name'` or adding it after autoexecs in your config.
 
 If you do not want to install a GTK settings editor, change the config files according to the
 [XDG specification (Arch Wiki link)](https://wiki.archlinux.org/title/Cursor_themes#Configuration).
@@ -209,8 +182,8 @@ Make sure to also edit `~/.config/gtk-4.0/settings.ini` and `~/.gtkrc-2.0` if _n
 
 ### My \[program name\] is freezing
 
-Make sure you have a notification daemon running, for example `dunst`. Autostart
-it with the `exec-once` keyword.
+Make sure you have a notification daemon running, for example `dunst`. You can autostart them
+in the config.
 
 ### Waybar workspaces no worky???
 
@@ -223,46 +196,20 @@ Using the window rules to assign apps to workspaces, you can open a bunch of
 applications on various workspaces. The following method will start these apps
 silently (i.e. without the flickering from workspace to workspace).
 
-Put the following in your `hyprland.conf`: (example)
+Put the following in your `hyprland.lua`: (example)
 
-```ini
-exec-once = [workspace 1 silent] kitty
-exec-once = [workspace 1 silent] subl
-exec-once = [workspace 3 silent] mailspring
-exec-once = [workspace 4 silent] firefox
+```lua
+hl.on("hyprland.start", function ()
+  hl.exec_cmd("kitty")
+  hl.exec_cmd("dolphin")
+  hl.exec_cmd("dunst")
+  hl.exec_cmd("amongus", { workspace = "1" })
+end)
 ```
 
 ### How do I move my favorite workspaces to a new monitor when I plug it in?
 
-If you want workspaces to automatically go to a monitor upon connection, use the
-following:
-
-In hyprland.conf:
-
-```ini
-exec-once = handle_monitor_connect.sh
-```
-
-where `handle_monitor_connect.sh` is: (example)
-
-```sh {filename="handle_monitor_connect.sh"}
-#!/bin/sh
-
-handle() {
-  case $1 in monitoradded*)
-    hyprctl dispatch moveworkspacetomonitor "1 1"
-    hyprctl dispatch moveworkspacetomonitor "2 1"
-    hyprctl dispatch moveworkspacetomonitor "4 1"
-    hyprctl dispatch moveworkspacetomonitor "5 1"
-  esac
-}
-
-socat - "UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/${HYPRLAND_INSTANCE_SIGNATURE}/.socket2.sock" | while read -r line; do handle "$line"; done
-```
-
-This makes workspaces 1, 2, 4, and 5 go to monitor 1 when connecting it.
-
-Please note this requires `socat` to be installed.
+You can listen to the `monitor.added` event and move your workspaces there.
 
 ### My tablet no worky??
 
@@ -272,8 +219,10 @@ Until then, OTD is the way to go.
 
 ### Some of my apps take a really long time to open...?
 
-```ini {filename="~/.config/hypr/hyprland.conf"}
-exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+```lua {filename="~/.config/hypr/hyprland.lua"}
+hl.on("hyprland.start", function()
+  hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+end)
 ```
 
 Make sure that your portals launch _after_ this gets executed. For some people,
@@ -291,7 +240,7 @@ sleep 4
 /usr/lib/xdg-desktop-portal &
 ```
 
-launched with `exec-once` should fix all issues. Adjust the sleep durations to
+launched on start should fix all issues. Adjust the sleep durations to
 taste.
 
 ### How do I export envvars for Hyprland?
@@ -306,17 +255,7 @@ env = XDG_CURRENT_DESKTOP,Hyprland
 
 ### How to disable middle-click paste?
 
-Setting `misc:middle_click_paste` to `false` disables the feature altogether with the exception of some browsers (notably firefox) having a separate built-in way of emulating that feature which has to be disabled within the browser's settings.
-
-### How do I make Hyprland draw as little power as possible on my laptop?
-
-**_Useful Optimizations_**:
-
-- `decoration:blur:enabled = false` and `decoration:shadow:enabled = false` to disable
-  fancy but battery hungry effects.
-
-- `misc:vfr = true`, since it'll lower the amount of sent frames when nothing is
-  happening on-screen.
+Setting `misc.middle_click_paste` to `false` disables the feature altogether with the exception of some browsers (notably firefox) having a separate built-in way of emulating that feature which has to be disabled within the browser's settings.
 
 ### My apps take a long time to start / can't screenshare
 
@@ -326,16 +265,8 @@ You most likely have multiple portal impls / an impl is failing to launch.
 
 ### My screenshot utilities won't work with multiple screens
 
-Some programs like Flameshot (currently) have limited Wayland support, so on most
-Wayland compositors, you will have to do a few tweaks. For Hyprland, you can add
-these window rules to your config to make these programs work with both of your
-screens.
-
-```ini
-windowrule = match:title flameshot, float true
-windowrule = match:title flameshot, move 0 0
-windowrule = match:title flameshot, suppress_event fullscreen
-```
+Some programs like Flameshot (currently) have limited Wayland support, consider
+using one made for wayland natively.
 
 ### I cannot bind SUPER as my mod key on my laptop
 
@@ -356,58 +287,15 @@ This is expected, as Hyprland takes precedence.
 
 A simple fix is to create an empty "passthrough" submap:
 
-```ini
-bind = MOD,KEY,submap,passthru
-submap = passthru
-bind = SUPER,Escape,submap,reset
-submap = reset
+```lua
+hl.define_submap("passthru", function()
+  hl.bind("SUPER + Escape", hl.dsp.submap("reset"))
+end)
+hl.bind("...", hl.dsp.submap("passthru"))
 ```
-
-Set `MOD` and `KEY` to desired values.
 
 By pressing the selected combo, you will enter a mode where Hyprland ignores your
 keybinds and passes them on to the VM. Pressing `SUPER + Escape` will leave that mode.
-
-### Some of my drop-down/pop-up windows in apps disappear/don't open at cursor position
-
-In some apps like Steam or VSCode, the drop-down windows may disappear if you
-hover over them. This can be fixed with window rules.
-
-First, find the title and class of the pop-up window with `hyprctl clients`. You
-can try something like `sleep 3 && hyprctl clients` so you have time to open the
-pop-up. It should look something like this:
-
-```bash
-Window 55d794495400 -> :
-  ...
-  class: [CLASS here]
-  title: [TITLE here]
-  ...
-```
-
-If the pop-up disappears as you hover over it, you can add to your config:
-
-```ini
-windowrule = stay_focused, match:class CLASS, match:title TITLE
-```
-
-This has a downside of not being able to click on anything in the main UI until
-you've interacted with the pop-up.
-
-If the pop-up disappears immediately, you can use:
-
-```ini
-windowrule = min_size 1 1, match:class CLASS, match:title TITLE
-```
-
-If the pop-up doesn't open at the cursor position, try the following:
-
-```ini
-windowrule = move cursor_x cursor_y, match:class CLASS, match:title TITLE
-```
-
-This is required for apps running under xwayland only and there is usually no need
-to use the first solution if opening at the cursor position.
 
 ### Steam's file picker no worky
 
@@ -432,10 +320,10 @@ hyprctl monitors
 ```
 
 If you see a monitor that should not be there (usually named `Unknown-1`), you
-can work around the issue by adding in your `hyprland.conf`:
+can work around the issue by adding in your `hyprland.lua`:
 
-```ini
-monitor = Unknown-1,disabled
+```lua
+hl.monitor({ output = "Unknown-1", disabled = true })
 ```
 
 ### I get a .so file missing error on launch
@@ -459,16 +347,9 @@ This means you have no hyprcursor theme installed, and hyprland failed to find a
 
 [Here](../Configuring/Basics/Workspace-Rules/#smart-gaps).
 
-### Hyprwinwrap is not visible through blurred windows
-
-This is a side effect of the [decoration:blur:new_optimizations](../Configuring/Basics/Variables/#blur).
-You have two options to resolve it.
-1. Set `decoration:blur:new_optimizations` to `false` - This will preserve the exact same appearance, but may have a slight performance cost.
-2. Set `decoration:blur:ignore_opacity` to `false` - This will drastically affect the appearance, but should maintain the original performance.
-
 ### I can't create Discord binds
 
-You most likely have `env = ELECTRON_OZONE_PLATFORM_HINT, wayland` in your config.
+You most likely have `ELECTRON_OZONE_PLATFORM_HINT = wayland` in your config.
 
 Try running Discord like this `ELECTRON_OZONE_PLATFORM_HINT= discord`.
 
@@ -481,7 +362,7 @@ If it works, navigate to the Discord desktop entry (usually located in `/usr/sha
 
 The issue is likely the default monitor for X11 is not your desired primary monitor, to fix this, do the following:
 
-Add `exec-once=xrandr --output [MONITOR_ID] --primary` to your config, replacing [MONITOR_ID] with your main monitor's ID (e.g. DP-3). You can find your monitor ID by running `hyprctl monitors`.
+Add `xrandr --output [MONITOR_ID] --primary` to your autostarts in the config, replacing [MONITOR_ID] with your main monitor's ID (e.g. DP-3). You can find your monitor ID by running `hyprctl monitors`.
 
 By adding this to your hyprland config, it will set the default monitor for X11 applications to your main monitor.
 

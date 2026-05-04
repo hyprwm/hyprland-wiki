@@ -108,7 +108,7 @@ If XDPH is running, a Qt menu will pop up asking you what to share.
 XDPH will work on other wlroots compositors, but features available only on
 Hyprland will not work (e.g. window sharing).
 
-For a nuclear option, you can use this script and `exec-once` it:
+For a nuclear option, you can use this script and autostart it:
 
 ```sh
 #!/bin/sh
@@ -131,7 +131,7 @@ dbus-update-activation-environment --systemd --all
 systemctl --user import-environment QT_QPA_PLATFORMTHEME
 ```
 
-If it works, add it to your config in `exec-once`.
+If it works, add it to your config in autostarts.
 
 ## Using the KDE File Picker With XDPH
 

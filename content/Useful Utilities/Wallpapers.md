@@ -3,7 +3,7 @@ weight: 3
 title: Wallpapers
 ---
 
-Launch your wallpaper utility with `exec-once =`.
+Launch your wallpaper utility with hyprland config's autostarts.
 
 ## hyprpaper
 

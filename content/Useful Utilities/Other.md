@@ -51,7 +51,7 @@ for Hyprland's IPC written in Rust.
 
 ### Automatically Mounting Using `udiskie`
 
-_Starting method:_ manual ('exec-once')
+_Starting method:_ manual (autostart in hyprland config)
 
 USB mass storage devices, like thumb drives, mobile phones, digital cameras,
 etc. are not mounted automatically to the file system.
@@ -66,11 +66,7 @@ CDs or flash drives from userspace.
 Install `udiskie` via your package manager, or
 [build manually](https://github.com/coldfix/udiskie/wiki/installation)
 
-Head over to your `hyprland.conf` and add the following line:
-
-```ini
-exec-once = udiskie
-```
+Head over to your `hyprland.lua` and add `udiskie` to autostarts.
 
 [See more uses here](https://github.com/coldfix/udiskie/wiki/Usage).
 

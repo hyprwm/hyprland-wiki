@@ -76,7 +76,7 @@ profile {
 
 ## Usage
 
-To autostart hyprsunset, add: `exec-once = hyprsunset` to your `hyprland.conf`.
+To autostart hyprsunset, add: `hyprsunset` to your `hyprland.lua`'s autostart.
 Alternatively, use `systemctl --user enable --now hyprsunset.service` in order to use hyprsunset as a systemd user service.
 
 Hyprsunset can also be controlled by supplying arguments to the command.  
