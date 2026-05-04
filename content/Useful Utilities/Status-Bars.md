@@ -85,6 +85,17 @@ If you are using multiple monitors, you may want to insert the following option:
 - Has a pretty limited configuration options. It's a good and a bad thing at the same time. You can get a very decent result quickly and with a little effort, but some tricky waybar-alike tweaks are not possible.
 - Calendar is absent but in the [roadmap](https://github.com/MalpenZibo/ashell/issues/181)
 
+
+### Noctalia
+[Noctalia](https://noctalia.dev/) is a beautiful, minimal desktop shell for Wayland.
+
+- Built on a lean, modern stack with a calm, distinctive look you can tune to match your setup.
+- Extensive theming with predefined color schemes and automatic color generation from your wallpaper.
+- Notification system with history and Do Not Disturb.
+- Plugin support.
+- Built on Quickshell.
+
+
 #### Workaround for calendar
 
 ```toml
