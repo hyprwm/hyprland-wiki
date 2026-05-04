@@ -100,8 +100,8 @@ A monitor. Can be:
 | `kill(window?)` | Kill a window |
 | `signal({ signal, window? })` | send a signal to a window process |
 | `float({ action?, window? })` | set a window's floating state. |
-| `fullscreen({ mode?, action?, window? })` | set a window's fullscreen state. `mode` can be "maximized" and "fullscreen" |
-| `fullscreen_state({ internal, client, action?, window? })` | set a window's fullscreen state with more precision |
+| `fullscreen({ mode?, action?, window? })` | set a window's fullscreen state. `mode` can be "maximized" and "fullscreen". `action` can be `toggle`/`set`/`unset` |
+| `fullscreen_state({ internal, client, action?, window? })` | set a window's fullscreen state with more precision. `action` can be `toggle`/`set`/`unset` |
 | `pseudo({ action?, window? })` | set a window's pseudotiling state. |
 | `move({ direction })` | move a window in a direction |
 | `move({ workspace, follow? })` | move a window to a workspace |
