@@ -11,7 +11,7 @@ Make sure you have `pipewire`, `wireplumber` and
 [`xdg-desktop-portal-hyprland`](../../Hypr-Ecosystem/xdg-desktop-portal-hyprland)
 installed, enabled and running if you don't have them yet.
 
-Ensure that the `bitdepth` set in your configuration 
+Ensure that the `bitdepth` set in your configuration
 matches that of your physical monitor.
 See [Monitors](../../Configuring/Basics/Monitors).
 
