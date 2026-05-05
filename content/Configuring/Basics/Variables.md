@@ -375,6 +375,7 @@ _Subcategory `group.groupbar.`_
 | gaps_in | gap size between gradients | int | 2 |
 | gaps_out | gap size between gradients and window | int | 2 |
 | keep_upper_gap | add or remove upper gap | bool | true |
+| middle_click_close | whether middle clicking the groupbar closes the clicked window | bool | true |
 | blur | applies blur to the groupbar indicators and gradients | bool | false |
 
 ### Misc
