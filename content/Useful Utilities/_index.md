@@ -24,6 +24,8 @@ Hyprland working.
 
 - **[App Clients](./App-Clients)**
 
+- **[Phone connect](./Phone-connect)**
+
 - **[Color Pickers](./Color-Pickers)**
 
 - **[Clipboard Managers](./Clipboard-Managers)**
