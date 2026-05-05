@@ -41,6 +41,9 @@ Additional properties only present in per-device configs:
 - `keybinds` -> (only for devices that send key events)
   - enables / disables keybinds for the device
   - default: Enabled
+- `tags` -> (only for keyboards / pointers)
+  - provides grouping and alt-names is device specific binds (see [Per-Device Binds](../../Basics/Binds#per-device-binds)). comma separated list of tags
+  - default: ""
 
 > [!NOTE]
 > Per-device layouts will by default not alter the keybind keymap, so for example
