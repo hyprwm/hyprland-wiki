@@ -36,7 +36,7 @@ means you can change wallpapers without even needing to restart.
 ## waypaper
 
 GUI wallpaper manager that allows to visually choose the static or animated
-wallpapers, and supports `swaybg` and `swww` as backends on Wayland.
+wallpapers, and supports `swaybg` and `awww` as backends on Wayland.
 [GitHub](https://github.com/anufrievroman/waypaper)
 
 ## wallrizz
