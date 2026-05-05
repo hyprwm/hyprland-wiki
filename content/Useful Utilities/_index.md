@@ -20,6 +20,8 @@ Hyprland working.
 
 - **[Screen Sharing](./Screen-Sharing)**
 
+- **[Screenshots & Recording](./Screenshots-and-Recording)**
+
 - **[App Clients](./App-Clients)**
 
 - **[Color Pickers](./Color-Pickers)**
