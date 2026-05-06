@@ -94,6 +94,7 @@ Hyprland exposes a bunch of convenience functions:
  - `hl.exec_cmd()`
 
 
+Use the LSP for the return values (classes and their parameters) of these functions. See [here](../../Start/#autocompletions) for setting up the LSP for your code editor
 
 
 ### Dynamically changing a config option:
