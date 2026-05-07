@@ -56,7 +56,8 @@ from the original gesture including direction, mods, fingers and scale.
 | close | Closes the active window. | none |
 | fullscreen | Fullscreens the active window. | `mode` can be `"maximize"` to do maximize instead of fullscreen |
 | float | Floats the active window. | `mode` can be `"float"` or `"tile"` to force a direction of floating |
-| cursorZoom | Zooms into the cursor. | `zoom_level` for a zoom factor, `mode` of `"mult"` to use a multiplier or `"live"` to update continuously during the pinch |
+| cursor_zoom | Zooms into the cursor. | `zoom_level` for a zoom factor, `mode` of `"mult"` to use a multiplier or `"live"` to update continuously during the pinch |
+| scroll_move | Scrolls the tape, if the current layout is scrolling | none |
 
 #### cursorZoom
 
