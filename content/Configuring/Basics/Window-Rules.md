@@ -116,7 +116,7 @@ which will be found when matching on `title` and `class`, respectively.
 | size | string | Resizes a floating window. E.g. `{800, 600}` or `{"(monitor_w*0.5)", "(monitor_h*0.5)"}`. |
 | center | boolean | If the window is floating, will center it on the monitor. |
 | pseudo | boolean | Pseudotiles a window. |
-| monitor | string | Sets the monitor on which a window should open. E.g. `"1"` or `"DP-1"`. |
+| monitor | string | Sets the monitor on which a window should open. E.g. `"1"` or `"DP-1"`. Can be suffixed with `" silent"` |
 | workspace | string | Sets the workspace on which a window should open. Can also be `"unset"` or suffixed with `" silent"`. |
 | no_initial_focus | boolean | Disables the initial focus to the window. |
 | pin | boolean | Pins the window (i.e. show it on all workspaces). _Note: floating only_. |
