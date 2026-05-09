@@ -87,6 +87,29 @@ You can unload plugins with `hyprctl plugin unload path`.
 
 ## FAQ About Plugins
 
+### How do I use them in my config?
+
+
+Example:
+
+```lua
+function M.setup_vkfix()
+    if hl.plugin.csgo_vulkan_fix ~= nil then
+        hl.plugin.csgo_vulkan_fix.vkfix_app({ app = "cs2", w = 2304, h = 1440 })
+        hl.config({
+            plugin = {
+                csgo_vulkan_fix = {
+                    fix_mouse = false
+                }
+            }
+        })
+    end
+end
+```
+
+The `if` is there so that we don't get an error if the plugin is not loaded yet.
+
+
 ### My Hyprland crashes!
 
 Oh no. Oopsie. Usually means a plugin is broken. `hyprpm disable` it.
