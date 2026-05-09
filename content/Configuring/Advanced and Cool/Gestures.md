@@ -109,7 +109,7 @@ hl.gesture({
 | direction | string | Gesture direction (see above) |
 | action | string | Action to perform (see above) |
 | mods | string | Optional modifier mask, e.g. `"SUPER"` or `"ALT SHIFT"` |
-| scale | float | Optional animation speed multiplier |
+| scale | float | Optional gesture delta multiplier |
 | disable_inhibit | boolean | If true, allows the gesture to bypass shortcut inhibitors |
 
 Some gestures might have their own additional fields, those were mentioned in the actions table further up.
