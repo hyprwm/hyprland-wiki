@@ -18,11 +18,11 @@ the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 | type | description |
 | --- | --- |
 | int | integer |
-| bool | boolean |
+| bool | boolean (`true` or `false`) |
 | float | floating point number |
 | color | color (see hint below for color info) |
 | vec2 | vector with 2 float values (e.g. `{ 20, 20 }`) |
-| str | a string |
+| str | a string (wrapped into "", e.g: `"dwindle"`) |
 | gradient | a gradient, will accept a color, or `{ colors = { "rgba(...)", "rgba(...)" }, angle? = 45 }` |
 | font_weight | an integer between 100 and 1000, or one of the following presets: `thin` `ultralight` `light` `semilight` `book` `normal` `medium` `semibold` `bold` `ultrabold` `heavy` `ultraheavy` |
 | css_gaps | an integer, or `{ top?, left?, right?, bottom? }` |
