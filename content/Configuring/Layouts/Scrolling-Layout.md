@@ -54,6 +54,9 @@ Dispatcher `hl.dsp.layout(msg)` params:
 | promote | moves a window to its own new column | none |
 | swapcol | Swaps the current column with its neighbor to the left (`l`) or right (`r`). The swap wraps around (e.g., swapping the first column left moves it to the end). | `l` or `r` |
 | inhibit_scroll | Prevents the scrolling view from moving for the currently active workspace. The switch is independent for each workspace | left empty for toggle, or `bool` for explicitly enabling/disabling
+| expel | moves the current window to a dedicated column | none |
+| consume | moves the current window into the previous column | none |
+| consume_or_expel | expel if not alone, consume if alone in a column | `prev` or `next` |
 
 Example key bindings for your Hyprland config:
 
