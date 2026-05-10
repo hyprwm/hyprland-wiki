@@ -22,18 +22,18 @@ _category name `master` (`hl.config({ master = {...} })`)
 
 | name | description | type | default |
 | --- | --- | --- | --- |
-| allow_small_split | enable adding additional master windows in a horizontal split style | bool | false |
-| special_scale_factor | the scale of the special workspace windows. [0.0 - 1.0] | float | 1 |
-| mfact | the size as a percentage of the master window, for example `mfact = 0.70` would mean 70% of the screen will be the master window, and 30% the slave [0.0 - 1.0] | floatvalue | 0.55 |
-| new_status | `master`: new window becomes master; `slave`: new windows are added to slave stack; `inherit`: inherit from focused window | string | `slave` |
-| new_on_top | whether a newly open window should be on the top of the stack | bool | false |
-| new_on_active | `before`, `after`: place new window relative to the focused window; `none`: place new window according to the value of `new_on_top`.  | string | `none` |
-| orientation | default placement of the master area, can be left, right, top, bottom or center | string | left |
-| slave_count_for_center_master | when using orientation=center, make the master window centered only when at least this many slave windows are open. (Set 0 to always_center_master) | int | 2 |
-| center_master_fallback | Set fallback for center master when slaves are less than slave_count_for_center_master, can be left ,right ,top ,bottom | string | left |
-| smart_resizing | if enabled, resizing direction will be determined by the mouse's position on the window (nearest to which corner). Else, it is based on the window's tiling position. | bool | true |
-| drop_at_cursor | when enabled, dragging and dropping windows will put them at the cursor position. Otherwise, when dropped at the stack side, they will go to the top/bottom of the stack depending on new_on_top. | bool | true |
-| always_keep_position | whether to keep the master window in its configured position when there are no slave windows | bool | false |
+| allow_small_split | enable adding additional master windows in a horizontal split style | bool | `false` |
+| special_scale_factor | the scale of the special workspace windows. [0.0 - 1.0] | float | `1` |
+| mfact | the size as a percentage of the master window, for example `mfact = 0.70` would mean 70% of the screen will be the master window, and 30% the slave [0.0 - 1.0] | floatvalue | `0.55 `|
+| new_status | `"master"`: new window becomes master; `"slave"`: new windows are added to slave stack; `"inherit"`: inherit from focused window | string | `"slave"` |
+| new_on_top | whether a newly open window should be on the top of the stack | bool | `false` |
+| new_on_active | `"before"`, `"after"`: place new window relative to the focused window; `"none"`: place new window according to the value of `new_on_top`.  | string | `"none"` |
+| orientation | default placement of the master area, can be `"left"`, `"right"`, `"top"`, `"bottom"` or `"center"` | string | `"left"` |
+| slave_count_for_center_master | when using orientation=center, make the master window centered only when at least this many slave windows are open. (Set 0 to always_center_master) | int | `2` |
+| center_master_fallback | Set fallback for center master when slaves are less than slave_count_for_center_master, can be `"left"`, `"right"`, `"top"`, `"bottom"` | string | `"left"` |
+| smart_resizing | if enabled, resizing direction will be determined by the mouse's position on the window (nearest to which corner). Else, it is based on the window's tiling position. | bool | `true` |
+| drop_at_cursor | when enabled, dragging and dropping windows will put them at the cursor position. Otherwise, when dropped at the stack side, they will go to the top/bottom of the stack depending on new_on_top. | bool | `true` |
+| always_keep_position | whether to keep the master window in its configured position when there are no slave windows | bool | `false` |
 
 ## Layout messages
 
