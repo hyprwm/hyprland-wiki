@@ -315,8 +315,12 @@ _Subcategory `gestures.`_
 > 
 > You can add this gesture config to replicate the swiping functionality with 3 fingers. See the [gestures](../../Advanced-and-Cool/Gestures) page for more info.
 > 
-> ```ini
-> gesture = 3, horizontal, workspace
+> ```lua
+> hl.gesture({
+>    fingers = 3,
+>    direction = "horizontal",
+>    action = "workspace"
+> })
 > ```
 
 ### Group
