@@ -3,6 +3,10 @@ weight: 5
 title: Screenshots & Recording
 ---
 
+> [!NOTE]
+> Looking for the old hyprlang syntax? Check the [0.54 wiki pages](https://wiki.hypr.land/0.54.0/).
+> Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
+
 This page lists commonly used tools for taking screenshots and recording the
 screen on Hyprland.
 
@@ -22,15 +26,15 @@ selection and [`swappy`](https://github.com/jtheoof/swappy) for annotations.
 
 For example, to select an area and open it in `swappy`:
 
-```ini
-bind = , Print, exec, grim -g "$(slurp)" - | swappy -f -
+```lua
+hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp)" - | swappy -f -'))
 ```
 
 To copy a selected area directly to the clipboard, install
 [`wl-clipboard`](https://github.com/bugaevc/wl-clipboard) and use:
 
-```ini
-bind = SUPER, Print, exec, grim -g "$(slurp -d)" - | wl-copy
+```lua
+hl.bind("SUPER + Print", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | wl-copy))
 ```
 
 ### Flameshot
@@ -48,8 +52,8 @@ window.
 
 Use the `pass` dispatcher to forward <key>Alt</key> + <key>A</key> to WeChat:
 
-```ini
-bind = ALT, A, pass, class:^(wechat)$
+```lua
+hl.bind("ALT + A", hl.dsp.pass({class = "^(wechat)$"}))
 ```
 
 The `pass` dispatcher sends both the press and release events to the matched
