@@ -64,14 +64,14 @@ from the original gesture including direction, mods, fingers and scale.
 Examples:
 
 ```lua
-hl.gesture({ fingers = 2, direction = "pinch", action = "cursorZoom", zoom_level = "2" })
-hl.gesture({ fingers = 2, direction = "pinch", action = "cursorZoom", zoom_level = "1.2", mode = "mult" })
-hl.gesture({ fingers = 2, direction = "pinch", action = "cursorZoom", zoom_level = "1", mode = "live" })
+hl.gesture({ fingers = 2, direction = "pinch", action = "cursorZoom", zoom_level = 2 })
+hl.gesture({ fingers = 2, direction = "pinch", action = "cursorZoom", zoom_level = 1.2, mode = "mult" })
+hl.gesture({ fingers = 2, direction = "pinch", action = "cursorZoom", zoom_level = 1, mode = "live" })
 ```
 
 `cursorZoom` toggles by default. `mult` multiplies the current zoom value.
 
-`live` adjusts the zoom continuously to the pinch scale and keeps the zoom anchored to the cursor position at the start of the gesture. The numeric argument is currently unused in `live` mode, so `"1"` is a good placeholder.
+`live` adjusts the zoom continuously to the pinch scale and keeps the zoom anchored to the cursor position at the start of the gesture. The numeric argument is currently unused in `live` mode, so `1` is a good placeholder.
 
 #### Lua function
 
@@ -131,5 +131,5 @@ hl.gesture({ fingers = 4, direction = "down", mods = "SUPER", action = "special"
 Zoom into the cursor with a pinch, using a multiplier instead of a fixed zoom level:
 
 ```lua
-hl.gesture({ fingers = 2, direction = "pinchin", action = "cursorZoom", zoom_level = "2.0", mode = "mult" })
+hl.gesture({ fingers = 2, direction = "pinchin", action = "cursorZoom", zoom_level = 2.0, mode = "mult" })
 ```
