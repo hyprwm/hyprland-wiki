@@ -32,9 +32,6 @@ case, remove it completely.
 - `hl.config({ decoration = { blur { enabled = false } } })` and `hl.config({ decoration = { shadow = { enabled = false } } })` to disable
   fancy but battery hungry effects.
 
-- `hl.config({ misc = { vfr = true } })`, since it'll lower the amount of sent frames when nothing is
-  happening on-screen.
-
 ## My games work poorly, especially proton ones
 
 Using `gamescope` tends to fix any and all issues with Wayland/Hyprland.
