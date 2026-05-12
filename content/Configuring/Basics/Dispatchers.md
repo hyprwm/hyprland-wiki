@@ -70,7 +70,7 @@ A monitor. Can be:
 
 | method | description |
 | --- | --- |
-| `exec_cmd(cmd, rules?)` | execute a command. Rules can be a table of window rule effects to apply. |
+| `exec_cmd(cmd, rules?)` | execute a command. Rules can be a table of window rule effects to apply (see [below](#executing-with-rules)). |
 | `exec_raw(cmd)` | execute a raw command. While `exec_cmd` will do `bash -c`, this won't. |
 | `focus({ direction })` | move the focus in a direction |
 | `focus({ monitor })` | move the focus to a monitor |
@@ -101,7 +101,7 @@ A monitor. Can be:
 | `signal({ signal, window? })` | send a signal to a window process |
 | `float({ action?, window? })` | set a window's floating state. |
 | `fullscreen({ mode?, action?, window? })` | set a window's fullscreen state. `mode` can be "maximized" and "fullscreen". `action` can be `toggle`/`set`/`unset` |
-| `fullscreen_state({ internal, client, action?, window? })` | set a window's fullscreen state with more precision. `action` can be `toggle`/`set`/`unset` |
+| `fullscreen_state({ internal, client, action?, window? })` | set a window's fullscreen state with more precision. `action` can be `toggle`/`set`/`unset`. See [Fullscreenstate](#fullscreenstate) |
 | `pseudo({ action?, window? })` | set a window's pseudotiling state. |
 | `move({ direction })` | move a window in a direction |
 | `move({ workspace, follow? })` | move a window to a workspace |
@@ -235,7 +235,25 @@ workspace that you can toggle on/off on any monitor.
 > You can define multiple named special workspaces, but the amount of those is
 > limited to 97 at a time.
 
-### setprop
+For example, to move a window to a named special workspace you can use the following syntax:
+
+```lua
+hl.bind("SUPER + C", hl.dsp.window.move({ workspace = "special:magic" }))
+-- To see the hiden window and workspace you can use: 
+hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("magic"))
+```
+
+## Executing with rules 
+
+The `exec_cmd` dispatcher supports adding rules. Please note some windows might work better, some worse. It records the PID of the spawned process and uses that. For example, if your process forks and then the fork opens a window, this will not work.
+
+Example:
+
+```lua
+hl.bind("SUPER + E", hl.dsp.exec_cmd("kitty", { float = true, move = {0, 0} }))
+```
+
+## setprop
 
 Props are any of the _dynamic effects_ of [Window Rules](../Window-Rules#dynamic-effects).
 
@@ -250,7 +268,7 @@ Some props are expanded from their window rule parents which take multiple argum
 - `border_color` -> `active_border_color`, `inactive_border_color`
 - `opacity` -> `opacity`, `opacity_inactive`, `opacity_fullscreen`, `opacity_override`, `opacity_inactive_override`, `opacity_fullscreen_override`
 
-### Fullscreenstate
+## Fullscreenstate
 
 The `fullscreen_state` dispatcher decouples the state that Hyprland maintains for a window from the fullscreen state that is communicated to the client.  
 

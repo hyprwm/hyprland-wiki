@@ -5,8 +5,8 @@ title: Crashes and Bugs
 
 ## Getting the log
 
-Firstly, make sure you have enabled logs in the Hyprland config. Set `debug:disable_logs` to `false`.
-then to make OpenGL produce error messages set `debug:gl_debugging` to `true`.
+Firstly, make sure you have enabled logs in the Hyprland config. Set `debug.disable_logs` to `false`.
+then to make OpenGL produce error messages set `debug.gl_debugging` to `true`.
 
 dont forget to disable these when done logging as they cause a performance hit.
 

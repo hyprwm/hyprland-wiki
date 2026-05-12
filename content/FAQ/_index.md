@@ -247,10 +247,10 @@ taste.
 
 See [Environment Variables](../Configuring/Advanced-and-Cool/Environment-variables)
 
-The `env` keyword is used for this purpose. For example:
+The `hl.env()` function is used for this purpose. For example:
 
-```ini
-env = XDG_CURRENT_DESKTOP,Hyprland
+```lua
+hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 ```
 
 ### How to disable middle-click paste?

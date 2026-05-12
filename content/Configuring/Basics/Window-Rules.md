@@ -112,7 +112,7 @@ which will be found when matching on `title` and `class`, respectively.
 | fullscreen | boolean | Fullscreens a window. |
 | maximize | boolean | Maximizes a window. |
 | fullscreen_state | string | Sets the fullscreen mode, e.g. `"1 2"` (internal client). Values: `0` none, `1` maximize, `2` fullscreen, `3` maximize and fullscreen. |
-| move | string | Moves a floating window to a given coordinate, monitor-local. E.g. `{100, 200}` or `"{"cursor_x-(window_w*0.5))", "(cursor_y-(window_h*0.5))"}`. |
+| move | string | Moves a floating window to a given coordinate, monitor-local. E.g. `{100, 200}` or `{"cursor_x-(window_w*0.5))", "(cursor_y-(window_h*0.5))"}`. |
 | size | string | Resizes a floating window. E.g. `{800, 600}` or `{"(monitor_w*0.5)", "(monitor_h*0.5)"}`. |
 | center | boolean | If the window is floating, will center it on the monitor. |
 | pseudo | boolean | Pseudotiles a window. |
@@ -239,8 +239,8 @@ hl.window_rule({ match = { tag = "term" },         tag = "-code" })   -- Remove 
 Or with a keybind for convenience:
 
 ```lua
-hl.bind("SUPER + CTRL + 2", function() hl.dispatch(hl.dsp.window.tag({ tag = "alpha_0.2" })))
-hl.bind("SUPER + CTRL + 4", function() hl.dispatch(hl.dsp.window.tag({ tag = "alpha_0.4" })))
+hl.bind("SUPER + CTRL + 2", hl.dsp.window.tag({ tag = "alpha_0.2" }))
+hl.bind("SUPER + CTRL + 4", hl.dsp.window.tag({ tag = "alpha_0.4" }))
 hl.window_rule({ match = { tag = "alpha_0.2" }, opacity = "0.2 override" })
 hl.window_rule({ match = { tag = "alpha_0.4" }, opacity = "0.4 override" })
 ```
