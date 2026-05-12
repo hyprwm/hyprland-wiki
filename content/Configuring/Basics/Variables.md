@@ -59,7 +59,7 @@ the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 | allow_tearing | master switch for allowing tearing to occur. See [the Tearing page](../../Advanced-and-Cool/Tearing). | bool | `false` |
 | resize_corner | force floating windows to use a specific corner when being resized (1-4 going clockwise from top left, 0 to disable) | int | `0` |
 | modal_parent_blocking | whether parent windows of modals will be interactive | bool | `true` |
-| locale | overrides the system locale (e.g. `"en_US"`, `"es"`) | str | `"[[Empty]]"` |
+| locale | overrides the system locale (e.g. `"en_US"`, `"es"`) | str | \[\[Empty\]\] |
 
 #### Snap
 
@@ -87,7 +87,7 @@ _Subcategory `general.snap.`_
 | dim_strength | how much inactive windows should be dimmed [0.0 - 1.0] | float | `0.5` |
 | dim_special | how much to dim the rest of the screen by when a special workspace is open. [0.0 - 1.0] | float | `0.2 `|
 | dim_around | how much the `dim_around` window rule should dim by. [0.0 - 1.0] | float | `0.4` |
-| screen_shader | a path to a custom shader to be applied at the end of rendering. See `examples/screenShader.frag` for an example. | str | `"[[Empty]]"` |
+| screen_shader | a path to a custom shader to be applied at the end of rendering. See `examples/screenShader.frag` for an example. | str | \[\[Empty\]\] |
 | border_part_of_window | whether the window border should be a part of the window | bool | `true` |
 
 #### Blur
@@ -161,23 +161,23 @@ _Subcategory `decoration.glow.`_
 
 | name | description | type | default |
 |---|---|---|---|
-| kb_model | Appropriate XKB keymap parameter. See the note below. | str | `"[[Empty]]"` |
+| kb_model | Appropriate XKB keymap parameter. See the note below. | str | \[\[Empty\]\] |
 | kb_layout | Appropriate XKB keymap parameter | str | `"us"` |
-| kb_variant | Appropriate XKB keymap parameter | str | `"[[Empty]]"` |
-| kb_options | Appropriate XKB keymap parameter | str | `"[[Empty]]"` |
-| kb_rules | Appropriate XKB keymap parameter | str | `"[[Empty]]"` |
-| kb_file | If you prefer, you can use a path to your custom .xkb file. | str | `"[[Empty]]"` |
+| kb_variant | Appropriate XKB keymap parameter | str | \[\[Empty\]\] |
+| kb_options | Appropriate XKB keymap parameter | str | \[\[Empty\]\] |
+| kb_rules | Appropriate XKB keymap parameter | str | \[\[Empty\]\] |
+| kb_file | If you prefer, you can use a path to your custom .xkb file. | str | \[\[Empty\]\] |
 | numlock_by_default | Engage numlock by default. | bool | `false` |
 | resolve_binds_by_sym | Determines how keybinds act when multiple layouts are used. If false, keybinds will always act as if the first specified layout is active. If true, keybinds specified by symbols are activated when you type the respective symbol with the current layout. | bool | `false` |
 | repeat_rate | The repeat rate for held-down keys, in repeats per second. | int | `25` |
 | repeat_delay | Delay before a held-down key is repeated, in milliseconds. | int | `600` |
 | sensitivity | Sets the mouse input sensitivity. Value is clamped to the range -1.0 to 1.0. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) | float | `0.0` |
-| accel_profile | Sets the cursor acceleration profile. Can be one of `"adaptive"`, `"flat"`. Can also be `"custom"`, see [below](#custom-accel-profiles). Leave empty to use `libinput`'s default mode for your input device. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) [`"adaptive"`/`"flat"`/`"custom"`]| str | `"[[Empty]]"` |
+| accel_profile | Sets the cursor acceleration profile. Can be one of `"adaptive"`, `"flat"`. Can also be `"custom"`, see [below](#custom-accel-profiles). Leave empty to use `libinput`'s default mode for your input device. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) [`"adaptive"`/`"flat"`/`"custom"`]| str | \[\[Empty\]\] |
 | force_no_accel | Force no cursor acceleration. This bypasses most of your pointer settings to get as raw of a signal as possible. **Enabling this is not recommended due to potential cursor desynchronization.** | bool | `false` |
 | rotation | Sets the rotation of a device in degrees clockwise off the logical neutral position. Value is clamped to the range 0 to 359. | int | `0` |
 | left_handed | Switches RMB and LMB | bool | `false` |
-| scroll_points | Sets the scroll acceleration profile, when `accel_profile` is set to `"custom"`. Has to be in the form `"<step> <points>"`. Leave empty to have a flat scroll curve. | str | `"[[Empty]]"` |
-| scroll_method | Sets the scroll method. Can be one of `"2fg"` (2 fingers), `"edge"`, `"on_button_down"`, `"no_scroll"`. [libinput#scrolling](https://wayland.freedesktop.org/libinput/doc/latest/scrolling.html) [`"2fg"`/`"edge"`/`"on_button_down"`/`"no_scroll"`] | str | `"[[Empty]]"` |
+| scroll_points | Sets the scroll acceleration profile, when `accel_profile` is set to `"custom"`. Has to be in the form `"<step> <points>"`. Leave empty to have a flat scroll curve. | str | \[\[Empty\]\] |
+| scroll_method | Sets the scroll method. Can be one of `"2fg"` (2 fingers), `"edge"`, `"on_button_down"`, `"no_scroll"`. [libinput#scrolling](https://wayland.freedesktop.org/libinput/doc/latest/scrolling.html) [`"2fg"`/`"edge"`/`"on_button_down"`/`"no_scroll"`] | str | \[\[Empty\]\] |
 | scroll_button | Sets the scroll button. Has to be an int, cannot be a string. Check `wev` if you have any doubts regarding the ID. 0 means default. | int | `0` |
 | scroll_button_lock | If the scroll button lock is enabled, the button does not need to be held down. Pressing and releasing the button toggles the button lock, which logically holds the button down or releases it. While the button is logically held down, motion events are converted to scroll events. | bool | `false` |
 | scroll_factor | Multiplier added to scroll movement for external mice. Note that there is a separate setting for [touchpad scroll_factor](#touchpad).  | float | `1.0` |
@@ -243,7 +243,7 @@ _Subcategory `input.touchpad.`_
 | natural_scroll | Inverts scrolling direction. When enabled, scrolling moves content directly, rather than manipulating a scrollbar. | bool | `false` |
 | scroll_factor | Multiplier applied to the amount of scroll movement. | float | `1.0` |
 | middle_button_emulation | Sending LMB and RMB simultaneously will be interpreted as a middle click. This disables any touchpad area that would normally send a middle click based on location. [libinput#middle-button-emulation](https://wayland.freedesktop.org/libinput/doc/latest/middle-button-emulation.html) | bool | `false` |
-| tap_button_map | Sets the tap button mapping for touchpad button emulation. Can be one of `"lrm"` (default) or `"lmr"` (Left, Middle, Right Buttons). [`"lrm"`/`"lmr"`] | str | `"[[Empty]]"` |
+| tap_button_map | Sets the tap button mapping for touchpad button emulation. Can be one of `"lrm"` (default) or `"lmr"` (Left, Middle, Right Buttons). [`"lrm"`/`"lmr"`] | str | \[\[Empty\]\] |
 | clickfinger_behavior | Button presses with 1, 2, or 3 fingers will be mapped to LMB, RMB, and MMB respectively. This disables interpretation of clicks based on location on the touchpad. [libinput#clickfinger-behavior](https://wayland.freedesktop.org/libinput/doc/latest/clickpad-softbuttons.html#clickfinger-behavior) | bool | `false` |
 | tap_to_click | Tapping on the touchpad with 1, 2, or 3 fingers will send LMB, RMB, and MMB respectively. | bool | `true` |
 | drag_lock | When enabled, lifting the finger off while dragging will not drop the dragged item. 0 -> disabled, 1 -> enabled with timeout, 2 -> enabled sticky. [libinput#tap-and-drag](https://wayland.freedesktop.org/libinput/doc/latest/tapping.html#tap-and-drag) | int | `0` |
@@ -278,7 +278,7 @@ _Subcategory `input.tablet.`_
 | name | description | type | default |
 | --- | --- | --- | --- |
 | transform | transform the input from tablets. The possible transformations are the same as [those of the monitors](../Monitors/#rotating). `-1` means it's unset. | int | `-1` |
-| output | the monitor to bind tablets. Can be `current` or a monitor name. Leave empty to map across all monitors. | string | `"[[Empty]]"` |
+| output | the monitor to bind tablets. Can be `"current"` or a monitor name. Leave empty to map across all monitors. | string | \[\[Empty\]\] |
 | region_position | position of the mapped region in monitor layout relative to the top left corner of the bound monitor or all monitors. | vec2 | `{0, 0}` |
 | absolute_region_position | whether to treat the `region_position` as an absolute position in monitor layout. Only applies when `output` is empty. | bool | `false` |
 | region_size | size of the mapped region. When this variable is set, tablet input will be mapped to the region. `{0, 0}` or invalid size means unset. | vec2 | `{0, 0}` |
@@ -345,7 +345,7 @@ _Subcategory `group.groupbar.`_
 | name | description | type | default |
 | --- | --- | --- | --- |
 | enabled | enables groupbars | bool | `true` |
-| font_family | font used to display groupbar titles, use `misc.font_family` if not specified | string | `"[[Empty]]"` |
+| font_family | font used to display groupbar titles, use `misc.font_family` if not specified | string | \[\[Empty\]\] |
 | font_size | font size of groupbar title | int | `8` |
 | font_weight_active | font weight of active groupbar title | font_weight | `"normal"` |
 | font_weight_inactive | font weight of inactive groupbar title | font_weight | `"normal"` |
@@ -390,7 +390,7 @@ _Subcategory `misc.`_
 | disable_scale_notification | disables notification popup when a monitor fails to set a suitable scale | bool | `false` |
 | col.splash | Changes the color of the splash text (requires a monitor reload to take effect). | color | `0xffffffff` |
 | font_family | Set the global default font to render the text including debug fps/notification, config error messages and etc., selected from system fonts. | string | `"Sans"` |
-| splash_font_family | Changes the font used to render the splash text, selected from system fonts (requires a monitor reload to take effect). | string | `"[[Empty]]"` |
+| splash_font_family | Changes the font used to render the splash text, selected from system fonts (requires a monitor reload to take effect). | string | \[\[Empty\]\] |
 | force_default_wallpaper | Enforce any of the 3 default wallpapers. Setting this to `0` or `1` disables the anime background. `-1` means "random". [-1/0/1/2] | int | `-1` |
 | vrr | controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on, 2 - fullscreen only, 3 - fullscreen with `video` or `game` content type [0/1/2/3] | int | `0` |
 | mouse_move_enables_dpms | If DPMS is set to off, wake up the monitors if the mouse moves. | bool | `false` |
@@ -402,8 +402,8 @@ _Subcategory `misc.`_
 | animate_mouse_windowdragging | If true, will animate windows being dragged by mouse, note that this can cause weird behavior on some curves | bool | `false` |
 | disable_autoreload | If true, the config will not reload automatically on save, and instead needs to be reloaded with `hyprctl reload`. Might save on battery. | bool | `false` |
 | enable_swallow | Enable window swallowing | bool | `false` |
-| swallow_regex | The _class_ regex to be used for windows that should be swallowed (usually, a terminal). To know more about the list of regex which can be used [use this cheatsheet](https://github.com/ziishaned/learn-regex/blob/master/README.md). | str | `"[[Empty]]"` |
-| swallow_exception_regex | The _title_ regex to be used for windows that should _not_ be swallowed by the windows specified in swallow_regex  (e.g. wev). The regex is matched against the parent (e.g. Kitty) window's title on the assumption that it changes to whatever process it's running. | str | `"[[Empty]]"` |
+| swallow_regex | The _class_ regex to be used for windows that should be swallowed (usually, a terminal). To know more about the list of regex which can be used [use this cheatsheet](https://github.com/ziishaned/learn-regex/blob/master/README.md). | str | \[\[Empty\]\] |
+| swallow_exception_regex | The _title_ regex to be used for windows that should _not_ be swallowed by the windows specified in swallow_regex  (e.g. wev). The regex is matched against the parent (e.g. Kitty) window's title on the assumption that it changes to whatever process it's running. | str | \[\[Empty\]\] |
 | focus_on_activate | Whether Hyprland should focus an app that requests to be focused (an `activate` request) | bool | `false` |
 | mouse_move_focuses_monitor | Whether mouse moving into a different monitor should focus it | bool | `true` |
 | allow_session_lock_restore | if true, will allow you to restart a lockscreen app in case it crashes | bool | `false` |
@@ -513,7 +513,7 @@ _Subcategory `cursor.`_
 | persistent_warps | When a window is refocused, the cursor returns to its last position relative to that window, rather than to the centre. | bool | `false` |
 | warp_on_change_workspace | Move the cursor to the last focused window after changing the workspace. Options: 0 (Disabled), 1 (Enabled), 2 (Force - ignores cursor:no_warps option) | int | `0` |
 | warp_on_toggle_special | Move the cursor to the last focused window when toggling a special workspace. Options: 0 (Disabled), 1 (Enabled), 2 (Force - ignores cursor:no_warps option) | int | `0` |
-| default_monitor | the name of a default monitor for the cursor to be set to on startup (see `hyprctl monitors` for names) | str | `"[[Empty]]"` |
+| default_monitor | the name of a default monitor for the cursor to be set to on startup (see `hyprctl monitors` for names) | str | \[\[Empty\]\] |
 | zoom_factor | the factor to zoom by around the cursor. Like a magnifying glass. Minimum 1.0 (meaning no zoom) | float | `1.0` |
 | zoom_rigid | whether the zoom should follow the cursor rigidly (cursor is always centered if it can be) or loosely | bool | `false` |
 | zoom_detached_camera | detach the camera from the mouse when zoomed in, only ever moving the camera to keep the mouse in view when it goes past the screen edges | bool | `true` |
