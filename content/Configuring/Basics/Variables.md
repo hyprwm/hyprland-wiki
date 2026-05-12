@@ -259,7 +259,7 @@ _Subcategory `input.touchdevice.`_
 | name | description | type | default |
 | --- | --- | --- | --- |
 | transform | Transform the input from touchdevices. The possible transformations are the same as [those of the monitors](../Monitors/#rotating). `-1` means it's unset. | int | `-1` |
-| output | The monitor to bind touch devices. The default is auto-detection. To stop auto-detection, use an empty string or the `"[[Empty]]"` value. | string | `"[[Auto]]"` |
+| output | The monitor to bind touch devices. The default is auto-detection. To stop auto-detection, use an empty string. | string | \[\[Auto\]\] |
 | enabled | Whether input is enabled for touch devices. | bool | `true` |
 
 #### Virtualkeyboard
