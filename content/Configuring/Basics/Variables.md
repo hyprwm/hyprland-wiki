@@ -13,6 +13,29 @@ animations, etc. see the sidebar.
 Please keep in mind some options that are layout-specific will be documented in
 the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 
+## Syntax
+
+```lua
+hl.config({
+   category = {
+       value = ...
+   },
+   category2 = {
+       value2 = ...
+   }
+})
+```
+
+You are allowed multiple `hl.config()` invocations, each one will update just what you pass into it.
+
+This is completely valid:
+
+```lua
+function updateSomeVar()
+    hl.config({ cat = { val = 12 } })
+end
+```
+
 ## Variable types
 
 | type | description |

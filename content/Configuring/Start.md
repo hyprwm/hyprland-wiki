@@ -1,6 +1,6 @@
 ---
 weight: 1
-title: Start
+title: ⮞⮞ Start Here ⮜⮜
 ---
 
 > [!NOTE]
@@ -34,6 +34,10 @@ Hyprland uses [Lua](https://lua.org/) for its configuration file. It's an easy
 and performant scripting language used throughout various pieces of software.
 
 ### General Hyprland Lua tips
+
+#### Sample config
+
+It's [here](https://github.com/hyprwm/Hyprland/blob/main/example/hyprland.lua).
 
 #### Autocompletions
 
