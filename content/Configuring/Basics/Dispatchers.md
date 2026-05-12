@@ -45,7 +45,7 @@ If no window is provided, the active window is used.
 A workspace. Can be:
  - workspace object
  - workspace ID
- - workspace selector, see [below]({{< relref "#workspace selectors" >}})
+ - workspace selector, see [below](#workspace-selectors)
 
 #### Direction
 
