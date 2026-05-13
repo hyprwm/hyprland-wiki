@@ -39,7 +39,7 @@ annotation tool inspired by [`swappy`](https://github.com/jtheoof/swappy) and
 [Flameshot](https://github.com/flameshot-org/flameshot). It's been created to provide
 improvements over existing screenshot tools and is an almost drop-in replacement for swappy.
 
-For example, to take a screenshot and open it with `Satty`, 
+For example, to take a screenshot and open it with `satty`, 
 Ctrl-C to copy to clipboard and Ctrl-S saves it to `~/Pictures/Screenshots/`:
 
 ```lua
