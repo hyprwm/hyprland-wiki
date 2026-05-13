@@ -28,7 +28,7 @@ hl.monitor({ output = "", mode = "highres", position = "auto", scale = "2" })
 
 -- unscale XWayland
 hl.config({
-  xwayland {
+  xwayland = {
     force_zero_scaling = true
   }
 })
