@@ -473,8 +473,8 @@ _Subcategory `binds.`_
 | workspace_center_on | Whether switching workspaces should center the cursor on the workspace (0) or on the last active window for that workspace (1) | int | 0 |
 | focus_preferred_method | sets the preferred focus finding method when using `hl.dsp.focus({ direction })`/`hl.dsp.window.move({ direction })`/etc. 0 - history (recent have priority), 1 - length (longer shared edges have priority) | int | 0 |
 | ignore_group_lock | If enabled, dispatchers like `hl.dsp.window.move({ into_group })` and `hl.dsp.window.move({ out_of_group })` will ignore lock per group. | bool | false |
-| movefocus_cycles_fullscreen | If enabled, when on a fullscreen window, `movefocus` will cycle fullscreen, if not, it will move the focus in a direction. | bool | false |
-| movefocus_cycles_groupfirst | If enabled, when in a grouped window, movefocus will cycle windows in the groups first, then at each ends of tabs, it'll move on to other windows/groups | bool | false |
+| movefocus_cycles_fullscreen | If enabled, when on a fullscreen window, `hl.dsp.focus({ direction })` will cycle fullscreen, if not, it will move the focus in a direction. | bool | false |
+| movefocus_cycles_groupfirst | If enabled, when in a grouped window, `hl.dsp.focus({ direction })` will cycle windows in the groups first, then at each ends of tabs, it'll move on to other windows/groups | bool | false |
 | window_direction_monitor_fallback | If enabled, moving a window or focus over the edge of a monitor with a direction will move it to the next monitor in that direction. | bool | true |
 | disable_keybind_grabbing | If enabled, apps that request keybinds to be disabled (e.g. VMs) will not be able to do so. | bool | false |
 | allow_pin_fullscreen | If enabled, Allow fullscreen to pinned windows, and restore their pinned status afterwards | bool | false |
