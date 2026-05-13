@@ -356,8 +356,8 @@ hl.bind("ALT + R", hl.dsp.submap("resize"))
 
 hl.define_submap("resize", function()
     hl.bind("right", function()
-        hl.window.resize({ x = 10, y = 0, relative = true })
-        hl.dsp.submap("reset")
+        hl.dsp.window.resize({ x = 10, y = 0, relative = true })
+        hl.dispatch(hl.dsp.submap("reset"))
     end)
 end)
 ```
