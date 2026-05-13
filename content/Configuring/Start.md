@@ -56,9 +56,6 @@ Add a `.luarc.json` file in your repository root, then:
     "library": [
       "/usr/share/hypr/stubs"
     ]
-  },
-  "diagnostics": {
-    "globals": ["hl"]
   }
 }
 ```
@@ -73,9 +70,6 @@ Create a `settings.json` file in `.vscode/` (if it doesn't exist, make it), then
 {
   "Lua.workspace.library": [
     "/usr/share/hypr/stubs"
-  ],
-  "Lua.diagnostics.globals": [
-    "hl"
   ]
 }
 ```
