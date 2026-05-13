@@ -27,10 +27,10 @@ And make sure your tests pass.
 A lot of hyprland's code cannot be unit tested, thus we have our own Hyprtester
 binary which runs hyprland and issues commands and expects results.
 
-To run Hyprtester, `cd` into `./hyprtester`, then run:
+To run Hyprtester, execute the following:
 
 ```sh
-../build/hyprtester/hyprtester --plugin ./plugin/hyprtestplugin.so
+./build/hyprtester/hyprtester -c hyprtester/test.lua -b ./build/Hyprland -p hyprtester/plugin/hyprtestplugin.so
 ```
 
 *This will run for a while!* At the end, it will print summary results
