@@ -103,7 +103,7 @@ A monitor. Can be:
 | `fullscreen({ mode?, action?, window? })` | set a window's fullscreen state. `mode` can be "maximized" and "fullscreen". `action` can be `toggle`/`set`/`unset` |
 | `fullscreen_state({ internal, client, action?, window? })` | set a window's fullscreen state with more precision. `action` can be `toggle`/`set`/`unset`. See [Fullscreenstate](#fullscreenstate) |
 | `pseudo({ action?, window? })` | set a window's pseudotiling state. |
-| `move({ direction })` | move a window in a direction |
+| `move({ direction, group_aware? })` | move a window in a direction. `group_aware = true` will put windows in/out of groups alongside the given direction. |
 | `move({ workspace, follow? })` | move a window to a workspace |
 | `move({ monitor, follow? })` | move a window to a monitor |
 | `move({ x, y, relative? })` | move a window by / to a coord |
