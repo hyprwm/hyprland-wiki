@@ -61,8 +61,8 @@ Dispatcher `hl.dsp.layout(msg)` params:
 Example key bindings for your Hyprland config:
 
 ```lua
-hl.bind(mainMod .. "period", hl.dsp.layout("move +col"))
-hl.bind(mainMod .. "comma", hl.dsp.layout("swapcol l"))
+hl.bind(mainMod .. " + period", hl.dsp.layout("move +col"))
+hl.bind(mainMod .. " + comma", hl.dsp.layout("swapcol l"))
 ```
 
 ## Window rules

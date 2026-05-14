@@ -18,7 +18,7 @@ than the default left/right split.
 
 ## Config
 
-_category name `master` (`hl.config({ master = {...} })`)
+category name `master` (`hl.config({ master = {...} })`)
 
 | name | description | type | default |
 | --- | --- | --- | --- |

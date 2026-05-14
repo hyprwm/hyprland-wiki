@@ -274,7 +274,7 @@ Let's take OBS as an example: the "Start/Stop Recording" keybind is set to
 <key>SUPER</key> + <key>F10</key>, to make it work globally, simply add:
 
 ```lua
-hl.bind("SUPER + F10", hl.dsp.pass("class:^(com\.obsproject\.Studio)$"))
+hl.bind("SUPER + F10", hl.dsp.pass({ window = "class:^(com\\.obsproject\\.Studio)$" }))
 ```
 
 to your config and you're done.

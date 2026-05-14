@@ -17,7 +17,7 @@ hl.animation({ leaf = STRING, enabled = BOOLEAN, speed = FLOAT, curve = STRING[,
 ```
 `leaf` is scope of the animation. See [Animation tree](#animation-tree)
 
-`enable` use `true` to disable, `false` to enable. _Note:_ if it's `false`, you
+`enabled` use `true` to enable, `false` to disable. _Note:_ if it's `false`, you
 can omit further args.
 
 `speed` is the amount of ds (1ds = 100ms) the animation will take. For example `speed = 1` = 100ms

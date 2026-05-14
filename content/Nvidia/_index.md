@@ -121,9 +121,9 @@ More information is available
 
 Add these variables to your Hyprland config:
 
-```ini
-env = LIBVA_DRIVER_NAME,nvidia
-env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+```lua
+hl.env("LIBVA_DRIVER_NAME", "nvidia")
+hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
 ```
 
 ### Finishing up
@@ -148,8 +148,8 @@ Electron and CEF apps flicker because:
 To enable native Wayland support for most Electron apps, add this
 environment variable to your config:
 
-```ini
-env = ELECTRON_OZONE_PLATFORM_HINT,auto
+```lua
+hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 ```
 
 This has been confirmed to work on Vesktop, VSCodium, Obsidian and will probably
@@ -204,8 +204,8 @@ will be given here:
    repos.
 
 2. Add this variable to your Hyprland config:
-   ```ini
-   env = NVD_BACKEND,direct
+   ```lua
+   hl.env("NVD_BACKEND", "direct")
    ```
 
    See

@@ -46,6 +46,7 @@ hl.env("GTK_THEME", "Nord")
 - `hl.env("AQ_FORCE_LINEAR_BLIT", "0")` - Disables forcing linear explicit modifiers on Multi-GPU buffers to potentially workaround Nvidia issues.
 - `hl.env("AQ_MGPU_NO_EXPLICIT", "1")` - Disables explicit syncing on mgpu buffers.
 - `hl.env("AQ_NO_MODIFIERS", "1")` - Disables modifiers for DRM buffers.
+- `hl.env("AQ_NO_KMS_REQUIREMENT", "1")` - Disable KMS requirement for starting on headless GPUs.
 
 ## Toolkit Backend Variables
 

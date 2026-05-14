@@ -13,16 +13,39 @@ animations, etc. see the sidebar.
 Please keep in mind some options that are layout-specific will be documented in
 the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 
+## Syntax
+
+```lua
+hl.config({
+   category = {
+       value = ...
+   },
+   category2 = {
+       value2 = ...
+   }
+})
+```
+
+You are allowed multiple `hl.config()` invocations, each one will update just what you pass into it.
+
+This is completely valid:
+
+```lua
+function updateSomeVar()
+    hl.config({ cat = { val = 12 } })
+end
+```
+
 ## Variable types
 
 | type | description |
 | --- | --- |
 | int | integer |
-| bool | boolean |
+| bool | boolean (`true` or `false`) |
 | float | floating point number |
 | color | color (see hint below for color info) |
 | vec2 | vector with 2 float values (e.g. `{ 20, 20 }`) |
-| str | a string |
+| str | a string (wrapped into "", e.g: `"dwindle"`) |
 | gradient | a gradient, will accept a color, or `{ colors = { "rgba(...)", "rgba(...)" }, angle? = 45 }` |
 | font_weight | an integer between 100 and 1000, or one of the following presets: `"thin"` `"ultralight"` `"light"` `"semilight"` `"book"` `"normal"` `"medium"` `"semibold"` `"bold"` `"ultrabold"` `"heavy"` `"ultraheavy"` |
 | css_gaps | an integer, or `{ top?, left?, right?, bottom? }` |
@@ -44,18 +67,18 @@ the layout pages and not here. (See the Sidebar for Dwindle and Master layouts)
 |---|---|---|---|
 | border_size | size of the border around windows | int | `1` |
 | gaps_in | gaps between windows | css_gaps | `5` |
-| gaps_out | gaps between windows and monitor edges | css_gaps | `20 `|
-| float_gaps | gaps between windows and monitor edges for floating windows -1 means default | css_gaps | `0` |
+| gaps_out | gaps between windows and monitor edges | css_gaps | `20` |
+| float_gaps | gaps between windows and monitor edges for floating windows `-1` means default | css_gaps | `0` |
 | gaps_workspaces | gaps between workspaces. Stacks with gaps_out. | css_gaps | `0` |
 | col.inactive_border | border color for inactive windows | gradient | `0xff444444` |
 | col.active_border | border color for the active window | gradient | `0xffffffff` |
-| col.nogroup_border | inactive border color for window that cannot be added to a group (see `denywindowfromgroup` dispatcher) | gradient | `0xffffaaff` |
+| col.nogroup_border | inactive border color for window that cannot be added to a group (see `hl.dsp.window.deny_from_group` dispatcher) | gradient | `0xffffaaff` |
 | col.nogroup_border_active | active border color for window that cannot be added to a group | gradient | `0xffff00ff` |
 | layout | which layout to use. \[`"dwindle"`/`"master"`/`"scrolling"`/`"monocle"`\] | str | `"dwindle"` |
 | no_focus_fallback | if true, will not fall back to the next available window when moving focus in a direction where no window was found | bool | `false` |
 | resize_on_border | enables resizing windows by clicking and dragging on borders and gaps | bool | `false` |
-| extend_border_grab_area | extends the area around the border where you can click and drag on, only used when `general:resize_on_border` is on. | int | `15` |
-| hover_icon_on_border | show a cursor icon when hovering over borders, only used when `general:resize_on_border` is on. | bool | `true` |
+| extend_border_grab_area | extends the area around the border where you can click and drag on, only used when `general.resize_on_border` is on. | int | `15` |
+| hover_icon_on_border | show a cursor icon when hovering over borders, only used when `general.resize_on_border` is on. | bool | `true` |
 | allow_tearing | master switch for allowing tearing to occur. See [the Tearing page](../../Advanced-and-Cool/Tearing). | bool | `false` |
 | resize_corner | force floating windows to use a specific corner when being resized (1-4 going clockwise from top left, 0 to disable) | int | `0` |
 | modal_parent_blocking | whether parent windows of modals will be interactive | bool | `true` |
@@ -172,11 +195,11 @@ _Subcategory `decoration.glow.`_
 | repeat_rate | The repeat rate for held-down keys, in repeats per second. | int | `25` |
 | repeat_delay | Delay before a held-down key is repeated, in milliseconds. | int | `600` |
 | sensitivity | Sets the mouse input sensitivity. Value is clamped to the range -1.0 to 1.0. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) | float | `0.0` |
-| accel_profile | Sets the cursor acceleration profile. Can be one of `"adaptive"`, `"flat"`. Can also be `"custom"`, see [below](#custom-accel-profiles). Leave empty to use `libinput`'s default mode for your input device. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) [`"adaptive"`/`"flat"`/`"custom"`]| str | \[\[Empty\]\] |
+| accel_profile | Sets the cursor acceleration profile. Can be one of `"adaptive"`, `"flat"`. Can also be `"custom"`, see [below](#accel_profile). Leave empty to use `libinput`'s default mode for your input device. [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) \[`"adaptive"`/`"flat"`/`"custom"`\]| str | \[\[Empty\]\] |
 | force_no_accel | Force no cursor acceleration. This bypasses most of your pointer settings to get as raw of a signal as possible. **Enabling this is not recommended due to potential cursor desynchronization.** | bool | `false` |
 | rotation | Sets the rotation of a device in degrees clockwise off the logical neutral position. Value is clamped to the range 0 to 359. | int | `0` |
 | left_handed | Switches RMB and LMB | bool | `false` |
-| scroll_points | Sets the scroll acceleration profile, when `accel_profile` is set to `"custom"`. Has to be in the form `"<step> <points>"`. Leave empty to have a flat scroll curve. | str | \[\[Empty\]\] |
+| scroll_points | Sets the scroll acceleration profile, when `accel_profile` is set to `"custom"`. Has to be in the form `<step> <points>`. Leave empty to have a flat scroll curve. | str | \[\[Empty\]\] |
 | scroll_method | Sets the scroll method. Can be one of `"2fg"` (2 fingers), `"edge"`, `"on_button_down"`, `"no_scroll"`. [libinput#scrolling](https://wayland.freedesktop.org/libinput/doc/latest/scrolling.html) [`"2fg"`/`"edge"`/`"on_button_down"`/`"no_scroll"`] | str | \[\[Empty\]\] |
 | scroll_button | Sets the scroll button. Has to be an int, cannot be a string. Check `wev` if you have any doubts regarding the ID. 0 means default. | int | `0` |
 | scroll_button_lock | If the scroll button lock is enabled, the button does not need to be held down. Pressing and releasing the button toggles the button lock, which logically holds the button down or releases it. While the button is logically held down, motion events are converted to scroll events. | bool | `false` |
@@ -315,8 +338,12 @@ _Subcategory `gestures.`_
 > 
 > You can add this gesture config to replicate the swiping functionality with 3 fingers. See the [gestures](../../Advanced-and-Cool/Gestures) page for more info.
 > 
-> ```ini
-> gesture = 3, horizontal, workspace
+> ```lua
+> hl.gesture({
+>    fingers = 3,
+>    direction = "horizontal",
+>    action = "workspace"
+> })
 > ```
 
 ### Group
@@ -444,10 +471,10 @@ _Subcategory `binds.`_
 | hide_special_on_workspace_change | If enabled, changing the active workspace (including to itself) will hide the special workspace on the monitor where the newly active workspace resides. | bool | `false` |
 | allow_workspace_cycles | If enabled, workspaces don't forget their previous workspace, so cycles can be created by switching to the first workspace in a sequence, then endlessly going to the previous workspace. | bool | `false` |
 | workspace_center_on | Whether switching workspaces should center the cursor on the workspace (0) or on the last active window for that workspace (1) | int | `0` |
-| focus_preferred_method | sets the preferred focus finding method when using `focuswindow`/`movewindow`/etc with a direction. 0 - history (recent have priority), 1 - length (longer shared edges have priority) | int | `0` |
-| ignore_group_lock | If enabled, dispatchers like `moveintogroup`, `moveoutofgroup` and `movewindoworgroup` will ignore lock per group. | bool | `false` |
-| movefocus_cycles_fullscreen | If enabled, when on a fullscreen window, `movefocus` will cycle fullscreen, if not, it will move the focus in a direction. | bool | `false` |
-| movefocus_cycles_groupfirst | If enabled, when in a grouped window, movefocus will cycle windows in the groups first, then at each ends of tabs, it'll move on to other windows/groups | bool | `false` |
+| focus_preferred_method | sets the preferred focus finding method when using `hl.dsp.focus({ direction })`/`hl.dsp.window.move({ direction })`/etc. 0 - history (recent have priority), 1 - length (longer shared edges have priority) | int | `0` |
+| ignore_group_lock | If enabled, dispatchers like `hl.dsp.window.move({ into_group })` and `hl.dsp.window.move({ out_of_group })` will ignore lock per group. | bool | `false` |
+| movefocus_cycles_fullscreen | If enabled, when on a fullscreen window, `hl.dsp.focus({ direction })` will cycle fullscreen, if not, it will move the focus in a direction. | bool | `false` |
+| movefocus_cycles_groupfirst | If enabled, when in a grouped window, `hl.dsp.focus({ direction })` will cycle windows in the groups first, then at each ends of tabs, it'll move on to other windows/groups | bool | `false` |
 | window_direction_monitor_fallback | If enabled, moving a window or focus over the edge of a monitor with a direction will move it to the next monitor in that direction. | bool | `true` |
 | disable_keybind_grabbing | If enabled, apps that request keybinds to be disabled (e.g. VMs) will not be able to do so. | bool | `false` |
 | allow_pin_fullscreen | If enabled, Allow fullscreen to pinned windows, and restore their pinned status afterwards | bool | `false` |
