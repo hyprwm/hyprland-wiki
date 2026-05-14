@@ -199,7 +199,7 @@ _Subcategory `decoration.glow.`_
 | force_no_accel | Force no cursor acceleration. This bypasses most of your pointer settings to get as raw of a signal as possible. **Enabling this is not recommended due to potential cursor desynchronization.** | bool | `false` |
 | rotation | Sets the rotation of a device in degrees clockwise off the logical neutral position. Value is clamped to the range 0 to 359. | int | `0` |
 | left_handed | Switches RMB and LMB | bool | `false` |
-| scroll_points | Sets the scroll acceleration profile, when `accel_profile` is set to `"custom"`. Has to be in the form `<step> <points>`. Leave empty to have a flat scroll curve. | str | \[\[Empty\]\] |
+| scroll_points | Sets the scroll acceleration profile, when `accel_profile` is set to `"custom"`. Has to be in the form `"<step> <points>"`. Leave empty to have a flat scroll curve. | str | \[\[Empty\]\] |
 | scroll_method | Sets the scroll method. Can be one of `"2fg"` (2 fingers), `"edge"`, `"on_button_down"`, `"no_scroll"`. [libinput#scrolling](https://wayland.freedesktop.org/libinput/doc/latest/scrolling.html) [`"2fg"`/`"edge"`/`"on_button_down"`/`"no_scroll"`] | str | \[\[Empty\]\] |
 | scroll_button | Sets the scroll button. Has to be an int, cannot be a string. Check `wev` if you have any doubts regarding the ID. 0 means default. | int | `0` |
 | scroll_button_lock | If the scroll button lock is enabled, the button does not need to be held down. Pressing and releasing the button toggles the button lock, which logically holds the button down or releases it. While the button is logically held down, motion events are converted to scroll events. | bool | `false` |
