@@ -211,16 +211,16 @@ sudo add-apt-repository universe && sudo apt update && sudo apt install hyprland
 
 Hyprland is not available from Void Linux's official repositories
 due to the void developers being salty and personally disliking our main developer.
-However, a [third party repository](https://github.com/Makrennel/hyprland-void)
+However, a [third party repository](https://universalrepository.pages.dev/)
 is available with
-[binary packages](https://github.com/Makrennel/hyprland-void/tree/repository-x86_64-glibc)
+[binary packages](https://github.com/UURepository/Packages/releases/tag/void-repo)
 built in CI by GitHub Actions.
 
-You can add this repository by creating a file such as
-`/etc/xbps.d/hyprland-void.conf` with the following contents:
+You can add this command:
 
-```plain {filename="/etc/xbps.d/hyprland-void.conf"}
-repository=https://raw.githubusercontent.com/Makrennel/hyprland-void/repository-x86_64-glibc
+```sh
+echo "repository=https://universalrepository.pages.dev/void" \
+  | sudo tee /etc/xbps.d/universalrepo.conf
 ```
 
 Then you can install the packages as you would any other:
@@ -232,12 +232,6 @@ sudo xbps-install -S xdg-desktop-portal-hyprland
 
 xbps-query -Rs hypr # This will require you to have already accepted the repository's fingerprint using xbps-install -S
 ```
-
-More information is available in the
-[hyprland-void README](https://github.com/Makrennel/hyprland-void/blob/master/README.md),
-including information about how you can
-[manually build](https://github.com/Makrennel/hyprland-void?tab=readme-ov-file#manually-building)
-Hyprland for Void Linux using the templates provided.
 
 {{% /details %}}
 
