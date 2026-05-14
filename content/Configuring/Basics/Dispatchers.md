@@ -45,7 +45,7 @@ If no window is provided, the active window is used.
 A workspace. Can be:
  - workspace object
  - workspace ID
- - workspace selector, see [below]({{< relref "#workspace selectors" >}})
+ - workspace selector, see [below](#workspace-selectors)
 
 #### Direction
 
@@ -190,9 +190,7 @@ You can lock a group with the `lock` dispatcher in order to stop new
 windows from entering this group.
 
 You can prevent a window from being added to a group or becoming a group with the
-`window.deny_from_group` dispatcher. `move({ window_or_group })` will behave like
-`move({ window })` if the current active window or window in direction has this property
-set.
+`window.deny_from_group` dispatcher.
 
 ## Workspace selectors
 
