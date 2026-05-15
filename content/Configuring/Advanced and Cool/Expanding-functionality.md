@@ -92,6 +92,7 @@ Hyprland exposes a bunch of convenience functions:
  - `hl.get_current_submap()`
  - `hl.version()`
  - `hl.exec_cmd()`
+ - `hl.get_loaded_plugins()`
 
 
 Use the LSP for the return values (classes and their parameters) of these functions. See [here](../../Start/#autocompletions) for setting up the LSP for your code editor
