@@ -46,10 +46,10 @@ Splitting hyprland's configuration across multiple files is an easier way of man
 You can refer to files relative to from the `hyprland.lua` location. Example:
 
 ```lua
--- refers $XDG_CONFIG_HOME/hypr/awesomeconf/keybinds.lua
+-- refers to $XDG_CONFIG_HOME/hypr/awesomeconf/keybinds.lua
 require("awesomeconf/keybinds")
 
--- refers $XDG_CONFIG_HOME/hypr/awesomeconf/animation.lua
+-- refers to $XDG_CONFIG_HOME/hypr/awesomeconf/animation.lua
 require("awesomeconf.animation")
 ```
 You can use either `/` or `.` as a directory separator. The `/` separator is UNIX specific whilst the `.` separator is generic.
