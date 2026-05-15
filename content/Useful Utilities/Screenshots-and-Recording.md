@@ -37,6 +37,19 @@ To copy a selected area directly to the clipboard, install
 hl.bind("SUPER + Print", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | wl-copy))
 ```
 
+### Satty
+[`Satty`](https://github.com/Satty-org/Satty) is a powerful and modern screenshot
+annotation tool inspired by [`swappy`](https://github.com/jtheoof/swappy) and 
+[Flameshot](https://github.com/flameshot-org/flameshot). It's been created to provide
+improvements over existing screenshot tools and is an almost drop-in replacement for swappy.
+
+For example, to take a screenshot and open it with `satty`, 
+Ctrl-C to copy to clipboard and Ctrl-S saves it to `~/Pictures/Screenshots/`:
+
+```lua
+hl.bind("Print", hl.dsp.exec_cmd('grim - | satty -f - --copy-command wl-copy -o "~/Pictures/Screenshots/%Y%m%d_%H%M%S.png"'))
+```
+
 ### Flameshot
 
 [Flameshot](https://github.com/flameshot-org/flameshot) is a screenshot tool
