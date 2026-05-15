@@ -43,7 +43,7 @@ It's [here](https://github.com/hyprwm/Hyprland/blob/main/example/hyprland.lua).
 
 Splitting hyprland's configuration across multiple files is an easier way of managing the configuration. To source or reference other files we use lua's [require](#require) function. 
 
-You can refer to files relative to from the `hyprland.lua` location. Example:
+You can refer to the files using relative paths from the location of `hyprland.lua`. Example:
 
 ```lua
 -- refers to $XDG_CONFIG_HOME/hypr/awesomeconf/keybinds.lua
