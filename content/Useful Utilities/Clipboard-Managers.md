@@ -83,26 +83,26 @@ Now you can bind `clipman` like this:
 {{< tabs items="rofi,dmenu,wofi,fuzzel" >}}
 
 {{< tab >}}
-```ini
-bind = SUPER, V, exec, clipman pick -t rofi
+```lua
+hl.bind("SUPER + V", hl.dsp.exec_cmd("clipman pick -t rofi))
 ```
 {{< /tab >}}
 
 {{< tab >}}
-```ini
-bind = SUPER, V, exec, clipman pick -t dmenu
+```lua
+hl.bind("SUPER + V", hl.dsp.exec_cmd("clipman pick -t dmenu"))
 ```
 {{< /tab >}}
 
 {{< tab >}}
-```ini
-bind = SUPER, V, exec, clipman pick -t wofi
+```lua
+hl.bind("SUPER + V", hl.dsp.exec_cmd("clipman pick -t wofi"))
 ```
 {{< /tab >}}
 
 {{< tab >}}
-```ini
-bind = SUPER, V, exec, clipman pick -t STDOUT | fuzzel --dmenu | wl-copy
+```lua
+hl.bind("SUPER + V", hl.dsp.exec_cmd("clipman pick -t STDOUT | fuzzel --dmenu | wl-copy"))
 ```
 {{< /tab >}}
 
