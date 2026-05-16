@@ -55,6 +55,6 @@ from a more tangible example.
 
 ### coffebar
 
-![coffebar/dotfiles screenshot](https://github.com/coffebar/dotfiles/raw/6a5d595c594f108cd10219df08d338e98e1d2d7d/screenshot.png)
+![coffebar/dotfiles screenshot](https://github.com/coffebar/dotfiles/raw/main/screenshot-wide.png)
 
 [https://github.com/coffebar/dotfiles](https://github.com/coffebar/dotfiles)
