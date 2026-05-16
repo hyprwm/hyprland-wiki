@@ -25,6 +25,10 @@ initialization of the Display Server, e.g.:
 hl.env("GTK_THEME", "Nord")
 ```
 
+> [!NOTE]
+> When referencing existing environment variables like `$XDG_RUNTIME_DIR`, use `os.getenv()`, eg.:
+> `hl.env("SSH_AUTH_SOCK", os.getenv("XDG_RUNTIME_DIR").."/ssh-agent.socket")`
+
 > [!WARNING]
 > Please avoid putting those environment variables in `/etc/environment`.  
 > That will cause all sessions (including Xorg ones) to pick up your Wayland-specific
