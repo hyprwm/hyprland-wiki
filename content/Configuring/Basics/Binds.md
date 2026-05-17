@@ -318,7 +318,7 @@ hl.bind("SUPER + SHIFT + A", hl.dsp.global("coolApp:myToggle"))
 
 ## Submaps
 
-Keybind submaps allow you to activate aseparate set of keybinds.  
+Keybind submaps allow you to activate a separate set of keybinds.  
 For example, if you want to enter a `resize` _mode_ that allows you to resize windows with the arrow keys, you can do it like this:
 
 ```lua
