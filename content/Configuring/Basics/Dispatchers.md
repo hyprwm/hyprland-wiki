@@ -71,7 +71,7 @@ A monitor. Can be:
 | method | description |
 | --- | --- |
 | `exec_cmd(cmd, rules?)` | execute a command. Rules can be a table of window rule effects to apply (see [below](#executing-with-rules)). |
-| `exec_raw(cmd)` | execute a raw command. While `exec_cmd` will do `bash -c`, this won't. |
+| `exec_raw(cmd)` | execute a raw command. While `exec_cmd` will do `sh -c`, this won't. |
 | `focus({ direction })` | move the focus in a direction |
 | `focus({ monitor })` | move the focus to a monitor |
 | `focus({ workspace, on_current_monitor? })` | move the focus to a workspace |
