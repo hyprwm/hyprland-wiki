@@ -284,8 +284,8 @@ The `fullscreen_state` dispatcher decouples the state that Hyprland maintains fo
 
 For example:
 
-`2 0` Fullscreens the application and keeps the client in non-fullscreen mode.  
+`{internal = 2, client = 0}` Fullscreens the application and keeps the client in non-fullscreen mode.  
 
 This can be used to prevent Chromium-based browsers from going into presentation mode when they detect they have been fullscreened.  
 
-`0 2` Keeps the window non-fullscreen, but the client goes into fullscreen mode within the window.
+`{internal = 0, client = 2}` Keeps the window non-fullscreen, but the client goes into fullscreen mode within the window.
