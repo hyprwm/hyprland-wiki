@@ -34,7 +34,7 @@ To copy a selected area directly to the clipboard, install
 [`wl-clipboard`](https://github.com/bugaevc/wl-clipboard) and use:
 
 ```lua
-hl.bind("SUPER + Print", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | wl-copy))
+hl.bind("SUPER + Print", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | wl-copy'))
 ```
 
 ### Satty
