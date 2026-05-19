@@ -86,7 +86,7 @@ A monitor. Can be:
 | `layout(message)` | send a layout message as a string |
 | `dpms({ action?, monitor? })` | toggle monitors on/off (not physically, as in idle-screensaver.) |
 | `event(string)` | send an event to socket2. |
-| `global(string)` | activate a dbus global shortcut. See [Binds > Global Shortcuts](../Binds#DBus-Global-Shortcuts) |
+| `global(string)` | activate a dbus global shortcut. See [Binds > Global Shortcuts](../Binds#dbus-global-shortcuts) |
 | `force_idle(seconds)` | sets elapsed time for all idle timers, ignoring idle inhibitors. Timers return to normal behavior upon the next activity. Do not use with a keybind directly. |
 | `no_op()` | does nothing. Useful for conditional binds. |
 

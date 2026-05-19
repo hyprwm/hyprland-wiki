@@ -112,14 +112,14 @@ The following servers are known to be supported:
 - [Apollo/Artemis(Moonlight Noir)](https://github.com/ClassicOldSong/Apollo)
 - [Wayvnc](https://github.com/any1/wayvnc)
 
-Once you start Hyprland, you can start your server remotely using `hyprctl` on the guest (See [Using hyprctl](../Configuring/Using-hyprctl))
+Once you start Hyprland, you can start your server remotely using `hyprctl` on the guest (See [Using hyprctl](../Using-hyprctl))
 ```bash
 hyprctl --instance 0 dispatch 'exec_raw("Sunshine")'
 ```
 
 The remote display server should be running below the Hyprland process to inherit all its environment variables. Otherwise it will not find your headless display.
 
-If everything is configured and working correctly, you can set your server in your `hyprland.conf` file to be autostarted. (See the [FAQ](../Basics/Autostart.md)):
+If everything is configured and working correctly, you can set your server in your `hyprland.conf` file to be autostarted. (See the [FAQ](../../Basics/Autostart)):
 ```lua
 hl.on("hyprland.start", function ()
     hl.exec_cmd("Sunshine")
