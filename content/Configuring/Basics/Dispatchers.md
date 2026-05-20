@@ -96,9 +96,9 @@ A monitor. Can be:
 
 | method | description |
 | --- | --- |
-| `close(window?)` | Close a window. |
-| `kill(window?)` | Kill a window |
-| `signal({ signal, window? })` | send a signal to a window process |
+| `close(window?)` | Send a graceful request to close the window. |
+| `kill(window?)` | Kill the process owning the window with a `SIGKILL`. |
+| `signal({ signal, window? })` | Send a POSIX signal to the process owning the window. |
 | `float({ action?, window? })` | set a window's floating state. |
 | `fullscreen({ mode?, action?, window? })` | set a window's fullscreen state. `mode` can be "maximized" and "fullscreen". `action` can be `toggle`/`set`/`unset` |
 | `fullscreen_state({ internal, client, action?, window? })` | set a window's fullscreen state with more precision. `action` can be `toggle`/`set`/`unset`. See [Fullscreenstate](#fullscreenstate) |
