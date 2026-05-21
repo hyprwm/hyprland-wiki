@@ -230,10 +230,11 @@ hl.bind("ALT + mouse:272", hl.dsp.window.resize(), { mouse = true })  -- ALT + L
 
 Available mouse binds:
 
-| Name | Description | Params |
-| ---- | ----------- | ------ |
-| `drag()` | moves the active window | None |
-| `resize()` | resizes the active window | None |
+| Name | Description |
+| ---- | ----------- |
+| `drag()` | moves the active window |
+| `resize()` | resizes the active window |
+| `resize({ keep_aspect_ratio })`| resizes the active window, overriding the window's `keep_aspect_ratio` prop temporarily |
 
 Common mouse button key codes (check `wev` for other buttons):
 

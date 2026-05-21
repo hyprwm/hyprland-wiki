@@ -125,6 +125,7 @@ A monitor. Can be:
 | `deny_from_group({ action? })` | deny a window from entering a group |
 | `drag()` | begin an interactive drag. To be used with mouse binds. |
 | `resize()` | begin an interactive resize. To be used with mouse binds. |
+| `resize({ keep_aspect_ratio })` | begin an interactive resize. To be used with mouse binds. Overrides window's `keep_aspect_ratio` prop. |
 | `resize({ x, y, relative?, window? })` | resize a window |
 
 ### Workspace
