@@ -87,7 +87,6 @@ Available flags:
 | `mouse`| See the dedicated [Mouse Binds](#mouse-binds) section. |
 | `transparent` | Cannot be shadowed by other binds. |
 | `ignore_mods` | Will ignore modifiers. |
-| `separate` | Will arbitrarily combine keys between each mod/key, see [Keysym combos](#keysym-combos). |
 | `description` | Will allow you to write a description for your bind. |
 | `bypass` | Bypasses the app's requests to inhibit keybinds. |
 | `submap_universal` | Will be active no matter the submap. |
