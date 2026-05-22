@@ -91,7 +91,7 @@ Available flags:
 | `description` | Will allow you to write a description for your bind. |
 | `bypass` | Bypasses the app's requests to inhibit keybinds. |
 | `submap_universal` | Will be active no matter the submap. |
-| `devices` | Allow binds to be set per device. See [Per-Device Binds](#per-device-binds) |
+| `device` | Allow binds to be set per device. See [Per-Device Binds](#per-device-binds) |
 
 Example Usage:
 
@@ -194,7 +194,7 @@ For more information have a look at [Using Hyprctl](../../Advanced-and-Cool/Usin
 
 ### Per-Device Binds
 
-You can set keybinds to be device specific with the `devices` flag. This flag is a table consisting of an `inclusive` flag and device list  
+You can set keybinds to be device specific with the `device` flag. This flag is a table consisting of an `inclusive` flag and device list  
 If `inclusive` is set to true only devices specified in the list are capable of triggering the keybind. If set to false all devices except those specified can trigger the keybind. If `inclusive` is not present it defaults to true.  
 A list of devices is specified in the `list` field as a comma separated list of strings.  
 Device tags may also be used in place of device names. See [Devices](../../Advanced-and-Cool/Devices).
@@ -205,10 +205,10 @@ hl.bind(keys, dispatcher(params), { device = { inclusive = true, list = { "devic
 
 ```lua
 -- Only example-keyboard-1 can use this bind
-hl.bind("SUPER + Q", hl.dsp.exec_cmd("kitty"), { devices = { inclusive = true, list = { "example-keyboard-1" } } })
+hl.bind("SUPER + Q", hl.dsp.exec_cmd("kitty"), { device = { inclusive = true, list = { "example-keyboard-1" } } })
 
 -- Every keyboard other than razer-keyboard and asus-keyboard can use this bind
-hl.bind("SUPER + Q", hl.dsp.exec_cmd("kitty"), { devices = { inclusive = false, list = { "razer-keyboard", "asus-keyboard" } } })
+hl.bind("SUPER + Q", hl.dsp.exec_cmd("kitty"), { device = { inclusive = false, list = { "razer-keyboard", "asus-keyboard" } } })
 ```
 
 You can check device names with `hyprctl devices`.
