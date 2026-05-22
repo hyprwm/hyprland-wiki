@@ -42,7 +42,7 @@ end)
 
 ## Toggle animations/blur/etc hotkey 
 
-For increased performance in games, or for less distractions at a keypress
+For less distractions at a keypress, or battery saving on a laptop
 
 Add the following to your hypland config:
 
@@ -51,7 +51,6 @@ hl.bind("SUPER + F1", function ()
     local game_mode = (hl.get_config("animations.enabled") == false)
 
     if game_mode then
-        hl.notification.create({ text = "Gamemode [OFF]", color = "rgb(d20f39)", timeout = 5000, })
         hl.exec_cmd("hyprctl reload")
         return
     end
@@ -73,8 +72,6 @@ hl.bind("SUPER + F1", function ()
             rounding = 0,
         }
     })
-
-    hl.notification.create({ text = "Gamemode [ON]", color = "rgb(40a02b)", timeout = 5000, })
 end)
 ```
 
