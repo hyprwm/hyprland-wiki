@@ -177,6 +177,7 @@ Dynamic effects are re-evaluated every time a property changes.
 | no_shortcuts_inhibit | boolean | Disallows the app from inhibiting your shortcuts. |
 | no_screen_share | boolean | Hides the window and its popups from screen sharing by drawing black rectangles in their place. |
 | no_vrr | boolean | Disables VRR for the window. Only works when `misc.vrr` is set to `2` or `3`. |
+| no_auto_hdr | boolean | Disables AutoHDR for the window. This is useful to stop programs like `foot` triggering AutoHDR when they are fullscreened. |
 | opaque | boolean | Forces the window to be opaque. |
 | force_rgbx | boolean | Forces Hyprland to ignore the alpha channel entirely. |
 | sync_fullscreen | boolean | Whether the fullscreen mode should always be the same as the one sent to the window. |
