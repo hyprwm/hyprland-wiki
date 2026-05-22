@@ -12,12 +12,6 @@ screen on Hyprland.
 
 ## Screenshot utilities
 
-### HyprCapture
-
-[HyprCapture](https://github.com/gfhdhytghd/HyprCapture) is a Hyprland-oriented
-screenshot and recording utility. It is useful if you want a workflow that is
-integrated with Hyprland instead of wiring several smaller tools together.
-
 ### grim and swappy
 
 [`grim`](https://sr.ht/~emersion/grim/) is a simple Wayland screenshot tool. It
@@ -38,6 +32,7 @@ hl.bind("SUPER + Print", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | wl-copy'))
 ```
 
 ### Satty
+
 [`Satty`](https://github.com/Satty-org/Satty) is a powerful and modern screenshot
 annotation tool inspired by [`swappy`](https://github.com/jtheoof/swappy) and 
 [Flameshot](https://github.com/flameshot-org/flameshot). It's been created to provide
@@ -56,6 +51,12 @@ hl.bind("Print", hl.dsp.exec_cmd('grim - | satty -f - --copy-command wl-copy -o 
 with a built-in annotation UI. On Wayland, it relies on portal support for screen
 capture. If it cannot capture the screen, make sure your desktop portal setup is
 working or use `grim` with `swappy` instead.
+
+### HyprCapture
+
+[HyprCapture](https://github.com/gfhdhytghd/HyprCapture) is a Hyprland-oriented
+screenshot and recording utility. It is useful if you want a workflow that is
+integrated with Hyprland instead of wiring several smaller tools together.
 
 ### WeChat screenshot
 
