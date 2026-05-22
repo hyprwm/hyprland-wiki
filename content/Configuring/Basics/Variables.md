@@ -54,7 +54,7 @@ end
 > 
 > You have 4 options:
 > - web-styled hash, e.g. `"#fafc21"` or `"#ddd"` or `"#fa3d7bff"` (rgba order)
-> - rgba(), e.g. `"rgba(b3ff1aee)`, or the decimal equivalent `"rgba(179,255,26,0.933)"`
+> - rgba(), e.g. `"rgba(b3ff1aee)"`, or the decimal equivalent `"rgba(179,255,26,0.933)"`
 > (decimal rgba/rgb values should have no spaces between numbers)
 > - rgb(), e.g. `"rgb(b3ff1a)"`, or the decimal equivalent  `"rgb(179,255,26)"`
 > - legacy, e.g. `0xeeb3ff1a` -> ARGB order
@@ -581,7 +581,7 @@ _Subcategory `quirks.`_
 | --- | --- | --- | --- |
 | prefer_hdr | Report HDR mode as preferred. 0 - off, 1 - always, 2 - gamescope only | int | `0` |
 
-Some clients expect monitor to be in HDR mode prior to the client start. This breaks auto HDR activation and can cause whitescreen and flickering. Use `prefer_hdr` to fix it,
+Some clients expect monitor to be in HDR mode prior to the client start. This breaks auto HDR activation and can cause whitescreen and flickering. Use `prefer_hdr` to fix it.
 
 ### Debug
 
