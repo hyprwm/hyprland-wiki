@@ -113,7 +113,7 @@ sudo zypper in hyprland-devel
 ```
 
 Alternatively, you can also follow the instructions under
-["Manual (Manual Build)"](#manual-manual-build) to build Hyprland yourself.
+["Manual (Manual Build)"](#manual) to build Hyprland yourself.
 
 Note: _Hyprland is not available for Leap, as most libraries (and compiler) that
 Hyprland needs are too old._
@@ -473,7 +473,7 @@ virt-viewer --attach hypr-vm
 
 Finally on the guest follow the instructions above for either
 [installing hyprland-git from the aur](#installation) or
-[building manually](#manual-manual-build).
+[building manually](#manual).
 > [!WARNING]
 > Make sure you install `mesa` as the OpenGL driver. The virgl drivers are
 > included in `mesa`.

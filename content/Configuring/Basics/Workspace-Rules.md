@@ -21,7 +21,7 @@ hl.workspace_rule(workspace, rule1, rule2, ...)
 ```
 
 - WORKSPACE is a valid workspace identifier (see
-  [Dispatchers->Workspaces](../Dispatchers#workspaces)). This field is
+  [Dispatchers->Workspaces](../Dispatchers#workspace)). This field is
   mandatory. This _can be_ a workspace selector, but please note
   workspace selectors can only match _existing_ workspaces.
 - RULES is one (or more) rule(s) as described here in [rules](#rules).

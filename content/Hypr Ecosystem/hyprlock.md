@@ -40,7 +40,7 @@ The first match is used. You can also specify an explicit path with `hyprlock --
 
 ### Variable Types
 
-Hyprlock uses the following types in addition to [Hyprland's variable types](../../Configuring/Basics/Variables#Variable_types).
+Hyprlock uses the following types in addition to [Hyprland's variable types](../../Configuring/Basics/Variables#variable-types).
 
 | type | description |
 | -- | -- |

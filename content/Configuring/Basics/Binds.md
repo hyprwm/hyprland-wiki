@@ -29,7 +29,7 @@ will bind opening Firefox to <key>SUPER</key> + <key>SHIFT</key> + <key>Q</key>
 > ```
 
 _The dispatcher list can be found in
-[Dispatchers](../Dispatchers/#list-of-dispatchers)._
+[Dispatchers](../Dispatchers/#dispatchers-1)._
 
 You can also put a lua function if you prefer as your bind dispatcher:
 
@@ -87,7 +87,6 @@ Available flags:
 | `mouse`| See the dedicated [Mouse Binds](#mouse-binds) section. |
 | `transparent` | Cannot be shadowed by other binds. |
 | `ignore_mods` | Will ignore modifiers. |
-| `separate` | Will arbitrarily combine keys between each mod/key, see [Keysym combos](#keysym-combos). |
 | `description` | Will allow you to write a description for your bind. |
 | `bypass` | Bypasses the app's requests to inhibit keybinds. |
 | `submap_universal` | Will be active no matter the submap. |
@@ -267,8 +266,8 @@ hl.bind("SUPER + ALT_L", hl.dsp.window.resize(), { mouse = true })
 Yes, you heard this right, Hyprland does support global keybinds for _ALL_ apps,
 including OBS, Discord, Firefox, etc.
 
-See the [`pass`](../Dispatchers/#list-of-dispatchers) and
-[`sendshortcut`](../Dispatchers/#list-of-dispatchers) dispatchers for keybinds.
+See the [`pass`](../Dispatchers/#dispatchers-1) and
+[`send_shortcut`](../Dispatchers/#dispatchers-1) dispatchers for keybinds.
 
 Let's take OBS as an example: the "Start/Stop Recording" keybind is set to
 <key>SUPER</key> + <key>F10</key>, to make it work globally, simply add:
@@ -595,3 +594,4 @@ hl.config({
 ```
 
 You can also find additional `kb_options` unrelated to Caps Lock in `/usr/share/X11/xkb/rules/base.lst`.
+
