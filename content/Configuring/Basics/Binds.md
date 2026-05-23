@@ -220,7 +220,7 @@ These are binds that rely on mouse movement. They will have one less arg.
 
 ```lua
 hl.config({
-    binds {
+    binds = {
         drag_threshold = 10 -- Fire a drag event only after dragging for more than 10px
     }
 })
