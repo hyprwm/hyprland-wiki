@@ -100,8 +100,9 @@ A monitor. Can be:
 | `kill(window?)` | Kill the process owning the window with a `SIGKILL`. |
 | `signal({ signal, window? })` | Send a POSIX signal to the process owning the window. |
 | `float({ action?, window? })` | set a window's floating state. |
-| `fullscreen({ mode?, action?, window? })` | set a window's fullscreen state. `mode` can be "maximized" and "fullscreen". `action` can be `toggle`/`set`/`unset` |
-| `fullscreen_state({ internal, client, action?, window? })` | set a window's fullscreen state with more precision. `action` can be `toggle`/`set`/`unset`. See [Fullscreenstate](#fullscreenstate) |
+| `maximize({ mode?, window? })` | set a window's maximized state (like fullscreen but keeps gaps and bars). `mode` can be `on`, `off`, or `toggle` (default). |
+| `fullscreen({ mode?, window? })` | set a window's fullscreen state. `mode` can be `on`, `off`, or `toggle` (default). |
+| `fullscreen_state({ mode_compositor, mode_client, unsync?, window? })` | set a window's fullscreen state with more precision. each mode can be `keep`/`on`/`off`/`toggle`. See [Fullscreenstate](#fullscreenstate) |
 | `pseudo({ action?, window? })` | set a window's pseudotiling state. |
 | `move({ direction, group_aware?, window? })` | move a window in a direction. `group_aware = true` will put windows in/out of groups alongside the given direction. |
 | `move({ workspace, follow?, window? })` | move a window to a workspace |
@@ -268,24 +269,49 @@ Some props are expanded from their window rule parents which take multiple argum
 
 ## Fullscreenstate
 
-The `fullscreen_state` dispatcher decouples the state that Hyprland maintains for a window from the fullscreen state that is communicated to the client.  
+### _Compositor_ and _Client_ states
 
-`internal` is a reference to the state maintained by Hyprland.
+For each window, there are two distinct settings (which are in sync by default):
 
-`client` is a reference to the state that the application receives.
+- The _compositor fullscreen state_ is how Hyprland thinks of a window: if the compositor fullscreen mode is on, the window will take up the whole screen. <br>
+  This state is usually affected with the `hl.dsp.window.fullscreen` dispatcher.
 
-| Value | State | Description |
-| --- | --- | --- |
-| -1 | Current | Maintains the current fullscreen state. |
-| 0 | None | Window allocates the space defined by the current layout. |
-| 1 | Maximize | Window takes up the entire working space, keeping the margins. |
-| 2 | Fullscreen | Window takes up the entire screen. |
-| 3 | Maximize and Fullscreen | The state of a fullscreened maximized window. Works the same as fullscreen. |
+- The _client fullscreen state_ is what Hyprland _tells_ to the window about its state: if the client state is fullscreen mode is on, the window will
+  _think_ that it is taking up the whole scren, and render itself accordingly. <br>
+  This state is usually affected with requests coming from the window itself.
 
-For example:
+As long as the two states are in sync (default, corresponds to the [`sync_fullscreen` dynamic effect](../Window-Rules#dynamic-effects)),
+the window recieves true information about its fullscreenness, and changes to either of the states are propagated to the other one.
 
-`{internal = 2, client = 0}` Fullscreens the application and keeps the client in non-fullscreen mode.  
+### `hl.dsp.window.fullscreen_state` dispatcher
 
-This can be used to prevent Chromium-based browsers from going into presentation mode when they detect they have been fullscreened.  
+The `hl.dsp.window.fullscreen_state` dispatcher allows to decouple the two states.
 
-`{internal = 0, client = 2}` Keeps the window non-fullscreen, but the client goes into fullscreen mode within the window.
+`mode_compositor` (formerly: `internal`) and `mode_client` (formerly: `client`) set the compositor state and client state, respectively.
+Mode value `on` turns the corresponding fullscreen mode on; `off` turns it off; `toggle` inverts the current state; `keep` keeps the old state.
+
+Calling `hl.dsp.window.fullscreen_state` will also affect how fullscreen states are synced:
+
+- If after a call to `fullscreen_state` the compositor and client modes are different (e.g., `fullscreen_state({ mode_compositor = "off", mode_client = "on" })`),
+  the [`sync_fullscreen` dynamic effect](../Window-Rules#dynamic-effects) is disabled. While it is disabled, fullscreen requests that come from the window will only
+  affect the client state, while requests from `hl.dsp.window.fullscreen` dispatcher only affect the compositor state. <br>
+  Specifying `unsyc = false` in this case is an error: the modes must be unsynced.
+
+- If after a call to `fullscreen_state` the compositor and client modes are the same value, by default, the `sync_fullscreen` dynamic effect is restored, and
+  all fullscreen requests now affect both states again (states are in sync).
+
+- But if `unsync = true` is specified, this dispatcher will only set the states and not restore the `sync_fullscreen` dynamic effect, even if compositor state and
+  client state come to the same value.
+
+### Examples
+
+`hl.dsp.fullscreen_state({ mode_compositor = "on", mode_client = "off" })` Fullscreens the application and keeps the client in non-fullscreen mode.
+
+This can be used to prevent Chromium-based browsers from going into presentation mode when they detect they have been fullscreened.
+
+`hl.dsp.fullscreen_state({ mode_compositor = "off", mode_client = "on" })` Keeps the window non-fullscreen, but the client goes/stays in fullscreen mode within the window.
+
+`hl.dsp.fullscreen_state({ mode_compositor = "keep", mode_client = "keep", unsync = true })` Keeps the window in the state that it was in, but decouples the
+compositor and client fullscreen states. Then, the window can only control its client fullscreen state, but its requests won't affect the compositor fullscreen state.
+
+`hl.dsp.fullscreen_state({ mode_compositor = "off", mode_client = "off" })` Undoes all manipulations to fullscreenness and syncs the states.
