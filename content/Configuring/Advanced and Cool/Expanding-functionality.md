@@ -118,7 +118,7 @@ because `gaps_in` also accepts a table of the form `{ top?, left?, right?, botto
 
 You can change the value of a config option with a keybind with a script like:
 ```lua
--- Toggle gaps_in beween 0 and 3 (equivalent to  {3, 3, 3, 3} )
+-- Toggle gaps_in between 0 and 3 (equivalent to  {3, 3, 3, 3} )
 hl.bind(mainMod .. " + SHIFT + G", function()
 
     local gapsInValueTable = hl.get_config("general.gaps_in")
