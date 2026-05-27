@@ -44,7 +44,7 @@ end)
 
 For less distractions at a keypress, or battery saving on a laptop
 
-Add the following to your hypland config:
+Add the following to your hyprland config:
 
 ```lua
 hl.bind("SUPER + F1", function ()
