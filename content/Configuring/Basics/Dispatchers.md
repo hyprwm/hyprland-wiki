@@ -159,7 +159,7 @@ A monitor. Can be:
 | method | description |
 | --- | --- |
 | `move_to_corner({ corner, window? })` | move the cursor to a given corner of the window. Corner is 0-3 |
-| `move({ x, y })` | move the cursor to agiven coordinate |
+| `move({ x, y })` | move the cursor to a given coordinate |
 
 > [!WARNING]
 > [uwsm](../../../Useful-Utilities/Systemd-start) users should avoid using `exit` dispatcher, or terminating Hyprland process directly, as exiting Hyprland this way removes it from under its clients and interferes with ordered shutdown sequence. Use `exec, uwsm stop` (or [other variants](https://github.com/Vladimir-csp/uwsm#how-to-stop)) which will gracefully bring down graphical session (and login session bound to it, if any). If you experience problems with units entering inconsistent states, affecting subsequent sessions, use `exec, loginctl terminate-user ""` instead (terminates all units of the user).
@@ -237,7 +237,7 @@ For example, to move a window to a named special workspace you can use the follo
 
 ```lua
 hl.bind("SUPER + C", hl.dsp.window.move({ workspace = "special:magic" }))
--- To see the hiden window and workspace you can use: 
+-- To see the hidden window and workspace you can use: 
 hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("magic"))
 ```
 
