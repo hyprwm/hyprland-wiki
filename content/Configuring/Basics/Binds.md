@@ -214,17 +214,11 @@ You can check device names with `hyprctl devices`.
 
 ## Mouse Binds
 
-These are binds that rely on mouse movement. They will have one less arg.  
-`hl.config.binds.drag_threshold` can be used to differentiate between clicks and drags with the same button:
+These are binds that rely on mouse movement.
 
 ```lua
-hl.config({
-    binds = {
-        drag_threshold = 10 -- Fire a drag event only after dragging for more than 10px
-    }
-})
-hl.bind("ALT + mouse:272", hl.dsp.window.drag(), { mouse = true })    -- ALT + LMB: Move a window by dragging more than 10px.
-hl.bind("ALT + mouse:272", hl.dsp.window.resize(), { mouse = true })  -- ALT + LMB: Floats a window by clicking
+hl.bind("ALT + mouse:272", hl.dsp.window.drag(), { mouse = true })    -- ALT + LMB: Move a window
+hl.bind("ALT + mouse:273", hl.dsp.window.resize(), { mouse = true })  -- ALT + RMB: Resize a window
 ```
 
 Available mouse binds:
@@ -246,6 +240,20 @@ MMB -> 274
 > Mouse binds, despite their name, behave like normal binds.  
 > You are free to use whatever keys / mods you please. When held, the mouse function will be
 > activated.
+
+### Click and drag
+
+`binds.drag_threshold` can be used to differentiate between clicks and drags with the same button:
+
+```lua
+hl.config({
+    binds = {
+        drag_threshold = 10 -- Fire a drag event only after dragging for more than 10px
+    }
+})
+hl.bind("ALT + mouse:272", hl.dsp.window.drag(), { mouse = true, drag = true })    -- ALT + LMB (drag): Move a window by dragging more than 10px.
+hl.bind("ALT + mouse:272", hl.dsp.window.float(), { mouse = true, click = true })  -- ALT + LMB (click): Floats a window by clicking
+```
 
 ### Touchpad
 
