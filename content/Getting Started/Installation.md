@@ -21,7 +21,7 @@ title: Installation
 We officially run and test Hyprland on Arch and NixOS, and we guarantee Hyprland will work there. For any other distro
 (not based on Arch/Nix) you might have varying amounts of success. However,
 since Hyprland is extremely bleeding-edge, point release distros like Pop!\_OS, Fedora, Ubuntu, etc.
-will have **major** issues running Hyprland. Rolling release distros like openSUSE, Solus ,etc. will likely be fine.
+will have **major** issues running Hyprland. Rolling release distros like openSUSE, Solus, etc. will likely be fine.
 
 ## Installation
 
@@ -316,7 +316,7 @@ For screensharing, you can also install `xdg-desktop-portal-wlr` or `xdg-desktop
 sudo apt install -y xdg-desktop-portal-wlr
 ```
 
-_Unfortunately, `xdg-desktop-portal-hyprland` still not in Ubuntu Repo so you have to build it from source_
+_Unfortunately, `xdg-desktop-portal-hyprland` is still not in Ubuntu Repo so you have to build it from source_
 
 See
 [The xdph GitHub repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland). Refer to
