@@ -160,7 +160,7 @@ hl.bind("switch:off:[switch name]", hl.dsp.exec_cmd("notify-send 'among us'"), {
 
 ### Multiple binds to one key
 
-You can trigger multiple actions with the same keybind by using a lua lambda function, with different `disapatcher`s and `param`s:
+You can trigger multiple actions with the same keybind by using a lua lambda function, with different `dispatcher`s and `param`s:
 
 ```lua
 -- To switch between windows in a floating workspace:
