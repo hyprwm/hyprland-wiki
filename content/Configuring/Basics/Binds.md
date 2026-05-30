@@ -353,7 +353,7 @@ end)
 > Do not forget a keybind (`escape`, in this case) to reset the keymap while inside it!
 > 
 > If you get stuck inside a keymap, you can use `hyprctl dispatch 'hl.dsp.submap("reset")'` to go back.  
-> If you do not have a terminal open, open a new tty and use the --instance flag to select which instanceof hyprland to operate on (if you only have one running this is 0). For example: `hyprctl dispatch --instace 0 'hl.dsp.submap("reset")'`
+> If you do not have a terminal open, open a new tty and use the --instance flag to select which instance of hyprland to operate on (if you only have one running this is 0). For example: `hyprctl dispatch --instace 0 'hl.dsp.submap("reset")'`
 
 You can also set the same keybind to perform multiple actions, such as resize
 and close the submap, like so:
