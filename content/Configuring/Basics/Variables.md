@@ -170,6 +170,15 @@ _Subcategory `decoration.glow.`_
 | color | glow's color. Alpha dictates glow's opacity. | color | `0xee1a1a1a` |
 | color_inactive | inactive glow color. (if not set, will fall back to color) | color | unset |
 
+#### Motion blur
+
+_Subcategory `decoration.motion_blur.`_
+
+| name | description | type | default |
+| --- | --- | --- | --- |
+| enabled | enable motion blur on moving / resizing windows | bool | `false` |
+| samples | The amount of samples to render. More will mean clearer blur, at the cost of more compute. | int | `7` |
+
 ### Animations
 
 | name | description | type | default |
