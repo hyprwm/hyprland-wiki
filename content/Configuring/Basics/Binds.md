@@ -88,7 +88,7 @@ Available flags:
 | `transparent` | Cannot be shadowed by other binds. |
 | `ignore_mods` | Will ignore modifiers. |
 | `description` | Will allow you to write a description for your bind. |
-| `bypass` | Bypasses the app's requests to inhibit keybinds. |
+| `dont_inhibit` | Bypasses the app's requests to inhibit keybinds. |
 | `submap_universal` | Will be active no matter the submap. |
 | `device` | Allow binds to be set per device. See [Per-Device Binds](#per-device-binds) |
 
