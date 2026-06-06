@@ -102,6 +102,31 @@ lua "scope", so errors in one `require()`d file do _not_ stop execution of other
 It's important to note that many errors will kill the execution of a given lua file.
 Error behavior is described further below.
 
+> [!WARNING]
+> `require()`'s protective behavior does not apply to module loading. If you
+> attempt to load a module that does not exist, `require()` will throw an
+> actual error, in the file from which it was invoked. That is, doing
+> `require("nonexistent")` in your main Hyprland config _will kill the
+> execution of your main config_ as described below.
+>
+> If you want to prevent such errors from breaking stuff, or even detect and
+> respond to them at runtime, use lua's `pcall()` function, for example:
+> ```lua
+> local status, value = pcall(require, "maybe-nonexistent")
+> if status then
+>   print("successfully loaded module, it returned:", value)
+> else
+>   print("failed to load module, its error message was:", value)
+> end
+> ```
+
+> [!TIP]
+> For advanced users who wish to ignore Hyprland's scope separation entirely,
+> the original lua `require` function is available as `__require`. It can be
+> used directly, or restored as the default by setting `require = __require`.
+> This latter option may be particularly helpful if you load third-party
+> modules that are broken by Hyprland's error-protection behavior.
+
 #### Error behavior
 
 Hyprland attempts as much as we can to make errors as non-destructive as possible. However,
