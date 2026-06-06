@@ -33,6 +33,7 @@ A window. Can be:
    - `tag:...`
  - exact selectors:
    - `pid:...`
+   - `stableid:...`
    - `address:0x...`
  - `activewindow`
  - `floating`
