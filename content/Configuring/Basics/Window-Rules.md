@@ -187,6 +187,7 @@ Dynamic effects are re-evaluated every time a property changes.
 | scroll_mouse | number | Forces the window to override `input.scroll_factor`. |
 | scroll_touchpad | number | Forces the window to override `input.touchpad.scroll_factor`. |
 | confine_pointer | boolean | Locks the mouse cursor to the window. Mostly useful for keeping your mouse cursor locked to one monitor during gaming.
+| tonemap | string | Tonemapping behavior: `on` (Default), `off` disables tonemapping, `clamp` clamps source luminance to target, `limited` uses a dynamic curve to tonemap only the top end out of bounds content.
 
 All dynamic effects can be set with `setprop`.
 
