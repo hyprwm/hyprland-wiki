@@ -188,7 +188,7 @@ Dynamic effects are re-evaluated every time a property changes.
 | scroll_touchpad | number | Forces the window to override `input.touchpad.scroll_factor`. |
 | confine_pointer | boolean | Locks the mouse cursor to the window. Mostly useful for keeping your mouse cursor locked to one monitor during gaming.
 
-All dynamic effects can be set with `setprop`.
+All dynamic effects can be set with `set_prop`.
 
 ### `group` window rule options
 
