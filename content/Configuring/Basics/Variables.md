@@ -392,6 +392,7 @@ _Subcategory `group.groupbar.`_
 | name | description | type | default |
 | --- | --- | --- | --- |
 | enabled | enables groupbars | bool | `true` |
+| disable_when_only | disable if contains single window. Considered only if enabled == true | bool | `false` |
 | font_family | font used to display groupbar titles, use `misc.font_family` if not specified | string | \[\[Empty\]\] |
 | font_size | font size of groupbar title | int | `8` |
 | font_weight_active | font weight of active groupbar title | font_weight | `"normal"` |
