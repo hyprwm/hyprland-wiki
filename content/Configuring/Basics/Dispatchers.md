@@ -251,7 +251,7 @@ Example:
 hl.bind("SUPER + E", hl.dsp.exec_cmd("kitty", { float = true, move = {0, 0} }))
 ```
 
-## setprop
+## set_prop
 
 Props are any of the _dynamic effects_ of [Window Rules](../Window-Rules#dynamic-effects).
 
