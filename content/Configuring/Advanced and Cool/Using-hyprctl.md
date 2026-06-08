@@ -174,7 +174,7 @@ Gets a property value of a window.
 hyprctl getprop [window] [property]
 ```
 
-Where `window` is as described [here](../../Basics/Dispatchers#parameter-explanation), and `property` is any which can be set with [setprop](../../Basics/Dispatchers/#setprop).
+Where `window` is as described [here](../../Basics/Dispatchers#parameter-explanation), and `property` is any which can be set with [setprop](../../Basics/Dispatchers/#set_prop).
 
 #### Notes
 - If `animationstyle` is unset, `(unset)` is returned.
