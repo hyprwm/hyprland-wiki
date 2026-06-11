@@ -89,6 +89,7 @@ A monitor. Can be:
 | `global(string)` | activate a dbus global shortcut. See [Binds > Global Shortcuts](../Binds#dbus-global-shortcuts) |
 | `force_idle(seconds)` | sets elapsed time for all idle timers, ignoring idle inhibitors. Timers return to normal behavior upon the next activity. Do not use with a keybind directly. |
 | `no_op()` | does nothing. Useful for conditional binds. |
+| `force_renderer_reload()` | force reloads the renderer on all monitors. |
 
 ### Window
 
@@ -127,6 +128,7 @@ A monitor. Can be:
 | `resize()` | begin an interactive resize. To be used with mouse binds. |
 | `resize({ keep_aspect_ratio })` | begin an interactive resize. To be used with mouse binds. Overrides window's `keep_aspect_ratio` prop. |
 | `resize({ x, y, relative?, window? })` | resize a window |
+| `bring_to_top()` | bring the active window to the top of the z-order. Shorthand for `alter_zorder({ mode = "top" })`. |
 
 ### Workspace
 
