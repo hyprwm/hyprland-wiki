@@ -132,10 +132,14 @@ You can also compile it yourself by following the instructions
 
 {{% details title="Debian*" closed="true" %}}
 
-`hyprland` is available as of Debian 14 (Forky)
+`hyprland` is available as of Debian 14 (Forky) and in the Debian 13 (Trixie) backports
 
 ```bash
 sudo apt install hyprland
+```
+or
+```bash
+sudo apt install -t trixie-backports hyprland
 ```
 
 > [!NOTE]
