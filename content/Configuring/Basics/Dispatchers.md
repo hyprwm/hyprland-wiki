@@ -44,7 +44,6 @@ If no window is provided, the active window is used.
 
 A workspace. Can be:
  - workspace object
- - workspace ID
  - workspace selector, see [below](#workspace-selectors)
 
 #### Direction
@@ -197,7 +196,7 @@ You can prevent a window from being added to a group or becoming a group with th
 
 You have nine choices:
 
-- ID: e.g. `1`, `2`, or `3`
+- ID: e.g. `id:1`, `id:2`, or `id:-98`
 
 - Relative ID: e.g. `+1`, `-3` or `+100`
 
