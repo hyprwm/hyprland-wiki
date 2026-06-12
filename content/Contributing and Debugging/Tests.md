@@ -27,6 +27,8 @@ And make sure your tests pass.
 A lot of hyprland's code cannot be unit tested, thus we have our own Hyprtester
 binary which runs hyprland and issues commands and expects results.
 
+#### Run all tests
+
 To run Hyprtester, execute the following in a debug build:
 
 ```sh
@@ -37,6 +39,15 @@ To run Hyprtester, execute the following in a debug build:
 of how many tests passed, and how many failed.
 
 The goal of failed tests is to be **0**.
+
+#### Run selected tests
+
+When you only want to run specific tests, just list their names (without group/file name)
+on the command line, e.g.:
+
+```sh
+./build/hyprtester/hyprtester dwindleSplit focusMasterPrevious processSpawning -c hyprtester/test.lua -b ./build/Hyprland -p hyprtester/plugin/hyprtestplugin.so
+```
 
 ## Submitting new tests
 
