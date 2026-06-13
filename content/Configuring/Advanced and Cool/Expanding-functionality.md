@@ -65,6 +65,7 @@ Event list:
 | workspace.removed | Emitted when a workspace is removed. | Workspace |
 | workspace.move_to_monitor | Emitted when a workspace is moved to a different monitor. | Workspace, Monitor |
 | config.reloaded | Emitted when the config has been reloaded **and applied**. | None |
+| config.props_refreshed | Emitted when a prop refresh event is executed. | Bool: Is prop refresh event executed as scheduled (`false` if executed prematurely with helper function) |
 | keybinds.submap | Emitted when the active submap changes. An empty string means the default submap was restored. | String: Submap Name|
 | screenshare.state | Emitted when a screenshare session starts or stops. | Bool: Active, Integer: Type, String: Name |
 
@@ -93,6 +94,7 @@ Hyprland exposes a bunch of convenience functions:
  - `hl.get_current_submap()`
  - `hl.version()`
  - `hl.exec_cmd()`
+ - `exec_scheduled_prop_refresh_immediately()`
  - `hl.get_loaded_plugins()`
 
 
@@ -136,6 +138,26 @@ hl.bind(mainMod .. " + SHIFT + G", function()
 end)
 ```
 
+### Prop Refresh
+
+A prop refresh is an event where Hyprland updates/refreshes many of its configurable options (e.g. keyboard layouts, device configurations, monitor states, window gaps, etc...).
+
+Events such as the creation of a workspace rule cause a prop refresh event to be scheduled after the current event.
+
+Hyprland schedules a **single** prop refresh event to be executed at the end of the current event (e.g. a Lua function) in order to avoid redundant prop refreshes.
+
+
+<br>
+
+In practice, this means that when you create a new workspace rule that removes `gaps_in` from the current workspace, the value for `gaps_in` is only changed at the end of your Lua function, and subsequent lines of code within your Lua function after setting the workspace rule don't use the updated value; only after the end of your Lua function does the `gaps_in` value of your current workspace get updated to reflect the new workspace rule.
+
+This might cause problems if you expect the `gaps_in` value of your workspace to be immediately updated after the workspace rule is created.
+
+<br>
+
+To execute a scheduled prop refresh immediately, use `hl.exec_scheduled_prop_refresh_immediately()`.
+
+Note that because the scheduled event is executed prematurely, it is removed from the event loop; allowing another prop refresh to be enqueued. Overuse of this function may cause slowdowns.
 
 ### Timers
 
