@@ -149,7 +149,7 @@ Hyprland schedules a **single** prop refresh event to be executed at the end of 
 
 <br>
 
-In practice, this means that when you create a new workspace rule that removes `gaps_in` from the current workspace, the gaps values are only changed at the end of your Lua function, and subsequent lines of code within your Lua function after setting the workspace rule don't use the updated value for `gaps_in`; only after the end of your Lua function does the `gaps_in` value of your current workspace get updated to reflect the new workspace rule.
+In practice, this means that when you create a new workspace rule that removes `gaps_in` from the current workspace, the value for `gaps_in` is only changed at the end of your Lua function, and subsequent lines of code within your Lua function after setting the workspace rule don't use the updated value; only after the end of your Lua function does the `gaps_in` value of your current workspace get updated to reflect the new workspace rule.
 
 This might cause problems if you expect the `gaps_in` value of your workspace to be immediately updated after the workspace rule is created.
 
