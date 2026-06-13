@@ -94,6 +94,10 @@ To change layout for current workspace you can use this bind:
 hl.bind("SUPER + tab", function ()
     local layouts     = { "scrolling", "dwindle", "master", "monocle" }
     local workspace   = hl.get_active_workspace()
+	if hl.get_active_special_workspace() then
+		workspace = hl.get_active_special_workspace()
+	end
+
     local next_layout = "dwindle"
 
     if not workspace then
@@ -108,7 +112,11 @@ hl.bind("SUPER + tab", function ()
         end
     end
 
-    hl.workspace_rule({ workspace = workspace.name, layout = next_layout })
+	if workspace.special then
+		hl.workspace_rule({ workspace = tostring(workspace.name), layout = next_layout })
+	else
+		hl.workspace_rule({ workspace = tostring(workspace.id), layout = next_layout })
+	end
 end)
 ```
 
