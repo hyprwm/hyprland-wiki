@@ -121,7 +121,7 @@ which will be found when matching on `title` and `class`, respectively.
 | no_initial_focus | boolean | Disables the initial focus to the window. |
 | pin | boolean | Pins the window (i.e. show it on all workspaces). _Note: floating only_. |
 | group | string | Sets window group properties. See [group options](#group-window-rule-options) below. |
-| suppress_event | string | Ignores specific events. Space-separated: `"fullscreen"`, `"maximize"`, `"activate"`, `"activatefocus"`, `"fullscreenoutput"`. |
+| suppress_event | string | Ignores specific events. Space-separated: `"fullscreen"`, `"maximize"`, `"activate"`, `"activatefocus"`, `"fullscreenoutput"`, `"x11configurerequest"`. |
 | content | string | Sets content type: `"none"`, `"photo"`, `"video"`, or `"game"`. |
 | no_close_for | integer | Makes the window uncloseable with `killactive` for a given number of ms on open. |
 | scrolling_width | number | Set column width for window when starting on a workspace with the scrolling layout. |
