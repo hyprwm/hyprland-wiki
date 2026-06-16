@@ -99,6 +99,10 @@ See
 
 ## Usage
 
+> [!WARNING]
+> The systemd `xdg-desktop-portal.service` may require an active `graphical-session.target`,
+> which Hyprland doesn't start by default. See [systemd](../../Useful-Utilities/Systemd-start) to set that up.
+
 XDPH is automatically started by D-Bus, once Hyprland starts.
 
 To check if everything is OK is, try to screenshare anything, or opening OBS and

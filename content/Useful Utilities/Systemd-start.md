@@ -7,9 +7,9 @@ title: Systemd startup
 
 - [Universal Wayland Session Manager](https://github.com/Vladimir-csp/uwsm) wraps standalone Wayland compositors into a set of Systemd units and provides robust session management including environment, XDG autostart support, bi-directional binding with login session, and clean shutdown.
 
-Please note uwsm is for advanced users and has its issues and additional quirks.
+Please note uwsm is for advanced users and has its issues and additional quirks. [hyprland-session.target](#hyprland-sessiontarget) is an alternative minimal way of handling a systemd session.
 
-## Installation
+### Installation
 
 {{% details title="Arch" closed="true" %}}
 
@@ -47,12 +47,12 @@ For more info, read the [option](https://search.nixos.org/options?channel=unstab
 > [!NOTE]
 > For instructions for other distros and manual building, see [building and installing](https://github.com/Vladimir-csp/uwsm?tab=readme-ov-file#installation) section on the project's page.
 
-## Launching Hyprland with uwsm
+### Launching Hyprland with uwsm
 
 > [!NOTE]
 > Pay attention to the warnings in [Environment variables](../../Configuring/Advanced-and-Cool/Environment-variables), [Multi-GPU](../../Configuring/Advanced-and-Cool/Multi-GPU) and [Dispatchers](../../Configuring/Basics/Dispatchers) sections.
 
-### In tty
+#### In tty
 
 {{% details title="GNOME Keyring PAM setup" closed="true" %}}
 
@@ -95,11 +95,11 @@ if uwsm check may-start; then
 fi
 ```
 
-### Using a display manager
+#### Using a display manager
 
 If you use a display manager, choose `Hyprland (uwsm-managed)` entry in a display manager selection menu.
 
-## Launching applications inside session
+### Launching applications inside session
 
 The concept of a session managed by Systemd implies also running applications as units. Uwsm [provides](https://github.com/Vladimir-csp/uwsm#3-applications-and-slices) a helper to do it. Running applications as child processes inside compositor's unit is discouraged.
 
@@ -110,10 +110,42 @@ Faster alternatives are:
 - `app2unit`: ([link](https://github.com/Vladimir-csp/app2unit)), pure shell alternative, file opener, usually ahead on features.
 - `runapp`: ([link](https://github.com/c4rlo/runapp/)), C++ alternative, even faster, features may vary.
 
+## hyprland-session.target
+
+A Wayland compositor is expected to tell systemd that it is a graphical session. This is a minimal way of starting the `graphical-session.target` if you don't want to use UWSM. This target will autostart user services like bars and notification daemons, but some services like XDG Desktop Portal (and therefore XDPH) may even refuse to start without it. You can manage this yourself by creating a `hyprland-session.target` that binds to the `graphical-session.target`, then launching it in your config.
+
+First create the unit with `systemctl --user edit --full --force hyprland-session.target`:
+
+```ini
+[Unit]
+Description=Hyprland session
+BindsTo=graphical-session.target
+Wants=graphical-session-pre.target
+After=graphical-session-pre.target
+PropagatesStopTo=graphical-session.target
+```
+
+Then start and stop it in your config:
+
+```lua
+hl.on("hyprland.start", function()
+    hl.exec_cmd("systemctl --user start hyprland-session.target")
+end)
+
+hl.on("hyprland.shutdown", function()
+    os.execute("systemctl --user stop hyprland-session.target && sleep 0.1")
+    -- uses a blocking exec function and sleeps a bit to give things time to close
+    -- you might also want to kill troublesome/crashing non-systemd background services here:
+    -- os.execute("pkill wallpaperthing; systemctl --user stop hyprland-session.target && sleep 0.1")
+end)
+```
+
 ## Autostart
 
-XDG Autostart is handled by systemd, and its target is activated in uwsm-managed session automatically.
+XDG Autostart is handled by systemd, and its target is activated in uwsm-managed session automatically. User services usually require `graphical-session.target` to be activated by any method on this page.
 
 Some applications provide native systemd user units to be autostarted with. Those might need to be enabled explicitly via `systemctl --user enable [some-app.service]`. Or, in case the unit is missing `[Install]` section, enabled more directly: `systemctl --user add-wants graphical-session.target [some-app.service]`. Also ensure the unit has `After=graphical-session.target` ordering (it can be added via drop-in).
+
+For example, instead of having `hl.exec_cmd("hyprpaper")` in your config, simply run `systemctl --user enable hyprpaper.service` once and have systemd launch it for you from now on.
 
 More autostart-related examples and tricks can be found [here](https://github.com/Vladimir-csp/uwsm/tree/master/example-units).
