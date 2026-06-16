@@ -22,3 +22,4 @@ end)
 In the same vein, you can spawn processes on exit by listening to `hyprland.shutdown`.
 
 See more about `hl.on` over at [Expanding Functionality](../../Advanced-and-Cool/Expanding-functionality)
+and [systemd](../../../Useful-Utilities/Systemd-start#autostart) for autostarting user services.
