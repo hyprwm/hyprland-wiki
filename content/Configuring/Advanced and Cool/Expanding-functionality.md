@@ -94,7 +94,7 @@ Hyprland exposes a bunch of convenience functions:
  - `hl.get_current_submap()`
  - `hl.version()`
  - `hl.exec_cmd()`
- - `exec_scheduled_prop_refresh_immediately()`
+ - `hl.exec_scheduled_prop_refresh_immediately()`
  - `hl.get_loaded_plugins()`
 
 
