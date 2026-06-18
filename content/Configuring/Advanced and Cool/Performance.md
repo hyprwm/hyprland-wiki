@@ -29,7 +29,7 @@ case, remove it completely.
 
 **_Useful Optimizations_**:
 
-- `hl.config({ decoration = { blur { enabled = false } } })` and `hl.config({ decoration = { shadow = { enabled = false } } })` to disable
+- `hl.config({ decoration = { blur = { enabled = false } } })` and `hl.config({ decoration = { shadow = { enabled = false } } })` to disable
   fancy but battery hungry effects.
 
 ## My games work poorly, especially proton ones
