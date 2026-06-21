@@ -83,7 +83,7 @@ hl.gesture({
   fingers = 3,
   direction = "up",
   action = function()
-    hl.notification.create({ text = "I just swiped on my trackpad!", duration = 5000, icon = "ok" })
+    hl.notification.create({ text = "I just swiped on my trackpad!", timeout = 5000, icon = "ok" })
   end
 })
 ```
@@ -91,7 +91,7 @@ hl.gesture({
 An example of a named function:
 ```lua
 local swipe = function()
-  hl.notification.create({ text = "I just swiped on my trackpad!", duration = 5000, icon = "ok" })
+  hl.notification.create({ text = "I just swiped on my trackpad!", timeout = 5000, icon = "ok" })
 end
 
 hl.gesture({
