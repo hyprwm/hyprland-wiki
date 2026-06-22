@@ -19,7 +19,7 @@ In lua, notifications are exposed via the `hl.notification` module.
 
 ### Functions
 
-- `hl.notification.create({ text, duration, icon?, color?, font_size? }) → HL.Notification` → Push a notification
+- `hl.notification.create({ text, timeout, icon?, color?, font_size? }) → HL.Notification` → Push a notification
 - `hl.notification.get()` → Get a table of all active notifications as `HL.Notification` objects
 
 ## Hyprctl
