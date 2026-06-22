@@ -167,8 +167,8 @@ _Subcategory `decoration.glow.`_
 | enabled | enable inner glow on windows | bool | `false` |
 | range | Glow range ("size") in layout px | int | `10` |
 | render_power | in what power to render the falloff (more power, the faster the falloff) [1 - 4] | int | `3` |
-| color | glow's color. Alpha dictates glow's opacity. | color | `0xee1a1a1a` |
-| color_inactive | inactive glow color. (if not set, will fall back to color) | color | unset |
+| color | glow's color. Alpha dictates glow's opacity. | gradient | `0xee1a1a1a` |
+| color_inactive | inactive glow color. (if not set, will fall back to color) | gradient | unset |
 
 #### Motion blur
 
