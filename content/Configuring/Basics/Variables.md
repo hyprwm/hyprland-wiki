@@ -69,7 +69,7 @@ end
 | gaps_in | gaps between windows | css_gaps | `5` |
 | gaps_out | gaps between windows and monitor edges | css_gaps | `20` |
 | float_gaps | gaps between windows and monitor edges for floating windows `-1` means default | css_gaps | `0` |
-| gaps_workspaces | gaps between workspaces. Stacks with gaps_out. | css_gaps | `0` |
+| gaps_workspaces | gaps between workspaces. Stacks with gaps_out. | int | `0` |
 | col.inactive_border | border color for inactive windows | gradient | `0xff444444` |
 | col.active_border | border color for the active window | gradient | `0xffffffff` |
 | col.nogroup_border | inactive border color for window that cannot be added to a group (see `hl.dsp.window.deny_from_group` dispatcher) | gradient | `0xffffaaff` |
@@ -101,7 +101,7 @@ _Subcategory `general.snap.`_
 | name | description | type | default |
 | --- | --- | --- | --- |
 | rounding | rounded corners' radius (in layout px) | int | `0` |
-| rounding_power | adjusts the curve used for rounding corners, larger is smoother, 2.0 is a circle, 4.0 is a squircle, 1.0 is a triangular corner. [1.0 - 10.0] | float | `2.0` |
+| rounding_power | adjusts the curve used for rounding corners, larger is smoother, 2.0 is a circle, 4.0 is a squircle. [2.0 - 10.0] | float | `2.0` |
 | active_opacity | opacity of active windows. [0.0 - 1.0] | float | `1.0`|
 | inactive_opacity | opacity of inactive windows. [0.0 - 1.0] | float | `1.0` |
 | fullscreen_opacity | opacity of fullscreen windows. [0.0 - 1.0] | float | `1.0` |
@@ -127,7 +127,7 @@ _Subcategory `decoration.blur.`_
 | xray | if enabled, floating windows will ignore tiled windows in their blur. Only available if new_optimizations is true. Will reduce overhead on floating blur significantly. | bool | `false` |
 | noise | how much noise to apply. [0.0 - 1.0] | float | `0.0117` |
 | contrast | contrast modulation for blur. [0.0 - 2.0] | float | `0.8916` |
-| brightness | brightness modulation for blur. [0.0 - 2.0] | float | `0.8172` |
+| brightness | brightness modulation for blur. [0.0 - 2.0] | float | `1.0` |
 | vibrancy | Increase saturation of blurred colors. [0.0 - 1.0] | float | `0.1696` |
 | vibrancy_darkness | How strong the effect of `vibrancy` is on dark areas . [0.0 - 1.0] | float | `0.0` |
 | special | whether to blur behind the special workspace (note: expensive) | bool | `false` |
@@ -167,8 +167,8 @@ _Subcategory `decoration.glow.`_
 | enabled | enable inner glow on windows | bool | `false` |
 | range | Glow range ("size") in layout px | int | `10` |
 | render_power | in what power to render the falloff (more power, the faster the falloff) [1 - 4] | int | `3` |
-| color | glow's color. Alpha dictates glow's opacity. | color | `0xee1a1a1a` |
-| color_inactive | inactive glow color. (if not set, will fall back to color) | color | unset |
+| color | glow's color. Alpha dictates glow's opacity. | color | `0xee33ccff` |
+| color_inactive | inactive glow color. (if not set, will fall back to color) | color | `0x0033ccff` |
 
 #### Motion blur
 
@@ -290,7 +290,7 @@ _Subcategory `input.touchdevice.`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
-| transform | Transform the input from touchdevices. The possible transformations are the same as [those of the monitors](../Monitors/#rotating). `-1` means it's unset. | int | `-1` |
+| transform | Transform the input from touchdevices. The possible transformations are the same as [those of the monitors](../Monitors/#rotating). | int | `0` |
 | output | The monitor to bind touch devices. The default is auto-detection. To stop auto-detection, use an empty string. | string | \[\[Auto\]\] |
 | enabled | Whether input is enabled for touch devices. | bool | `true` |
 
@@ -309,7 +309,7 @@ _Subcategory `input.tablet.`_
 
 | name | description | type | default |
 | --- | --- | --- | --- |
-| transform | transform the input from tablets. The possible transformations are the same as [those of the monitors](../Monitors/#rotating). `-1` means it's unset. | int | `-1` |
+| transform | transform the input from tablets. The possible transformations are the same as [those of the monitors](../Monitors/#rotating). | int | `0` |
 | output | the monitor to bind tablets. Can be `"current"` or a monitor name. Leave empty to map across all monitors. | string | \[\[Empty\]\] |
 | region_position | position of the mapped region in monitor layout relative to the top left corner of the bound monitor or all monitors. | vec2 | `{0, 0}` |
 | absolute_region_position | whether to treat the `region_position` as an absolute position in monitor layout. Only applies when `output` is empty. | bool | `false` |
@@ -352,6 +352,15 @@ _Subcategory `gestures.`_
 | workspace_swipe_forever | if enabled, swiping will not clamp at the neighboring workspaces but continue to the further ones. | bool | `false` |
 | workspace_swipe_use_r | if enabled, swiping will use the `r` prefix instead of the `m` prefix for finding workspaces. | bool | `false` |
 | close_max_timeout | the timeout for a window to close when using a 1:1 gesture, in ms | int | `1000` |
+
+#### Scrolling
+
+_Subcategory `gestures.scrolling.`_
+
+| name | description | type | default |
+| --- | --- | --- | --- |
+| move_snap_to_grid | when releasing the scroll move gesture, whether it should try to snap to the grid | bool | `true` |
+| move_snap_cursor | when releasing the scroll move gesture, whether it should snap the cursor to the newly focused window | bool | `true` |
 
 > [!NOTE]
 > `workspace_swipe`, `workspace_swipe_fingers` and `workspace_swipe_min_fingers` were removed in favor of the new gestures system.
@@ -407,9 +416,9 @@ _Subcategory `group.groupbar.`_
 | text_padding | set horizontal padding for titles | int | `0` |
 | scrolling | whether scrolling in the groupbar changes group active window | bool | `true` |
 | rounding | how much to round the indicator | int | `1` |
-| rounding_power |  adjusts the curve used for rounding groupbar corners, larger is smoother, 2.0 is a circle, 4.0 is a squircle, 1.0 is a triangular corner. [1.0 - 10.0] | float |  `2.0` |
+| rounding_power |  adjusts the curve used for rounding groupbar corners, larger is smoother, 2.0 is a circle, 4.0 is a squircle. [2.0 - 10.0] | float |  `2.0` |
 | gradient_rounding | how much to round the gradients | int | `2` |
-| gradient_rounding_power | adjusts the curve used for rounding gradient corners, larger is smoother, 2.0 is a circle, 4.0 is a squircle, 1.0 is a triangular corner. [1.0 - 10.0] | float | `2.0` |
+| gradient_rounding_power | adjusts the curve used for rounding gradient corners, larger is smoother, 2.0 is a circle, 4.0 is a squircle. [2.0 - 10.0] | float | `2.0` |
 | round_only_edges | round only the indicator edges of the entire groupbar | bool | `true` |
 | gradient_round_only_edges | round only the gradient edges of the entire groupbar | bool | `true` |
 | text_color | color for window titles in the groupbar | color | `0xffffffff` |
@@ -435,7 +444,7 @@ _Subcategory `misc.`_
 | disable_hyprland_logo | disables the random Hyprland logo / anime girl background. :( | bool | `false` |
 | disable_splash_rendering | disables the Hyprland splash rendering. (requires a monitor reload to take effect) | bool | `false` |
 | disable_scale_notification | disables notification popup when a monitor fails to set a suitable scale | bool | `false` |
-| col.splash | Changes the color of the splash text (requires a monitor reload to take effect). | color | `0xffffffff` |
+| col.splash | Changes the color of the splash text (requires a monitor reload to take effect). | color | `0x55ffffff` |
 | font_family | Set the global default font to render the text including debug fps/notification, config error messages and etc., selected from system fonts. | string | `"Sans"` |
 | splash_font_family | Changes the font used to render the splash text, selected from system fonts (requires a monitor reload to take effect). | string | \[\[Empty\]\] |
 | force_default_wallpaper | Enforce any of the 3 default wallpapers. Setting this to `0` or `1` disables the anime background. `-1` means "random". [-1/0/1/2] | int | `-1` |
@@ -468,6 +477,7 @@ _Subcategory `misc.`_
 | enable_anr_dialog | whether to enable the ANR (app not responding) dialog when your apps hang | bool | `true` |
 | anr_missed_pings | number of missed pings before showing the ANR dialog | int | `5` |
 | size_limits_tiled | whether to apply min_size and max_size rules to tiled windows | bool | `false` |
+| screencopy_force_8b | forces 8 bit screencopy | bool | `true` |
 | disable_watchdog_warning | whether to disable the warning about not using start-hyprland | bool | `false` |
 
 ### Layout
@@ -490,7 +500,7 @@ _Subcategory `binds.`_
 | workspace_back_and_forth | If enabled, an attempt to switch to the currently focused workspace will instead switch to the previous workspace. Akin to i3's _auto_back_and_forth_. | bool | `false` |
 | hide_special_on_workspace_change | If enabled, changing the active workspace (including to itself) will hide the special workspace on the monitor where the newly active workspace resides. | bool | `false` |
 | allow_workspace_cycles | If enabled, workspaces don't forget their previous workspace, so cycles can be created by switching to the first workspace in a sequence, then endlessly going to the previous workspace. | bool | `false` |
-| workspace_center_on | Whether switching workspaces should center the cursor on the workspace (0) or on the last active window for that workspace (1) | int | `0` |
+| workspace_center_on | Whether switching workspaces should center the cursor on the workspace (0) or on the last active window for that workspace (1) | int | `1` |
 | focus_preferred_method | sets the preferred focus finding method when using `hl.dsp.focus({ direction })`/`hl.dsp.window.move({ direction })`/etc. 0 - history (recent have priority), 1 - length (longer shared edges have priority) | int | `0` |
 | ignore_group_lock | If enabled, dispatchers like `hl.dsp.window.move({ into_group })` and `hl.dsp.window.move({ out_of_group })` will ignore lock per group. | bool | `false` |
 | movefocus_cycles_fullscreen | If enabled, when on a fullscreen window, `hl.dsp.focus({ direction })` will cycle fullscreen, if not, it will move the focus in a direction. | bool | `false` |
@@ -533,13 +543,15 @@ _Subcategory `render.`_
 | send_content_type | Report content type to allow monitor profile autoswitch (may result in a black screen during the switch) | bool | `true` |
 | cm_auto_hdr | Auto-switch to HDR in fullscreen when needed. 0 - off, 1 - switch to `cm, hdr`, 2 - switch to `cm, hdredid` | int | `1` |
 | new_render_scheduling | Automatically uses triple buffering when needed, improves FPS on underpowered devices. | bool | `false` |
-| non_shader_cm | Enable CM without shader. 0 - disable, 1 - whenever possible, 2 - DS and passthrough only, 3 - disable and ignore CM issues | int | `2` |
+| non_shader_cm | Enable CM without shader. 0 - disable, 1 - whenever possible, 2 - DS and passthrough only, 3 - disable and ignore CM issues | int | `3` |
 | non_shader_cm_interop | 0 - external ctm (hyprsunset, etc.) is disabled in fullscreen, 1 - external ctm is enabled in fullscreen, 2 - external ctm is disabled for fullscreen photo/video/game content types | int | `2` |
 | cm_sdr_eotf | Default transfer function for displaying SDR apps. `"default"` - Use default value (sRGB), `"gamma22"` - Treat unspecified as Gamma 2.2, `"gamma22force"` - Treat unspecified and sRGB as Gamma 2.2, `"srgb"` - Treat unspecified as sRGB| str | `"default"` |
 | commit_timing_enabled | Enable commit timing proto. Requires restart | bool | `true` |
 | use_fp16 | Use FP16 buffers internally. 0 - disabled, 1 - enabled, 2 - enabled in hdr mode | int | `2` |
 | keep_unmodified_copy | Keep unmodified SDR frame copy for screensharing. 0 - disabled, 1 - on, 2 - auto (enabled in HDR with SDR modifiers). Set to 1 if screenshots are transparent. | int | `2` |
 | use_shader_blur_blend | Use experimental blurred bg blending (glitched on rotated screens). Set to true if blur is missing with fp16 or keep_unmodified_copy | bool | `false` |
+| icc_vcgt_enabled | Enable sending VCGT ramps to KMS with ICC profiles | bool | `true` |
+| fp16_sdr_tf | Internal workbuffer transfer function for fp16 in SDR mode. 0 - monitor, 1 - linear | int | `0` |
 
 `cm_auto_hdr` requires `--target-colorspace-hint-mode=source` mpv option to work with mpv versions greater than v0.40.0
 
@@ -554,7 +566,7 @@ _Subcategory `cursor.`_
 | no_hardware_cursors | disables hardware cursors. 0 - use hw cursors if possible, 1 - don't use hw cursors, 2 - auto (disable when tearing) | int | `2` |
 | no_break_fs_vrr | disables scheduling new frames on cursor movement for fullscreen apps with VRR enabled to avoid framerate spikes (may require no_hardware_cursors = true) 0 - off, 1 - on, 2 - auto (on with content type 'game') | int | `2` |
 | min_refresh_rate | minimum refresh rate for cursor movement when `no_break_fs_vrr` is active. Set to minimum supported refresh rate or higher | int | `24` |
-| hotspot_padding | the padding, in logical px, between screen edges and the cursor | int | `1` |
+| hotspot_padding | the padding, in logical px, between screen edges and the cursor | int | `0` |
 | inactive_timeout | in seconds, after how many seconds of cursor's inactivity to hide it. Set to `0` for never. | float | `0` |
 | no_warps | if true, will not warp the cursor in many cases (focusing, keybinds, etc) | bool | `false` |
 | persistent_warps | When a window is refocused, the cursor returns to its last position relative to that window, rather than to the centre. | bool | `false` |
@@ -567,7 +579,7 @@ _Subcategory `cursor.`_
 | enable_hyprcursor | whether to enable hyprcursor support | bool | `true` |
 | hide_on_key_press | Hides the cursor when you press any key until the mouse is moved. | bool | `false` |
 | hide_on_touch | Hides the cursor when the last input was a touch input until a mouse input is done. | bool | `true` |
-| hide_on_tablet | Hides the cursor when the last input was a tablet input until a mouse input is done. | bool | `true` |
+| hide_on_tablet | Hides the cursor when the last input was a tablet input until a mouse input is done. | bool | `false` |
 | use_cpu_buffer | Makes HW cursors use a CPU buffer. Required on Nvidia to have HW cursors. 0 - off, 1 - on, 2 - auto (nvidia only) | int | `2` |
 | warp_back_after_non_mouse_input | Warp the cursor back to where it was after using a non-mouse input to move it, and then returning back to mouse. | bool | `false` |
 | zoom_disable_aa | disable antialiasing when zooming, which means things will be pixelated instead of blurry | bool | `false` |
@@ -589,6 +601,7 @@ _Subcategory `quirks.`_
 | name | description | type | default |
 | --- | --- | --- | --- |
 | prefer_hdr | Report HDR mode as preferred. 0 - off, 1 - always, 2 - gamescope only | int | `0` |
+| skip_non_kms_dmabuf_formats | do not report dmabuf formats which cannot be imported into KMS | bool | `false` |
 
 Some clients expect monitor to be in HDR mode prior to the client start. This breaks auto HDR activation and can cause whitescreen and flickering. Use `prefer_hdr` to fix it.
 
@@ -611,14 +624,26 @@ _Subcategory `debug.`_
 | enable_stdout_logs | enables logging to stdout | bool | `false` |
 | manual_crash | set to 1 and then back to 0 to crash Hyprland. | int | `0` |
 | suppress_errors | if true, do not display config file parsing errors. | bool | `false` |
-| watchdog_timeout | sets the timeout in seconds for watchdog to abort processing of a signal of the main thread. Set to 0 to disable. | int | `5` |
+| log_damage | enables logging the damage. | bool | `false` |
 | disable_scale_checks | disables verification of the scale factors. Will result in pixel alignment and rounding errors. | bool | `false` |
 | error_limit | limits the number of displayed config file parsing errors. | int | `5` |
 | error_position | sets the position of the error bar. top - 0, bottom - 1 | int | `0` |
 | colored_stdout_logs | enables colors in the stdout logs. | bool | `true` |
 | pass | enables render pass debugging. | bool | `false` |
 | full_cm_proto | claims support for all cm proto features (requires restart) | bool | `false` |
-| invalidate_fp16 | Allow fp16 buffer invalidation (invalidation increases performance but produces glitches on some systems). 0 - not allowed, 1 - allowed, 2 - not allowed on nvidia | int | `2` |
+| ds_handle_same_buffer | special case for direct scanout with unmodified buffer | bool | `true` |
+| ds_handle_same_buffer_fifo | special case for direct scanout with unmodified buffer unlocks fifo | bool | `true` |
+| fifo_pending_workaround | fifo workaround for empty pending list | bool | `false` |
+| render_solitary_wo_damage | render solitary window with empty damage | bool | `false` |
+| invalidate_fp16 | Allow fp16 buffer invalidation (invalidation increases performance but produces glitches on some systems). 0 - not allowed, 1 - allowed, 2 - not allowed on nvidia | int | `1` |
+
+### Experimental
+
+_Subcategory `experimental.`_
+
+| name | description | type | default |
+| --- | --- | --- | --- |
+| wp_cm_1_2 | allow wp-cm-v1 version 2 | bool | `false` |
 
 ### More
 
