@@ -3,6 +3,10 @@ weight: 1
 title: Using plugins
 ---
 
+> [!NOTE]
+> Looking for the old hyprlang syntax? Check the [0.54 wiki pages](https://wiki.hypr.land/0.54.0/).
+> Since Hyprland 0.55, hyprlang is deprecated in favor of lua.
+
 This page will tell you how to use plugins.
 
 ## Disclaimers
@@ -33,8 +37,8 @@ manual instructions, see [here](#manual).
 > If you are using [permission management](../../Configuring/Advanced-and-Cool/Permissions),
 > you should allow hyprpm to load plugins by adding this to your config:
 > 
-> ```ini
-> permission = /usr/(bin|local/bin)/hyprpm, plugin, allow
+> ```lua
+> hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
 > ```
 > 
 > otherwise you'll get a popup asking for permission every time hyprpm tries to load a plugin.
