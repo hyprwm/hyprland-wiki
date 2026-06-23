@@ -122,11 +122,95 @@ Hyprland needs are too old._
 
 {{% details title="Fedora*" closed="true" %}}
 
-[lionheartp/Hyprland](https://copr.fedorainfracloud.org/coprs/lionheartp/Hyprland)
-Copr repository.
+> [!WARNING]
+> COPR packages for Hyprland are frequently broken on Fedora 44+ due to library version mismatches
+> (e.g. `libdisplay-info` soname changes) and GCC 16 incompatibilities in generated protocol code.
+> Building from source is the recommended approach on Fedora 44.
 
-You can also compile it yourself by following the instructions
-[here](https://github.com/hyprwm/Hyprland/discussions/284)
+### Building from source on Fedora 44
+
+#### Step 1 — Install build dependencies
+
+```bash
+sudo dnf install -y \
+  cmake meson ninja-build gcc-c++ git \
+  wayland-devel wayland-protocols-devel \
+  cairo-devel pango-devel \
+  libxkbcommon-devel libxkbcommon-x11-devel \
+  pixman-devel libinput-devel \
+  libdrm-devel mesa-libgbm-devel \
+  vulkan-loader-devel vulkan-headers \
+  libseat-devel libdisplay-info-devel \
+  tomlplusplus-devel glm-devel \
+  re2-devel libudev-devel hwdata-devel \
+  pugixml-devel hyprwayland-scanner-devel \
+  libjpeg-turbo-devel libwebp-devel file-devel \
+  libxcb-devel xcb-util-wm-devel xcb-util-errors-devel \
+  glslang-devel muParser-devel libuuid-devel \
+  libzip-devel librsvg2-devel readline-devel lcms2-devel \
+  libXcursor-devel glib2-devel
+```
+
+#### Step 2 — Build hyprwayland-scanner from source
+
+The Fedora-packaged version generates C++ code with zero-size arrays that GCC 16 rejects.
+Build from source to get a fixed version:
+
+```bash
+git clone https://github.com/hyprwm/hyprwayland-scanner /tmp/hyprwayland-scanner
+cd /tmp/hyprwayland-scanner
+cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+cmake --build build -j$(nproc)
+sudo cmake --install build
+```
+
+#### Step 3 — Build hyprwm libraries from source (in order)
+
+Fedora ships older versions of several hyprwm libraries. Build each in order:
+
+```bash
+for lib in hyprutils aquamarine hyprlang hyprcursor hyprgraphics hyprwire; do
+  git clone https://github.com/hyprwm/$lib /tmp/$lib
+  cd /tmp/$lib
+  # Delete any cached generated protocol files (aquamarine only)
+  [ "$lib" = "aquamarine" ] && rm -f protocols/*.cpp protocols/*.hpp
+  cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+  cmake --build build -j$(nproc)
+  sudo cmake --install build
+  cd /tmp
+done
+```
+
+#### Step 4 — Build Lua 5.5
+
+Fedora ships Lua 5.4. Hyprland requires exactly Lua >= 5.5 and < 5.6:
+
+```bash
+curl -L https://www.lua.org/ftp/lua-5.5.0.tar.gz -o /tmp/lua-5.5.0.tar.gz
+tar xf /tmp/lua-5.5.0.tar.gz -C /tmp
+cd /tmp/lua-5.5.0
+make linux MYCFLAGS="-fPIC" -j$(nproc)
+sudo make install INSTALL_TOP=/usr
+# Create pkg-config file (Fedora x86_64 pkgconfig dir is /usr/lib64/pkgconfig)
+sudo mkdir -p /usr/lib64/pkgconfig
+sudo sh -c 'printf "prefix=/usr\nexec_prefix=\${prefix}\nlibdir=\${exec_prefix}/lib\nincludedir=\${prefix}/include\n\nName: Lua\nDescription: Lua 5.5\nVersion: 5.5.0\nLibs: -L\${libdir} -llua\nCflags: -I\${includedir}\n" > /usr/lib64/pkgconfig/lua5.5.pc && cp /usr/lib64/pkgconfig/lua5.5.pc /usr/lib64/pkgconfig/lua-5.5.pc'
+```
+
+#### Step 5 — Build Hyprland
+
+```bash
+git clone --recursive https://github.com/hyprwm/Hyprland /tmp/hyprland
+cd /tmp/hyprland
+cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+cmake --build build -j$(nproc)
+sudo cmake --install build
+```
+
+#### Step 6 — Install supporting tools
+
+```bash
+sudo dnf install -y waybar wofi mako kitty
+```
 
 {{% /details %}}
 
