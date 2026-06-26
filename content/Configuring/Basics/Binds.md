@@ -509,15 +509,22 @@ For instance, the [French AZERTY](https://en.wikipedia.org/wiki/AZERTY) layout u
 > [!NOTE]
 > To get the correct name for an `unmodified_key`, refer to [the section on uncommon syms](#uncommon-syms--binding-with-a-keycode)
 
+You can easily switch to AZERTY layout by editing this
 ```lua
--- On a French layout, instead of:
--- hl.bind(mainMod .. " + 1", hl.workspace(1))
-
--- Use
-hl.bind(mainMod .. " + ampersand", hl.workspace(1))
+for i = 1, 10 do
+    local key = i % 10 -- 10 maps to key 0
+    hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
+    hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
+end
 ```
-
-For help configuring the French AZERTY layout, see this [article](https://rherault.dev/articles/hyprland-fr-layout).
+to this
+```lua
+for i = 1, 10 do
+    local key = "code:" ..i + 9 -- 10 maps to key 0
+    hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
+    hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
+end
+```
 
 ### Unbind
 
