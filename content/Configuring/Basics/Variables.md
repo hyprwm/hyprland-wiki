@@ -392,6 +392,7 @@ _Subcategory `group.groupbar.`_
 | name | description | type | default |
 | --- | --- | --- | --- |
 | enabled | enables groupbars | bool | `true` |
+| disable_when_only | disable if contains single window. Considered only if enabled == true | bool | `false` |
 | font_family | font used to display groupbar titles, use `misc.font_family` if not specified | string | \[\[Empty\]\] |
 | font_size | font size of groupbar title | int | `8` |
 | font_weight_active | font weight of active groupbar title | font_weight | `"normal"` |
@@ -611,7 +612,6 @@ _Subcategory `debug.`_
 | enable_stdout_logs | enables logging to stdout | bool | `false` |
 | manual_crash | set to 1 and then back to 0 to crash Hyprland. | int | `0` |
 | suppress_errors | if true, do not display config file parsing errors. | bool | `false` |
-| watchdog_timeout | sets the timeout in seconds for watchdog to abort processing of a signal of the main thread. Set to 0 to disable. | int | `5` |
 | disable_scale_checks | disables verification of the scale factors. Will result in pixel alignment and rounding errors. | bool | `false` |
 | error_limit | limits the number of displayed config file parsing errors. | int | `5` |
 | error_position | sets the position of the error bar. top - 0, bottom - 1 | int | `0` |
