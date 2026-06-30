@@ -224,6 +224,29 @@ apk add hyprland
 
 {{% /details %}}
 
+{{% details title="Void Linux*" closed="true" %}}
+
+Hyprland is not available from Void Linux's official repositories [due to a conflict of packaging philosophy](https://github.com/void-linux/void-packages/issues/37544). However, a [third party repository](https://github.com/Event-Horizon-VL/blackhole-vl) is available with [binary packages](https://mirror.black-hole.dev/x86_64/) built in CI by GitHub Actions.
+
+You can add this repository by running the following commands:
+
+```sh
+sudo cp /usr/share/xbps.d/00-repository-main.conf /etc/xbps.d/
+sudo sed -i "1i repository=https://mirror.black-hole.dev/$(xbps-uhelper arch)" /etc/xbps.d/00-repository-main.conf
+```
+Then you can install the packages as you would any other:
+
+```sh
+sudo xbps-install -S hyprland
+sudo xbps-install -S hyprland-devel # If you want to use plugins
+sudo xbps-install -S xdg-desktop-portal-hyprland
+
+xbps-query -Rs hypr # This will require you to have already accepted the repository's fingerprint using xbps-install -S
+```
+More information is available in the [hyprland-void README](https://github.com/Event-Horizon-VL/blackhole-vl/blob/master/README.md), including information about how you can [manually build](https://github.com/Event-Horizon-VL/blackhole-vl?tab=readme-ov-file#installation) Hyprland for Void Linux using the templates provided.
+
+{{% /details %}}
+
 {{% details title="Ximper*" closed="true" %}}
 
 Install from the Sisyphus:
