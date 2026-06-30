@@ -128,7 +128,6 @@ A monitor. Can be:
 | `resize()` | begin an interactive resize. To be used with mouse binds. |
 | `resize({ keep_aspect_ratio })` | begin an interactive resize. To be used with mouse binds. Overrides window's `keep_aspect_ratio` prop. |
 | `resize({ x, y, relative?, window? })` | resize a window |
-| `bring_to_top()` | bring the active window to the top of the z-order. Shorthand for `alter_zorder({ mode = "top" })`. |
 
 ### Workspace
 
