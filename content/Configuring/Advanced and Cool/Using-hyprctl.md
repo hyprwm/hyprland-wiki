@@ -17,10 +17,37 @@ or a script. It should automatically be installed along with Hyprland.
 
 ### eval
 
-Issue a lua string to execute dynamically.
+Issue a lua string to execute dynamically, returns "ok" or any error raised.
 
 ```sh
 hyprctl eval 'hl.dispatch(hl.dsp.focus({ workspace = "3" }))'
+```
+
+### repl
+
+Start an interactive Lua REPL session or issue a lua string and print the result through tostring.
+Similar to `lua` interactive mode. Exit with Ctrl+D.
+
+Usage:
+
+```sh
+hyprctl repl        # start REPL session
+hyprctl repl [code] # execute code and print the result
+```
+
+Examples:
+
+```sh
+» hyprctl repl 'hl.get_active_window().class'
+foot
+
+» hyprctl repl
+> for i,w in pairs(hl.get_windows()) do print(i, w.class) end
+1       foot
+2       firefox
+3       codium
+> hl.notification.create({ text = "Hello World", timeout = 2000})
+HL.Notification(0x563c0a1ebe70)
 ```
 
 ### dispatch

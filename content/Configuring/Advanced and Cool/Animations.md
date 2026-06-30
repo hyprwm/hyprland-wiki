@@ -52,6 +52,7 @@ global
     ↳ fadeOut - fade out for window close
     ↳ fadeSwitch - fade on changing activewindow and its opacity
     ↳ fadeShadow - fade on changing activewindow for shadows
+    ↳ fadeGlow - fade on changing activewindow for glow
     ↳ fadeDim - the easing of the dimming of inactive windows
     ↳ fadeLayers - for controlling fade on layers
       ↳ fadeLayersIn - fade in for layer open
@@ -62,6 +63,8 @@ global
     ↳ fadeDpms - for controlling fade when dpms is toggled
   ↳ border - for animating the border's color switch speed
   ↳ borderangle - for animating the border's gradient angle - styles: once (default), loop
+  ↳ shadowangle - for animating the shadow's gradient angle - styles: once (default), loop
+  ↳ glowangle - for animating the glow's gradient angle - styles: once (default), loop
   ↳ workspaces - styles: slide, slidevert, fade, slidefade, slidefadevert
     ↳ workspacesIn - styles: same as workspaces
     ↳ workspacesOut - styles: same as workspaces
@@ -73,8 +76,8 @@ global
 ```
 
 > [!WARNING]
-> Using the `loop` style for `borderangle` requires Hyprland to _constantly_ render new frames at a frequency equal to your screen's refresh rate (e.g. 60 times per second for a 60hz monitor), which might stress your CPU/GPU and will impact battery life. <br>
-> This will apply even if animations are disabled or borders are not visible.
+> Using the `loop` style for `*angle` animations requires Hyprland to _constantly_ render new frames at a frequency equal to your screen's refresh rate (e.g. 60 times per second for a 60hz monitor), which might stress your CPU/GPU and will impact battery life. <br>
+> This will apply even if animations are disabled or the affected decorations are not visible.
 
 ## Curves
 

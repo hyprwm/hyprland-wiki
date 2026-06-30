@@ -151,3 +151,7 @@ the session. These will kill your script after a given timeout / limit has been 
 
 The lua standard libraries are loaded by default. Lua scripts can execute
 arbitrary code on your machine, make sure you trust your config source.
+
+#### Testing with REPL
+
+The API and Lua state can be easily explored with the built in [Lua REPL in hyprctl](../Advanced-and-Cool/Using-hyprctl/#repl).

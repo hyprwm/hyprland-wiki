@@ -123,7 +123,7 @@ To only bind modkeys, you need to use the TARGET modmask (with the
 activating mod) and the `r` flag, e.g.:
 
 ```lua
--- bind `exec amongus` to SUPER + ALT.
+-- bind `exec amongus` to ALT_L.
 hl.bind("ALT + ALT_L", hl.dsp.exec_cmd("amongus"), { release = true })
 ```
 
