@@ -57,8 +57,9 @@ Props:
 | --- | --- | --- |
 | monitor | Binds a workspace to a monitor. See [syntax](#syntax) and [Monitors](../Monitors). | string |
 | default | Whether this workspace should be the default workspace for the given monitor | bool |
-| gaps_in | Set the gaps between windows (equivalent to [General->gaps_in](../Variables#general)) | int |
-| gaps_out | Set the gaps between windows and monitor edges (equivalent to [General->gaps_out](../Variables#general)) | int |
+| gaps_in | Set the gaps between windows (equivalent to [General->gaps_in](../Variables#general)) | css_gaps | `5` |
+| gaps_out | Set the gaps between windows and monitor edges (equivalent to [General->gaps_out](../Variables#general)) | css_gaps | `20` |
+| float_gaps | Set the gaps for floating windows (equivalent to [General->float_gaps](../Variables#general)) | css_gaps | `0` |
 | border_size | Set the border size around windows (equivalent to [General->border_size](../Variables#general)) | int |
 | no_border | Whether to disable borders | bool |
 | no_shadow | Whether to disable shadows | bool |
@@ -69,6 +70,7 @@ Props:
 | default_name | A default name for the workspace. | string |
 | layout | The layout to use for this workspace. | string |
 | animation | The animation style to use for this workspace. | string |
+| layout_opts | A table of layout-specific options for this workspace. Keys and values depend on the layout. | table |
 
 ## Examples
 

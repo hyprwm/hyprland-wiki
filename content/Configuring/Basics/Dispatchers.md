@@ -90,6 +90,7 @@ A monitor. Can be:
 | `global(string)` | activate a dbus global shortcut. See [Binds > Global Shortcuts](../Binds#dbus-global-shortcuts) |
 | `force_idle(seconds)` | sets elapsed time for all idle timers, ignoring idle inhibitors. Timers return to normal behavior upon the next activity. Do not use with a keybind directly. |
 | `no_op()` | does nothing. Useful for conditional binds. |
+| `force_renderer_reload()` | force reloads the renderer on all monitors. |
 
 ### Window
 
