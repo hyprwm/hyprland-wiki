@@ -60,13 +60,13 @@ The supported fields for the `match` table are:
 | tag | \[name\] | Windows with matching `tag`. |
 | xwayland | \[bool\] | Xwayland windows. |
 | float | \[bool\] | Floating windows. |
-| fullscreen | \[bool\] | Fullscreen windows. |
+| maximized | \[bool\] | Maximized windows. |
+| fullscreen | \[bool\] | Windows that are displayed fullscreen (corresponds to `mode_compositor` of [Fullscreenstate](../Dispatchers/#fullscreenstate)). |
+| clientwise_fullscreen | \[bool\] | Windows that are told they are fullscreen (corresponds to `mode_client` of [Fullscreenstate](../Dispatchers/#fullscreenstate)). |
 | pin | \[bool\] | Pinned windows. |
 | focus | \[bool\] | Currently focused window. |
 | group | \[bool\] | Grouped windows. |
 | modal | \[bool\] | Modal windows (e.g. "Are you sure" popups) |
-| fullscreen_state_client | \[int\] | Windows with matching `fullscreenstate`. `0` - none, `1` - maximize, `2` - fullscreen, `3` - maximize and fullscreen. |
-| fullscreen_state_internal | \[int\] | Windows with matching `fullscreenstate`. `0` - none, `1` - maximize, `2` - fullscreen, `3` - maximize and fullscreen. |
 | workspace | \[workspace\] | Windows on matching workspace. Can be `id`, `"name:string"` or a workspace selector. |
 | content | \[string\] | Windows with specified content type (none, photo, video, game). |
 | xdg_tag | \[RegEx\] | Match a window by its xdgTag (see `hyprctl clients` to check if it has one). |
