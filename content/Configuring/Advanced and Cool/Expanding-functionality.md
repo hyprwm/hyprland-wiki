@@ -68,6 +68,7 @@ Event list:
 | config.props_refreshed | Emitted when a prop refresh event is executed. | Bool: Is prop refresh event executed as scheduled (`false` if executed prematurely with helper function) |
 | keybinds.submap | Emitted when the active submap changes. An empty string means the default submap was restored. | String: Submap Name|
 | screenshare.state | Emitted when a screenshare session starts or stops. | Bool: Active, Integer: Type, String: Name |
+| input.keyboard.key | Emitted when a key is pressed or released. | Integer: XKB keycode, Integer: Unix timestamp that the event occurred, Integer: Can be released (0), pressed (1), or repeated (2) |
 
 ### Convenience functions
 
@@ -96,6 +97,7 @@ Hyprland exposes a bunch of convenience functions:
  - `hl.exec_cmd()`
  - `hl.exec_scheduled_prop_refresh_immediately()`
  - `hl.get_loaded_plugins()`
+ - `hl.is_key_down(key = num|str)`
 
 
 Use the LSP for the return values (classes and their parameters) of these functions. See [here](../../Start/#autocompletions) for setting up the LSP for your code editor
