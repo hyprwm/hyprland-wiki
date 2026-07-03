@@ -100,10 +100,27 @@ Please note it’s LINEAR. Meaning lines above the `source =` will be parsed fir
 
 ## IPC
 
-hyprpaper supports IPC via `hyprctl`. You can set wallpapers like so:
+hyprpaper supports IPC via `hyprctl`.
+
+Supported requests:
 
 ```sh
 hyprctl hyprpaper wallpaper '[mon], [path], [fit_mode]'
+hyprctl hyprpaper listactive
 ```
 
-`fit_mode` is optional, and `mon` can be empty for a fallback, just like in the config file. The fallback wallpaper only applies to monitors that have never had a specific monitor target assigned.
+`wallpaper` sets wallpapers like so:
+```sh
+hyprctl hyprpaper wallpaper '[mon], [path], [fit_mode]'
+```
+where `fit_mode` is optional, and `mon` can be empty for a fallback, just like in the config file. The fallback wallpaper only applies to monitors that have never had a specific monitor target assigned.
+
+`listactive` prints the currently active wallpaper for each monitor, for example:
+
+```sh
+hyprctl hyprpaper listactive
+HDMI-A-1: /home/user/wallpapers/wp1.jpg
+eDP-1: /home/user/wallpapers/wp2.jpg
+```
+
+Notice, that older examples may mention `preload`, `reload`, `unload`, or `listloaded`; check `hyprctl hyprpaper --help` for the requests supported by your installed version.
