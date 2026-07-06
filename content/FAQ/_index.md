@@ -157,7 +157,7 @@ update the package. Paru has been problematic with updating before, use Yay.
 Use a Wayland-compatible locking utility using WLR protocols, e.g. `swaylock`.
 Be aware that they will not prevent tty-changing using Ctrl-Alt-F1...F7.
 
-### How do I change me mouse cursor?
+### How do I change my mouse cursor?
 
 See [hyprcursor](../Hypr-Ecosystem/hyprcursor)
 
