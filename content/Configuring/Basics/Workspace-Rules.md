@@ -49,7 +49,7 @@ Props:
   only pinned windows.
 - `f[-1]`, `f[0]`, `f[1]`, `f[2]` - fullscreen state of the workspace. `-1`: no
   fullscreen, `0`: fullscreen, `1`: maximized, `2`, fullscreen without
-  fullscreen state sent to the window.
+  fullscreen state sent to the window. Only matches workspaces with covering FS windows.
 
 ## Rules
 
