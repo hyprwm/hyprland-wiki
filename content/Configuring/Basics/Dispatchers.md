@@ -306,3 +306,6 @@ Some layouts, like scrolling, allow optional FS handling other than the default.
 
 You can use both Layout Handled and Default Handled fullscreens in these layouts using the `layout_aware` option in fullscreen dispatchers.
 
+To see which Fullscreen Handler a given window is using, use lua or hyprctl.
+
+
