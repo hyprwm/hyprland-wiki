@@ -107,3 +107,19 @@ listener {
     on-timeout = systemctl suspend                # suspend pc
 }
 ```
+
+### Recipes
+
+#### Fading the keyboard backlight
+
+`brightnessctl` sets brightness instantly, so a plain `on-timeout`/`on-resume` pair turns the
+keyboard backlight off and on abruptly. [hypr-kbd-backlight-fade](https://github.com/queueingqt/hypr-kbd-backlight-fade)
+is a small script that steps through intermediate brightness values instead, fading in fast and
+out slowly, with a lock file so overlapping in/out calls (e.g. quick touch-then-idle cycles) don't
+race each other.
+
+Note that video players and browsers commonly hold a Wayland idle-inhibit lock during video
+playback (not just fullscreen), which pauses **every** listener, not just screen lock/suspend. If
+you want the keyboard backlight to keep responding to real input while a video plays, set
+`ignore_inhibit = true` on that listener specifically, rather than on `general:ignore_wayland_inhibit`
+which would disable inhibit-awareness for every listener.
