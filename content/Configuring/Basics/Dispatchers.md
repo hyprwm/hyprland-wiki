@@ -102,8 +102,8 @@ A monitor. Can be:
 | `kill({ window? })` | Kill the process owning the window with a `SIGKILL`. |
 | `signal({ signal, window? })` | Send a POSIX signal to the process owning the window. |
 | `float({ action?, window? })` | set a window's floating state. |
-| `fullscreen({ mode?, action?, window? })` | set a window's fullscreen state. `mode` can be "maximized" and "fullscreen". `action` can be `toggle`/`set`/`unset` |
-| `fullscreen_state({ internal, client, action?, window? })` | set a window's fullscreen state with more precision. `action` can be `toggle`/`set`/`unset`. See [Fullscreenstate](#fullscreenstate) |
+| `fullscreen({ mode?, action?, layout_aware?, window? })` | set a window's fullscreen state. `mode` can be "maximized" and "fullscreen". `action` can be `toggle`/`set`/`unset`. `layout_aware` takes `true`(default)/`false`, allows you to choose if you want to use layout or default handled FS behaviour. |
+| `fullscreen_state({ internal, client, action?, layout_aware? , window? })` | set a window's fullscreen state with more precision. `action` can be `toggle`/`set`/`unset`. `layout_aware` takes `true`(default)/`false`, allows you to choose if you want to use layout or default handled FS behaviour.  See [Fullscreenstate](#fullscreenstate), [Fullscreen Handlers](#fullscreen-handlers) |
 | `pseudo({ action?, window? })` | set a window's pseudotiling state. |
 | `move({ direction, group_aware?, window? })` | move a window in a direction. `group_aware = true` will put windows in/out of groups alongside the given direction. |
 | `move({ workspace, follow?, window? })` | move a window to a workspace |
@@ -281,9 +281,8 @@ The `fullscreen_state` dispatcher decouples the state that Hyprland maintains fo
 | --- | --- | --- |
 | -1 | Current | Maintains the current fullscreen state. |
 | 0 | None | Window allocates the space defined by the current layout. |
-| 1 | Maximize | Window takes up the entire working space, keeping the margins. |
+| 1 | Maximized | Window takes up the entire working space, keeping the margins. |
 | 2 | Fullscreen | Window takes up the entire screen. |
-| 3 | Maximize and Fullscreen | The state of a fullscreened maximized window. Works the same as fullscreen. |
 
 For example:
 
@@ -292,3 +291,18 @@ For example:
 This can be used to prevent Chromium-based browsers from going into presentation mode when they detect they have been fullscreened.  
 
 `{internal = 0, client = 2}` Keeps the window non-fullscreen, but the client goes into fullscreen mode within the window.
+
+### `FSMODE_MAX`
+
+This is not a user accessable mode, but a state that occurs when a client requests `Fullscreen` when the internal mode of that window is `Maximized`.
+
+When this happens, the next request to un-FS the window will cause the window to become `Maximized` instead.
+
+Practical example of this is when you Fullscreen a video you're watching on a Maximized window.
+
+### Fullscreen Handlers
+
+Some layouts, like scrolling, allow optional FS handling other than the default.
+
+You can use both Layout Handled and Default Handled fullscreens in these layouts using the `layout_aware` option in fullscreen dispatchers.
+
