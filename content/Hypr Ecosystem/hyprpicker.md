@@ -26,5 +26,6 @@ Doesn't require configuration, only launch flags:
 | `-l` \| `--lowercase-hex` | Outputs the hexcode in lowercase | none |
 | `-s` \| `--scale=scale` | Set the zoom scale | float between 1.0 and 10.0 |
 | `-u` \| `--radius=radius` | Set the circle radius | int between 1 and 1000 |
+| `-N` \| `--name` | Copies the standard color name instead of the format if matched (requires -a) | none |
 | `-V` \| `--version` | Print version info | none |
 
