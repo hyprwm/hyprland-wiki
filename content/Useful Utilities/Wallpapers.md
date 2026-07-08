@@ -42,5 +42,5 @@ wallpapers, and supports `swaybg` and `awww` as backends on Wayland.
 ## wallrizz
 
 TUI wallpaper manager that allows to visually choose and apply the desktop wallpaper. 
-It supports `swww`, `hyprpaper` and more as backend on Wayland.
+It supports `awww`, `hyprpaper` and more as backend on Wayland.
 [Github](https://github.com/5hubham5ingh/WallRizz)
