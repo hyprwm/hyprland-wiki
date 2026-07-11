@@ -21,13 +21,6 @@ hl.bind("SUPER + SHIFT + Q", hl.dsp.exec_cmd("firefox"))
 
 will bind opening Firefox to <key>SUPER</key> + <key>SHIFT</key> + <key>Q</key>
 
-> [!NOTE]
-> For binding keys without a modkey, leave it empty:
-> 
-> ```lua
-> hl.bind("Print", hl.dsp.exec_cmd("grim"))
-> ```
-
 _The dispatcher list can be found in
 [Dispatchers](../Dispatchers/#dispatchers-1)._
 
