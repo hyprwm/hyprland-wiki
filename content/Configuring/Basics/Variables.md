@@ -465,6 +465,7 @@ _Subcategory `misc.`_
 | mouse_move_focuses_monitor | Whether mouse moving into a different monitor should focus it | bool | `true` |
 | allow_session_lock_restore | if true, will allow you to restart a lockscreen app in case it crashes | bool | `false` |
 | session_lock_xray | if true, keep rendering workspaces below your lockscreen | bool | `false` |
+| session_lock_blur | Enables blur for lockscreen. `session_lock_xray` must be enabled. | bool | `false` |
 | background_color | change the background color. (requires enabled `disable_hyprland_logo`) | color | `0x111111` |
 | close_special_on_empty | close the special workspace if the last window is removed | bool | `true` |
 | on_focus_under_fullscreen | if there is a fullscreen or maximized window, decide whether a tiled window requested to focus should replace it, stay behind or disable the fullscreen/maximized state. 0 - ignore focus request (keep focus on fullscreen window), 1 - takes over, 2 - unfullscreen/unmaximize [0/1/2] | int | `2` |
