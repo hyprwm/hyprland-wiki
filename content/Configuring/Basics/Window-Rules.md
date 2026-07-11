@@ -60,7 +60,7 @@ The supported fields for the `match` table are:
 | tag | \[name\] | Windows with matching `tag`. |
 | xwayland | \[bool\] | Xwayland windows. |
 | float | \[bool\] | Floating windows. |
-| fullscreen | \[bool\] | Fullscreen windows. |
+| fullscreen | \[bool\] | Fullscreen (covering or non-covering) windows. |
 | pin | \[bool\] | Pinned windows. |
 | focus | \[bool\] | Currently focused window. |
 | group | \[bool\] | Grouped windows. |
