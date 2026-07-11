@@ -79,7 +79,7 @@ hl.window_rule({ name = "kitty_starting_width", match = { class = "kitty" }, scr
 
 ## Layout Handled Fullscreen - Scrolling
 
-Scrolling as an optional layout handled FS behaviour that uses Scrolling's own Layout Fullscreen Handler.
+Scrolling has an optional layout handled FS behaviour that uses Scrolling's own Layout Fullscreen Handler.
 
 You can use it by using `layout_aware = true` (or not specifying `layout_aware` option at all) in your fullscreen dispatches when on a scrolling layout workspace.
 
