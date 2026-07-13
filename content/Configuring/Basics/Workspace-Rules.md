@@ -64,6 +64,7 @@ Props:
 | no_border | Whether to disable borders | bool |
 | no_shadow | Whether to disable shadows | bool |
 | no_rounding | Whether to disable rounded windows | bool |
+| blur | Whether to blur the workspace background when this workspace has visible windows. Note: expensive. | bool |
 | decorate | Whether to draw window decorations or not | bool |
 | persistent | Keep this workspace alive even if empty and inactive | bool |
 | on_created_empty | A command to be executed once a workspace is created empty (i.e. not created by moving a window to it). See the [command syntax](../Dispatchers#executing-with-rules) | string |
@@ -83,6 +84,7 @@ hl.workspace_rule({ workspace = "name:gaming", monitor = "desc:Chimei Innolux Co
 hl.workspace_rule({ workspace = "5", on_created_empty = "[float] firefox" })
 hl.workspace_rule({ workspace = "special:scratchpad", on_created_empty = "foot" })
 hl.workspace_rule({ workspace = "15", animation = "slidevert", default_name = "slider" })
+hl.workspace_rule({ workspace = "", blur = true }) -- all workspaces
 ```
 
 ### Smart gaps
