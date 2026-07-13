@@ -101,6 +101,28 @@ hl.gesture({
 })
 ```
 
+#### Live lua gestures
+
+For live gestures, i.e. ones that react to the gesture state, pass a table instead of a lambda,
+which has `start`, `update` and `finish` methods.
+
+Each method gets passed a table with more details about the gesture. You can print the table out to a notification
+to see all available fields, as they might differ depending on what type of a gesture you choose.
+
+For example:
+
+```lua
+hl.gesture({
+  fingers = 3,
+  direction = "up",
+  action = {
+    start = function(e) hl.notification.create({ text = "started a type of " .. e.type, timeout = 1000, icon = 1}) end,
+    update = function(e) hl.notification.create({ text = "moved a type of " .. e.type .. " by " .. e.delta, timeout = 1000, icon = 1}) end,
+    finish = function(e) hl.notification.create({ text = "ended a type of " .. e.type, timeout = 1000, icon = 1}) end
+  }
+})
+```
+
 ### Fields
 
 | Field | Type | Description |
