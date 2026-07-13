@@ -294,7 +294,7 @@ This can be used to prevent Chromium-based browsers from going into presentation
 
 ### `FSMODE_MAX`
 
-This is not a user accessable mode, but a state that occurs when a client requests `Fullscreen` when the internal mode of that window is `Maximized`.
+This is not a user accessible mode, but a state that occurs when a client requests `Fullscreen` when the internal mode of that window is `Maximized`.
 
 When this happens, the next request to un-FS the window will cause the window to become `Maximized` instead.
 
