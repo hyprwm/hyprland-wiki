@@ -91,6 +91,7 @@ A monitor. Can be:
 | `force_idle(seconds)` | sets elapsed time for all idle timers, ignoring idle inhibitors. Timers return to normal behavior upon the next activity. Do not use with a keybind directly. |
 | `no_op()` | does nothing. Useful for conditional binds. |
 | `force_renderer_reload()` | force reloads the renderer on all monitors. |
+| `release_input_capture()` | releases any active input capture session. |
 
 ### Window
 

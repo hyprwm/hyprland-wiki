@@ -78,6 +78,11 @@ There are 3 modes:
  - Access to your cursor position and cursor image via Wayland protocols directly.                                                           
  - Why deny? Prevents apps from silently tracking where your cursor is without going through xdg-desktop-portal.
 
+`input-capture`:
+ - Default: **ASK**
+ - Access to capture all input events from the compositor (keyboard, pointer, touch).
+ - Why deny? Prevents apps from maliciously capturing all user input without your consent.
+
 ## Notes
 
 **xdg-desktop-portal** implementations (including xdph) are just regular applications. They will go through permissions too. You might want to consider
