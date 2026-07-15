@@ -646,6 +646,15 @@ _Subcategory `experimental.`_
 | --- | --- | --- | --- |
 | wp_cm_1_2 | allow wp-cm-v1 version 2 | bool | `false` |
 
+### Input Capture
+
+_Subcategory `input-capture.`_
+
+| name | description | type | default |
+| --- | --- | --- | --- |
+| capture_modifiers | if enabled, modifiers are also captured and sent to the program | bool | `false` |
+| enforce_barriers | if enabled, throw a wayland error when an invalid barrier is received | bool | `true` |
+
 ### More
 
 There are more config options described in other pages, which are layout- or
