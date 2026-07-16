@@ -14,7 +14,7 @@ screen on Hyprland.
 
 ### grim and swappy
 
-[`grim`](https://sr.ht/~emersion/grim/) is a simple Wayland screenshot tool. It
+[`grim`](https://gitlab.freedesktop.org/emersion/grim) is a simple Wayland screenshot tool. It
 is commonly used with [`slurp`](https://github.com/emersion/slurp) for area
 selection and [`swappy`](https://github.com/jtheoof/swappy) for annotations.
 
