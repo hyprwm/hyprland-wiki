@@ -540,6 +540,7 @@ _Subcategory `render.`_
 | name | description | type | default |
 | --- | --- | --- | --- |
 | direct_scanout | Enables direct scanout. Direct scanout attempts to reduce lag when there is only one fullscreen application on a screen (e.g. game). It is also recommended to set this to false if the fullscreen application shows graphical glitches. 0 - off, 1 - on, 2 - auto (on with content type 'game') | int | `0` |
+| main_buffer_deadline | Set a GPU fence deadline hint for the main render buffer. | bool | `false` |
 | expand_undersized_textures | Whether to expand undersized textures along the edge, or rather stretch the entire texture. | bool | `true` |
 | xp_mode | Disables back buffer and bottom layer rendering. | bool | `false` |
 | ctm_animation | Whether to enable a fade animation for CTM changes (hyprsunset). 2 means "auto" which disables them on Nvidia. | int | `2` |
