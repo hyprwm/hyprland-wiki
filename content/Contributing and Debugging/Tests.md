@@ -34,6 +34,10 @@ To run Hyprtester, execute the following in a debug build:
 ```sh
 ./build/hyprtester/hyprtester -c hyprtester/test.lua -b ./build/Hyprland -p hyprtester/plugin/hyprtestplugin.so
 ```
+or invoke the relevant Makefile target:
+```sh
+make test
+```
 
 *This will run for a while!* At the end, it will print summary results
 of how many tests passed, and how many failed.
@@ -47,6 +51,10 @@ on the command line, e.g.:
 
 ```sh
 ./build/hyprtester/hyprtester dwindleSplit focusMasterPrevious processSpawning -c hyprtester/test.lua -b ./build/Hyprland -p hyprtester/plugin/hyprtestplugin.so
+```
+or invoke the Makefile target with the extra `TESTS` variable set:
+```sh
+make TESTS="dwindleSplit focusMasterPrevious processSpawning" test
 ```
 
 ## Submitting new tests
