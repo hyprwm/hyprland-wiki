@@ -66,6 +66,42 @@ Variables in the `listener` category:
 | `on-timeout` | Command to run when timeout has passed. | string | empty |
 | `on-resume` | Command to run when activity is detected after timeout has fired. | string | empty |
 | `ignore_inhibit` | Ignore idle inhibitors (of all types) for this rule. | bool | `false` |
+| `condition_cmd` | Command run when the timeout is reached, _before_ `on-timeout`. Run via `/bin/sh -c`; exit code `0` lets `on-timeout` fire, non-zero defers it. | string | empty |
+| `condition_retry` | When `condition_cmd` defers, re-run it every N seconds while the user stays idle, firing `on-timeout` as soon as it succeeds. `0` disables retrying (the deferred `on-timeout` is skipped for this idle cycle). | int | `0` |
+
+#### Conditional timeouts
+
+A listener can gate its `on-timeout` on external state with `condition_cmd`. When the timeout is
+reached, hypridle runs `condition_cmd` first; `on-timeout` fires only if it exits `0`. A non-zero
+exit defers `on-timeout`.
+
+Set `condition_retry` to keep re-checking while the user stays idle: hypridle re-runs `condition_cmd`
+every `condition_retry` seconds and fires `on-timeout` the moment it succeeds. With `condition_retry = 0`
+(the default) a deferred `on-timeout` is simply skipped until the next idle cycle. Any user activity
+resets the listener and cancels a pending retry.
+
+> [!NOTE]
+> `condition_cmd` runs synchronously on hypridle's event loop, so keep it fast — a script that blocks
+> holds up idle handling. Retry timing is checked on hypridle's ~5s event-loop tick, so very small
+> `condition_retry` values are effectively rounded up to that granularity.
+
+Example — don't suspend while an SSH session is connected:
+
+```ini
+listener {
+    timeout = 900                                          # 15min.
+    on-timeout = systemctl suspend                         # suspend pc.
+    condition_cmd = ~/.config/hypr/scripts/can-suspend.sh  # exit 0 = suspend, non-zero = stay awake.
+    condition_retry = 30                                   # re-check every 30s while still idle.
+}
+```
+
+```sh
+#!/bin/sh
+# ~/.config/hypr/scripts/can-suspend.sh — defer suspend while an SSH session is connected.
+ss -tn state established '( sport = :ssh )' | grep -q . && exit 1
+exit 0
+```
 
 ### Examples
 
