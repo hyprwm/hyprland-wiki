@@ -45,7 +45,7 @@ Event list:
 | window.close | Emitted when a window is closed. It may still be visible during its closing animation. | Window |
 | window.destroy | Emitted when a window is removed from the compositor. For windows with a close animation, fires after the animation completes. | Window |
 | window.kill | Emitted when a window is forcefully killed via hyprctl kill. | Window |
-| window.active | Emitted when the active window changes. | Window, int \[0/1\] (focus reason) |
+| window.active | Emitted when the active window changes. | Window, int (focus reason) |
 | window.urgent | Emitted when a window requests an `urgent` state. | Window |
 | window.title | Emitted when a window title changes. | Window |
 | window.class | Emitted when a window class changes. | Window |
