@@ -483,6 +483,8 @@ _Subcategory `misc.`_
 | size_limits_tiled | whether to apply min_size and max_size rules to tiled windows | bool | `false` |
 | screencopy_force_8b | forces 8 bit screencopy | bool | `true` |
 | disable_watchdog_warning | whether to disable the warning about not using start-hyprland | bool | `false` |
+| float_force_onscreen | whether/how new floating windows should be constrained to stay on-screen. 0 - no constraints, 1 - must be partially onscreen, 2 - must be fully onscreen [0/1/2] | int | `0` |
+| new_float_force_onscreen | same as `float_force_onscreen`, but specifically for newly-spawned floating windows [0/1/2] | int | `2` |
 
 ### Layout
 
