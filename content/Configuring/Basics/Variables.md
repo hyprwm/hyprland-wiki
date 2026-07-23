@@ -483,6 +483,7 @@ _Subcategory `misc.`_
 | size_limits_tiled | whether to apply min_size and max_size rules to tiled windows | bool | `false` |
 | screencopy_force_8b | forces 8 bit screencopy | bool | `true` |
 | disable_watchdog_warning | whether to disable the warning about not using start-hyprland | bool | `false` |
+| bell_sound | path to custom ogg/wav system bell. "none" or an empty string mute it. "default" causes Hyprland to search for the system-defined one. | str | `"default"` |
 
 ### Layout
 
