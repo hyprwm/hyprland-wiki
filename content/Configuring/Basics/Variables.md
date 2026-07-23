@@ -513,6 +513,7 @@ _Subcategory `binds.`_
 | disable_keybind_grabbing | If enabled, apps that request keybinds to be disabled (e.g. VMs) will not be able to do so. | bool | `false` |
 | allow_pin_fullscreen | If enabled, Allow fullscreen to pinned windows, and restore their pinned status afterwards | bool | `false` |
 | drag_threshold | Movement threshold in pixels for window dragging and c/g bind flags. 0 to disable and grab on mousedown. | int | `0` |
+| drag_center_window | If enabled, dragging a tiled or fullscreen window will center it on the cursor when it becomes floating. | bool | `true` | "
 
 ### XWayland
 
