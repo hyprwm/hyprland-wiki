@@ -58,6 +58,21 @@ working or use `grim` with `swappy` instead.
 screenshot and recording utility. It is useful if you want a workflow that is
 integrated with Hyprland instead of wiring several smaller tools together.
 
+### snipland
+
+[snipland](https://github.com/AnrokX/snipland) recreates the Windows 11
+Snipping Tool flow on Hyprland: one keybind opens a capture overlay with
+rectangle, freeform, window and fullscreen modes, a camera/video toggle, and a
+post-capture annotation editor. Recording produces MP4 through
+[`gpu-screen-recorder`](https://git.dec05eba.com/gpu-screen-recorder/about/),
+optionally visualizing mouse clicks and keystrokes in the video.
+
+```lua
+hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd('snipland'))
+```
+
+Pressing the keybind again cancels the overlay or stops an active recording.
+
 ### WeChat screenshot
 
 WeChat has its own screenshot shortcut. If Hyprland catches the keybind first,
