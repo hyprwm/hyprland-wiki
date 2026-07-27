@@ -106,3 +106,11 @@ for live logs. (replace `hyprland` with `hyprlandd` for debug builds)
 
 See
 [`ISSUE_GUIDELINES.md`](https://github.com/hyprwm/Hyprland/blob/main/docs/ISSUE_GUIDELINES.md).
+
+## Getting Vouched
+
+Before you submit a PR, you need to be vouched, or your PR will be closed automatically.
+
+Now that you've read all the above, you're ready to apply for getting vouched.
+
+Please make a vouch request over [here](https://github.com/hyprwm/.github/discussions) if you wish to do so.
