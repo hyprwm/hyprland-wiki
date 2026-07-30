@@ -5,9 +5,10 @@ title: Nvidia
 
 ## Foreword
 
-There is no _official_ Hyprland support for Nvidia hardware. However, many
-people have had success with the instructions on this page. Please read
-everything in FULL before asking for help.
+Because Nvidia's drivers are still proprietary, some issues could arise
+when using Nvidia GPUs on Hyprland that we have no control over.
+Although Hyprland should run just fine on Nvidia, please read this
+page in full to properly set your system up.
 
 There are three potential setups you can have with driver setup on Nvidia.
 

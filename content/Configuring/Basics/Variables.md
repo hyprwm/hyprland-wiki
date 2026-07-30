@@ -484,6 +484,8 @@ _Subcategory `misc.`_
 | screencopy_force_8b | forces 8 bit screencopy | bool | `true` |
 | disable_watchdog_warning | whether to disable the warning about not using start-hyprland | bool | `false` |
 | bell_sound | path to custom wav/ogg system bell. "none" or an empty string mute it. "default" causes Hyprland to search for the system-defined one. | str | `"default"` |
+| float_force_onscreen | whether/how new floating windows should be constrained to stay on-screen. 0 - no constraints, 1 - must be partially onscreen, 2 - must be fully onscreen [0/1/2] | int | `0` |
+| new_float_force_onscreen | same as `float_force_onscreen`, but specifically for newly-spawned floating windows [0/1/2] | int | `2` |
 
 ### Layout
 
@@ -557,6 +559,7 @@ _Subcategory `render.`_
 | use_shader_blur_blend | Use experimental blurred bg blending (glitched on rotated screens). Set to true if blur is missing with fp16 or keep_unmodified_copy | bool | `false` |
 | icc_vcgt_enabled | Enable sending VCGT ramps to KMS with ICC profiles | bool | `true` |
 | fp16_sdr_tf | Internal workbuffer transfer function for fp16 in SDR mode. 0 - monitor, 1 - linear | int | `0` |
+| not_shown_fifo_lock | Control fifo locking for not shown surfaces. always - use fifo lock for any surface, ignore_unfocused - ignore render_unfocused windows, never - skip locking invisible surfaces | int | `0` |
 
 `cm_auto_hdr` requires `--target-colorspace-hint-mode=source` mpv option to work with mpv versions greater than v0.40.0
 
