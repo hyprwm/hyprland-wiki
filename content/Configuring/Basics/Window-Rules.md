@@ -129,7 +129,7 @@ which will be found when matching on `title` and `class`, respectively.
 | monitor | string | Sets the monitor on which a window should open. E.g. `"1"` or `"DP-1"`. Can be suffixed with `" silent"` |
 | workspace | string | Sets the workspace on which a window should open. Can also be `"unset"` or suffixed with `" silent"`. |
 | no_initial_focus | boolean | Disables the initial focus to the window. |
-| pin | boolean | Pins the window (i.e. show it on all workspaces). _Note: floating only_. |
+| pin | boolean | Pins the window (i.e. show it on all workspaces). _Note: pinning is ignored for non-floating windows. You most likely want to use this together with `float = true`_. |
 | group | string | Sets window group properties. See [group options](#group-window-rule-options) below. |
 | suppress_event | string | Ignores specific events. Space-separated: `"fullscreen"`, `"maximize"`, `"activate"`, `"activatefocus"`, `"fullscreenoutput"`, `"x11configurerequest"`. |
 | content | string | Sets content type: `"none"`, `"photo"`, `"video"`, or `"game"`. |
