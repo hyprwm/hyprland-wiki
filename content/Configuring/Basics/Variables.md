@@ -180,6 +180,21 @@ _Subcategory `decoration.motion_blur.`_
 | enabled | enable motion blur on moving / resizing windows | bool | `false` |
 | samples | The amount of samples to render. More will mean clearer blur, at the cost of more compute. | int | `7` |
 
+#### Wobble
+
+_Subcategory `decoration.wobble.`_
+
+| name | description | type | default |
+| --- | --- | --- | --- |
+| enabled | enable wobble on moving / resizing windows | bool | `false` |
+| mesh | amount of wobble mesh vertices per edge | int | `12` |
+| stiffness | spring stiffness for wobble deformation | float | `200` |
+| damping | spring damping for wobble deformation | float | `12` |
+| mass | spring mass for wobble deformation | float | `1` |
+| intensity | wobble deformation impulse multiplier | float | `0.2` |
+| value_epsilon | position epsilon below which wobble is considered stable | float | `0.25` |
+| velocity_epsilon | velocity epsilon below which wobble is considered stable | float | `2` |
+
 ### Animations
 
 | name | description | type | default |
