@@ -180,6 +180,21 @@ _Subcategory `decoration.motion_blur.`_
 | enabled | enable motion blur on moving / resizing windows | bool | `false` |
 | samples | The amount of samples to render. More will mean clearer blur, at the cost of more compute. | int | `7` |
 
+#### Wobble
+
+_Subcategory `decoration.wobble.`_
+
+| name | description | type | default |
+| --- | --- | --- | --- |
+| enabled | enable wobble on moving / resizing windows | bool | `false` |
+| mesh | amount of wobble mesh vertices per edge | int | `12` |
+| stiffness | spring stiffness for wobble deformation | float | `200` |
+| damping | spring damping for wobble deformation | float | `12` |
+| mass | spring mass for wobble deformation | float | `1` |
+| intensity | wobble deformation impulse multiplier | float | `0.2` |
+| value_epsilon | position epsilon below which wobble is considered stable | float | `0.25` |
+| velocity_epsilon | velocity epsilon below which wobble is considered stable | float | `2` |
+
 ### Animations
 
 | name | description | type | default |
@@ -484,7 +499,7 @@ _Subcategory `misc.`_
 | screencopy_force_8b | forces 8 bit screencopy | bool | `true` |
 | disable_watchdog_warning | whether to disable the warning about not using start-hyprland | bool | `false` |
 | bell_sound | path to custom wav/ogg system bell. "none" or an empty string mute it. "default" causes Hyprland to search for the system-defined one. | str | `"default"` |
-| float_force_onscreen | whether/how new floating windows should be constrained to stay on-screen. 0 - no constraints, 1 - must be partially onscreen, 2 - must be fully onscreen [0/1/2] | int | `0` |
+| float_force_onscreen | whether/how existing floating windows should be constrained to stay on-screen. 0 - no constraints, 1 - must be partially onscreen, 2 - must be fully onscreen [0/1/2] | int | `0` |
 | new_float_force_onscreen | same as `float_force_onscreen`, but specifically for newly-spawned floating windows [0/1/2] | int | `2` |
 
 ### Layout
