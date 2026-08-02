@@ -203,7 +203,7 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("kitty")
   hl.exec_cmd("dolphin")
   hl.exec_cmd("dunst")
-  hl.exec_cmd("amongus", { workspace = "1" })
+  hl.exec_cmd("amongus", { workspace = "1 silent" })
 end)
 ```
 
