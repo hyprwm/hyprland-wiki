@@ -20,7 +20,7 @@ It includes simple gui settings apps, pre-configured feature-rich panels, a welc
 
 [Youtube](https://www.youtube.com/@mylinuxforwork)
 
-![Image of ML4W dotfiles](https://i.ibb.co/7rxTRrw/395854121-47ed1ae0-a660-46f3-9bf5-917da0d3f675.png)
+![Image of ML4W dotfiles](https://i.ibb.co/fYj49BRB/screen-215.jpg)
 
 ## JaKooLit
 
