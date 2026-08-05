@@ -53,6 +53,7 @@ Event list:
 | window.fullscreen | Emitted when the fullscreen status of a window changes. | Window |
 | window.update_rules | Emitted when a window's rules are re-evaluated, e.g. when its title or class changes. | Window |
 | window.move_to_workspace | Emitted when a window is moved to a different workspace. | Window, Workspace |
+| window.bell | Emitted when a window rings the system bell, even if it's muted. | Window |
 | layer.opened | Emitted when a layer surface is opened. | LayerSurface |
 | layer.closed | Emitted when a layer surface is closed. | LayerSurface |
 | monitor.added | Emitted when a monitor is connected and ready. | Monitor |
