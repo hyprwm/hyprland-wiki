@@ -184,6 +184,7 @@ Dynamic effects are re-evaluated every time a property changes.
 | no_focus | boolean | Disables focus to the window. |
 | no_follow_mouse | boolean | Prevents the window from being focused when the mouse moves over it when `input.follow_mouse=1` is set. |
 | no_shadow | boolean | Disables shadows for the window. |
+| no_wobble | boolean | Disables wobble for the window. |
 | no_shortcuts_inhibit | boolean | Disallows the app from inhibiting your shortcuts. |
 | no_screen_share | boolean | Hides the window and its popups from screen sharing by drawing black rectangles in their place. |
 | no_vrr | boolean | Disables VRR for the window. Only works when `misc.vrr` is set to `2` or `3`. |
