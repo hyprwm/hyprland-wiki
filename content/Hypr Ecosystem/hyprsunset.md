@@ -113,9 +113,9 @@ hyprctl hyprsunset profile
 
 This can be used by other software to change the temperature throughout the day, or to adjust perceieved
 monitor brightness, such as with the following Hyprland keybinds:
-```ini
-bindel = ,XF86MonBrightnessDown, exec, hyprctl hyprsunset gamma -10
-bindel = ,XF86MonBrightnessUp, exec, hyprctl hyprsunset gamma +10
+```lua
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("hyprctl hyprsunset gamma +10"), { repeating = true, locked = true, })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("hyprctl hyprsunset gamma -10"), { repeating = true, locked = true, })
 ```
 
 > [!WARNING]
