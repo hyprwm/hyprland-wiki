@@ -14,7 +14,7 @@ ML4W or My Linux 4 Work, is a great DE-like experience out-of-the-box made by St
 
 It includes simple gui settings apps, pre-configured feature-rich panels, a welcome app, and more.
 
-[Website](https://www.ml4w.com/)
+[Website](https://ml4w.com/os/)
 
 [GitHub](https://github.com/mylinuxforwork/dotfiles)
 
