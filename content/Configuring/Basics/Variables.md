@@ -448,7 +448,8 @@ _Subcategory `group.groupbar.`_
 | col.locked_inactive | inactive locked group bar background color | gradient | `0x66775500` |
 | gaps_in | gap size between gradients | int | `2` |
 | gaps_out | gap size between gradients and window | int | `2` |
-| keep_upper_gap | add or remove upper gap | bool | `true` |
+| keep_outer_gap | render the gap between the groupbar and the outer border | bool | `true` |
+| position | sets the position of the groupbar, can be either `top` or `bottom` | string | `top` |
 | middle_click_close | whether middle clicking the groupbar closes the clicked window | bool | `true` |
 | blur | applies blur to the groupbar indicators and gradients | bool | `false` |
 
