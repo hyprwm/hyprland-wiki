@@ -33,6 +33,15 @@ hl.bind("SUPER + SHIFT + X", function()
 end)
 ```
 
+> [!WARNING]
+> **Keybind handlers must not block.** Lua callbacks run on the compositor
+> event loop. Avoid `io.popen`, network I/O, clipboard tools (`wl-paste`,
+> `xclip`), sleeps, and other long-running work inside bind functions.
+> Prefer `hl.dsp.exec_cmd(...)` for external commands so they run outside
+> the bind callback. If you must probe the system from Lua, bound the wait
+> (for example with `timeout`). A hung or slow call freezes input and the
+> entire desktop until it returns.
+
 ## Uncommon syms / binding with a keycode
 
 See the
