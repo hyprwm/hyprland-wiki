@@ -24,6 +24,28 @@ into self-contained commits that contain one logical change.
 
 For info about how to squash commits, see [this](https://stackoverflow.com/a/5189600).
 
+## Structure of the wiki
+
+TBD
+
+## TODO list 
+
+[ ] write how to structure new parameters and what styling to follow
+
+[ ] add {filename="hyprland.lua"} to codeblocks
+
+[ ] put examples in
+{{% details title="title" closed="true" %}}
+
+code
+lorem ipsum
+
+{{% /details %}}
+
+[x] rewrite nix part of the wiki. too much noise. hjem.
+
+[ ] figure out tags in per-device binds. they link to devices and devices links to per-device binds. no info about them in old wiki /shrug
+
 ## Local development
 
 To see your local changes, make sure to have `go` and `hugo` installed. Then, run
