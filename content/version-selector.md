@@ -1,6 +1,6 @@
 ---
 title: Version selector ⚙️
-weight: 1
+weight: 10
 ---
 
 Select your preferred wiki version below:

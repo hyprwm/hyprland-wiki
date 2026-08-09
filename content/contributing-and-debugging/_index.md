@@ -1,0 +1,124 @@
+---
+weight: 140
+title: Contributing and debugging
+---
+
+PR, code styling and code FAQs are [here](./pr-guidelines)
+
+For issues, please see
+[the guidelines](https://github.com/hyprwm/Hyprland/blob/main/docs/ISSUE_GUIDELINES.md)
+
+## Getting Vouched
+
+Before you submit a PR, you need to be vouched, or your PR will be closed automatically.
+
+Now that you've read all the above, you're ready to apply for getting vouched.
+
+Please make a vouch request over [here](https://github.com/hyprwm/.github/discussions) if you wish to do so.
+
+## Build in debug mode
+
+### Required packages
+
+See [manual build](../getting-started/installation#manual-build) for deps.
+
+### Recommended, CMake
+
+Install the VSCode C/C++ and CMake Tools extensions and use that.
+
+I've attached a
+[launch.json](https://github.com/hyprwm/Hyprland/blob/main/example/launch.json) file
+that you can copy to your .vscode/ folder in the repo root.
+
+With that, you can build in debug, go to the debugging tab and hit
+`(gdb) Launch`.
+
+### Custom, CLI
+
+`make debug`
+
+Attach and profile in your preferred way.
+
+### Nix
+
+To build the package in debug mode, you have to override it like this:
+
+```nix
+hyprland.override {
+  debug = true;
+};
+```
+
+This code can go in the `package` attribute of the NixOS/Home Manager modules.
+
+## Development environment
+
+### Setup
+
+Make a copy of your config in `~/.config/hypr` called `hyprlandd.lua`. `Debug`
+builds automatically use `hyprlandd.lua`, but you can also pass `--config ~/path/to/conf.lua`
+for an override on release / different file.
+
+#### Recommended debug config changes
+
+- remove _all_ autoexec directives from your config.
+- change default modifier for binds (e.g. `SUPER` -> `ALT`)
+
+#### Launch the dev env
+
+Launch the output `Hyprland` binary in `./build/` _when logged into a Hyprland
+session_.
+
+A new window should open with Hyprland running inside of it. You can now test stuff
+in this nested session without worrying about nuking your actual
+session, and also being able to debug it easily. I'd also recommend launching Hyprland
+with some sort of a debugger, like `gdb`. Your IDE (if you use one) can likely do it
+for you, otherwise `gdb ./build/Hyprland` should suffice. This will help you debug
+crashes.
+
+For gdb, when Hyprland crashes, gdb will stop and allow you to inspect the current state
+with commands like `bt`, `frame`, `print`, etc. An IDE will allow you to do it
+graphically.
+
+## LSP and Formatting
+
+If you want proper LSP support in an editor that doesn't automatically set it
+up, use clangd. You'll probably notice there will be a bunch of warnings
+because we haven't generated compile commands, to do this run:
+
+```sh
+cmake -S . -B build/ -G Ninja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+```
+
+Also, before submitting a PR please format with clang-format. To do this only
+on your changes, run `git-clang-format` in your project's root directory.
+
+## Logs, dumps, etc
+
+You can use the logs and the GDB debugger, but running Hyprland in debug compile
+as a driver and using it for a while might give more insight to the more random
+bugs.
+
+When Hyprland crashes, use `coredumpctl` and then `coredumpctl info PID` to see
+the dump. See the instructions below for more info about `coredumpctl`.
+
+You can also use the amazing command
+
+```sh
+watch -n 0.1 "grep -v \"arranged\" $XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/hyprland.log | tail -n 40"
+```
+
+for live logs. (replace `hyprland` with `hyprlandd` for debug builds)
+
+### How do I get a coredump?
+
+See
+[`ISSUE_GUIDELINES.md`](https://github.com/hyprwm/Hyprland/blob/main/docs/ISSUE_GUIDELINES.md).
+
+## Getting Vouched
+
+Before you submit a PR, you need to be vouched, or your PR will be closed automatically.
+
+Now that you've read all the above, you're ready to apply for getting vouched.
+
+Please make a vouch request over [here](https://github.com/hyprwm/.github/discussions) if you wish to do so.
