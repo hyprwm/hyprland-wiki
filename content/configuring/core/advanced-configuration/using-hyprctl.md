@@ -26,7 +26,7 @@ hyprctl eval 'hl.dispatch(hl.dsp.focus({ workspace = "3" }))'
 ### repl
 
 Start an interactive Lua REPL session or issue a Lua string and print the result through tostring.
-Similar to `lua` interactive mode. Exit with Ctrl+D.
+Similar to `Lua` interactive mode. Exit with Ctrl+D.
 
 Usage:
 

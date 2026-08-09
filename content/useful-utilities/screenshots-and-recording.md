@@ -60,7 +60,7 @@ WeChat has its own screenshot shortcut. If Hyprland catches the keybind first,
 WeChat will not receive it unless the keybind is explicitly passed to the WeChat
 window.
 
-Use the `pass` dispatcher to forward <key>Alt</key> + <key>A</key> to WeChat:
+Use the `pass` dispatcher to forward Alt + A to WeChat:
 
 ```lua
 hl.bind("ALT + A", hl.dsp.pass({class = "wechat"}))

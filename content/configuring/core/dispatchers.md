@@ -5,15 +5,17 @@ title: Dispatchers
 
 ## Dispatchers
 
-Dispatchers return tables that describe an action you want to make. They do not invoke any action immediately, and their
-contents are not guaranteed to be stable at all. Their purpose is to be fed into `hl.bind()` or `hl.dispatch()`.
+Dispatchers return tables that describe an action you want to make.
+They do not invoke any action immediately, and their contents are not guaranteed to be stable at all.
+Their purpose is to be fed into `hl.bind()` or `hl.dispatch()`.
 
-Please keep in mind some layout-specific dispatchers will be listed in the
-layout pages (See the sidebar).
+Please keep in mind some layout-specific dispatchers will be listed in the layout pages (See the sidebar).
 
-To use a dispatcher (any of `hl.dsp.*`) inside a function, you need to wrap it in `hl.dispatch()` for it to be executed properly. 
+To use a dispatcher (any of `hl.dsp.*`) inside a function, you need to wrap it in `hl.dispatch()` for it to be executed.
 
 {{% details title="Examples" closed="true" %}}
+
+In the first snippet, the `function()` actually triggers the actions by calling `hl.dispatch(...)`. `hl.dispatch`.
 
 ```lua
 hl.bind("ALT + Tab", function()
@@ -22,6 +24,9 @@ hl.bind("ALT + Tab", function()
 end)
 ```
 
+In the second snippet, dispatchers are created, but never passed to `hl.dispatch`.
+Since nothing executes them, they do nothing.
+
 ```lua
 hl.bind("ALT + Tab", function()
     hl.dsp.window.cycle_next()
@@ -29,10 +34,9 @@ hl.bind("ALT + Tab", function()
 end)
 ```
 
-First code snippet will execute dispatchers, but second wont because `hl.bind` calls the `function()`, but function() never calls `hl.dsp`'s
-
 To put is simply:
-hl.dsp is a factory, hl.dispatch is a truck that delivers products from factory to client. Unless you call the driver, it wont deliver anything. hl.bind calls the function(), but function() never calls the driver, so it doesnt deliver anything.  
+hl.dsp is a factory, hl.dispatch is a truck that delivers products from factory to client.
+Unless you call the driver, it wont deliver anything. hl.bind calls the function(), but function() never calls the driver, so it doesnt deliver anything.
 
 On the other hand, [hl.exec_cmd](../advanced-configuration/lua-utilities#hlexec_cmd-function) is a postman. Never gets or answers any calls, just goes straight to the address on the letter.
 
@@ -43,7 +47,7 @@ On the other hand, [hl.exec_cmd](../advanced-configuration/lua-utilities#hlexec_
 
 ### Parameter explanation
 
-| Param type | Description  |
+| Param type | Description |
 | --- | --- |
 | `window` | [Window selector](../../../naming-conventions#window-selector) |
 | `action` | If not set, defaults to `toggle`. Can be: `toggle`, `enable`/`on`, `disable`/`off` |
@@ -55,7 +59,7 @@ On the other hand, [hl.exec_cmd](../advanced-configuration/lua-utilities#hlexec_
 
 `hl.dsp.` contains:
 
-| method | description |
+| Method | Description |
 | --- | --- |
 | `exec_cmd( cmd, { rules }? )` | Execute a command. Rules can be a table of window rule effects to apply (see [below](#executing-with-rules)). |
 | `exec_raw( cmd )` | Execute a raw command. While `exec_cmd` will do `sh -c`, this won't. |
@@ -83,7 +87,7 @@ On the other hand, [hl.exec_cmd](../advanced-configuration/lua-utilities#hlexec_
 
 `hl.dsp.window.` contains:
 
-| method | description |
+| Method | Description |
 | --- | --- |
 | `close({ window? })` | Send a graceful request to close the window. |
 | `kill({ window? })` | Kill the process owning the window with a `SIGKILL`. |
@@ -120,7 +124,7 @@ On the other hand, [hl.exec_cmd](../advanced-configuration/lua-utilities#hlexec_
 
 `hl.dsp.workspace.` contains:
 
-| method | description |
+| Method | Description |
 | --- | --- |
 | `change_id({ workspace, id })` | change a workspace's ID. Cannot be an ID already in use. Must be > 0. |
 | `rename({ workspace, name? })` | Rename a workspace |
@@ -132,7 +136,7 @@ On the other hand, [hl.exec_cmd](../advanced-configuration/lua-utilities#hlexec_
 
 `hl.dsp.group.` contains:
 
-| method | description |
+| Method | Description |
 | --- | --- |
 | `toggle({ window? })` | Toggle a group |
 | `next({ window? })` | Switch to the next window in a group | 
@@ -146,7 +150,7 @@ On the other hand, [hl.exec_cmd](../advanced-configuration/lua-utilities#hlexec_
 
 `hl.dsp.cursor.` contains:
 
-| method | description |
+| Method | Description |
 | --- | --- |
 | `move_to_corner({ window?, corner = int })` | Move the cursor to a given corner of the window. Corner is [0 - 3] |
 | `move({ x, y })` | Move the cursor to a given coordinate |
@@ -259,4 +263,5 @@ Some layouts, like scrolling, allow optional FS handling other than the default.
 
 You can use both Layout Handled and Default Handled fullscreens in these layouts using the `layout_aware` option in fullscreen dispatchers.
 
-To see which Fullscreen Handler a given window is using, use Lua or hyprctl.  <!-- TODO: this should also state HOW to use Lua and hyprctl, not just that you can use it. -->
+To see which Fullscreen Handler a given window is using, use Lua or hyprctl
+<!-- TODO: this should also state HOW to use Lua and hyprctl, not just that you can use it. -->

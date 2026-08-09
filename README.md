@@ -4,7 +4,11 @@ Welcome to the Hyprland Wiki! Here we store the wiki pages. They are automatical
 website whenever a change occurs, within a reasonable timeframe (usually 1–2 minutes).
 You can find the site at [https://wiki.hypr.land/](https://wiki.hypr.land/)
 
-## Contributing to the Wiki
+## Wiki styling
+
+Before suggesting your changes, make sure to follow wiki styling guidelines. They can be read on [the wiki](https://wiki.hypr.land/contributing-and-debugging/wiki-guidelins/) or [github](./content/contributing-and-debugging/wiki-guidelines.md)
+
+## Contributing guidelines
 
 Feel free to open an issue or a PR if you feel anything is necessary.
 Make sure to clearly state the reason for the changes.
@@ -23,10 +27,6 @@ Additionally, if you make many changes in your PR, it is best to squash them
 into self-contained commits that contain one logical change.
 
 For info about how to squash commits, see [this](https://stackoverflow.com/a/5189600).
-
-## Structure of the wiki
-
-TBD
 
 ## TODO list 
 

@@ -86,7 +86,7 @@ two of which (the middle ones) are configurable.
 hl.curve( NAME, { type = "bezier", points = { {X0, Y0}, {X1, Y1} } })
 ```
 
-A good website to design your own Bézier can be [cssportal.com](https://www.cssportal.com/css-cubic-bezier-generator/). <br>
+A good website to design your own Bézier can be [cssportal.com](https://www.cssportal.com/css-cubic-bezier-generator/).  
 If you want to instead choose from a list of pre-made Béziers, you can check out [easings.net](https://easings.net).
 
 ### Spring
