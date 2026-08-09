@@ -1,19 +1,15 @@
 ---
 title: Issue guidelines
-weight: 10
+weight: 20
 ---
 
-Due to the influx of low quality or incomprehensible issues,
-we prefer to begin possible bug reports or feature requests as *discussions*,
-and elevate them to issues if they can be confirmed by a member to be relevant,
-and once enough information about the problem has been gathered.
+Due to the influx of low quality or incomprehensible issues, we prefer to begin possible bug reports or feature requests as *discussions*, and elevate them to issues if they can be confirmed by a member to be relevant, and once enough information about the problem has been gathered.
 
 > [!NOTE] **Why?**
-> 
-> We are volunteers, doing this in our free time. Out of respect, please read this document
-> _fully_ before posting an issue _or_ discussion. If you can spend a few minutes reading this,
-> it saves us, the developers, much more time overall, so we can deliver fixes and features faster.
-> 
+> We are volunteers, doing this in our free time.
+> Out of respect, please read this document _fully_ before posting an issue _or_ discussion.
+> If you can spend a few minutes reading this, it saves us, the developers, much more time overall, so we can deliver fixes and features faster.
+>
 > Thank you!
 
 ## Issue Guidelines
@@ -23,8 +19,8 @@ Instead, we ask you to open a [discussion](https://github.com/hyprwm/Hyprland/di
 
 ### Before you start a discussion
 
-_Search the discussions and issues thoroughly_. It's likely that there's already one open for your bug / feature that you can
-just "like" instead of wasting both your time writing a new one and our time closing it and redirecting you.
+_Search the discussions and issues thoroughly_.
+It's likely that there's already one open for your bug/feature that you can just upvote instead of wasting both your time writing a new one and our time closing it and redirecting you.
 
 ### The lifecycle of a discussion
 
@@ -47,13 +43,11 @@ Please note we are all volunteers and our numbers are small, so issues may stay 
 
 ### Gathering attention for your discussion / a discussion you care about
 
-Avoid posting comments such as "when fix?". Instead, use the thumbs up
-reaction under the discussion, or issue (if one exists).
+Avoid posting comments such as "when fix?".
+Instead, upvote the discussion, or issue (if one exists).
 
-If a discussion has reached 5 "likes" or more, and it hasn't been promoted, you may ping a member in the discussion
+If a discussion has reached 5 upvotes or more, and it hasn't been promoted, you may ping a member in the discussion
 (`@vaxerski`, `@fufexan` or `@notashelf` are the most likely ones to work)
 
-Please ***do not*** ping the members just because the discussion has become stale,
-or failed to gather attention. If that is the case, attempt to bring it back
-on track by posting *further* relevant information that might spark a discussion,
-or tell people interested about the discussion so that they can "like" it.
+Please ***do not*** ping the members just because the discussion has become stale, or failed to gather attention.
+If that is the case, attempt to bring it back on track by posting *further* relevant information that might spark a discussion, or tell people interested about the discussion so that they can upvote.
