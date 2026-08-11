@@ -298,6 +298,12 @@ See [Variables](../../Basics/Variables) for sections and options you can use.
 
 You can use the legacy `--batch` flag to issue multiple commands separated with a `;`.
 
+> [!NOTE]
+> Any semicolons inside of individual commands in the batch (e.g.
+> multi-statement Lua code) must be backslash-escaped, and any literal
+> backslashes must be escaped as well. This is *in addition to* any escaping
+> already required by your shell.
+
 ## Flags
 
 You can specify flags for the request like this:
