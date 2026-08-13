@@ -595,6 +595,7 @@ _Subcategory `cursor.`_
 | no_warps | if true, will not warp the cursor in many cases (focusing, keybinds, etc) | bool | `false` |
 | persistent_warps | When a window is refocused, the cursor returns to its last position relative to that window, rather than to the centre. | bool | `false` |
 | warp_on_change_workspace | Move the cursor to the last focused window after changing the workspace. Options: 0 (Disabled), 1 (Enabled), 2 (Force - ignores cursor:no_warps option) | int | `0` |
+| warp_on_monitor_change | Move the cursor to the last focused window when focusing a different monitor. Options: -1 (Follow value of `cursor:warp_on_change_workspace`), 0 (Disabled), 1 (Enabled), 2 (Force - ignores `cursor:no_warps`) | int | `-1` |
 | warp_on_toggle_special | Move the cursor to the last focused window when toggling a special workspace. Options: 0 (Disabled), 1 (Enabled), 2 (Force - ignores cursor:no_warps option) | int | `0` |
 | default_monitor | the name of a default monitor for the cursor to be set to on startup (see `hyprctl monitors` for names) | str | \[\[Empty\]\] |
 | zoom_factor | the factor to zoom by around the cursor. Like a magnifying glass. Minimum 1.0 (meaning no zoom) | float | `1.0` |
