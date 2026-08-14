@@ -59,17 +59,17 @@ from the original gesture including direction, mods, fingers and scale.
 | cursor_zoom | Zooms into the cursor. | `zoom_level` for a zoom factor, `mode` of `"mult"` to use a multiplier or `"live"` to update continuously during the pinch |
 | scroll_move | Scrolls the tape, if the current layout is scrolling | none |
 
-#### cursorZoom
+#### cursor_zoom
 
 Examples:
 
 ```lua
-hl.gesture({ fingers = 2, direction = "pinch", action = "cursorZoom", zoom_level = 2 })
-hl.gesture({ fingers = 2, direction = "pinch", action = "cursorZoom", zoom_level = 1.2, mode = "mult" })
-hl.gesture({ fingers = 2, direction = "pinch", action = "cursorZoom", zoom_level = 1, mode = "live" })
+hl.gesture({ fingers = 2, direction = "pinch", action = "cursor_zoom", zoom_level = 2 })
+hl.gesture({ fingers = 2, direction = "pinch", action = "cursor_zoom", zoom_level = 1.2, mode = "mult" })
+hl.gesture({ fingers = 2, direction = "pinch", action = "cursor_zoom", zoom_level = 1, mode = "live" })
 ```
 
-`cursorZoom` toggles by default. `mult` multiplies the current zoom value.
+`cursor_zoom` toggles by default. `mult` multiplies the current zoom value.
 
 `live` adjusts the zoom continuously to the pinch scale and keeps the zoom anchored to the cursor position at the start of the gesture. The numeric argument is currently unused in `live` mode, so `1` is a good placeholder.
 
@@ -193,5 +193,5 @@ hl.gesture({ fingers = 4, direction = "down", mods = "SUPER", action = "special"
 Zoom into the cursor with a pinch, using a multiplier instead of a fixed zoom level:
 
 ```lua
-hl.gesture({ fingers = 2, direction = "pinchin", action = "cursorZoom", zoom_level = 2.0, mode = "mult" })
+hl.gesture({ fingers = 2, direction = "pinchin", action = "cursor_zoom", zoom_level = 2.0, mode = "mult" })
 ```
