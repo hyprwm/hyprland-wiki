@@ -63,6 +63,7 @@ Props:
 | border_size | Set the border size around windows (equivalent to [General->border_size](../Variables#general)) | int |
 | no_border | Whether to disable borders | bool |
 | no_shadow | Whether to disable shadows | bool |
+| no_glow | Whether to disable glow | bool |
 | no_wobble | Whether to disable wobble | bool |
 | no_rounding | Whether to disable rounded windows | bool |
 | decorate | Whether to draw window decorations or not | bool |
