@@ -32,9 +32,7 @@ All fields beyond `output` are optional and fall back to sensible defaults.
 | max_luminance | Monitor maximum possible luminance | int | `-1` |
 | max_avg_luminance | Monitor maximum average luminance | int | `-1` |
 
-
-Leaving the `output` empty will define a fallback rule to use when no other rules
-match.
+Leaving the `output` empty will define a fallback rule to use when no other rules match.
 
 ```lua
 hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
@@ -46,7 +44,7 @@ resolution.
 
 ## General
 
-To list all available monitors (active and inactive) use:
+To list all available monitors (active and inactive), use:
 
 ```bash
 hyprctl monitors all
@@ -81,7 +79,7 @@ Monitor DP-3 (ID 0):
     disabled: false
     currentFormat: XRGB2101010
     mirrorOf: none
-    availableModes: 2560x1440@59.95Hz 2560x1440@165.00Hz 2560x1440@143.91Hz 2560x1440@120.00Hz 1920x1080@120.00Hz 1920x1080@119.88Hz 1920x1080@60.00Hz 1920x1080@60.00Hz 1920x1080@59.94Hz 1920x1080@50.00Hz 1280x1440@59.91Hz 1280x1024@75.03Hz 1280x1024@60.02Hz 1280x720@60.00Hz 1280x720@59.94Hz 1280x720@50.00Hz 1024x768@119.93Hz 1024x768@99.99Hz 1024x768@75.03Hz 1024x768@70.07Hz 1024x768@60.00Hz 832x624@74.55Hz 800x600@119.93Hz 800x600@99.86Hz 800x600@75.00Hz 800x600@72.19Hz 800x600@60.32Hz 800x600@56.25Hz 720x576@50.00Hz 720x576@50.00Hz 720x480@60.00Hz 720x480@60.00Hz 720x480@59.94Hz 720x480@59.94Hz 640x480@119.80Hz 640x480@99.83Hz 640x480@75.00Hz 640x480@72.81Hz 640x480@66.67Hz 640x480@60.00Hz 640x480@59.94Hz 640x480@59.94Hz 720x400@70.08Hz 
+    availableModes: 2560x1440@59.95Hz 2560x1440@165.00Hz 2560x1440@143.91Hz 2560x1440@120.00Hz 1920x1080@120.00Hz 1920x1080@119.88Hz 1920x1080@60.00Hz 1920x1080@60.00Hz 1920x1080@59.94Hz 1920x1080@50.00Hz 1280x1440@59.91Hz 1280x1024@75.03Hz 1280x1024@60.02Hz 1280x720@60.00Hz 1280x720@59.94Hz 1280x720@50.00Hz 1024x768@119.93Hz 1024x768@99.99Hz 1024x768@75.03Hz 1024x768@70.07Hz 1024x768@60.00Hz 832x624@74.55Hz 800x600@119.93Hz 800x600@99.86Hz 800x600@75.00Hz 800x600@72.19Hz 800x600@60.32Hz 800x600@56.25Hz 720x576@50.00Hz 720x576@50.00Hz 720x480@60.00Hz 720x480@60.00Hz 720x480@59.94Hz 720x480@59.94Hz 640x480@119.80Hz 640x480@99.83Hz 640x480@75.00Hz 640x480@72.81Hz 640x480@66.67Hz 640x480@60.00Hz 640x480@59.94Hz 640x480@59.94Hz 720x400@70.08Hz
     colorManagementPreset: srgb
     sdrBrightness: 1
     sdrSaturation: 1
@@ -92,14 +90,11 @@ Monitor DP-3 (ID 0):
 
 {{% /details %}}
 
-
 ### Disabling a monitor
 
 > [!WARNING]
-> Disabling a monitor will literally remove it from the monitor layout, moving all windows
-> and workspaces to any remaining ones. If you want to disable your monitor in a
-> screensaver style (just turn off the monitor) use the `dpms`
-> [dispatcher](../dispatchers).
+> Disabling a monitor will remove it from the monitor layout, moving all windows and workspaces to any remaining ones.
+> If you want to disable your monitor the way a screensaver does (just turning off the monitor), use the `dpms` [dispatcher](../dispatchers).
 
 To disable a monitor, set `disabled = true`:
 

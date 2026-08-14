@@ -20,14 +20,15 @@ Please read this if you are submitting a PR, in order to minimize the amount of 
 
 ### Before you submit
 
-Make sure you ran clang-format: `clang-format -i $(find src -type f \( -name "*.cpp" -o -name "*.hpp" \))`
+Make sure you ran clang-format: `make format-check`
 
 Check if your changes don't violate `clang-tidy`.
 Usually this is built into your IDE.
 
 ### Clang-format
 
-This is non-negotiable. Your code **must** be formatted.
+This is non-negotiable.
+Your code **must** be formatted.
 
 ### Clang-tidy
 
@@ -37,18 +38,16 @@ It is tweaked so that in 99% of cases you absolutely should fix it.
 
 ### Testing
 
-Please check the [Tests](../tests) page for information about tests in Hyprland, and related
-projects.
+Please check the [Tests](../tests) page for information about tests in Hyprland, and related projects.
 
-No test regressions is a _must_, while new tests are _required_ if possible to test (e.g.
-graphical stuff is not testable).
+No test regressions is a _must_, while new tests are _required_ if possible to test (e.g. graphical stuff is not testable).
 
 ### Other
 
-Some stuff clang-tidy / clang-format won't catch:
+Some stuff clang-tidy/clang-format won't catch:
 - No uninitialized _primitives_ (int, float, double, size_t, etc.)
 - No short if braces. if your if/else body contains 1 _line_ (not 1 statement) do not put `{}` around it.
-- The above rule does not apply to loops / etc
+  - The above rule does not apply to loops, etc
 - Consider adding a `;` inside of empty function bodies
 - Whenever you're initializing vectors arrays or maps with a lot of elements, add a `,` after the last element to make the styling nicer
 - Consider forward-declaring things in headers if possible instead of including. Speeds up compile times.
@@ -57,31 +56,34 @@ Some stuff clang-tidy / clang-format won't catch:
 
 ### Naming conventions
 
-The code should use `camelCase` with an `m_` prefix if the variable is a member of a class (not a struct).
+The code should use `camelCase`, with an `m_` prefix if the variable is a member of a class (not a struct).
 
 Additionally:
- - classes have a prefix of `C`: `CMyClass`
- - structs have a prefix of `S`: `SMyStruct`
- - interfaces have a prefix of `I`: `IMyInterface`
- - global pointers for singletons have a prefix of `g_`: `g_someManager`
- - constant variables are in CAPS: `const auto MYVARIABLE = ...`
+- classes have a prefix of `C`: `CMyClass`
+- structs have a prefix of `S`: `SMyStruct`
+- interfaces have a prefix of `I`: `IMyInterface`
+- global pointers for singletons have a prefix of `g_`: `g_someManager`
+- constant variables are in CAPS: `const auto MYVARIABLE = ...`
 
 ## General code requirements
 
 ### No raw pointers
 
-This is a simple rule - don't use raw pointers (e.g. `CMyClass*`) unless _absolutely necessary_. You have `UP`, `SP` and `WP` at your disposal.
+This is a simple rule --- don't use raw pointers (e.g. `CMyClass*`) unless _absolutely necessary_.
+You have `UP`, `SP` and `WP` at your disposal.
 These are unique, shared and weak pointers respectively.
 
 ### No malloc
 
-Unless absolutely necessary, do not use malloc / free. You _will_ forget to free the memory.
+Unless absolutely necessary, do not use `malloc`/`free`.
+You _will_ forget to free the memory.
 
 ### Avoid dubious cleanups
 
-If a function is a C-style allocator, e.g. `some_c_call_make_new()`, it will likely require a `some_c_call_free()`. In these cases, either:
- - wrap the thing in a C++ class, or
- - if used only within one function, use a `CScopeGuard` to always free it when the function exits.
+If a function is a C-style allocator, e.g. `some_c_call_make_new()`, it will likely require a `some_c_call_free()`.
+In these cases, either:
+- wrap the thing in a C++ class, or
+- if used only within one function, use a `CScopeGuard` to always free it when the function exits.
 
 ### Use the STL
 
@@ -89,12 +91,13 @@ Generally, use the STL instead of trying to reinvent the wheel.
 
 ### Use hyprutils
 
-Hyprutils provides a lot of utilities that are well-suited for Hyprland (and other hypr* projects) specifically.
+Hyprutils provides a lot of utilities that are well-suited for Hyprland (and other hypr\* projects) specifically.
 Use them.
 
 ### No absolute includes from /src
 
 Imagine this scenario:
+
 ```
 src/
    a/

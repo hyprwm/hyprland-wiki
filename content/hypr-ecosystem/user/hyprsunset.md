@@ -3,15 +3,11 @@ weight: 80
 title: hyprsunset
 ---
 
-[hyprsunset](https://github.com/hyprwm/hyprsunset) is a small utility to provide a blue light filter
-for your system.
+[hyprsunset](https://github.com/hyprwm/hyprsunset) is a small utility to provide a blue light filter for your system.
 
-This method is preferred to screen shaders as it will _not_ be captured via recording / screenshots.
+This method is preferred to screen shaders as it will _not_ be captured via recording/screenshots.
 
-hyprsunset also provides a gamma filter, which can be used to
-adjust perceived display brightness on monitors that do not
-support software control, or to reduce perceived brightness
-below the monitor's minimum.
+hyprsunset also provides a gamma filter, which can be used to adjust perceived display brightness on monitors that do not support software control, or to reduce perceived brightness below the monitor's minimum.
 
 > [!WARNING]
 > `hyprsunset` is supported since Hyprland 0.45.0.
@@ -35,18 +31,19 @@ pacman -S hyprsunset
 
 ## Configuration
 
-Configuration is done via the config file at `~/.config/hypr/hyprsunset.conf`.  
+Configuration is done via the config file at `~/.config/hypr/hyprsunset.conf`.
 This file is not required for running hyprsunset, though recommended.
 
-Hyprsunset uses profiles to determine when to change temperature and gamma.  
-You can define as many profiles as you like.  
+Hyprsunset uses profiles to determine when to change temperature and gamma.
+You can define as many profiles as you like.
 Each Profile is activated at it's specified time and resets all options set by other profiles.
 
-On startup, hyprsunset will apply the current profile.  
-For example, when launching hyprsunset with the following example config at 20:00, it will activate the first profile, essentially changing nothing.  
+On startup, hyprsunset will apply the current profile.
+For example, when launching hyprsunset with the following example config at 20:00, it will activate the first profile, essentially changing nothing.
 Once the clock strikes 21:00, hyprsunset will automatically apply the new profile.
 
 **Example Configuration**
+
 ```ini
 max-gamma = 150
 
@@ -82,14 +79,15 @@ To autostart hyprsunset, add: `hyprsunset` to your `hyprland.lua`'s autostart se
 
 <!-- If Hyprland is started with [uwsm](../../Useful-Utilities/Systemd-start), you can use `systemctl --user enable --now hyprsunset.service`. -->
 
-Hyprsunset can also be controlled by supplying arguments to the command.  
-By specifying `hyprsunset --temperature 5000` you will override the current active config's temperature setting.  This however, will be overridden once a new profile is activated.
+Hyprsunset can also be controlled by supplying arguments to the command.
+By specifying `hyprsunset --temperature 5000` you will override the current active config's temperature setting.
+This however, will be overridden once a new profile is activated.
 
 For more information on CLI arguments, run `hyprsunset --help`
 
 ## IPC
 
-`hyprsunset` supports IPC via hyprctl.  
+`hyprsunset` supports IPC via hyprctl.
 Both color temperature and the gamma filter are adjustable:
 
 ```sh
@@ -114,12 +112,12 @@ hyprctl hyprsunset reset identity
 hyprctl hyprsunset profile
 ```
 
-This can be used by other software to change the temperature throughout the day, or to adjust perceived
-monitor brightness, such as with the following Hyprland keybinds:
+This can be used by other software to change the temperature throughout the day, or to adjust perceived monitor brightness, such as with the following Hyprland keybinds:
 ```lua
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("hyprctl hyprsunset gamma +10"), { repeating = true, locked = true, })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("hyprctl hyprsunset gamma -10"), { repeating = true, locked = true, })
 ```
 
 > [!WARNING]
-> Using the gamma control will degrade color accuracy. If your monitor does support software control, it is highly recommended to use that instead.
+> Using the gamma control will degrade color accuracy.
+> If your monitor does support software control, it is highly recommended to use that instead.

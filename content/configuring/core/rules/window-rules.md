@@ -5,17 +5,15 @@ title: Window Rules
 
 > [!WARNING]
 > Rules are evaluated top to bottom, so the order they're written in does matter!
-> More info in [Notes](#notes)
+> More info in [Notes](#notes).
 
 ## Window Rules
 
-You can set window rules to achieve different window behaviors based
-on their properties.
+You can set window rules to achieve different window behaviors based on their properties.
 
 ### Syntax
 
 Basic named rule syntax:
-
 ```lua
 hl.window_rule({
   name = "apply-something",
@@ -27,21 +25,19 @@ hl.window_rule({
 ```
 
 Basic anonymous rule syntax:
-
 ```lua
 hl.window_rule({ match = { class = "my-window" }, border_size = 10 })
 ```
 
-Rules are split into two categories of parameters: _props_ and _effects_. Props
-are the fields inside the `match` table, which are used to determine if a window
-should get the rule. Effects are what is applied.
+Rules are split into two categories of parameters: _props_ and _effects_.
+Props are the fields inside the `match` table, which are used to determine if a window should get the rule.
+Effects are what is applied.
 
 _All_ props must match for a rule to be applied.
 
-You can have as many props and effects per rule as you please, in any order as
-you please, as long as:
-- there is only one of one type (e.g. specifying `match.class` twice is invalid)
-- there is at least one _prop_
+You can have as many props and effects per rule as you please, in any order as you please, as long as:
+- There is only one of one type (e.g. specifying `match.class` twice is invalid)
+- There is at least one _prop_
 
 ### Props
 
@@ -70,29 +66,23 @@ The supported fields for the `match` table are:
 Keep in mind that you _have_ to declare at least one field, but not all.
 
 > [!NOTE]
-> To get more information about a window's class, title, Xwayland status or its
-> size, you can use `hyprctl clients`.
+> To get more information about a window's class, title, Xwayland status or its size, you can use `hyprctl clients`.
 
 > [!NOTE]
-> In the output of the `hyprctl clients` command:
-> `fullscreen` refers to `fullscreen_state_internal` and
-> `fullscreenClient` refers to `fullscreen_state_client`
+> In the output of the `hyprctl clients` command, `fullscreen` refers to `fullscreen_state_internal`, and `fullscreenClient` refers to `fullscreen_state_client`.
 
 ## Effects
 
 ### Static effects
 
 Static effects are evaluated once when the window is opened and never again.
-This essentially means that it is always the `initialTitle` and `initialClass`
-which will be found when matching on `title` and `class`, respectively.
+This essentially means that it is always the `initialTitle` and `initialClass` which will be found when matching on `title` and `class`, respectively.
 
 > [!WARNING]
-> It is not possible to `float` (or any other static rule) a window based on a
-> change in the `title` after the window has been created. This applies to all
-> static effects listed here.  
-> Instead, use a [dispatch](../../dispatchers) triggered by an
-> [event](../../advanced-configuration/events) listener to
-> apply the effect after the window has been created:
+> It is not possible to `float` (or any other static rule) a window based on a change in the `title` after the window has been created.
+> This applies to all static effects listed here.
+>
+> Instead, use a [dispatch](../../dispatchers) triggered by an [event](../../advanced-configuration/events) listener to apply the effect after the window has been created:
 > ```lua
 > hl.on("window.title", function(w)
 >     if w ~= nil and w.title == "foo" then
@@ -124,8 +114,9 @@ which will be found when matching on `title` and `class`, respectively.
 
 #### Expressions
 
-Expressions are used with `move` and `size`. They are space-separated (no
-spaces within each expression). All position variables are monitor-local.
+Expressions are used with `move` and `size`.
+They are space-separated (no spaces within each expression).
+All position variables are monitor-local.
 
 - `monitor_w` and `monitor_h` for monitor size
 - `window_x` and `window_y` for window position
@@ -133,7 +124,6 @@ spaces within each expression). All position variables are monitor-local.
 - `cursor_x` and `cursor_y` for cursor position
 
 Example expressions:
-
 ```lua
 move = {"window_w * 0.5", "(monitor_h / 2) + 17"}
 size = {"monitor_w * 0.5", "monitor_h * 0.5"}
@@ -188,7 +178,7 @@ Dynamic effects are re-evaluated every time a property changes.
 | scroll_touchpad | number | Forces the window to override `input.touchpad.scroll_factor`. |
 | confine_pointer | boolean | Locks the mouse cursor to the window. Mostly useful for keeping your mouse cursor locked to one monitor during gaming.|
 
-All dynamic effects can be set with `set_prop`.
+All dynamic effects can be set with [`set_prop()`](../../dispatchers#set_prop).
 
 ### `group` window rule options
 
@@ -206,8 +196,8 @@ The `group` effect takes a string with space-separated options:
 > [!NOTE]
 > `group` with no options is a shorthand for `group = "set"`.
 >
-> By default, `set` and `lock` only affect new windows once. The `always`
-> qualifier makes them always effective.
+> By default, `set` and `lock` only affect new windows once.
+> The `always` qualifier makes them always effective.
 
 ### Tags
 
@@ -215,7 +205,6 @@ Window tags can be static or dynamic. Dynamic tags have a suffix of `*`.
 Check window tags with `hyprctl clients`.
 
 Use the `tagwindow` dispatcher to add a static tag to a window:
-
 ```bash
 hyprctl dispatch 'hl.dsp.window.tag({ tag = "+code" })'     # Add tag to current window.
 hyprctl dispatch 'hl.dsp.window.tag({ tag = "-code" })'     # Remove tag from current window.
@@ -226,7 +215,6 @@ hyprctl dispatch 'hl.dsp.window.tag({ tag = "+music", window = "class:Celluloid"
 ```
 
 Use the `tag` effect to add a dynamic tag to a window:
-
 ```lua
 hl.window_rule({ match = { class = "footclient" }, tag = "+term" })   -- Add dynamic tag `term*`
 hl.window_rule({ match = { class = "footclient" }, tag = "term" })    -- Toggle dynamic tag `term*`
@@ -238,7 +226,6 @@ hl.window_rule({ match = { tag = "term" },         tag = "-code" })   -- Remove 
 ```
 
 Or with a keybind for convenience:
-
 ```lua
 hl.bind("SUPER + CTRL + 2", hl.dsp.window.tag({ tag = "alpha_0.2" }))
 hl.bind("SUPER + CTRL + 4", hl.dsp.window.tag({ tag = "alpha_0.4" }))
@@ -246,9 +233,7 @@ hl.window_rule({ match = { tag = "alpha_0.2" }, opacity = "0.2 override" })
 hl.window_rule({ match = { tag = "alpha_0.4" }, opacity = "0.4 override" })
 ```
 
-The `tag` effect can only manipulate dynamic tags, and the `tagwindow`
-dispatcher only works with static tags (dynamic tags are cleared when the
-dispatcher is called).
+The `tag` effect can only manipulate dynamic tags, and the `tagwindow` dispatcher only works with static tags (dynamic tags are cleared when the dispatcher is called).
 
 ### Example Rules
 
@@ -293,48 +278,43 @@ hl.window_rule({ match = { class = "kitty" }, rounding = 10 })
 
 -- Fix pinentry losing focus
 hl.window_rule({
-  match       = { class = "(pinentry-)(.*)" },
+  match        = { class = "(pinentry-)(.*)" },
   stay_focused = true,
 })
 ```
 
 ### Notes
 
-Effects marked as _Dynamic_ are reevaluated whenever the matching property
-of the window changes. For instance, if a rule changes the `border_color`
-when a window is floating, the color reverts to default when it's tiled again.
+Effects marked as _dynamic_ are reevaluated whenever the matching property of the window changes.
+For instance, if a rule changes the `border_color` when a window is floating, the color reverts to default when it's tiled again.
 
-Effects are processed top to bottom - the _last_ match takes precedence:
-
+Effects are processed top to bottom --- the _last_ match takes precedence:
 ```lua
-hl.window_rule({ match = { class = "kitty" },        opacity = "0.8 0.8" })
-hl.window_rule({ match = { float = true },           opacity = "0.5 0.5" })
+hl.window_rule({ match = { class = "kitty" }, opacity = "0.8 0.8" })
+hl.window_rule({ match = { float = true },    opacity = "0.5 0.5" })
 ```
 
-Here, all non-fullscreen kitty windows have `opacity 0.8`, except when
-floating - those get `0.5`. All other floating windows get `0.5`.
+Here, all non-fullscreen kitty windows have `opacity 0.8`, except when floating --- those get `0.5`.
+All other floating windows get `0.5`.
 
 ```lua
-hl.window_rule({ match = { float = true },           opacity = "0.5 0.5" })
-hl.window_rule({ match = { class = "kitty" },        opacity = "0.8 0.8" })
+hl.window_rule({ match = { float = true },    opacity = "0.5 0.5" })
+hl.window_rule({ match = { class = "kitty" }, opacity = "0.8 0.8" })
 ```
 
 Here, all kitty windows get `opacity 0.8`, even if floating. Other floating
 windows get `0.5`.
 
 > [!IMPORTANT]
-> Named rules take precedence over anonymous ones. Rules are evaluated top
-> to bottom, but all named rules are evaluated first, then all anonymous ones.
+> Named rules take precedence over anonymous ones.
+> Rules are evaluated top to bottom, but all named rules are evaluated first, then all anonymous ones.
 
 > [!NOTE]
-> Opacity is a PRODUCT of all opacities by default. For example, setting
-> `active_opacity` to `0.5` and `opacity` to `0.5` results in a total of
-> `0.25`. Opacities over `1.0` are allowed, but any product over `1.0` will
-> cause graphical glitches.
+> Opacity is a PRODUCT of all opacities by default.
+> For example, setting `active_opacity` to `0.5` and `opacity` to `0.5` results in a total of `0.25`.
+> Opacities over `1.0` are allowed, but any product over `1.0` will cause graphical glitches.
 >
-> Use `" override"` after an opacity value to set it as an exact value rather
-> than a multiplier:
->
+> Use `" override"` after an opacity value to set it as an exact value rather than a multiplier:
 > ```lua
 > -- Active 0.8, inactive 0.8, fullscreen 1.0 regardless of other rules:
 > hl.window_rule({
@@ -347,7 +327,6 @@ windows get `0.5`.
 
 Only named rules can be dynamically changed, enabled, or disabled.
 `hl.window_rule()` returns a handle object:
-
 ```lua
 local myRule = hl.window_rule({
   name  = "my-rule",

@@ -3,10 +3,11 @@ weight: 20
 title: Config options
 ---
 
-This page documents all of Hyprland's "options". For binds, monitors, animations, etc. see the sidebar.
+This page documents all of Hyprland's "options."
+For binds, monitors, animations, etc. see the sidebar.
 
-Please keep in mind some options that are layout-specific will be documented in
-the layout pages and not here. (See the Sidebar for Dwindle/Scrolling/Master/Monocle/Custom layouts)
+Please keep in mind some options that are layout-specific will be documented in the layout pages and not here.
+See the sidebar for Dwindle/Scrolling/Master/Monocle/Custom layout pages.
 
 ## Syntax
 
@@ -24,11 +25,8 @@ hl.config({
 
 Multiple `hl.config()` invocations can be used to set options, each call will update only what was passed into it.
 
----
-
-Before continuing make sure you've read and understood [naming conventions of the wiki](../../../naming-conventions).
-
----
+> [!TIP]
+> Before continuing, make sure you've read and understood the [naming conventions used in this wiki](../../../naming-conventions).
 
 Options are described using tables:
 
@@ -46,8 +44,7 @@ Options are described using tables:
  - `None`
 
 If literal `None` is specified in the limit field, it means that there is no limit set for that option.
-
-If the value of an option exceeds its limits Hyprland will throw a config error.
+If the value of an option exceeds its limits, Hyprland will throw a config error.
 
 ## Sections
 
@@ -141,10 +138,8 @@ Path: `decoration.blur`
 
 > [!NOTE]
 > `blur.size` and `blur.passes` have to be at least 1.
-> 
-> Increasing `blur.passes` is necessary to prevent blur looking wrong on higher
-> `blur.size` values, but remember that higher `blur.passes` will require more
-> strain on the GPU.
+>
+> Increasing `blur.passes` is necessary to prevent blur looking wrong on higher `blur.size` values, but remember that higher `blur.passes` will place more strain on the GPU.
 
 ##### Blur variants
 
@@ -344,13 +339,10 @@ Path: `input`
 
 ##### XKB keymap params
 
- You can find a list of models, layouts, variants and options in
- [`/usr/share/X11/xkb/rules/evdev.lst`](file:///usr/share/X11/xkb/rules/evdev.lst).
- Alternatively, you can use the `localectl` command to discover what is available
- on your system.
- 
- For switchable keyboard configurations, take a look at
- [the binds page entry](../binds/keyboard-layouts).
+You can find a list of models, layouts, variants and options in [`/usr/share/X11/xkb/rules/evdev.lst`](file:///usr/share/X11/xkb/rules/evdev.lst).
+Alternatively, you can use the `localectl` command to discover what is available on your system.
+
+For switchable keyboard configurations, take a look at [the binds page entry](../binds/keyboard-layouts).
 
 ##### follow mouse
 
@@ -358,7 +350,6 @@ Path: `input`
 - `1` - Cursor movement will always change focus to the window under the cursor.
 - `2` - Cursor focus will be detached from keyboard focus. Clicking on a window will move keyboard focus to that window.
 - `3` - Cursor focus will be completely separate from keyboard focus. Clicking on a window will not change keyboard focus.
-
 
 ##### accel profile
 
@@ -372,10 +363,9 @@ Example: `custom 200 0.0 0.5`
 
 Example: `0.2 0.0 0.5 1 1.2 1.5`
 
-To mimic the Windows acceleration curves, take a look at [this script](https://gist.github.com/fufexan/de2099bc3086f3a6c83d61fc1fcc06c9).
+See [the libinput doc](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html) for more insights on how this works.
 
-See [the libinput doc](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html)
-for more insights on how it works.
+To mimic the Windows acceleration curves, take a look at [this script](https://gist.github.com/fufexan/de2099bc3086f3a6c83d61fc1fcc06c9).
 
 #### Touchpad
 
@@ -395,8 +385,6 @@ Path: `input.touchpad`
 | tap_and_drag | Sets the tap and drag mode for the touchpad | bool | `true` |   |
 | tap_button_map | Sets the tap button mapping for touchpad button emulation. When empty, defaults to `"lrm"`. L - Left, M - Middle, R - Right | string | \[\[Empty\]\] | "lrm"/"lmr" |
 | tap_to_click | Tapping on the touchpad with 1, 2, or 3 fingers will send LMB, RMB, and MMB respectively | bool | `true` |   |
-
-<!-- TODO check lrm/lmr thing if it really defaults to noting -->
 
 #### Touchdevice
 
@@ -454,7 +442,7 @@ Path: `gestures`
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
 | close_max_timeout | The timeout for a window to close when using a 1:1 gesture, in ms | int | `1000` | [10 - 2000] |
-| workspace_swipe_cancel_ratio | How much the swipe has to proceed in order to commence it. Example, when set to `0.7`: if more than 70% of the distance is covered - switch, else - cancel the gesture | float | `0.5` | [0.0 - 1.0] |
+| workspace_swipe_cancel_ratio | How much the swipe has to proceed in order to commence it. Example, when set to `0.7`: if more than 70% of the distance is covered, switch; else, cancel the gesture | float | `0.5` | [0.0 - 1.0] |
 | workspace_swipe_create_new | Whether a swipe right on the last workspace should create a new one | bool | `true` |   |
 | workspace_swipe_direction_lock | If enabled, switching direction will be locked when you swipe past the `direction_lock_threshold` (touchpad only) | bool | `true` |   |
 | workspace_swipe_direction_lock_threshold | In pixels, the distance to swipe before direction lock activates (touchpad only) | int | `10` | [0 - 200] |
@@ -682,7 +670,7 @@ Path: `render`
 | xp_mode | Disables back buffer and bottom layer rendering | bool | `false` |   |
 
 
-`cm_auto_hdr` requires the `--target-colorspace-hint-mode=source` mpv option to work with mpv versions greater than v0.40.0
+`cm_auto_hdr` requires the `--target-colorspace-hint-mode=source` mpv option to work with mpv versions greater than v0.40.0.
 
 ### Cursor
 
@@ -734,7 +722,9 @@ Path: `quirks`
 | prefer_hdr | Report HDR mode as preferred. `0` - disabled, `1` - always, `2` - gamescope only | int | `0` | [0 - 1] |
 | skip_non_kms_dmabuf_formats | do not report dmabuf formats which cannot be imported into KMS | bool | `false` |   |
 
-Some clients expect the monitor to be in HDR mode prior to the client start. This breaks auto HDR activation and can cause whitescreen and flickering. Use `prefer_hdr` to fix it.
+Some clients expect the monitor to be in HDR mode prior to the client start.
+This breaks auto HDR activation and can cause whitescreen and flickering.
+Use `prefer_hdr` to fix it.
 
 ### Input Capture
 
@@ -745,11 +735,11 @@ Path: `input-capture`
 | capture_modifiers | if enabled, modifiers are also captured and sent to the program | bool | `false` |   |
 | enforce_barriers | if enabled, throw a Wayland error when an invalid barrier is received | bool | `true` |   |
 
-
 ### Debug
 
 > [!WARNING]
-> Only for developing and testing
+> These settings are intended only for development and testing.
+> You do not want to change them in your normal config.
 
 Path: `debug`
 
@@ -779,12 +769,14 @@ Path: `debug`
 | log_damage | Enables logging the damage | bool | `false` |   |
 
 ### Experimental
+
 Path: `experimental`
+
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
 | wp_cm_1_2 | allow wp-cm-v1 version 2 | bool | `false` |   |
 
 ### More
 
-There are more config options described in other pages, which are layout- or
-circumstance-specific. See the sidebar for more pages.
+There are more config options described on other pages, which are layout- or circumstance-specific.
+See the sidebar for more pages, especially layout ones.

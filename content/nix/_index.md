@@ -5,7 +5,7 @@ title: Nix
 
 ## Installing Hyprland on Nixos
 
-See [Hyprland on NixOS](./installing-hyprland-on-nixos).  
+See [Hyprland on NixOS](./installing-hyprland-on-nixos).
 
 ## Using Hyprland on any distro with the Nix package manager
 

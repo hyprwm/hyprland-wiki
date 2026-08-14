@@ -33,12 +33,13 @@ sudo dnf install hyprpaper
 
 ## Configuration
 
-The config file is located at `~/.config/hypr/hyprpaper.conf`. It is not
-required.
+The config file is located at `~/.config/hypr/hyprpaper.conf`.
+It is not required.
 
 ### Setting wallpapers
 
-Wallpapers are set as anonymous special categories. Monitor can be left empty for a fallback.
+Wallpapers are set as anonymous special categories.
+Monitor can be left empty for a fallback.
 
 | variable | description | value |
 | --- | --- | --- |
@@ -71,10 +72,9 @@ wallpaper {
 # ...
 ```
 
-
 ### Run at Startup
 
-To run hyprpaper at startup edit `hyprland.lua` and add `hyprpaper` to your autostart commands.  
+To run hyprpaper at startup edit `hyprland.lua` and add `hyprpaper` to your autostart commands.
 <!-- If you start Hyprland with [uwsm](../../Useful-Utilities/Systemd-start), you can also use the `systemctl --user enable --now hyprpaper.service` command. -->
 
 ### Misc Options
@@ -90,13 +90,15 @@ These should be set outside of the `wallpaper{...}` sections.
 
 ### Sourcing
 
-Use the `source` keyword to source another file. Globbing, tilde expansion and relative paths are supported.
+Use the `source` keyword to source another file.
+Globbing, tilde expansion and relative paths are supported.
 
 ```ini
 source = ~/.config/hypr/hyprpaper.d/*.conf
 ```
 
-Please note it’s LINEAR. Meaning lines above the `source =` will be parsed first, then lines inside `~/.config/hypr/hyprpaper.d/*.conf` files, then lines below.
+Please note it’s LINEAR.
+Meaning lines above the `source =` will be parsed first, then lines inside `~/.config/hypr/hyprpaper.d/*.conf` files, then lines below.
 
 ## IPC
 
@@ -115,7 +117,8 @@ hyprctl hyprpaper listactive
 hyprctl hyprpaper wallpaper '[mon], [path], [fit_mode]'
 ```
 
-where `fit_mode` is optional, and `mon` can be empty for a fallback, just like in the config file. The fallback wallpaper only applies to monitors that have never had a specific monitor target assigned.
+where `fit_mode` is optional, and `mon` can be empty for a fallback, just like in the config file.
+The fallback wallpaper only applies to monitors that have never had a specific monitor target assigned.
 
 `listactive` prints the currently active wallpaper for each monitor, for example:
 

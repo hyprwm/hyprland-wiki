@@ -7,36 +7,35 @@ Launch your wallpaper utility with Hyprland config's autostarts.
 
 ## hyprpaper
 
-Straight from our oven, `hyprpaper` is a wallpaper utility from the Hypr
-Development team. See its usage and config [here](../../hypr-ecosystem/user/hyprpaper).
+Straight from our oven, `hyprpaper` is a wallpaper utility from the Hypr Development team.
+See its usage and config [here](../../hypr-ecosystem/user/hyprpaper).
 
 ## swaybg
 
-Great utility if all you want is one simple static wallpaper. Get it
-[here](https://github.com/swaywm/swaybg).
+Great utility if all you want is one simple static wallpaper.
+[GitHub](https://github.com/swaywm/swaybg)
 
 ## wpaperd
 
-A slightly more advanced wallpaper daemon with automatic wallpaper changing options
-and other fancy stuff. [GitHub](https://github.com/danyspin97/wpaperd).
+A slightly more advanced wallpaper daemon with automatic wallpaper changing options and other fancy stuff.
+[GitHub](https://github.com/danyspin97/wpaperd)
 
 ## mpvpaper
 
 A neat mpv wrapper to play a video as your wallpaper.
-[GitHub](https://github.com/GhostNaN/mpvpaper).
+[GitHub](https://github.com/GhostNaN/mpvpaper)
 
-*Tip : you can use [mpvpaper-stop](https://github.com/pvtoari/mpvpaper-stop) to pause the wallpaper when it's in background to save on resources and battery usage.*
+> [!TIP]
+> You can use [mpvpaper-stop](https://github.com/pvtoari/mpvpaper-stop) to pause the wallpaper when it's in background to save on resources and battery usage.
 
 ## awww
 
-An efficient animated wallpaper daemon for Wayland, controlled at runtime, which
-means you can change wallpapers without even needing to restart.
+An efficient animated wallpaper daemon for Wayland, controlled at runtime, which means you can change wallpapers without even needing to restart.
 [Codeberg](https://codeberg.org/LGFae/awww)
 
 ## waypaper
 
-GUI wallpaper manager that allows you to visually choose the static or animated
-wallpapers, and supports `swaybg` and `awww` as backends on Wayland.
+GUI wallpaper manager that allows you to visually choose the static or animated wallpapers, and supports `swaybg` and `awww` as backends on Wayland.
 [GitHub](https://github.com/anufrievroman/waypaper)
 
 ## wallrizz

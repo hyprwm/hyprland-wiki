@@ -5,7 +5,8 @@ title: Gestures
 
 ## General
 
-Hyprland supports 1:1 gestures for the trackpad for some operations. The basic syntax looks like this:
+Hyprland supports 1:1 gestures for the trackpad for some operations.
+The basic syntax looks like this:
 
 ```lua
 hl.gesture({
@@ -39,8 +40,8 @@ The following directions are supported:
 
 ### Actions
 
-Specifying `unset` as the action will unset a specific gesture that was previously set. Please note it needs to exactly match everything
-from the original gesture including direction, mods, fingers and scale.
+Specifying `unset` as the action will unset a specific gesture that was previously set.
+Please note it needs to exactly match everything from the original gesture including direction, mods, fingers and scale.
 
 | action | Description | Additional arguments |
 | --- | --- | --- |
@@ -65,15 +66,17 @@ hl.gesture({ fingers = 2, direction = "pinch", action = "cursor_zoom", zoom_leve
 hl.gesture({ fingers = 2, direction = "pinch", action = "cursor_zoom", zoom_level = 1, mode = "live" })
 ```
 
-`cursor_zoom` toggles by default. `mult` multiplies the current zoom value.
+`cursor_zoom` toggles by default.
+`mult` multiplies the current zoom value.
+`live` adjusts the zoom continuously to the pinch scale and keeps the zoom anchored to the cursor position at the start of the gesture.
+The numeric argument is currently unused in `live` mode, so `1` is a good placeholder.
 
-`live` adjusts the zoom continuously to the pinch scale and keeps the zoom anchored to the cursor position at the start of the gesture. The numeric argument is currently unused in `live` mode, so `1` is a good placeholder.
-
-#### Lua function
+#### Lua functions
 
 The Lua function can be named or a lambda.
 
-An example of a lambda:
+An example with a lambda:
+
 ```lua
 hl.gesture({
   fingers = 3,
@@ -84,7 +87,8 @@ hl.gesture({
 })
 ```
 
-An example of a named function:
+An example with a named function:
+
 ```lua
 local swipe = function()
   hl.notification.create({ text = "I just swiped on my trackpad!", timeout = 5000, icon = "ok" })
@@ -99,8 +103,7 @@ hl.gesture({
 
 #### Live Lua gestures
 
-For live gestures, i.e. ones that react to the gesture state, pass a table instead of a lambda,
-which has `start`, `update` and `finish` methods.
+For live gestures, i.e. ones that react to the gesture state, pass a table instead of a lambda, which has `start`, `update` and `finish` methods.
 
 The `start` and `update` methods are passed a table with the following fields:
 
@@ -170,7 +173,7 @@ hl.gesture({
 | scale | float | Optional gesture delta multiplier |
 | disable_inhibit | boolean | If true, allows the gesture to bypass shortcut inhibitors |
 
-Some gestures might have their own additional fields, those were mentioned in the actions table further up.
+Some gestures might have their own additional fields, which are described in the [Actions](#actions) table above.
 
 ### Examples
 

@@ -5,12 +5,11 @@ title: Lua utilities
 
 ## Lua utilities
 
-Hyprland exposes a bunch of Lua utilities for you to script your desktop
-with custom functionality and more.
+Hyprland exposes a bunch of Lua utilities for you to script your desktop with custom functionality and more.
 
 ### Convenience functions
 
-Hyprland exposes a bunch of convenience functions:
+Hyprland exposes the following convenience functions:
  - `hl.get_config()`
  - `hl.get_active_window()`
  - `hl.get_windows()`
@@ -37,20 +36,21 @@ Hyprland exposes a bunch of convenience functions:
  - `hl.get_loaded_plugins()`
  - `hl.is_key_down(key = num|str)`
 
+Use the LSP (or examine the stubs yourself) for the return values (classes and their parameters) of these functions.
+See [here](../../../core#editor-autocompletion) to set up the LSP in your code editor.
 
-Use the LSP for the return values (classes and their parameters) of these functions. See [here](../../../core#autocompletions) for setting up the LSP for your code editor
-
-### hl.exec_cmd function
+### `hl.exec_cmd` function
 
 `hl.exec_cmd()` will spawn an asynchronous process, so there is no need for `& disown` at the end.
 
 ### Dynamically changing a config option:
 
-You can use `hl.get_config()` to get the current value of a config option. Pass a config option like `"general.layout"`.
+You can use `hl.get_config()` to get the current value of a config option.
+Pass a config option like `"general.layout"`.
 
 Pay attention that the return type of `hl.get_config()` will be a representation of the actual underlying type.
 
-For example: If your `general.gaps_in` is set as `gaps_in = 3` in `hl.config()`, `hl.get_config()` returns a table of the form:
+For example, if your `general.gaps_in` is set as `gaps_in = 3` in `hl.config()`, `hl.get_config()` returns a table of the form:
 ```lua
 {
   top = 3,
@@ -59,24 +59,16 @@ For example: If your `general.gaps_in` is set as `gaps_in = 3` in `hl.config()`,
   bottom = 3
 }
 ```
-because `gaps_in` also accepts a table of the form `{ top?, left?, right?, bottom? }`
+because `gaps_in` also accepts a table of the form `{ top?, left?, right?, bottom? }`.
 
-
-You can change the value of a config option with a keybind with a script like:
+You can change the value of a config option via a keybind, with a script like:
 ```lua
 -- Toggle gaps_in between 0 and 3 (equivalent to  {3, 3, 3, 3} )
 hl.bind(mainMod .. " + SHIFT + G", function()
-
-    local gapsInValueTable = hl.get_config("general.gaps_in")
-
-    if gapsInValueTable.top == 3 then
-        hl.config({
-            general = {gaps_in = 0}
-        })
+    if hl.get_config("general.gaps_in").top == 3 then
+        hl.config({ ["general.gaps_in"] = 0 })
     else
-        hl.config({
-            general = {gaps_in = 3}
-        })
+        hl.config({ ["general.gaps_in"] = 3 })
     end
 end)
 ```
@@ -89,18 +81,13 @@ Events such as the creation of a workspace rule cause a prop refresh event to be
 
 Hyprland schedules a **single** prop refresh event to be executed at the end of the current event (e.g. a Lua function) in order to avoid redundant prop refreshes.
 
-
-<br>
-
 In practice, this means that when you create a new workspace rule that removes `gaps_in` from the current workspace, the value for `gaps_in` is only changed at the end of your Lua function, and subsequent lines of code within your Lua function after setting the workspace rule don't use the updated value; only after the end of your Lua function does the `gaps_in` value of your current workspace get updated to reflect the new workspace rule.
 
 This might cause problems if you expect the `gaps_in` value of your workspace to be immediately updated after the workspace rule is created.
 
-<br>
-
 To execute a scheduled prop refresh immediately, use `hl.exec_scheduled_prop_refresh_immediately()`.
-
-Note that because the scheduled event is executed prematurely, it is removed from the event loop; allowing another prop refresh to be enqueued. Overuse of this function may cause slowdowns.
+Note that because the scheduled event is executed prematurely, it is removed from the event loop; allowing another prop refresh to be enqueued.
+Overuse of this function may cause slowdowns.
 
 ### Timers
 
@@ -139,7 +126,6 @@ end)
 
 ## Sockets (IPC)
 
-It's recommended to use Lua in most cases. Lua is faster, less error-prone,
-has more features, and is generally more integrated.
-
+It's recommended to use Lua in most cases.
+Lua is faster, less error-prone, has more features, and is generally more integrated.
 However, if you want to use IPC instead, check the [IPC](../../../../ipc) page.

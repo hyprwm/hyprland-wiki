@@ -11,6 +11,8 @@ Use the `cm` field to change the default sRGB output preset:
 hl.monitor({ output = "eDP-1", cm = "wide" })
 ```
 
+Supported presets are:
+
 ```plain
 auto    - srgb for 8bpc, wide for 10bpc if supported (recommended)
 srgb    - sRGB primaries (default)
@@ -38,19 +40,18 @@ hl.monitor({
 ```
 
 The default transfer function assumed to be in use on an SDR display for sRGB content is defined by `sdr_eotf`.
-The default (`"default"`) follows `render:cm_sdr_eotf`. This can be changed to piecewise sRGB with `"srgb"`,
-or Gamma 2.2 with `"gamma22"`.
+The default (`"default"`) follows `render:cm_sdr_eotf`.
+This can be changed to piecewise sRGB with `"srgb"`, or Gamma 2.2 with `"gamma22"`.
 
 It is recommended to set `bitdepth = 10` for better colorspace handling.
 
 ## 10 bit support
 
 > [!WARNING]
-> Some monitors may state they have 10bit support, but in reality they emulate it with 
-> 8bit+[FRC](https://wikipedia.org/wiki/Frame_rate_control).
+> Some monitors may state they have 10bit support, but in reality they emulate it with 8bit+[FRC](https://wikipedia.org/wiki/Frame_rate_control).
 > Be aware that this may cause serious eye strain.
 
-Colors registered in Hyprland (e.g. the border color) do _not_ support 10 bit.  
+Colors registered in Hyprland (e.g. the border color) do _not_ support 10 bit.
 Some applications do _not_ support screen capture with 10 bit enabled.
 
 If you want to enable 10 bit support for your display, set `bitdepth = 10`:
@@ -58,7 +59,6 @@ If you want to enable 10 bit support for your display, set `bitdepth = 10`:
 ```lua
 hl.monitor({ output = "DP-1", bitdepth = 10 })
 ```
-
 
 ## ICC Profiles
 
@@ -73,4 +73,3 @@ Please note:
 - Having an ICC applied will automatically force `sdr_eotf` to `sRGB` for that monitor (for color accuracy).
 - Having an ICC applied overrides the CM preset.
 - ICCs are fundamentally incompatible with HDR gaming. Funky stuff may happen.
-

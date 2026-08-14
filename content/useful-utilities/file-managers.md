@@ -19,8 +19,8 @@ title: File managers
 
 ## TUI
 
-- [lf](https://github.com/gokcehan/lf): A filemanager heavily inspired by ranger written in Go.
+- [lf](https://github.com/gokcehan/lf): A file manager heavily inspired by ranger written in Go.
 - [nnn](https://github.com/jarun/nnn): n³ The Unorthodox terminal file manager.
-- [ranger](https://github.com/ranger/ranger): A VIM-inspired filemanager for the console.
+- [ranger](https://github.com/ranger/ranger): A Vim-inspired file manager for the console.
 - [superfile](https://github.com/yorukot/superfile): Pretty fancy and modern terminal file manager.
 - [yazi](https://yazi-rs.github.io/): Blazing fast terminal file manager written in Rust, based on async I/O.

@@ -3,9 +3,9 @@ weight: 130
 title: hyprshutdown
 ---
 
-[hyprshutdown](https://github.com/hyprwm/hyprshutdown) is a graceful shutdown utility. It opens
-a GUI and gracefully asks apps to exit, then quits Hyprland. It's the recommended way to exit Hyprland,
-as otherwise (e.g. `dispatch exit`) apps will die instead of exiting.
+[hyprshutdown](https://github.com/hyprwm/hyprshutdown) is a graceful shutdown utility.
+It opens a GUI and gracefully asks apps to exit, then quits Hyprland.
+It's the recommended way to exit Hyprland, as otherwise (e.g. `dispatch exit`) apps will die instead of exiting.
 
 ## Command-Line Options
 
@@ -34,15 +34,18 @@ hyprshutdown -t 'Restarting...' --post-cmd 'reboot'
 
 ### NVIDIA + SDDM Users
 
-If you experience a black screen / hang when logging out with NVIDIA GPU and SDDM display manager, use the `--vt` flag:
+If you experience a black screen/hang when logging out with NVIDIA GPU and SDDM display manager, use the `--vt` flag:
 
 ```bash
 hyprshutdown --vt 2
 ```
 
-**Why this is needed:** On NVIDIA systems with SDDM, the display doesn't automatically switch back to SDDM's virtual terminal (typically VT2) when Hyprland exits. The `--vt` flag forces a VT switch after logout.
+**Why this is needed:**
+On NVIDIA systems with SDDM, the display doesn't automatically switch back to SDDM's virtual terminal (typically VT2) when Hyprland exits.
+The `--vt` flag forces a VT switch after logout.
 
-**Setup:** The VT switch requires passwordless sudo for `chvt`:
+**Setup:**
+The VT switch requires passwordless sudo for `chvt`:
 
 ```bash
 echo "$USER ALL=(ALL) NOPASSWD: /usr/bin/chvt" | sudo tee /etc/sudoers.d/chvt

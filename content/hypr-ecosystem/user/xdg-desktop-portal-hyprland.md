@@ -3,23 +3,19 @@ weight: 60
 title: xdg-desktop-portal-hyprland
 ---
 
-An XDG Desktop Portal is a program that lets other applications communicate with
-the compositor through D-Bus.
+An XDG Desktop Portal is a program that lets other applications communicate with the compositor through D-Bus.
 
-A portal implements certain functionalities, such as opening file pickers or
-screen sharing.
+A portal implements certain functionalities, such as opening file pickers or screen sharing.
 
-[xdg-desktop-portal-hyprland](https://github.com/hyprwm/xdg-desktop-portal-hyprland)
-is Hyprland's xdg-desktop-portal implementation. It allows for screensharing,
-global shortcuts, etc.
+[xdg-desktop-portal-hyprland](https://github.com/hyprwm/xdg-desktop-portal-hyprland) is Hyprland's xdg-desktop-portal implementation.
+It allows for screensharing, global shortcuts, etc.
 
 > [!NOTE]
-> Throughout this document, `xdg-desktop-portal-hyprland` will be referred to as
-> XDPH.
+> Throughout this document, `xdg-desktop-portal-hyprland` will be referred to as XDPH.
 
 > [!WARNING]
-> XDPH doesn't implement a file picker. For that, it is recommended to install
-> `xdg-desktop-portal-gtk` alongside XDPH.
+> XDPH doesn't implement a file picker.
+> For that, it is recommended to install `xdg-desktop-portal-gtk` alongside XDPH.
 
 ## Installing
 
@@ -41,15 +37,13 @@ yay -S xdg-desktop-portal-hyprland-git
 
 {{< tab name="NixOS" >}}
 
-On NixOS, XDPH is already enabled by the
-[NixOS module for Hyprland](../../../nix/installing-hyprland-on-nixos), through
-`programs.hyprland.enable = true;`.
+On NixOS, XDPH is already enabled by the [NixOS module for Hyprland](../../../nix/installing-hyprland-on-nixos), through `programs.hyprland.enable = true;`.
 
 {{< /tab >}}
 
 {{< tab name="Gentoo" >}}
 
-<!-- TODO no. why. who? this is wrong. rewrite. -->
+<!-- TODO: no. why. who? this is wrong. rewrite. -->
 
 ### Unmask Dependencies
 
@@ -71,7 +65,7 @@ sys-apps/xdg-desktop-portal screencast
 ### Unmask Dependencies and XDPH
 
 ```plain {filename="/etc/portage/package.accept_keywords"}
-gui-libs/xdg-desktop-portal-hyprland 
+gui-libs/xdg-desktop-portal-hyprland
 dev-qt/qtbase
 dev-qt/qtwayland
 dev-qt/qtdeclarative
@@ -92,8 +86,7 @@ emerge --ask --verbose gui-libs/xdg-desktop-portal-hyprland
 
 {{< tab name="Manual" >}}
 
-See
-[The GitHub repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland).
+See [The GitHub repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland).
 
 {{< /tab >}}
 
@@ -103,12 +96,10 @@ See
 
 XDPH is automatically started by D-Bus, once Hyprland starts.
 
-To check if everything is OK is, try to screenshare anything, or opening OBS and
-select the PipeWire source.  
+To check if everything is OK is, try to screenshare anything, or opening OBS and select the PipeWire source.
 If XDPH is running, a Qt menu will pop up asking you what to share.
 
-XDPH will work on other wlroots compositors, but features available only on
-Hyprland will not work (e.g. window sharing).
+XDPH will work on other wlroots compositors, but features available only on Hyprland will not work (e.g. window sharing).
 
 For a nuclear option, you can use this script and autostart it:
 
@@ -137,10 +128,8 @@ If it works, add it to your config in autostarts.
 
 ## Using the KDE File Picker With XDPH
 
-XDPH does not implement a file picker and uses the GTK one as a fallback by
-default (see `/usr/share/xdg-desktop-portal/hyprland-portals.conf`). If you want
-to use the KDE file picker but let XDPH handle everything else, create a file
-`~/.config/xdg-desktop-portal/hyprland-portals.conf` with the following content:
+XDPH does not implement a file picker and uses the GTK one as a fallback by default (see `/usr/share/xdg-desktop-portal/hyprland-portals.conf`).
+If you want to use the KDE file picker but let XDPH handle everything else, create a file `~/.config/xdg-desktop-portal/hyprland-portals.conf` with the following content:
 
 ```ini {filename="~/.config/xdg-desktop-portal/hyprland-portals.conf"}
 [preferred]
@@ -148,24 +137,20 @@ default = hyprland;gtk
 org.freedesktop.impl.portal.FileChooser = kde
 ```
 
-You can read more about this in the
-[xdg-desktop-portal documentation in the Arch Wiki](https://wiki.archlinux.org/title/XDG_Desktop_Portal).
-Note that some applications like Firefox may require additional configuration to
-use the KDE file picker.
+You can read more about this in the [xdg-desktop-portal documentation in the Arch Wiki](https://wiki.archlinux.org/title/XDG_Desktop_Portal).
+Note that some applications like Firefox may require additional configuration to use the KDE file picker.
 
 ## Debugging
 
-If you get long app launch times, or screensharing does not work, consult the
-logs.
+If you get long app launch times, or screensharing does not work, consult the logs.
 
-`systemctl --user status xdg-desktop-portal-hyprland`
+```sh
+systemctl --user status xdg-desktop-portal-hyprland
+```
 
-If you see a crash, it's likely you are missing either `qt6-wayland` or
-`qt5-wayland`.
+If you see a crash, it's likely you are missing either `qt6-wayland` or `qt5-wayland`.
 
-If the portal does not autostart, does not function when manually started,
-and does not produce any error logs, it's very likely your [XDG env variables](../../../configuring/core/environment-variables/#xdg-specifications)
-are messed up
+If the portal does not autostart, does not function when manually started, and does not produce any error logs, it's very likely your [XDG env variables](../../../configuring/core/environment-variables/#xdg-specifications) are messed up.
 
 ## Configuration
 
@@ -179,7 +164,9 @@ screencopy {
 
 Config file `~/.config/hypr/xdph.conf` allows for these variables:
 
-### category screencopy
+### Screencopy
+
+Variables in the `screencopy` category:
 
 | Variable | Description | Type | Default |
 | -- | -- | -- | -- |

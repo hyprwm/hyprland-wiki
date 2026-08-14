@@ -3,7 +3,8 @@ title: Configuring Hyprland with Hjem
 weight: 30
 ---
 
-Hjem ("home" in Danish) is a module system that implements a simple and streamlined way to manage files in your $HOME, such as but not limited to files in your ~/.config. Hjem aims to serve as an alternative and easy-to-grasp utility for managing your $HOME purely and safely.
+Hjem ("home" in Danish) is a module system that implements a simple and streamlined way to manage files in your $HOME, such as but not limited to files in your `~/.config`.
+Hjem aims to serve as an alternative and easy-to-grasp utility for managing your $HOME purely and safely.
 
 You can read the wonderful [Hjem documentation](https://hjem.feel-co.org/) to learn how to install and use it.
 
@@ -29,10 +30,18 @@ Here follows an example of how to write your hyprland.lua contents directly insi
 
 ## Sourcing a hyprland.lua file at your Nix config
 
-Instead of writing your hyprland.lua contents directly inside your Nix config, you also have the possibility of sourcing a hyprland.lua file using Hjem just to link it into its place at "~/.config/hypr/". However, you can't use Nix string interpolation this way.
+Instead of writing your `hyprland.lua` contents directly inside your Nix config, you also have the possibility of sourcing a `hyprland.lua` file using Hjem just to link it into its place at `~/.config/hypr/`.
+However, you can't use Nix string interpolation this way.
 
 ## Hjem-impure
 
-The hyprland.lua file is most likely a highly changing file. What if you want to try a new change in your Hyprland config without having to build switch your NixOS config? After hyprland.lua is deployed by Hjem, it will write a link into `~/.config/hyprland.lua` from the Nix store. This file is read-only by default, but we can easily get to rewrite it by using a tool called [`hjem-impure`](https://github.com/Rexcrazy804/hjem-impure).
+The `hyprland.lua` file is most likely a highly changing file.
+What if you want to try a new change in your Hyprland config without having to build switch your NixOS config?
+After `hyprland.lua` is deployed by Hjem, it will write a link into `~/.config/hyprland.lua` from the Nix store.
+This file is read-only by default, but we can easily get to rewrite it by using a tool called [`hjem-impure`](https://github.com/Rexcrazy804/hjem-impure).
 
-Executing `hjem-impure` replaces every Hjem symlink with writable normal files and directories. So after that, you can write into your `~/.config/hyprland.lua` file deployed by Hjem. **This enables experimentation.** What this mean is that after a NixOS build switch or after a system reboot, the changes that you made in `~/.config/hyprland.lua` **will be gone**. So after you are happy with some changes, write them into your Nix config for them to be persisted.
+Executing `hjem-impure` replaces every Hjem symlink with writable normal files and directories.
+So after that, you can write into your `~/.config/hyprland.lua` file deployed by Hjem.
+**This enables experimentation.**
+What this mean is that after a NixOS build switch or after a system reboot, the changes that you made in `~/.config/hyprland.lua` **will be gone**.
+So after you are happy with some changes, write them into your Nix config for them to be persisted.

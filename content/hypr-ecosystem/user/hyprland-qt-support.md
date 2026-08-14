@@ -3,12 +3,11 @@ weight: 100
 title: hyprland-qt-support
 ---
 
-[hyprland-qt-support](https://github.com/hyprwm/hyprland-qt-support) provides a QML style for hypr* qt6 apps. 
+[hyprland-qt-support](https://github.com/hyprwm/hyprland-qt-support) provides a QML style for hypr* qt6 apps.
 
 ## Configuration
 
 The config file is located in `~/.config/hypr/application-style.conf`.
-
 
 | Variable | Description | Type | Default |
 | --- | --- | --- | --- |

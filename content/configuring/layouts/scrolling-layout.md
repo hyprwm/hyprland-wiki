@@ -3,7 +3,7 @@ weight: 20
 title: Scrolling layout
 ---
 
-Scrolling is a layout where windows get positioned on an infinitely growing tape.
+Scrolling is a layout where windows are positioned on an infinitely growing tape.
 
 <video width="1024" height="566" autoplay muted loop>
   <source src="https://dl.hypr.land/wiki/demo_scrolling.mp4" type="video/mp4">
@@ -70,14 +70,12 @@ With the static rule scrolling_width you can set a starting column width for a w
 hl.window_rule({ name = "kitty_starting_width", match = { class = "kitty" }, scrolling_width = 0.5})
 ```
 
-## Layout Handled Fullscreen - Scrolling
+## Layout-Handled Fullscreen
 
-Scrolling has an optional layout handled FS behaviour that uses Scrolling's own Layout Fullscreen Handler.
+Scrolling has an optional layout-handled fullscreen behavior, which uses its own fullscreen handler.
+This custom fullscreen behavior allows you to scroll away from your fullscreen windows without them being un-fullscreened.
 
 You can use it by using `layout_aware = true` (or not specifying `layout_aware` option at all) in your fullscreen dispatches when on a scrolling layout workspace.
-
-This custom FS behaviour allows you to scroll away from your FS windows without them being unFSed.
-
-It also works with existing window/workspace fullscreen related selectors.
+It also works with existing window/workspace fullscreen-related selectors.
 
 Learn more about [Fullscreen Handlers](../../core/dispatchers#fullscreen-handlers)

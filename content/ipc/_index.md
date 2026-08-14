@@ -3,8 +3,7 @@ weight: 100
 title: IPC
 ---
 
-Hyprland exposes 2 UNIX Sockets, for controlling / getting info about Hyprland
-via code / bash utilities.
+Hyprland exposes 2 UNIX Sockets, for controlling/getting info about Hyprland via code/shell utilities.
 
 ## Hyprland Instance Signature (HIS)
 
@@ -14,21 +13,19 @@ echo $HYPRLAND_INSTANCE_SIGNATURE
 
 ## `$XDG_RUNTIME_DIR/hypr/[HIS]/.socket.sock`
 
-Used for hyprctl-like requests. See the
-[Hyprctl page](../configuring/core/advanced-configuration/using-hyprctl) for commands.
+Used for hyprctl-like requests.
+See the [Hyprctl page](../configuring/core/advanced-configuration/using-hyprctl) for commands.
 
-Basically, write `[flag(s)]/command args`.
+Basically, write `[flags]/command args`.
 
 > [!NOTE]
-> Hyprland evaluates connections to this socket completely synchronously,
-> which means that any unclosed connections *will cause Hyprland to freeze*
-> until the five-second timeout is reached. Ensure that you always open the socket
-> immediately before writing requests and close it afterward.
+> Hyprland evaluates connections to this socket completely synchronously, which means that any unclosed connections *will cause Hyprland to freeze* until the five-second timeout is reached.
+> Ensure that you always open the socket immediately before writing requests and close it afterward.
 
 ## `$XDG_RUNTIME_DIR/hypr/[HIS]/.socket2.sock`
 
-Used for events. Hyprland will write to each connected client live events like
-this:
+Used for events.
+Hyprland will write to each connected client live events like this:
 
 `EVENT>>DATA\n` (`\n` is a linebreak)
 
@@ -84,9 +81,8 @@ e.g.: `workspace>>2`
 | bell | emitted when an app requests to ring the system bell via `xdg-system-bell-v1`. Window address parameter may be empty. | `WINDOWADDRESS` |
 
 > [!WARNING]
-> A fullscreen event is not guaranteed to fire on/off once in succession. Some windows
-> may fire multiple requests to be fullscreened, resulting in multiple
-> fullscreen events.
+> A fullscreen event is not guaranteed to fire on/off once in succession.
+> Some windows may fire multiple requests to be fullscreened, resulting in multiple fullscreen events.
 
 ## How to use socket2 with bash
 

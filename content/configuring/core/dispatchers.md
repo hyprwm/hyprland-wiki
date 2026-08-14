@@ -9,13 +9,13 @@ Dispatchers return tables that describe an action you want to make.
 They do not invoke any action immediately, and their contents are not guaranteed to be stable at all.
 Their purpose is to be fed into `hl.bind()` or `hl.dispatch()`.
 
-Please keep in mind some layout-specific dispatchers will be listed in the layout pages (See the sidebar).
+Please keep in mind that some layout-specific dispatchers will be listed in the layout pages (see the sidebar).
 
 To use a dispatcher (any of `hl.dsp.*`) inside a function, you need to wrap it in `hl.dispatch()` for it to be executed.
 
 {{% details title="Examples" closed="true" %}}
 
-In the first snippet, the `function()` actually triggers the actions by calling `hl.dispatch(...)`. `hl.dispatch`.
+In the first snippet, the `function()` actually triggers the actions by calling `hl.dispatch()`.
 
 ```lua
 hl.bind("ALT + Tab", function()
@@ -34,16 +34,18 @@ hl.bind("ALT + Tab", function()
 end)
 ```
 
-To put is simply:
-hl.dsp is a factory, hl.dispatch is a truck that delivers products from factory to client.
-Unless you call the driver, it wont deliver anything. hl.bind calls the function(), but function() never calls the driver, so it doesnt deliver anything.
+As a metaphor:
+`hl.dsp`s are factories, while `hl.dispatch()` is a truck that delivers products from the factories to a client.
+If you forget to invoke the driver, nothing will be delivered.
+In the above example, the function never invokes the driver, so it doesn't deliver anything.
 
-On the other hand, [hl.exec_cmd](../advanced-configuration/lua-utilities#hlexec_cmd-function) is a postman. Never gets or answers any calls, just goes straight to the address on the letter.
+On the other hand, [`hl.exec_cmd()`](../advanced-configuration/lua-utilities#hlexec_cmd-function) is a postman.
+It executes immediately, going straight to the address on the letter it is handed.
 
 {{% /details %}}
 
 
-<!-- TODO make a styling note: (to) where? what (action)? how? -->
+<!-- TODO: make a styling note: (to) where? what (action)? how? -->
 
 ### Parameter explanation
 
@@ -75,13 +77,24 @@ On the other hand, [hl.exec_cmd](../advanced-configuration/lua-utilities#hlexec_
 | `send_shortcut({ window?, mods, key })` | Send a specific shortcut to a window |
 | `send_key_state({ window?, mods, key, state })` | Same as send_shortcut, but `state` can be controlled with: `"down"`/`"up"` |
 | `layout( message )` | Send a layout message as a string |
-| `dpms({ monitor?, action? })` | Toggle monitors on/off (not physically, as in idle-screensaver.) |
+| `dpms({ monitor?, action? })` | Toggle monitors on/off (not physically, as in idle-screensaver). Do not use with a keybind directly! |
 | `event( string )` | Send an event to socket2. |
 | `global( string )` | Activate a D-Bus global shortcut. See [Global shortcuts](../binds/globals) |
 | `force_idle( int )` | Sets elapsed time for all idle timers in seconds, ignoring idle inhibitors. Timers return to normal behavior upon the next activity. Do not use with a keybind directly. |
 | `no_op()` | Does nothing. Useful for conditional binds. |
 | `force_renderer_reload()` | Force reloads the renderer on all monitors. |
 | `release_input_capture()` | Releases any active input capture session. |
+
+> [!WARNING]
+> It is NOT recommended to set DPMS or force_idle with a keybind directly, as it might cause undefined behavior.
+> Instead, consider something like:
+> ```lua
+> hl.bind("...", function()
+>     hl.timer(function()
+>         hl.dispatch(hl.dsp.dpms({ action = "disable" }))
+>     end, {timeout = 500, type = "oneshot"})
+> end)
+> ```
 
 ### Window
 
@@ -93,8 +106,8 @@ On the other hand, [hl.exec_cmd](../advanced-configuration/lua-utilities#hlexec_
 | `kill({ window? })` | Kill the process owning the window with a `SIGKILL`. |
 | `signal({ window?, signal })` | Send a POSIX signal to the process owning the window. |
 | `float({ window?, action? })` | Set a window's floating state. |
-| `fullscreen({ window?, action?, mode?, layout_aware? })` | Set a window's fullscreen state. `mode` can be "maximized" and "fullscreen". `action` can be `toggle`/`set`/`unset`. `layout_aware` takes `true`(default)/`false`, allows you to choose if you want to use layout or default handled FS behaviour. |
-| `fullscreen_state({ window?, action?, internal, client, layout_aware? })` | Set a window's fullscreen state with more precision. `action` can be `toggle`/`set`/`unset`. `layout_aware` takes `true`(default)/`false`, allows you to choose if you want to use layout or default handled FS behaviour.  See [Fullscreenstate](#fullscreenstate), [Fullscreen Handlers](#fullscreen-handlers) |
+| `fullscreen({ window?, action?, mode?, layout_aware? })` | Set a window's fullscreen state. `mode` can be "maximized" and "fullscreen". `action` can be `toggle`/`set`/`unset`. `layout_aware` takes `true`(default)/`false`, allows you to choose if you want to use layout or default handled FS behavior. |
+| `fullscreen_state({ window?, action?, internal, client, layout_aware? })` | Set a window's fullscreen state with more precision. `action` can be `toggle`/`set`/`unset`. `layout_aware` takes `true`(default)/`false`, allows you to choose if you want to use layout or default handled FS behavior.  See [fullscreen_state](#fullscreen_state), [fullscreen handlers](#fullscreen-handlers) |
 | `pseudo({ window?, action? })` | Set a window's pseudotiling state. |
 | `move({ window?, direction, group_aware? })` | Move a window in a direction. `group_aware = true` will put windows in/out of groups alongside the given direction. |
 | `move({ window?, workspace, follow? })` | Move a window to a workspace |
@@ -103,10 +116,10 @@ On the other hand, [hl.exec_cmd](../advanced-configuration/lua-utilities#hlexec_
 | `move({ window?, into_group = direction })` | Move a window into a group in a direction |
 | `move({ window?, into_or_create_group = direction })` | Move a window into a group in a direction, or create a group if no group exists in that direction |
 | `move({ window?, out_of_group })` | Move a window out of a group. `true` for directionless, direction for a direction |
-| `swap({ direction })` | Swap the current window with another one in a given direction | 
-| `swap({ target })` | Swap the current window with another one | 
-| `swap({ next })` | Swap the current window with the next one | 
-| `swap({ prev })` | Swap the current window with the previous one | 
+| `swap({ direction })` | Swap the current window with another one in a given direction |
+| `swap({ target })` | Swap the current window with another one |
+| `swap({ next })` | Swap the current window with the next one |
+| `swap({ prev })` | Swap the current window with the previous one |
 | `center({ window? })` | Center the current window on screen |
 | `cycle_next({ window?, next?, tiled?, floating? })` | Focus the next window |
 | `tag({ window?, tag })` | Tag a window |
@@ -139,12 +152,12 @@ On the other hand, [hl.exec_cmd](../advanced-configuration/lua-utilities#hlexec_
 | Method | Description |
 | --- | --- |
 | `toggle({ window? })` | Toggle a group |
-| `next({ window? })` | Switch to the next window in a group | 
-| `prev({ window? })` | Switch to the previous window in a group | 
-| `active({ window?, index })` | Switch to a window in a group, indexed | 
-| `move_window({ window?, forward? })` | Move a window in the group order | 
-| `lock({ window?, action? })` | Lock a group | 
-| `lock_active({ action? })` | Lock the active group | 
+| `next({ window? })` | Switch to the next window in a group |
+| `prev({ window? })` | Switch to the previous window in a group |
+| `active({ window?, index })` | Switch to a window in a group, indexed |
+| `move_window({ window?, forward? })` | Move a window in the group order |
+| `lock({ window?, action? })` | Lock a group |
+| `lock_active({ action? })` | Lock the active group |
 
 ### Cursor
 
@@ -155,53 +168,38 @@ On the other hand, [hl.exec_cmd](../advanced-configuration/lua-utilities#hlexec_
 | `move_to_corner({ window?, corner = int })` | Move the cursor to a given corner of the window. Corner is [0 - 3] |
 | `move({ x, y })` | Move the cursor to a given coordinate |
 
-
-> [!WARNING]
-> It is NOT recommended to set DPMS or forceidle with a keybind directly, as it
-> might cause undefined behavior. Instead, consider something like
-> 
-> ```lua
-> hl.bind("...", function()
->     hl.timer(function()
->         hl.dispatch(hl.dsp.dpms({ action = "disable" }))
->     end, {timeout = 500, type = "oneshot"})
-> end)
-> ```
-
 ### Grouped (tabbed) windows
 
-Hyprland allows you to make a group from the current active window with the
-`hl.dsp.group.toggle()` bind dispatcher.
+Hyprland allows you to make a group from the current active window with the `hl.dsp.group.toggle()` bind dispatcher.
 
-A group is like i3wm’s “tabbed” container. It takes the space of one window, and
-you can toggle the windows within it.
+A group is like i3wm’s "tabbed" container.
+It takes the space of one window, and you can toggle the windows within it.
 
-You can lock a group with the `lock` dispatcher in order to stop new
-windows from entering this group.
+You can lock a group with the `lock` dispatcher in order to stop new windows from entering this group.
 
-You can prevent a window from being added to a group or becoming a group with the
-`window.deny_from_group` dispatcher.
+You can prevent a window from being added to a group or becoming a group with the `window.deny_from_group` dispatcher.
 
 ## Special Workspace
 
 > [!NOTE]
-> You can define multiple named special workspaces, but the amount of those is
-> limited to 97 at a time.
+> You can define multiple named special workspaces, but only up to 97 may exist at one time.
 
-A special workspace is what is called a "scratchpad" in some other places. A
-workspace that you can toggle on/off on any monitor.
+A special workspace is what is called a "scratchpad" in some other places.
+It is a workspace that you can toggle on/off on any monitor.
 
 For example, to move a window to a named special workspace you can use the following syntax:
-
 ```lua
-hl.bind("SUPER + C", hl.dsp.window.move({ workspace = "special:magic" }))
--- To see the hidden window and workspace you can use: 
+hl.bind("SUPER + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+-- Show/hide the workspace, and any windows on it:
 hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("magic"))
 ```
 
-## Executing with rules 
+## Executing with rules
 
-The `exec_cmd` dispatcher supports adding rules. Please note some windows might work better, some worse. It records the PID of the spawned process and uses that. For example, if your process forks and then the fork opens a window, this will not work.
+The `exec_cmd` dispatcher supports adding rules.
+Please note some windows might work better, some worse.
+It records the PID of the spawned process and uses that.
+For example, if your process forks and then the fork opens a window, this will not work.
 
 {{% details title="Example" closed="true" %}}
 
@@ -216,22 +214,20 @@ hl.bind("SUPER + E", hl.dsp.exec_cmd("kitty", { float = true, move = {0, 0} }))
 Props are any of the _dynamic effects_ of [Window Rules](../rules/window-rules#dynamic-effects).
 
 For example:
-
 ```lua
-{ prop = "no_anim", value = "1" }
-{ prop = "no_anim", value = "1", window = "class:abc" }
+hl.dsp.window.set_prop({ prop = "no_anim", value = "1" })
+hl.dsp.window.set_prop({ prop = "no_anim", value = "1", window = "class:abc" })
 ```
 
-Some props are expanded from their window rule parents which take multiple arguments:
-- `border_color` -> `active_border_color`, `inactive_border_color`
-- `opacity` -> `opacity`, `opacity_inactive`, `opacity_fullscreen`, `opacity_override`, `opacity_inactive_override`, `opacity_fullscreen_override`
+Some props are set according to applied window-rule values:
+- `border_color`: set from `active_border_color`, `inactive_border_color`
+- `opacity`: set from `opacity`, `opacity_inactive`, `opacity_fullscreen`, `opacity_override`, `opacity_inactive_override`, `opacity_fullscreen_override`
 
-## Fullscreenstate
+## fullscreen_state
 
-The `fullscreen_state` dispatcher decouples the state that Hyprland maintains for a window from the fullscreen state that is communicated to the client.  
+The `fullscreen_state` dispatcher decouples the state that Hyprland maintains for a window from the fullscreen state that is communicated to the client.
 
 `internal` is a reference to the state maintained by Hyprland.
-
 `client` is a reference to the state that the application receives.
 
 | Value | State | Description |
@@ -242,26 +238,28 @@ The `fullscreen_state` dispatcher decouples the state that Hyprland maintains fo
 | 2 | Fullscreen | Window takes up the entire screen. |
 
 For example:
-
-`{internal = 2, client = 0}` Fullscreens the application and keeps the client in non-fullscreen mode.  
-
-This can be used to prevent Chromium-based browsers from going into presentation mode when they detect they have been fullscreened.  
-
-`{internal = 0, client = 2}` Keeps the window non-fullscreen, but the client goes into fullscreen mode within the window.
+- `{internal = 2, client = 0}` fullscreens the application but pretends to the client that it is still in non-fullscreen mode.
+  This can be useful to prevent Chromium-based browsers from going into presentation mode when they detect they have been fullscreened.
+- `{internal = 0, client = 2}` keeps the window non-fullscreen, but pretends to the client that is is now in fullscreen mode.
 
 ### `FSMODE_MAX`
 
-This is not a user accessible mode, but a state that occurs when a client requests `Fullscreen` when the internal mode of that window is `Maximized`.
+This is not a user accessible mode, but a state that occurs when a client requests fullscreen when the internal mode of that window is maximized.
 
-When this happens, the next request to un-FS the window will cause the window to become `Maximized` instead.
-
-Practical example of this is when you Fullscreen a video you're watching on a Maximized window.
+When this happens, the next request to un-FS the window will cause the window to become maximized instead.
+A practical example of this is when you fullscreen a video you're watching on a maximized window.
 
 ### Fullscreen Handlers
 
-Some layouts, like scrolling, allow optional FS handling other than the default.
+Some layouts, like scrolling, provide their own fullscreen handling that overrides the default.
 
-You can use both Layout Handled and Default Handled fullscreens in these layouts using the `layout_aware` option in fullscreen dispatchers.
+You can use both layout-handled and default-handled fullscreen modes in these layouts, via the `layout_aware` option in fullscreen dispatchers.
 
-To see which Fullscreen Handler a given window is using, use Lua or hyprctl
-<!-- TODO: this should also state HOW to use Lua and hyprctl, not just that you can use it. -->
+Lua code can see which fullscreen handler a given window is using.
+For example:
+```lua
+local win = hl.get_active_window()
+if win.fullscreen_handler == "default" then
+    -- do stuff
+end
+```

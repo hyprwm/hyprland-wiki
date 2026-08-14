@@ -4,17 +4,22 @@ title: Preconfigured setups
 ---
 
 > [!WARNING]
-> These configurations are popular and have many people using them. PRs that add
-> more configurations will not be merged.
+> These configurations are popular and have many people using them.
+> PRs that add more configurations will not be merged.
 
-Don't want to spend days tinkering with Hyprland to get it just right from scratch, but you'd
-rather start from a DE-like setting? You've found the right place.
+Don't want to spend days tinkering with Hyprland to get it just right from scratch, but you'd rather start from a DE-like setting?
+You've found the right place.
+
+> [!WARNING]
+> Many of these configurations aggressively inject themselves and modify your system at a deep level to ensure they can function as intended.
+> If you plan to remove them later, this may be more difficult than you anticipate.
+> Even the configurations' own uninstall scripts (if provided) may not clean up after themselves fully.
 
 Here are a few options to consider:
 
 ## ML4W
 
-ML4W or My Linux 4 Work, is a great DE-like experience out-of-the-box made by Stephan Raabe.
+ML4W, or My Linux 4 Work, is a great DE-like experience out-of-the-box made by Stephan Raabe.
 
 It includes simple GUI settings apps, pre-configured feature-rich panels, a welcome app, and more.
 
@@ -28,11 +33,10 @@ It includes simple GUI settings apps, pre-configured feature-rich panels, a welc
 
 ## JaKooLit
 
-Another great option is installing JaKooLit's dotfiles. They are another feature-rich and very well
-maintained option.
+Another great option is installing JaKooLit's dotfiles.
+They are another feature-rich and very well maintained option.
 
-JaKooLit provides installation scripts for many distros for their dotfiles, with
-many themes to choose from.
+JaKooLit provides installation scripts for many distros for their dotfiles, with many themes to choose from.
 
 [GitHub](https://github.com/JaKooLit/Hyprland-Dots)
 
@@ -42,7 +46,10 @@ many themes to choose from.
 
 ## end_4
 
-Like material styling? Want a lot of great apps? Don't mind a tiny bit of tinkering? end-4 has you covered.
+Like material styling?
+Want a lot of great apps?
+Don't mind a tiny bit of tinkering?
+end-4 has you covered.
 
 [GitHub](https://github.com/end-4/dots-hyprland)
 
@@ -50,7 +57,8 @@ Like material styling? Want a lot of great apps? Don't mind a tiny bit of tinker
 
 ## HyDE
 
-Prefer something more minimal, clean and aesthetic? Are you a terminal enjoyer?
+Prefer something more minimal, clean and aesthetic?
+Are you a terminal enjoyer?
 HyDE dotfiles by HyDE Project are a very popular choice that will suit your needs.
 
 [GitHub](https://github.com/HyDE-Project/HyDE)
@@ -67,10 +75,8 @@ An opinionated Arch + Hyprland Setup by DHH.
 
 ## Dank Linux
 
-Dank Linux is a desktop suite built around DankMaterialShell — a complete Material 3-inspired
-desktop shell. A single installer command turns an existing install of many popular distros into a
-fully themed Hyprland desktop with a bar, launcher, notifications, lock screen, control center,
-and automatic wallpaper-based theming.
+Dank Linux is a desktop suite built around DankMaterialShell --- a complete Material 3-inspired desktop shell.
+A single installer command turns an existing install of many popular distros into a fully themed Hyprland desktop with a bar, launcher, notifications, lock screen, control center, and automatic wallpaper-based theming.
 
 [Website](https://danklinux.com/)
 

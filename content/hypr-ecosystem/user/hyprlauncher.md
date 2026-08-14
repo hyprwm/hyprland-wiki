@@ -3,13 +3,14 @@ weight: 30
 title: hyprlauncher
 ---
 
-[hyprlauncher](https://github.com/hyprwm/hyprlauncher) is a multipurpose and versatile launcher / picker for Hyprland. It's fast, simple, and provides
-various modules.
+[hyprlauncher](https://github.com/hyprwm/hyprlauncher) is a multipurpose and versatile launcher/picker for Hyprland.
+It's fast, simple, and provides various modules.
 
 ## Usage
 
-Hyprlauncher is _always_ a daemon. Launching it spawns a daemon that will listen to
-requests. If launched with `hyprlauncher -d`, it will not open a window for the first launch.
+Hyprlauncher is _always_ a daemon.
+Launching it spawns a daemon that will listen to requests.
+If launched with `hyprlauncher -d`, it will not open a window for the first launch.
 
 To open hyprlauncher, just bind `hyprlauncher` to a key.
 
