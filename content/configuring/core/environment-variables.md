@@ -3,21 +3,18 @@ weight: 70
 title: Environment variables
 ---
 
-You can use the `hl.env()` method to set environment variables prior to the
-initialization of the Display Server, e.g.:
-
+You can use the `hl.env()` method to set environment variables before the display server initializes, for example:
 ```lua
 hl.env("GTK_THEME", "Nord")
 ```
 
 > [!NOTE]
-> When referencing existing environment variables like `$XDG_RUNTIME_DIR`, use `os.getenv()`, eg.:
-> `hl.env("SSH_AUTH_SOCK", os.getenv("XDG_RUNTIME_DIR").."/ssh-agent.socket")`
+> When referencing existing environment variables like `$XDG_RUNTIME_DIR`, use `os.getenv()`.
+> For example: `hl.env("SSH_AUTH_SOCK", os.getenv("XDG_RUNTIME_DIR") .. "/ssh-agent.socket")`
 
 > [!WARNING]
-> Please avoid putting those environment variables in `/etc/environment`.  
-> That will cause all sessions (including Xorg ones) to pick up your Wayland-specific
-> environment on traditional Linux distros.
+> Please avoid putting Wayland-specific environment variables in `/etc/environment`.
+> On traditional distros, doing so will cause all sessions (including Xorg ones) to pick them up, likely breaking them.
 
 ## Hyprland Environment Variables
 
@@ -30,8 +27,7 @@ hl.env("GTK_THEME", "Nord")
 ## Aquamarine Environment Variables <!-- ref https://github.com/hyprwm/aquamarine/blob/main/docs/env.md -->
 
 - `hl.env("AQ_TRACE", "1")` - Enables more verbose logging.
-- `hl.env("AQ_DRM_DEVICES", "...")` - Set an explicit list of DRM devices (GPUs) to use. It's a colon-separated list of paths, with the first being the primary.
-  E.g.: `/dev/dri/card1:/dev/dri/card0`
+- `hl.env("AQ_DRM_DEVICES", "...")` - Set an explicit list of DRM devices (GPUs) to use. It's a colon-separated list of paths, with the first being the primary, e.g. `/dev/dri/card1:/dev/dri/card0`.
 - `hl.env("AQ_FORCE_LINEAR_BLIT", "0")` - Disables forcing linear explicit modifiers on Multi-GPU buffers to potentially workaround NVIDIA issues.
 - `hl.env("AQ_MGPU_NO_EXPLICIT", "1")` - Disables explicit syncing on mgpu buffers.
 - `hl.env("AQ_NO_MODIFIERS", "1")` - Disables modifiers for DRM buffers.
@@ -40,12 +36,9 @@ hl.env("GTK_THEME", "Nord")
 ## Toolkit backend variables
 
 - `hl.env("GDK_BACKEND", "wayland,x11,*")` - GTK: Use Wayland if available; if not, try X11 and  then any other GDK backend.
-- `hl.env("QT_QPA_PLATFORM", "wayland;xcb")` - Qt: Use Wayland if available, fall back to
-  X11 if not.
-- `hl.env("SDL_VIDEODRIVER", "wayland")` - Run SDL2 applications on Wayland. Remove or set to
-  `x11` if games that provide older versions of SDL cause compatibility issues
-- `hl.env("CLUTTER_BACKEND", "wayland")` - Clutter package already has Wayland enabled, this
-  variable will force Clutter applications to try and use the Wayland backend
+- `hl.env("QT_QPA_PLATFORM", "wayland;xcb")` - Qt: Use Wayland if available, fall back to X11 if not.
+- `hl.env("SDL_VIDEODRIVER", "wayland")` - Run SDL2 applications on Wayland. Remove or set to `x11` if games that provide older versions of SDL cause compatibility issues.
+- `hl.env("CLUTTER_BACKEND", "wayland")` - Clutter package already has Wayland enabled, this variable will force Clutter applications to try and use the Wayland backend.
 
 ## XDG specifications
 
@@ -53,37 +46,25 @@ hl.env("GTK_THEME", "Nord")
 - `hl.env("XDG_SESSION_TYPE", "wayland")`
 - `hl.env("XDG_SESSION_DESKTOP", "Hyprland")`
 
-XDG specific environment variables are often detected through portals and
-applications that may set those for you, however it is not a bad idea to set
-them explicitly.
+XDG-specific environment variables are often detected through portals and applications that may set those for you, however it is not a bad idea to set them explicitly.
 
-If your [desktop portal](https://wiki.archlinux.org/title/XDG_Desktop_Portal) is malfunctioning for seemingly
-no reason (no errors), it's likely your XDG env isn't set correctly.
+If your [desktop portal](https://wiki.archlinux.org/title/XDG_Desktop_Portal) is malfunctioning for seemingly no reason (no errors), it's likely your XDG environment isn't set correctly.
 
 ## Qt variables
 
-- `hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")` -
-  [(From the Qt documentation)](https://doc.qt.io/qt-5/highdpi.html) enables
-  automatic scaling, based on the monitor's pixel density
-- `hl.env("QT_QPA_PLATFORM", "wayland;xcb")` - Tell Qt applications to use the Wayland
-  backend, and fall back to X11 if Wayland is unavailable
-- `hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")` - Disables window decorations on Qt
-  applications
-- `hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")` - Tells Qt based applications to pick your theme
-  from qt5ct, use with Kvantum.
+- `hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")` - [(From the Qt documentation)](https://doc.qt.io/qt-5/highdpi.html) enables automatic scaling, based on the monitor's pixel density.
+- `hl.env("QT_QPA_PLATFORM", "wayland;xcb")` - Tell Qt applications to use the Wayland backend, and fall back to X11 if Wayland is unavailable.
+- `hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")` - Disables window decorations on Qt applications.
+- `hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")` - Tells Qt based applications to pick your theme from qt5ct, use with Kvantum.
 
 ## GTK variables
 
-  - `GTK_THEME` - Set a GTK theme manually, for those who want to avoid appearance
-  tools such as lxappearance or nwg-look.
+- `GTK_THEME` - Set a GTK theme manually, for those who want to avoid appearance tools such as lxappearance or nwg-look.
 
 ## X11 variables
 
-- `XCURSOR_THEME` - Set your cursor theme. The theme needs to be installed and
-  readable by your user.
-- `XCURSOR_SIZE` - Set cursor size. See [here](../../../faq) for why you might
-  want this variable set.
-
+- `XCURSOR_THEME` - Set your cursor theme. The theme needs to be installed and readable by your user.
+- `XCURSOR_SIZE` - Set cursor size. See [here](../../../faq) for why you might want this variable set.
 
 ## NVIDIA-specific
 
@@ -92,25 +73,17 @@ To force GBM as a backend, set the following environment variables:
 - `hl.env("GBM_BACKEND", "nvidia-drm")`
 - `hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")`
 
-> See
-> [Archwiki Wayland Page](https://wiki.archlinux.org/title/Wayland#Requirements)
-> for more details on those variables.
+> See the [Arch Wiki's Wayland page](https://wiki.archlinux.org/title/Wayland#Requirements) for more details on those variables.
 
 - `hl.env("LIBVA_DRIVER_NAME", "nvidia")` - Hardware acceleration on NVIDIA GPUs
 
-> See
-> [Archwiki Hardware Acceleration Page](https://wiki.archlinux.org/title/Hardware_video_acceleration)
-> for details and necessary values before setting this variable.
+> See the [Arch Wiki's Hardware Acceleration page](https://wiki.archlinux.org/title/Hardware_video_acceleration) for details and necessary values before setting this variable.
 
 - `__GL_GSYNC_ALLOWED` - Controls if G-Sync capable monitors should use Variable
   Refresh Rate (VRR)
 
-> See
-> [NVIDIA Documentation](https://download.nvidia.com/XFree86/Linux-32bit-ARM/375.26/README/openglenvvariables.html)
-> for details.
+> See [NVIDIA's driver documentation](https://download.nvidia.com/XFree86/Linux-x86_64/375.26/README/openglenvvariables.html) for details.
 
-- `__GL_VRR_ALLOWED` - Controls if Adaptive Sync should be used. Recommended to
-  set as "0" to avoid having problems on some games.
+- `__GL_VRR_ALLOWED` - Controls if Adaptive Sync should be used. Recommended to set as "0" to avoid having problems on some games.
 
-- `hl.env("AQ_NO_ATOMIC", "1")` - use legacy DRM interface instead of atomic mode
-  setting. **NOT** recommended.
+- `hl.env("AQ_NO_ATOMIC", "1")` - use legacy DRM interface instead of atomic mode setting. **NOT** recommended.

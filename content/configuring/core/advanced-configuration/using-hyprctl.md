@@ -3,14 +3,13 @@ title: Using hyprctl
 weight: 20
 ---
 
-`hyprctl` is a utility for controlling some parts of the compositor from a CLI
-or a script. It should automatically be installed along with Hyprland.
+`hyprctl` is a utility for controlling some parts of the compositor from a CLI or a script.
+It is automatically installed as part of Hyprland.
 
 > [!WARNING]
-> _hyprctl_ calls will be dispatched by the compositor _synchronously_, meaning
-> any spam of the utility will cause slowdowns. It's recommended to use `--batch`
-> for many control calls, and limiting the amount of info calls.
-> 
+> `hyprctl` calls will be dispatched by the compositor _synchronously_, meaning any spam of the utility will cause slowdowns.
+> It's recommended to use `--batch` for many control calls, and limiting the amount of info calls.
+>
 > For live event handling, see the [events](../events).
 
 ## Commands
@@ -25,8 +24,9 @@ hyprctl eval 'hl.dispatch(hl.dsp.focus({ workspace = "3" }))'
 
 ### repl
 
-Start an interactive Lua REPL session or issue a Lua string and print the result through tostring.
-Similar to `Lua` interactive mode. Exit with Ctrl+D.
+Start an interactive Lua REPL session, or issue a Lua string and print the result through `tostring()`.
+Similar to `lua` interactive mode.
+Exit with Ctrl+D.
 
 Usage:
 
@@ -38,10 +38,10 @@ hyprctl repl [code] # execute code and print the result
 Examples:
 
 ```sh
-» hyprctl repl 'hl.get_active_window().class'
+$ hyprctl repl 'hl.get_active_window().class'
 foot
 
-» hyprctl repl
+$ hyprctl repl
 > for i,w in pairs(hl.get_windows()) do print(i, w.class) end
 1       foot
 2       firefox
@@ -62,27 +62,28 @@ See [Dispatchers](../../dispatchers) for a list of dispatchers.
 
 ### reload
 
-Issue a `reload` to force reload the config. `reload full-reset` will recreate the entire config context,
-allowing switching to/from Lua/hyprlang. `full-reset` should not be used unless really necessary.
+Issue a `reload` to force reload the config.
+`reload full-reset` will recreate the entire config context, allowing switching to/from Lua/hyprlang.
+`full-reset` should not be used unless really necessary.
 
 ### kill
 
-Issue a `kill` to get into a kill mode, where you can kill an app by clicking on
-it. You can exit it with ESCAPE.
+Issue a `kill` to get into a kill mode, where you can kill an app by clicking on it.
+You can exit it with ESCAPE.
 
-Kind of like xkill.
+Kind of like `xkill`.
 
 ### setcursor
 
-Sets the cursor theme and reloads the cursor manager. Will set the theme for
-everything except GTK, because GTK.
+Sets the cursor theme and reloads the cursor manager.
+Will set the theme for everything except GTK, because GTK.
 
-Please note that since 0.37.0, this only accepts hyprcursor themes. For legacy xcursor themes,
-use the `XCURSOR_THEME` and `XCURSOR_SIZE` env vars.
+Please note that since 0.37.0, this only accepts hyprcursor themes.
+For legacy xcursor themes, use the `XCURSOR_THEME` and `XCURSOR_SIZE` env vars.
 
 params: theme and size
 
-e.g.:
+For example:
 
 ```sh
 hyprctl setcursor Bibata-Modern-Classic 24
@@ -96,29 +97,24 @@ Usage:
 
 ```sh
 hyprctl output create [backend] (name)
-```
-
-or
-
-```sh
+# or
 hyprctl output remove [name]
 ```
 
-Where `[backend]` is the name of the backend and `(name)` is an optional name
-for the output. If `(name)` is not specified, the default naming scheme will be
-used (`HEADLESS-2`, `WL-1`, etc.)
+Where `[backend]` is the name of the backend and `(name)` is an optional name for the output.
+If `(name)` is not specified, the default naming scheme will be used (`HEADLESS-2`, `WL-1`, etc).
 
 > [!NOTE]
 > `create` and `remove` can also be `add` or `destroy`, respectively.
 
 Available backends:
 
-- `wayland`: Creates an output as a Wayland window. This will only work if
-  you're already running Hyprland with the Wayland backend.
-- `headless`: Creates a headless monitor output. If you're running a VNC/RDP/
-  Sunshine server, you should use this.
-- `auto`: Picks a backend for you. For example, if you're running Hyprland from
-  the TTY, `headless` will be chosen.
+- `wayland`: Creates an output as a Wayland window.
+  This will only work if you're already running Hyprland with the Wayland backend, i.e. as a nested session.
+- `headless`: Creates a headless monitor output.
+  If you're running a VNC/RDP/Sunshine server, you should use this.
+- `auto`: Picks a backend for you.
+  For example, if you're running Hyprland from the TTY, `headless` will be chosen.
 
 For example, to create a headless output named "test":
 
@@ -148,14 +144,14 @@ hl.device({
 You can use this command to switch between them.
 
 ```sh
-hyprctl switchxkblayout [DEVICE] [CMD]
+hyprctl switchxkblayout <DEVICE> <CMD>
 ```
 
-where `CMD` is either `next` for next, `prev` for previous, or `ID` for a
-specific one (in the above case, `us`: 0, `pl`: 1, `de`: 2). You can find the
-`DEVICE` using `hyprctl devices` command.
+where `CMD` is either `next` for next, `prev` for previous, or `ID` for a specific one (in the above case, `us`: 0, `pl`: 1, `de`: 2).
+You can find the `DEVICE` using `hyprctl devices` command.
 
-`DEVICE` can also be `current` or `all`, self-explanatory. Current is the `main` keyboard from `devices`.
+`DEVICE` can also be `current` or `all`, self-explanatory.
+Current is the `main` keyboard from `devices`.
 
 Example command for a typical keyboard:
 
@@ -164,11 +160,10 @@ hyprctl switchxkblayout at-translated-set-2-keyboard next
 ```
 
 > [!NOTE]
-> If you want a single variant i.e. pl/dvorak on one layout but us/qwerty on the
-> other, XKB parameters can still be blank, however the amount of comma-separated
-> parameters has to match. Alternatively, a single parameter can be specified for
-> it to apply to all three.
-> 
+> If you want a single variant, e.g. pl/dvorak on one layout but us/qwerty on the other, XKB parameters can still be blank.
+> However, the amount of comma-separated parameters has to match.
+> Alternatively, a single parameter can be specified for it to apply to all three.
+>
 > ```lua
 > hl.config({
 >   input = {
@@ -181,7 +176,8 @@ hyprctl switchxkblayout at-translated-set-2-keyboard next
 
 ### seterror
 
-Sets the hyprctl error string. Will reset when Hyprland's config is reloaded.
+Sets the hyprctl error string.
+Will reset when Hyprland's config is reloaded.
 
 ```sh
 hyprctl seterror 'rgba(66ee66ff)' hello world this is my problem
@@ -203,7 +199,8 @@ hyprctl getprop [window] [property]
 
 Where `window` is as described [here](../../dispatchers#parameter-explanation), and `property` is any which can be set with [set_prop](../../dispatchers/#set_prop).
 
-#### Notes
+Note that:
+
 - If `animationstyle` is unset, `(unset)` is returned.
 - `min_size` defaults to `20 20`.
 - `max_size` defaults to `inf inf` or `[null,null]` in JSON.
@@ -222,9 +219,8 @@ For example:
 hyprctl notify -1 10000 "rgb(ff1ea3)" "Hello everyone!"
 ```
 
-Icon of `-1` means "No icon"
-
-Color of `0` means "Default color for icon"
+Icon of `-1` means "No icon."
+Color of `0` means "Default color for icon."
 
 Icon list:
 
@@ -250,40 +246,39 @@ The default font-size is 13.
 Dismisses all or up to AMOUNT notifications.
 
 ```sh
-hyprctl dismissnotify # dismiss all notifications
-hyprctl dismissnotify 2 # dismiss the oldest 2 notifications
+hyprctl dismissnotify    # dismiss all notifications
+hyprctl dismissnotify 2  # dismiss the oldest 2 notifications
 hyprctl dismissnotify -1 # dismiss all notifications (same as no arguments)
 ```
 
-## Info
+## Usage
 
 ```plain
-version - prints the Hyprland version along with flags, commit and branch of build.
-monitors - lists active outputs with their properties, 'monitors all' lists active and inactive outputs
-workspaces - lists all workspaces with their properties
-activeworkspace - gets the active workspace and its properties
-workspacerules - gets the list of defined workspace rules
-clients - lists all windows with their properties
-devices - lists all connected keyboards and mice
+version              - prints the Hyprland version along with flags, commit and branch of build.
+monitors             - lists active outputs with their properties, 'monitors all' lists active and inactive outputs
+workspaces           - lists all workspaces with their properties
+activeworkspace      - gets the active workspace and its properties
+workspacerules       - gets the list of defined workspace rules
+clients              - lists all windows with their properties
+devices              - lists all connected keyboards and mice
 decorations [window] - lists all decorations and their info
-binds - lists all registered binds
-activewindow - gets the active window name and its properties
-layers - lists all the layers
-splash - prints the current random splash
-getoption [option] - gets the config option status (values)
-cursorpos - gets the current cursor position in global layout coordinates
-animations - gets the currently configured info about animations and beziers
-instances - lists all running instances of Hyprland with their info
-layouts - lists all layouts available (including from plugins)
-configerrors - lists all current config parsing errors
-rollinglog - prints tail of the log. Also supports -f/--follow option
-locked - prints whether the current session is locked.
-descriptions - returns a JSON with all config options, their descriptions and types.
-submap - prints the current submap the keybinds are in
+binds                - lists all registered binds
+activewindow         - gets the active window name and its properties
+layers               - lists all the layers
+splash               - prints the current random splash
+getoption [option]   - gets the config option status (values)
+cursorpos            - gets the current cursor position in global layout coordinates
+animations           - gets the currently configured info about animations and beziers
+instances            - lists all running instances of Hyprland with their info
+layouts              - lists all layouts available (including from plugins)
+configerrors         - lists all current config parsing errors
+rollinglog           - prints tail of the log. Also supports -f/--follow option
+locked               - prints whether the current session is locked.
+descriptions         - returns a JSON with all config options, their descriptions and types.
+submap               - prints the current submap the keybinds are in
 ```
 
-For the getoption command, the option name should be written as
-`section.option`, e.g.:
+For the `getoption` command, the option name should be written as `section.option`, for example:
 
 ```sh
 hyprctl getoption general.border_size
@@ -296,13 +291,11 @@ See [Config options](../../config-options) for sections and options you can use.
 
 ## Batch
 
-You can use the legacy `--batch` flag to issue multiple commands separated with a `;`.
+You can use the `--batch` flag to issue multiple commands separated with a `;`.
 
 > [!NOTE]
-> Any semicolons inside of individual commands in the batch (e.g.
-> multi-statement Lua code) must be backslash-escaped, and any literal
-> backslashes must be escaped as well. This is *in addition to* any escaping
-> already required by your shell.
+> Any semicolons inside of individual commands in the batch (e.g. multi-statement Lua code) must be backslash-escaped, and any literal backslashes must be escaped as well.
+> This is *in addition to* any escaping already required by your shell.
 
 ## Flags
 
@@ -312,7 +305,7 @@ You can specify flags for the request like this:
 hyprctl -j monitors
 ```
 
-flag list:
+Flag list:
 
 ```txt
 j -> output in JSON

@@ -6,8 +6,9 @@ title: Submaps
 
 ## Submaps
 
-Keybind submaps allow you to activate a separate set of keybinds.  
-For example, if you want to enter a `resize` _mode_ that allows you to resize windows with the arrow keys, you can do it like this:
+Keybind submaps allow you to activate a separate set of keybinds.
+
+For example, if you want to enter a `resize` "mode" that allows you to resize windows with the arrow keys, you can do it like this:
 
 ```lua
 -- Switch to a submap called `resize`.
@@ -32,12 +33,12 @@ end)
 
 > [!WARNING]
 > Do not forget a keybind (`escape`, in this case) to reset the keymap while inside it!
-> 
-> If you get stuck inside a keymap, you can use `hyprctl dispatch 'hl.dsp.submap("reset")'` to go back.  
-> If you do not have a terminal open, open a new TTY and use the --instance flag to select which instance of Hyprland to operate on (if you only have one running this is 0). For example: `hyprctl dispatch --instance 0 'hl.dsp.submap("reset")'`
+>
+> If you get stuck inside a keymap, you can use `hyprctl dispatch 'hl.dsp.submap("reset")'` to go back.
+> If you do not have a terminal open, open a new TTY and use the `--instance` flag to select which instance of Hyprland to operate on (if you only have one running this is 0).
+> For example: `hyprctl dispatch --instance 0 'hl.dsp.submap("reset")'`.
 
-You can also set the same keybind to perform multiple actions, such as resize
-and close the submap, like so:
+You can also set the same keybind to perform multiple actions, such as resize and close the submap, like so:
 
 ```lua
 hl.bind("ALT + R", hl.dsp.submap("resize"))
@@ -50,8 +51,7 @@ hl.define_submap("resize", function()
 end)
 ```
 
-This works because the binds are executed in the order they appear, and
-assigning multiple actions per bind is possible.
+This works because the binds are executed in the order they appear, and assigning multiple actions per bind is possible.
 
 You can set a keybind that will be active no matter the current submap with the submap universal bind flag.
 
@@ -86,12 +86,12 @@ hl.define_submap(main_submap, function()
 
             hl.bind("SHIFT + escape", hl.dsp.submap("reset"))
             hl.bind("escape", hl.dsp.submap("main_submap"))
-        
+
         -- /nested_two
         end)
     -- /nested_one
     end)
-    
+
     hl.bind("escape", hl.dsp.submap("reset"))
 -- /main_submap
 end)
@@ -99,7 +99,7 @@ end)
 
 ### Automatically close a submap on dispatch
 
-Submaps can be automatically closed or sent to another submap by appending ``,`` followed by a submap or _reset_.
+Submaps can be automatically closed or sent to another submap by appending `,` followed by a submap or `reset`.
 
 ```lua
 hl.bind("SUPER + a", hl.dsp.submap("submapA"))
@@ -117,10 +117,8 @@ end)
 
 ### Catch-All
 
-You can also define a keybind via the special `catchall` keyword, which
-activates no matter which key is pressed.  
-This can be used to prevent any keys from passing to your active application
-while in a submap or to exit it immediately when any unknown key is pressed:
+You can also define a keybind via the special `catchall` keyword, which activates no matter which key is pressed.
+This can be used to prevent any keys from passing to your active application while in a submap or to exit it immediately when any unknown key is pressed:
 
 ```lua
 hl.bind("catchall", hl.dsp.submap("reset"))
@@ -128,8 +126,7 @@ hl.bind("catchall", hl.dsp.submap("reset"))
 
 ### Disabling keybinds with one master keybind
 
-If you want to disable all keybinds with another keybind (make a keybind toggle
-of sorts) you can just use a submap with only a keybind to exit it.
+If you want to disable all keybinds with another keybind (making a keybind toggle of sorts), you can just use a submap with only a keybind to exit it.
 
 ```lua
 hl.bind(KEYS, hl.dsp.submap("clean"))

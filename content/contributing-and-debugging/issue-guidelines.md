@@ -20,7 +20,7 @@ Instead, we ask you to open a [discussion](https://github.com/hyprwm/Hyprland/di
 ### Before you start a discussion
 
 _Search the discussions and issues thoroughly_.
-It's likely that there's already one open for your bug/feature that you can just upvote instead of wasting both your time writing a new one and our time closing it and redirecting you.
+It's likely that there's already one open for your bug/feature that you can just upvote, instead of wasting both your time writing a new one and our time closing it and redirecting you.
 
 ### The lifecycle of a discussion
 
@@ -32,7 +32,7 @@ For bugs:
 - If a discussion is reproducible, a member of Hyprland promotes the discussion to an issue by opening an issue with the key information and links the original discussion.
 
 > [!NOTE]
-> To get logs for your bug please see [Crashes and Bugs](../../crashes-and-bugs)
+> To get logs for your bug, please see [Crashes and Bugs](../../crashes-and-bugs).
 
 For feature requests:
 - If a discussion describes a feature that is already possible (via scripts, features, or official tools), invalid, or not applicable, it gets closed.
@@ -44,10 +44,10 @@ Please note we are all volunteers and our numbers are small, so issues may stay 
 ### Gathering attention for your discussion / a discussion you care about
 
 Avoid posting comments such as "when fix?".
-Instead, upvote the discussion, or issue (if one exists).
+Instead, upvote the discussion or issue (if one exists).
 
 If a discussion has reached 5 upvotes or more, and it hasn't been promoted, you may ping a member in the discussion
-(`@vaxerski`, `@fufexan` or `@notashelf` are the most likely ones to work)
+(`@vaxerski`, `@fufexan` or `@notashelf` are the most likely ones to work).
 
 Please ***do not*** ping the members just because the discussion has become stale, or failed to gather attention.
-If that is the case, attempt to bring it back on track by posting *further* relevant information that might spark a discussion, or tell people interested about the discussion so that they can upvote.
+If that is the case, attempt to bring it back on track by posting *further* relevant information that might spark a discussion, or tell people interested about the discussion so that they can upvote it.

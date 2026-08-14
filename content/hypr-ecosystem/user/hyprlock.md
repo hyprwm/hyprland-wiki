@@ -3,12 +3,11 @@ weight: 50
 title: hyprlock
 ---
 
-[hyprlock](https://github.com/hyprwm/hyprlock) is a simple, yet fast, multi-threaded and GPU-accelerated screen lock
-for Hyprland.
+[hyprlock](https://github.com/hyprwm/hyprlock) is a simple, yet fast, multi-threaded and GPU-accelerated screen locker for Hyprland.
 
 > [!WARNING]
 > If no config file is found in any of the searched paths, hyprlock **exits with an error** and your session will not be locked.
-> 
+>
 > You can use the example config for a quick start, which can be found [here](https://github.com/hyprwm/hyprlock/blob/main/assets/example.conf).
 
 ## Command-line Arguments
@@ -29,14 +28,16 @@ See also: `hyprlock --help`.
 
 ## Configuration
 
-Configuration is done via a config file named `hyprlock.conf`. Hyprlock searches for it in the following locations, in order:
+Configuration is done via a config file named `hyprlock.conf`.
+Hyprlock searches for it in the following locations, in order:
 
 1. `$XDG_CONFIG_HOME/hypr/hyprlock.conf`
 2. `$HOME/.config/hypr/hyprlock.conf`
 3. Each directory in `$XDG_CONFIG_DIRS`, e.g. `<dir>/hypr/hyprlock.conf`
 4. `/etc/xdg/hypr/hyprlock.conf`
 
-The first match is used. You can also specify an explicit path with `hyprlock --config <path>`.
+The first match is used.
+You can also specify an explicit path with `hyprlock --config <path>`.
 
 ### Variable Types
 
@@ -88,7 +89,8 @@ Variables in the `animations` category:
 
 The `animation` and `bezier` keywords can be used:
 
-For Example:
+For example:
+
 ```ini
 bezier = linear, 1, 1, 0, 0
 animation = fade, 1, 1.8, linear
@@ -115,12 +117,12 @@ global
 
 ### System Configuration
 
-On Arch Linux, by default, hyprlock integrates with [pambase](https://archlinux.org/packages/?name=pambase) through `pam_faillock.so`, which forces a 10 minute timeout after 3 failed unlocks.  
+On Arch Linux, by default, hyprlock integrates with [pambase](https://archlinux.org/packages/?name=pambase) through `pam_faillock.so`, which forces a 10 minute timeout after 3 failed unlocks.
 If you would like to change this, refer to the [Arch Linux wiki](https://wiki.archlinux.org/title/Security#Lock_out_user_after_three_failed_login_attempts) and update the `/etc/security/faillock.conf` file with parameters `unlock_time`, `fail_interval`, and `deny` as needed.
 
 ## Keyboard Shortcuts and Actions
 
-The following keys and key-combinations describe hyprlock's default behaviour:
+The following keys and key-combinations describe hyprlock's default behavior:
 
 | input | description |
 | -- | -- |
@@ -142,6 +144,7 @@ widget_name {
 ```
 
 ### Monitor Selection
+
 `monitor` is available for all widgets and can be left empty for "all monitors".
 
 It takes the same string that is used to reference monitors in the Hyprland configuration.
@@ -150,6 +153,7 @@ So either use the portname (e.g. `eDP-1`) or the monitor description (e.g. `desc
 See [Monitors](../../../configuring/core/monitors).
 
 ### Variable Substitution
+
 The following variables in widget text options will be substituted.
 
 - `$USER` - username (e.g. linux-user)
@@ -170,14 +174,15 @@ The following variables in widget text options will be substituted.
 
 - All rendered text supports
   [pango markup](https://docs.gtk.org/Pango/pango_markup.html).
-  - Additionally hyprlock will parse `<br/>` for your convenience. (That's a
-    linebreak) Remember to enable linebreaks in your spans with
-    `allow_breaks="true"`.
-- Positioning is done via halign, valign, position, and zindex. Position is an added
-  offset to the result of alignment.
-  - halign: `left`, `center`, `right`, `none`. valign: `top`, `center`,
-    `bottom`, `none`
-  - zindex: Widgets with larger numbers will be placed above widgets with smaller numbers. All widgets default to 0, except background which defaults to -1.
+  - Additionally hyprlock will parse `<br>` for your convenience.
+    (That's a linebreak.)
+    Remember to enable linebreaks in your spans with `allow_breaks="true"`.
+- Positioning is done via halign, valign, position, and zindex.
+  Position is an added offset to the result of alignment.
+  - halign: `left`, `center`, `right`, `none`.
+  - valign: `top`, `center`, `bottom`, `none`.
+  - zindex: Widgets with larger numbers will be placed above widgets with smaller numbers.
+    All widgets default to 0, except background which defaults to -1.
 - All `position` and `size` options can be specified in pixels or as percentages of the output size.
   - pixels: `10, 10` or `10px, 10px`
   - percentages: `10%, 10.5%`
@@ -186,7 +191,8 @@ The following variables in widget text options will be substituted.
 
 ### Shadowable
 
-Some widgets are shadowable, meaning they can have a shadow. For those widgets, you get:
+Some widgets are shadowable, meaning they can have a shadow.
+For those widgets, you get:
 
 | Variable | Description | Type | Default |
 | -- | -- | -- | -- |
@@ -197,7 +203,9 @@ Some widgets are shadowable, meaning they can have a shadow. For those widgets, 
 
 ### Clickable
 
-Some widgets are clickable. Namely `label`, `image` and `shape`.  
+Some widgets are clickable.
+Namely `label`, `image` and `shape`.
+
 You can launch arbitrary commands when clicking on them by configuring the following option within the widget:
 
 | variable | description | type | default |
@@ -206,9 +214,9 @@ You can launch arbitrary commands when clicking on them by configuring the follo
 
 ### Background
 
-Draws a background image or fills with color.  
-If `path` is empty or missing, it will use `color`; otherwise, the image will be used.
+Draws a background image or fills with color.
 
+If `path` is empty or missing, it will use `color`; otherwise, the image will be used.
 If `path` is `screenshot`, a screenshot of your desktop at launch will be used.
 
 | Variable | Description | Type | Default |
@@ -370,9 +378,9 @@ Draws a password input field.
 | `zindex` | z-index of the widget. | int | `0` |
 
 > [!NOTE] **Colors information**
+> When `outline_thickness` is set to `0`, the color of the inner box will be changed instead of the outer.
 >
-> When `outline_thickness` is set to `0`, the color of the inner box will be changed instead of the outer.   
-> Behaviour of `swap_font_color` is as follows:  
+> Behavior of `swap_font_color` is as follows:
 > - `outline_thickness` is `0`: if set, font color will be swapped with inner one on color change events (e.g. Caps Lock on or password check).
 > - `outline_thickness` is not `0`: if set, font and inner colors will be swapped on password check and authentication failure.
 > - `swap_font_color` will narrow the accent colors from a gradient to a single color by using the first specified color.
@@ -423,10 +431,9 @@ Draws a label.
 | `halign` | Horizontal alignment. | str | `center` |
 | `valign` | Vertical alignment. | str | `center` |
 
-
 #### Dynamic Labels
 
-The `text` option supports [variable substitution](#variable-substitution) and launching shell commands.  
+The `text` option supports [variable substitution](#variable-substitution) and launching shell commands.
 For example:
 
 ```ini
@@ -436,13 +443,13 @@ text = cmd[update:1000] echo "<span foreground='##ff2222'>$(date)</span>"
 > [!NOTE]
 > - `update:` time is in ms.
 > - label can be forcefully updated by specifying `update:<time>:1` or `update:<time>:true` and sending `SIGUSR2` to hyprlock, `<time>` can be `0` in this case.
-> - `$ATTEMPTS[<string>]` format can be used to show `<string>` when there are no failed attempts.  
-You can use pango-markup here. `<string>` can be empty to hide.
-> - `$LAYOUT[<str0>,<str1>,...]` format is available to replace indexed layouts.  
-You can use settings from `hyprland.lua`, e.g. `$LAYOUT[en,ru,de]`.  
-Also, a single `!` character will hide layout. E.g. `$LAYOUT[!]` will hide default (0 indexed) and show others.
-> - `$TIME` and `$TIME12` will use timezone from the TZ environment variable.  
-If it's not set, the system timezone will be used, falling back to UTC in case of errors.
+> - `$ATTEMPTS[<string>]` format can be used to show `<string>` when there are no failed attempts.
+>   You can use pango-markup here. `<string>` can be empty to hide.
+> - `$LAYOUT[<str0>,<str1>,...]` format is available to replace indexed layouts.
+>   You can use settings from `hyprland.lua`, e.g. `$LAYOUT[en,ru,de]`.
+>   Also, a single `!` character will hide layout. E.g. `$LAYOUT[!]` will hide default (0 indexed) and show others.
+> - `$TIME` and `$TIME12` will use timezone from the TZ environment variable.
+>   If it's not set, the system timezone will be used, falling back to UTC in case of errors.
 > - Variables seen above are parsed _before_ the command is run.
 > - **Do not** run commands that never exit. This will hang the `AsyncResourceGatherer` and you won't have a good time.
 
@@ -467,5 +474,7 @@ label {
 
 ## User Signals
 
-- `SIGUSR1`: Unlocks hyprlock. For example, you can switch to another TTY and run `pkill -USR1 hyprlock`.
-- `SIGUSR2`: Updates labels and images. See above.
+- `SIGUSR1`: Unlocks hyprlock.
+  For example, you can switch to another TTY and run `pkill -USR1 hyprlock`.
+- `SIGUSR2`: Updates labels and images.
+  See above.

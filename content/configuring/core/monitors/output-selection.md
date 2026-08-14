@@ -3,7 +3,7 @@ title: Output selection
 weight: 10
 ---
 
-To select an output `portname` or `description` can be used.
+To select an output, a portname or a description (but not both) can be used.
 
 Output of `hyprctl monitors` looks like the following:
 
@@ -28,9 +28,6 @@ hl.monitor({
 })
 ```
 
-<!-- TODO meh wording, can be better -->
-If description is used, portname is obsolete.
-
 {{% details title="Example" closed="true" %}}
 
 ```
@@ -41,7 +38,6 @@ Monitor eDP-1 (ID 0):
 ```
 
 In the example, portname is `eDP-1` and description is `Chimei Innolux Corporation 0x150C`, so they can be used as follows:
-
 
 ```lua
 hl.monitor({

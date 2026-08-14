@@ -3,11 +3,10 @@ weight: 20
 title: Workspace Rules
 ---
 
-You can set workspace rules to achieve workspace-specific behaviors. For
-instance, you can define a workspace where all windows are drawn without borders
-or gaps.
+You can set workspace rules to achieve workspace-specific behaviors.
+For instance, you can define a workspace where all windows are drawn without borders or gaps.
 
-Some layouts have their own specific rules, they can be found on the corresponding layout page
+Some layouts have their own specific rules, they can be found on the corresponding layout page.
 
 ## Syntax
 
@@ -15,10 +14,9 @@ Some layouts have their own specific rules, they can be found on the correspondi
 hl.workspace_rule(workspace = SELECTOR, RULE1, RULE2, ...)
 ```
 
-- SELECTOR is a valid workspace selector (see
-  [Naming conventions](../../../../naming-conventions#workspace-selectors)). This field is
-  mandatory. This _can be_ a workspace selector, but please note
-  workspace selectors can only match _existing_ workspaces.
+- SELECTOR is a valid workspace selector (see [Naming conventions](../../../../naming-conventions#workspace-selectors)).
+  This field is mandatory.
+  This _can be_ a workspace selector, but please note workspace selectors can only match _existing_ workspaces.
 - RULE is one of the rules described [below](#rules).
 
 ## Rules
@@ -64,7 +62,6 @@ hl.workspace_rule({ workspace = "15", animation = "slidevert", default_name = "s
 ### Per-workspace layouts
 
 Use workspace rules to set per-workspace layouts:
-
 ```lua
 hl.workspace_rule({ workspace = "2", layout = "scrolling" })
 ```

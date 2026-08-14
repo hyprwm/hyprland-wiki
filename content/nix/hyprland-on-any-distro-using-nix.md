@@ -5,8 +5,8 @@ weight: 10
 
 Using Hyprland via the Nix package manager on distros that aren't NixOS is very simple.
 
-First, install Nix with your distro native package manager, be that `apt`, `pacman`, `dnf`, etc. The package
-is almost always called `nix`.
+First, install Nix with your distro native package manager, be that `apt`, `pacman`, `dnf`, etc.
+The package is almost always called `nix`.
 
 For example:
 
@@ -20,12 +20,12 @@ Then enable the daemon:
 sudo systemctl enable --now nix-daemon
 ```
 
-Advanced users might want to use [Home Manager](../configuring-hyprland-with-home-manager). If you don't know what
-this is, just don't.
+Advanced users might want to use [Home Manager](../configuring-hyprland-with-home-manager).
+If you don't know what this is, just don't.
 
 Before you do anything, [enable flakes](https://nixos.wiki/wiki/Flakes#Enable_flakes), by adding this to `/etc/nix/nix.conf` or `~/.config/nix/nix.conf`:
 
-```ini
+```nix
 experimental-features = nix-command flakes
 ```
 
@@ -36,6 +36,7 @@ Once that is done, install Hyprland through `nix profile`:
 {{< tab name="From hyprnix (Recommended)" >}}
 
 Installing Hyprland (and other hypr* tools) can be done like so:
+
 ```sh
 sudo nix profile add --profile /nix/var/nix/profiles/default github:hyprwm/hyprnix#hyprland
 ```
@@ -70,8 +71,8 @@ sudo nix profile add --profile /nix/var/nix/profiles/default github:hyprwm/Hyprl
 
 {{< /tabs >}}
 
-Since you're using Hyprland outside of NixOS, it won't be able to find graphics
-drivers. To get around that, you can use [nixGL](https://github.com/guibou/nixGL).
+Since you're using Hyprland outside of NixOS, it won't be able to find graphics drivers.
+To get around that, you can use [nixGL](https://github.com/guibou/nixGL).
 
 Just install it like so:
 
@@ -81,11 +82,10 @@ sudo nix profile add --profile /nix/var/nix/profiles/default github:guibou/nixGL
 
 `--impure` is needed due to `nixGL`'s reliance on hardware information.
 
-Since 0.53.2, `start-hyprland` will automatically use `nixGL` if needed. For versions before that,
-you must use `nixGL start-hyprland`.
+Since 0.53.2, `start-hyprland` will automatically use `nixGL` if needed.
+For versions before that, you must use `nixGL start-hyprland`.
 
-Lastly, if you are using a Login Manager, like SDDM or GDM, you need to symlink the `.desktop` file
-like so:
+Lastly, if you are using a Login Manager, like SDDM or GDM, you need to symlink the `.desktop` file like so:
 
 ```sh
 sudo mkdir -p /usr/share/wayland-sessions
@@ -102,6 +102,4 @@ In order to upgrade all your packages, you can run:
 sudo nix profile upgrade --profile /nix/var/nix/profiles/default '.*'
 ```
 
-Check the
-[Nix profile](https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-profile.html)
-command documentation for other upgrade options if that interests you.
+Check the [Nix profile](https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-profile.html) command documentation for other upgrade options if that interests you.

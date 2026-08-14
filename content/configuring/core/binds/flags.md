@@ -11,13 +11,13 @@ title: Flags
 hl.bind(keys, dispatcher, { flag1 = true, flag2 = true })
 ```
 
-e.g.:
+For example:
 
 ```lua
 hl.bind(keys, hl.dsp.exec_cmd("amongus"), { release = true, locked = true })
 ```
 
-Available flags:
+Available flags are:
 
 | Flag | Description |
 |------|-------------|
@@ -50,7 +50,6 @@ These binds set the expected behavior for regular keyboard media volume keys,
 including when the screen is locked:
 
 ```lua
-
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"), { repeating = true })
 -- Example volume button that will activate even while an input inhibitor is active
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { repeating = true, locked = true })
@@ -65,7 +64,6 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"),       { locked = tru
 hl.bind("SUPER + XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { long_press = true })
 hl.bind("SUPER + XF86AudioNext", hl.dsp.exec_cmd("playerctl position +5"))
 ```
-
 
 {{% /details %}}
 
@@ -84,5 +82,5 @@ For example:
 hl.bind("SUPER + Q", hl.dsp.exec_cmd("kitty"), { description = "Open my favourite terminal" })
 ```
 
-If you want to access your description you can use `hyprctl binds`.  
+If you want to access your binds' descriptions, see the returned bind object's `description` field, or use `hyprctl binds`.
 For more information, have a look at [Using hyprctl](../../advanced-configuration/using-hyprctl).

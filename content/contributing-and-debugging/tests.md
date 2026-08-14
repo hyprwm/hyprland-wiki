@@ -3,7 +3,7 @@ title: Tests
 weight: 40
 ---
 
-Hyprland and some other projects under the hypr* umbrella have _tests_ that try to catch bugs and regressions before code is merged.
+Hyprland and some other projects under the hypr\* umbrella have _tests_ that try to catch bugs and regressions before code is merged.
 
 Building in Debug will by default build tests.
 
@@ -41,12 +41,6 @@ or invoke the relevant Makefile target:
 make test
 ```
 
-or invoke the relevant Makefile target:
-
-```sh
-make test
-```
-
 *This will run for a while!*
 At the end, it will print summary results of how many tests passed, and how many failed.
 
@@ -54,7 +48,7 @@ The goal of failed tests is to be **0**.
 
 #### Run selected tests
 
-When you only want to run specific tests, just list their names (without group/file name) on the command line, e.g.:
+When you only want to run specific tests, just list their names (without group/file name) on the command line, for example:
 
 ```sh
 ./build/hyprtester/hyprtester dwindleSplit focusMasterPrevious processSpawning -c hyprtester/test.lua -b ./build/Hyprland -p hyprtester/plugin/hyprtestplugin.so
@@ -80,7 +74,8 @@ For a fix, try to write a test case that would fail before your fix.
 
 For new tests, you can inspect the coverage report.
 
-First, run _both_ ctest and hyprtester. Then, run (from the repo root):
+First, run _both_ ctest and hyprtester.
+Then, run (from the repo root):
 
 ```sh
 gcovr -r . build --html --html-details -o build/coverage.html --gcov-ignore-parse-errors="negative_hits.warn" && xdg-open ./build/coverage.html

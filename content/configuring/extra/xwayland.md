@@ -3,20 +3,16 @@ weight: 50
 title: Xwayland
 ---
 
-Xwayland is the bridging mechanism between legacy Xorg programs and Wayland
-compositors.
+Xwayland is the bridging mechanism between legacy Xorg programs and Wayland compositors.
 
 ## HiDPI Xwayland
 
-Xwayland currently looks pixelated on HiDPI screens, due to Xorg's inability to
-scale.
+Xwayland currently looks pixelated on HiDPI screens, due to Xorg's inability to scale.
 
-This problem is mitigated by the
-[force_zero_scaling](../../core/config-options#xwayland) option set to true,
-which forces Xwayland windows not to be scaled.
+This problem is mitigated by setting the [force_zero_scaling](../../core/config-options#xwayland) option to true, which forces Xwayland windows not to be scaled.
 
-This will get rid of the pixelated look, but will not scale applications
-properly. To do this, each toolkit has its own mechanism.
+This will get rid of the pixelated look, but will not scale applications properly.
+To do this, each toolkit has its own mechanism.
 
 ```lua
 -- change monitor to high resolution, the last argument is the scale factor
@@ -37,20 +33,18 @@ hl.env("XCURSOR_SIZE", "32")
 The GDK_SCALE variable won't conflict with Wayland-native GTK programs.
 
 > [!WARNING]
-> Xwayland HiDPI patches are no longer supported. Do not use them.
+> Xwayland HiDPI patches are no longer supported.
+> Do not use them.
 
 ## Abstract Unix domain socket
 
-X11 applications use Unix domain sockets to communicate with Xwayland. On Linux, libX11 prefers
-to use the abstract Unix domain socket. This type of socket uses a separate, abstract namespace that
-is independent of the host filesystem. This makes abstract sockets more flexible
-but harder to [isolate](https://github.com/hyprwm/Hyprland/pull/8874)
-for some kinds of sandboxes like Flatpak. However, removing the abstract socket
-has [potential](https://gitlab.gnome.org/GNOME/mutter/-/issues/1613) security
-and compatibility issues.
+X11 applications use Unix domain sockets to communicate with Xwayland.
+On Linux, libX11 prefers to use the abstract Unix domain socket.
+This type of socket uses a separate, abstract namespace that is independent of the host filesystem.
+This makes abstract sockets more flexible but harder to [isolate](https://github.com/hyprwm/Hyprland/pull/8874) for some kinds of sandboxes like Flatpak.
+However, removing the abstract socket has [potential](https://gitlab.gnome.org/GNOME/mutter/-/issues/1613) security and compatibility issues.
 
 Keeping that in mind, we add the [create_abstract_socket](../../core/config-options#xwayland) option.
-When the abstract socket is disabled, only the regular Unix domain
-socket will be created.
+When the abstract socket is disabled, only the regular Unix domain socket will be created.
 
 _\* Abstract Unix domain sockets are available only on Linux-based systems_

@@ -4,7 +4,8 @@ title: Binds
 ---
 
 > [!WARNING]
-> **Keybind handlers must not block.** Lua callbacks run on the compositor event loop.
+> **Keybind handlers must not block.**
+> Lua callbacks run on the compositor event loop.
 > Avoid `io.popen`, network I/O, clipboard tools (`wl-paste`, `xclip`), sleeps, and other long-running work inside bind functions.
 > Prefer `hl.dsp.exec_cmd(...)` for external commands so they run outside the bind callback.
 > If you must probe the system from Lua, bound the wait (for example with `timeout`).
@@ -15,11 +16,14 @@ title: Binds
 
 ## Basics
 
+Basic syntax is:
+
 ```lua
-hl.bind("keys", dispatcher or function() , {bind_flags})
+hl.bind("keys", dispatcher or function(), { bind_flags })
 ```
 
 The dispatcher list can be found in [Dispatchers](../dispatchers).
+You can also supply a Lua function to your bind, if you prefer, and the bind will call it for you.
 
 {{% details title="Examples" closed="true" %}}
 
@@ -27,7 +31,7 @@ The dispatcher list can be found in [Dispatchers](../dispatchers).
 -- bind SUPER + SHIFT + Q to open Firefox
 hl.bind("SUPER + SHIFT + Q", hl.dsp.exec_cmd("firefox"))
 
--- bind to activate annonymous function with logic inside
+-- bind to an anonymous function with logic inside
 hl.bind("SUPER + SHIFT + X", function()
     -- more logic...
     hl.dispatch(hl.dsp.window.float())
@@ -41,21 +45,22 @@ end)
 See the [xkbcommon-keysyms.h header](https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h) for all the keysyms.
 The name you should use is the segment after `XKB_KEY_`.
 
-To bind a keycode, use `code:` prefix before the key.
+To bind a keycode, use the `code:` prefix before the key.
+For example:
 
 ```lua
 hl.bind("SUPER + code:28", hl.dsp.exec_cmd("amongus"))
 ```
 
-This will bind SUPER + t since t is keycode 28.
+will bind SUPER + T, since T is keycode 28.
 
 ## Binding modkeys only
 
 <!-- NOTE: https://github.com/hyprwm/Hyprland/pull/15568 -->
 
-To bind a modkey, use appropriate sym name.
-Usually it is `MOD` key suffixed with `_L` or `_R`.
-When keysym is used, order in which keys are pressed does matter because they are not treated as modifiers anymore.
+To bind only a modkey, use the appropriate keysym name.
+Usually it is a `MOD` key, suffixed with `_L` or `_R`.
+When a keysym is used, the order in which keys are pressed matters, because they are not treated as modifiers anymore.
 
 {{% details title="Examples" closed="true" %}}
 
@@ -77,7 +82,7 @@ hl.bind("Ctrl_L + Ctrl_R", hl.dsp.exec_cmd("kitty"))
 > [!WARNING]
 > The keybinds will be executed top to bottom, in the order they were written in.
 
-You can trigger multiple actions with the same keybind by using a Lua lambda function, with different `disapatcher`s and `param`s:
+You can trigger multiple actions with the same keybind by using a Lua lambda function, which can then execute multiple dispatcher:
 
 ```lua
 -- To switch between windows in a floating workspace:
@@ -153,14 +158,13 @@ hl.config({
 
 <!-- NOTE: maybe there is a better place for this thing, but i couldnt find it -->
 
-### Conditional binds resolution at "bind" time
+### Conditional bind resolution at bind time
 
-When trying to create a bind with condition inside you almost always want to warp it in a function.
-
+When trying to create a bind with a condition inside it, you almost always want to wrap it in a function.
 For example, this bind:
 
 ```lua
-hl.bind("SUPER + L", hl.dsp.exec_cmd("foot", {float = not (hl.get_active_window().title == "foot") }) )
+hl.bind("SUPER + L", hl.dsp.exec_cmd("foot", { float = not (hl.get_active_window().title == "foot") }) )
 ```
 
 will be resolved to:
@@ -170,8 +174,9 @@ hl.bind("SUPER + L", hl.dsp.exec_cmd("foot", { float = false }) )
 -- or, depending on your focus when config was reloaded
 hl.bind("SUPER + L", hl.dsp.exec_cmd("foot", { float = false }) )
 ```
-And it will stay like that until next config reload. 
-To change this behavior, dispatcher can be wrapped in a function:
+
+And it will stay like that until next config reload.
+To make this act like you probably meant, the logic must be wrapped in a function:
 
 ```lua
 hl.bind("SUPER + L", function()
@@ -180,12 +185,12 @@ hl.bind("SUPER + L", function()
 end)
 ```
 
-Now the condition will be evaluated on each call of the bind.
+Now the condition will be evaluated on each call of the bind, rather than only once at config load time.
 
-### Autoconsuming bind and return \{ ok = false \}
+### Auto-consuming binds and `return { ok = false }`
 
-After executing a dispatcher, it returns `ok` value that indicates whether dispatcher ran sucessfuly or not.
-When `auto_consuming` flag is set, `hl.bind` checks that value to determine the behaviour.
+After executing a dispatcher, it can return an `ok` value to indicate whether it ran successfully.
+When the `auto_consuming` flag is set, `hl.bind` checks that value to determine whether the keypress should be consumed or passed on.
 
 {{% details title="Example" closed="true" %}}
 
@@ -193,13 +198,21 @@ When `auto_consuming` flag is set, `hl.bind` checks that value to determine the 
 hl.bind("p", function()
     local window = hl.get_active_window()
     if window and window.title == "some cool app" then
-        hl.dispatch(hl.dsp.exec_cmd("another cool app"))
+        hl.dispatch(hl.dsp.exec_cmd("another_cool_app"))
     else
         return { ok = false }
     end
-end, {auto_consuming = true})
+end, { auto_consuming = true })
 ```
 
-This bind will spawn `"another cool app"` if the active window's title is `"some cool app"`, otherwise it will pass `p` to the active window.
+This bind will spawn `another_cool_app` if the active window's title is `"some cool app"`; otherwise it will pass `p` to the active window.
 
 {{% /details %}}
+
+### Binding to keys handled by systemd-logind
+
+Normally, systemd-logind will handle hardware events such as the power button or lid switch.
+While this can be disabled globally by editing its config file, a better option is to block that handling specifically while Hyprland is running.
+
+This can be accomplished using `systemd-inhibit`.
+For example, you might launch Hyprland via `systemd-inhibit --what=handle-power-key Hyprland`, and then create a bind to the relevant key event (`XF86PowerOff` in this case).

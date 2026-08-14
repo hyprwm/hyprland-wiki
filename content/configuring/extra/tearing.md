@@ -9,13 +9,14 @@ Screen tearing is used to reduce latency and/or jitter in games.
 
 To enable tearing:
 
-- Set `general.allow_tearing` to `true`. This is a "master toggle"
-- Add an `immediate` windowrule effect to your game of choice. This makes sure that
-  Hyprland will tear it.
+- Set `general.allow_tearing` to `true`.
+  This is a "master toggle".
+- Add an `immediate` windowrule effect to your game of choice.
+  This makes sure that Hyprland will tear it.
 
-> [!WARNING]
-> Please note that tearing will only be in effect when the game is in fullscreen
-> and the only thing visible on the screen.
+> [!NOTE]
+> Tearing will only be in effect when the game is in fullscreen and the only thing visible on the screen.
+> Check the `tearingBlockedBy` field from `hyprctl monitors` for details.
 
 Example snippet:
 
@@ -32,8 +33,8 @@ hl.window_rule({
 ```
 
 > [!WARNING]
-> If you experience graphical issues, you may be out of luck. Tearing support is
-> experimental.  
+> If you experience graphical issues, you may be out of luck.
+> Tearing support is experimental.
 > See the likely culprits below.
 
 ## Common issues
@@ -42,9 +43,9 @@ hl.window_rule({
 
 Make sure your window rules are matching and you have the master toggle enabled.
 
-Also make sure nothing except for your game is showing on your monitor. No
-notifications, overlays, lockscreens, bars, other windows, etc. (on a different
-monitor is fine)
+Also make sure nothing except for your game is showing on your monitor.
+No notifications, overlays, lockscreens, bars, other windows, etc.
+(Having these elements on a different monitor is fine.)
 
 ### Apps that should tear, freeze
 
@@ -56,5 +57,5 @@ Please _do not_ report issues if this is the culprit.
 
 Likely issue with your graphics driver.
 
-Please _do not_ report issues if this is the culprit. Unfortunately, it's most
-likely your GPU driver's fault.
+Please _do not_ report issues if this is the culprit.
+Unfortunately, it's most likely your GPU driver's fault.

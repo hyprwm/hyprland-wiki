@@ -3,11 +3,12 @@ weight: 110
 title: hyprqt6engine
 ---
 
-[hyprqt6engine](https://github.com/hyprwm/hyprqt6engine) provides a theme for QT6 apps. It's a replacement for qt6ct, compatible with KDE Apps / KColorScheme.
+[hyprqt6engine](https://github.com/hyprwm/hyprqt6engine) provides a theme for QT6 apps.
+It's a replacement for qt6ct, compatible with KDE Apps/KColorScheme.
 
 ## Usage
 
-Install, then set `QT_QPA_PLATFORMTHEME=hyprqt6engine`.  
+Install, then set `QT_QPA_PLATFORMTHEME=hyprqt6engine`.
 You can set this as `env=` in Hyprland, or in `/etc/environment` for setting it system-wide.
 
 ## Configuration
@@ -16,7 +17,7 @@ The config file is located in `~/.config/hypr/hyprqt6engine.conf`.
 
 ### Theme
 
-category `theme:`
+Category `theme:`
 
 | Variable | Description | Type | Default |
 | --- | --- | --- | --- |
@@ -30,7 +31,7 @@ category `theme:`
 
 ### Misc
 
-category `misc:`
+Category `misc:`
 
 | Variable | Description | Type | Default |
 | --- | --- | --- | --- |

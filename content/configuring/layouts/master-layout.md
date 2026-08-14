@@ -3,10 +3,8 @@ weight: 30
 title: Master layout
 ---
 
-The master layout makes one (or more) window(s) be the "master", taking (by
-default) the left part of the screen, and tiles the rest on the right. You can
-change the orientation on a per-workspace basis if you want to use anything other
-than the default left/right split.
+The master layout makes one (or more) window(s) be the "master," taking (by default) the left part of the screen, and tiles the rest on the right.
+You can change the orientation on a per-workspace basis if you want to use anything other than the default left/right split.
 
 <video width="1024" height="566" autoplay muted loop>
   <source src="https://dl.hypr.land/wiki/demo_master.mp4" type="video/mp4">
@@ -14,7 +12,7 @@ than the default left/right split.
 
 ## Config
 
-category name `master` (`hl.config({ master = {...} })`)
+Path: `master`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -62,7 +60,7 @@ Parameters for the commands are separated by a single space.
 
 > [!NOTE]
 > Example usage:
-> 
+>
 > ```lua
 > hl.bind(KEYS, hl.dsp.layout("cyclenext"))
 > -- behaves like xmonads promote feature (https://hackage.haskell.org/package/xmonad-contrib-0.17.1/docs/XMonad-Actions-Promote.html)

@@ -5,7 +5,8 @@ weight: 10
 
 ## Events
 
-With `hl.on`, you can define callbacks on events. You can register as many as you want.
+With `hl.on`, you can define callbacks on events.
+You can register as many as you want.
 
 ```lua
 hl.on("window.active", function(w)
@@ -13,7 +14,7 @@ hl.on("window.active", function(w)
 end)
 ```
 
-or, if you're working with events that have multiple parameters
+Or, if you're working with events that have multiple parameters:
 
 ```lua
 hl.on("workspace.move_to_monitor", function(ws, m)
@@ -61,4 +62,3 @@ Event list:
 | keybinds.submap | Emitted when the active submap changes. An empty string means the default submap was restored. | String: Submap Name|
 | screenshare.state | Emitted when a screenshare session starts or stops. | Bool: Active, Integer: Type, String: Name |
 | input.keyboard.key | Emitted when a key is pressed or released. | Integer: XKB keycode, Integer: Unix timestamp that the event occurred, Integer: Can be released (0), pressed (1), or repeated (2) |
-

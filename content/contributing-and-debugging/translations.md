@@ -24,8 +24,8 @@ You submit a translation via a traditional MR on Github.
 
 ### Basic translations (unconditional)
 
-You register a translation for a key and your language code. For example, for key `TXT_KEY_HELLO`, and language
-`pl_PL` (Polish), you can:
+You register a translation for a key and your language code.
+For example, for key `TXT_KEY_HELLO`, and language `pl_PL` (Polish), you can:
 
 ```cpp
 registerEntry("pl_PL", TXT_KEY_HELLO, "Siemka!");
@@ -39,7 +39,7 @@ registerEntry("pl_PL", TXT_KEY_HELLO, "Siemka, {name}!");
 
 ### Conditional translations
 
-In some languages, you might want to change your translation based on e.g. the amount, apple vs apples.
+In some languages, you might want to change your translation based on e.g. the amount (apple vs apples).
 In this case, it's a bit more complicated, but it looks like this:
 
 ```cpp
