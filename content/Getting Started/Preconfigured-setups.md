@@ -60,3 +60,16 @@ An opinionated Arch + Hyprland Setup by DHH.
 [Website](https://omarchy.org/)
 
 ![Image of Omarchy](https://i.ytimg.com/vi/Cft6mZDzIng/maxresdefault.jpg)
+
+## Dank Linux
+
+Dank Linux is a desktop suite built around DankMaterialShell — a complete Material 3-inspired
+desktop shell. A single installer command turns an existing install of many popular distros into a
+fully themed Hyprland desktop with a bar, launcher, notifications, lock screen, control center,
+and automatic wallpaper-based theming.
+
+[Website](https://danklinux.com/)
+
+[GitHub](https://github.com/AvengeMedia/DankMaterialShell)
+
+![Image of Dank Linux](https://github.com/user-attachments/assets/203a9678-c3b7-4720-bb97-853a511ac5c8)

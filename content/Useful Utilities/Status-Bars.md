@@ -81,6 +81,12 @@ If you are using multiple monitors, you may want to insert the following option:
 - Has a pretty limited configuration options. It's a good and a bad thing at the same time. You can get a very decent result quickly and with a little effort, but some crazy waybar-alike tweaks are not possible.
 
 
+## Desktop shells
+
+These provide much more than a status bar: a launcher, notifications, a lock screen and more
+ship in a single package, giving you a DE-like experience out of the box — still with little
+to no coding involved.
+
 ### Noctalia
 [Noctalia](https://noctalia.dev/) is a beautiful, minimal desktop shell for Wayland.
 
@@ -89,6 +95,17 @@ If you are using multiple monitors, you may want to insert the following option:
 - Notification system with history and Do Not Disturb.
 - Plugin support.
 - Built on Quickshell.
+
+### DankMaterialShell
+
+[DankMaterialShell](https://danklinux.com/) is a complete Material 3-inspired desktop shell for
+Hyprland and other Wayland compositors.
+
+- Ships a bar, launcher, notification center, control center and lock screen out of the box,
+  replacing waybar, fuzzel, mako, swaylock and friends in one package.
+- Automatic wallpaper-based theming that can extend to GTK/Qt apps and terminals.
+- Configurable through a built-in GUI settings app, extensible with plugins and widgets.
+- Built on Quickshell and Go.
 
 ## Widget systems
 
