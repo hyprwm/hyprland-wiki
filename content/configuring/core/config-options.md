@@ -3,7 +3,7 @@ weight: 20
 title: Config options
 ---
 
-This page documents all the "options" of Hyprland. For binds, monitors, animations, etc. see the sidebar.
+This page documents all of Hyprland's "options". For binds, monitors, animations, etc. see the sidebar.
 
 Please keep in mind some options that are layout-specific will be documented in
 the layout pages and not here. (See the Sidebar for Dwindle/Scrolling/Master/Monocle/Custom layouts)
