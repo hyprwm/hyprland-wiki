@@ -24,7 +24,7 @@ hl.env("GTK_THEME", "Nord")
 - `hl.env("HYPRLAND_TRACE", "1")` - Enables more verbose logging.
 - `hl.env("HYPRLAND_NO_RT", "1")` - Disables realtime priority setting by Hyprland.
 - `hl.env("HYPRLAND_NO_SD_NOTIFY", "1")` - If systemd, disables the `sd_notify` calls.
-- `hl.env("HYPRLAND_NO_SD_VARS", "1")` - Disables management of variables in systemd and dbus activation environments.
+- `hl.env("HYPRLAND_NO_SD_VARS", "1")` - Disables management of variables in systemd and D-Bus activation environments.
 - `hl.env("HYPRLAND_CONFIG", "/path/to/hyprland.lua")` - Specifies where you want your Hyprland configuration.
 
 ## Aquamarine Environment Variables <!-- ref https://github.com/hyprwm/aquamarine/blob/main/docs/env.md -->
@@ -32,7 +32,7 @@ hl.env("GTK_THEME", "Nord")
 - `hl.env("AQ_TRACE", "1")` - Enables more verbose logging.
 - `hl.env("AQ_DRM_DEVICES", "...")` - Set an explicit list of DRM devices (GPUs) to use. It's a colon-separated list of paths, with the first being the primary.
   E.g.: `/dev/dri/card1:/dev/dri/card0`
-- `hl.env("AQ_FORCE_LINEAR_BLIT", "0")` - Disables forcing linear explicit modifiers on Multi-GPU buffers to potentially workaround Nvidia issues.
+- `hl.env("AQ_FORCE_LINEAR_BLIT", "0")` - Disables forcing linear explicit modifiers on Multi-GPU buffers to potentially workaround NVIDIA issues.
 - `hl.env("AQ_MGPU_NO_EXPLICIT", "1")` - Disables explicit syncing on mgpu buffers.
 - `hl.env("AQ_NO_MODIFIERS", "1")` - Disables modifiers for DRM buffers.
 - `hl.env("AQ_NO_KMS_REQUIREMENT", "1")` - Disable KMS requirement for starting on headless GPUs.
@@ -106,7 +106,7 @@ To force GBM as a backend, set the following environment variables:
   Refresh Rate (VRR)
 
 > See
-> [Nvidia Documentation](https://download.nvidia.com/XFree86/Linux-32bit-ARM/375.26/README/openglenvvariables.html)
+> [NVIDIA Documentation](https://download.nvidia.com/XFree86/Linux-32bit-ARM/375.26/README/openglenvvariables.html)
 > for details.
 
 - `__GL_VRR_ALLOWED` - Controls if Adaptive Sync should be used. Recommended to

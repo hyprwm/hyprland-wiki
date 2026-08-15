@@ -84,7 +84,7 @@ If a function is a C-style allocator, e.g. `some_c_call_make_new()`, it will lik
 Generally, use the STL instead of trying to reinvent the wheel.
 
 ### Use hyprutils
-Hyprutils provides a lot of utilities that are well-suited for hyprland (and other hypr* projects) specifically. Use them.
+Hyprutils provides a lot of utilities that are well-suited for Hyprland (and other hypr* projects) specifically. Use them.
 
 ### No absolute includes from /src
 Imagine this scenario:

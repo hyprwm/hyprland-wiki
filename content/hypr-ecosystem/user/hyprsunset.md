@@ -85,7 +85,7 @@ To autostart hyprsunset, add: `hyprsunset` to your `hyprland.lua`'s autostart se
 Hyprsunset can also be controlled by supplying arguments to the command.  
 By specifying `hyprsunset --temperature 5000` you will override the current active config's temperature setting.  This however, will be overridden once a new profile is activated.
 
-For more information on cli arguments, run `hyprsunset --help`
+For more information on CLI arguments, run `hyprsunset --help`
 
 ## IPC
 

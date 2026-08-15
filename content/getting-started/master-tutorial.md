@@ -17,12 +17,12 @@ successfully installed Hyprland.
 Install `kitty` (default terminal emulator). This is available in most distros'
 repositories.
 
-## Nvidia?
+## NVIDIA?
 
 > [!NOTE]
-> If not using an Nvidia card, skip this step.
+> If not using an NVIDIA card, skip this step.
 
-Please take a look at [The Nvidia page](../../nvidia) before launching. It has
+Please take a look at [The NVIDIA page](../../nvidia) before launching. It has
 information regarding the needed environment and tweaks.
 
 ## VM?
@@ -39,7 +39,7 @@ Please bear in mind 3D acceleration in VMs may be pretty slow.
 
 ## Launching Hyprland
 
-Hyprland can be executed by typing `start-hyprland` in your tty.
+Hyprland can be executed by typing `start-hyprland` in your TTY.
 
 > [!WARNING]
 > Do **not** launch Hyprland with `root` permissions (don't `sudo`)
@@ -50,7 +50,7 @@ config path, ignoring a check for the above, etc.
 Login managers are not officially supported, but here's a short compatibility
 list:
 
-- SDDM → Works flawlessly. Install sddm ⩾ 0.20.0 or the
+- SDDM → Works flawlessly. Install SDDM version ⩾ 0.20.0 or the
   [latest git version](https://github.com/sddm/sddm) (or
   [sddm-git](https://aur.archlinux.org/packages/sddm-git) from AUR) to prevent
   SDDM bug [1476](https://github.com/sddm/sddm/issues/1476) (90s shutdowns).
@@ -125,7 +125,7 @@ it.
 A few more environment variables for forcing Wayland mode are documented
 [here](../../configuring/core/environment-variables).
 
-You can check whether an app is running in xwayland or not with
+You can check whether an app is running in Xwayland or not with
 `hyprctl clients`.
 
 ## Themes

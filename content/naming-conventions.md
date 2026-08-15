@@ -41,14 +41,14 @@ Coordinates are in inverse Y cartesian system, so from top-left corner of the mo
 | int | Integer number |
 | float | Floating point number |
 | bool | Boolean, `true` or `false` |
-| string | Lua string. Symbols wrapped in `""`/`[[]]`/`''`, e.g: `"dwindle"`/`[[master]]`/`'scrolling'`. When using lua multiline string (`[[]]`) escaping of `"` and `'` is not needed |
+| string | Lua string. Symbols wrapped in `""`/`[[]]`/`''`, e.g: `"dwindle"`/`[[master]]`/`'scrolling'`. When using Lua multiline string (`[[]]`) escaping of `"` and `'` is not needed |
 | vec2 | Vector with 2 float values. { x, y }, e.g. `{ 20, 20 }` |
 | css_gaps | An integer, or `{ top?, left?, right?, bottom? }` |
 | color | Color. See hint below for color info |
 | gradient | A gradient, will accept a color, or `{ colors = { color, color }, angle? = float }` structure |
 | font_weight | An integer between 100 and 1000, or one of the following presets: `thin` (100) `ultralight` (200) `light` (300) `semilight` (350) `book` (380) `normal` (400) `medium` (500) `semibold` (600) `bold` (700) `ultrabold` (800) `heavy` (900) `ultraheavy` (1000) |
 
-There are implicit conversions between certain types, however, this may lead to undefined behaviour later. Lsp with lua stub can be used to warn about the use of wrong types. More on that can be read [here](../configuring/core#autocompletions)
+There are implicit conversions between certain types, however, this may lead to undefined behaviour later. LSP with Lua stub can be used to warn about the use of wrong types. More on that can be read [here](../configuring/core#autocompletions)
 
 ### Colors
 
@@ -120,7 +120,7 @@ Workspace can be selected by:
 
 #### Workspace props
 
-<!-- TODO i think we should make a petition to rework this for lua -->
+<!-- TODO i think we should make a petition to rework this for Lua -->
 
 Workspaces that have already been created can be targeted by workspace
 selectors, e.g. `r[2-4] w[t1]`.

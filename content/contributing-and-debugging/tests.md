@@ -25,8 +25,8 @@ And make sure your tests pass.
 
 ### Hyprland's hyprtester
 
-A lot of hyprland's code cannot be unit tested, thus we have our own Hyprtester
-binary which runs hyprland and issues commands and expects results.
+A lot of Hyprland's code cannot be unit tested, thus we have our own Hyprtester
+binary which runs Hyprland and issues commands and expects results.
 
 #### Run all tests
 

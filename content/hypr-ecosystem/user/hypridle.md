@@ -9,7 +9,7 @@ title: hypridle
 
 Configuration is done via the config file at `~/.config/hypr/hypridle.conf`.  
 A config file is required; hypridle won't run without one.  
-To run hypridle at startup, add `hypridle` to your autostart commands in your hyprland config.
+To run hypridle at startup, add `hypridle` to your autostart commands in your Hyprland config.
 
 <!-- If Hyprland is started with [uwsm](../../Useful-Utilities/Systemd-start), you can use `systemctl --user enable --now hypridle.service`. -->
 
@@ -19,13 +19,13 @@ Variables in the `general` category:
 
 | Variable | Description | Type | Default |
 | --- | --- | --- | --- |
-| `lock_cmd` | command to run when receiving a dbus lock event (e.g. `loginctl lock-session`) | string | empty |
-| `unlock_cmd` | command to run when receiving a dbus unlock event (e.g. `loginctl unlock-session`) | string | empty |
+| `lock_cmd` | command to run when receiving a D-Bus lock event (e.g. `loginctl lock-session`) | string | empty |
+| `unlock_cmd` | command to run when receiving a D-Bus unlock event (e.g. `loginctl unlock-session`) | string | empty |
 | `on_lock_cmd` | command to run when the session gets locked by a lock screen app | string | empty |
 | `on_unlock_cmd` | command to run when the session gets unlocked by a lock screen app | string | empty |
-| `before_sleep_cmd` | command to run when receiving a dbus prepare_sleep event | string | empty |
-| `after_sleep_cmd` | command to run when receiving a dbus post prepare_sleep event | string | empty |
-| `ignore_dbus_inhibit` | whether to ignore dbus-sent idle inhibit events (e.g. from firefox) | bool | `false` |
+| `before_sleep_cmd` | command to run when receiving a D-Bus prepare_sleep event | string | empty |
+| `after_sleep_cmd` | command to run when receiving a D-Bus post prepare_sleep event | string | empty |
+| `ignore_dbus_inhibit` | whether to ignore D-Bus idle inhibit events (e.g. from firefox) | bool | `false` |
 | `ignore_systemd_inhibit` | whether to ignore `systemd-inhibit --what=idle` inhibitors | bool | `false` |
 | `ignore_wayland_inhibit` | whether to ignore Wayland protocol idle inhibitors | bool | `false` |
 | `inhibit_sleep` | sleep inhibition mode: <br> `0`: disable <br> `1`: normal <br> `2`: auto <br> `3`: lock notify | int | `2` |
@@ -37,7 +37,7 @@ Variables in the `general` category:
 > - `0` disables sleep inhibition.
 > - `1` makes the system wait until hypridle launched `general:before_sleep_cmd`.
 > - `2` (auto) selects either `3` or `1` depending on whether hypridle detects if you want to launch hyprlock before sleep.
-> - `3` makes your system wait until the session gets locked by a lock screen app. This works with all wayland session-lock apps.
+> - `3` makes your system wait until the session gets locked by a lock screen app. This works with all Wayland session-lock apps.
 
 ### Listeners
 

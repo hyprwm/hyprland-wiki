@@ -83,7 +83,7 @@ These should be set outside of the `wallpaper{...}` sections.
 
 | variable | description | type | default |
 | --- | --- | --- | --- |
-| `splash` | enable rendering of the hyprland splash over the wallpaper | bool | `true` |
+| `splash` | enable rendering of the Hyprland splash over the wallpaper | bool | `true` |
 | `splash_offset` | how far up should the splash be displayed | float | `20` |
 | `splash_opacity` | how opaque the splash is | float | `0.8` |
 | `ipc` | whether to enable IPC | bool | `true` |

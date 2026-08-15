@@ -35,7 +35,7 @@ To keep a failed build directory, pass the `--keep-failed` flag.
 
 ### Using Cachix to bisect
 
-If you enable [Cachix](../cachix), you can call `nix run github:hyprwm/Hyprland/commit_hash` to execute that commit without compiling it, because cachix stores binaries for every commit from hyprland.
+If you enable [Cachix](../cachix), you can call `nix run github:hyprwm/Hyprland/commit_hash` to execute that commit without compiling it, because cachix stores binaries for every commit from Hyprland.
 
 ## Building the Wayland stack with ASan
 
@@ -51,7 +51,7 @@ stacktraces from Hyprland, make sure it was [built in debug mode](#build-in-debu
 After a crash, perform the following steps:
 
 ```sh
-nix shell nixpkgs#gdb # get gdb temporarily
+nix shell nixpkgs#gdb # get GDB temporarily
 coredumpctl # check the PID of the recent crash
 coredumpctl debug <PID> # using the PID found in the previous step
 ```
@@ -61,9 +61,9 @@ The rest of the process is the same as
 
 ## Manual building
 
-You can build hyprland using cmake instead of using `nix build`. The advantage is being able to do incremental builds (just building whatever little change you made instead of the entire repo).
+You can build Hyprland using cmake instead of using `nix build`. The advantage is being able to do incremental builds (just building whatever little change you made instead of the entire repo).
 
-1. Clone the hyprland repo including its submodules.
+1. Clone the Hyprland repo including its submodules.
 2. Enter the directory and execute `nix develop` in your shell.
 3. Run `make debug` (check the Makefile for other options).
 4. For doing an incremental build (only building any small change you made after the first full build), run the following command (included in the Makefile):  

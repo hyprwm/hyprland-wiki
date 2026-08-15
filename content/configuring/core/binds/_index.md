@@ -21,7 +21,7 @@ title: Binds
 hl.bind("keys", dispatcher or function() , {bind_flags})
 ```
 
-for example,
+For example,
 
 ```lua
 hl.bind("SUPER + SHIFT + Q", hl.dsp.exec_cmd("firefox"))
@@ -34,7 +34,7 @@ will bind opening Firefox to <key>SUPER</key> + <key>SHIFT</key> + <key>Q</key>
 The dispatcher list can be found in
 [Dispatchers](../dispatchers).
 
-You can also put a lua function, if you prefer, as your bind dispatcher:
+You can also put a Lua function, if you prefer, as your bind dispatcher:
 
 ```lua
 hl.bind("SUPER + SHIFT + X", function()
@@ -85,7 +85,7 @@ because they are not treated as modifiers
 > [!WARNING]
 > The keybinds will be executed top to bottom, in the order they were written in.
 
-You can trigger multiple actions with the same keybind by using a lua lambda function, with different `disapatcher`s and `param`s:
+You can trigger multiple actions with the same keybind by using a Lua lambda function, with different `disapatcher`s and `param`s:
 
 ```lua
 -- To switch between windows in a floating workspace:
@@ -108,7 +108,7 @@ hl.unbind("SUPER + Tab") -- this will NOT unbind
 hl.unbind("SUPER + TAB") -- this will unbind
 ```
 
-## XKB Remapping mod keys
+## XKB remapping mod keys
 
 You can customize the behavior of some modifier keys using `kb_options`.
 
@@ -120,7 +120,7 @@ cat /usr/share/X11/xkb/rules/base.lst
 
 {{% details title="Examples" closed="true" %}}
 
-To remap Caps lock to Ctrl:
+To remap Caps Lock to Ctrl:
 
 ```lua
 hl.config({

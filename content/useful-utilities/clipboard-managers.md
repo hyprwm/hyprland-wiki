@@ -3,7 +3,7 @@ weight: 100
 title: Clipboard managers
 ---
 
-_Starting method:_ manual (in hyprland config's autostarts)
+_Starting method:_ manual (in Hyprland config's autostarts)
 
 Clipboard Managers provide a convenient way to organize and access previously
 copied content, including both text and images.  
@@ -24,7 +24,7 @@ Alternative to `cliphist` with a couple extra features (e.g. max age for entries
 - [`wl-clip-persist`](https://github.com/Linus789/wl-clip-persist) - When copying something on Wayland, the copied data remains in the clipboard until the application that was copied from is closed; after that, the data disappears and can no longer be pasted.  
 To fix this problem, you can use `wl-clip-persist` which will preserve the data in the clipboard after the application is closed.
 
-- [`cursor-clip`](https://github.com/Sirulex/cursor-clip) - A modern wayland clipboard manager built with Rust, GTK4, Libadwaita and Layer Shell that makes clipboard handling more reliable. Features a Windows 11–style clipboard history interface with native GNOME design, which is always positioned at the current mouse pointer location. Supports all clipboard formats, including text, images, and files. 
+- [`cursor-clip`](https://github.com/Sirulex/cursor-clip) - A modern Wayland clipboard manager built with Rust, GTK4, Libadwaita and Layer Shell that makes clipboard handling more reliable. Features a Windows 11–style clipboard history interface with native GNOME design, which is always positioned at the current mouse pointer location. Supports all clipboard formats, including text, images, and files. 
 
 ## cliphist
 
@@ -195,7 +195,7 @@ dialog.
 ## wl-clip-persist
 
 Add the following to your autostarts.
-No other changes are required. The basic wayland copy/paste mechanisms will now persist even when the source window is closed.
+No other changes are required. The basic Wayland copy/paste mechanisms will now persist even when the source window is closed.
 
 ```sh
 wl-clip-persist --clipboard regular
@@ -213,7 +213,7 @@ Start by adding the following to your autostarts: `cursor-clip --daemon`
 
 This starts the background daemon that monitors clipboard changes.
 
-To bind `cursor-clip` to a hotkey for quick access, you can add a keybind to run `cursor-clip` to your hyprland config.
+To bind `cursor-clip` to a hotkey for quick access, you can add a keybind to run `cursor-clip` to your Hyprland config.
 
 When triggered, `cursor-clip` will automatically position its overlay window at your current mouse location, providing a Windows 11-style clipboard history interface. The overlay supports all clipboard formats including text, images, and files, with a native GNOME design built using GTK4 and Libadwaita.
 

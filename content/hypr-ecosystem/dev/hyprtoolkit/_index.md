@@ -12,7 +12,7 @@ For developer docs, see [development](./development)
 ## Configuration
 
 The general toolkit config is at `~/.config/hypr/hyprtoolkit.conf`.  
-It contains theming and some minor adjustments and supports the same color options as hyprland.
+It contains theming and some minor adjustments and supports the same color options as Hyprland.
 
 | Variable | Description | Type | Default |
 | --- | --- | --- | --- |

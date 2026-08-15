@@ -56,8 +56,8 @@ Report an issue on GitHub or on the Discord server.
 
 1. Build Hyprland in debug (`make debug`).
 2. Start Hyprland and get it to crash.
-3. In a tty or terminal, do `coredumpctl debug Hyprland`.
-   - If gdb asks you for symbols, say `y`.
+3. In a TTY or terminal, do `coredumpctl debug Hyprland`.
+   - If GDB asks you for symbols, say `y`.
    - If it asks about paging, say `c`.
 4. Once you get to `(gdb)`, start file logging with `set logging enabled`.
    - For a specific file, use `set logging file output.log`.
@@ -135,13 +135,13 @@ commit that introduced the bug:
 
 If requested, this is the deepest level of memory issue debugging possible.
 
-_Do this in the tty, with no Hyprland instances running._
+_Do this in the TTY, with no Hyprland instances running._
 
-Clone hyprland: `git clone --recursive https://github.com/hyprwm/Hyprland`
+Clone Hyprland: `git clone --recursive https://github.com/hyprwm/Hyprland`
 
 `make asan`
 
-Reproduce your crash. Hyprland will exit back to the tty.
+Reproduce your crash. Hyprland will exit back to the TTY.
 
 Now, in either `cwd`, `~` or `./build`, search for file(s) named
 `asan.log.XXXXX` where XXXXX is a number.
@@ -150,8 +150,8 @@ Zip all of them up and attach to your issue.
 
 ## Debugging DRM issues
 
-DRM (Direct Rendering Manager) is the underlying kernel architecture to take a gpu buffer (something
-we can render to) and put it on your screen (via the gpu) instead of a window.
+DRM (Direct Rendering Manager) is the underlying kernel architecture to take a GPU buffer (something
+we can render to) and put it on your screen (via the GPU) instead of a window.
 
 Freezes, glitches, and others, can be caused by issues with Hyprland's communication with DRM, the driver
 or kernel. In those cases, a DRM log is helpful.
@@ -165,7 +165,7 @@ sudo dmesg -C                                           # clears kernel debug lo
 dmesg -w > ~/dmesg.log &                                # writes kernel logs in the background to a file at ~/dmesg.log
 Hyprland
 
-# ... repro the issue, then quit hyprland
+# ... repro the issue, then quit Hyprland
 
 
 fg # after this, use CTRL+C to stop writing the logs

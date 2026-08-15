@@ -20,7 +20,7 @@ See also: `hyprlock --help`.
 | `-v` \| `--verbose` | Enable verbose logging |
 | `-q` \| `--quiet` | Disable logging |
 | `-c` FILE \| `--config` FILE | Specify config file to use |
-| `--display` NAME | Specify the wayland display to connect to |
+| `--display` NAME | Specify the Wayland display to connect to |
 | `--grace` SECONDS | Set grace period in seconds before requiring authentication |
 | `--immediate-render` | Do not wait for resources before drawing the background (Same as `general:immediate_render`) |
 | `--no-fade-in` | Disable the fade-in animation when the lock screen appears |
@@ -57,7 +57,7 @@ Variables in the `general` category:
 | `immediate_render` | Makes hyprlock immediately start to draw widgets. <br> Backgrounds will render `background:color` until their `background:path` resource is available. | bool | `false` |
 | `text_trim` | Sets if the text should be trimmed, useful to avoid trailing newlines in commands' output. | bool | `true` |
 | `fractional_scaling` | Whether to use fractional scaling. <br> `0`: disabled <br> `1`: enabled <br> `2`: auto | int | `2` |
-| `screencopy_mode` | Selects screencopy mode: <br> `0`: gpu accelerated <br> `1`: cpu based (slow) | int | `0` |
+| `screencopy_mode` | Selects screencopy mode: <br> `0`: GPU-accelerated <br> `1`: CPU-based (slow) | int | `0` |
 | `fail_timeout` | Milliseconds until the ui resets after a failed auth attempt | int | `2000` |
 
 ### Authentication
@@ -66,8 +66,8 @@ Variables in the `auth` category:
 
 | Variable | Description | Type | Default |
 | -- | -- | -- | -- |
-| `pam:enabled` | Whether to enable pam authentication. | bool | `true` |
-| `pam:module` | Sets the pam module used for authentication. If the module isn't found in `/etc/pam.d`, "su" will be used as a fallback. | str | `hyprlock` |
+| `pam:enabled` | Whether to enable PAM authentication. | bool | `true` |
+| `pam:module` | Sets the PAM module used for authentication. If the module isn't found in `/etc/pam.d`, "su" will be used as a fallback. | str | `hyprlock` |
 | `fingerprint:enabled` | Enables parallel fingerprint auth with fprintd. | bool | `false` |
 | `fingerprint:ready_message` | Sets the message that will be displayed when fprintd is ready to scan a fingerprint. | str | `(Scan fingerprint to unlock)` |
 | `fingerprint:present_message` | Sets the message that will be displayed when a finger is placed on the scanner. | str | `Scanning fingerprint` |
@@ -105,7 +105,7 @@ Check out Hyprland's [animation documentation](../../../configuring/core/animati
 global
   ↳ fade
     ↳ fadeIn - fade to lockscreen
-    ↳ fadeOut - fade back to the wayland session
+    ↳ fadeOut - fade back to the Wayland session
   ↳ inputField
     ↳ inputFieldColors - fade between colors and gradients
     ↳ inputFieldFade - fade_on_empty animation
@@ -116,7 +116,7 @@ global
 ### System Configuration
 
 On Arch Linux, by default, hyprlock integrates with [pambase](https://archlinux.org/packages/?name=pambase) through `pam_faillock.so`, which forces a 10 minute timeout after 3 failed unlocks.  
-If you would like to change this, refer to the [arch linux wiki](https://wiki.archlinux.org/title/Security#Lock_out_user_after_three_failed_login_attempts) and update the `/etc/security/faillock.conf` file with parameters `unlock_time`, `fail_interval`, and `deny` as needed.
+If you would like to change this, refer to the [Arch Linux wiki](https://wiki.archlinux.org/title/Security#Lock_out_user_after_three_failed_login_attempts) and update the `/etc/security/faillock.conf` file with parameters `unlock_time`, `fail_interval`, and `deny` as needed.
 
 ## Keyboard Shortcuts and Actions
 
@@ -128,7 +128,7 @@ The following keys and key-combinations describe hyprlock's default behaviour:
 | `Ctrl + u` | Clear password buffer |
 | `Ctrl + Backspace` | Clear password buffer |
 
-The [`locked` flag](../../../configuring/core/binds/flags#bind-flags) `l` can be used to allow specific hyprland keybinds to also work while hyprlock is active (e.g. brightness/volume/media control).
+The [`locked` flag](../../../configuring/core/binds/flags#bind-flags) `l` can be used to allow specific Hyprland keybinds to also work while hyprlock is active (e.g. brightness/volume/media control).
 
 ## Widgets
 
@@ -144,7 +144,7 @@ widget_name {
 ### Monitor Selection
 `monitor` is available for all widgets and can be left empty for "all monitors".
 
-It takes the same string that is used to reference monitors in the hyprland configuration.
+It takes the same string that is used to reference monitors in the Hyprland configuration.
 So either use the portname (e.g. `eDP-1`) or the monitor description (e.g. `desc:Chimei Innolux Corporation 0x150C`).
 
 See [Monitors](../../../configuring/core/monitors).
@@ -159,8 +159,8 @@ The following variables in widget text options will be substituted.
 - `$LAYOUT` - current keyboard layout
 - `$ATTEMPTS` - failed authentication attempts
 - `$FAIL` - last authentication fail reason
-- `$PAMPROMPT` - pam auth last prompt
-- `$PAMFAIL` - pam auth last fail reason
+- `$PAMPROMPT` - PAM auth last prompt
+- `$PAMFAIL` - PAM auth last fail reason
 - `$FPRINTPROMPT` - fingerprint auth last prompt
 - `$FPRINTFAIL` - fingerprint auth last fail reason
 
@@ -229,7 +229,7 @@ If `path` is `screenshot`, a screenshot of your desktop at launch will be used.
 | `zindex` | z-index of the widget. | int | `-1` |
 
 > [!NOTE]
-> Blur options are taken from hyprland.
+> Blur options are taken from Hyprland.
 > See [blur](../../../configuring/core/config-options#blur).
 
 {{% details title="Example background" closed="true" %}}
@@ -359,7 +359,7 @@ Draws a password input field.
 | `check_text` | Text rendered when waiting for the authentication result. | str | _empty_ |
 | `fail_color` | Color accent when authentication fails. | gradient | `rgba(204, 34, 34, 1.0)` |
 | `fail_text` | Text rendered when authentication fails. | str | `<i>$FAIL <b>($ATTEMPTS)</b></i>` |
-| `capslock_color` | Color accent when capslock is active. | gradient | _empty_ |
+| `capslock_color` | Color accent when Caps Lock is active. | gradient | _empty_ |
 | `numlock_color` | Color accent when numlock is active. | gradient | _empty_ |
 | `bothlock_color` | Color accent when both locks are active. | gradient | _empty_ |
 | `invert_numlock` | Change color if numlock is off. | bool | `false` |
@@ -373,7 +373,7 @@ Draws a password input field.
 >
 > When `outline_thickness` is set to `0`, the color of the inner box will be changed instead of the outer.   
 > Behaviour of `swap_font_color` is as follows:  
-> - `outline_thickness` is `0`: if set, font color will be swapped with inner one on color change events (e.g. Caps-lock on or password check).
+> - `outline_thickness` is `0`: if set, font color will be swapped with inner one on color change events (e.g. Caps Lock on or password check).
 > - `outline_thickness` is not `0`: if set, font and inner colors will be swapped on password check and authentication failure.
 > - `swap_font_color` will narrow the accent colors from a gradient to a single color by using the first specified color.
 
@@ -467,5 +467,5 @@ label {
 
 ## User Signals
 
-- `SIGUSR1`: Unlocks hyprlock. For example, you can switch to another tty and run `pkill -USR1 hyprlock`.
+- `SIGUSR1`: Unlocks hyprlock. For example, you can switch to another TTY and run `pkill -USR1 hyprlock`.
 - `SIGUSR2`: Updates labels and images. See above.

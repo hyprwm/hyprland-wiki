@@ -44,7 +44,7 @@ from the original gesture including direction, mods, fingers and scale.
 
 | action | Description | Additional arguments |
 | --- | --- | --- |
-| _lua function_ | Executes a named lua function or lua lambda function. See below. | none |
+| _lua function_ | Executes a named Lua function or Lua lambda function. See below. | none |
 | workspace | Workspace swipe gesture, for switching workspaces. | none |
 | move | Moves the active window. | none |
 | resize | Resizes the active window. | none |
@@ -71,7 +71,7 @@ hl.gesture({ fingers = 2, direction = "pinch", action = "cursor_zoom", zoom_leve
 
 #### Lua function
 
-The lua function can be named or a lambda.
+The Lua function can be named or a lambda.
 
 An example of a lambda:
 ```lua
@@ -97,7 +97,7 @@ hl.gesture({
 })
 ```
 
-#### Live lua gestures
+#### Live Lua gestures
 
 For live gestures, i.e. ones that react to the gesture state, pass a table instead of a lambda,
 which has `start`, `update` and `finish` methods.
@@ -174,7 +174,7 @@ Some gestures might have their own additional fields, those were mentioned in th
 
 ### Examples
 
-Run a lua lambda function, open a terminal with a 4-finger swipe up:
+Run a Lua lambda function, open a terminal with a 4-finger swipe up:
 
 ```lua
 hl.gesture({ fingers = 4, direction = "up", action = function() hl.exec_cmd("kitty") end })

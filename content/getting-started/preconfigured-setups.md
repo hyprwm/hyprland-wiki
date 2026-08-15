@@ -16,7 +16,7 @@ Here are a few options to consider:
 
 ML4W or My Linux 4 Work, is a great DE-like experience out-of-the-box made by Stephan Raabe.
 
-It includes simple gui settings apps, pre-configured feature-rich panels, a welcome app, and more.
+It includes simple GUI settings apps, pre-configured feature-rich panels, a welcome app, and more.
 
 [Website](https://ml4w.com/os/)
 

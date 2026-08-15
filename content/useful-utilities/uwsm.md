@@ -52,11 +52,11 @@ For more info, read the [option](https://search.nixos.org/options?channel=unstab
 > [!NOTE]
 > Pay attention to the warnings in [Environment variables](../../configuring/core/environment-variables), [Multi-GPU](../../configuring/extra/multi-gpu) and [Dispatchers](../../configuring/core/dispatchers) sections.
 
-#### In tty
+#### In TTY
 
 {{% details title="GNOME Keyring PAM setup" closed="true" %}}
 
-When launching from a tty instead of a display manager, some session integrations that display managers normally handle may not be configured. One common example is [GNOME Keyring](https://wiki.gnome.org/Projects/GnomeKeyring) - if `pam_gnome_keyring.so` is not present in your PAM login configuration, the keyring will not auto-unlock, and applications may prompt you to unlock it manually.
+When launching from a TTY instead of a display manager, some session integrations that display managers normally handle may not be configured. One common example is [GNOME Keyring](https://wiki.gnome.org/Projects/GnomeKeyring) - if `pam_gnome_keyring.so` is not present in your PAM login configuration, the keyring will not auto-unlock, and applications may prompt you to unlock it manually.
 
 To set this up, add the `pam_gnome_keyring.so` lines to the PAM configuration file used by your login method (e.g. `/etc/pam.d/login` for `login(1)`). Consult your distribution's documentation for the correct file and syntax. For example, on Arch Linux:
 
@@ -73,7 +73,7 @@ session    include      system-local-login
 -session   optional     pam_gnome_keyring.so    auto_start
 ```
 
-Display managers (GDM, SDDM, etc.) typically include this PAM configuration already. This step is only needed for console-based (tty) login.
+Display managers (GDM, SDDM, etc.) typically include this PAM configuration already. This step is only needed for console-based (TTY) login.
 
 {{% /details %}}
 
@@ -133,7 +133,7 @@ There is no need to explicitly set XDG environment variables, as uwsm sets them 
 
 
 Avoid placing environment variables in the `hyprland.lua` file.  
-Instead, use `~/.config/uwsm/env` for theming, xcursor, Nvidia and toolkit variables, and `~/.config/uwsm/env-hyprland` for `HYPR*` and `AQ_*` variables.  
+Instead, use `~/.config/uwsm/env` for theming, xcursor, NVIDIA and toolkit variables, and `~/.config/uwsm/env-hyprland` for `HYPR*` and `AQ_*` variables.  
 The format is `export KEY=VAL`.
 
 ```plain
@@ -142,7 +142,7 @@ export XCURSOR_SIZE=24
 
 See [uwsm readme](https://github.com/Vladimir-csp/uwsm?tab=readme-ov-file#4-environments-and-shell-profile) for additional information.
 
-Avoid using the hyprland `exit` dispatcher or terminating the Hyprland process directly, as exiting Hyprland this way removes it from under its clients and interferes with ordered shutdown sequence; causing a forced shutdown. Use `uwsm stop` (or [other variants](https://github.com/Vladimir-csp/uwsm#how-to-stop)) which will gracefully bring down graphical session (and login session bound to it, if any). If you experience problems with units entering inconsistent states, affecting subsequent sessions, use `loginctl terminate-user ""` instead (terminates all units of the user).
+Avoid using the Hyprland `exit` dispatcher or terminating the Hyprland process directly, as exiting Hyprland this way removes it from under its clients and interferes with ordered shutdown sequence; causing a forced shutdown. Use `uwsm stop` (or [other variants](https://github.com/Vladimir-csp/uwsm#how-to-stop)) which will gracefully bring down graphical session (and login session bound to it, if any). If you experience problems with units entering inconsistent states, affecting subsequent sessions, use `loginctl terminate-user ""` instead (terminates all units of the user).
 
 ## NixOS UWSM
 

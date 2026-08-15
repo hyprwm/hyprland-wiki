@@ -86,7 +86,7 @@ For example:
 
 ### Layout Mode
 
-This happens when the parent of your element is a layout. These will attempt to position your child elements. They work similarly to CSS's `flex` and qt's `RowLayout` and `ColumnLayout`,
+This happens when the parent of your element is a layout. These will attempt to position your child elements. They work similarly to CSS's `flex` and Qt's `RowLayout` and `ColumnLayout`,
 but will not wrap. If elements overflow and cannot shrink, they will disappear.
 
 RowLayout positions elements next to each other side-by-side, while ColumnLayout does it top-to-bottom.
@@ -127,12 +127,10 @@ Then, you can take that object and slap it into an `ImageElement` to add it to y
 
 ### Additional FDs
 
-If you have an app that depends on some other loop, e.g. pipewire, dbus, etc. you need to remember
+If you have an app that depends on some other loop, e.g. PipeWire, D-Bus, etc. you need to remember
 that hyprtoolkit is strictly single-threaded for layout and rendering.  
 You cannot edit the layout from another thread.
 
 For this, use `CBackend::addFd()` to add a FD to the loop alongside a function that will be called once the fd
 is readable.  
 This function will be called from the main thread, so you can do whatever you want in there.
-
-

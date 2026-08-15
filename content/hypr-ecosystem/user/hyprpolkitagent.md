@@ -11,7 +11,7 @@ or use a different agent, e.g. [KDE's one](https://github.com/KDE/polkit-kde-age
 
 ## Usage
 
-Add `systemctl --user start hyprpolkitagent` to your Hyprland config's autostart and restart hyprland.
+Add `systemctl --user start hyprpolkitagent` to your Hyprland config's autostart and restart Hyprland.
 (obviously change that to whatever you are using if you are not using the hypr one)
 
 <!-- If Hyprland is started with [uwsm](../../Useful-Utilities/Systemd-start), you can autostart the polkit agent with the command `systemctl --user enable --now hyprpolkitagent.service`. -->

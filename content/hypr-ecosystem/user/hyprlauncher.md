@@ -3,7 +3,7 @@ weight: 30
 title: hyprlauncher
 ---
 
-[hyprlauncher](https://github.com/hyprwm/hyprlauncher) is a multipurpose and versatile launcher / picker for hyprland. It's fast, simple, and provides
+[hyprlauncher](https://github.com/hyprwm/hyprlauncher) is a multipurpose and versatile launcher / picker for Hyprland. It's fast, simple, and provides
 various modules.
 
 ## Usage
@@ -48,7 +48,7 @@ Prefixes can only be one character.
 | -- | -- | -- | -- |
 | `default_finder` | Controls the default finder used. | string | `desktop` |
 | `desktop_prefix` | Prefix for the desktop finder to be used. | string | [[Empty]] |
-| `unicode_prefix` | Prefix for the unicode finder to be used. | string | `.` |
+| `unicode_prefix` | Prefix for the Unicode finder to be used. | string | `.` |
 | `math_prefix` | Prefix for the math finder to be used. | string | `=` |
 | `font_prefix` | Prefix for the font finder to be used. | string | `'` |
 | `desktop_launch_prefix` | Launch prefix for each desktop app, e.g. `uwsm app -- `. | string | [[Empty]] |
@@ -59,4 +59,3 @@ Prefixes can only be one character.
 | option | description | type | default |
 | -- | -- | -- | -- |
 | window_size | the size of the launcher | vec2 | `400 260` |
-

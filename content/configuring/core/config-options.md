@@ -342,7 +342,7 @@ Path: `input`
 | off_window_axis_events | Handles axis events around (gaps/border for tiled, dragarea/border for floated) a focused window. `0` ignores axis events `1` sends out-of-bound coordinates `2` fakes pointer coordinates to the closest point inside the window `3` warps the cursor to the closest point inside the window | int | `1` | [0 - 3] |
 | emulate_discrete_scroll | Emulates discrete scrolling from high resolution scrolling events. `0` disables it, `1` enables handling of non-standard events only, and `2` force enables all scroll wheel events to be handled | int | `1` | [0 - 2] |
 
-##### xkb keymap params
+##### XKB keymap params
 
  You can find a list of models, layouts, variants and options in
  [`/usr/share/X11/xkb/rules/evdev.lst`](file:///usr/share/X11/xkb/rules/evdev.lst).
@@ -477,7 +477,7 @@ Path: `gestures.scrolling`
 
 ### Group
 
-<!-- TODO: what on earth groups are? I.e.: "Groups are for hyprland the same as Tabs are for firefox" -->
+<!-- TODO: what on earth groups are? I.e.: "Groups are for Hyprland the same as Tabs are for firefox" -->
 
 Path: `group`
 
@@ -582,7 +582,7 @@ Path: `misc`
 | focus_on_activate | Whether Hyprland should focus an app that requests to be focused (an `activate` request) | bool | `false` |   |
 | float_force_onscreen | whether/how existing floating windows should be constrained to stay on-screen. 0 - no constraints, 1 - must be partially onscreen, 2 - must be fully onscreen | int | `0` | [0 - 2] |
 | new_float_force_onscreen | same as `float_force_onscreen`, but specifically for newly-spawned floating windows | int | `2` | [0 - 2] |
-| font_family | Set the global default font to render the text including debug fps/notification, config error messages, etc.; selected from system fonts | string | `"Sans"` |   |
+| font_family | Set the global default font to render the text including debug FPS/notification, config error messages, etc.; selected from system fonts | string | `"Sans"` |   |
 | force_default_wallpaper | Enforce any of the 3 default wallpapers. 0 - disables the anime background, 1 - disables the anime background, 2 - enables anime background, -1 - random | int | `-1` | [-1 - 2] |
 | initial_workspace_tracking | If enabled, windows will open on the workspace they were invoked on. 0 - disabled, 1 - single-shot, 2 - persistent (all children too) | int | `1` |   |
 | initial_workspace_token_timeout | the time in seconds a window has to open on its invoked workspace before the tracking token expires. | int | `10` | [1 - 3600] |
@@ -594,7 +594,7 @@ Path: `misc`
 | mouse_move_focuses_monitor | Whether mouse moving into a different monitor should focus it | bool | `true` |   |
 | name_vk_after_proc | Name virtual keyboards after the processes that create them, e.g. `/usr/bin/fcitx5` will have hl-virtual-keyboard-fcitx5 | bool | `true` |   |
 | on_focus_under_fullscreen | If there is a fullscreen or maximized window, decide whether a tiled window requested to focus should replace it, stay behind or disable the fullscreen/maximized state. 0 - ignore focus request (keep focus on fullscreen window), 1 - takes over, 2 - unfullscreen/unmaximize | int | `2` | [0 - 2] |
-| render_unfocused_fps | The maximum limit for render_unfocused windows' fps in the background (see also [Window-Rules](../rules/window-rules/#dynamic-effects), e.g. `render_unfocused`) | int | `15` | [1 - 120] |
+| render_unfocused_fps | The maximum limit for render_unfocused windows' FPS in the background (see also [Window-Rules](../rules/window-rules/#dynamic-effects), e.g. `render_unfocused`) | int | `15` | [1 - 120] |
 | session_lock_blur | Enables blur for lockscreen. `session_lock_xray` must be enabled | bool | `false` |   |
 | session_lock_xray | If true, keep rendering workspaces below your lockscreen | bool | `false` |   |
 | size_limits_tiled | Whether to apply min_size and max_size rules to tiled windows | bool | `false` |   |
@@ -637,16 +637,16 @@ Path: `binds`
 | workspace_back_and_forth | If enabled, an attempt to switch to the currently focused workspace will instead switch to the previous workspace, akin to i3's `_auto_back_and_forth_` | bool | `false` |   |
 | workspace_center_on | Whether switching workspaces should center the cursor on the workspace (0) or on the last active window for that workspace (1) | int | `1` | [0 - 1] |
 
-### XWayland
+### Xwayland
 
 Path: `xwayland`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
 | enabled | Allow running applications using X11 | bool | `true` |   |
-| create_abstract_socket | Create the [abstract Unix domain socket](../../extra/xwayland/#abstract-unix-domain-socket) for XWayland connections. XWayland restart is required for changes to take effect; Linux only | bool | `false` |   |
-| force_zero_scaling | Forces a scale of 1 on xwayland windows on scaled displays | bool | `false` |   |
-| use_nearest_neighbor | Uses the nearest neighbor filtering for xwayland apps, making them pixelated rather than blurry | bool | `true` |   |
+| create_abstract_socket | Create the [abstract Unix domain socket](../../extra/xwayland/#abstract-unix-domain-socket) for Xwayland connections. Xwayland restart is required for changes to take effect; Linux only | bool | `false` |   |
+| force_zero_scaling | Forces a scale of 1 on Xwayland windows on scaled displays | bool | `false` |   |
+| use_nearest_neighbor | Uses the nearest neighbor filtering for Xwayland apps, making them pixelated rather than blurry | bool | `true` |   |
 
 ### OpenGL
 
@@ -654,7 +654,7 @@ Path: `opengl`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
-| nvidia_anti_flicker | Reduces flickering on nvidia at the cost of possible frame drops on lower-end GPUs. On non-nvidia, this is ignored | bool | `true` |   |
+| nvidia_anti_flicker | Reduces flickering on NVIDIA at the cost of possible frame drops on lower-end GPUs. On non-NVIDIA, this is ignored | bool | `true` |   |
 
 ### Render
 
@@ -666,7 +666,7 @@ Path: `render`
 | cm_enabled | Whether the color management pipeline should be enabled or not. Requires restart | bool | `true` |   |
 | cm_sdr_eotf | Default transfer function for displaying SDR apps. `default` - Use default value (sRGB), `gamma22` - treat unspecified as Gamma 2.2, `gamma22force` - treat unspecified and sRGB as Gamma 2.2, `srgb` - treat unspecified as sRGB. Options: `"default"`/`"gamma22"`/`"gamma22force"`/`"srgb"` | string | `"default"` |   |
 | commit_timing_enabled | Enable commit timing proto. Requires restart | bool | `true` |   |
-| ctm_animation | Whether to enable a fade animation for CTM changes (hyprsunset). 2 means "auto" which disables them on Nvidia | int | `2` | [0 - 2] |
+| ctm_animation | Whether to enable a fade animation for CTM changes (hyprsunset). 2 means "auto" which disables them on NVIDIA | int | `2` | [0 - 2] |
 | direct_scanout | Enables direct scanout. Direct scanout attempts to reduce lag when there is only one fullscreen application on a screen (game). It is also recommended to set this to false if the fullscreen application shows graphical glitches. `0` - disabled, `1` - enabled, `2` - auto (enabled with content type 'game') | int | `0` | [0 - 2] |
 | expand_undersized_textures | Whether to expand undersized textures along the edge, or rather stretch the entire texture | bool | `true` |   |
 | fp16_sdr_tf | Internal workbuffer transfer function for fp16 in SDR mode. 0 - monitor, 1 - linear | int | `0` | [0 - 1] |
@@ -677,7 +677,7 @@ Path: `render`
 | non_shader_cm | Enable CM without shader. `0` - disable, `1` - whenever possible, `2` - DS and passthrough only, `3` - disable and ignore CM issues. Options: [0 - 3] | int | `2` | [0 - 3] |
 | non_shader_cm_interop | `0` - external ctm (hyprsunset, etc.) is disabled in fullscreen, `1` - external ctm is enabled in fullscreen, `2` - external ctm is disabled for fullscreen photo/video/game content types | int | `2` | [0 - 2] |
 | send_content_type | Report content type to allow monitor profile autoswitch (may result in a black screen during the switch) | bool | `true` |   |
-| use_fp16 | Use FP16 buffers internally. `0` - disabled, `1` - enabled, `2` - enabled in hdr mode | int | `2` | [0 - 2] |
+| use_fp16 | Use FP16 buffers internally. `0` - disabled, `1` - enabled, `2` - enabled in HDR mode | int | `2` | [0 - 2] |
 | use_shader_blur_blend | Use experimental blurred bg blending (glitched on rotated screens). Set to `true` if blur is missing with fp16 or `keep_unmodified_copy` | bool | `false` |   |
 | xp_mode | Disables back buffer and bottom layer rendering | bool | `false` |   |
 
@@ -707,8 +707,8 @@ Path: `cursor`
 | warp_on_change_workspace | Move the cursor to the last focused window after changing the workspace. `0` - Disabled, `1` - Enabled, `2` - Force (ignores cursor:no_warps option) | int | `0` | [0 - 2] |
 | warp_on_monitor_change | Move the cursor to the last focused window when focusing a different monitor. `-1` - follow value of `cursor:warp_on_change_workspace`, `0` - disabled, `1` - enabled, `2` - force even if `cursor:no_warps` | int | `-1` | [-1 - 2] |
 | warp_on_toggle_special | Move the cursor to the last focused window when toggling a special workspace. `0` - Disabled, `1` - Enabled, `2` - Force (ignores cursor:no_warps option) | int | `0` | [0 - 2] |
-| sync_gsettings_theme | Sync xcursor theme with gsettings. It applies cursor-theme and cursor-size on theme load to gsettings making most CSD gtk based clients use the same xcursor theme and size | bool | `true` |   |
-| use_cpu_buffer | Makes HW cursors use a CPU buffer. Required on Nvidia to have HW cursors. `0` - disabled, `1` - enabled, `2` - auto (enabled with nvidia) | int | `2` | [0 - 2] |
+| sync_gsettings_theme | Sync xcursor theme with GSettings. It applies cursor-theme and cursor-size on theme load to GSettings making most CSD GTK based clients use the same xcursor theme and size | bool | `true` |   |
+| use_cpu_buffer | Makes HW cursors use a CPU buffer. Required on NVIDIA to have HW cursors. `0` - disabled, `1` - enabled, `2` - auto (enabled with NVIDIA) | int | `2` | [0 - 2] |
 | zoom_detached_camera | Detach the camera from the mouse when zoomed in, only ever moving the camera to keep the mouse in view when it goes past the screen edges | bool | `true` |   |
 | zoom_disable_aa | Disable antialiasing when zooming, which means things will be pixelated instead of blurry | bool | `false` |   |
 | zoom_factor | The factor to zoom by around the cursor. Like a magnifying glass. Minimum 1.0 (meaning no zoom) | float | `1.0` | [1 - 10] |
@@ -721,7 +721,7 @@ Path: `ecosystem`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
-| no_update_news | Disable the popup that shows up when you update hyprland to a new version | bool | `false` |   |
+| no_update_news | Disable the popup that shows up when you update Hyprland to a new version | bool | `false` |   |
 | no_donation_nag | Disable the popup that shows up twice a year encouraging to donate | bool | `false` |   |
 | enforce_permissions | Whether to enable [permission control](../advanced-configuration/permissions) | bool | `false` |   |
 
@@ -743,7 +743,7 @@ Path: `input-capture`
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
 | capture_modifiers | if enabled, modifiers are also captured and sent to the program | bool | `false` |   |
-| enforce_barriers | if enabled, throw a wayland error when an invalid barrier is received | bool | `true` |   |
+| enforce_barriers | if enabled, throw a Wayland error when an invalid barrier is received | bool | `true` |   |
 
 
 ### Debug

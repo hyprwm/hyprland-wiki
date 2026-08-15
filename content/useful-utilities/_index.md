@@ -15,7 +15,7 @@ Hyprland working.
 - **[App launchers](./app-launchers)**
 - **[Wallpapers](./wallpapers)**
 - **[Screen sharing](./screen-sharing)**
-- **[Screenshots and Recording](./screenshots-and-recording)**
+- **[Screenshots and recording](./screenshots-and-recording)**
 - **[App clients](./app-clients)**
 - **[Phone connect](./phone-connect)**
 - **[Color pickers](./color-pickers)**
