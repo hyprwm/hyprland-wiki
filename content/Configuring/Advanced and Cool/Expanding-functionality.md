@@ -199,7 +199,7 @@ end)
 
 ## Sockets (IPC)
 
-It's recommended to use Lua. Lua will be faster, less buggy, have more APIs,
-and is more integrated.
+It's recommended to use Lua in most cases. Lua is faster, less error-prone,
+has more features, and is generally more integrated.
 
 However, if you want to use IPC instead, check the [IPC](../../../IPC) page.
