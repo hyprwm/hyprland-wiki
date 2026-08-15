@@ -122,11 +122,11 @@ You need to choose one of the three ways for configuring hyprland in nix: hjem, 
 
 ### Hjem
 
-Read [Configuring Hyprland with Hjem](./configuring-hyprland-with-hjem).
+Read [Configuring Hyprland with Hjem](../configuring-hyprland-with-hjem).
 
 ### Home Manager
 
-Read [Configuring Hyprland with Home Manager](./configuring-hyprland-with-home-manager).
+Read [Configuring Hyprland with Home Manager](../configuring-hyprland-with-home-manager).
 
 For the adventurous, [@spikespaz](https://github.com/spikespaz) has made a
 Hyprland module that can be used in Home Manager and NixOS. It can be found
