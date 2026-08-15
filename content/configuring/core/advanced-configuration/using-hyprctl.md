@@ -17,7 +17,7 @@ or a script. It should automatically be installed along with Hyprland.
 
 ### eval
 
-Issue a lua string to execute dynamically, returns "ok" or any error raised.
+Issue a Lua string to execute dynamically, returns "ok" or any error raised.
 
 ```sh
 hyprctl eval 'hl.dispatch(hl.dsp.focus({ workspace = "3" }))'
@@ -25,7 +25,7 @@ hyprctl eval 'hl.dispatch(hl.dsp.focus({ workspace = "3" }))'
 
 ### repl
 
-Start an interactive Lua REPL session or issue a lua string and print the result through tostring.
+Start an interactive Lua REPL session or issue a Lua string and print the result through tostring.
 Similar to `lua` interactive mode. Exit with Ctrl+D.
 
 Usage:
@@ -63,7 +63,7 @@ See [Dispatchers](../../dispatchers) for a list of dispatchers.
 ### reload
 
 Issue a `reload` to force reload the config. `reload full-reset` will recreate the entire config context,
-allowing switching to/from lua/hyprlang. `full-reset` should not be used unless really necessary.
+allowing switching to/from Lua/hyprlang. `full-reset` should not be used unless really necessary.
 
 ### kill
 
@@ -134,7 +134,7 @@ hyprctl output remove test
 
 ### switchxkblayout
 
-Sets the xkb layout index for a keyboard.
+Sets the XKB layout index for a keyboard.
 
 For example, if you set:
 
@@ -165,7 +165,7 @@ hyprctl switchxkblayout at-translated-set-2-keyboard next
 
 > [!NOTE]
 > If you want a single variant i.e. pl/dvorak on one layout but us/qwerty on the
-> other, xkb parameters can still be blank, however the amount of comma-separated
+> other, XKB parameters can still be blank, however the amount of comma-separated
 > parameters has to match. Alternatively, a single parameter can be specified for
 > it to apply to all three.
 > 

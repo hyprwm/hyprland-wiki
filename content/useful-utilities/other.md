@@ -51,7 +51,7 @@ for Hyprland's IPC written in Rust.
 
 ### Automatically Mounting Using `udiskie`
 
-_Starting method:_ manual (autostart in hyprland config)
+_Starting method:_ manual (autostart in Hyprland config)
 
 USB mass storage devices, like thumb drives, mobile phones, digital cameras,
 etc. are not mounted automatically to the file system.

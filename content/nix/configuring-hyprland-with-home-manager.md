@@ -78,7 +78,7 @@ Don't forget to replace `user@hostname` with your username and hostname!
 
 {{< tab "flake-compat" >}}
 
-This section is for using the hyprland flake in a NixOS system without support for nix flakes.
+This section is for using the Hyprland flake in a NixOS system without support for Nix flakes.
 
 > [!WARNING]
 > The flake module is merely an extension to the Home Manager downstream module.

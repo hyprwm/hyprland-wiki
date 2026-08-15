@@ -53,9 +53,9 @@ global
     ↳ fadeLayers - for controlling fade on layers
       ↳ fadeLayersIn - fade in for layer open
       ↳ fadeLayersOut - fade out for layer close
-    ↳ fadePopups - for controlling fade on wayland popups
-      ↳ fadePopupsIn - fade in for wayland popup open
-      ↳ fadePopupsOut - fade out for wayland popup close
+    ↳ fadePopups - for controlling fade on Wayland popups
+      ↳ fadePopupsIn - fade in for Wayland popup open
+      ↳ fadePopupsOut - fade out for Wayland popup close
     ↳ fadeDpms - for controlling fade when dpms is toggled
   ↳ border - for animating the border's color switch speed
   ↳ borderangle - for animating the border's gradient angle - styles: once (default), loop

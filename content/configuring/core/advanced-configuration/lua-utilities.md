@@ -5,7 +5,7 @@ title: Lua utilities
 
 ## Lua utilities
 
-Hyprland exposes a bunch of lua utilities for you to script your desktop
+Hyprland exposes a bunch of Lua utilities for you to script your desktop
 with custom functionality and more.
 
 ### Convenience functions

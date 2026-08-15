@@ -1,5 +1,5 @@
 ---
-title: Hyprland on any distro using nix
+title: Hyprland on any distro using Nix
 weight: 10
 ---
 
@@ -103,5 +103,5 @@ sudo nix profile upgrade --profile /nix/var/nix/profiles/default '.*'
 ```
 
 Check the
-[nix profile](https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-profile.html)
+[Nix profile](https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-profile.html)
 command documentation for other upgrade options if that interests you.

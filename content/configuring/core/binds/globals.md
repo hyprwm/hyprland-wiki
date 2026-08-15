@@ -35,10 +35,10 @@ hl.bind("SUPER + F10", hl.dsp.send_shortcut({ mods = "SUPER", key = "F4", window
 ```
 
 > [!WARNING]
-> This works flawlessly with all native Wayland applications. However, XWayland is a bit wonky.  
-> Make sure that what you're passing is a "global Xorg keybind", otherwise passing from a different XWayland app may not work.
+> This works flawlessly with all native Wayland applications. However, Xwayland is a bit wonky.  
+> Make sure that what you're passing is a "global Xorg keybind", otherwise passing from a different Xwayland app may not work.
 
-### DBus Global Shortcuts
+### D-Bus global shortcuts
 
 >[!NOTE]
 > This function will _only_ work with

@@ -52,9 +52,9 @@ XCursor theme, and run
 gsettings set org.gnome.desktop.interface cursor-theme 'THEME_NAME'
 ```
 
-for gtk.  
+for GTK.  
 
-If `gsettings` schemas are not available to you (e.g. on NixOS you will get `No schemas installed`), you can run instead: 
+If GSettings schemas are not available to you (e.g. on NixOS you will get `No schemas installed`), you can run instead: 
 
 ```sh
 dconf write /org/gnome/desktop/interface/cursor-theme "'THEME_NAME'"
@@ -74,6 +74,6 @@ Also put your icons and XCursors in both `/usr/share/icons` and `~/.icons`.
 If you don't have any hyprcursor themes installed, Hyprland will fall back to XCursor, and use
 whatever you define with `XCURSOR_THEME` and `XCURSOR_SIZE`.
 
-## My Cursor Is a hyprland Icon?
+## My Cursor Is a Hyprland Icon?
 
 See [FAQ](../../../faq)

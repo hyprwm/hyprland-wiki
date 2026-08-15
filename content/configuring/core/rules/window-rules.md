@@ -70,7 +70,7 @@ The supported fields for the `match` table are:
 Keep in mind that you _have_ to declare at least one field, but not all.
 
 > [!NOTE]
-> To get more information about a window's class, title, XWayland status or its
+> To get more information about a window's class, title, Xwayland status or its
 > size, you can use `hyprctl clients`.
 
 > [!NOTE]
@@ -158,7 +158,7 @@ Dynamic effects are re-evaluated every time a property changes.
 | border_size | integer | Sets the border size. |
 | rounding | integer | Forces X pixels of rounding, ignoring the default. |
 | rounding_power | number | Overrides the rounding power for the window. |
-| allows_input | boolean | Forces an XWayland window to receive input even if it requests not to. |
+| allows_input | boolean | Forces an Xwayland window to receive input even if it requests not to. |
 | dim_around | boolean | Dims everything around the window. Meant for floating windows. |
 | decorate | boolean | Whether to draw window decorations. (default: `true`) |
 | focus_on_activate | boolean | Whether Hyprland should focus an app that requests to be focused. |

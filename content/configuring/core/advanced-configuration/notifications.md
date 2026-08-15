@@ -11,7 +11,7 @@ This page describes Hyprland's built-in lightweight notifications.
 
 ## Lua
 
-In lua, notifications are exposed via the `hl.notification` module.
+In Lua, notifications are exposed via the `hl.notification` module.
 
 ### Functions
 

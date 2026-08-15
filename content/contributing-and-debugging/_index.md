@@ -67,18 +67,9 @@ for an override on release / different file.
 #### Launch the dev env
 
 Launch the output `Hyprland` binary in `./build/` _when logged into a Hyprland
-session_.
+session_. A new window should open with Hyprland running inside of it. You can now test stuff in this nested session without worrying about nuking your actual session.
 
-A new window should open with Hyprland running inside of it. You can now test stuff
-in this nested session without worrying about nuking your actual
-session, and also being able to debug it easily. I'd also recommend launching Hyprland
-with some sort of a debugger, like `gdb`. Your IDE (if you use one) can likely do it
-for you, otherwise `gdb ./build/Hyprland` should suffice. This will help you debug
-crashes.
-
-For gdb, when Hyprland crashes, gdb will stop and allow you to inspect the current state
-with commands like `bt`, `frame`, `print`, etc. An IDE will allow you to do it
-graphically.
+I'd also recommend launching Hyprland with a debugger, like `gdb`. Your IDE (if you use one) can likely do it for you, otherwise `gdb ./build/Hyprland` should suffice. Now when Hyprland crashes, GDB will stop and allow you to inspect the current state with commands like `bt`, `frame`, `print`, etc. An IDE will allow you to do so graphically.
 
 ## LSP and Formatting
 

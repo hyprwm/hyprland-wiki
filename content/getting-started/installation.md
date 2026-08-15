@@ -13,7 +13,7 @@ title: Installation
 > assuming something is not working or not available.
 
 > [!NOTE]
-> NVIDIA GPUs are often not usable out-of-the-box, follow the [Nvidia page](../../nvidia) after installing
+> NVIDIA GPUs are often not usable out-of-the-box, follow the [NVIDIA page](../../nvidia) after installing
 > Hyprland if you plan to use one. Blame NVIDIA for this.
 
 ## Distros
@@ -216,7 +216,7 @@ sudo add-apt-repository universe && sudo apt update && sudo apt install hyprland
 Hyprland is currently available in Alpine's [community repository](https://wiki.alpinelinux.org/wiki/Repositories#Community)
 and it is maintained by the community.
 
-The following command will install hyprland and its dependencies.
+The following command will install Hyprland and its dependencies.
 
 ```plain
 apk add hyprland
@@ -328,7 +328,7 @@ A build script is available at [gitlab.com/kralos/hyprbuntu](https://gitlab.com/
 
 #### Ubuntu 24.10 (Oracular Oriole)
 
-To install Hyprland from Source, you will need the dependencies below:
+To install Hyprland from source, you will need the dependencies below:
 
 ```bash
 sudo apt install -y meson wget build-essential ninja-build cmake-extras cmake gettext gettext-base fontconfig libfontconfig-dev libffi-dev libxml2-dev libdrm-dev libxkbcommon-x11-dev libxkbregistry-dev libxkbcommon-dev libpixman-1-dev libudev-dev libseat-dev seatd libxcb-dri3-dev libegl-dev libgles2 libegl1-mesa-dev glslang-tools libinput-bin libinput-dev libxcb-composite0-dev libavutil-dev libavcodec-dev libavformat-dev libxcb-ewmh2 libxcb-ewmh-dev libxcb-present-dev libxcb-icccm4-dev libxcb-render-util0-dev libxcb-res0-dev libxcb-xinput-dev libtomlplusplus3 libre2-dev
@@ -346,7 +346,7 @@ sudo apt install -y xdg-desktop-portal-wlr
 _Unfortunately, `xdg-desktop-portal-hyprland` is still not in Ubuntu Repo so you have to build it from source_
 
 See
-[The xdph GitHub repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland). Refer to
+[The XDPH GitHub repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland). Refer to
 [XDPH](../../hypr-ecosystem/user/xdg-desktop-portal-hyprland) and
 [Ubuntu Guide For Installing And Building Hyprland Gist](https://gist.github.com/Vertecedoc4545/3b077301299c20c5b9b4db00f4ca6000)
 for more information.
@@ -393,7 +393,7 @@ See [Crashes and Bugs](../../crashes-and-bugs).
 
 ## Custom installation (debug build, etc)
 
-1. cd into the hyprland repo.
+1. cd into the Hyprland repo.
 2. for debug build:
 
 ```bash
@@ -414,7 +414,7 @@ To apply custom build flags, you'll have to ditch make.
 Supported custom build flags on CMake:
 
 ```bash
-NO_XWAYLAND - Removes XWayland support
+NO_XWAYLAND - Removes Xwayland support
 NO_SYSTEMD - Removes systemd dependencies
 NO_UWSM - Does not install the hyprland-uwsm.desktop file
 NO_HYPRPM - Does not build and install hyprpm
@@ -486,7 +486,7 @@ virt-install \
 ```
 
 Connect with `virt-viewer`, which will open a graphical session on
-the tty. The default login is 'arch' for both the user and its password.
+the TTY. The default login is 'arch' for both the user and its password.
 
 > [!WARNING]
 > Make sure the --attach flag is used, enabling virgl makes it so that

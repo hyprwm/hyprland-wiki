@@ -37,7 +37,7 @@ It's [here](https://github.com/hyprwm/Hyprland/blob/main/example/hyprland.lua).
 
 #### Using Multiple Configuration Files
 
-Splitting hyprland's configuration across multiple files is an easier way of managing the configuration. To source or reference other files we use lua's [require](#require) function. 
+Splitting Hyprland's configuration across multiple files is an easier way of managing the configuration. To source or reference other files we use Lua's [require](#require) function. 
 
 You can refer to the files using relative paths from the location of `hyprland.lua`. Example:
 
@@ -101,9 +101,9 @@ Create a `settings.json` file in `.vscode/` (if it doesn't exist, make it), then
 
 Use `require()` to source other files into your config. This is **highly** recommended
 because each `require()` call is specifically made by Hyprland to be a separate
-lua "scope", so errors in one `require()`d file do _not_ stop execution of other files.
+Lua "scope", so errors in one `require()`d file do _not_ stop execution of other files.
 
-It's important to note that many errors will kill the execution of a given lua file.
+It's important to note that many errors will kill the execution of a given Lua file.
 Error behavior is described further below.
 
 > [!WARNING]
@@ -114,7 +114,7 @@ Error behavior is described further below.
 > execution of your main config_ as described below.
 >
 > If you want to prevent such errors from breaking stuff, or even detect and
-> respond to them at runtime, use lua's `pcall()` function, for example:
+> respond to them at runtime, use Lua's `pcall()` function, for example:
 > ```lua
 > local status, value = pcall(require, "maybe-nonexistent")
 > if status then
@@ -126,7 +126,7 @@ Error behavior is described further below.
 
 > [!TIP]
 > For advanced users who wish to ignore Hyprland's scope separation entirely,
-> the original lua `require` function is available as `__require`. It can be
+> the original Lua `require` function is available as `__require`. It can be
 > used directly, or restored as the default by setting `require = __require`.
 > This latter option may be particularly helpful if you load third-party
 > modules that are broken by Hyprland's error-protection behavior.
@@ -135,8 +135,8 @@ Error behavior is described further below.
 
 Hyprland attempts as much as it can to make errors as non-destructive as possible. However,
 it's not always possible:
- - Fundamental lua syntax errors will make Hyprland refuse to reload your config and pop an error
- - Runtime lua syntax errors will abort execution of the current lua file and pop an error (e.g. calling a `nil`)
+ - Fundamental Lua syntax errors will make Hyprland refuse to reload your config and pop an error
+ - Runtime Lua syntax errors will abort execution of the current Lua file and pop an error (e.g. calling a `nil`)
  - Runtime Hyprland type errors will continue execution and pop an error (e.g. passing a string instead of a float to `hl.*`)
  - Runtime errors during async execution (e.g. a keybind function) will pop a notification about the error
 
@@ -153,7 +153,7 @@ the session. These will kill your script after a given timeout / limit has been 
 
 #### Standard library
 
-The lua standard libraries are loaded by default. Lua scripts can execute
+The Lua standard libraries are loaded by default. Lua scripts can execute
 arbitrary code on your machine, make sure you trust your config source.
 
 #### Testing with REPL

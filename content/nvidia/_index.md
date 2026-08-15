@@ -1,22 +1,22 @@
 ---
 weight: 90
-title: Nvidia
+title: NVIDIA
 ---
 
 ## Foreword
 
-Because Nvidia's drivers are still proprietary, some issues could arise
-when using Nvidia GPUs on Hyprland that we have no control over.
-Although Hyprland should run just fine on Nvidia, please read this
+Because NVIDIA's drivers are still proprietary, some issues could arise
+when using NVIDIA GPUs on Hyprland that we have no control over.
+Although Hyprland should run just fine on NVIDIA, please read this
 page in full to properly set your system up.
 
-There are three potential setups you can have with driver setup on Nvidia.
+There are three potential setups you can have with driver setup on NVIDIA.
 
-1. Entirely proprietary Nvidia drivers, often referred to as "Proprietary
+1. Entirely proprietary NVIDIA drivers, often referred to as "Proprietary
    Drivers"
-2. Entirely proprietary Nvidia drivers, except with the open source kernel
+2. Entirely proprietary NVIDIA drivers, except with the open source kernel
    modules, referred to as "Open Drivers".
-3. Nouveau open source drivers. A clean-room implementation of Nvidia drivers,
+3. Nouveau open source drivers. A clean-room implementation of NVIDIA drivers,
    referred to simply as "Nouveau", and not to be confused with the "Open
    Drivers".
 
@@ -25,18 +25,18 @@ first two setups is recommended as it contains some vital optimisations and
 power management support for newer GPUs.
 
 > [!WARNING]
-> For those on the Nvidia 50xx series of graphics cards (5090, 5080, etc) or
+> For those on the NVIDIA 50xx series of graphics cards (5090, 5080, etc) or
 > newer, the open source kernel modules are **REQUIRED** when using the
-> proprietary Nvidia drivers.
+> proprietary NVIDIA drivers.
 
 According to
-[Nvidia](https://developer.nvidia.com/blog/nvidia-transitions-fully-towards-open-source-gpu-kernel-modules/),
+[NVIDIA](https://developer.nvidia.com/blog/nvidia-transitions-fully-towards-open-source-gpu-kernel-modules/),
 the open source kernel modules are also recommended to be used by the
 architectures Turing and Ampere. In short, this includes the 16xx and 20xx
 series of consumer cards and later. Your mileage may vary, so please try both of
 them if your card is supported by both.
 
-If neither of the proprietary Nvidia driver setups work properly on your
+If neither of the proprietary NVIDIA driver setups work properly on your
 computer, the Nouveau driver might work fine. This will likely be the case for
 [older cards](https://wiki.archlinux.org/title/NVIDIA#Unsupported_drivers).
 
@@ -48,7 +48,7 @@ of the kernel modules, as it will support all installed kernels on your system.
 If you are only using the `linux` or `linux-lts` kernels on your system, you can
 also use the non-dkms packages if you wish.
 
-For the entirely proprietary Nvidia drivers, you can therefore use the
+For the entirely proprietary NVIDIA drivers, you can therefore use the
 `nvidia-dkms` package. And for those wanting / needing to use the open source
 kernel modules, `nvidia-open-dkms` can be used.
 
@@ -72,7 +72,7 @@ the proprietary drivers.
 
 ### Early KMS, modeset and fbdev
 
-As of Nvidia driver version 570.86.16, `fbdev` has now been enabled by default
+As of NVIDIA driver version 570.86.16, `fbdev` has now been enabled by default
 when `modeset` is also enabled. Therefore we simply need to enable `modeset`.
 
 To enable it, create and edit `/etc/modprobe.d/nvidia.conf`, and add this line
@@ -88,7 +88,7 @@ If you're on NixOS, it is also
 [enabled by default](https://github.com/NixOS/nixpkgs/blob/0196e5372b8b7a282cb3bbe5cbf446617141ce38/nixos/modules/hardware/video/nvidia.nix#L116)
 on all driver versions after 535.
 
-Early KMS will allow the Nvidia modules to load earlier into the boot sequence.
+Early KMS will allow the NVIDIA modules to load earlier into the boot sequence.
 On distros using `mkinitcpio`, like Arch, you can enable it by editing
 `/etc/mkinitcpio.conf`. In the `MODULES` array add the following module
 names:
@@ -98,13 +98,13 @@ MODULES=(... nvidia nvidia_modeset nvidia_uvm nvidia_drm ...)
 ```
 
 > [!WARNING]
-> Loading the Nvidia modules early may cause resuming from hibernation to not work anymore (i.e. the system will just boot instead of resuming).
+> Loading the NVIDIA modules early may cause resuming from hibernation to not work anymore (i.e. the system will just boot instead of resuming).
 > If you have issues with that, try disabling early KMS.
 
 > [!WARNING]
-> Electron or Chromium-based apps can stall for up to a minute after boot on hybrid graphics systems with an Intel iGPU and an Nvidia dGPU.
+> Electron or Chromium-based apps can stall for up to a minute after boot on hybrid graphics systems with an Intel iGPU and an NVIDIA dGPU.
 >
-> This can be fixed by loading the `i915` module **before** the Nvidia ones in `/etc/mkinitcpio.conf`. Just edit the `MODULES` line like this:
+> This can be fixed by loading the `i915` module **before** the NVIDIA ones in `/etc/mkinitcpio.conf`. Just edit the `MODULES` line like this:
 >
 > ```conf {filename="/etc/mkinitcpio.conf"}
 > MODULES=(i915 nvidia nvidia_modeset nvidia_uvm nvidia_drm ...)
@@ -143,7 +143,7 @@ It _should_ work now.
 
 Electron and CEF apps flicker because:
 
-1. They run in XWayland by default.
+1. They run in Xwayland by default.
 2. They don't use the `syncobj` protocol by default.
 
 To enable native Wayland support for most Electron apps, add this
@@ -194,7 +194,7 @@ issues.
 
 ### VA-API hardware video acceleration
 
-Hardware video acceleration on Nvidia and Wayland is possible with the
+Hardware video acceleration on NVIDIA and Wayland is possible with the
 [nvidia-vaapi-driver](https://github.com/elFarto/nvidia-vaapi-driver). This may
 solve specific issues in Electron apps.
 
@@ -220,39 +220,39 @@ experimental support for Chromium, however there has not been much success.
 
 #### Multi-monitor with hybrid graphics
 If you experience issues with multi-monitor setup on a hybrid graphics device
-(a laptop with both an Intel and an Nvidia GPU), switching to discrete-only mode may help:
+(a laptop with both an Intel and an NVIDIA GPU), switching to discrete-only mode may help:
 
 1. Remove the `optimus-manager` package if installed (disabling the
    service does not work).
 2. Change your BIOS settings from hybrid graphics to discrete graphics.
 
 
-#### Multi-GPU (or hybrid graphics) not working for monitors attached to Nvidia GPU
-Nvidia doesn't support important features for Multi-GPU which can result in a broken or slow setup.
+#### Multi-GPU (or hybrid graphics) not working for monitors attached to NVIDIA GPU
+NVIDIA doesn't support important features for Multi-GPU which can result in a broken or slow setup.
 There are some workarounds to try:
 
 1. Try changing the primary GPU [with the AQ_DRM_DEVICES environment variable](../configuring/extra/multi-gpu#telling-hyprland-which-gpu-to-use).
 2. Try setting the environment variable `AQ_FORCE_LINEAR_BLIT=0` to not force linear modifiers on Multi-GPU buffers.
 
 This might slow down rendering to secondary monitors and make Hyprland a bit laggy on them,
-but it's better than not having a secondary monitor at all, and it's the best we can do on Nvidia.
+but it's better than not having a secondary monitor at all, and it's the best we can do on NVIDIA.
 
-#### Flickering in XWayland games
+#### Flickering in Xwayland games
 
-XWayland games may flicker or present frames out-of-order in a way which makes
+Xwayland games may flicker or present frames out-of-order in a way which makes
 them unplayable. This is due to the lack of implicit synchronization in the
 driver, and/or flaky explicit sync support in newer ones.
 
 There are a few fixes:
 
 1. Install the latest versions of `xorg-xwayland`, `wayland-protocols` and
-   Nvidia driver. Ensure `xorg-xwayland` is at least version 24.1,
-   `wayland-protocols` is at least version 1.34 and Nvidia driver is at least
-   version 555. These enable explicit sync on the Nvidia driver and should avoid
+   NVIDIA driver. Ensure `xorg-xwayland` is at least version 24.1,
+   `wayland-protocols` is at least version 1.34 and NVIDIA driver is at least
+   version 555. These enable explicit sync on the NVIDIA driver and should avoid
    flickering.
 
 2. If your GPU is no longer supported by the 555 or later drivers, install older
-   Nvidia drivers which do not exhibit this issue. The last ones that work are
+   NVIDIA drivers which do not exhibit this issue. The last ones that work are
    the 535xx series of drivers. These can be installed on Arch via
    [these AUR packages](https://aur.archlinux.org/packages?O=0&K=535xx)
 
@@ -276,11 +276,11 @@ For Nix users, the equivalent of the above is
 ```
 
 > [!WARNING]
-> [Loading the Nvidia modules early](../nvidia#early-kms-modeset-and-fbdev) may cause resuming from hibernation to not work anymore (i.e. the system will just boot instead of resuming).
+> [Loading the NVIDIA modules early](../nvidia#early-kms-modeset-and-fbdev) may cause resuming from hibernation to not work anymore (i.e. the system will just boot instead of resuming).
 > If you have issues with that, try disabling early KMS.
 
 > [!WARNING]
-> According to Nvidia, suspend/wakeup issues should be solved on the Nvidia open
+> According to NVIDIA, suspend/wakeup issues should be solved on the NVIDIA open
 > driver. If it still doesn't work and you're using the open driver, it may be
 > worth trying the fully proprietary one.
 

@@ -32,7 +32,7 @@ mechanisms.
 
 ```nix
 (pkgs.hyprland.override { # or inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland
-  enableXWayland = true;  # whether to enable XWayland
+  enableXWayland = true;  # whether to enable Xwayland
   withSystemd = true;     # whether to build with systemd support
 })
 ```

@@ -18,5 +18,5 @@ After you've installed Hyprland, read the [Master tutorial](./master-tutorial).
 > assuming something is not working or not available.
 
 > [!NOTE]
-> NVIDIA GPUs are often not usable out-of-the-box, follow the [Nvidia page](../nvidia) after installing
+> NVIDIA GPUs are often not usable out-of-the-box, follow the [NVIDIA page](../nvidia) after installing
 > Hyprland if you plan to use one. Blame NVIDIA for this.

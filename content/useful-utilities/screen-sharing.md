@@ -21,10 +21,10 @@ Read
 [this amazing gist by Bruno Ancona Sala](https://gist.github.com/brunoanc/2dea6ddf6974ba4e5d26c3139ffb7580)
 for a great tutorial.
 
-## XWayland
+## Xwayland
 
-If your screensharing application is running under XWayland (like Discord or
-Skype), it can only see other XWayland windows and cannot share an entire
+If your screensharing application is running under Xwayland (like Discord or
+Skype), it can only see other Xwayland windows and cannot share an entire
 screen or a Wayland window.
 
 The KDE team has implemented a workaround for this called

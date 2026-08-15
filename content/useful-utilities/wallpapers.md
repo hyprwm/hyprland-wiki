@@ -3,7 +3,7 @@ weight: 30
 title: Wallpapers
 ---
 
-Launch your wallpaper utility with hyprland config's autostarts.
+Launch your wallpaper utility with Hyprland config's autostarts.
 
 ## hyprpaper
 

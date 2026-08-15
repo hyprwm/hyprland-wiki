@@ -30,18 +30,18 @@ bemenu is a Wayland-native replacement for dmenu.
 ## fuzzel
 
 Fuzzel is an application launcher for wlroots-based Wayland compositors, similar
-to rofi's `drun` mode. [Codeberg](https://codeberg.org/dnkl/fuzzel)
+to Rofi's `drun` mode. [Codeberg](https://codeberg.org/dnkl/fuzzel)
 
 ## tofi
 
-tofi is an extremely fast and simple yet highly customizable dmenu / rofi
+tofi is an extremely fast and simple yet highly customizable dmenu / Rofi
 replacement for wlroots-based Wayland compositors. When configured correctly,
 tofi can get on screen within a single frame.
 [GitHub](https://github.com/philj56/tofi)
 
 ## Emacs
 
-If you are already running an emacs server you can use Emacs.
+If you are already running an Emacs server you can use Emacs.
 
 For the config you can check out
 [DistroTube's Configuring Emacs](https://gitlab.com/dwt1/configuring-emacs/-/blob/main/07-the-final-touches/scripts/app-launchers.el?ref_type=heads)
@@ -58,13 +58,13 @@ launcher with its Applications Plugin.
 ## Walker
 
 Walker is an extensible Wayland-native runner with various built-in modules
-(applications, runner, hyprland windows, websearch [as of 2024-03-15]). It can
+(applications, runner, Hyprland windows, websearch [as of 2024-03-15]). It can
 be run as a service for faster startups.
 [GitHub](https://github.com/abenz1267/walker)
 
 ## Vicinae
 
-Vicinae is a C++ and Qt native launcher with a focus on wayland. Comes with many
+Vicinae is a C++ and Qt native launcher with a focus on Wayland. Comes with many
 built-in modules. It runs as a server in the background. It supports raycast extensions
 via a compatibility layer.
 [GitHub](https://github.com/vicinaehq/vicinae)

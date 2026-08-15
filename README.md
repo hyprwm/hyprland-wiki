@@ -42,7 +42,7 @@ lorem ipsum
 
 {{% /details %}}
 
-[x] rewrite nix part of the wiki. too much noise. hjem.
+[x] rewrite Nix part of the wiki. too much noise. Hjem.
 
 [ ] figure out tags in per-device binds. they link to devices and devices links to per-device binds. no info about them in old wiki /shrug
 

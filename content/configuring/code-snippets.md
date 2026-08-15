@@ -129,7 +129,7 @@ end)
 
 ### Config versioning
 
-Some updates add breaking changes, which can be anticipated by looking at the hyprland version.
+Some updates add breaking changes, which can be anticipated by looking at the Hyprland version.
 
 You can make your configs conditional using `hl.version()`, e.g.:
 
@@ -160,7 +160,7 @@ end
 
 For less distractions at a keypress, or battery saving on a laptop
 
-Add the following to your hyprland config:
+Add the following to your Hyprland config:
 
 ```lua
 hl.bind("SUPER + F1", function ()

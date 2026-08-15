@@ -39,25 +39,24 @@ hyprtoolkit
 hyprland
 ```
 
-Other things, e.g. hyprapps (hyprlock, hyprsunset, ...) can be built in any order
-after hyprland.
+Other things, e.g. hyprapps (hyprlock, hyprsunset, ...) can be built in any order after Hyprland.
 
 ***Never, under any circumstances***, symbolically link different .so versions together, this will lead to memory bugs and crashes.
 I don't care what some random person tells you online. Don't do it.
 
 ### My apps are pixelated
 
-This just means they are running through XWayland, which physically cannot scale
+This just means they are running through Xwayland, which physically cannot scale
 by fractional amounts.
 
 To force them to run in native Wayland mode, see
 [the Master Tutorial](../getting-started/master-tutorial#force-apps-to-use-wayland).
 
-If they can't, see [the XWayland page](../configuring/extra/xwayland).
+If they can't, see [the Xwayland page](../configuring/extra/xwayland).
 
 ### My external monitor is blank / doesn't render / receives no signal (laptop)
 
-For Nvidia graphics - This issue appears to be resolved when using Nvidia
+For NVIDIA graphics - This issue appears to be resolved when using NVIDIA
 Drivers 525.60.11 or later, but it may persist with older drivers.
 
 For systems with limited hardware (Ex. iGPU, USB-C, USB Hubs) - Set env `AQ_NO_MODIFIERS` to `1` in your config.
@@ -155,7 +154,7 @@ update the package. Paru has been problematic with updating before, use Yay.
 ### How do I screen lock?
 
 Use a Wayland-compatible locking utility using WLR protocols, e.g. `swaylock`.
-Be aware that they will not prevent tty-changing using Ctrl-Alt-F1...F7.
+Be aware that they will not prevent changing TTY using Ctrl-Alt-F1...F7.
 
 ### How do I change my mouse cursor?
 
@@ -266,7 +265,7 @@ You most likely have multiple portal impls / an impl is failing to launch.
 ### My screenshot utilities won't work with multiple screens
 
 Some programs like Flameshot (currently) have limited Wayland support, consider
-using one made for wayland natively.
+using one made for Wayland natively.
 
 ### I cannot bind SUPER as my mod key on my laptop
 
@@ -339,9 +338,9 @@ If using yay, make sure to `CleanBuild` every package. If using paru, manually r
 
 If you are not using any -git packages, this is a mistake in your distro's packaging and should be solved there.
 
-### My cursor is a hyprland icon?
+### My cursor is a Hyprland icon?
 
-This means you have no hyprcursor theme installed, and hyprland failed to find an XCursor theme as well. Install a cursor theme.
+This means you have no hyprcursor theme installed, and Hyprland failed to find an XCursor theme as well. Install a cursor theme.
 
 ### Smart gaps please?
 
@@ -354,7 +353,7 @@ You most likely have `ELECTRON_OZONE_PLATFORM_HINT = wayland` in your config.
 Try running Discord like this `ELECTRON_OZONE_PLATFORM_HINT= discord`.
 
 > [!WARNING]
-> Keep in mind that this will run Discord under XWayland.
+> Keep in mind that this will run Discord under Xwayland.
 
 If it works, navigate to the Discord desktop entry (usually located in `/usr/share/applications/`). Duplicate it and replace `Exec=/usr/bin/discord` with `Exec=env ELECTRON_OZONE_PLATFORM_HINT= /usr/bin/discord`. You can also give it a new name, e.g. `Name=DiscordX`, to avoid confusion as to which is which.
 
@@ -364,7 +363,7 @@ The issue is likely the default monitor for X11 is not your desired primary moni
 
 Add `xrandr --output [MONITOR_ID] --primary` to your autostarts in the config, replacing [MONITOR_ID] with your main monitor's ID (e.g. DP-3). You can find your monitor ID by running `hyprctl monitors`.
 
-By adding this to your hyprland config, you will set your main monitor as the default for X11 applications.
+By adding this to your Hyprland config, you will set your main monitor as the default for X11 applications.
 
 ### My mouse cursor keeps escaping the game window!
 

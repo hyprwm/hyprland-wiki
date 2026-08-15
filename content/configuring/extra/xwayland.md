@@ -1,19 +1,19 @@
 ---
 weight: 50
-title: XWayland
+title: Xwayland
 ---
 
-XWayland is the bridging mechanism between legacy Xorg programs and Wayland
+Xwayland is the bridging mechanism between legacy Xorg programs and Wayland
 compositors.
 
-## HiDPI XWayland
+## HiDPI Xwayland
 
-XWayland currently looks pixelated on HiDPI screens, due to Xorg's inability to
+Xwayland currently looks pixelated on HiDPI screens, due to Xorg's inability to
 scale.
 
 This problem is mitigated by the
 [force_zero_scaling](../../core/config-options#xwayland) option set to true,
-which forces XWayland windows not to be scaled.
+which forces Xwayland windows not to be scaled.
 
 This will get rid of the pixelated look, but will not scale applications
 properly. To do this, each toolkit has its own mechanism.
@@ -22,7 +22,7 @@ properly. To do this, each toolkit has its own mechanism.
 -- change monitor to high resolution, the last argument is the scale factor
 hl.monitor({ output = "", mode = "highres", position = "auto", scale = "2" })
 
--- unscale XWayland
+-- unscale Xwayland
 hl.config({
   xwayland = {
     force_zero_scaling = true
@@ -37,11 +37,11 @@ hl.env("XCURSOR_SIZE", "32")
 The GDK_SCALE variable won't conflict with Wayland-native GTK programs.
 
 > [!WARNING]
-> XWayland HiDPI patches are no longer supported. Do not use them.
+> Xwayland HiDPI patches are no longer supported. Do not use them.
 
 ## Abstract Unix domain socket
 
-X11 applications use Unix domain sockets to communicate with XWayland. On Linux, libX11 prefers
+X11 applications use Unix domain sockets to communicate with Xwayland. On Linux, libX11 prefers
 to use the abstract Unix domain socket. This type of socket uses a separate, abstract namespace that
 is independent of the host filesystem. This makes abstract sockets more flexible
 but harder to [isolate](https://github.com/hyprwm/Hyprland/pull/8874)

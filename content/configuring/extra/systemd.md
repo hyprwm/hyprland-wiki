@@ -45,7 +45,7 @@ end)
 
 ### Starting systemd's graphical-session.target in NixOS
 
-If you want to start up `graphical-session.target` in NixOS, check it in the [configuring with hjem page](../../../nix/configuring-hyprland-with-hjem)
+If you want to start up `graphical-session.target` in NixOS, check it in the [configuring with Hjem page](../../../nix/configuring-hyprland-with-hjem)
 
 ## UWSM
 

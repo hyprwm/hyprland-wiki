@@ -73,7 +73,7 @@ On the other hand, [hl.exec_cmd](../advanced-configuration/lua-utilities#hlexec_
 | `layout( message )` | Send a layout message as a string |
 | `dpms({ monitor?, action? })` | Toggle monitors on/off (not physically, as in idle-screensaver.) |
 | `event( string )` | Send an event to socket2. |
-| `global( string )` | Activate a dbus global shortcut. See [Global shortcuts](../binds/globals) |
+| `global( string )` | Activate a D-Bus global shortcut. See [Global shortcuts](../binds/globals) |
 | `force_idle( int )` | Sets elapsed time for all idle timers in seconds, ignoring idle inhibitors. Timers return to normal behavior upon the next activity. Do not use with a keybind directly. |
 | `no_op()` | Does nothing. Useful for conditional binds. |
 | `force_renderer_reload()` | Force reloads the renderer on all monitors. |
@@ -259,4 +259,4 @@ Some layouts, like scrolling, allow optional FS handling other than the default.
 
 You can use both Layout Handled and Default Handled fullscreens in these layouts using the `layout_aware` option in fullscreen dispatchers.
 
-To see which Fullscreen Handler a given window is using, use lua or hyprctl.  <!-- TODO: this should also state HOW to use lua and hyprctl, not just that you can use it. -->
+To see which Fullscreen Handler a given window is using, use Lua or hyprctl.  <!-- TODO: this should also state HOW to use Lua and hyprctl, not just that you can use it. -->

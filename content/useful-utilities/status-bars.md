@@ -25,7 +25,7 @@ For more info regarding configuration, see
 #### How to launch
 
 Type `waybar` into your terminal. In order to have Waybar launch alongside
-Hyprland, add `waybar` to your hyprland config's autostarts.
+Hyprland, add `waybar` to your Hyprland config's autostarts.
 
 <!-- Waybar also provides a systemd service. If you use Hyprland with [uwsm](../../Useful-Utilities/Systemd-start), you can enable it, using the following command. -->
 
@@ -78,7 +78,7 @@ If you are using multiple monitors, you may want to insert the following option:
 - Ashell is ready to use out of the box. Just install it, start using it, and customize only what you need.
 - Ashell comes with essential modules like workspaces, time, battery, network, and more. No need to hunt for plugins or write custom scripts.
 - Powered by iced. A cross-platform GUI library for Rust
-- Has pretty limited configuration options. It's a good and a bad thing at the same time. You can get a very decent result quickly and with a little effort, but some crazy waybar-alike tweaks are not possible.
+- Has pretty limited configuration options. It's a good and a bad thing at the same time. You can get a very decent result quickly and with a little effort, but some crazy Waybar-like tweaks are not possible.
 
 
 ## Desktop shells

@@ -56,7 +56,7 @@ There are 3 modes:
  - Default: **ASK**
  - Access to your screen _without_ going through xdg-desktop-portal-hyprland. Examples include: `grim`, `wl-screenrec`, `wf-recorder`.
  - If denied, will render a black screen with a "permission denied" text.
- - Why deny? For apps / scripts that might maliciously try to capture your screen without your knowledge by using wayland protocols directly.
+ - Why deny? For apps / scripts that might maliciously try to capture your screen without your knowledge by using Wayland protocols directly.
 
 `plugin`:
  - Default: **ASK**
@@ -67,7 +67,7 @@ There are 3 modes:
  - Default: **ALLOW**
  - Access to connecting a new keyboard. Regex of the device name.
  - If you want to disable all keyboards not matching a regex, make a rule that sets `DENY` for `.*` _as the last keyboard permission rule_.
- - Why deny? Rubber duckies, malicious virtual / usb keyboards.
+ - Why deny? Rubber duckies, malicious virtual / USB keyboards.
 
 `cursorpos`:
  - Default: **ASK**
@@ -81,7 +81,7 @@ There are 3 modes:
 
 ## Notes
 
-**xdg-desktop-portal** implementations (including xdph) are just regular applications. They will go through permissions too. You might want to consider
+**xdg-desktop-portal** implementations (including XDPH) are just regular applications. They will go through permissions too. You might want to consider
 adding a rule like this:
 ```lua
 hl.permission({ binary = "/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", type = "screencopy", mode = "allow" })

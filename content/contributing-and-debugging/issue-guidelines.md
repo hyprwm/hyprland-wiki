@@ -31,7 +31,7 @@ just "like" instead of wasting both your time writing a new one and our time clo
 A discussion is opened by a user.
 
 For bugs:
-- If a discussion is solved, user error, or not a hyprland issue, it gets closed.
+- If a discussion is solved, user error, or not a Hyprland issue, it gets closed.
 - If a discussion is a Hyprland problem, but cannot be tied to Hyprland in a clear way, or is not reproducible, it stays a discussion until that changes.
 - If a discussion is reproducible, a member of Hyprland promotes the discussion to an issue by opening an issue with the key information and links the original discussion.
 
