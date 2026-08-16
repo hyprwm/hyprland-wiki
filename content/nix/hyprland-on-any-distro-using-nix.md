@@ -31,9 +31,9 @@ experimental-features = nix-command flakes
 
 Once that is done, install Hyprland through `nix profile`:
 
-{{< tabs items="From hyprnix (Recommended),From Nixpkgs,From the Flake" >}}
+{{< tabs >}}
 
-{{< tab "From hyprnix (Recommended)" >}}
+{{< tab name="From hyprnix (Recommended)" >}}
 
 Installing Hyprland (and other hypr* tools) can be done like so:
 ```sh
@@ -44,7 +44,7 @@ Replace `#hyprland` with a different app from the flake to install it (e.g. `#hy
 
 {{< /tab >}}
 
-{{< tab "From Nixpkgs" >}}
+{{< tab name="From Nixpkgs" >}}
 
 You can get Hyprland directly from Nixpkgs:
 
@@ -54,7 +54,7 @@ sudo nix profile install --profile /nix/var/nix/profiles/default nixpkgs#hyprlan
 
 {{< /tab >}}
 
-{{< tab "From the Flake" >}}
+{{< tab name="From the Flake" >}}
 
 > [!NOTE]
 > Make sure to enable [Cachix](../cachix) first.

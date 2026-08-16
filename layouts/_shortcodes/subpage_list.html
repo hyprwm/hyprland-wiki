@@ -1,0 +1,9 @@
+{{- if eq .Page.Kind "section" -}}
+  <ul>
+  {{- range .Page.Pages -}}
+    <li><a href="{{ .RelPermalink }}">{{ .Name }}</a></li>
+  {{- end -}}
+  </ul>
+{{- else -}}
+  {{- warnf "subpage_list can only be used on section pages. Instead, '%s' has page kind '%s'. See https://gohugo.io/methods/page/kind/ for details." .Page.File.Path .Page.Kind -}}
+{{- end -}}

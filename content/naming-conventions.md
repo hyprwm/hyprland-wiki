@@ -5,7 +5,7 @@ weight: 20
 
 ## Syntax
 
-> [!INFO]
+> [!TIP]
 > For the ease of understanding, this wiki introduces a special syntax for some elements.
 
 ### Optional parameters

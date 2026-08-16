@@ -21,9 +21,9 @@ For a list of available options, check the
 
 ## Installation
 
-{{< tabs items="Home Manager,The Hyprland flake,flake-compat" >}}
+{{< tabs >}}
 
-{{< tab "Home Manager" >}}
+{{< tab name="Home Manager" >}}
 
 ```nix {filename="home.nix"}
 {
@@ -33,7 +33,7 @@ For a list of available options, check the
 
 {{< /tab >}}
 
-{{< tab "The Hyprland flake" >}}
+{{< tab name="The Hyprland flake" >}}
 
 The following snippet of code tries to show how to bring the Hyprland flake from
 the flake input and use its packages with Home Manager. Feel free to make any
@@ -76,7 +76,7 @@ Don't forget to replace `user@hostname` with your username and hostname!
 
 {{< /tab >}}
 
-{{< tab "flake-compat" >}}
+{{< tab name="flake-compat" >}}
 
 This section is for using the Hyprland flake in a NixOS system without support for Nix flakes.
 
