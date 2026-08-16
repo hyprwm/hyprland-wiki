@@ -343,6 +343,36 @@ If you are not using any -git packages, this is a mistake in your distro's packa
 
 This means you have no hyprcursor theme installed, and hyprland failed to find an XCursor theme as well. Install a cursor theme.
 
+### My cursor is invisible / laggy / leaves trails
+
+This is usually a hardware cursor issue (common on Nvidia and some hybrid GPUs).
+
+Force software cursors:
+
+```lua
+hl.config({
+  cursor = {
+    -- 0 = use hardware cursors
+    -- 1 = force software cursors
+    -- 2 = auto (default; often disables hardware cursors on Nvidia)
+    no_hardware_cursors = 1,
+  },
+})
+```
+
+Notes:
+
+- Prefer this over the old `WLR_NO_HARDWARE_CURSORS` environment variable (deprecated).
+- On Hyprland 0.54 and earlier (hyprlang), use:
+
+```
+cursor {
+    no_hardware_cursors = true
+}
+```
+
+If your cursor is the Hyprland logo instead, see “My cursor is a hyprland icon?” above.
+
 ### Smart gaps please?
 
 [Here](../Configuring/Basics/Workspace-Rules/#smart-gaps).
