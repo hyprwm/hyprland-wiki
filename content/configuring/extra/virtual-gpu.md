@@ -72,7 +72,7 @@ hl.env("AQ_NO_KMS_REQUIREMENT", "1")
 
 ### Usage of both a GPU and vGPU
 
-> [!WARN]
+> [!WARNING]
 > Users of QEMU hypervisor that are both doing a vGPU passthrough and exposing a Virtio-GPU device in their virtual machine are concerned by this section.
 
 Most hardware and paravirtualized drivers will expose the same graphics card twice under the `/dev/dri` directory. One node will be globally accessible and provide render capabilities, while
@@ -96,7 +96,7 @@ hl.env("AQ_DRM_DEVICES", "/dev/dri/card0:/dev/dri/card1")
 
 In practice, there is no guaranteed order of which node will be used as the primary renderer in a virtual machine. It is important that you manually decide the priority.
 
-> [!WARN]
+> [!WARNING]
 > Some hypervisors can expose PCI topologies that can be understood differently at each start. To be sure of setting the correct node, refer to [Multi-GPU section on consistent device paths](../multi-gpu#creating-consistent-device-paths-for-specific-cards) for renaming the nodes and making your configuration consistent across reboots. 
 
 ## Accessing the virtual display

@@ -20,9 +20,9 @@ below the monitor's minimum.
 
 <!-- TODO only arch?) -->
 
-{{< tabs items="Arch Linux" >}}
+{{< tabs >}}
 
-{{< tab "Arch Linux" >}}
+{{< tab name="Arch Linux" >}}
 
 ```sh
 pacman -S hyprsunset

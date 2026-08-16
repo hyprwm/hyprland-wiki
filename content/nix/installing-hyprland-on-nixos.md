@@ -10,9 +10,9 @@ You can install Hyprland from:
 + The Hyprland flake if you want the latest git commit available at the moment.
 + Flake-compat: in case you want to use the Hyprland flake but you don't want to enable the use of flakes in your NixOS system.
 
-{{< tabs items="Nixpkgs repository,The Hyprland flake,flake-compat" >}}
+{{< tabs >}}
 
-{{< tab "Nixpkgs repository" >}}
+{{< tab name="Nixpkgs repository" >}}
 
 ```nix {filename="configuration.nix"}
 {
@@ -24,7 +24,7 @@ This will use the Hyprland version included in the Nixpkgs release you're using.
 
 {{< /tab >}}
 
-{{< tab "The Hyprland flake" >}}
+{{< tab name="The Hyprland flake" >}}
 
 > [!NOTE]
 > If you don't want to compile Hyprland yourself, make sure to enable [Cachix](../cachix).
@@ -87,12 +87,12 @@ For more details, see
 
 {{< /tab >}}
 
-{{< tab "flake-compat" >}}
+{{< tab name="flake-compat" >}}
 
 This section is for using the Hyprland flake in a NixOS system without support for Nix flakes.
 
 > [!NOTE]
-> If you don't want to compile Hyprland yourself, make sure to enable [Cachix](../Cachix).
+> If you don't want to compile Hyprland yourself, make sure to enable [Cachix](../cachix).
 
 ```nix {filename="configuration.nix"}
 {pkgs, ...}: let

@@ -23,9 +23,9 @@ global shortcuts, etc.
 
 ## Installing
 
-{{< tabs items="Arch Linux,NixOS,Gentoo,Manual" >}}
+{{< tabs >}}
 
-{{< tab "Arch Linux" >}}
+{{< tab name="Arch Linux" >}}
 
 ```sh
 pacman -S xdg-desktop-portal-hyprland
@@ -39,7 +39,7 @@ yay -S xdg-desktop-portal-hyprland-git
 
 {{< /tab >}}
 
-{{< tab "NixOS" >}}
+{{< tab name="NixOS" >}}
 
 On NixOS, XDPH is already enabled by the
 [NixOS module for Hyprland](../../../nix/installing-hyprland-on-nixos), through
@@ -47,7 +47,7 @@ On NixOS, XDPH is already enabled by the
 
 {{< /tab >}}
 
-{{< tab "Gentoo" >}}
+{{< tab name="Gentoo" >}}
 
 <!-- TODO no. why. who? this is wrong. rewrite. -->
 
@@ -90,12 +90,12 @@ emerge --ask --verbose gui-libs/xdg-desktop-portal-hyprland
 
 {{< /tab >}}
 
-{{< tab "Manual" >}}
+{{< tab name="Manual" >}}
 
 See
 [The GitHub repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland).
 
-{{</ tab >}}
+{{< /tab >}}
 
 {{< /tabs >}}
 

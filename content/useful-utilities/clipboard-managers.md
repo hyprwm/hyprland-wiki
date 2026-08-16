@@ -39,27 +39,27 @@ you can edit it in `hyprland.lua`.
 
 Bash commands:
 
-{{< tabs items="rofi,dmenu,wofi,fuzzel" >}}
+{{< tabs >}}
 
-{{< tab >}}
+{{< tab name="rofi" >}}
 ```sh
 cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy
 ```
 {{< /tab >}}
 
-{{< tab >}}
+{{< tab name="dmenu" >}}
 ```sh
 cliphist list | dmenu | cliphist decode | wl-copy
 ```
 {{< /tab >}}
 
-{{< tab >}}
+{{< tab name="wofi" >}}
 ```sh
 cliphist list | wofi --dmenu --pre-display-cmd "echo '%s' | cut -f 2" | cliphist decode | wl-copy
 ```
 {{< /tab >}}
 
-{{< tab >}}
+{{< tab name="fuzzel" >}}
 ```sh
 cliphist list | fuzzel --dmenu --with-nth 2 | cliphist decode | wl-copy
 ```
@@ -80,27 +80,27 @@ Ensure that `~/.local/share/clipman-primary.json` is already created.
 
 Now you can bind `clipman` like this:
 
-{{< tabs items="rofi,dmenu,wofi,fuzzel" >}}
+{{< tabs >}}
 
-{{< tab >}}
+{{< tab name="rofi" >}}
 ```lua
 hl.bind("SUPER + V", hl.dsp.exec_cmd("clipman pick -t rofi))
 ```
 {{< /tab >}}
 
-{{< tab >}}
+{{< tab name="dmenu" >}}
 ```lua
 hl.bind("SUPER + V", hl.dsp.exec_cmd("clipman pick -t dmenu"))
 ```
 {{< /tab >}}
 
-{{< tab >}}
+{{< tab name="wofi" >}}
 ```lua
 hl.bind("SUPER + V", hl.dsp.exec_cmd("clipman pick -t wofi"))
 ```
 {{< /tab >}}
 
-{{< tab >}}
+{{< tab name="fuzzel" >}}
 ```lua
 hl.bind("SUPER + V", hl.dsp.exec_cmd("clipman pick -t STDOUT | fuzzel --dmenu | wl-copy"))
 ```
@@ -128,33 +128,33 @@ section in the project's GitHub repository linked above for more information.
 To bind `clipvault` to a hotkey and display it using a picker of your choice (e.g. `rofi`, `dmenu`, `wofi`, etc.),
 you can add one of the below commands to a bind to your `hyprland.lua`:
 
-{{< tabs items="rofi,dmenu,wofi,fuzzel,tofi" >}}
+{{< tabs >}}
 
-{{< tab >}}
+{{< tab name="rofi" >}}
 ```sh
 clipvault list | rofi -dmenu -display-columns 2 | clipvault get | wl-copy
 ```
 {{< /tab >}}
 
-{{< tab >}}
+{{< tab name="dmenu" >}}
 ```sh
 clipvault list | dmenu | clipvault get | wl-copy
 ```
 {{< /tab >}}
 
-{{< tab >}}
+{{< tab name="wofi" >}}
 ```sh
 clipvault list | wofi -S dmenu --pre-display-cmd "echo '%s' | cut -f 2" | clipvault get | wl-copy
 ```
 {{< /tab >}}
 
-{{< tab >}}
+{{< tab name="fuzzel" >}}
 ```sh
 clipvault list | fuzzel --dmenu --with-nth 2 | clipvault get | wl-copy
 ```
 {{< /tab >}}
 
-{{< tab >}}
+{{< tab name="tofi" >}}
 ```sh
 clipvault list | tofi | clipvault get | wl-copy
 ```
