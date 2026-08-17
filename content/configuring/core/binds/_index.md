@@ -52,7 +52,7 @@ For example:
 hl.bind("SUPER + code:28", hl.dsp.exec_cmd("amongus"))
 ```
 
-will bind SUPER + T, since T is keycode 28.
+will bind `SUPER + T`, since `T` is keycode 28.
 
 ## Binding modkeys only
 
@@ -80,7 +80,7 @@ hl.bind("Ctrl_L + Ctrl_R", hl.dsp.exec_cmd("kitty"))
 ## Multiple binds to one key
 
 > [!WARNING]
-> The keybinds will be executed top to bottom, in the order they were written in.
+> The keybinds will be executed top to bottom, in the order they were written.
 
 You can trigger multiple actions with the same keybind by using a Lua lambda function, which can then execute multiple dispatcher:
 
@@ -108,12 +108,12 @@ hl.unbind("SUPER + Tab") -- this will NOT unbind
 hl.unbind("SUPER + TAB") -- this will unbind
 
 -- assign bind to "lft"
-local lft = hl.bind("SUPER + L", hl.dsp.window.move({ direction = "left" }) )
+local moveLeft = hl.bind("SUPER + L", hl.dsp.window.move({ direction = "left" }) )
 
 -- unbind "SUPER + L"
-lft:unbind()
+moveLeft:unbind()
 -- or
-lft:remove()
+moveLeft:remove()
 ```
 
 {{% /details %}}
@@ -172,7 +172,7 @@ will be resolved to:
 ```lua
 hl.bind("SUPER + L", hl.dsp.exec_cmd("foot", { float = false }) )
 -- or, depending on your focus when config was reloaded
-hl.bind("SUPER + L", hl.dsp.exec_cmd("foot", { float = false }) )
+hl.bind("SUPER + L", hl.dsp.exec_cmd("foot", { float = true }) )
 ```
 
 And it will stay like that until next config reload.

@@ -173,7 +173,7 @@ hl.gesture({
 | scale | float | Optional gesture delta multiplier |
 | disable_inhibit | boolean | If true, allows the gesture to bypass shortcut inhibitors |
 
-Some gestures might have their own additional fields, which are described in the [Actions](#actions) table above.
+Some gestures might have their own additional fields, which are described in the [Actions](#actions) table.
 
 ### Examples
 

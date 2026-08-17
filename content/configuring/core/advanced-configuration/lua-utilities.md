@@ -87,7 +87,10 @@ This might cause problems if you expect the `gaps_in` value of your workspace to
 
 To execute a scheduled prop refresh immediately, use `hl.exec_scheduled_prop_refresh_immediately()`.
 Note that because the scheduled event is executed prematurely, it is removed from the event loop; allowing another prop refresh to be enqueued.
-Overuse of this function may cause slowdowns.
+
+> [!WARNING]
+> Overuse of this function may cause slowdowns!
+> Use `config.props_refreshed` event to see how many prop refreshes are fired per event.
 
 ### Timers
 
