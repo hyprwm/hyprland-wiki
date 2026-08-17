@@ -3,7 +3,7 @@ weight: 90
 title: Autostart
 ---
 
-Autostarting apps can be done by executing things on the `hyprland.start` event:
+Autostarting apps can be done using the `hyprland.start` event:
 
 ```lua
 hl.on("hyprland.start", function()
