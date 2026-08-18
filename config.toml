@@ -4,7 +4,21 @@ enableRobotsTXT        = true
 enableGitInfo          = true
 defaultContentLanguage = "en"
 enableInlineShortcodes = true
-languageCode           = 'en-us'
+locale                 = 'en_US'
+
+[languages]
+  [languages.en]
+    label              = 'English'
+    weight             = 1
+    contentDir         = 'content/en'
+
+[languages.fr]
+    label      = 'Français'
+    weight     = 2
+    contentDir = 'content/fr'
+    [languages.fr.params.version]
+    name = "Dernier git"
+
 pluralizeListTitles    = false
 disablePathToLower     = true
 
