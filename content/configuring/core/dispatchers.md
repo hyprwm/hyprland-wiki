@@ -6,7 +6,7 @@ title: Dispatchers
 ## Dispatchers
 
 Dispatchers return tables that describe an action you want to make.
-They do not invoke any action immediately, and their contents are not guaranteed to be stable at all.
+**They do not invoke any action immediately, and their contents are not guaranteed to be stable at all.**
 Their purpose is to be fed into `hl.bind()` or `hl.dispatch()`.
 
 Please keep in mind that some layout-specific dispatchers will be listed in the layout pages (see the sidebar).

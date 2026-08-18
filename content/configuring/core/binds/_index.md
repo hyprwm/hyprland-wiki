@@ -82,7 +82,7 @@ hl.bind("Ctrl_L + Ctrl_R", hl.dsp.exec_cmd("kitty"))
 > [!WARNING]
 > The keybinds will be executed top to bottom, in the order they were written.
 
-You can trigger multiple actions with the same keybind by using a Lua lambda function, which can then execute multiple dispatcher:
+You can trigger multiple actions with the same keybind by using a Lua lambda function, which can then execute multiple dispatch calls:
 
 ```lua
 -- To switch between windows in a floating workspace:
