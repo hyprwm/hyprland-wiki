@@ -1,0 +1,10 @@
+{{- $obj := $.Site.Params -}}
+{{- range strings.Split ($.Get "listvar") "." -}}
+  {{- $obj = index $obj . -}}
+{{- end -}}
+
+<ul>
+{{- range $obj -}}
+  <li><a href="{{ printf ($.Get "linkfmt") . }}">{{ printf ($.Get "textfmt") . }}</a></li>
+{{- end -}}
+</ul>
