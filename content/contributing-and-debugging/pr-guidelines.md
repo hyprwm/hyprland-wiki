@@ -11,8 +11,7 @@ weight: 30
 
 ## AI Policy
 
-Using an AI tool?
-Check our [AI Policy](https://github.com/hyprwm/.github/blob/main/policies/AI_USAGE.md).
+It is **mandatory** to follow our [AI Policy](https://github.com/hyprwm/.github/blob/main/policies/AI_USAGE.md). Failure to do so may lead to being banned from opening any PRs in the future!
 
 ## Code Style
 
