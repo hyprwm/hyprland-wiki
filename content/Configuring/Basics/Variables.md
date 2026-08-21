@@ -486,6 +486,7 @@ _Subcategory `misc.`_
 | close_special_on_empty | close the special workspace if the last window is removed | bool | `true` |
 | on_focus_under_fullscreen | if there is a fullscreen or maximized window, decide whether a tiled window requested to focus should replace it, stay behind or disable the fullscreen/maximized state. 0 - ignore focus request (keep focus on fullscreen window), 1 - takes over, 2 - unfullscreen/unmaximize [0/1/2] | int | `2` |
 | exit_window_retains_fullscreen | whether closing a fullscreen window makes the next focused window to be fullscreened. 0 - disabled, 1 - enabled, 2 - only when closing a grouped window, 3 - only when closing a non-grouped window [0/1/2/3] | int | `0` |
+| suppress_initial_maximize_requests | whether to ignore requests from a window to be maximised when it is first created | bool | `true` |
 | initial_workspace_tracking | if enabled, windows will open on the workspace they were invoked on. 0 - disabled, 1 - single-shot, 2 - persistent (all children too) | int | `1` |
 | initial_workspace_token_timeout | the time in seconds a window has to open on its invoked workspace before the tracking token expires. | int | `10` |
 | middle_click_paste | whether to enable middle-click-paste (aka primary selection) | bool | `true` |
