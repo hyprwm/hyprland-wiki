@@ -83,7 +83,7 @@ Hyprland exposes a bunch of convenience functions:
  - `hl.get_workspace(selector)`
  - `hl.get_active_workspace()`
  - `hl.get_active_special_workspace()`
- - `hl.get_monitors()`
+ - `hl.get_monitors({ all? })`
  - `hl.get_monitor(selector)`
  - `hl.get_active_monitor()`
  - `hl.get_monitor_at({ x = num, y = num })`
