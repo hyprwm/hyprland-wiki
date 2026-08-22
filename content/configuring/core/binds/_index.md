@@ -60,7 +60,7 @@ will bind `SUPER + T`, since `T` is keycode 28.
 
 To bind only a modkey, use the appropriate keysym name.
 Usually it is a `MOD` key, suffixed with `_L` or `_R`.
-When a keysym is used, the order in which keys are pressed matters, because they are not treated as modifiers anymore.
+When a keysym is used, the order in which keys are pressed matters because keys are no longer treated as modifiers.
 
 {{% details title="Examples" closed="true" %}}
 
@@ -96,9 +96,9 @@ end)
 
 ## Unbind
 
-To unbind a key use `hl.unbind("key")` or assign it to a variable and use `:unbind()` or `:remove()` methods.
+To unbind a key, use `hl.unbind("key")` or assign it to a variable and use the `:unbind()` or `:remove()` methods on it.
 The key in `hl.unbind` is case-sensitive and must exactly match the case of the `hl.bind` you are unbinding.
-Unbind will remove all occurances of the key that were registered before it.
+Unbind will remove all occurrences of the key that were registered before it.
 
 {{% details title="Examples" closed="true" %}}
 

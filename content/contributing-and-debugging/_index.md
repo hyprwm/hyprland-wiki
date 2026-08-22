@@ -85,7 +85,7 @@ cmake -S . -B build/ -G Ninja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 Also, before submitting a PR please format with clang-format.
 To do this only on your changes, run `git-clang-format` in your project's root directory.
 
-## Logs, dumps, etc
+## Logs, dumps, etc.
 
 You can use the logs and the GDB debugger, but running Hyprland in debug compile as a driver and using it for a while might give more insight to the more random bugs.
 

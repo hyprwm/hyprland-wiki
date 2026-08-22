@@ -11,10 +11,10 @@ All fields beyond `output` are optional and fall back to sensible defaults.
 | --- | --- | --- | --- |
 | output | Output name or `desc:...` description prefix | str | [[Required]] |
 | disabled | Removes the monitor from the layout | boolean | `false` |
-| mode | Resolution and refresh rate, e.g. `"1920x1080@144"`. See the [note](./modes#modes) for predefined modes. Options: `mode`/`"preferred"`/`"highres"`/`"highrr"`/`"maxwidth"` | str | `"preferred"` |
-| scale | Scale factor, e.g. `1.5`. `"auto"` = use monitor's PPI to decide the scale. Options: `scale`/`"auto"` |  float / str | `"auto"` |
+| mode | Resolution and refresh rate (e.g. `"1920x1080@144"`). See the [note](./modes#modes) for predefined modes. Options: `mode`/`"preferred"`/`"highres"`/`"highrr"`/`"maxwidth"` | str | `"preferred"` |
+| scale | Scale factor (e.g., `1.5`). `"auto"` = use monitor's PPI to decide the scale. Options: `scale`/`"auto"` |  float / str | `"auto"` |
 | transform | Rotation/flip transform (0–7) | int | 0 |
-| position | Position in the virtual layout, e.g. `"1920x0"` See the [note](./positioning#positions) for predefined positions | str | `"auto"` |
+| position | Position in the virtual layout (e.g., `"1920x0"`). See the [note](./positioning#positions) for predefined positions | str | `"auto"` |
 | mirror | Output name to mirror | str | [[Empty]] |
 | bitdepth | Bit depth. Options: `8`/`10` | int | `8` |
 | cm | Color management preset | str | `"srgb"` |
@@ -116,7 +116,7 @@ hl.monitor({ output = "name", reserved_area = 10 })
 hl.monitor({ output = "name", reserved_area = { top = 10, bottom = 10, left = 0, right = 0 } })
 ```
 
-This stacks on top of the calculated reserved area (e.g. bars), but you may only use one of these rules per monitor in the config.
+This stacks on top of the calculated reserved area (e.g., bars), but you may only use one of these rules per monitor in the config.
 
 ## Default workspace
 

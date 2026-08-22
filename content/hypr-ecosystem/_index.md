@@ -6,7 +6,7 @@ title: Hypr Ecosystem
 This wiki section hosts docs for various hypr* projects.
 
 > [!NOTE]
-> These docs always target the latest _-git_ branch of respective apps.
+> These docs always target the latest _-git_ branch of the respective apps.
 
 ## Wiki Pages
 

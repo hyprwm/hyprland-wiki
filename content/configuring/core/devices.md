@@ -20,7 +20,7 @@ The `name` can be easily obtained by checking the output of `hyprctl devices`.
 Inside of this table, specify your desired config options.
 Any of the [`input` options](../../core/config-options#input) can be set, **EXCEPT**:
 - `force_no_accel`
-- Options that configure window management, such as: `follow_mouse`, `follow_mouse_threshold`, `float_switch_override_focus`, `mouse_refocus`, `special_fallthrough`, etc
+- Options that configure window management, such as: `follow_mouse`, `follow_mouse_threshold`, `float_switch_override_focus`, `mouse_refocus`, `special_fallthrough`, etc.
 
 You can also use the `output` setting for tablets to bind them to outputs.
 Remember to use the name of the `Tablet` and not `Tablet Pad` or `Tablet Tool`.

@@ -21,7 +21,7 @@ Available flags are:
 
 | Flag | Description |
 |------|-------------|
-| `locked` | Will also work when an input inhibitor (e.g. a lockscreen) is active. |
+| `locked` | Will also work when an input inhibitor (e.g. a lock screen) is active. |
 | `release` | Will trigger on release of a key. |
 | `click` | Will trigger on release of a key or button as long as the mouse cursor stays inside `binds:drag_threshold`. |
 | `drag` | Will trigger on release of a key or button as long as the mouse cursor moves outside `binds:drag_threshold`. |

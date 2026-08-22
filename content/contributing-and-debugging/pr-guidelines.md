@@ -39,14 +39,14 @@ It is tweaked so that in 99% of cases you absolutely should fix it.
 
 Please check the [Tests](../tests) page for information about tests in Hyprland, and related projects.
 
-No test regressions is a _must_, while new tests are _required_ if possible to test (e.g. graphical stuff is not testable).
+No test regressions is a _must_, while new tests are _required_ if possible to test (e.g., graphical stuff is not testable).
 
 ### Other
 
 Some stuff clang-tidy/clang-format won't catch:
 - No uninitialized _primitives_ (int, float, double, size_t, etc.)
 - No short if braces. if your if/else body contains 1 _line_ (not 1 statement) do not put `{}` around it.
-  - The above rule does not apply to loops, etc
+  - The above rule does not apply to loops, etc.
 - Consider adding a `;` inside of empty function bodies
 - Whenever you're initializing vectors arrays or maps with a lot of elements, add a `,` after the last element to make the styling nicer
 - Consider forward-declaring things in headers if possible instead of including. Speeds up compile times.
@@ -68,7 +68,7 @@ Additionally:
 
 ### No raw pointers
 
-This is a simple rule --- don't use raw pointers (e.g. `CMyClass*`) unless _absolutely necessary_.
+This is a simple rule --- don't use raw pointers (e.g., `CMyClass*`) unless _absolutely necessary_.
 You have `UP`, `SP` and `WP` at your disposal.
 These are unique, shared and weak pointers respectively.
 
@@ -79,7 +79,7 @@ You _will_ forget to free the memory.
 
 ### Avoid dubious cleanups
 
-If a function is a C-style allocator, e.g. `some_c_call_make_new()`, it will likely require a `some_c_call_free()`.
+If a function is a C-style allocator (e.g., `some_c_call_make_new()`), it will likely require a `some_c_call_free()`.
 In these cases, either:
 - wrap the thing in a C++ class, or
 - if used only within one function, use a `CScopeGuard` to always free it when the function exits.
@@ -108,4 +108,4 @@ src/
 If you are in `a.hpp` and want to include `b.hpp`, you _must_ use `../b/b.hpp`, and _cannot_ use `b/b.hpp`.
 The latter will break plugins.
 
-One exception you might notice in the code is absolute paths from the root are allowed, e.g. `protocols/some-protocol.hpp`.
+One exception you might notice in the code is absolute paths from the root are allowed (e.g., `protocols/some-protocol.hpp`)

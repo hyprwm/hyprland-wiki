@@ -20,13 +20,13 @@ Variables in the `general` category:
 
 | Variable | Description | Type | Default |
 | --- | --- | --- | --- |
-| `lock_cmd` | command to run when receiving a D-Bus lock event (e.g. `loginctl lock-session`) | string | empty |
-| `unlock_cmd` | command to run when receiving a D-Bus unlock event (e.g. `loginctl unlock-session`) | string | empty |
+| `lock_cmd` | command to run when receiving a D-Bus lock event (e.g., `loginctl lock-session`) | string | empty |
+| `unlock_cmd` | command to run when receiving a D-Bus unlock event (e.g., `loginctl unlock-session`) | string | empty |
 | `on_lock_cmd` | command to run when the session gets locked by a lock screen app | string | empty |
 | `on_unlock_cmd` | command to run when the session gets unlocked by a lock screen app | string | empty |
 | `before_sleep_cmd` | command to run when receiving a D-Bus prepare_sleep event | string | empty |
 | `after_sleep_cmd` | command to run when receiving a D-Bus post prepare_sleep event | string | empty |
-| `ignore_dbus_inhibit` | whether to ignore D-Bus idle inhibit events (e.g. from firefox) | bool | `false` |
+| `ignore_dbus_inhibit` | whether to ignore D-Bus idle inhibit events (e.g., from firefox) | bool | `false` |
 | `ignore_systemd_inhibit` | whether to ignore `systemd-inhibit --what=idle` inhibitors | bool | `false` |
 | `ignore_wayland_inhibit` | whether to ignore Wayland protocol idle inhibitors | bool | `false` |
 | `inhibit_sleep` | sleep inhibition mode: <br> `0`: disable <br> `1`: normal <br> `2`: auto <br> `3`: lock notify | int | `2` |
@@ -148,7 +148,7 @@ listener {
 #### Fading the keyboard backlight
 
 `brightnessctl` sets brightness instantly, so a plain `on-timeout`/`on-resume` pair turns the keyboard backlight off and on abruptly.
-[hypr-kbd-backlight-fade](https://github.com/queueingqt/hypr-kbd-backlight-fade) is a small script that steps through intermediate brightness values instead, fading in fast and out slowly, with a lock file so overlapping in/out calls (e.g. quick touch-then-idle cycles) don't
+[hypr-kbd-backlight-fade](https://github.com/queueingqt/hypr-kbd-backlight-fade) is a small script that steps through intermediate brightness values instead, fading in fast and out slowly, with a lock file so overlapping in/out calls (e.g., quick touch-then-idle cycles) don't
 race each other.
 
 Note that video players and browsers commonly hold a Wayland idle-inhibit lock during video playback (not just fullscreen), which pauses **every** listener, not just screen lock/suspend.

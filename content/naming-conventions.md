@@ -43,8 +43,8 @@ Coordinates are in an inverse-Y Cartesian system, so moving to the right is the 
 | int | Integer number |
 | float | Floating point number |
 | bool | Boolean, `true` or `false` |
-| string | Lua string. Symbols wrapped in `""`/`[[]]`/`''`, e.g: `"dwindle"`/`'master'`/`[[scrolling]]`. When using Lua literal strings (`[[]]`), escaping of `"` and `'` is not needed |
-| vec2 | Vector with 2 float values. `{ x, y }`, e.g. `{ 20, 20 }` |
+| string | Lua string. Symbols wrapped in `""`/`[[]]`/`''` (e.g., `"dwindle"`, `'master'`, `[[scrolling]]`). When using Lua literal strings (`[[]]`), escaping of `"` and `'` is not needed |
+| vec2 | Vector with 2 float values. `{x, y}` (e.g., `{20, 20}`) |
 | css_gaps | An integer, or `{ top?, left?, right?, bottom? }` |
 | color | Color. See hint below for color info |
 | gradient | A gradient, will accept a color, or `{ colors = { color, color }, angle? = float }` structure |
@@ -80,7 +80,7 @@ See the [RE2 wiki](https://github.com/google/re2/wiki/Syntax) for supported exte
 
 To learn more about supported regex constructs, [refer to this cheatsheet](https://github.com/ziishaned/learn-regex/blob/master/README.md).
 
-If you want to _negate_ a RegEx, as in pass only when the RegEx _fails_, you can prefix it with `negative:`, e.g. `"negative:kitty"`.
+If you want to _negate_ a RegEx, as in pass only when the RegEx _fails_, you can prefix it with `negative:` (e.g., `"negative:kitty"`)
 
 > [!TIP]
 > Lua's literal-string `[[]]` syntax may be helpful to avoid "backslash hell."
@@ -109,7 +109,7 @@ If no window is provided, the active window is used.
 ### Workspace selectors
 
 > [!WARNING]
-> Numerical workspaces (e.g. `1`, `2`, `13371337`) are allowed **ONLY** between 1 and 2147483647, inclusive.
+> Numerical workspaces (e.g., `1`, `2`, `13371337`) are allowed **ONLY** between 1 and 2147483647, inclusive.
 > Neither `0` nor negative numbers are allowed.
 
 Workspaces can be selected by:
@@ -119,7 +119,7 @@ Workspaces can be selected by:
 - [Workspace prop](#workspace-props)
 - [Workspace search](#workspace-search)
 
-- Name: e.g. `name:Web`, `name:Anime` or `name:Better anime`
+- Name: E.g., `name:Web`, `name:Anime`, `name:Better anime`
 - Previous workspace: `previous`, or `previous_per_monitor`
 - Special Workspace: `special` or `special:name` for named special workspaces.
 
@@ -127,7 +127,7 @@ Workspaces can be selected by:
 
 <!-- TODO i think we should make a petition to rework this for Lua -->
 
-Workspaces that have already been created can be targeted by workspace selectors, e.g. `r[2-4] w[t1]`.
+Workspaces that have already been created can be targeted by workspace selectors (e.g., `r[2-4] w[t1]`)
 
 Props separated by a space.
 No spaces are allowed inside props themselves.
@@ -157,12 +157,12 @@ No spaces are allowed inside props themselves.
 #### Workspace search
 
 Workspace search is performed by suffixing search selector with workspace ID.
-To use absolute ID, `~` is put between selector and ID, e.g. `m~3`.
+To use absolute ID, `~` is put between selector and ID (e.g., `m~3`)
 
 - `m` - Search for workspace on current monitor
 - `r` - Search for workspace on current monitor including empty workspaces
 - `e` - Search for open workspace
-- `empty` - Search for first empty workspace. Suffix with `m` to only search on monitor, and/or `n` to make it the _next_ available empty workspace, e.g. `emptynm`
+- `empty` - Search for first empty workspace. Suffix with `m` to only search on monitor, and/or `n` to make it the _next_ available empty workspace (e.g., `emptynm`)
 
 ### Direction
 

@@ -41,7 +41,7 @@ hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1, mirr
 ```
 
 Please remember that mirroring displays will not "re-render" everything for your second monitor, so if mirroring a 1080p screen onto a 4K one, the resolution will still be 1080p on the 4K display.
-This also means squishing and stretching will occur on aspect ratios that differ (e.g 16:9 and 16:10).
+This also means squishing and stretching will occur on aspect ratios that differ (e.g., 16:9 and 16:10).
 
 ## VRR
 

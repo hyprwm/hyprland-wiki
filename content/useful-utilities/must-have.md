@@ -22,7 +22,7 @@ Examples: `dunst`, `mako`, `fnott` and `swaync`.
 
 _Starting method:_ Automatic on systemd, manual otherwise.
 
-Pipewire is not necessarily required, but screensharing will not work without it.
+Pipewire is not necessarily required, but screen sharing will not work without it.
 
 Install `pipewire` and `wireplumber` (**not** `pipewire-media-session`).
 
@@ -39,7 +39,7 @@ If such a file does not exist on your install, please refer to your distro's doc
 
 _Starting method:_ Automatic on systemd, manual otherwise.
 
-XDG Desktop Portal handles a lot of stuff for your desktop, like file pickers, screensharing, etc.
+XDG Desktop Portal handles a lot of stuff for your desktop, like file pickers, screen sharing, etc.
 
 See the [Hyprland Desktop Portal Page](../../hypr-ecosystem/user/xdg-desktop-portal-hyprland).
 

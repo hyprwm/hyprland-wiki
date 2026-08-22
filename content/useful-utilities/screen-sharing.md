@@ -3,7 +3,7 @@ weight: 40
 title: Screen sharing
 ---
 
-On Wayland, screensharing is done through PipeWire.
+On Wayland, screen sharing is done through PipeWire.
 
 ## Prerequisites
 
@@ -12,13 +12,13 @@ Make sure you have `pipewire`, `wireplumber` and [`xdg-desktop-portal-hyprland`]
 Ensure that the `bitdepth` set in your configuration matches that of your physical monitor.
 See [Monitors](../../configuring/core/monitors).
 
-## Screensharing
+## Screen sharing
 
 Read [this amazing gist by Bruno Ancona Sala](https://gist.github.com/brunoanc/2dea6ddf6974ba4e5d26c3139ffb7580) for a great tutorial.
 
 ## Xwayland
 
-If your screensharing application is running under Xwayland (like Discord or Skype), it can only see other Xwayland windows and cannot share an entire screen or a Wayland window.
+If your screen sharing application is running under Xwayland (like Discord or Skype), it can only see other Xwayland windows and cannot share an entire screen or a Wayland window.
 
 The KDE team has implemented a workaround for this called [xwaylandvideobridge](https://invent.kde.org/system/xwaylandvideobridge).
 You can use [this AUR package](https://aur.archlinux.org/packages/xwaylandvideobridge-git) on Arch Linux.

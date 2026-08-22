@@ -45,7 +45,7 @@ hyprtoolkit
 hyprland
 ```
 
-Other things, e.g. hyprapps (hyprlock, hyprsunset, etc) can be built in any order after Hyprland.
+Other things (like hyprapps (e.g., hyprlock, hyprsunset, etc.)) can be built in any order after Hyprland.
 
 > [!WARNING]
 > ***Never, under any circumstances***, symbolically link different .so versions together, this will lead to memory bugs and crashes.
@@ -64,7 +64,7 @@ If they can't, see [the Xwayland page](../configuring/extra/xwayland).
 
 For NVIDIA graphics --- this issue appears to be resolved when using NVIDIA drivers 525.60.11 or later, but it may persist with older drivers.
 
-For systems with limited hardware (e.g. iGPU, USB-C, USB hubs) --- set env `AQ_NO_MODIFIERS` to `1` in your config.
+For systems with limited hardware (e.g., iGPU, USB-C, USB hubs) --- set env `AQ_NO_MODIFIERS` to `1` in your config.
 To diagnose if you have the exact problem above, you can get a [DRM log](../crashes-and-bugs#debugging-drm-issues) and look for
 
 ```plain
@@ -90,7 +90,7 @@ Choose a utility from [Screenshots and recording](../useful-utilities/screenshot
 
 ### Screenshare / OBS no worky
 
-Check [Screensharing](../useful-utilities/screen-sharing).
+Check [Screen sharing](../useful-utilities/screen-sharing).
 
 Also install `qt6-wayland` if you plan to use OBS.
 
@@ -133,7 +133,7 @@ Paru has been problematic with updating before, use Yay.
 
 ### How do I screen lock?
 
-Use a Wayland-compatible locking utility using WLR protocols, e.g. `swaylock`.
+Use a Wayland-compatible locking utility using WLR protocols (e.g., `swaylock`)
 Be aware that they will not prevent changing TTYs using `Ctrl-Alt-F1`--`F7`.
 
 ### How do I change my mouse cursor?
@@ -336,14 +336,14 @@ Try running Discord like `ELECTRON_OZONE_PLATFORM_HINT= discord`.
 
 If it works, navigate to the Discord desktop entry (usually located in `/usr/share/applications/`).
 Duplicate it and replace `Exec=/usr/bin/discord` with `Exec=env -u ELECTRON_OZONE_PLATFORM_HINT /usr/bin/discord`.
-You can also give it a new name, e.g. `Name=DiscordX`, to avoid confusion as to which is which.
+You can also give it a new name (e.g., `Name=DiscordX`) to avoid confusion as to which is which.
 
 ### Fullscreen applications/Steam Games open with secondary monitor's resolution
 
 The issue is likely the default monitor for X11 is not your desired primary monitor.
 To fix this, do the following:
 
-Add `xrandr --output [MONITOR_ID] --primary` to your autostarts in the config, replacing `[MONITOR_ID]` with your main monitor's ID (e.g. `DP-3`).
+Add `xrandr --output [MONITOR_ID] --primary` to your autostarts in the config, replacing `[MONITOR_ID]` with your main monitor's ID (e.g., `DP-3`).
 You can find your monitor ID by running `hyprctl monitors`.
 
 By adding this to your Hyprland config, you will set your main monitor as the default for X11 applications.

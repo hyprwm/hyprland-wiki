@@ -14,7 +14,7 @@ If you have problems with your graphics card having high usage or Hyprland feeli
 ## Low FPS/stutter/FPS drops on Intel iGPU with TLP (mainly laptops)
 
 The TLP defaults are rather aggressive.
-Setting `INTEL_GPU_MIN_FREQ_ON_AC` and/or `INTEL_GPU_MIN_FREQ_ON_BAT` in `/etc/tlp.conf` to something slightly higher (e.g. to 500 from 300) will reduce stutter significantly or, in the best case, remove it completely.
+Setting `INTEL_GPU_MIN_FREQ_ON_AC` and/or `INTEL_GPU_MIN_FREQ_ON_BAT` in `/etc/tlp.conf` to something slightly higher (e.g., to 500 from 300) will reduce stutter significantly or, in the best case, remove it completely.
 
 ## How do I make Hyprland draw as little power as possible on my laptop?
 

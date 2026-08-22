@@ -74,7 +74,7 @@ It can be rehooked later by calling `hook()` again.
 
 ### Member functions
 
-For members, e.g. `CCompositor::focusWindow(CWindow*, wlr_surface*)` you will also need to add the thisptr argument to your hook:
+For members (e.g., `CCompositor::focusWindow(CWindow*, wlr_surface*)`) you will also need to add the thisptr argument to your hook:
 
 ```cpp
 typedef void (*origFocusWindow)(void*, CWindow*, wlr_surface*);
@@ -103,7 +103,7 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle) {
 
 ### Why use findFunctionsByName?
 
-Why use that instead of e.g. `&CCompositor::focusWindow`?
+Why use that instead of, e.g., `&CCompositor::focusWindow`?
 Two reasons:
 
 1. Less breakage.
@@ -130,7 +130,7 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle) {
 
 Plugin variables _**must**_ be in the `plugins:` category.
 Further categories are up to you.
-It's generally a good idea to group all variables from your plugin in a subcategory with the plugin name, e.g. `plugins:myPlugin:variable1`.
+It's generally a good idea to group all variables from your plugin in a subcategory with the plugin name (e.g., `plugins:myPlugin:variable1`)
 
 For retrieving the values, call `HyprlandAPI::getConfigValue`.
 

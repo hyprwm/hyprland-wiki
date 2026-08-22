@@ -13,7 +13,7 @@ weight: 50
 
 The Hyprland flake is not built by Hydra, so it is not cached in [cache.nixos.org], like the rest of Nixpkgs.
 
-Instead of requiring you to build Hyprland (and its dependencies, which may include `mesa`, `ffmpeg`, etc), we provide a Cachix cache that you can add to your Nix configuration.
+Instead of requiring you to build Hyprland (and its dependencies, which may include `mesa`, `ffmpeg`, etc.), we provide a Cachix cache that you can add to your Nix configuration.
 
 The [Hyprland Cachix](https://app.cachix.org/cache/hyprland) exists to cache the `hyprland` packages and any dependencies not found in [cache.nixos.org].
 

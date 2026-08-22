@@ -33,7 +33,7 @@ Hyprlock searches for it in the following locations, in order:
 
 1. `$XDG_CONFIG_HOME/hypr/hyprlock.conf`
 2. `$HOME/.config/hypr/hyprlock.conf`
-3. Each directory in `$XDG_CONFIG_DIRS`, e.g. `<dir>/hypr/hyprlock.conf`
+3. Each directory in `$XDG_CONFIG_DIRS` (e.g., `<dir>/hypr/hyprlock.conf`)
 4. `/etc/xdg/hypr/hyprlock.conf`
 
 The first match is used.
@@ -45,7 +45,7 @@ Hyprlock uses the following types in addition to Hyprland's [data types](../../.
 
 | type | description |
 | -- | -- |
-| layoutxy | vec2 with an optional `%` suffix, allowing users to specify sizes as percentages of the output size. <br> Floats (e.g. 10.5) are supported, but only have an effect when used with `%`. <br> Raw pixel values will just get rounded. |
+| layoutxy | vec2 with an optional `%` suffix, allowing users to specify sizes as percentages of the output size. <br> Floats (e.g., 10.5) are supported, but only have an effect when used with `%`. <br> Raw pixel values will just get rounded. |
 
 ### General
 
@@ -106,7 +106,7 @@ Check out Hyprland's [animation documentation](../../../configuring/core/animati
 ```txt
 global
   ↳ fade
-    ↳ fadeIn - fade to lockscreen
+    ↳ fadeIn - fade to lock screen
     ↳ fadeOut - fade back to the Wayland session
   ↳ inputField
     ↳ inputFieldColors - fade between colors and gradients
@@ -130,7 +130,7 @@ The following keys and key-combinations describe hyprlock's default behavior:
 | `Ctrl + u` | Clear password buffer |
 | `Ctrl + Backspace` | Clear password buffer |
 
-The [`locked` flag](../../../configuring/core/binds/flags#bind-flags) `l` can be used to allow specific Hyprland keybinds to also work while hyprlock is active (e.g. brightness/volume/media control).
+The [`locked` flag](../../../configuring/core/binds/flags#bind-flags) `l` can be used to allow specific Hyprland keybinds to also work while hyprlock is active (e.g., brightness/volume/media control).
 
 ## Widgets
 
@@ -148,7 +148,7 @@ widget_name {
 `monitor` is available for all widgets and can be left empty for "all monitors".
 
 It takes the same string that is used to reference monitors in the Hyprland configuration.
-So either use the portname (e.g. `eDP-1`) or the monitor description (e.g. `desc:Chimei Innolux Corporation 0x150C`).
+So either use the portname (e.g., `eDP-1`) or the monitor description (e.g., `desc:Chimei Innolux Corporation 0x150C`).
 
 See [Monitors](../../../configuring/core/monitors).
 
@@ -156,10 +156,10 @@ See [Monitors](../../../configuring/core/monitors).
 
 The following variables in widget text options will be substituted.
 
-- `$USER` - username (e.g. linux-user)
-- `$DESC` - user description (e.g. Linux User)
-- `$TIME` - current time in 24-hour format (e.g. `13:37`)
-- `$TIME12` - current time in 12-hour format (e.g. `1:37 PM`)
+- `$USER` - username (e.g., linux-user)
+- `$DESC` - user description (e.g., Linux User)
+- `$TIME` - current time in 24-hour format (e.g., `13:37`)
+- `$TIME12` - current time in 12-hour format (e.g., `1:37 PM`)
 - `$LAYOUT` - current keyboard layout
 - `$ATTEMPTS` - failed authentication attempts
 - `$FAIL` - last authentication fail reason
@@ -381,7 +381,7 @@ Draws a password input field.
 > When `outline_thickness` is set to `0`, the color of the inner box will be changed instead of the outer.
 >
 > Behavior of `swap_font_color` is as follows:
-> - `outline_thickness` is `0`: if set, font color will be swapped with inner one on color change events (e.g. Caps Lock on or password check).
+> - `outline_thickness` is `0`: if set, font color will be swapped with inner one on color change events (e.g., Caps Lock on or password check).
 > - `outline_thickness` is not `0`: if set, font and inner colors will be swapped on password check and authentication failure.
 > - `swap_font_color` will narrow the accent colors from a gradient to a single color by using the first specified color.
 
@@ -446,8 +446,8 @@ text = cmd[update:1000] echo "<span foreground='##ff2222'>$(date)</span>"
 > - `$ATTEMPTS[<string>]` format can be used to show `<string>` when there are no failed attempts.
 >   You can use pango-markup here. `<string>` can be empty to hide.
 > - `$LAYOUT[<str0>,<str1>,...]` format is available to replace indexed layouts.
->   You can use settings from `hyprland.lua`, e.g. `$LAYOUT[en,ru,de]`.
->   Also, a single `!` character will hide layout. E.g. `$LAYOUT[!]` will hide default (0 indexed) and show others.
+>   You can use settings from `hyprland.lua` (e.g., `$LAYOUT[en,ru,de]`)
+>   Also, a single `!` character will hide layout (e.g., `$LAYOUT[!]` will hide default (0 indexed) and show others)
 > - `$TIME` and `$TIME12` will use timezone from the TZ environment variable.
 >   If it's not set, the system timezone will be used, falling back to UTC in case of errors.
 > - Variables seen above are parsed _before_ the command is run.

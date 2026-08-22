@@ -5,10 +5,14 @@ title: Crashes and Bugs
 
 ## Getting the log
 
-Firstly, make sure you have enabled logs in the Hyprland config by setting `debug.disable_logs` to `false`.
-Then, to make OpenGL produce error messages, set `debug.gl_debugging` to `true`.
+First, make sure logging is enabled by [setting](../configuring/core/config-options#syntax) `debug.disable_logs` to `false`.
+If you also need OpenGL messages, set `debug.gl_debugging` to `true`.
 
-Don't forget to disable these when done logging as they cause a performance hit.
+Remember to unset these when done logging, as they negatively impact performance.
+
+> [!TIP]
+> Debug logging can be toggled dynamically, using `hyprctl eval` to change the option at runtime.
+> If you don't need to see startup logs, consider setting debug options this way (rather than in your config file), so that you can simply reload your config to disable logging when you finish.
 
 If you are in a TTY, and the Hyprland session that crashed was the last one you launched, the log can be printed with
 
@@ -35,8 +39,8 @@ Attach that file to your issue.
 
 Diagnose the issue by what is in the log:
 
-- `backend failed to start` -> launch in the TTY and refer to the logs in RED.
-- `Monitor X has NO PREFERRED MODE, and an INVALID one was requested` -> your monitor is bork.
+- `backend failed to start` -> launch in the TTY and refer to the logs shown in RED.
+- `Monitor X has NO PREFERRED MODE, and an INVALID one was requested` -> your monitor is broken.
 - Other -> see the coredump. Use `coredumpctl`, find the latest one's PID and do `coredumpctl info PID`.
 - failing on a driver (e.g. `radeon`) -> report an issue.
 - failing on `Hyprland` -> report an issue.

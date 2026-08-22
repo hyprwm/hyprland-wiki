@@ -9,11 +9,11 @@ Here are great replacements for them:
 ## Discord
 
 - [WebCord](https://github.com/SpacingBat3/WebCord)
-  is a Discord client based on the latest Electron, with support for the Wayland Ozone platform, as well as PipeWire screensharing.
+  is a Discord client based on the latest Electron, with support for the Wayland Ozone platform, as well as PipeWire screen sharing.
   It has tons of great features and tries not to infringe on the Discord ToS.
-- [Vesktop](https://github.com/Vencord/Vesktop)
-  Like WebCord, Vesktop is a custom Discord client with improved performance and Wayland support.
-  It also has built-in screen sharing, and in addition has support for plugins and custom themes.
+- [Vesktop](https://github.com/Vencord/Vesktop),
+  like WebCord, is a custom Discord client with improved performance and Wayland support.
+  It also has built-in screen sharing, support for plugins and custom themes.
   Vesktop even supports proper audio sharing when you screen share.
   Note that Vesktop relies on Vencord, a custom Discord client mod, which violates Discord's terms of service.
   Use at your own risk.

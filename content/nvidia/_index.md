@@ -18,9 +18,9 @@ There are three potential setups you can have with driver setup on NVIDIA.
 For maximum performance and support with newer cards, running either of the first two setups is recommended as it contains some vital optimizations and power management support for newer GPUs.
 
 > [!WARNING]
-> For those on the NVIDIA 50xx series of graphics cards (5090, 5080, etc) or newer, the open drivers are **REQUIRED**; the older proprietary drivers will not work.
+> For those on the NVIDIA 50xx series of graphics cards (5090, 5080, etc.) or newer, the open drivers are **REQUIRED**; the older proprietary drivers will not work.
 
-According to [NVIDIA](https://developer.nvidia.com/blog/nvidia-transitions-fully-towards-open-source-gpu-kernel-modules/), the open source kernel modules are also recommended for use with Turing and Ampere cards.
+According to [NVIDIA](https://developer.nvidia.com/blog/nvidia-transitions-fully-towards-open-source-gpu-kernel-modules/), the open source kernel modules are also recommended for the Turing and Ampere architectures.
 This includes the 16xx and 20xx series of consumer cards and later.
 Your mileage may vary, so please try both of them if your card is supported by both.
 
@@ -34,7 +34,7 @@ On Arch Linux and other Arch-based distros, we recommend using the DKMS variety 
 If you are only using the `linux` or `linux-lts` kernels on your system, you can also use the non-dkms packages if you wish.
 
 For the entirely proprietary NVIDIA drivers, you can therefore use the `nvidia-dkms` package.
-And for those wanting/needing to use the open source kernel modules, `nvidia-open-dkms` can be used.
+For the open source kernel modules, `nvidia-open-dkms` can be used.
 
 These DKMS packages rely on having the "headers" package installed for your kernels of choice.
 So please make sure you have all relevant headers packages installed on your system.
@@ -47,7 +47,7 @@ The following packages must also be installed to ensure a smooth experience with
 1. `nvidia-utils`:
    The userspace graphics drivers.
    You need this for pretty much everything on your system, and we do not recommend running your computer without it.
-   If you are also using the "multilib" or "lib32" packages for gaming, Steam, Wine, etc, then you also require `lib32-nvidia-utils`.
+   If you are also using the "multilib" or "lib32" packages for gaming, Steam, Wine, etc., you also require `lib32-nvidia-utils`.
 1. `egl-wayland` (`libnvidia-egl-wayland1` and `libnvidia-egl-gbm1` on Ubuntu):
    This is required in order to enable compatibility between the EGL API and the Wayland protocol.
    This should already be installed on most distros.

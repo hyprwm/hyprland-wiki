@@ -4,7 +4,7 @@ title: Development
 ---
 
 Hyprtoolkit is a pure C++ toolkit.
-It relies on modern C++ in the Hyprland style (with hyprutils, etc).
+It relies on modern C++ in the Hyprland style (with hyprutils, etc.).
 
 It's recommended you are familiar with C++ before developing an app.
 
@@ -107,7 +107,7 @@ This tells the layout system how to size the element.
 - `AUTO` ignores the passed vector (leave it empty) and instead will always attempt to contain the children\*
 
 > [!NOTE]
-> Some elements will force their own sizing, e.g. `Text`.
+> Some elements will force their own sizing (e.g., `Text`)
 > Leave them `AUTO` to avoid confusion.
 
 ## Elements
@@ -135,7 +135,7 @@ Then, you can take that object and slap it into an `ImageElement` to add it to y
 
 ### Additional FDs
 
-If you have an app that depends on some other loop, e.g. PipeWire, D-Bus, etc, you need to remember that hyprtoolkit is strictly single-threaded for layout and rendering.
+If you have an app that depends on some other loop (e.g., PipeWire, D-Bus, etc.), you need to remember that hyprtoolkit is strictly single-threaded for layout and rendering.
 You cannot edit the layout from another thread.
 
 For this, use `CBackend::addFd()` to add a FD to the loop alongside a function that will be called once the fd is readable.

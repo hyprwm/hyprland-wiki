@@ -36,7 +36,7 @@ See the `docs/` and `hyprcursor-util/` directories for instructions.
 
 ## Important Notes
 
-Although many apps support server-side cursors (e.g. Qt, Chromium, Electron, Hypr Ecosystem) some apps still don't (e.g. GTK).
+Although many apps support server-side cursors (e.g., Qt, Chromium, Electron, Hypr Ecosystem) some apps still don't (e.g., GTK).
 
 Apps that do not support server-side cursors and hyprcursor will still fall back to XCursor.
 
@@ -48,7 +48,7 @@ gsettings set org.gnome.desktop.interface cursor-theme 'THEME_NAME'
 
 for GTK.
 
-If GSettings schemas are not available to you (e.g. on NixOS you will get `No schemas installed`), you can instead run:
+If GSettings schemas are not available to you (e.g., on NixOS you will get `No schemas installed`), you can instead run:
 
 ```sh
 dconf write /org/gnome/desktop/interface/cursor-theme "'THEME_NAME'"

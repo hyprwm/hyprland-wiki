@@ -5,7 +5,7 @@ title: Lua code snippets
 
 ## Code snippets
 
-Code snippets provided on this page may be useful for stealing some functions or getting inspiration.
+Code snippets provided on this page may prove useful as inspiration or straight-up copy-paste.
 
 <!-- TODO scrap discord/forums for helper functions that may or may not be useful -->
 
@@ -67,7 +67,7 @@ end)
 
 ### Smart gaps
 
-To replicate "smart gaps"/"no gaps when only" from other WMs/Compositors, use this bad boy:
+To replicate "smart gaps"/"no gaps when only" from other WMs/Compositors:
 
 ```lua
 hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
@@ -158,9 +158,7 @@ end
 
 ### Toggle animations/blur/etc hotkey
 
-For less distractions at a keypress, or battery saving on a laptop.
-
-Add the following to your Hyprland config:
+Easily toggling animations and other effects with a bind could be useful for temporarily having less distractions, or for saving battery on a laptop:
 
 ```lua
 hl.bind("SUPER + F1", function ()
@@ -191,9 +189,6 @@ hl.bind("SUPER + F1", function ()
 end)
 ```
 
-If animations are enabled, it disables all the pretty stuff.
-Otherwise, the script reloads your config to grab your defaults.
-Edit to your liking.
 
 ### Per workspace layouts
 

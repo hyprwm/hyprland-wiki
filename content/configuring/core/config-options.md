@@ -3,27 +3,37 @@ weight: 20
 title: Config options
 ---
 
-This page documents all of Hyprland's "options."
-For binds, monitors, animations, etc. see the sidebar.
+This page documents all Hyprland configuration options except layout-specific ones.
+Those are documented on their respective [layout pages](../../layouts) instead.
 
-Please keep in mind some options that are layout-specific will be documented in the layout pages and not here.
-See the sidebar for Dwindle/Scrolling/Master/Monocle/Custom layout pages.
+For [binds](../binds), [monitors](../monitors), [animations](../animations), etc., seek the other pages in [Core](..).
 
 ## Syntax
+
+Update many options at once with:
 
 ```lua
 hl.config({
     path1 = {
-        value = key
+        option = value,
     },
     path2 = {
-        value1 = key1,
-        value2 = key2,
+        option1 = value1,
+        option2 = value2,
     },
 })
 ```
 
-Multiple `hl.config()` invocations can be used to set options, each call will update only what was passed into it.
+Or only a few with:
+
+```lua
+hl.config({ ["path.option"] = value })
+```
+
+Multiple `hl.config()` invocations can be used to set options, since each call will only update what was passed into it.
+
+This also means you can update options at runtime, without adding them to your configuration file, using [`hyprctl eval 'hl.config(...)'`](../advanced-configuration/using-hyprctl#eval).
+In this case, they will return to their default values the next time you reload (or relaunch) Hyprland.
 
 > [!TIP]
 > Before continuing, make sure you've read and understood the [naming conventions used in this wiki](../../../naming-conventions).
@@ -65,7 +75,7 @@ Path: `general`
 | extend_border_grab_area | Extends the area around the border where you can click and drag on, only used when `general.resize_on_border` is on | int | `15` | [0 - 100] |
 | hover_icon_on_border | Show a cursor icon when hovering over borders, only used when `general.resize_on_border` is on | bool | `true` |   |
 | layout | Which layout to use. Options: `"dwindle"`/`"master"`/`"scrolling"`/`"monocle"` | string | `"dwindle"` |   |
-| locale | Overrides the system locale, e.g. `"en_US"`, `"es"` | string | [[Empty]] |   |
+| locale | Overrides the system locale (e.g., `"en_US"`, `"es"`) | string | [[Empty]] |   |
 | modal_parent_blocking | Whether parent windows of modals will be interactive | bool | `true` |   |
 | no_focus_fallback | If true, will not fall back to the next available window when moving focus in a direction where no window was found | bool | `false` |   |
 
@@ -121,12 +131,12 @@ Path: `decoration.blur`
 | brightness | Brightness modulation for blur | float | `1` | [0.0 - 2.0] |
 | contrast | Contrast modulation for blur | float | `0.8916` | [0.0 - 2.0] |
 | ignore_opacity | Make the blur layer ignore the opacity of the window | bool | `true` |   |
-| input_methods | Whether to blur input methods, e.g. `fcitx5` | bool | `false` |   |
+| input_methods | Whether to blur input methods (e.g., `fcitx5`) | bool | `false` |   |
 | input_methods_ignorealpha | Works like ignore_alpha in layer rules. If pixel opacity is below the set value, will not blur | float | `0.2` | [0.0 - 1.0] |
 | new_optimizations | Whether to enable further optimizations to the blur. Recommended to leave on, as it will massively improve performance | bool | `true` |   |
 | noise | How much noise to apply | float | `0.0117` | [0.0 - 1.0] |
 | passes | The amount of passes to perform | int | `1` | [0 - 10] |
-| popups | Whether to blur popups, e.g. `right-click menus` | bool | `false` |   |
+| popups | Whether to blur popups (e.g., `right-click menus`) | bool | `false` |   |
 | popups_ignorealpha | Works like ignore_alpha in layer rules. If pixel opacity is below the set value, will not blur | float | `0.2` | [0.0 - 1.0] |
 | size | Blur size (distance) | int | `8` | |
 | special | Whether to blur behind the special workspace (note: expensive) | bool | `false` | |
@@ -428,7 +438,7 @@ Path: `input.tablettool`
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
 | eraser_button_mode | Change the eraser button behavior on the tool. When set to `0`, use the default hardware behavior of the tool. When set to `1`, the eraser button on the tool sends a button event instead | int | 0 | [0 - 6] |
-| eraser_button_override | Set a button to be button event when eraser_button_mode is set to `1`. Must be a valid button (e.g. BTN_STYLUS) excluding fake buttons (e.g. BTN_TOOL_\*) and keys (KEY_\*). Check `wev` for the ID. `0` means default | int | 0 | [0 - ...] |
+| eraser_button_override | Set a button to be button event when eraser_button_mode is set to `1`. Must be a valid button (e.g., BTN_STYLUS) excluding fake buttons (e.g., BTN_TOOL_\*) and keys (KEY_\*). Check `wev` for the ID. `0` means default | int | 0 | [0 - ...] |
 | pressure_range_min | Set the minimum pressure range for the tool. Negative values mean it will use device defaults. Usually it is `0.0` | float | -1.0 | [-1.0 - 1.0] |
 | pressure_range_max | Set the maximum pressure range for the tool. Negative values mean it will use device defaults. Usually it is `1.0` | float | -1.0 | [-1.0 - 1.0] |
 ### Per-device input config
@@ -545,7 +555,7 @@ Path: `misc`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
-| allow_session_lock_restore | If true, will allow you to restart a lockscreen app in case it crashes | bool | `false` |   |
+| allow_session_lock_restore | If true, will allow you to restart a lock screen app in case it crashes | bool | `false` |   |
 | always_follow_on_dnd | Will make mouse focus follow the mouse when dragging and dropping. Recommended to leave it enabled, especially for people using focus follows mouse at 0 | bool | `true` |   |
 | animate_manual_resizes | If true, will animate manual window resizes/moves | bool | `false` |   |
 | animate_mouse_windowdragging | If true, will animate windows being dragged by mouse, note that this can cause weird behavior on some curves | bool | `false` |   |
@@ -565,26 +575,26 @@ Path: `misc`
 | enable_swallow | Enable window swallowing | bool | `false` |   |
 | screencopy_force_8b | Forces 8 bit screencopy | bool | `true` |   |
 | swallow_regex | The _class_ regex to be used for windows that should be swallowed (usually, a terminal) | string | \[\[Empty\]\] |   |
-| swallow_exception_regex | The _title_ regex to be used for windows that should _not_ be swallowed by the windows specified in swallow_regex, e.g. `wev`. The regex is matched against the parent, e.g. Kitty, window's title on the assumption that it changes to whatever process it's running | string | \[\[Empty\]\] |   |
+| swallow_exception_regex | The _title_ regex to be used for windows that should _not_ be swallowed by the windows specified in swallow_regex (e.g., `wev`). The regex is matched against the parent (e.g., Kitty) window's title on the assumption that it changes to whatever process it's running | string | \[\[Empty\]\] |   |
 | exit_window_retains_fullscreen | Whether closing a fullscreen window makes the next focused window to be fullscreened. 0 - disabled, 1 - enabled, 2 - only when closing a grouped window, 3 - only when closing a non-grouped window | int | `0` | [0 - 3] |
 | focus_on_activate | Whether Hyprland should focus an app that requests to be focused (an `activate` request) | bool | `false` |   |
 | float_force_onscreen | whether/how existing floating windows should be constrained to stay on-screen. 0 - no constraints, 1 - must be partially onscreen, 2 - must be fully onscreen | int | `0` | [0 - 2] |
 | new_float_force_onscreen | same as `float_force_onscreen`, but specifically for newly-spawned floating windows | int | `2` | [0 - 2] |
-| font_family | Set the global default font to render the text including debug FPS/notification, config error messages, etc.; selected from system fonts | string | `"Sans"` |   |
+| font_family | Sets the global default font used to render text | string | `"Sans"` |   |
 | force_default_wallpaper | Enforce any of the 3 default wallpapers. 0 - disables the anime background, 1 - disables the anime background, 2 - enables anime background, -1 - random | int | `-1` | [-1 - 2] |
 | initial_workspace_tracking | If enabled, windows will open on the workspace they were invoked on. 0 - disabled, 1 - single-shot, 2 - persistent (all children too) | int | `1` |   |
 | initial_workspace_token_timeout | the time in seconds a window has to open on its invoked workspace before the tracking token expires. | int | `10` | [1 - 3600] |
 | key_press_enables_dpms | If DPMS is set to off, wake up the monitors if a key is pressed | bool | `false` |   |
-| layers_hog_keyboard_focus | If true, will make keyboard-interactive layers keep their focus on mouse move, e.g. `wofi`, `bemenu` | bool | `true` |   |
-| lockdead_screen_delay | Delay after which the "lockdead" screen will appear in case a lockscreen app fails to cover all the outputs (5 seconds max) | int | `1000` | [0 - 5000] |
+| layers_hog_keyboard_focus | If true, will make keyboard-interactive layers keep their focus on mouse move (e.g., `wofi`, `bemenu`) | bool | `true` |   |
+| lockdead_screen_delay | Delay after which the "lockdead" screen will appear in case a lock screen app fails to cover all the outputs (5 seconds max) | int | `1000` | [0 - 5000] |
 | middle_click_paste | Whether to enable middle-click-paste (aka primary selection) | bool | `true` |   |
 | mouse_move_enables_dpms | If DPMS is set to off, wake up the monitors if the mouse moves | bool | `false` |   |
 | mouse_move_focuses_monitor | Whether mouse moving into a different monitor should focus it | bool | `true` |   |
-| name_vk_after_proc | Name virtual keyboards after the processes that create them, e.g. `/usr/bin/fcitx5` will have hl-virtual-keyboard-fcitx5 | bool | `true` |   |
+| name_vk_after_proc | Name virtual keyboards after the processes that create them (e.g., `/usr/bin/fcitx5` will have hl-virtual-keyboard-fcitx5) | bool | `true` |   |
 | on_focus_under_fullscreen | If there is a fullscreen or maximized window, decide whether a tiled window requested to focus should replace it, stay behind or disable the fullscreen/maximized state. 0 - ignore focus request (keep focus on fullscreen window), 1 - takes over, 2 - unfullscreen/unmaximize | int | `2` | [0 - 2] |
-| render_unfocused_fps | The maximum limit for render_unfocused windows' FPS in the background (see also [Window-Rules](../rules/window-rules/#dynamic-effects), e.g. `render_unfocused`) | int | `15` | [1 - 120] |
-| session_lock_blur | Enables blur for lockscreen. `session_lock_xray` must be enabled | bool | `false` |   |
-| session_lock_xray | If true, keep rendering workspaces below your lockscreen | bool | `false` |   |
+| render_unfocused_fps | The maximum limit for render_unfocused windows' FPS in the background (see also [`render_unfocused`](../rules/window-rules/#dynamic-effects) effect) | int | `15` | [1 - 120] |
+| session_lock_blur | Enables blur for lock screen. `session_lock_xray` must be enabled | bool | `false` |   |
+| session_lock_xray | If true, keep rendering workspaces below your lock screen | bool | `false` |   |
 | size_limits_tiled | Whether to apply min_size and max_size rules to tiled windows | bool | `false` |   |
 | vrr | Controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on, 2 - fullscreen only, 3 - fullscreen with `video` or `game` content type | int | `0` | [0 - 3] |
 
@@ -612,7 +622,7 @@ Path: `binds`
 | --- | --- | --- | --- | --- |
 | allow_pin_fullscreen | If enabled, allow fullscreen to pinned windows, and restore their pinned status afterwards | bool | `false` |   |
 | allow_workspace_cycles | If enabled, workspaces don't forget their previous workspace, so cycles can be created by switching to the first workspace in a sequence, then endlessly going to the previous workspace | bool | `false` |   |
-| disable_keybind_grabbing | If enabled, apps that request keybinds to be disabled, e.g. `VMs`, will not be able to do so | bool | `false` |   |
+| disable_keybind_grabbing | If enabled, apps that request keybinds to be disabled (e.g., `VMs`) will not be able to do so | bool | `false` |   |
 | drag_threshold | Movement threshold in pixels for window dragging and `click`/`drag` bind flags. `0` means disabled | int | `0` | [0 - ...] |
 | focus_preferred_method | Sets the preferred focus finding method when using `hl.dsp.focus({ direction })`/`hl.dsp.window.move({ direction })`/etc. `0` - most recent active window has priority, `1` - longer shared edges have priority) | int | `0` | [0 - 1] |
 | hide_special_on_workspace_change | If enabled, changing the active workspace (including to itself) will hide the special workspace on the monitor where the newly active workspace resides | bool | `false` |   |
@@ -659,7 +669,7 @@ Path: `render`
 | expand_undersized_textures | Whether to expand undersized textures along the edge, or rather stretch the entire texture | bool | `true` |   |
 | fp16_sdr_tf | Internal workbuffer transfer function for fp16 in SDR mode. 0 - monitor, 1 - linear | int | `0` | [0 - 1] |
 | icc_vcgt_enabled | Enable sending VCGT ramps to KMS with ICC profiles | bool | `true` |   |
-| keep_unmodified_copy | Keep unmodified SDR frame copy for screensharing. `0` - disabled, `1` - enabled, `2` - auto (enabled in HDR with SDR modifiers). Set to 1 if screenshots are transparent | int | `2` | [0 - 2] |
+| keep_unmodified_copy | Keep unmodified SDR frame copy for screen sharing. `0` - disabled, `1` - enabled, `2` - auto (enabled in HDR with SDR modifiers). Set to 1 if screenshots are transparent | int | `2` | [0 - 2] |
 | new_render_scheduling | Automatically uses triple buffering when needed, improves FPS on underpowered devices | bool | `false` |   |
 | not_shown_fifo_lock | Control fifo locking for not shown surfaces. always - use fifo lock for any surface, ignore_unfocused - ignore render_unfocused windows, never - skip locking invisible surfaces | int | `0` | [0 - 2] |
 | non_shader_cm | Enable CM without shader. `0` - disable, `1` - whenever possible, `2` - DS and passthrough only, `3` - disable and ignore CM issues. Options: [0 - 3] | int | `2` | [0 - 3] |
@@ -689,7 +699,7 @@ Path: `cursor`
 | min_refresh_rate | Minimum refresh rate for cursor movement when `no_break_fs_vrr` is active. Set to minimum supported refresh rate or higher | int | `24` | [10 - 500] |
 | no_break_fs_vrr | Disables scheduling new frames on cursor movement for fullscreen apps with VRR enabled to avoid framerate spikes (may require `no_hardware_cursors` set to `1`). `0` - disabled, `1` - enabled, `2` - auto (enabled with content type 'game') | int | `2` | [0 - 2] |
 | no_hardware_cursors | Disables hardware cursors. `0` - use hw cursors if possible, `1` - don't use hw cursors, `2` - auto (disable when tearing) | int | `2` | [0 - 2] |
-| no_warps | If true, will not warp the cursor in many cases (focusing, keybinds, etc) | bool | `false` |   |
+| no_warps | If true, will not warp the cursor in many cases (focusing, keybinds, etc.) | bool | `false` |   |
 | persistent_warps | When a window is refocused, the cursor returns to its last position relative to that window, rather than to the centre | bool | `false` |   |
 | warp_back_after_non_mouse_input | Warp the cursor back to where it was after using a non-mouse input to move it, and then returning back to the mouse | bool | `false` |   |
 | warp_on_change_workspace | Move the cursor to the last focused window after changing the workspace. `0` - Disabled, `1` - Enabled, `2` - Force (ignores cursor:no_warps option) | int | `0` | [0 - 2] |

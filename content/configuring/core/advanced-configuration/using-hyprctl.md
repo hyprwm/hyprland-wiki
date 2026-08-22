@@ -102,7 +102,7 @@ hyprctl output remove [name]
 ```
 
 Where `[backend]` is the name of the backend and `(name)` is an optional name for the output.
-If `(name)` is not specified, the default naming scheme will be used (`HEADLESS-2`, `WL-1`, etc).
+If `(name)` is not specified, the default naming scheme will be used (`HEADLESS-2`, `WL-1`, etc.).
 
 > [!NOTE]
 > `create` and `remove` can also be `add` or `destroy`, respectively.
@@ -160,7 +160,7 @@ hyprctl switchxkblayout at-translated-set-2-keyboard next
 ```
 
 > [!NOTE]
-> If you want a single variant, e.g. pl/dvorak on one layout but us/qwerty on the other, XKB parameters can still be blank.
+> If you want a single variant (e.g., pl/dvorak on one layout but us/qwerty on the other) XKB parameters can still be blank.
 > However, the amount of comma-separated parameters has to match.
 > Alternatively, a single parameter can be specified for it to apply to all three.
 >
@@ -294,7 +294,7 @@ See [Config options](../../config-options) for sections and options you can use.
 You can use the `--batch` flag to issue multiple commands separated with a `;`.
 
 > [!NOTE]
-> Any semicolons inside of individual commands in the batch (e.g. multi-statement Lua code) must be backslash-escaped, and any literal backslashes must be escaped as well.
+> Any semicolons inside of individual commands in the batch (e.g., multi-statement Lua code) must be backslash-escaped, and any literal backslashes must be escaped as well.
 > This is *in addition to* any escaping already required by your shell.
 
 ## Flags
@@ -310,5 +310,5 @@ Flag list:
 ```txt
 j -> output in JSON
 i -> select instance (id or index in hyprctl instances)
-r -> force state refresh after issuing commands (e.g. layout or rule changes)
+r -> force state refresh after issuing commands (e.g., layout or rule changes)
 ```

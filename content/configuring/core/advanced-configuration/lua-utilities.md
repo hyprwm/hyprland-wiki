@@ -7,6 +7,22 @@ title: Lua utilities
 
 Hyprland exposes a bunch of Lua utilities for you to script your desktop with custom functionality and more.
 
+{{% details title="Example" closed="true" %}}
+```lua
+-- bind to toggle floating, unless the window is htop,
+-- then only set floating
+
+hl.bind("SUPER + X", function()
+  local w = hl.get_active_window()
+  if w ~= nil and w.title == "htop" do
+    hl.dispatch(hl.dsp.window.float({ action = "set" }))
+  else
+    hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
+  end
+end)
+```
+{{% /details %}}
+
 ### Convenience functions
 
 Hyprland exposes the following convenience functions:
@@ -75,11 +91,11 @@ end)
 
 ### Prop Refresh
 
-A prop refresh is an event where Hyprland updates/refreshes many of its configurable options (e.g. keyboard layouts, device configurations, monitor states, window gaps, etc...).
+A prop refresh is an event where Hyprland updates/refreshes many of its configurable options (e.g., keyboard layouts, device configurations, monitor states, window gaps, etc.).
 
 Events such as the creation of a workspace rule cause a prop refresh event to be scheduled after the current event.
 
-Hyprland schedules a **single** prop refresh event to be executed at the end of the current event (e.g. a Lua function) in order to avoid redundant prop refreshes.
+Hyprland schedules a **single** prop refresh event to be executed at the end of the current event (e.g., a Lua function) in order to avoid redundant prop refreshes.
 
 In practice, this means that when you create a new workspace rule that removes `gaps_in` from the current workspace, the value for `gaps_in` is only changed at the end of your Lua function, and subsequent lines of code within your Lua function after setting the workspace rule don't use the updated value; only after the end of your Lua function does the `gaps_in` value of your current workspace get updated to reflect the new workspace rule.
 
@@ -106,24 +122,6 @@ demoTimer:set_enabled(false)
 hl.bind("SUPER + X", function()
   -- toggle the timer
   demoTimer:set_enabled(not demoTimer:is_enabled())
-end)
-```
-
-### Combining it all
-
-You can expand functionality e.g. like so:
-
-```lua
--- bind to toggle floating, unless the window is htop,
--- then only set floating
-
-hl.bind("SUPER + X", function()
-  local w = hl.get_active_window()
-  if w ~= nil and w.title == "htop" do
-    hl.dispatch(hl.dsp.window.float({ action = "set" }))
-  else
-    hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
-  end
 end)
 ```
 

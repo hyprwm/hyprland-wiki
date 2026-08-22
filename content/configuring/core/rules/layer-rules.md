@@ -22,12 +22,12 @@ The syntax is the same as `hl.window_rule()`.
 | no_anim | boolean | Disables animations. |
 | blur | boolean | Enables blur for the layer. |
 | blur_popups | boolean | Enables blur for popups. |
-| ignore_alpha | number | Makes blur ignore pixels with opacity of `a` or lower. Float from `0` to `1`. |
+| ignore_alpha | number | Makes blur ignore pixels with an opacity equal or lower to this. Float from `0` to `1`. |
 | dim_around | boolean | Dims everything behind the layer. |
 | xray | boolean | Sets the blur xray mode for the layer. |
 | animation | string | Sets a specific animation style for this layer. |
-| order | integer | Sets the order relative to other layers. Higher `n` = closer to edge of monitor. Can be negative. |
-| above_lock | integer | If non-zero, renders the layer above the lockscreen. `2` = interactive on lockscreen. |
+| order | integer | Sets the space-reservation order relative to other layers. A higher order layer takes priority when trying to reserve space over other lower order layers. Can be negative. |
+| above_lock | integer | If non-zero, renders the layer above the lock screen. `2` = interactive on lock screen. |
 | no_screen_share | boolean | Hides the layer from screen sharing. |
 
 {{% details title="Examples" closed="true" %}}

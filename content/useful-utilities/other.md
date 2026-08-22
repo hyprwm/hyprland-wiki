@@ -57,7 +57,7 @@ A neat wrapper for Hyprland's IPC written in Rust.
 
 _Starting method:_ manual (autostart in Hyprland config).
 
-USB mass storage devices, like thumb drives, mobile phones, digital cameras, etc. are not mounted automatically to the file system.
+USB mass storage devices (e.g.: thumb drives, mobile phones, digital cameras, etc.) are not mounted automatically to the file system.
 
 Typically, they have to be manually mounted, often using `mount` with root privileges to do so.
 Many popular DEs automatically handle this by using `udisks2` wrappers.

@@ -11,7 +11,7 @@ Some common ones include:
 - [`cliphist`](https://github.com/sentriz/cliphist) - Utilizes Wayland with `wl-clipboard` and can store text, images and any binary data.
 - [`clipman`](https://github.com/chmouel/clipman) - Utilizes Wayland with `wl-clipboard` support and stores text only.
 - [`clipvault`](https://github.com/rolv-apneseth/clipvault) - Utilizes Wayland with `wl-clipboard` and can store text, images and any binary data.
-  Alternative to `cliphist` with a couple extra features (e.g. max age for entries, min/max entry length).
+  Alternative to `cliphist` with a couple extra features (e.g., max age for entries, min/max entry length).
 - [`clipse`](https://github.com/savedra1/clipse) - Utilizes Wayland with `wl-clipboard` and supports text and images.
   Accessible via a TUI that can be bound to a floating window in your Hyprland config.
   Features include custom themes, image/text previews, multi-select, pinned items, auto-paste, sensitive content handling and more.
@@ -123,7 +123,7 @@ $ wl-paste --watch clipvault store --min-entry-length 2 --max-entries 200 --max-
 Note that you can uncomment any of the commented out lines above based on your needs.
 Refer to the setup section in the project's GitHub repository linked above for more information.
 
-To bind `clipvault` to a hotkey and display it using a picker of your choice (e.g. `rofi`, `dmenu`, `wofi`, etc), you can add one of the below commands to a bind to your `hyprland.lua`:
+To bind `clipvault` to a hotkey and display it using a picker of your choice (e.g., `rofi`, `dmenu`, `wofi`, etc.), you can add one of the below commands to a bind to your `hyprland.lua`:
 
 {{< tabs >}}
 

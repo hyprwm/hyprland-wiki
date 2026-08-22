@@ -10,7 +10,7 @@ title: Configuring
 
 ## Section info
 
-This section is all about the configuring (aka "ricing") of your Hyprland experience.
+This section is all about configuring (or "ricing") your Hyprland experience.
 It links to other pages where necessary, and will walk you through:
 
 - The configuration file
@@ -20,4 +20,4 @@ It links to other pages where necessary, and will walk you through:
 
 It also contains some sample configurations you can take inspiration from.
 
-Start with [Core page](./core).
+Start in the [Core page](./core).

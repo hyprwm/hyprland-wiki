@@ -20,7 +20,7 @@ This is available in most distros' repositories.
 > [!NOTE]
 > If not using an NVIDIA card, skip this step.
 
-Please take a look at [the NVIDIA page](../../nvidia) before launching.
+Please take a look at the [NVIDIA page](../../nvidia) before launching.
 It has information regarding the needed environment and tweaks.
 
 ## VM?

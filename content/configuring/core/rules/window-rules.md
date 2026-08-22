@@ -35,8 +35,8 @@ Effects are what is applied.
 
 _All_ props must match for a rule to be applied.
 
-You can have as many props and effects per rule as you please, in any order as you please, as long as:
-- There is only one of one type (e.g. specifying `match.class` twice is invalid)
+You can have as many props and effects per rule as you want, and in any order, as long as:
+- They are not repeated
 - There is at least one _prop_
 
 ### Props
@@ -56,7 +56,7 @@ The supported fields for the `match` table are:
 | pin | bool | Pins the window (i.e. show it on all workspaces). _Note: pinning is ignored for non-floating windows. You most likely want to use this together with `float = true`_. |
 | focus | \[bool\] | Currently focused window. |
 | group | \[bool\] | Grouped windows. |
-| modal | \[bool\] | Modal windows (e.g. "Are you sure" popups) |
+| modal | \[bool\] | Modal windows (e.g., "Are you sure" popups). |
 | fullscreen_state_client | \[int\] | Windows with matching `fullscreenstate`. `0` - none, `1` - maximize, `2` - fullscreen, `3` - maximize and fullscreen. |
 | fullscreen_state_internal | \[int\] | Windows with matching `fullscreenstate`. `0` - none, `1` - maximize, `2` - fullscreen, `3` - maximize and fullscreen. |
 | workspace | \[workspace\] | Windows on matching workspace. Can be `id`, `"name:string"` or a workspace selector. |
@@ -97,12 +97,12 @@ This essentially means that it is always the `initialTitle` and `initialClass` w
 | tile | boolean | Tiles a window. |
 | fullscreen | boolean | Fullscreens a window. |
 | maximize | boolean | Maximizes a window. |
-| fullscreen_state | string | Sets the fullscreen mode, e.g. `"1 2"` (internal client). Values: `0` none, `1` maximize, `2` fullscreen, `3` maximize and fullscreen. |
-| move | string | Moves a floating window to a given coordinate, monitor-local. E.g. `{100, 200}` or `{"(cursor_x-(window_w*0.5))", "(cursor_y-(window_h*0.5))"}`. |
-| size | string | Resizes a floating window. E.g. `{800, 600}` or `{"(monitor_w*0.5)", "(monitor_h*0.5)"}`. |
+| fullscreen_state | string | Sets the fullscreen mode for the internal client (e.g., `"1 2"`). Values: `0` none, `1` maximize, `2` fullscreen, `3` maximize and fullscreen. |
+| move | string | Moves a floating window to the given monitor-local coordinates (e.g., `{100, 200}`, `{"(cursor_x-(window_w*0.5))", "(cursor_y-(window_h*0.5))"}`) |
+| size | string | Resizes a floating window (e.g., `{800, 600}`, `{"(monitor_w*0.5)", "(monitor_h*0.5)"}`) |
 | center | boolean | If the window is floating, will center it on the monitor. |
 | pseudo | boolean | Pseudotiles a window. |
-| monitor | string | Sets the monitor on which a window should open. E.g. `"1"` or `"DP-1"`. Can be suffixed with `" silent"` |
+| monitor | string | Sets the monitor on which a window should open (e.g., `"1"`, `"DP-1"`). Can be suffixed with `" silent"` |
 | workspace | string | Sets the workspace on which a window should open. Can also be `"unset"` or suffixed with `" silent"`. |
 | no_initial_focus | boolean | Disables the initial focus to the window. |
 | pin | boolean | Pins the window (i.e. show it on all workspaces). _Note: pinning is ignored for non-floating windows. You most likely want to use this together with `float = true`_. |
@@ -138,13 +138,13 @@ Dynamic effects are re-evaluated every time a property changes.
 | persistent_size | boolean | For floating windows, internally store their size. When a new floating window opens with the same class and title, restore the saved size. |
 | no_max_size | boolean | Removes max size limitations. |
 | stay_focused | boolean | Forces focus on the window as long as it's visible. |
-| animation | string | Forces an animation onto a window with an optional style. E.g. `"popin"` or `"popin 80%"`. |
-| border_color | gradient | Force the border color. Accepts a color, gradient, or two gradients (active/inactive). E.g. `"rgb(FF0000)"` or `{ colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 }`. |
+| animation | string | Forces an animation onto a window with an optional style (e.g., `"popin"`, `"popin 80%"`) |
+| border_color | gradient | Sets the window's border to a color, gradient, or two gradients (active/inactive). E.g., `"rgb(FF0000)"`, `{ colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 }`. |
 | idle_inhibit | string | Sets an idle inhibit rule. Modes: `"none"`, `"always"`, `"focus"`, `"fullscreen"`. |
-| opacity | string | Additional opacity multiplier. E.g. `"0.8"` (overall), `"0.9 0.7"` (active/inactive), `"1.0 0.8 0.9"` (active/inactive/fullscreen). Append `" override"` after each value to set absolute instead of multiplied. |
-| tag | string | Applies a tag. Use prefix `+`/`-` to set/unset, or no prefix to toggle. E.g. `"+myTag"`. |
-| max_size | vec2 | Sets the maximum size for floating windows. E.g. `{ 800, 600 }`. |
-| min_size | vec2 | Sets the minimum size for floating windows. E.g. `{ 200, 150 }`. |
+| opacity | string | Additional opacity multiplier (e.g., `"0.8"` overall, `"0.9 0.7"` active/inactive, `"1.0 0.8 0.9"` active/inactive/fullscreen). Append `" override"` after each value to set absolute instead of multiplied. |
+| tag | string | Applies a tag. Use prefix `+`/`-` to set/unset, or no prefix to toggle (e.g., `"+myTag"`) |
+| max_size | vec2 | Sets the maximum size for floating windows (e.g., `{800, 600}`) |
+| min_size | vec2 | Sets the minimum size for floating windows (e.g., `{200, 150}`) |
 | border_size | integer | Sets the border size. |
 | rounding | integer | Forces X pixels of rounding, ignoring the default. |
 | rounding_power | number | Overrides the rounding power for the window. |
@@ -166,7 +166,7 @@ Dynamic effects are re-evaluated every time a property changes.
 | no_screen_share | boolean | Hides the window and its popups from screen sharing by drawing black rectangles in their place. |
 | no_vrr | boolean | Disables VRR for the window. Only works when `misc.vrr` is set to `2` or `3`. |
 | no_wobble | boolean | Disables wobble for the window. |
-| no_xdg_drags | boolean | If true, will disable XDG-driven drags for the window (e.g. dragging a CSD top bar) |
+| no_xdg_drags | boolean | If true, will disable XDG-driven drags for the window (e.g., dragging a CSD top bar) |
 | opaque | boolean | Forces the window to be opaque. |
 | force_rgbx | boolean | Forces Hyprland to ignore the alpha channel entirely. |
 | sync_fullscreen | boolean | Whether the fullscreen mode should always be the same as the one sent to the window. |
