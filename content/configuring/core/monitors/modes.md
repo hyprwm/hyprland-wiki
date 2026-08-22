@@ -1,6 +1,6 @@
 ---
-title: Monitor modes
 weight: 30
+title: Monitor modes
 ---
 
 ## Mode

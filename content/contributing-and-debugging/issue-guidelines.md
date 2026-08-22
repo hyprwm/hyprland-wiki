@@ -1,6 +1,6 @@
 ---
-title: Issue guidelines
 weight: 20
+title: Issue guidelines
 ---
 
 Due to the influx of low quality or incomprehensible issues, we prefer to begin possible bug reports or feature requests as *discussions*, and elevate them to issues if they can be confirmed by a member to be relevant, and once enough information about the problem has been gathered.

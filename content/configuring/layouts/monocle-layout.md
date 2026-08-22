@@ -3,7 +3,7 @@ weight: 40
 title: Monocle layout
 ---
 
-Monocle is a layout where windows are always taking up the entire available space.
+Monocle is a layout where windows are always taking up the entire unreserved area of the workspace.
 
 <video width="1024" height="566" autoplay muted loop>
   <source src="https://dl.hypr.land/wiki/demo_monocle.mp4" type="video/mp4">

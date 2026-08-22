@@ -44,19 +44,16 @@ It executes immediately, going straight to the address on the letter it is hande
 
 {{% /details %}}
 
-
-<!-- TODO: make a styling note: (to) where? what (action)? how? -->
-
 ### Parameter explanation
 
 | Param type | Description |
 | --- | --- |
-| `window` | [Window selector](../../../naming-conventions#window-selector) |
-| `action` | If not set, defaults to `toggle`. Can be: `toggle`, `enable`/`on`, `disable`/`off` |
-| `relative` | If not set, defaults to `false`. Can be: `false`, `true` |
+| `window` | If not set, defaults to `"activewindow"`. Can be one of [window selectors](../../../naming-conventions#window-selector) |
+| `action` | If not set, defaults to `"toggle"`. Can be: `"toggle"`, `"enable"`/`"on"`, `"disable"`/`"off"` |
+| `relative` | If not set, defaults to `"false"`. Can be: `"false"`, `"true"` |
 
 ## Dispatchers
-
+<!-- NOTE: please, before adding a new dispatcher consult wiki guidelines page -->
 ### General
 
 `hl.dsp.` contains:
@@ -242,7 +239,7 @@ For example:
   This can be useful to prevent Chromium-based browsers from going into presentation mode when they detect they have been fullscreened.
 - `{internal = 0, client = 2}` keeps the window non-fullscreen, but pretends to the client that is is now in fullscreen mode.
 
-### `FSMODE_MAX`
+### Restore client maximized state
 
 This is not a user accessible mode, but a state that occurs when a client requests fullscreen when the internal mode of that window is maximized.
 

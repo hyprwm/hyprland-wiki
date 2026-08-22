@@ -7,35 +7,40 @@ This page lists commonly used tools for taking screenshots and recording the scr
 
 ## Screenshot utilities
 
-<!-- TODO add waytator to annotators -->
+### Grim and swappy
 
-### grim and swappy
-
-[`grim`](https://gitlab.freedesktop.org/emersion/grim) is a simple Wayland screenshot tool.
+[Grim](https://gitlab.freedesktop.org/emersion/grim) is a simple Wayland screenshot tool.
 It is commonly used with [`slurp`](https://github.com/emersion/slurp) for area selection and [`swappy`](https://github.com/jtheoof/swappy) for annotations.
 
-For example, to select an area and open it in `swappy`:
+{{% details title="Examples" closed="true" %}}
 
 ```lua
+-- Select an area and open it in `swappy`:
 hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp)" - | swappy -f -'))
-```
 
-To copy a selected area directly to the clipboard, install
-[`wl-clipboard`](https://github.com/bugaevc/wl-clipboard) and use:
-
-```lua
+-- Copy a selected area directly to the clipboard, install [`wl-clipboard`](https://github.com/bugaevc/wl-clipboard) and use:
 hl.bind("SUPER + Print", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | wl-copy'))
 ```
 
+{{% /details %}}
+
 ### Satty
 
-[`Satty`](https://github.com/Satty-org/Satty) is a powerful and modern screenshot annotation tool inspired by [`swappy`](https://github.com/jtheoof/swappy) and [Flameshot](https://github.com/flameshot-org/flameshot).
+[Satty](https://github.com/Satty-org/Satty) is a powerful and modern screenshot annotation tool inspired by [`swappy`](https://github.com/jtheoof/swappy) and [Flameshot](https://github.com/flameshot-org/flameshot).
 It's been created to provide improvements over existing screenshot tools and is an almost drop-in replacement for swappy.
 
 For example, to take a screenshot and open it with `satty`, Ctrl-C to copy to clipboard and Ctrl-S to save it to `~/Pictures/Screenshots/`:
 
 ```lua
 hl.bind("Print", hl.dsp.exec_cmd('grim - | satty -f - --copy-command wl-copy -o "~/Pictures/Screenshots/%Y%m%d_%H%M%S.png"'))
+```
+
+### Waytator
+
+[Waytator](https://github.com/faetalize/waytator) is a screenshot annotator and lightweight image editor made in C.
+
+```lua
+hl.bind("Print", hl.dsp.exec_cmd("grim -t ppm - | waytator"))
 ```
 
 ### Flameshot
@@ -54,27 +59,15 @@ It is useful if you want a workflow that is integrated with Hyprland instead of 
 WeChat has its own screenshot shortcut.
 If Hyprland catches the keybind first, WeChat will not receive it unless the keybind is explicitly passed to the WeChat window.
 
-Use the `pass` dispatcher to forward Alt+A to WeChat:
+Use the `pass` dispatcher to forward `ALT + A` to WeChat:
 
 ```lua
-hl.bind("ALT + A", hl.dsp.pass({class = "wechat"}))
+hl.bind("ALT + A", hl.dsp.pass({ class = "wechat" }))
 ```
-
-The `pass` dispatcher sends both the press and release events to the matched window, so a separate release bind is not needed.
-This is useful for application shortcuts that need to behave like global shortcuts while still being handled by the application itself.
-
-If the bind does not work, check the actual WeChat window class:
-
-```sh
-hyprctl clients
-```
-
-Then adjust the matcher accordingly.
-For example, if your package reports a different class, replace `class:wechat` with the class shown by `hyprctl clients`.
 
 ## Recording utilities
 
-<!-- TODO add wl-screenrec and gpu-screen-recorder -->
+If capture tools are blocked by Hyprland's permission system, see [Permissions](../../configuring/core/advanced-configuration/permissions).
 
 ### OBS Studio
 
@@ -84,18 +77,41 @@ See [Screen sharing](../screen-sharing) for portal setup notes.
 
 ### wf-recorder
 
-[`wf-recorder`](https://github.com/ammen99/wf-recorder) is a lightweight Wayland screen recorder.
+[wf-recorder](https://github.com/ammen99/wf-recorder) is a lightweight Wayland screen recorder.
 
-Record the whole screen:
+{{% details title="Examples" closed="true" %}}
 
 ```sh
+# Record the whole screen:
 wf-recorder -f ~/Videos/recording.mp4
-```
 
-Record a selected region:
-
-```sh
+# Record a selected region:
 wf-recorder -g "$(slurp)" -f ~/Videos/recording.mp4
 ```
 
-If capture tools are blocked by Hyprland's permission system, see [Permissions](../../configuring/core/advanced-configuration/permissions).
+{{% /details %}}
+
+### wl-screenrec
+
+[wl-screenrec](https://github.com/russelltg/wl-screenrec) is a high performance wlroots screen recording, featuring hardware encoding
+
+{{% details title="Examples" closed="true" %}}
+
+```sh
+# Record the whole screen:
+wl-screenrec -f ~/Videos/recording.mp4
+
+# Record a selected region:
+wl-screenrec -g "$(slurp)" -f ~/Videos/recording.mp4
+
+```
+{{% /details %}}
+
+### GPU Screen Recorder
+
+[GPU Screen Recorder](https://git.dec05eba.com/gpu-screen-recorder/about/) is a screen recorder that has minimal impact on system performance by recording your monitor using the GPU only, similar to shadowplay on windows.
+
+```sh
+# Record the whole screen with audio in 60 FPS:
+gpu-screen-recorder -w screen -f 60 -a default_output -o ~/Videos/recording.mp4
+```

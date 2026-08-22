@@ -1,6 +1,6 @@
 ---
-title: Output selection
 weight: 10
+title: Output selection
 ---
 
 To select an output, a portname or a description (but not both) can be used.

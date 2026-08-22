@@ -1,6 +1,6 @@
 ---
-title: Colors and colorspaces
 weight: 40
+title: Colors and colorspaces
 ---
 
 ## Color management presets

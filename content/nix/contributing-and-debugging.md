@@ -1,6 +1,6 @@
 ---
-title: Contributing and Debugging
 weight: 70
+title: Contributing and Debugging
 ---
 
 Everything needed to build and debug Hyprland and other hyprwm programs is included inside the provided `devShell`s.

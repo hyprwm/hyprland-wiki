@@ -29,28 +29,7 @@ When building yourself, you need to _build all hypr* components_, you cannot use
 
 **For Arch users**: `-git` packages count as building yourself.
 
-The order in which you **must** build the stack is as follows:
-
-```
-hyprland-protocols
-hyprwayland-scanner
-hyprutils
-hyprgraphics
-hyprlang
-hyprcursor
-aquamarine
-xdg-desktop-portal-hyprland
-hyprwire
-hyprtoolkit
-hyprland
-```
-
-Other things (like hyprapps (e.g., hyprlock, hyprsunset, etc.)) can be built in any order after Hyprland.
-
-> [!WARNING]
-> ***Never, under any circumstances***, symbolically link different .so versions together, this will lead to memory bugs and crashes.
-> I don't care what some random person tells you online.
-> Don't do it.
+Read about building order [here](../getting-started/installation#manual-build).
 
 ### My apps are pixelated
 

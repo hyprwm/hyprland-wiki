@@ -45,7 +45,7 @@ Available finders: `math`, `desktop`, `unicode`.
 
 Prefixes can only be one character.
 
-| option | description | type | default |
+| Option | Description | Type | Default |
 | -- | -- | -- | -- |
 | `default_finder` | Controls the default finder used. | string | `desktop` |
 | `desktop_prefix` | Prefix for the desktop finder to be used. | string | [[Empty]] |
@@ -55,8 +55,8 @@ Prefixes can only be one character.
 | `desktop_launch_prefix` | Launch prefix for each desktop app, e.g. `uwsm app -- `. | string | [[Empty]] |
 | `desktop_icons` | Whether to enable desktop icons in the results. | bool | `true` |
 
-#### UI
+#### UIt
 
-| option | description | type | default |
+| Option | Description | Type | Default |
 | -- | -- | -- | -- |
 | window_size | the size of the launcher | vec2 | `400 260` |

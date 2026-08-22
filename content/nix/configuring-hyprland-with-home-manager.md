@@ -1,6 +1,6 @@
 ---
-title: Configuring Hyprland with Home Manager
 weight: 40
+title: Configuring Hyprland with Home Manager
 ---
 
 For a list of available options, check the [Home Manager options](https://nix-community.github.io/home-manager/options.xhtml#opt-wayland.windowManager.hyprland.enable).

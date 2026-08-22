@@ -1,6 +1,6 @@
 ---
-title: Naming conventions
 weight: 20
+title: Naming conventions
 ---
 
 ## Syntax
@@ -44,6 +44,7 @@ Coordinates are in an inverse-Y Cartesian system, so moving to the right is the 
 | float | Floating point number |
 | bool | Boolean, `true` or `false` |
 | string | Lua string. Symbols wrapped in `""`/`[[]]`/`''` (e.g., `"dwindle"`, `'master'`, `[[scrolling]]`). When using Lua literal strings (`[[]]`), escaping of `"` and `'` is not needed |
+| table | A Lua table, `{ }` |
 | vec2 | Vector with 2 float values. `{x, y}` (e.g., `{20, 20}`) |
 | css_gaps | An integer, or `{ top?, left?, right?, bottom? }` |
 | color | Color. See hint below for color info |
@@ -56,13 +57,14 @@ More on that can be read [here](../configuring/core#editor-autocompletion).
 
 ### Colors
 
+<!-- NOTE: if " is not escaped, Hugo makes them curly, and it is ugly -->
 You have 4 options:
-- Web-styled hash in RGB or RGBA form: `"#fafc21"` or `"#ddd"` or `"#fa3d7bff"`
-- rgba(): `"rgba(b3ff1aee)"`, or decimal equivalent `"rgba(179,255,26,0.933)"`
-- rgb(): `"rgb(b3ff1a)"`, or the decimal equivalent  `"rgb(179,255,26)"`
-- Legacy ARGB format: `0xeeb3ff1a`
+- Web-styled hash in RGB or RGBA form: <code style="background-color:#FAFC21;color:#000000">"#FAFC32"</code> or <code style="background-color:#DDD;color:#000000">"#DDD"</code> or <code style="background-color:#FA3D7BFF;color:#000000">"#FA3D7BFF"</code>
+- rgba(): <code style="background-color:#57BBFFEE;color:#000000">\"rgba(57BBFFEE)"</code>, or decimal equivalent <code style="background-color:#57BBFFEE;color:#000000">\"rgba(87,187,255,0.933)"</code>
+- rgb(): <code style="background-color:#FF4410;color:#000000">\"rgb(FF4410)"</code>, or decimal equivalent <code style="background-color:#FF4410;color:#000000">\"rgb(255,68,16)"</code>
+- Legacy ARGB format: <code style="background-color:#B3FF1A;color:#000000">\"0xeeb3ff1a"</code>
 
-Note that decimal arguments to `rgb()`/`rgba()` should have no spaces between them.
+Note that decimal arguments in `rgb()`/`rgba()` should have no spaces between them.
 
 ## Selectors
 
@@ -132,13 +134,13 @@ Workspaces that have already been created can be targeted by workspace selectors
 Props separated by a space.
 No spaces are allowed inside props themselves.
 
-- `r[A-B]` - ID range from A to B inclusive
-- `s[bool]` - Whether the workspace is special or not
-- `n[bool]`, `n[s:string]`, `n[e:string]` - named actions.
-  `n[bool]` -> whether a workspace is a named workspace.
+- `r[A-B]` --- ID range from A to B inclusive
+- `s[bool]` --- Whether the workspace is special or not
+- `n[bool]`, `n[s:string]`, `n[e:string]` --- named actions.
+  `n[bool]` --- whether a workspace is a named workspace.
   `s` and `e` are 'starts with' and 'ends with', respectively.
-- `m[monitor]` - Monitor selector
-- `w[(flags)A-B]`, `w[(flags)X]` - Prop for window counts on the workspace.
+- `m[monitor]` --- Monitor selector
+- `w[(flags)A-B]`, `w[(flags)X]` --- Prop for window counts on the workspace.
   `A-B` is an inclusive range; `X` is a specific number.
   Flags can be omitted.
   Available flags are:
@@ -147,7 +149,7 @@ No spaces are allowed inside props themselves.
   - `g` to count groups instead of windows
   - `v` to count only visible windows
   - `p` to count only pinned windows
-- `f[-1]`, `f[0]`, `f[1]`, `f[2]` - fullscreen state of the workspace.
+- `f[-1]`, `f[0]`, `f[1]`, `f[2]` --- fullscreen state of the workspace.
   `-1`: no fullscreen,
   `0`: fullscreen,
   `1`: maximized,
@@ -159,18 +161,18 @@ No spaces are allowed inside props themselves.
 Workspace search is performed by suffixing search selector with workspace ID.
 To use absolute ID, `~` is put between selector and ID (e.g., `m~3`)
 
-- `m` - Search for workspace on current monitor
-- `r` - Search for workspace on current monitor including empty workspaces
-- `e` - Search for open workspace
-- `empty` - Search for first empty workspace. Suffix with `m` to only search on monitor, and/or `n` to make it the _next_ available empty workspace (e.g., `emptynm`)
+- `m` --- Search for workspace on current monitor
+- `r` --- Search for workspace on current monitor including empty/non-existant workspaces
+- `e` --- Search on all monitors
+- `empty` --- Search for first empty workspace. Suffix with `m` to only search on monitor, and/or `n` to make it the _next_ available empty workspace (e.g., `emptynm`)
 
 ### Direction
 
 A direction.
-- `l` - left
-- `r` - right
-- `u` - up
-- `d` - down
+- `l` --- left
+- `r` --- right
+- `u` --- up
+- `d` --- down
 
 ### Monitor
 

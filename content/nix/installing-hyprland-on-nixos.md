@@ -1,6 +1,6 @@
 ---
+weight: 20
 title: Hyprland on NixOS
-weight: 11
 ---
 
 ## Installing Hyprland on NixOS

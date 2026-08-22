@@ -24,7 +24,7 @@ Wofi is a GTK-based customizable launcher for Wayland.
 bemenu is a Wayland-native replacement for dmenu.
 [GitHub](https://github.com/Cloudef/bemenu)
 
-<!-- TODO what the fuck is this -->
+<!-- NOTE: what the fuck is this -->
 <!--
 ## HyprTile
 

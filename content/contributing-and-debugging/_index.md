@@ -11,8 +11,6 @@ For issues, please see [the guidelines](https://github.com/hyprwm/Hyprland/blob/
 
 Before you submit a PR, you need to be vouched, or your PR will be closed automatically.
 
-Now that you've read all the above, you're ready to apply for getting vouched.
-
 Please make a vouch request over [here](https://github.com/hyprwm/.github/discussions) if you wish to do so.
 
 ## Build in debug mode
@@ -55,7 +53,7 @@ This code can go in the `package` attribute of the NixOS/Home Manager modules.
 ### Setup
 
 Make a copy of your config in `~/.config/hypr` called `hyprlandd.lua`.
-`Debug` builds automatically use `hyprlandd.lua`, but you can also pass `--config ~/path/to/conf.lua` for an override to any type of build.
+`Debug` builds automatically use `hyprlandd.lua` in the default search path, but `--config ~/path/to/conf.lua` can be passed to override the configuration file location.
 
 #### Recommended debug config changes
 
@@ -103,11 +101,3 @@ for live logs.
 ### How do I get a coredump?
 
 See [`ISSUE_GUIDELINES.md`](https://github.com/hyprwm/Hyprland/blob/main/docs/ISSUE_GUIDELINES.md).
-
-## Getting Vouched
-
-Before you submit a PR, you need to be vouched, or your PR will be closed automatically.
-
-Now that you've read all the above, you're ready to apply for getting vouched.
-
-Please make a vouch request over [here](https://github.com/hyprwm/.github/discussions) if you wish to do so.

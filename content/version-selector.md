@@ -1,6 +1,6 @@
 ---
-title: Version selector ⚙️
 weight: 10
+title: Version selector ⚙️
 ---
 
 Select the [latest Git version](https://wiki.hypr.land/) of the wiki, or a previous one below:

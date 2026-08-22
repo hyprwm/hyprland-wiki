@@ -1,6 +1,6 @@
 ---
-title: PR guidelines
 weight: 30
+title: PR guidelines
 ---
 
 ## PR Requirements

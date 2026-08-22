@@ -34,7 +34,7 @@ These line breaks are ignored when content is rendered, but help reduce diff siz
 
 See [this article](https://writingslowly.com/2025/01/13/semantic-line-breaks-are-a.html) and the [Semantic Line Breaks specification](https://sembr.org) for details that aren't in comic panel form.
 
-## TODO list 
+## TODO list
 
 [ ] write how to structure new parameters and what styling to follow
 
@@ -43,7 +43,7 @@ See [this article](https://writingslowly.com/2025/01/13/semantic-line-breaks-are
 [ ] put examples in
 {{% details title="title" closed="true" %}}
 
-code
+code  
 lorem ipsum
 
 {{% /details %}}

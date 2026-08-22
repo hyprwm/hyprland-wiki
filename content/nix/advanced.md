@@ -1,6 +1,6 @@
 ---
-title: Advanced
 weight: 60
+title: Advanced
 ---
 
 ## Overlays

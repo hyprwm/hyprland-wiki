@@ -18,9 +18,9 @@ Setting `INTEL_GPU_MIN_FREQ_ON_AC` and/or `INTEL_GPU_MIN_FREQ_ON_BAT` in `/etc/t
 
 ## How do I make Hyprland draw as little power as possible on my laptop?
 
-- `hl.config({ ["decoration.blur.enabled"] = false })` and `hl.config({ ["decoration.shadow.enabled"] = false })` to disable fancy but battery hungry effects.
+`hl.config({ ["decoration.blur.enabled"] = false })` <!-- and `hl.config({ ["decoration.shadow.enabled"] = false })` --> to disable fancy, but hungry effects.
 
-<!-- TODO shadows should eat less power now, needs checking -->
+<!-- TODO: shadows should eat less now, needs checking, will comment out for now. low prio -->
 
 ## My games work poorly, especially Proton ones
 

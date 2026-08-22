@@ -1,6 +1,6 @@
 ---
-title: Monitors
 weight: 10
+title: Monitors
 ---
 
 ## Fields

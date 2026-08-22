@@ -43,8 +43,6 @@ On NixOS, XDPH is already enabled by the [NixOS module for Hyprland](../../../ni
 
 {{< tab name="Gentoo" >}}
 
-<!-- TODO: no. why. who? this is wrong. rewrite. -->
-
 ### Unmask Dependencies
 
 ```plain {filename="/etc/portage/profile/package.unmask"}
@@ -71,8 +69,6 @@ dev-qt/qtwayland
 dev-qt/qtdeclarative
 dev-qt/qtshadertools
 ```
-
-btw those are the useflags that I have tested, you could also test others.
 
 ### Installation
 
@@ -131,7 +127,7 @@ If it works, add it to your config in autostarts.
 XDPH does not implement a file picker and uses the GTK one as a fallback by default (see `/usr/share/xdg-desktop-portal/hyprland-portals.conf`).
 If you want to use the KDE file picker but let XDPH handle everything else, create a file `~/.config/xdg-desktop-portal/hyprland-portals.conf` with the following content:
 
-```ini {filename="~/.config/xdg-desktop-portal/hyprland-portals.conf"}
+```ini { filename="~/.config/xdg-desktop-portal/hyprland-portals.conf" }
 [preferred]
 default = hyprland;gtk
 org.freedesktop.impl.portal.FileChooser = kde
@@ -154,14 +150,6 @@ If the portal does not autostart, does not function when manually started, and d
 
 ## Configuration
 
-Example:
-
-```ini
-screencopy {
-    max_fps = 60
-}
-```
-
 Config file `~/.config/hypr/xdph.conf` allows for these variables:
 
 ### Screencopy
@@ -170,8 +158,18 @@ Variables in the `screencopy` category:
 
 | Variable | Description | Type | Default |
 | -- | -- | -- | -- |
-| `max_fps`  | Maximum FPS of a screen sharing session. `0` means no limit | int | `120` |
+| `max_fps`  | Maximum FPS of a screensharing session. `0` means no limit | int | `120` |
 | `allow_token_by_default`  | If enabled, will tick the "Allow restore token" box by default | bool  | `false` |
 | `custom_picker_binary`  | If non-empty, will use that **binary** as your share picker. Please note that it has to conform to the stdout selection layout of `hyprland-share-picker` | string  | `"hyprland-share-picker"` |
-| `force_shm` | If enabled, will skip DMA-BUF and always use SHM for screen sharing. SHM is slower than DMA-BUF (especially at high resolutions) but can work around DMA-BUF allocation failures on multi-GPU systems | bool | `false` |
+| `force_shm` | If enabled, will skip DMA-BUF and always use SHM for screensharing. SHM is slower than DMA-BUF (especially at high resolutions) but can work around DMA-BUF allocation failures on multi-GPU systems | bool | `false` |
 | `cursor_mode` | Default cursor mode for clients that don't specify a mode (e.g., browsers). Any implemented mode for [XDG ScreenCast Portal](https://flatpak.github.io/xdg-desktop-portal/docs/doc-org.freedesktop.portal.ScreenCast.html#org-freedesktop-portal-screencast-availablecursormodes), i.e. `1` - hidden or `2` - embedded. Defaults to protocol default (hidden) | int | `0` |
+
+{{% details title="Example" closed="true" %}}
+
+```ini { filename="~/.config/hypr/xdph.conf" }
+screencopy {
+    max_fps = 60
+}
+```
+
+{{% /details %}}

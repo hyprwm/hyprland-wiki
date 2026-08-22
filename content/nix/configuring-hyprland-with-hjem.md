@@ -1,6 +1,6 @@
 ---
-title: Configuring Hyprland with Hjem
 weight: 30
+title: Configuring Hyprland with Hjem
 ---
 
 Hjem ("home" in Danish) is a module system that implements a simple and streamlined way to manage files in your $HOME, such as but not limited to files in your `~/.config`.

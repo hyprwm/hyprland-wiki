@@ -1,6 +1,6 @@
 ---
-title: Lua events
 weight: 10
+title: Lua events
 ---
 
 ## Events

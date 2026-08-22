@@ -1,10 +1,14 @@
 ---
-title: Permissions
 weight: 40
+title: Permissions
 ---
 
 If you have `hyprland-guiutils` installed, you can make use of Hyprland's built-in permission system.
 For now, it only has a few permissions, but it might include more in the future.
+
+> [!TIP]
+> If you care about this permissions system, you probably also care about blocking access to Hyprland's [IPC sockets](../../../../ipc).
+> Hyprland itself cannot enforce this; consult the documentation for your application sandbox of choice.
 
 ## Permissions
 

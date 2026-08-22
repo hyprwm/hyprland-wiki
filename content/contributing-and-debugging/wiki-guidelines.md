@@ -30,6 +30,12 @@ In addition:
 - All abbreviations must be capitalized.
 - Spelling should follow standard United States English conventions.
 
+
+When adding a new dispatcher, position arguments in a way, that answers the following questions:
+- What is addressed?
+- What action to perform?
+- How to perfom the action?
+
 HTML comments (`<!-- -->`) are not visible in the rendered page, but are useful for maintenance.
 Use standard tags (`WARNING: `, `NOTE: `, `TODO: `, `SORT: `) in the first line of the comment when appropriate.
 Keep comment messages one space after the tag (`TODO: body here`).

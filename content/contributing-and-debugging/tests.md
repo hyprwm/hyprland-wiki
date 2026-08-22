@@ -1,6 +1,6 @@
 ---
-title: Tests
 weight: 40
+title: Tests
 ---
 
 Hyprland and some other projects under the hypr\* umbrella have _tests_ that try to catch bugs and regressions before code is merged.

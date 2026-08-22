@@ -1,6 +1,6 @@
 ---
-title: Translations
 weight: 50
+title: Translations
 ---
 
 Some parts of the Hyprland ecosystem are localized.

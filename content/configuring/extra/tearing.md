@@ -7,6 +7,11 @@ Screen tearing is used to reduce latency and/or jitter in games.
 
 ## Enabling tearing
 
+> [!WARNING]
+> If you experience graphical issues, you may be out of luck.
+> Tearing support is experimental.
+> See the likely culprits below.
+
 To enable tearing:
 
 - Set `general.allow_tearing` to `true`.
@@ -31,11 +36,6 @@ hl.window_rule({
   match = { class = "cs2" }, immediate = true
 })
 ```
-
-> [!WARNING]
-> If you experience graphical issues, you may be out of luck.
-> Tearing support is experimental.
-> See the likely culprits below.
 
 ## Common issues
 

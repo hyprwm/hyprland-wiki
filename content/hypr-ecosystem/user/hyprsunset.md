@@ -9,26 +9,6 @@ This method is preferred to screen shaders as it will _not_ be captured via reco
 
 hyprsunset also provides a gamma filter, which can be used to adjust perceived display brightness on monitors that do not support software control, or to reduce perceived brightness below the monitor's minimum.
 
-> [!WARNING]
-> `hyprsunset` is supported since Hyprland 0.45.0.
-
-## Installation
-
-<!-- TODO only arch?) -->
-
-{{< tabs >}}
-
-{{< tab name="Arch Linux" >}}
-
-```sh
-pacman -S hyprsunset
-```
-
-{{< /tab >}}
-
-{{< /tabs >}}
-
-
 ## Configuration
 
 Configuration is done via the config file at `~/.config/hypr/hyprsunset.conf`.
@@ -42,7 +22,20 @@ On startup, hyprsunset will apply the current profile.
 For example, when launching hyprsunset with the following example config at 20:00, it will activate the first profile, essentially changing nothing.
 Once the clock strikes 21:00, hyprsunset will automatically apply the new profile.
 
-**Example Configuration**
+| Variable | Description | Type | Default |
+| -- | -- | -- | -- |
+| `max-gamma` | The maximum the gamma value can be. <br> Absolute maximum is `200`%. <br> Mostly useful when controlling hyprsunset via IPC | int | `100` |
+
+### Profile
+
+| Variable | Description | Type | Default |
+| -- | -- | -- | -- |
+| `time` | The time at which the profile should be activated. Must be in the format {hours}:{minutes} | string | `00:00` |
+| `temperature` | The screen temperature. Lower means warmer | int | `6000` |
+| `gamma` | The perceived brightness of the screen. This will allow you to lower the brightness beyond your screen's minimum | float | `1.0` |
+| `identity` | When set, the value of temperature is ignored and the only effect of hyprsunset is the change in apparent brightness by gamma | bool | `false` |
+
+{{% details title="Example" closed="true" %}}
 
 ```ini
 max-gamma = 150
@@ -59,19 +52,7 @@ profile {
 }
 ```
 
-| Variable | Description | Type | Default |
-| -- | -- | -- | -- |
-| `max-gamma` | The maximum the gamma value can be. <br> Absolute maximum is `200`%. <br> Mostly useful when controlling hyprsunset via IPC. | int | `100` |
-
-### Profile
-
-| Variable | Description | Type | Default |
-| -- | -- | -- | -- |
-| `time` | The time at which the profile should be activated. <br> Must be in the format {hours}:{minutes} | string | `00:00` |
-| `temperature` | The screen temperature. Lower means warmer. | int | `6000` |
-| `gamma` | The perceived brightness of the screen. <br> This will allow you to lower the brightness beyond your screen's minimum. | float | `1.0` |
-| `identity` | When set, the value of temperature is ignored and the only effect of hyprsunset is the change in apparent brightness by gamma. | bool | `false` |
-
+{{% /details %}}
 
 ## Usage
 

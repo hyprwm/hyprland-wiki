@@ -1,6 +1,6 @@
 ---
-title: Using hyprctl
 weight: 20
+title: Using hyprctl
 ---
 
 `hyprctl` is a utility for controlling some parts of the compositor from a CLI or a script.

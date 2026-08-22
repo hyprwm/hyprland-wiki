@@ -1,6 +1,6 @@
 ---
-title: Cachix
 weight: 50
+title: Cachix
 ---
 
 > [!WARNING]

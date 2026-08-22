@@ -78,4 +78,4 @@ This custom fullscreen behavior allows you to scroll away from your fullscreen w
 You can use it by using `layout_aware = true` (or not specifying `layout_aware` option at all) in your fullscreen dispatches when on a scrolling layout workspace.
 It also works with existing window/workspace fullscreen-related selectors.
 
-Learn more about [Fullscreen Handlers](../../core/dispatchers#fullscreen-handlers)
+Learn more about Fullscreen Handlers [here](../../core/dispatchers#fullscreen-handlers).

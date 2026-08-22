@@ -63,14 +63,14 @@ listener {
 
 Variables in the `listener` category:
 
-| variable | description | type | default |
+| Variable | Description | Type | Default |
 | --- | --- | --- | --- |
-| `timeout` | Idle time in seconds. | int | none, value must be specified |
-| `on-timeout` | Command to run when timeout has passed. | string | empty |
-| `on-resume` | Command to run when activity is detected after timeout has fired. | string | empty |
-| `ignore_inhibit` | Ignore idle inhibitors (of all types) for this rule. | bool | `false` |
-| `condition_cmd` | Command run when the timeout is reached, _before_ `on-timeout`. Run via `/bin/sh -c`; exit code `0` lets `on-timeout` fire, non-zero defers it. | string | empty |
-| `condition_retry` | When `condition_cmd` defers, re-run it every N seconds while the user stays idle, firing `on-timeout` as soon as it succeeds. `0` disables retrying (the deferred `on-timeout` is skipped for this idle cycle). | int | `0` |
+| `timeout` | Idle time in seconds | int | none, value must be specified |
+| `on-timeout` | Command to run when timeout has passed | string | empty |
+| `on-resume` | Command to run when activity is detected after timeout has fired | string | empty |
+| `ignore_inhibit` | Ignore idle inhibitors (of all types) for this rule | bool | `false` |
+| `condition_cmd` | Command run when the timeout is reached, _before_ `on-timeout`. Run via `/bin/sh -c`; exit code `0` lets `on-timeout` fire, non-zero defers it | string | empty |
+| `condition_retry` | When `condition_cmd` defers, re-run it every N seconds while the user stays idle, firing `on-timeout` as soon as it succeeds. `0` disables retrying (the deferred `on-timeout` is skipped for this idle cycle) | int | `0` |
 
 #### Conditional timeouts
 
@@ -99,16 +99,15 @@ listener {
 }
 ```
 
-```sh
+```sh { filename="~/.config/hypr/scripts/can-suspend.sh" }
 #!/bin/sh
-# ~/.config/hypr/scripts/can-suspend.sh - defer suspend while an SSH session is connected.
 ss -tn state established '( sport = :ssh )' | grep -q . && exit 1
 exit 0
 ```
 
 Full hypridle example with hyprlock:
 
-```ini
+```ini { filename="~/.config/hypr/hypridle.conf" }
 general {
     lock_cmd = pidof hyprlock || hyprlock                                    # avoid starting multiple hyprlock instances.
     before_sleep_cmd = loginctl lock-session                                 # lock before suspend.

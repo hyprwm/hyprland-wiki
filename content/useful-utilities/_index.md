@@ -7,8 +7,6 @@ This category is dedicated to short tutorials on how to get useful utilities for
 
 ## List of Pages
 
-<!-- TODO: reorder things for BeTtEr FlOw of the reading -->
-
 - **[Must-have](./must-have)**
 - **[Status bars](./status-bars)**
 - **[App launchers](./app-launchers)**

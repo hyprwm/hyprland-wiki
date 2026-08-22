@@ -1,6 +1,6 @@
 ---
-title: Positioning
 weight: 20
+title: Positioning
 ---
 
 > [!WARNING]
