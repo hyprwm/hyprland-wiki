@@ -121,6 +121,7 @@ _Subcategory `decoration.blur.`_
 | --- | --- | --- | --- |
 | enabled | enable kawase window background blur | bool | `true` |
 | size | blur size (distance) | int | `8` |
+| variant | blur variant. More details and available options are further below. Blur variants enhance regular blur, but may increase GPU and CPU usage, significantly so if they are animated. | string | `kawase` |
 | passes | the amount of passes to perform | int | `1` |
 | ignore_opacity | make the blur layer ignore the opacity of the window | bool | `true` |
 | new_optimizations | whether to enable further optimizations to the blur. Recommended to leave on, as it will massively improve performance. | bool | `true` |
@@ -142,6 +143,100 @@ _Subcategory `decoration.blur.`_
 > Increasing `blur.passes` is necessary to prevent blur looking wrong on higher
 > `blur.size` values, but remember that higher `blur.passes` will require more
 > strain on the GPU.
+
+#### Blur variants
+
+Each blur variant is configured in its own subcategory, e.g. `frost = { thing = 1 }`. Some settings may be reused by different blur methods.
+
+Available variants:
+- `kawase` - default
+- `frost` - cracked ice
+- `ripple` - ripple on click
+- `drops` - rain on a window pane
+- `water` - ripple done with a heightmap
+- `fluid_jar` - 2D fluid simulation
+- `prism` - triangular refraction mask
+- `heat_shimmer` - a small shimmer with aberration
+- `acrylic` - similar to liquid glass
+- `aurora` - aurora-like light streaks
+- `haze` - a different diffused effect
+
+**glass**
+
+| name | description | type | default |
+| --- | --- | --- | --- |
+| refraction | maximum refraction displacement for glass blur types in pixels | float | `20.0` |
+| size | pattern size for glass blur types in pixels | float | `40.0` |
+| roughness | strength of the glass relief shading | float | `1.0` |
+
+**acrylic**
+
+| name | description | type | default |
+| --- | --- | --- | --- |
+| refraction | maximum acrylic lens displacement in pixels | float | `24.0` |
+| bulb | width of the curved acrylic edge in pixels | float | `48.0` |
+| clarity | amount of sharp backdrop transmitted through the acrylic surface | float | `0.82` |
+| aberration | relative chromatic separation in the acrylic lens | float | `0.025` |
+| tint | acrylic tint color. Alpha controls optical absorption. | color | `0x14EEF5FF` |
+
+**drops**
+
+| name | description | type | default |
+| --- | --- | --- | --- |
+| speed | animation speed for drops blur. 0 disables the animation. Enabling will significantly increase GPU usage. | float | `3.0` |
+
+**heat_shimmer**
+
+| name | description | type | default |
+| --- | --- | --- | --- |
+| speed | animation speed for heat shimmer blur. 0 disables the animation. Enabling will increase GPU usage. | float | `1.0` |
+
+**aurora**
+
+| name | description | type | default |
+| --- | --- | --- | --- |
+| speed | animation speed for aurora blur. 0 freezes the animation. Enabling will increase GPU usage. | float | `1.0` |
+| intensity | strength of the aurora color contribution | float | `0.35` |
+| color1 | first aurora curtain color. Alpha controls its contribution. | color | `0x29F0A0FF` |
+| color2 | second aurora curtain color. Alpha controls its contribution. | color | `0x7A4DFFFF` |
+
+**haze**
+
+| name | description | type | default |
+| --- | --- | --- | --- |
+| intensity | strength of the haze pearlescent sheen | float | `0.35` |
+| iridescence | strength of the haze pearlescent color shift | float | `0.7` |
+
+**ripple**
+
+| name | description | type | default |
+| --- | --- | --- | --- |
+| strength | maximum refraction displacement of click ripples in pixels | float | `30.0` |
+| radius | maximum radius of click ripples in pixels | float | `400.0` |
+| width | width of click ripple waves in pixels | float | `32.0` |
+| duration | duration of click ripples in seconds | float | `0.45` |
+
+**water**
+
+| name | description | type | default |
+| --- | --- | --- | --- |
+| strength | maximum refraction displacement and injection strength for water blur in pixels | float | `32.0` |
+| radius | pointer radius for water blur in pixels | float | `20.0` |
+| speed | propagation speed for water blur | float | `0.76` |
+| damping | decay damping for water blur | float | `0.95` |
+| duration | maximum water blur animation duration in seconds | float | `12.0` |
+
+**fluid_jar**
+
+| name | description | type | default |
+| --- | --- | --- | --- |
+| color | fluid color for fluid jar blur | color | `0xCC3399FF` |
+| speed | animation speed for fluid jar blur | float | `3.7` |
+| fill_amount | fill amount for fluid jar blur | float | `0.5` |
+| mass | inertial mass for fluid jar blur | float | `1.4` |
+| precision | fluid simulation precision multiplier. 2x is a good compromise. 4x is expensive. 8x is extreme and unnecessary. | float | `2.0` |
+| turbulence | interior fluid turbulence multiplier | float | `1.2` |
+| distortion | fluid refraction distortion multiplier | float | `8.0` |
 
 #### Shadow
 
