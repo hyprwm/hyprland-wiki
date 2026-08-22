@@ -120,8 +120,8 @@ Path: `decoration.blur`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
-| enabled | Enable kawase window background blur | bool | `true` |   |
-| brightness | Brightness modulation for blur | float | `1` |[0.0 - 2.0] |
+| enabled | Enable kawase window background blur | bool | `true` | |
+| brightness | Brightness modulation for blur | float | `1` | [0.0 - 2.0] |
 | contrast | Contrast modulation for blur | float | `0.8916` | [0.0 - 2.0] |
 | ignore_opacity | Make the blur layer ignore the opacity of the window | bool | `true` |   |
 | input_methods | Whether to blur input methods, e.g. `fcitx5` | bool | `false` |   |
@@ -131,11 +131,12 @@ Path: `decoration.blur`
 | passes | The amount of passes to perform | int | `1` | [0 - 10] |
 | popups | Whether to blur popups, e.g. `right-click menus` | bool | `false` |   |
 | popups_ignorealpha | Works like ignore_alpha in layer rules. If pixel opacity is below the set value, will not blur | float | `0.2` | [0.0 - 1.0] |
-| size | Blur size (distance) | int | `8` |   |
-| special | Whether to blur behind the special workspace (note: expensive) | bool | `false` |   |
-| vibrancy | Increase saturation of blurred colors | float | `0.1696` |[0.0 - 1.0] |
-| vibrancy_darkness | How strong the effect of `vibrancy` is on dark areas | float | `0.0` |[0.0 - 1.0] |
-| xray | If enabled, floating windows will ignore tiled windows in their blur. Will reduce overhead on floating blur significantly. Disabled if new_optimizations is `false`` | bool | `false` |   |
+| size | Blur size (distance) | int | `8` | |
+| special | Whether to blur behind the special workspace (note: expensive) | bool | `false` | |
+| variant | Blur pattern variant. May significantly increase GPU and CPU usage | str | `kawase` | [see below](#blur-variants) |
+| vibrancy | Increase saturation of blurred colors | float | `0.1696` | [0.0 - 1.0] |
+| vibrancy_darkness | How strong the effect of `vibrancy` is on dark areas | float | `0.0` | [0.0 - 1.0] |
+| xray | If enabled, floating windows will ignore tiled windows in their blur. Will reduce overhead on floating blur significantly. Disabled if new_optimizations is `false`` | bool | `false` | |
 
 
 > [!NOTE]
