@@ -7,7 +7,7 @@ title: Systemd startup
 
 - [Universal Wayland Session Manager](https://github.com/Vladimir-csp/uwsm) wraps standalone Wayland compositors into a set of Systemd units and provides robust session management including environment, XDG autostart support, bi-directional binding with login session, and clean shutdown.
 
-Please note uwsm is for advanced users and has its issues and additional quirks. [hyprland-session.target](#hyprland-sessiontarget) is an alternative minimal way of handling a systemd session.
+Please note uwsm is for advanced users and has its issues and additional quirks.
 
 ### Installation
 
@@ -112,20 +112,7 @@ Faster alternatives are:
 
 ## hyprland-session.target
 
-A Wayland compositor is expected to tell systemd that it is a graphical session. This is a minimal way of starting the `graphical-session.target` if you don't want to use UWSM. This target will autostart user services like bars and notification daemons, but some services like XDG Desktop Portal (and therefore XDPH) may even refuse to start without it. You can manage this yourself by creating a `hyprland-session.target` that binds to the `graphical-session.target`, then launching it in your config.
-
-First create the unit with `systemctl --user edit --full --force hyprland-session.target`:
-
-```ini
-[Unit]
-Description=Hyprland session
-BindsTo=graphical-session.target
-Wants=graphical-session-pre.target
-After=graphical-session-pre.target
-PropagatesStopTo=graphical-session.target
-```
-
-Then start and stop it in your config:
+This previously required manual setup, but is now integrated into Hyprland and handled automatically. If you have a custom `hyprland-session.target` taken from a previous version of this article, it can be cleaned up via `systemctl --user revert hyprland-session.target`. Also, any leftover `systemctl` commands in your config, such as the following, should be *removed*:
 
 ```lua
 hl.on("hyprland.start", function()
@@ -133,12 +120,13 @@ hl.on("hyprland.start", function()
 end)
 
 hl.on("hyprland.shutdown", function()
-    os.execute("systemctl --user stop hyprland-session.target && sleep 0.1")
-    -- uses a blocking exec function and sleeps a bit to give things time to close
-    -- you might also want to kill troublesome/crashing non-systemd background services here:
-    -- os.execute("pkill wallpaperthing; systemctl --user stop hyprland-session.target && sleep 0.1")
+    os.execute("systemctl --user stop graphical-session.target")
 end)
 ```
+
+> [!NOTE]
+> Under Systemd, a single user is not expected to have multiple graphical sessions (i.e. compositors) running simultaneously. If you do this, note that exiting one Hyprland instance will stop `graphical-session.target` and may impact your other remaining sessions.
+> Setting `HYPRLAND_NO_SD_TARGET` will avoid this, but also prevent *starting* `hyprland-session.target` and `graphical-session.target` in the first place. You may want to adopt some variation of the lua event listeners above in order to make your session behave as desired.
 
 ## Autostart
 
