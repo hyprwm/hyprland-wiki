@@ -96,19 +96,19 @@ If you want to instead choose from a list of pre-made Béziers, you can check ou
 ### Spring
 
 A spring curve is one commonly found on Apple's systems, and is defined by mass, stiffness
-and dampening. It's generally recommended to keep mass at 1, and adjust stiffness and dampening alone.
+and damping. It's generally recommended to keep mass at 1, and adjust stiffness and damping alone.
 
 ```lua
-hl.curve( NAME, { type = "spring", mass = MASS, stiffness = STIFF, dampening = DAMP })
+hl.curve( NAME, { type = "spring", mass = MASS, stiffness = STIFF, damping = DAMP })
 ```
 
-The more "stiffness", the more speed, and the more "dampening", the less bounce.
+The more "stiffness", the more speed, and the more "damping", the less bounce.
 
 ### Examples
 
 ```lua
 hl.curve( "overshoot", { type = "bezier", points = { {0.5, 0.9}, {0.1, 1.1} } } )
-hl.curve( "rubber", { type = "spring", mass = 1, stiffness = 70, dampening = 10 } )
+hl.curve( "rubber", { type = "spring", mass = 1, stiffness = 70, damping = 10 } )
 ```
 
 ### Extras
