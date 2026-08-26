@@ -10,7 +10,7 @@ You can read the wonderful [Hjem documentation](https://hjem.feel-co.org/) to le
 
 ## Writing your hyprland.lua directly inside your Nix config
 
-Here follows an example of how to write your hyprland.lua contents directly inside your Nix config using Hjem, which will allow you using Nix string interpolation.
+Here follows an example of how to write your `hyprland.lua` contents directly inside your Nix config using Hjem, which will allow you to use Nix string interpolation.
 
 ```lua {filename="hyprland.nix"}
 {
@@ -30,12 +30,12 @@ Here follows an example of how to write your hyprland.lua contents directly insi
 
 ## Sourcing a hyprland.lua file at your Nix config
 
-Instead of writing your `hyprland.lua` contents directly inside your Nix config, you also have the possibility of sourcing a `hyprland.lua` file using Hjem just to link it into its place at `~/.config/hypr/`.
+Instead of writing your `hyprland.lua` contents directly inside your Nix config, you also have the possibility of sourcing a `hyprland.lua` file using Hjem, to link it into its place at `~/.config/hypr/`.
 However, you can't use Nix string interpolation this way.
 
 ## Hjem-impure
 
-The `hyprland.lua` file is most likely a highly changing file.
+Your `hyprland.lua` file will most likely change frequently.
 What if you want to try a new change in your Hyprland config without having to build switch your NixOS config?
 After `hyprland.lua` is deployed by Hjem, it will write a link into `~/.config/hyprland.lua` from the Nix store.
 This file is read-only by default, but we can easily get to rewrite it by using a tool called [`hjem-impure`](https://github.com/Rexcrazy804/hjem-impure).
@@ -43,5 +43,5 @@ This file is read-only by default, but we can easily get to rewrite it by using 
 Executing `hjem-impure` replaces every Hjem symlink with writable normal files and directories.
 So after that, you can write into your `~/.config/hyprland.lua` file deployed by Hjem.
 **This enables experimentation.**
-What this mean is that after a NixOS build switch or after a system reboot, the changes that you made in `~/.config/hyprland.lua` **will be gone**.
-So after you are happy with some changes, write them into your Nix config for them to be persisted.
+What this means is that, after a NixOS build switch or after a system reboot, the changes that you made in `~/.config/hyprland.lua` **will be gone**.
+So after you are happy with your changes, write them into your Nix config for them to be persisted.

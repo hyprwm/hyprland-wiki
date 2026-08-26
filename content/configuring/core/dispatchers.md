@@ -12,6 +12,7 @@ Their purpose is to be fed into `hl.bind()` or `hl.dispatch()`.
 Please keep in mind that some layout-specific dispatchers will be listed in the layout pages (see the sidebar).
 
 To use a dispatcher (any of `hl.dsp.*`) inside a function, you need to wrap it in `hl.dispatch()` for it to be executed.
+**Simply writing `hl.dsp.whatever()` on its own will do nothing.**
 
 {{% details title="Examples" closed="true" %}}
 
@@ -34,14 +35,6 @@ hl.bind("ALT + Tab", function()
 end)
 ```
 
-As a metaphor:
-`hl.dsp`s are factories, while `hl.dispatch()` is a truck that delivers products from the factories to a client.
-If you forget to invoke the driver, nothing will be delivered.
-In the above example, the function never invokes the driver, so it doesn't deliver anything.
-
-On the other hand, [`hl.exec_cmd()`](../advanced-configuration/lua-utilities#hlexec_cmd-function) is a postman.
-It executes immediately, going straight to the address on the letter it is handed.
-
 {{% /details %}}
 
 ### Parameter explanation
@@ -53,7 +46,9 @@ It executes immediately, going straight to the address on the letter it is hande
 | `relative` | If not set, defaults to `"false"`. Can be: `"false"`, `"true"` |
 
 ## Dispatchers
-<!-- NOTE: please, before adding a new dispatcher consult wiki guidelines page -->
+
+<!-- NOTE: please, before adding a new dispatcher, consult the wiki guidelines page -->
+
 ### General
 
 `hl.dsp.` contains:
@@ -103,13 +98,13 @@ It executes immediately, going straight to the address on the letter it is hande
 | `kill({ window? })` | Kill the process owning the window with a `SIGKILL`. |
 | `signal({ window?, signal })` | Send a POSIX signal to the process owning the window. |
 | `float({ window?, action? })` | Set a window's floating state. |
-| `fullscreen({ window?, action?, mode?, layout_aware? })` | Set a window's fullscreen state. `mode` can be "maximized" and "fullscreen". `action` can be `toggle`/`set`/`unset`. `layout_aware` takes `true`(default)/`false`, allows you to choose if you want to use layout or default handled FS behavior. |
-| `fullscreen_state({ window?, action?, internal, client, layout_aware? })` | Set a window's fullscreen state with more precision. `action` can be `toggle`/`set`/`unset`. `layout_aware` takes `true`(default)/`false`, allows you to choose if you want to use layout or default handled FS behavior.  See [fullscreen_state](#fullscreen_state), [fullscreen handlers](#fullscreen-handlers) |
+| `fullscreen({ window?, action?, mode?, layout_aware? })` | Set a window's fullscreen state. `mode` can be "maximized" and "fullscreen". `action` can be `toggle`/`set`/`unset`. `layout_aware` takes `true`(default)/`false`, allows you to choose if you want to use layout- or default-handled fullscreen behavior. |
+| `fullscreen_state({ window?, action?, internal, client, layout_aware? })` | Set a window's fullscreen state with more precision. `action` can be `toggle`/`set`/`unset`. `layout_aware` takes `true`(default)/`false`, allows you to choose if you want to use layout- or default-handled fullscreen behavior. See [fullscreen_state](#fullscreen_state), [fullscreen handlers](#fullscreen-handlers) |
 | `pseudo({ window?, action? })` | Set a window's pseudotiling state. |
 | `move({ window?, direction, group_aware? })` | Move a window in a direction. `group_aware = true` will put windows in/out of groups alongside the given direction. |
 | `move({ window?, workspace, follow? })` | Move a window to a workspace |
 | `move({ window?, monitor, follow? })` | Move a window to a monitor |
-| `move({ window?, x, y, relative? })` | Move a window by / to a coord |
+| `move({ window?, x, y, relative? })` | Move a window by (`relative = true`) or to (`relative = false`) a coord |
 | `move({ window?, into_group = direction })` | Move a window into a group in a direction |
 | `move({ window?, into_or_create_group = direction })` | Move a window into a group in a direction, or create a group if no group exists in that direction |
 | `move({ window?, out_of_group })` | Move a window out of a group. `true` for directionless, direction for a direction |
@@ -176,7 +171,7 @@ You can lock a group with the `lock` dispatcher in order to stop new windows fro
 
 You can prevent a window from being added to a group or becoming a group with the `window.deny_from_group` dispatcher.
 
-## Special Workspace
+## Special workspaces
 
 > [!NOTE]
 > You can define multiple named special workspaces, but only up to 97 may exist at one time.
@@ -185,11 +180,17 @@ A special workspace is what is called a "scratchpad" in some other places.
 It is a workspace that you can toggle on/off on any monitor.
 
 For example, to move a window to a named special workspace you can use the following syntax:
+
 ```lua
 hl.bind("SUPER + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 -- Show/hide the workspace, and any windows on it:
 hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("magic"))
 ```
+
+> [!NOTE]
+> Dispatchers that only handle special workspaces, such as `hl.dsp.workspace.toggle_special()`, accept a name and apply the `special:` prefix themselves.
+> Dispatchers that accept *any* workspace must be given the `special:` prefix in order to target the correct special workspace.
+> The example above illustrates this.
 
 ## Executing with rules
 
@@ -243,7 +244,7 @@ For example:
 
 This is not a user accessible mode, but a state that occurs when a client requests fullscreen when the internal mode of that window is maximized.
 
-When this happens, the next request to un-FS the window will cause the window to become maximized instead.
+When this happens, the next request to un-fullscreen the window will cause the window to become maximized instead.
 A practical example of this is when you fullscreen a video you're watching on a maximized window.
 
 ### Fullscreen Handlers

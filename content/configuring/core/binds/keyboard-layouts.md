@@ -8,7 +8,7 @@ title: Keyboard layouts
 > [!WARNING]
 > The first layout defined in the input section will be the one used for binds by default.
 >
-> For example: `us,ua` -> config binds would be e.g. `"SUPER + A"`, while on `ua,us` -> `"SUPER + Cyrillic_ef"`
+> For example: with `us,ua`, config binds would be e.g. `"SUPER + A"`, while on `ua,us` you'd have `"SUPER + Cyrillic_ef"`.
 >
 > You can change this behavior globally or per-device by setting `resolve_binds_by_sym = 1`.
 > In that case, binds will activate when the symbol typed matches the symbol specified in the bind.

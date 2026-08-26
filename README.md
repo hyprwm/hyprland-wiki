@@ -1,12 +1,14 @@
 # Hyprland Wiki
 
-Welcome to the Hyprland Wiki! Here we store the wiki pages.
+Welcome to the Hyprland Wiki!
+Here we store the wiki pages.
 They are automatically updated on the website whenever a change occurs, within a reasonable timeframe (usually 1–2 minutes).
 You can find the site at [https://wiki.hypr.land/](https://wiki.hypr.land/).
 
 ## Wiki styling
 
-Before suggesting your changes, make sure to follow wiki styling guidelines. They can be read on [the wiki](https://wiki.hypr.land/contributing-and-debugging/wiki-guidelins/) or [github](./content/contributing-and-debugging/wiki-guidelines.md)
+Before suggesting your changes, make sure to follow wiki styling guidelines.
+They can be read on [the wiki](https://wiki.hypr.land/contributing-and-debugging/wiki-guidelines/) or [GitHub](./content/contributing-and-debugging/wiki-guidelines.md)
 
 ## Contributing guidelines
 
@@ -34,27 +36,10 @@ These line breaks are ignored when content is rendered, but help reduce diff siz
 
 See [this article](https://writingslowly.com/2025/01/13/semantic-line-breaks-are-a.html) and the [Semantic Line Breaks specification](https://sembr.org) for details that aren't in comic panel form.
 
-## TODO list
-
-[ ] write how to structure new parameters and what styling to follow
-
-[ ] add {filename="hyprland.lua"} to codeblocks
-
-[ ] put examples in
-{{% details title="title" closed="true" %}}
-
-code  
-lorem ipsum
-
-{{% /details %}}
-
-[x] rewrite Nix part of the wiki. too much noise. Hjem.
-
-[ ] figure out tags in per-device binds. they link to devices and devices links to per-device binds. no info about them in old wiki /shrug
-
 ## Local development
 
-To see your local changes, make sure to have `go` and `hugo` installed. Then, run
+To see your local changes, make sure to have `go` and `hugo` installed.
+Then, run
 
 ```sh
 $ hugo serve

@@ -26,7 +26,7 @@ end)
 ```
 
 > [!NOTE]
-> Under Systemd, a single user is not expected to have multiple graphical sessions (i.e. compositors) running simultaneously.
+> Under systemd, a single user is not expected to have multiple graphical sessions (i.e. compositors) running simultaneously.
 > If you do this, note that exiting one Hyprland instance will stop `graphical-session.target` and may impact your other remaining sessions.
 >
 > Setting `HYPRLAND_NO_SD_TARGET` will avoid this, but also prevent *starting* `hyprland-session.target` and `graphical-session.target` in the first place.

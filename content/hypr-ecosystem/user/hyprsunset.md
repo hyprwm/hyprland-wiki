@@ -24,13 +24,13 @@ Once the clock strikes 21:00, hyprsunset will automatically apply the new profil
 
 | Variable | Description | Type | Default |
 | -- | -- | -- | -- |
-| `max-gamma` | The maximum the gamma value can be. <br> Absolute maximum is `200`%. <br> Mostly useful when controlling hyprsunset via IPC | int | `100` |
+| `max-gamma` | The maximum percentage the gamma value can be. Absolute maximum is `200`%. Mostly useful when controlling hyprsunset via IPC | int | `100` |
 
 ### Profile
 
 | Variable | Description | Type | Default |
 | -- | -- | -- | -- |
-| `time` | The time at which the profile should be activated. Must be in the format {hours}:{minutes} | string | `00:00` |
+| `time` | The time at which the profile should be activated. Must be in the format `<hours>:<minutes>` | string | `00:00` |
 | `temperature` | The screen temperature. Lower means warmer | int | `6000` |
 | `gamma` | The perceived brightness of the screen. This will allow you to lower the brightness beyond your screen's minimum | float | `1.0` |
 | `identity` | When set, the value of temperature is ignored and the only effect of hyprsunset is the change in apparent brightness by gamma | bool | `false` |
@@ -57,7 +57,6 @@ profile {
 ## Usage
 
 To autostart hyprsunset, add: `hyprsunset` to your `hyprland.lua`'s autostart section.
-
 <!-- If Hyprland is started with [uwsm](../../Useful-Utilities/Systemd-start), you can use `systemctl --user enable --now hyprsunset.service`. -->
 
 Hyprsunset can also be controlled by supplying arguments to the command.

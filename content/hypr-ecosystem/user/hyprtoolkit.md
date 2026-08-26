@@ -1,12 +1,12 @@
 ---
-weight: 10
-title: hyprtoolkit
+weight: 140
+title: hyprtoolkit (user docs)
 ---
 
 [hyprtoolkit](https://github.com/hyprwm/hyprtoolkit) is a GUI toolkit for developing applications that run natively on Wayland.
 It's specifically made for Hyprland's needs, but will generally run on any Wayland compositor that supports modern standards.
 
-For developer docs, see [development](./development)
+For developer documentation, see the [hyprtoolkit developer docs](../../dev/hyprtoolkit).
 
 ## Configuration
 

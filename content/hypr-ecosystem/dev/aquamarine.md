@@ -1,5 +1,5 @@
 ---
-weight: 60
+weight: 10
 title: aquamarine
 ---
 
@@ -10,18 +10,7 @@ Instead it implements only the low-level KMS, DRM, etc. rendering backends.
 
 ## Configuration
 
-Configuration options are passed via environment variables starting with `AQ_` to an app that uses aquamarine (e.g., Hyprland)
+Configuration options are passed via environment variables starting with `AQ_` to an app that uses aquamarine (e.g., Hyprland).
 
 ### Variables
-
-| Name | Description |
-| --- | --- |
-| `AQ_TRACE` | Enables trace (very, very verbose) logging. |
-| `AQ_DRM_DEVICES` | A colon-separated list of DRM devices (aka. GPUs) to use. <br> The first will be used as primary. <br> Example: `/dev/dri/card1:/dev/dri/card0`. |
-| `AQ_NO_MODIFIERS` | Disables modifiers for DRM buffers. |
-| `AQ_MGPU_NO_EXPLICIT` | Disables passing of explicit fences for multi-GPU scanouts |
-| `AQ_NO_ATOMIC` | **(HEAVILY NOT RECOMMENDED)** Disable atomic modesetting. |
-
-## Documentation
-
-Documentation will come soon.
+Environment variables for configuring Aquamarine are listed at [the environment variables page.](../../../configuring/core/environment-variables/)

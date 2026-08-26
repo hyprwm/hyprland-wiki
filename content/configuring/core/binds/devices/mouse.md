@@ -13,9 +13,9 @@ title: Mouse
 You can bind mouse buttons by prefixing a keycode with `mouse:`.
 Common mouse button key codes (check `wev` for other buttons) are:
 
-- Left Mouse Button → 272
-- Right Mouse Button → 273
-- Middle Mouse Button → 274
+- Left Mouse Button: 272
+- Right Mouse Button: 273
+- Middle Mouse Button: 274
 
 ```lua
 -- Bind SUPER + LMB to launch kitty terminal.

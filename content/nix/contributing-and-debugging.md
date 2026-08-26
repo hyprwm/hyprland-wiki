@@ -9,10 +9,30 @@ To use it in the cloned repo, simply run `nix develop`.
 
 ## Build in debug mode
 
-A debug build is already provided through `hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland-debug`.
+### Through `nix build`
+
+A debug build is already provided through the hyprland flake: `hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland-debug`.
 
 Most hyprwm apps also provide their own `-debug` versions.
 For those that don't, one can build the debug version from the CLI by using [overrideAttrs](../advanced/#using-nix-repl) with `cmakeBuildType = "Debug";` or `mesonBuildType = "debug";`, depending on the program.
+
+If you don't want to use the Hyprland flake, you can build the Nixpkgs derivation in debug mode.
+To do so, use the following code in the `package` attribute of the NixOS/Home Manager modules:
+
+```nix
+hyprland.override {
+  debug = true;
+};
+```
+
+### Through `cmake`
+
+You can build Hyprland by directly calling `cmake` instead of through `nix build`.
+The advantage is being able to do incremental builds (just building whatever little change you made instead of the entire repo).
+
+1. Clone the Hyprland repo including its submodules.
+1. Enter the directory and execute `nix develop` in your shell.
+1. Run `make debug` (check the Makefile for other options).
 
 ## Bisecting an issue
 
@@ -41,22 +61,9 @@ To get proper stacktraces from Hyprland, make sure it was [built in debug mode](
 After a crash, perform the following steps:
 
 ```sh
-nix shell nixpkgs#gdb # get GDB temporarily
-coredumpctl # check the PID of the recent crash
+nix shell nixpkgs#gdb   # get GDB temporarily
+coredumpctl             # check the PID of the recent crash
 coredumpctl debug <PID> # using the PID found in the previous step
 ```
 
 The rest of the process is the same as [here](../../crashes-and-bugs#obtaining-a-debug-stacktrace), from step 3 onwards.
-
-## Manual building
-
-You can build Hyprland using cmake instead of using `nix build`.
-The advantage is being able to do incremental builds (just building whatever little change you made instead of the entire repo).
-
-1. Clone the Hyprland repo including its submodules.
-1. Enter the directory and execute `nix develop` in your shell.
-1. Run `make debug` (check the Makefile for other options).
-1. For doing an incremental build (only building any small change you made after the first full build), run the following command (included in the Makefile):
-   ```bash
-   cmake --build ./build --config Debug --target all -j`nproc 2>/dev/null || getconf NPROCESSORS_CONF`
-   ```

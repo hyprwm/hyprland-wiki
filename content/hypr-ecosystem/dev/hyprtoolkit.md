@@ -1,12 +1,14 @@
 ---
-weight: 10
-title: Development
+weight: 50
+title: hyprtoolkit (developer docs)
 ---
 
 Hyprtoolkit is a pure C++ toolkit.
 It relies on modern C++ in the Hyprland style (with hyprutils, etc.).
 
-It's recommended you are familiar with C++ before developing an app.
+It's recommended you are familiar with C++ before developing an app with hyprtoolkit.
+
+For user documentation, see the [hyprtoolkit user docs](../../user/hyprtoolkit).
 
 ## Getting Started
 
@@ -107,7 +109,7 @@ This tells the layout system how to size the element.
 - `AUTO` ignores the passed vector (leave it empty) and instead will always attempt to contain the children\*
 
 > [!NOTE]
-> Some elements will force their own sizing (e.g., `Text`)
+> Some elements will force their own sizing (e.g., `Text`).
 > Leave them `AUTO` to avoid confusion.
 
 ## Elements

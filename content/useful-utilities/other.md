@@ -71,8 +71,7 @@ Head over to your `hyprland.lua` and add `udiskie` to your autostarts.
 ### Monitor configuration
 
 [Monique](https://github.com/ToRvaLDz/monique) by _ToRvaLDz_:
-Graphical monitor configurator for Hyprland and Sway with drag-and-drop layout, profile system,
-and hotplug daemon for automatic configuration.
+Graphical monitor configurator for Hyprland and Sway with drag-and-drop layout, profile system, and hotplug daemon for automatic configuration.
 
 ### Other useful utilities
 

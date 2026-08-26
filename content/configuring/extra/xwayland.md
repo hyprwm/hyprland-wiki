@@ -9,7 +9,7 @@ Xwayland is the bridging mechanism between legacy Xorg programs and Wayland comp
 
 Xwayland currently looks pixelated on HiDPI screens, due to Xorg's inability to scale.
 
-This problem is mitigated by setting the [force_zero_scaling](../../core/config-options#xwayland) option to true, which forces Xwayland windows not to be scaled.
+This problem is mitigated by setting the [`force_zero_scaling`](../../core/config-options#xwayland) option to true, which forces Xwayland windows not to be scaled.
 
 This will get rid of the pixelated look, but will not scale applications properly.
 To do this, each toolkit has its own mechanism.
@@ -44,7 +44,7 @@ This type of socket uses a separate, abstract namespace that is independent of t
 This makes abstract sockets more flexible but harder to [isolate](https://github.com/hyprwm/Hyprland/pull/8874) for some kinds of sandboxes like Flatpak.
 However, removing the abstract socket has [potential](https://gitlab.gnome.org/GNOME/mutter/-/issues/1613) security and compatibility issues.
 
-Keeping that in mind, we add the [create_abstract_socket](../../core/config-options#xwayland) option.
+To help address these issues, we provide the [`create_abstract_socket`](../../core/config-options#xwayland) option.
 When the abstract socket is disabled, only the regular Unix domain socket will be created.
 
 _\* Abstract Unix domain sockets are available only on Linux-based systems_

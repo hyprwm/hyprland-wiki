@@ -3,7 +3,7 @@ weight: 20
 title: Virtual GPU
 ---
 
-<!-- TODO maybe move to core or core/advanced? it is essential for laptops -->
+<!-- TODO: maybe move to core or core/advanced? it is essential for laptops -->
 
 ## General
 
@@ -63,7 +63,7 @@ Hyprland requires by default that your graphics card has **at least one display 
 
 However, for all vendors, vGPUs are render-only cards and have no emulated output on Linux.
 That is because they are targeting VDI infrastructures, 3D rendering, encoding and compute use cases that are all remote.
-This is also suggested by their prefix "3D controller," instead of "VGA compatible controller."
+This is also suggested by their prefix "3D controller", instead of "VGA compatible controller".
 
 **To allow Hyprland to run** on a graphics card **with no output, you must enable the** `AQ_NO_KMS_REQUIREMENT` environment flag when running Hyprland:
 
@@ -90,7 +90,7 @@ crw-rw-rw-  1 root render 226, 128 Apr 20 07:01 renderD128      # DRM card, rend
 Hyprland will, by default, only select nodes on the system with display outputs and ignore the `render` node.
 But with `AQ_NO_KMS_REQUIREMENT` lifting this need, the `render` node becomes a suitable candidate.
 
-If you happen to be using both a virtual GPU and a hardware GPU on the same virtual machine, **you must set the** `AQ_DRM_DEVICES` **flag**.
+If you happen to be using both a virtual GPU and a hardware GPU on the same virtual machine, **you must set the `AQ_DRM_DEVICES` flag**.
 This flag is described and explained in [Multi-GPU](../multi-gpu):
 
 ```lua
@@ -119,7 +119,7 @@ The following servers are known to be supported:
 Once you start Hyprland, you can start your server remotely using `hyprctl` on the guest (See [Using hyprctl](../../core/advanced-configuration/using-hyprctl))
 
 ```bash
-hyprctl --instance 0 dispatch 'exec_raw("Sunshine")'
+hyprctl --instance 0 eval 'hl.exec_cmd("Sunshine")'
 ```
 
 The remote display server should be running below the Hyprland process to inherit all its environment variables.
@@ -129,7 +129,7 @@ If everything is configured and working correctly, you can set your server in yo
 For example:
 
 ```lua
-hl.on("hyprland.start", function ()
+hl.on("hyprland.start", function()
     hl.exec_cmd("Sunshine")
 end)
 ```

@@ -82,7 +82,7 @@ emerge --ask --verbose gui-libs/xdg-desktop-portal-hyprland
 
 {{< tab name="Manual" >}}
 
-See [The GitHub repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland).
+See [the GitHub repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland).
 
 {{< /tab >}}
 
@@ -146,7 +146,8 @@ systemctl --user status xdg-desktop-portal-hyprland
 
 If you see a crash, it's likely you are missing either `qt6-wayland` or `qt5-wayland`.
 
-If the portal does not autostart, does not function when manually started, and does not produce any error logs, it's very likely your [XDG env variables](../../../configuring/core/environment-variables/#xdg-specifications) are messed up.
+If the portal does not autostart, does not function when manually started, and does not produce any error logs, it's very likely your XDG [environment variables](../../../configuring/core/environment-variables) are messed up.
+Hyprland will set these for you by default; avoid overriding them unless you really know what you're doing.
 
 ## Configuration
 

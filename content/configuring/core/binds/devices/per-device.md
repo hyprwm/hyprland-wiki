@@ -5,14 +5,15 @@ title: Per-device binds
 
 ## Per-Device Binds
 
-You can set keybinds to be device specific with the `device` flag. This flag is a table consisting of an `inclusive` flag and device list.
+You can set keybinds to be device specific with the `device` flag.
+This flag is a table consisting of an `inclusive` flag and device list.
 
 If `inclusive` is set to true, only devices specified in the list are capable of triggering the keybind.
 If set to false, all devices except those specified can trigger the keybind.
 If `inclusive` is not present, it defaults to true.
 
 A list of devices is specified in the `list` field as a comma separated list of strings.
-Device tags may also be used in place of device names; see [Devices](../../../devices).
+Device tags (set via a [per-device config](../../../devices)) may also be used in place of device names.
 
 ### Examples
 

@@ -56,7 +56,7 @@ There are 3 modes:
 - Default: **ASK**
 - Access to your screen _without_ going through xdg-desktop-portal-hyprland. Examples include: `grim`, `wl-screenrec`, `wf-recorder`.
 - If denied, will render a black screen with a "permission denied" text.
-- Why deny? For apps / scripts that might maliciously try to capture your screen without your knowledge by using Wayland protocols directly.
+- Why deny? For apps/scripts that might maliciously try to capture your screen without your knowledge by using Wayland protocols directly.
 
 #### plugin
 - Default: **ASK**
@@ -67,7 +67,7 @@ There are 3 modes:
 - Default: **ALLOW**
 - Access to connecting a new keyboard. Regex of the device name.
 - If you want to disable all keyboards not matching a regex, make a rule that sets `DENY` for `.*` _as the last keyboard permission rule_.
-- Why deny? Rubber duckies, malicious virtual / USB keyboards.
+- Why deny? Rubber duckies, malicious virtual/USB keyboards.
 
 #### cursorpos
 - Default: **ASK**
@@ -123,4 +123,4 @@ hl.config({
 })
 ```
 
-Otherwise, you have no _config_ control over permissions (popups will still work, although will not show paths, and "remember" will not be available).
+Otherwise, you will have no _config_ control over permissions (popups will still work, although they will not show paths, and "remember" will not be available).

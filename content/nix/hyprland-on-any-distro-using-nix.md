@@ -35,7 +35,7 @@ Once that is done, install Hyprland through `nix profile`:
 
 {{< tab name="From hyprnix (Recommended)" >}}
 
-Installing Hyprland (and other hypr* tools) can be done like so:
+Installing Hyprland (and other hypr\* tools) can be done like so:
 
 ```sh
 sudo nix profile add --profile /nix/var/nix/profiles/default github:hyprwm/hyprnix#hyprland

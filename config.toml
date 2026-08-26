@@ -25,6 +25,13 @@ unsafe = true
 [markup.goldmark.renderHooks.link]
 useEmbedded = "fallback"
 
+[markup.goldmark.extensions.passthrough]
+enable = true
+
+[markup.goldmark.extensions.passthrough.delimiters]
+block  = [['$$', '$$']]
+inline = [['$', '$']]
+
 [markup.highlight]
 noClasses = false
 

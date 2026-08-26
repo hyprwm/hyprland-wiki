@@ -26,31 +26,31 @@ end)
 ### Convenience functions
 
 Hyprland exposes the following convenience functions:
- - `hl.get_config()`
- - `hl.get_active_window()`
- - `hl.get_windows()`
- - `hl.get_window(selector)`
- - `hl.get_urgent_window()`
- - `hl.get_workspaces()`
- - `hl.get_workspace(selector)`
- - `hl.get_active_workspace()`
- - `hl.get_active_special_workspace()`
- - `hl.get_monitors({ all? })`
- - `hl.get_monitor(selector)`
- - `hl.get_active_monitor()`
- - `hl.get_monitor_at({ x = num, y = num })`
- - `hl.get_monitor_at_cursor()`
- - `hl.get_cursor_pos()`
- - `hl.get_last_window()`
- - `hl.get_last_workspace()`
- - `hl.get_layers()`
- - `hl.get_workspace_windows(workspace_selector)`
- - `hl.get_current_submap()`
- - `hl.version()`
- - `hl.exec_cmd()`
- - `hl.exec_scheduled_prop_refresh_immediately()`
- - `hl.get_loaded_plugins()`
- - `hl.is_key_down(key = num|str)`
+- `hl.get_config()`
+- `hl.get_active_window()`
+- `hl.get_windows()`
+- `hl.get_window(selector)`
+- `hl.get_urgent_window()`
+- `hl.get_workspaces()`
+- `hl.get_workspace(selector)`
+- `hl.get_active_workspace()`
+- `hl.get_active_special_workspace()`
+- `hl.get_monitors({ all? })`
+- `hl.get_monitor(selector)`
+- `hl.get_active_monitor()`
+- `hl.get_monitor_at({ x = num, y = num })`
+- `hl.get_monitor_at_cursor()`
+- `hl.get_cursor_pos()`
+- `hl.get_last_window()`
+- `hl.get_last_workspace()`
+- `hl.get_layers()`
+- `hl.get_workspace_windows(workspace_selector)`
+- `hl.get_current_submap()`
+- `hl.version()`
+- `hl.exec_cmd()`
+- `hl.exec_scheduled_prop_refresh_immediately()`
+- `hl.get_loaded_plugins()`
+- `hl.is_key_down(key = num|str)`
 
 Use the LSP (or examine the stubs yourself) for the return values (classes and their parameters) of these functions.
 See [here](../../../core#editor-autocompletion) to set up the LSP in your code editor.

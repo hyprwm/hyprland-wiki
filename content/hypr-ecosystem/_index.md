@@ -3,7 +3,7 @@ weight: 50
 title: Hypr Ecosystem
 ---
 
-This wiki section hosts docs for various hypr* projects.
+This wiki section hosts docs for various hypr\* projects.
 
 > [!NOTE]
 > These docs always target the latest _-git_ branch of the respective apps.
@@ -27,11 +27,12 @@ Check out the wiki pages for each app, or their GitHub repo.
 - [hyprqt6engine](./user/hyprqt6engine) | [GitHub](https://github.com/hyprwm/hyprqt6engine)
 - [hyprpwcenter](./user/hyprpwcenter) | [GitHub](https://github.com/hyprwm/hyprpwcenter)
 - [hyprshutdown](./user/hyprshutdown) | [GitHub](https://github.com/hyprwm/hyprshutdown)
+- [hyprtoolkit](./user/hyprtoolkit) | [GitHub](https://github.com/hyprwm/hyprtoolkit)
+- [hyprcursor](./user/hyprcursor) | [GitHub](https://github.com/hyprwm/hyprcursor)
 
 ### Dev Libraries and Toolkits
 
 - [hyprtoolkit](./dev/hyprtoolkit) | [GitHub](https://github.com/hyprwm/hyprtoolkit)
-- [hyprcursor](./dev/hyprcursor) | [GitHub](https://github.com/hyprwm/hyprcursor)
 - [hyprutils](./dev/hyprutils) | [GitHub](https://github.com/hyprwm/hyprutils)
 - [hyprlang](./dev/hyprlang) | [GitHub](https://github.com/hyprwm/hyprlang)
 - [hyprwayland-scanner](./dev/hyprwayland-scanner) | [GitHub](https://github.com/hyprwm/hyprwayland-scanner)

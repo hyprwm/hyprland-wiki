@@ -130,7 +130,7 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle) {
 
 Plugin variables _**must**_ be in the `plugins:` category.
 Further categories are up to you.
-It's generally a good idea to group all variables from your plugin in a subcategory with the plugin name (e.g., `plugins:myPlugin:variable1`)
+It's generally a good idea to group all variables from your plugin in a subcategory with the plugin name (e.g., `plugins:myPlugin:variable1`).
 
 For retrieving the values, call `HyprlandAPI::getConfigValue`.
 

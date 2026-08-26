@@ -19,34 +19,27 @@ Please make a vouch request over [here](https://github.com/hyprwm/.github/discus
 
 See [manual build](../getting-started/installation#manual-build) for deps.
 
-### Recommended, CMake
+### Clone the repository
 
-Install the VSCode C/C++ and CMake Tools extensions and use that.
+Submodules must be included when cloning the repo: `git clone --recurse-submodules https://github.com/hyprwm/Hyprland.git`
 
-I've attached a
-[launch.json](https://github.com/hyprwm/Hyprland/blob/main/example/launch.json) file
-that you can copy to your .vscode/ folder in the repo root.
+### Building
 
-With that, you can build in debug, go to the debugging tab and hit
-`(gdb) Launch`.
+#### VSCode
 
-### Custom, CLI
+Install the C/C++ and CMake Tools extensions and use that.
 
-`make debug`
+The Hyprland repo contains a [launch.json](https://github.com/hyprwm/Hyprland/blob/main/example/launch.json) file that you can copy to your `.vscode/` folder in the repo root.
 
-Attach and profile in your preferred way.
+With that, you can build in debug, go to the debugging tab and hit `(gdb) Launch`.
+
+#### Generic
+
+`make debug` to build, `gdb build/Hyprland` to launch and attach a debugger.
 
 ### Nix
 
-To build the package in debug mode, you have to override it like this:
-
-```nix
-hyprland.override {
-  debug = true;
-};
-```
-
-This code can go in the `package` attribute of the NixOS/Home Manager modules.
+Check out [the Nix contributing and debugging page](../nix/contributing-and-debugging).
 
 ## Development environment
 

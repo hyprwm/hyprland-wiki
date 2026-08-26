@@ -85,26 +85,26 @@ To learn more about supported regex constructs, [refer to this cheatsheet](https
 If you want to _negate_ a RegEx, as in pass only when the RegEx _fails_, you can prefix it with `negative:` (e.g., `"negative:kitty"`)
 
 > [!TIP]
-> Lua's literal-string `[[]]` syntax may be helpful to avoid "backslash hell."
+> Lua's literal-string `[[]]` syntax may be helpful to avoid "backslash hell".
 > For example, you might write `[[\b\w*apple\b]]` instead of `"\\b\\w*apple\\b"`.
 
 ### Window selector
 
 Windows can be selected by:
- - Window object
- - Exact selectors:
-   - `pid:...`
-   - `stableid:...`
-   - `address:0x...`
- - Regexes:
-   - `class:...`
-   - `initialclass:...`
-   - `title:...`
-   - `initialtitle:...`
-   - `tag:...`
- - `activewindow`
- - `floating`
- - `tiled`
+- Window object
+- Exact selectors:
+  - `pid:...`
+  - `stableid:...`
+  - `address:0x...`
+- Regexes:
+  - `class:...`
+  - `initialclass:...`
+  - `title:...`
+  - `initialtitle:...`
+  - `tag:...`
+- `activewindow`
+- `floating`
+- `tiled`
 
 If no window is provided, the active window is used.
 
@@ -127,20 +127,20 @@ Workspaces can be selected by:
 
 #### Workspace props
 
-<!-- TODO i think we should make a petition to rework this for Lua -->
+<!-- TODO: i think we should make a petition to rework this for Lua -->
 
 Workspaces that have already been created can be targeted by workspace selectors (e.g., `r[2-4] w[t1]`)
 
 Props separated by a space.
 No spaces are allowed inside props themselves.
 
-- `r[A-B]` --- ID range from A to B inclusive
-- `s[bool]` --- Whether the workspace is special or not
-- `n[bool]`, `n[s:string]`, `n[e:string]` --- named actions.
-  `n[bool]` --- whether a workspace is a named workspace.
+- `r[A-B]` - ID range from A to B inclusive
+- `s[bool]` - Whether the workspace is special or not
+- `n[bool]`, `n[s:string]`, `n[e:string]` - named actions.
+  `n[bool]` - whether a workspace is a named workspace.
   `s` and `e` are 'starts with' and 'ends with', respectively.
-- `m[monitor]` --- Monitor selector
-- `w[(flags)A-B]`, `w[(flags)X]` --- Prop for window counts on the workspace.
+- `m[monitor]` - Monitor selector
+- `w[(flags)A-B]`, `w[(flags)X]` - Prop for window counts on the workspace.
   `A-B` is an inclusive range; `X` is a specific number.
   Flags can be omitted.
   Available flags are:
@@ -149,30 +149,30 @@ No spaces are allowed inside props themselves.
   - `g` to count groups instead of windows
   - `v` to count only visible windows
   - `p` to count only pinned windows
-- `f[-1]`, `f[0]`, `f[1]`, `f[2]` --- fullscreen state of the workspace.
+- `f[-1]`, `f[0]`, `f[1]`, `f[2]` - fullscreen state of the workspace.
   `-1`: no fullscreen,
   `0`: fullscreen,
   `1`: maximized,
   `2`: fullscreen without sending fullscreen state to the window.
-  Only matches workspaces with covering FS windows.
+  Only matches workspaces with covering fullscreen windows.
 
 #### Workspace search
 
 Workspace search is performed by suffixing search selector with workspace ID.
 To use absolute ID, `~` is put between selector and ID (e.g., `m~3`)
 
-- `m` --- Search for workspace on current monitor
-- `r` --- Search for workspace on current monitor including empty/non-existant workspaces
-- `e` --- Search on all monitors
-- `empty` --- Search for first empty workspace. Suffix with `m` to only search on monitor, and/or `n` to make it the _next_ available empty workspace (e.g., `emptynm`)
+- `m` - Search for workspace on current monitor
+- `r` - Search for workspace on current monitor including empty/non-existant workspaces
+- `e` - Search on all monitors
+- `empty` - Search for first empty workspace. Suffix with `m` to only search on monitor, and/or `n` to make it the _next_ available empty workspace (e.g., `emptynm`)
 
 ### Direction
 
 A direction.
-- `l` --- left
-- `r` --- right
-- `u` --- up
-- `d` --- down
+- `l`/`left` - left
+- `r`/`right` - right
+- `u`/`up` - up
+- `d`/`down` - down
 
 ### Monitor
 

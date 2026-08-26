@@ -64,8 +64,7 @@ As mentioned above, it's not recommended to use the `/dev/dri/card*` device path
 Furthermore, the colons in the actual card device paths are not usable in the `AQ_DRM_DEVICES` environment variable since colons `:` are used as a separator for multiple paths.
 
 It's possible to use udev rules to create reliable symlinks to particular device cards.
-For example, to create a symlink to an AMD card at the path `/dev/dri/amd-igpu`, we can create a udev rule at
-`/etc/udev/rules.d/amd-igpu-dev-path.rules` programmatically like so:
+For example, to create a symlink to an AMD card at the path `/dev/dri/amd-igpu`, we can create a udev rule at `/etc/udev/rules.d/amd-igpu-dev-path.rules` programmatically like so:
 
 ```sh
 SYMLINK_NAME="amd-igpu"

@@ -10,9 +10,9 @@ All fields beyond `output` are optional and fall back to sensible defaults.
 | Field | Description | Type | Default |
 | --- | --- | --- | --- |
 | output | Output name or `desc:...` description prefix | str | [[Required]] |
-| disabled | Removes the monitor from the layout | boolean | `false` |
+| disabled | Removes the monitor from the layout | bool | `false` |
 | mode | Resolution and refresh rate (e.g. `"1920x1080@144"`). See the [note](./modes#modes) for predefined modes. Options: `mode`/`"preferred"`/`"highres"`/`"highrr"`/`"maxwidth"` | str | `"preferred"` |
-| scale | Scale factor (e.g., `1.5`). `"auto"` = use monitor's PPI to decide the scale. Options: `scale`/`"auto"` |  float / str | `"auto"` |
+| scale | Scale factor (e.g., `1.5`). `"auto"` = use monitor's PPI to decide the scale. Options: `scale`/`"auto"` | float or str | `"auto"` |
 | transform | Rotation/flip transform (0–7) | int | 0 |
 | position | Position in the virtual layout (e.g., `"1920x0"`). See the [note](./positioning#positions) for predefined positions | str | `"auto"` |
 | mirror | Output name to mirror | str | [[Empty]] |
@@ -38,9 +38,7 @@ Leaving the `output` empty will define a fallback rule to use when no other rule
 hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
 ```
 
-This will make any monitor that was not specified with an explicit rule
-automatically placed on the right of the other(s), with its preferred
-resolution.
+This will make any monitor that was not specified with an explicit rule be automatically placed on the right of the other(s), with its preferred resolution.
 
 ## General
 

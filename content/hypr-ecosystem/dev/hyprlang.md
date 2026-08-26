@@ -24,7 +24,7 @@ The trailing spaces at the beginning and end of words are not necessary, and are
 
 ### Categories
 
-Categories can be regular, and "special".
+Categories can be regular or "special".
 
 Both are specified in the same way:
 

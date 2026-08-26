@@ -25,7 +25,7 @@ Any of the [`input` options](../../core/config-options#input) can be set, **EXCE
 You can also use the `output` setting for tablets to bind them to outputs.
 Remember to use the name of the `Tablet` and not `Tablet Pad` or `Tablet Tool`.
 
-A few additional properties are only present in per-device configs:
+A few additional properties can only be specified in per-device configs:
 - `enabled` (only for mice/touchpads/touchdevices/keyboards)
   - Enables/disables the device (connects/disconnects from the on-screen cursor)
   - Default: `true`
@@ -33,7 +33,7 @@ A few additional properties are only present in per-device configs:
   - Enables/disables keybinds for the device
   - Default: `true`
 - `tags` (only for keyboards/pointers)
-  - Provides grouping and alt-names is device specific binds (see [Per-Device Binds](../../core/binds/devices/per-device)); comma separated list of tags
+  - Provides grouping and alternate names for use in [per-device binds](../../core/binds/devices/per-device); comma separated list of tags
   - Default: `""`
 
 > [!NOTE]

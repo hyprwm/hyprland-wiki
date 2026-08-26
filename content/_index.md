@@ -16,10 +16,8 @@ Take a tour of the pages on the left and read ones that you may need.
 
 ## Having issues?
 
-<!-- TODO: discussions, make more verbose, mention forums -->
-
 If you are having issues, please try [reading the FAQ](./faq) and [configuring](./configuring) sections --- chances are your issue is described somewhere there.
-If not, you can try [searching the discussions](https://github.com/hyprwm/Hyprland/discussions).
+If not, you can try searching [discussions on github](https://github.com/hyprwm/Hyprland/discussions) or asking for help in [Hyprland community](./community#spaces).
 
 ## Wayland info
 

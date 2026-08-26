@@ -6,7 +6,8 @@ title: Workspace Rules
 You can set workspace rules to achieve workspace-specific behaviors.
 For instance, you can define a workspace where all windows are drawn without borders or gaps.
 
-Some layouts have their own specific rules, they can be found on the corresponding layout page.
+Some layouts have their own specific rules, which can be found on the corresponding layout page.
+See [Layouts](../../../layouts).
 
 ## Syntax
 

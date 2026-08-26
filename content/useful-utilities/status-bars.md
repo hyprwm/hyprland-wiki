@@ -150,9 +150,9 @@ In the latter case, you can follow Eww's own [instructions](https://elkowar.gith
 #### Disadvantages
 
 - Heavy reliance on external scripts/programs, as it does not provide many libraries
-- Performance
-- Only supports GTK 3, which does not support GPU acceleration
-- Overhead from the use of external scripts and unnecessary component recreations on data re-evaluation
+- Performance:
+  - Only supports GTK 3, which does not support GPU acceleration
+  - Overhead from the use of external scripts and unnecessary component recreations on data re-evaluation
 
 #### Configuration
 

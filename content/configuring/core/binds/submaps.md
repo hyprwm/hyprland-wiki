@@ -3,12 +3,11 @@ weight: 40
 title: Submaps
 ---
 
-
 ## Submaps
 
 Keybind submaps allow you to activate a separate set of keybinds.
 
-For example, if you want to enter a `resize` "mode" that allows you to resize windows with the arrow keys, you can do it like this:
+For example, if you want to enter a "resize mode" that allows you to resize windows with the arrow keys, you can do it like this:
 
 ```lua
 -- Switch to a submap called `resize`.
@@ -99,7 +98,7 @@ end)
 
 ### Automatically close a submap on dispatch
 
-Submaps can be automatically closed or sent to another submap by appending `,` followed by a submap or `reset`.
+Submaps can be automatically closed or sent to another submap, by providing either a submap name or `"reset"` as the second argument to `hl.define_submap()`.
 
 ```lua
 hl.bind("SUPER + a", hl.dsp.submap("submapA"))

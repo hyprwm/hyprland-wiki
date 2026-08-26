@@ -104,23 +104,17 @@ A single installer command turns an existing install of many popular distros int
 
 [https://github.com/linuxmobile/hyprland-dots](https://github.com/linuxmobile/hyprland-dots)
 
----
-
 ### flick0
 
 ![flick0/dotfiles screenshot](https://raw.githubusercontent.com/flick0/dotfiles/aurora/assets/fetch.png)
 
 [https://github.com/flick0/dotfiles](https://github.com/flick0/dotfiles)
 
----
-
 ### iamverysimp1e
 
 ![1amSimp1e/dots screenshot](https://raw.githubusercontent.com/iamverysimp1e/dots/late-night-%F0%9F%8C%83/ScreenShots/HyprLand/preview.png)
 
 [https://github.com/1amSimp1e/dots](https://github.com/1amSimp1e/dots)
-
----
 
 ### notusknot
 

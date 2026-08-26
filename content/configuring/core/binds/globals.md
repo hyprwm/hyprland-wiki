@@ -7,7 +7,7 @@ title: Global hotkeys and binds
 
 ### Classic
 
-Yes, you heard this right, Hyprland does support global keybinds for _ALL_ apps, including OBS, Discord, Firefox, etc.
+Yes, you heard that right, Hyprland does support global keybinds for _ALL_ apps, including OBS, Discord, Firefox, etc.
 See the [`pass`](../../dispatchers) and [`send_shortcut`](../../dispatchers) dispatchers for keybinds.
 
 Let's take OBS as an example: the "Start/Stop Recording" keybind is set to SUPER + F10, to make it work globally, simply add:
@@ -34,11 +34,11 @@ hl.bind("SUPER + F10", hl.dsp.send_shortcut({ mods = "SUPER", key = "F4", window
 > [!WARNING]
 > This works flawlessly with all native Wayland applications.
 > However, Xwayland is a bit wonky.
-> Make sure that what you're passing is a "global Xorg keybind," otherwise passing from a different Xwayland app may not work.
+> Make sure that what you're passing is a "global Xorg keybind", otherwise passing from a different Xwayland app may not work.
 
 ### D-Bus global shortcuts
 
->[!NOTE]
+> [!NOTE]
 > This function will _only_ work with [XDPH](../../../../hypr-ecosystem/user/xdg-desktop-portal-hyprland).
 
 Some applications may already support the GlobalShortcuts portal in xdg-desktop-portal.

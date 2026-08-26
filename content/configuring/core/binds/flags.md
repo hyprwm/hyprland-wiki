@@ -41,9 +41,8 @@ Available flags are:
 {{% details title="Examples" closed="true" %}}
 
 ```lua
--- Open wofi on first press, closes it on second
+-- Close wofi if it's open, open it if it's not
 hl.bind("SUPER_L", hl.dsp.exec_cmd("pkill wofi || wofi"))
-
 ```
 
 These binds set the expected behavior for regular keyboard media volume keys,

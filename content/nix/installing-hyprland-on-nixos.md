@@ -8,7 +8,7 @@ title: Hyprland on NixOS
 You can install Hyprland from:
 - The Nixpkgs repository if you want a proper released version from Hyprland.
 - The Hyprland flake if you want the latest git commit available at the moment.
-- Flake-compat: in case you want to use the Hyprland flake but you don't want to enable the use of flakes in your NixOS system.
+- Flake-compat if you want to use the Hyprland flake, but don't want to enable the use of flakes in your NixOS system.
 
 {{< tabs >}}
 

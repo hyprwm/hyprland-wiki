@@ -147,4 +147,4 @@ as a "reload" of the plugin.
 Take a look at the `src/plugins/PluginAPI.hpp` header.
 It has comments to every method to let you know what it is.
 
-For more explanation on a few concepts, see [Advanced](../advanced) and [Plugin Guidelines](../plugin-guidelines)
+For more explanation on a few concepts, see [Advanced](../advanced) and [Plugin Guidelines](../plugin-guidelines).

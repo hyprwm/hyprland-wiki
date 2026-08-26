@@ -45,14 +45,14 @@ You can see some launch flags by doing `start-hyprland -- -h`, these include set
 
 Login managers are not officially supported, but here's a short compatibility list:
 
-- SDDM → Works flawlessly.
+- SDDM: Works flawlessly.
   Install SDDM version ⩾ 0.20.0 or the [latest git version](https://github.com/sddm/sddm)
   (or [sddm-git](https://aur.archlinux.org/packages/sddm-git) from the AUR)
   to prevent SDDM bug [1476](https://github.com/sddm/sddm/issues/1476) (90s shutdowns).
-- plasma-login-manager → Works flawlessly, but depends on systemd.
-- GDM → Works with the caveat of crashing Hyprland on the first launch.
-- greetd → Works flawlessly, especially with [ReGreet](https://github.com/rharish101/ReGreet).
-- ly → Works flawlessly.
+- plasma-login-manager: Works flawlessly, but depends on systemd.
+- GDM: Works with the caveat of crashing Hyprland on the first launch.
+- greetd: Works flawlessly, especially with [ReGreet](https://github.com/rharish101/ReGreet).
+- ly: Works flawlessly.
 
 ## DE-like pre-configured setups
 
@@ -94,13 +94,14 @@ You can also visit the [Awesome-Hyprland](https://github.com/hyprland-community/
 
 ## Force apps to use Wayland
 
-A lot of apps will use Wayland by default. Chromium (and other browsers based on it, or Electron) don't.
+A lot of apps will use Wayland by default.
+Chromium (and other browsers based on it), as well as Electron apps, don't.
 You need to pass `--enable-features=UseOzonePlatform --ozone-platform=wayland` to them or use `.conf` files where possible.
 Chromium-based browsers also should have a toggle in `chrome://flags`.
-Search for _"ozone"_ and select Wayland.
+Search for "ozone" and select Wayland.
 If you are on NixOS, you can also set the environment variable `NIXOS_OZONE_WL=1` in your configuration.
 
-For most electron apps, you should put the above in `~/.config/electron-flags.conf`.
+For most Electron apps, you should put the above in `~/.config/electron-flags.conf`.
 Note that VSCode is known **not** to work with it.
 
 A few more environment variables for forcing Wayland mode are documented [here](../../configuring/core/environment-variables).

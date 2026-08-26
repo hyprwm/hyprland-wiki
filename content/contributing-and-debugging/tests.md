@@ -14,7 +14,7 @@ Building in Debug will by default build tests.
 GTests are GoogleTests that are _unit tests_.
 These tests simply check how some elements behave when they can run on their own.
 
-In all hypr* projects, GTests are ran by ctest.
+In all hypr\* projects, GTests are ran by ctest.
 Run:
 
 ```sh

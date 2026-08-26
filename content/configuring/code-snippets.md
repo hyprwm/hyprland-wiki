@@ -7,7 +7,7 @@ title: Lua code snippets
 
 Code snippets provided on this page may prove useful as inspiration or straight-up copy-paste.
 
-<!-- TODO scrap discord/forums for helper functions that may or may not be useful -->
+<!-- TODO: scrape discord/forums for helper functions that may or may not be useful -->
 
 ### Per-layout binds
 
@@ -67,7 +67,7 @@ end)
 
 ### Smart gaps
 
-To replicate "smart gaps"/"no gaps when only" from other WMs/Compositors:
+To replicate "smart gaps"/"no gaps when only" from other WMs/compositors:
 
 ```lua
 hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
@@ -189,7 +189,6 @@ hl.bind("SUPER + F1", function ()
 end)
 ```
 
-
 ### Per workspace layouts
 
 You can use workspace rules to set per-workspace layouts:
@@ -205,8 +204,8 @@ To change the layout of the current workspace, you can use this bind:
 
 ```lua
 hl.bind("SUPER + tab", function ()
-    local layouts     = { "scrolling", "dwindle", "master", "monocle" }
-    local workspace   = hl.get_active_workspace()
+    local layouts   = { "scrolling", "dwindle", "master", "monocle" }
+    local workspace = hl.get_active_workspace()
     if hl.get_active_special_workspace() then
         workspace = hl.get_active_special_workspace()
     end
@@ -226,7 +225,7 @@ hl.bind("SUPER + tab", function ()
     end
 
     if workspace.special then
-    hl.workspace_rule({ workspace = tostring(workspace.name), layout = next_layout })
+        hl.workspace_rule({ workspace = tostring(workspace.name), layout = next_layout })
     else
         hl.workspace_rule({ workspace = tostring(workspace.id), layout = next_layout })
     end

@@ -79,7 +79,7 @@ Sets the cursor theme and reloads the cursor manager.
 Will set the theme for everything except GTK, because GTK.
 
 Please note that since 0.37.0, this only accepts hyprcursor themes.
-For legacy xcursor themes, use the `XCURSOR_THEME` and `XCURSOR_SIZE` env vars.
+For legacy XCursor themes, use the `XCURSOR_THEME` and `XCURSOR_SIZE` env vars.
 
 params: theme and size
 
@@ -194,7 +194,7 @@ hyprctl seterror disable
 Gets a property value of a window.
 
 ```sh
-hyprctl getprop [window] [property]
+hyprctl getprop <window> <property>
 ```
 
 Where `window` is as described [here](../../dispatchers#parameter-explanation), and `property` is any which can be set with [set_prop](../../dispatchers/#set_prop).
@@ -208,38 +208,20 @@ Note that:
 ### notify
 
 Sends a notification using the built-in Hyprland notification system.
+Read more about it [here](../notifications), especially for icon and color options.
 
 ```sh
-hyprctl notify [ICON] [TIME_MS] [COLOR] [MESSAGE]
+hyprctl notify <ICON> <TIME_MS> <COLOR> <MESSAGE>
 ```
 
-For example:
+To specify font size, add `fonstsize:<SIZE = int>`
+
+{{% details title="Examples" closed="true" %}}
 
 ```sh
 hyprctl notify -1 10000 "rgb(ff1ea3)" "Hello everyone!"
-```
-
-Icon of `-1` means "No icon."
-Color of `0` means "Default color for icon."
-
-Icon list:
-
-```sh
-WARNING = 0
-INFO = 1
-HINT = 2
-ERROR = 3
-CONFUSED = 4
-OK = 5
-```
-
-Optionally, you can specify a font size of the notification like so:
-
-```sh
 hyprctl notify -1 10000 "rgb(ff0000)" "fontsize:35 This text is big"
 ```
-
-The default font-size is 13.
 
 ### dismissnotify
 
@@ -247,9 +229,11 @@ Dismisses all or up to AMOUNT notifications.
 
 ```sh
 hyprctl dismissnotify    # dismiss all notifications
-hyprctl dismissnotify 2  # dismiss the oldest 2 notifications
 hyprctl dismissnotify -1 # dismiss all notifications (same as no arguments)
+hyprctl dismissnotify 2  # dismiss the oldest 2 notifications
 ```
+
+{{% /details %}}
 
 ## Usage
 
@@ -306,9 +290,6 @@ hyprctl -j monitors
 ```
 
 Flag list:
-
-```txt
-j -> output in JSON
-i -> select instance (id or index in hyprctl instances)
-r -> force state refresh after issuing commands (e.g., layout or rule changes)
-```
+- `j` - output in JSON
+- `i` - select instance (id or index in hyprctl instances)
+- `r` - force state refresh after issuing commands (e.g., layout or rule changes)

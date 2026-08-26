@@ -63,7 +63,9 @@ Please note all variables are strings, so you need to call a standard function l
 In general, if you are translating into a language with regional variants, if the translations are the same, you don't need two entries.
 
 Order of fallbacks is as follows:
+- `xy_ZT`
+- `xy_XY`
+- `xy_ANYTHING`
+- global fallback (usually `en_US`)
 
-`xy_ZT` -> `xy_XY` -> `xy_ANYTHING` -> `global fallback`, usually `en_US`.
-
-So, if you write something for `de_DE`, and the user has `de_AT`, if `de_AT` is missing, `de_DE` will be used.
+So, if you write something for `de_DE`, and the user has `de_AT` but `de_AT` is missing, `de_DE` will be used.

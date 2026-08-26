@@ -7,11 +7,12 @@ title: Monitor modes
 
 Monitor mode is a combination of resolution and refresh rate.
 To see available modes, run `hyprctl monitors` and find `availableModes` field.
-Modes are sorted by resolution in  descending order.
+Modes are sorted by resolution in descending order.
 Some modes may be duplicated or may have a skewed refresh rate.
 
 ### Modes
-Predefined modes can not be combined, only one can be selected.
+
+**Predefined modes cannot be combined**; only one can be selected.
 
 - `preferred` - use the display's preferred size and refresh rate.
 - `highres` - use the highest supported resolution.
@@ -29,7 +30,7 @@ hl.monitor({
 })
 ```
 
-More about modeline can be read [here](https://wikipedia.org/wiki/XFree86_Modeline) and [here](https://wikipedia.org/wiki/Coordinated_Video_Timings)
+More about modelines can be read [here](https://wikipedia.org/wiki/XFree86_Modeline) and [here](https://wikipedia.org/wiki/Coordinated_Video_Timings)
 
 ## Mirrored displays
 
@@ -45,17 +46,17 @@ This also means squishing and stretching will occur on aspect ratios that differ
 
 ## VRR
 
-VRR can be enabled globally and on a per-display basis
+VRR can be enabled globally or on a per-display basis.
 
-Per-display VRR can be configured with the `vrr` field in `hl.monitor()` call, global config can be found in
-[config options](../../config-options).
+Per-display VRR can be configured with the `vrr` field in `hl.monitor()` call.
+Global config can be found in the [config options](../../config-options).
 
 Available values:
- - `-1` - follow global switch
- - `0` - off
- - `1` - on
- - `2` - fullscreen only
- - `3` - fullscreen with `video` or `game` content type
+- `-1` - follow global switch
+- `0` - off
+- `1` - on
+- `2` - fullscreen only
+- `3` - fullscreen with `video` or `game` content type
 
 ```lua
 hl.monitor({ output = "DP-1", vrr = 3 })

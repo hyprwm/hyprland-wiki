@@ -50,9 +50,9 @@ hl.layer_rule({ match = { namespace = "waybar" }, blur = true })
 
 -- Named layer rule
 local selectionRule = hl.layer_rule({
-  name      = "no-anim-for-selection",
-  match     = { namespace = "selection" },
-  no_anim   = true,
+  name    = "no-anim-for-selection",
+  match   = { namespace = "selection" },
+  no_anim = true,
 })
 
 -- Enable blur and ignore_alpha for Rofi

@@ -108,7 +108,7 @@ in {
 Once the module is enabled, you can use it to declaratively configure Hyprland.
 Here is an example config:
 
-<!-- TODO this is outdated, needs rewrite -->
+<!-- TODO: this is outdated, needs rewrite -->
 ```nix {filename="home.nix"}
 {
   wayland.windowManager.hyprland.settings = {

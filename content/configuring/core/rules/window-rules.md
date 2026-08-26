@@ -186,9 +186,9 @@ The `tag` rule can only manipulate dynamic tags, and the `hl.dsp.window.tag` onl
 {{% details title="Examples" closed="true" %}}
 
 ```bash
-hyprctl dispatch 'hl.dsp.window.tag({ tag = "+code" })'     # Add tag to current window.
-hyprctl dispatch 'hl.dsp.window.tag({ tag = "-code" })'     # Remove tag from current window.
-hyprctl dispatch 'hl.dsp.window.tag({ tag = "code" })'      # Toggle the tag of current window.
+hyprctl dispatch 'hl.dsp.window.tag({ tag = "+code" })' # Add tag to current window.
+hyprctl dispatch 'hl.dsp.window.tag({ tag = "-code" })' # Remove tag from current window.
+hyprctl dispatch 'hl.dsp.window.tag({ tag = "code" })'  # Toggle the tag of current window.
 
 # Or target windows
 hyprctl dispatch 'hl.dsp.window.tag({ tag = "+music", window = "class:Celluloid" })'
@@ -261,7 +261,7 @@ hl.window_rule({ match = { tag = "alpha_0.4" }, opacity = "0.4 override" })
 Effects marked as _dynamic_ are re-evaluated whenever the matching property of the window changes.
 For instance, if a rule changes the `border_color` when a window is floating, the color reverts to default when it's tiled again.
 
-Effects are processed top to bottom --- the _last_ match takes precedence:
+Effects are processed top to bottom, and the _last_ match takes precedence.
 
 Here, all non-fullscreen kitty windows have `opacity 0.8`, except when floating --- those get `0.5`.
 All other floating windows get `0.5`.
@@ -278,8 +278,8 @@ Only named rules can be dynamically changed, enabled, or disabled.
 
 ```lua
 local myRule = hl.window_rule({
-  name  = "my-rule",
-  match = { class = "kitty" },
+  name        = "my-rule",
+  match       = { class = "kitty" },
   border_size = 5,
 })
 

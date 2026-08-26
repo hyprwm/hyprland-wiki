@@ -1,3 +1,5 @@
 public
 .hugo_build.lock
 tmp
+
+.vscode

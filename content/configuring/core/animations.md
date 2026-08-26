@@ -9,11 +9,11 @@ Animations are declared with the `hl.animation()` method.
 
 Syntax:
 ```
-hl.animation({ leaf = str, enabled = bool, speed = float, curve = str[, style? = str] })
+hl.animation({ leaf = str, enabled = bool, speed = float, curve = str, style? = str })
 ```
 - `leaf` is the scope of the animation. See [Animation tree](#animation-tree).
 - `enabled` can be either `true` to enable or `false` to disable. _Note:_ if it's `false`, you can omit further arguments.
-- `speed` is the amount of *deciseconds* (100ms each) the animation will take. For example, `speed = 1` = 100ms.
+- `speed` is the number of *deciseconds* (100ms each) the animation will take. For example, `speed = 1` = 100ms.
 - `bezier`/`spring` is a curve name, see [curves](#curves).
 - `style` is the animation style. See [Animation tree](#animation-tree).
 
@@ -26,10 +26,11 @@ hl.animation({ leaf = "fade", enabled = 0 })
 ```
 
 ### Animation tree
+
 The animations are a tree.
 If an animation is unset, it will inherit its parent's values.
 
-```txt
+```plain
 global
   ↳ windows - styles: slide, popin, gnomed
     ↳ windowsIn - window open - styles: same as windows
@@ -85,25 +86,61 @@ If you want to instead choose from a list of pre-made Béziers, you can check ou
 
 ### Spring
 
-A spring curve is one commonly found on Apple's systems, and is defined by mass, stiffness and dampening.
-It's generally recommended to keep mass at 1, and adjust stiffness and dampening alone.
+A spring curve is one commonly found on Apple's systems, and is defined by mass, stiffness and damping.
+It's generally recommended to keep mass at 1, and adjust stiffness and damping alone.
 
 ```lua
-hl.curve( NAME, { type = "spring", mass = MASS, stiffness = STIFF, dampening = DAMP })
+hl.curve(NAME, { type = "spring", mass = float, stiffness = float, damping = float })
 ```
 
-The more "stiffness," the more speed, and the more "dampening," the less bounce.
+The more "stiffness", the more speed, and the more "damping", the less bounce.
+
+#### Damping
+
+##### Critical Damping
+
+If the spring is critically damped, it settles fast and doesn't overshoot (no bounce).
+
+Critical damping occurs when $\zeta = 1$, where
+
+$$
+\zeta = \frac{c}{c_c} = \frac{c}{2\sqrt{k\,m}}, \quad
+\begin{cases}
+c   & \text{damping coefficient*} \\
+c_c & \text{critical damping coefficient} \\
+k   & \text{stiffness} \\
+m   & \text{mass}
+\end{cases}
+$$
+
+> \* This is the damping value you give to the curve.
+
+You probably want your damping around `0.6` to `0.8` for it to feel responsive and smooth.
+
+##### Overdamped
+
+Occurs when $\zeta > 1$.
+
+Returns slowly, no oscillation (doesn't bounce).
+
+##### Underdamped
+
+Occurs when $\zeta < 1$.
+
+Oscillates (bounces), decays* exponentially.
+
+> \* The amplitude of the bounces shrinks exponentially over time.
 
 ### Examples
 
 ```lua
 hl.curve( "overshoot", { type = "bezier", points = { {0.5, 0.9}, {0.1, 1.1} } } )
-hl.curve( "rubber", { type = "spring", mass = 1, stiffness = 70, dampening = 10 } )
+hl.curve( "rubber", { type = "spring", mass = 1, stiffness = 70, damping = 10 } )
 ```
 
 ### Extras
 
-For animation style `popin` in `windows`, you can specify a minimum percentage to start from.
+For animation styles `popin` in `windows`, you can specify a minimum percentage to start from.
 For example, the following will make the window animate from 80% to 100% of its size:
 
 ```lua
@@ -117,7 +154,7 @@ For example, the following will make windows move 20% of the screen width:
 hl.animation({ leaf = "workspaces", enabled = true, speed = 8, curve = "default", style = "slidefade 20%" })
 ```
 
-For animation style `slide` in `windows` and `layers` you can specify a forced side.
+For animation styles `slide` in `windows` and `layers` you can specify a forced side.
 You can choose between `top`, `bottom`, `left` or `right`.
 
 ```lua

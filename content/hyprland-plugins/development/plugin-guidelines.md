@@ -59,7 +59,8 @@ Commit pins allow you to manage versioning of your plugin.
 They are pairs of `hash,hash`, where the first hash is the Hyprland commit hash, and the second is
 your plugin's corresponding commit hash.
 
-For example, in the manifest above, `d74607e414dcd16911089a6d4b6aeb661c880923` corresponds to Hyprland's `0.33.1` release, which means that if someone is running `0.33.1`, `hyprpm` will reset your plugin to commit hash `efee74a7404495dbda70205824d6e9fc923ccdae`.
+For example, in the manifest above, `d74607e414dcd16911089a6d4b6aeb661c880923` corresponds to Hyprland's `0.33.1` release.
+This means that if someone is running `0.33.1`, `hyprpm` will reset your plugin to commit hash `efee74a7404495dbda70205824d6e9fc923ccdae`.
 
 It's recommended you add a pin for each Hyprland release.
 If no pin matches, latest git will be used.

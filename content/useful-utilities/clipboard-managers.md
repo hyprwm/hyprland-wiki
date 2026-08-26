@@ -28,8 +28,8 @@ Some common ones include:
 ## cliphist
 
 Start by adding the following autostarts to your config:
- - `wl-paste --type text --watch cliphist store`
- - `wl-paste --type image --watch cliphist store`
+- `wl-paste --type text --watch cliphist store`
+- `wl-paste --type image --watch cliphist store`
 
 Note that any of the above lines can be disabled based on your needs.
 

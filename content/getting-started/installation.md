@@ -32,7 +32,7 @@ Simply install it with your package manager.
 It is **heavily** recommended you use **what the distro packages for you**, **not** compiling manually nor using `-git` packages.
 Hyprland's ecosystem and dependencies are vast and intertwined, and compiling manually will only potentially expose you to outdated, or incompatible versions of these dependencies.
 
-If you get `.so` file mismatch / missing errors, it's _entirely your fault_ for doing this!
+If you get `.so` file mismatch/missing errors, it's _entirely your fault_ for doing this!
 
 However, if you are an experienced user and want to beta-test new features, you're more than welcome to run the latest git head.
 Please don't come asking about ".so file missing" errors though!
@@ -40,10 +40,10 @@ Please don't come asking about ".so file missing" errors though!
 ### Packages
 
 > [!WARNING]
-> Hypr* team does not maintain any packages.
+> The Hypr\* team does not maintain any packages.
 > If they are broken, try building from source first.
 
-Distributions marked with `*` are not officially supportted.
+Distributions marked with `*` are not officially supported.
 These instructions are community-driven, and no guarantee is provided for their validity.
 
 {{< tabs >}}
@@ -67,7 +67,7 @@ Install from the AUR, which compiles the latest source:
 yay -S hyprland-git
 ```
 
-Alternatively, install the `hyprland-meta-git` package to automatically fetch and compile the latest git versions of all components within the hypr* ecosystem.
+Alternatively, install the `hyprland-meta-git` package to automatically fetch and compile the latest git versions of all components within the hypr\* ecosystem.
 
 ```shell
 yay -S hyprland-meta-git
@@ -346,13 +346,13 @@ sudo apt install -y meson wget build-essential ninja-build cmake-extras cmake ge
 
 You will also need to build the latest wayland, wayland-protocols, and libdisplay-info tagged releases from source.
 
-For screen sharing, you can also install `xdg-desktop-portal-wlr` or `xdg-desktop-portal-hyprland`
+For screen sharing, you can also install `xdg-desktop-portal-wlr` or `xdg-desktop-portal-hyprland`:
 
 ```bash
 sudo apt install -y xdg-desktop-portal-wlr
 ```
 
-See [The XDPH GitHub repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland).
+See [the XDPH GitHub repo's readme](https://github.com/hyprwm/xdg-desktop-portal-hyprland).
 Refer to [XDPH](../../hypr-ecosystem/user/xdg-desktop-portal-hyprland) and the
 [Ubuntu Guide For Installing And Building Hyprland Gist](https://gist.github.com/Vertecedoc4545/3b077301299c20c5b9b4db00f4ca6000)
 for more information.
@@ -390,7 +390,7 @@ hyprtoolkit
 hyprland
 ```
 
-Other packages from hypr* stack (e.g., hyprlock, hyprsunset, etc.) can be built in any order after Hyprland.
+Other packages from hypr\* stack (e.g., hyprlock, hyprsunset, etc.) can be built in any order after Hyprland.
 
 ### CMake (recommended)
 
@@ -408,19 +408,16 @@ See [Crashes and Bugs](../../crashes-and-bugs).
 
 ## Custom installation (debug build, etc.)
 
-1. cd into the Hyprland repo.
-2. for debug build:
-
-```bash
-make debug
-sudo make install
-```
-
-3. Any other config: (replace `<PRESET>` with your preset: `release`, `debug`)
-
-```bash
-make <PRESET> && sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
-```
+1. `cd` into the Hyprland repo
+1. For debug build:
+   ```bash
+   make debug
+   sudo make install
+   ```
+1. Any other config: (replace `<PRESET>` with your preset: `release`, `debug`)
+   ```bash
+   make <PRESET> && sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
+   ```
 
 ## Custom Build flags
 

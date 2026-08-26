@@ -6,7 +6,7 @@ title: Config options
 This page documents all Hyprland configuration options except layout-specific ones.
 Those are documented on their respective [layout pages](../../layouts) instead.
 
-For [binds](../binds), [monitors](../monitors), [animations](../animations), etc., seek the other pages in [Core](..).
+For [binds](../binds), [monitors](../monitors), [animations](../animations), etc., see the other pages in [Core](..).
 
 ## Syntax
 
@@ -32,6 +32,8 @@ hl.config({ ["path.option"] = value })
 
 Multiple `hl.config()` invocations can be used to set options, since each call will only update what was passed into it.
 
+Beware that **if there are multiple instances of the same config option being set, the latest line will always shadow all previous lines!**
+
 This also means you can update options at runtime, without adding them to your configuration file, using [`hyprctl eval 'hl.config(...)'`](../advanced-configuration/using-hyprctl#eval).
 In this case, they will return to their default values the next time you reload (or relaunch) Hyprland.
 
@@ -45,13 +47,13 @@ Options are described using tables:
 | string | string | [data type](../../../naming-conventions#data-types ) | `Default` | `Limit` |
 
 `Default` can be one of:
- - Value with respect to type
- - [[Empty]]
- - [[Auto]]
+- Value with respect to type
+- ``[[Empty]]``
+- ``[[Auto]]``
 
 `Limit` can be one of:
- - Value range
- - `None`
+- Value range
+- `None`
 
 If literal `None` is specified in the limit field, it means that there is no limit set for that option.
 If the value of an option exceeds its limits, Hyprland will throw a config error.
@@ -123,13 +125,13 @@ Path: `decoration`
 
 #### Opacity
 
-> [!IMPORTANT]
-> Opacity level over `1.0` is allowed, but any product over `1.0` will cause graphical glitches.
-
 Opacity is a **product** of all opacities.
 Use `" override"` after an opacity value to set it as an exact value rather than a multiplier.
 
 For example, setting `active_opacity` to `0.5` and `opacity` window rule to `0.5` results in a total of `0.25`.
+
+> [!IMPORTANT]
+> Opacity level over `1.0` is allowed, but any product over `1.0` will cause graphical glitches.
 
 {{% details title="Examples" closed="true" %}}
 
@@ -165,8 +167,7 @@ Path: `decoration.blur`
 | variant | Blur pattern variant. May significantly increase GPU and CPU usage | str | `kawase` | [see below](#blur-variants) |
 | vibrancy | Increase saturation of blurred colors | float | `0.1696` | [0.0 - 1.0] |
 | vibrancy_darkness | How strong the effect of `vibrancy` is on dark areas | float | `0.0` | [0.0 - 1.0] |
-| xray | If enabled, floating windows will ignore tiled windows in their blur. Will reduce overhead on floating blur significantly. Disabled if new_optimizations is `false`` | bool | `false` | |
-
+| xray | If enabled, floating windows will ignore tiled windows in their blur. Will reduce overhead on floating blur significantly. Disabled if `new_optimizations = false` | bool | `false` | |
 
 > [!NOTE]
 > `blur.size` and `blur.passes` have to be at least 1 to apply blur.
@@ -175,32 +176,26 @@ Path: `decoration.blur`
 
 ##### Blur variants
 
-Each blur variant is configured in its own path, e.g. `frost = { thing = 1 }`.
-Some settings may be reused by different blur methods.
+Some options may be reused by different blur methods.
 
 Available variants:
+<!-- SORT: kawase on first position because it is default -->
+- `kawase` - default
+- `acrylic` - similar to liquid glass
+- `aurora` - aurora-like light streaks
+- `drops` - rain on a window pane
+- `fluid_jar` - 2D fluid simulation
+- `frost` - cracked ice
+- `haze` - a different diffused effect
+- `heat_shimmer` - a small shimmer with aberration
+- `prism` - triangular refraction mask
+- `ripple` - ripple on click
+- `water` - ripple done with a heightmap
 
-- `kawase` --- default
-- `frost` --- cracked ice
-- `ripple` --- ripple on click
-- `drops` --- rain on a window pane
-- `water` --- ripple done with a heightmap
-- `fluid_jar` --- 2D fluid simulation
-- `prism` --- triangular refraction mask
-- `heat_shimmer` --- a small shimmer with aberration
-- `acrylic` --- similar to liquid glass
-- `aurora` --- aurora-like light streaks
-- `haze` --- a different diffused effect
+###### Acrylic
 
-###### glass
-
-| Name | Description | Type | Default | Limits |
-| --- | --- | --- | --- | --- |
-| refraction | Maximum refraction displacement for glass blur types in pixels | float | `20.0` | [0.0 - 20.0] |
-| roughness | Strength of the glass relief shading | float | `1.0` | [0.0 - 1.0] |
-| size | Pattern size for glass blur types in pixels | float | `40.0` | [4.0 - 512.0] |
-
-###### acrylic
+Used by: `acrylic`  
+Path: `decoration.blur.acrylic`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -210,19 +205,10 @@ Available variants:
 | refraction | Maximum acrylic lens displacement in pixels | float | `24.0` | [0.0 - 48.0] |
 | tint | Acrylic tint color. Alpha channel controls optical absorption | color | `0x14EEF5FF` | |
 
-###### drops
+###### Aurora
 
-| Name | Description | Type | Default | Limits |
-| --- | --- | --- | --- | --- |
-| speed | Animation speed. 0 disables the animation | float | `3.0` | [0.0 - 10.0] |
-
-###### heat_shimmer
-
-| Name | Description | Type | Default | Limits |
-| --- | --- | --- | --- | --- |
-| speed | Animation speed. 0 disables the animation| float | `1.0` | [0.0 - 10.0] |
-
-###### aurora
+Used by: `aurora`  
+Path: `decoration.blur.aurora`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -231,33 +217,19 @@ Available variants:
 | intensity | Strength of the aurora color contribution | float | `0.35` | [0.0 - 1.0] |
 | speed | Animation speed. 0 freezes the animation | float | `1.0` | [0.0 - 10.0] |
 
-###### haze
+###### Drops
+
+Used by: `drops`  
+Path: `decoration.blur.drops`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
-| intensity | Strength of the haze pearlescent sheen | float | `0.35` | [0.0 - 1.0] |
-| iridescence | Strength of the haze pearlescent color shift | float | `0.7` | [0.0 - 1.0] |
+| speed | Animation speed. 0 disables the animation | float | `3.0` | [0.0 - 10.0] |
 
-###### ripple
+###### Fluid jar
 
-| Name | Description | Type | Default | Limits |
-| --- | --- | --- | --- | --- |
-| duration | Duration in seconds | float | `0.45` | [0.05 - 5.0] |
-| radius | Maximum radius in pixels | float | `400.0` | [1.0 - 1000.0] |
-| strength | Maximum refraction displacement in pixels | float | `30.0` | [0.0 - 32.0] |
-| width | Width of waves in pixels | float | `32.0` | [1.0 - 200.0] |
-
-###### water
-
-| Name | Description | Type | Default | Limits |
-| --- | --- | --- | --- | --- |
-| damping | Decay damping | float | `0.95` | [0.0 - 1.0] |
-| duration | Maximum duration in seconds | float | `12.0` | [0.5 - 60.0] |
-| radius | Pointer radius in pixels | float | `20.0` | [1.0 - 1000.0] |
-| speed | Propagation speed | float | `0.76` | [0.0 - 10.0] |
-| strength | Maximum refraction displacement and injection strength in pixels | float | `32.0` | [0.0 - 32.0] |
-
-###### fluid_jar
+Used by: `fluid_jar`  
+Path: `decoration.blur.fluid_jar`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -268,6 +240,61 @@ Available variants:
 | precision | Fluid simulation precision multiplier. 2x is a good compromise. 4x is expensive. 8x is extreme and unnecessary | float | `2.0` | [0.5 - 8.0] |
 | speed | Animation speed | float | `3.7` | [0.0 - 10.0] |
 | turbulence | Interior fluid turbulence multiplier | float | `1.2` | [0.0 - 5.0] |
+
+###### Glass
+
+Used by: `aurora`, `drops`, `heat_shimmer`, `prism`  
+Path: `decoration.blur.glass`
+
+| Name | Description | Type | Default | Limits |
+| --- | --- | --- | --- | --- |
+| refraction | Maximum refraction displacement for glass blur types in pixels | float | `20.0` | [0.0 - 20.0] |
+| roughness | Strength of the glass relief shading | float | `1.0` | [0.0 - 1.0] |
+| size | Pattern size for glass blur types in pixels | float | `40.0` | [4.0 - 512.0] |
+
+###### Haze
+
+Used by: `haze`  
+Path: `decoration.blur.haze`
+
+| Name | Description | Type | Default | Limits |
+| --- | --- | --- | --- | --- |
+| intensity | Strength of the haze pearlescent sheen | float | `0.35` | [0.0 - 1.0] |
+| iridescence | Strength of the haze pearlescent color shift | float | `0.7` | [0.0 - 1.0] |
+
+###### Heat shimmer
+
+Used by: `heat_shimmer`  
+Path: `decoration.blur.heat_shimmer`
+
+| Name | Description | Type | Default | Limits |
+| --- | --- | --- | --- | --- |
+| speed | Animation speed. 0 disables the animation| float | `1.0` | [0.0 - 10.0] |
+
+###### Ripple
+
+Used by: `ripple`  
+Path: `decoration.blur.ripple`
+
+| Name | Description | Type | Default | Limits |
+| --- | --- | --- | --- | --- |
+| duration | Duration in seconds | float | `0.45` | [0.05 - 5.0] |
+| radius | Maximum radius in pixels | float | `400.0` | [1.0 - 1000.0] |
+| strength | Maximum refraction displacement in pixels | float | `30.0` | [0.0 - 32.0] |
+| width | Width of waves in pixels | float | `32.0` | [1.0 - 200.0] |
+
+###### Water
+
+Used by: `water`  
+Path: `decoration.blur.water`
+
+| Name | Description | Type | Default | Limits |
+| --- | --- | --- | --- | --- |
+| damping | Decay damping | float | `0.95` | [0.0 - 1.0] |
+| duration | Maximum duration in seconds | float | `12.0` | [0.5 - 60.0] |
+| radius | Pointer radius in pixels | float | `20.0` | [1.0 - 1000.0] |
+| speed | Propagation speed | float | `0.76` | [0.0 - 10.0] |
+| strength | Maximum refraction displacement and injection strength in pixels | float | `32.0` | [0.0 - 32.0] |
 
 #### Shadow
 
@@ -302,7 +329,7 @@ Path: `decoration.motion_blur`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
-| enabled | enable motion blur on moving / resizing windows | bool | `false` | |
+| enabled | enable motion blur on moving/resizing windows | bool | `false` | |
 | samples | The amount of samples to render. More will mean clearer blur, at the cost of more compute | int | `7` | [1 - 64] |
 
 #### Wobble
@@ -311,7 +338,7 @@ Path: `decoration.wobble`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
-| enabled | enable wobble on moving / resizing windows | bool | `false` | |
+| enabled | enable wobble on moving/resizing windows | bool | `false` | |
 | mesh | amount of wobble mesh vertices per edge | int | `12` | [2 - 32] |
 | stiffness | spring stiffness for wobble deformation | float | `200` | [0.0001 - 1000] |
 | damping | spring damping for wobble deformation | float | `12` | [0 - 1000] |
@@ -584,7 +611,7 @@ Path: `misc`
 | close_special_on_empty | Close the special workspace if the last window is removed | bool | `true` | |
 | disable_autoreload | If true, the config will not reload automatically on save, and instead needs to be reloaded with `hyprctl reload`. Might save on battery | bool | `false` | |
 | disable_hyprland_guiutils_check | Disable the warning if hyprland-guiutils is not installed | bool | `false` | |
-| disable_hyprland_logo | Disables the random Hyprland logo / anime girl background. :( | bool | `false` | |
+| disable_hyprland_logo | Disables the random Hyprland logo/anime girl background. :( | bool | `false` | |
 | disable_scale_notification | Disables notification popup when a monitor fails to set a suitable scale | bool | `false` | |
 | disable_splash_rendering | Disables the Hyprland splash rendering (requires a monitor reload to take effect) | bool | `false` | |
 | disable_watchdog_warning | Disables the warning about not using start-hyprland | bool | `false` | |
@@ -617,7 +644,6 @@ Path: `misc`
 | swallow_regex | The _class_ regex to be used for windows that should be swallowed (usually, a terminal) | string | \[\[Empty\]\] | |
 | vrr | Controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on, 2 - fullscreen only, 3 - fullscreen with `video` or `game` content type | int | `0` | [0 - 3] |
 
-
 Path: `misc.col`
 
 | Name | Description | Type | Default | Limits |
@@ -648,7 +674,7 @@ Path: `binds`
 | ignore_group_lock | If enabled, dispatchers like `hl.dsp.window.move({ into_group })` and `hl.dsp.window.move({ out_of_group })` will ignore lock per group | bool | `false` | |
 | movefocus_cycles_fullscreen | If enabled, when on a fullscreen window, `hl.dsp.focus({ direction })` will cycle fullscreen, else, it will move the focus in a direction | bool | `false` | |
 | movefocus_cycles_groupfirst | If enabled, when in a grouped window, `hl.dsp.focus({ direction })` will cycle windows in the groups first, then at each ends of the tabs, it'll move on to other windows/groups | bool | `false` | |
-| pass_mouse_when_bound | If enabled, will pass the mouse events to apps / dragging windows around if a keybind has been triggered | bool | `false` | |
+| pass_mouse_when_bound | If enabled, will pass the mouse events to apps/dragging windows around if a keybind has been triggered | bool | `false` | |
 | scroll_event_delay | In ms, how many ms to wait after a scroll event to allow passing another one for the binds | int | `300` | [0 - 2000] |
 | window_direction_monitor_fallback | If enabled, moving a window or focus over the edge of a monitor with a direction will move it to the next monitor in that direction | bool | `true` | |
 | workspace_back_and_forth | If enabled, an attempt to switch to the currently focused workspace will instead switch to the previous workspace, akin to i3's `_auto_back_and_forth_` | bool | `false` | |
@@ -698,7 +724,6 @@ Path: `render`
 | use_shader_blur_blend | Use experimental blurred bg blending (glitched on rotated screens). Set to `true` if blur is missing with fp16 or `keep_unmodified_copy` | bool | `false` | |
 | xp_mode | Disables back buffer and bottom layer rendering | bool | `false` | |
 
-
 `cm_auto_hdr` requires the `--target-colorspace-hint-mode=source` mpv option to work with mpv versions greater than v0.40.0.
 
 ### Cursor
@@ -720,7 +745,7 @@ Path: `cursor`
 | no_hardware_cursors | Disables hardware cursors. `0` - use hw cursors if possible, `1` - don't use hw cursors, `2` - auto (disable when tearing) | int | `2` | [0 - 2] |
 | no_warps | If true, will not warp the cursor in many cases (focusing, keybinds, etc.) | bool | `false` | |
 | persistent_warps | When a window is refocused, the cursor returns to its last position relative to that window, rather than to the centre | bool | `false` | |
-| sync_gsettings_theme | Sync xcursor theme with GSettings. It applies cursor-theme and cursor-size on theme load to GSettings making most CSD GTK based clients use the same xcursor theme and size | bool | `true` | |
+| sync_gsettings_theme | Sync XCursor theme with GSettings. It applies cursor-theme and cursor-size on theme load to GSettings making most CSD GTK based clients use the same XCursor theme and size | bool | `true` | |
 | use_cpu_buffer | Makes HW cursors use a CPU buffer. Required on NVIDIA to have HW cursors. `0` - disabled, `1` - enabled, `2` - auto (enabled with NVIDIA) | int | `2` | [0 - 2] |
 | warp_back_after_non_mouse_input | Warp the cursor back to where it was after using a non-mouse input to move it, and then returning back to the mouse | bool | `false` | |
 | warp_on_change_workspace | Move the cursor to the last focused window after changing the workspace. `0` - Disabled, `1` - Enabled, `2` - Force (ignores cursor:no_warps option) | int | `0` | [0 - 2] |
@@ -730,7 +755,6 @@ Path: `cursor`
 | zoom_disable_aa | Disable antialiasing when zooming, which means things will be pixelated instead of blurry | bool | `false` | |
 | zoom_factor | The factor to zoom by around the cursor. Like a magnifying glass. Minimum 1.0 (meaning no zoom) | float | `1.0` | [1 - 10] |
 | zoom_rigid | Whether the zoom should follow the cursor rigidly (cursor is always centered if it can be) or loosely | bool | `false` | |
-
 
 ### Ecosystem
 

@@ -15,10 +15,10 @@ It is commonly used with [`slurp`](https://github.com/emersion/slurp) for area s
 {{% details title="Examples" closed="true" %}}
 
 ```lua
--- Select an area and open it in `swappy`:
+-- Select an area and open it in swappy:
 hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp)" - | swappy -f -'))
 
--- Copy a selected area directly to the clipboard, install [`wl-clipboard`](https://github.com/bugaevc/wl-clipboard) and use:
+-- Copy a selected area directly to the clipboard, install wl-clipboard and use:
 hl.bind("SUPER + Print", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | wl-copy'))
 ```
 
@@ -27,9 +27,9 @@ hl.bind("SUPER + Print", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | wl-copy'))
 ### Satty
 
 [Satty](https://github.com/Satty-org/Satty) is a powerful and modern screenshot annotation tool inspired by [`swappy`](https://github.com/jtheoof/swappy) and [Flameshot](https://github.com/flameshot-org/flameshot).
-It's been created to provide improvements over existing screenshot tools and is an almost drop-in replacement for swappy.
+It's been created to provide improvements over existing screenshot tools and is an almost drop-in replacement for `swappy`.
 
-For example, to take a screenshot and open it with `satty`, Ctrl-C to copy to clipboard and Ctrl-S to save it to `~/Pictures/Screenshots/`:
+For example, to take a screenshot and open it with `satty`, with explicit configuration for copying to clipboard and saving to a file:
 
 ```lua
 hl.bind("Print", hl.dsp.exec_cmd('grim - | satty -f - --copy-command wl-copy -o "~/Pictures/Screenshots/%Y%m%d_%H%M%S.png"'))
@@ -109,7 +109,7 @@ wl-screenrec -g "$(slurp)" -f ~/Videos/recording.mp4
 
 ### GPU Screen Recorder
 
-[GPU Screen Recorder](https://git.dec05eba.com/gpu-screen-recorder/about/) is a screen recorder that has minimal impact on system performance by recording your monitor using the GPU only, similar to shadowplay on windows.
+[GPU Screen Recorder](https://git.dec05eba.com/gpu-screen-recorder/about/) is a screen recorder that has minimal impact on system performance by recording your monitor using only the GPU, similar to ShadowPlay on Windows.
 
 ```sh
 # Record the whole screen with audio in 60 FPS:

@@ -41,7 +41,7 @@ E.g.: `workspace>>2`
 | focusedmonv2 | emitted on the active monitor being changed. | `MONNAME,WORKSPACEID` |
 | activewindow | emitted on the active window being changed. | `WINDOWCLASS,WINDOWTITLE` |
 | activewindowv2 | emitted on the active window being changed. | `WINDOWADDRESS` |
-| fullscreen | emitted when a fullscreen status of a window changes. | `0/1` (exit fullscreen / enter fullscreen) |
+| fullscreen | emitted when a fullscreen status of a window changes. | `0/1` (exit fullscreen/enter fullscreen) |
 | monitorremoved | emitted when a monitor is removed (disconnected) | `MONITORNAME` |
 | monitorremovedv2 | emitted when a monitor is removed (disconnected) | `MONITORID,MONITORNAME,MONITORDESCRIPTION` |
 | monitoradded | emitted when a monitor is added (connected) | `MONITORNAME` |

@@ -25,7 +25,7 @@ If you update those libraries, and you don't rebuild the hypr\* stack, you will 
 If you want to avoid these errors altogether, _use packages and don't build yourself_.
 By building yourself, the responsibility for maintaining this consistency falls on **you**!
 
-When building yourself, you need to _build all hypr* components_, you cannot use some from packages and some from repos.
+When building yourself, you need to _build all hypr\* components_, you cannot use some from packages and some from repos.
 
 **For Arch users**: `-git` packages count as building yourself.
 
@@ -52,7 +52,7 @@ Requested display configuration exceeds system DDB limitations
 
 Outside those, there are multiple ways to fix this that _might_ work for you:
 
-1. Use _only_ the external monitor  
+1. Use _only_ the external monitor.  
    By using the `AQ_DRM_DEVICES=/dev/dri/card1` (or maybe `card0`) environment variable, you can force Hyprland to use only your dGPU, meaning your laptop's screen will be gone but your external one will work.
 1. Use all outputs, at the cost of battery life.  
    By switching your laptop to only use the dGPU in the BIOS, you _might_ be able to get everything to work, at the cost of high battery usage.
@@ -71,7 +71,7 @@ Choose a utility from [Screenshots and recording](../useful-utilities/screenshot
 
 Check [Screen sharing](../useful-utilities/screen-sharing).
 
-Also install `qt6-wayland` if you plan to use OBS.
+To use OBS, you must also have `qt6-wayland` installed.
 
 ### How do I change my wallpaper?
 
@@ -86,7 +86,7 @@ If you want maximum performance, consider turning off the blur and animations.
 
 Try changing the mode in your config.
 If your preferred one doesn't work, try a lower one.
-A good way to list all modes is to get `wlr-randr` and do a `wlr-randr --dryrun`
+To see the list of reported modes from your monitor, run `hyprctl monitors`.
 
 ### My monitor has flickering brightness when I turn on VRR
 
@@ -112,12 +112,12 @@ Paru has been problematic with updating before, use Yay.
 
 ### How do I screen lock?
 
-Use a Wayland-compatible locking utility using WLR protocols (e.g., `swaylock`)
+Use a Wayland-compatible locking utility using WLR protocols (e.g., `swaylock`).
 Be aware that they will not prevent changing TTYs using `Ctrl-Alt-F1`--`F7`.
 
 ### How do I change my mouse cursor?
 
-See [hyprcursor](../hypr-ecosystem/dev/hyprcursor).
+See [hyprcursor](../hypr-ecosystem/user/hyprcursor).
 
 1. Set the GTK cursor using [nwg-look](https://github.com/nwg-piotr/nwg-look).
 1. Add `hyprctl setcursor [THEME] [SIZE]` to your autoexecs in your config and restart Hyprland.
@@ -155,7 +155,7 @@ The following method will start these apps silently (i.e. without the flickering
 Put the following in your `hyprland.lua`, for example:
 
 ```lua
-hl.on("hyprland.start", function ()
+hl.on("hyprland.start", function()
   hl.exec_cmd("kitty")
   hl.exec_cmd("dolphin")
   hl.exec_cmd("dunst")
@@ -217,7 +217,7 @@ This must be disabled within the browser's settings.
 
 ### My apps take a long time to start / can't screenshare
 
-See [The XDPH Page](../hypr-ecosystem/user/xdg-desktop-portal-hyprland#debugging).
+See [the XDPH page](../hypr-ecosystem/user/xdg-desktop-portal-hyprland#debugging).
 
 You most likely have multiple portal implementations, or an implementation is failing to launch.
 
