@@ -5,6 +5,19 @@
   {{- $outdated = "outdated" -}}
 {{- end -}}
 
-<a href="{{ .params.url }}" rel="noreferer" class="{{ $outdated }} hx:flex hx:items-center hx:hover:opacity-75 hx:ltr:mr-auto hx:rtl:ml-auto">
-  <span class="hx:text-center">{{ $version }}</span>
-</a>
+<span class="hx:flex hx:items-center hx:gap-4 hx:ltr:mr-auto hx:rtl:ml-auto">
+  <a href="{{ .params.url }}" rel="noreferer" class="{{ $outdated }} hx:hover:opacity-75">
+    <span class="hx:text-center">{{ $version }}</span>
+  </a>
+  <span class="hx:text-center hx:text-sm hx:opacity-50">switch to:</span>
+  {{ if ne $version "Git" }}
+  <a href="/git" rel="noreferer" class="hx:hover:opacity-75">
+    <span class="hx:text-center">Git</span>
+  </a>
+  {{ end }}
+  {{ if ne $version (index .params.list 0) }}
+  <a href="/latest" rel="noreferer" class="hx:hover:opacity-75">
+    <span class="hx:text-center">Latest</span>
+  </a>
+  {{ end }}
+</span>
