@@ -218,6 +218,7 @@ All fields beyond `output` are optional and fall back to sensible defaults.
 | transform | integer | 0 | Rotation/flip transform (0–7) |
 | mirror | string | | Output name to mirror |
 | bitdepth | integer | 8 | Bit depth (8 or 10) |
+| colorrange | string | auto | Output color range (auto, full, limited) |
 | cm | string | srgb | Color management preset |
 | sdr_eotf | string | default | SDR transfer function (default, gamma22, srgb) |
 | sdrbrightness | float | 1.0 | SDR brightness in HDR mode |
@@ -259,6 +260,26 @@ hl.monitor({ output = "eDP-1", mode = "2880x1800@90", position = "0x0", scale = 
 > Colors registered in Hyprland (e.g. the border color) do _not_ support
 > 10 bit.  
 > Some applications do _not_ support screen capture with 10 bit enabled.
+
+### Color range
+
+Use the `colorrange` field to control the output's color range (the DRM
+`COLOR_RANGE` property):
+
+```lua
+hl.monitor({ output = "DP-1", mode = "2560x1440@144", position = "0x0", scale = 1, colorrange = "full" })
+```
+
+```plain
+auto    - leave the driver default (recommended)
+full    - full range
+limited - limited range (16-235)
+```
+
+> [!NOTE]
+> On the proprietary NVIDIA driver, `auto` forces full range for RGB content,
+> working around the driver otherwise defaulting to limited range and washing
+> out colors.
 
 ### Color management presets
 
