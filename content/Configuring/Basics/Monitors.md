@@ -219,7 +219,7 @@ All fields beyond `output` are optional and fall back to sensible defaults.
 | mirror | string | | Output name to mirror |
 | bitdepth | integer | 8 | Bit depth (8 or 10) |
 | cm | string | srgb | Color management preset |
-| sdr_eotf | string | default | SDR transfer function (default, gamma22, srgb) |
+| sdr_eotf | string | default | SDR transfer function (default, auto, srgb, gamma22, gamma22force) |
 | sdrbrightness | float | 1.0 | SDR brightness in HDR mode |
 | sdrsaturation | float | 1.0 | SDR saturation in HDR mode |
 | vrr | integer | 0 | VRR mode |
@@ -298,9 +298,18 @@ hl.monitor({
 })
 ```
 
-The default transfer function assumed to be in use on an SDR display for sRGB content is defined by `sdr_eotf`.
-The default (`"default"`) follows `render:cm_sdr_eotf`. This can be changed to piecewise sRGB with `"srgb"`,
-or Gamma 2.2 with `"gamma22"`.
+The transfer function assumed to be in use on an SDR display for content that does not
+specify one is defined by `sdr_eotf`:
+
+| Value | Behavior |
+| --- | --- |
+| `"default"` (or `"0"`) | Piecewise sRGB. Note this does **not** follow `render:cm_sdr_eotf`. |
+| `"auto"` | Follow the global `render:cm_sdr_eotf`. If that is also `auto`, Gamma 2.2 is used. |
+| `"srgb"` (or `"3"`) | Piecewise sRGB. |
+| `"gamma22"` (or `"1"`) | Treat unspecified as Gamma 2.2. |
+| `"gamma22force"` (or `"2"`) | Treat unspecified **and** sRGB as Gamma 2.2. |
+
+An unrecognized value silently falls back to `"default"`.
 
 ### ICC Profiles
 
