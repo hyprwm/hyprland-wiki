@@ -41,7 +41,7 @@ end)
 
 | Param type | Description |
 | --- | --- |
-| `window` | If not set, defaults to `"activewindow"`. Can be one of [window selectors](../../../naming-conventions#window-selector) |
+| `window` | If not set, defaults to `"activewindow"`. Can be one of [window selectors](../../naming-conventions#window-selector) |
 | `action` | If not set, defaults to `"toggle"`. Can be: `"toggle"`, `"enable"`/`"on"`, `"disable"`/`"off"` |
 | `relative` | If not set, defaults to `"false"`. Can be: `"false"`, `"true"` |
 

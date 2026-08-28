@@ -38,13 +38,13 @@ This also means you can update options at runtime, without adding them to your c
 In this case, they will return to their default values the next time you reload (or relaunch) Hyprland.
 
 > [!TIP]
-> Before continuing, make sure you've read and understood the [naming conventions used in this wiki](../../../naming-conventions).
+> Before continuing, make sure you've read and understood the [naming conventions used in this wiki](../../naming-conventions).
 
 Options are described using tables:
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
-| string | string | [data type](../../../naming-conventions#data-types ) | `Default` | `Limit` |
+| string | string | [data type](../../naming-conventions#data-types ) | `Default` | `Limit` |
 
 `Default` can be one of:
 - Value with respect to type
