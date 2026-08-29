@@ -14,10 +14,10 @@ Update many options at once with:
 
 ```lua
 hl.config({
-  path1 = {
+  category1 = {
     option = value,
   },
-  path2 = {
+  category2 = {
     option1 = value1,
     option2 = value2,
   },
