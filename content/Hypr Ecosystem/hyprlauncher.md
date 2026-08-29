@@ -53,6 +53,7 @@ Prefixes can only be one character.
 | `font_prefix` | Prefix for the font finder to be used. | string | `'` |
 | `desktop_launch_prefix` | Launch prefix for each desktop app, e.g. `uwsm app -- `. | string | empty |
 | `desktop_icons` | Whether to enable desktop icons in the results. | bool | `true` |
+| `desktop_terminal` | Terminal emulator to launch terminal apps, e.g. `kitty`. | string | empty |
 
 #### UI
 
