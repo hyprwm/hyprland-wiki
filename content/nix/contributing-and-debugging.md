@@ -1,0 +1,69 @@
+---
+weight: 70
+title: Contributing and Debugging
+---
+
+Everything needed to build and debug Hyprland and other hyprwm programs is included inside the provided `devShell`s.
+
+To use it in the cloned repo, simply run `nix develop`.
+
+## Build in debug mode
+
+### Through `nix build`
+
+A debug build is already provided through the hyprland flake: `hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland-debug`.
+
+Most hyprwm apps also provide their own `-debug` versions.
+For those that don't, one can build the debug version from the CLI by using [overrideAttrs](../advanced/#using-nix-repl) with `cmakeBuildType = "Debug";` or `mesonBuildType = "debug";`, depending on the program.
+
+If you don't want to use the Hyprland flake, you can build the Nixpkgs derivation in debug mode.
+To do so, use the following code in the `package` attribute of the NixOS/Home Manager modules:
+
+```nix
+hyprland.override {
+  debug = true;
+};
+```
+
+### Through `cmake`
+
+You can build Hyprland by directly calling `cmake` instead of through `nix build`.
+The advantage is being able to do incremental builds (just building whatever little change you made instead of the entire repo).
+
+1. Clone the Hyprland repo including its submodules.
+1. Enter the directory and execute `nix develop` in your shell.
+1. Run `make debug` (check the Makefile for other options).
+
+## Bisecting an issue
+
+Follow the [Bisecting an issue](../../crashes-and-bugs/#bisecting-an-issue) guide.
+To build, run `nix build`.
+
+> [!WARNING]
+> To build with Tracy support, modify `nix/default.nix` to enable the flag, then run `nix build '.?submodules=1'`.
+
+To view logs, pass the `--print-build-logs` (`-L`) flag.
+To keep a failed build directory, pass the `--keep-failed` flag.
+
+### Using Cachix to bisect
+
+If you enable [Cachix](../cachix), you can call `nix run github:hyprwm/Hyprland/commit_hash` to execute that commit without compiling it, because cachix stores binaries for every commit from Hyprland.
+
+## Building the Wayland stack with ASan
+
+Run `nix develop` first, then follow the [Building with ASan](../../crashes-and-bugs/#building-the-wayland-stack-with-asan) guide.
+
+## Getting a debug stacktrace
+
+Debug stacktraces provide useful info on why a program crashed.
+To get proper stacktraces from Hyprland, make sure it was [built in debug mode](#build-in-debug-mode).
+
+After a crash, perform the following steps:
+
+```sh
+nix shell nixpkgs#gdb   # get GDB temporarily
+coredumpctl             # check the PID of the recent crash
+coredumpctl debug <PID> # using the PID found in the previous step
+```
+
+The rest of the process is the same as [here](../../crashes-and-bugs#obtaining-a-debug-stacktrace), from step 3 onwards.
