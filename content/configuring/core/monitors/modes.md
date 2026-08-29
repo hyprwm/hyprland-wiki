@@ -6,7 +6,7 @@ title: Monitor modes
 ## Mode
 
 Monitor mode is a combination of resolution and refresh rate.
-To see available modes, run `hyprctl monitors` and find `availableModes` field.
+To see available modes, run `hyprctl monitors` and find the `availableModes` field.
 Modes are sorted by resolution in descending order.
 Some modes may be duplicated or may have a skewed refresh rate.
 
