@@ -1,5 +1,5 @@
 ---
-weight: 40
+weight: 10
 title: Naming conventions
 ---
 
