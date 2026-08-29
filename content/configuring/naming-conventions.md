@@ -53,7 +53,7 @@ Coordinates are in an inverse-Y Cartesian system, so moving to the right is the 
 
 There are implicit conversions between certain types, however, this may lead to undefined behavior later.
 LSP with Lua stub can be used to warn about the use of wrong types.
-More on that can be read [here](../configuring/core#editor-autocompletion).
+More on that can be read [here](../core#editor-autocompletion).
 
 ### Colors
 
@@ -179,6 +179,6 @@ A direction.
 Monitors can be selected by:
 - Monitor object
 - Monitor ID
-- [Output selector](../configuring/core/monitors/output-selection)
+- [Output selector](../core/monitors/output-selection)
 - [Direction](#direction)
 - `current`

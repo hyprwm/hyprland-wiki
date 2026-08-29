@@ -41,7 +41,7 @@ You can also specify an explicit path with `hyprlock --config <path>`.
 
 ### Variable Types
 
-Hyprlock uses the following types in addition to Hyprland's [data types](../../naming-conventions#data-types).
+Hyprlock uses the following types in addition to Hyprland's [data types](../../../configuring/naming-conventions#data-types).
 
 | Type | Description |
 | --- | --- |
