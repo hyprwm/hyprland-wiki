@@ -20,7 +20,7 @@ Please read this if you are submitting a PR, in order to minimize the amount of 
 
 ### Before you submit
 
-Make sure you ran clang-format: `make format-check`
+Make sure you ran clang-format: `clang-format -i $(find src -type f \( -name "*.cpp" -o -name "*.hpp" \))`
 
 Check if your changes don't violate `clang-tidy`.
 Usually this is built into your IDE.
