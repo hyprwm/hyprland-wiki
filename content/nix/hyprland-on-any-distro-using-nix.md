@@ -5,24 +5,48 @@ title: Hyprland on any distro using Nix
 
 Using Hyprland via the Nix package manager on distros that aren't NixOS is very simple.
 
-First, install Nix with your distro native package manager, be that `apt`, `pacman`, `dnf`, etc.
-The package is almost always called `nix`.
+## Installing Nix
 
-For example:
+The first step is to install Nix itself.
+There are two primary ways to install the Nix package manager:
+
+{{% tabs %}}
+
+{{% tab name="From Upstream" %}}
+
+Nix upstream recommends the multi-user installer, which can be found in their [official documentation](https://nixos.org/manual/nix/stable/installation/index.html).
+It operates outside of your package manager's control and modifies your shell profiles directly.
+Uninstalling this method is harder.
+The install script requires a distro that uses systemd.
+
+{{% /tab %}}
+
+{{% tab name="From Your Distro" %}}
+
+Install Nix using your package manager, be that `apt`, `pacman`, `dnf`, etc.
+The package is almost always called `nix`.
+This integrates cleanly with your OS and is as easy to uninstall as any other package.
+However, because it relies on dynamically linked libraries, an incompatible system update could potentially break Nix.
+Additionally, you must rely on your distro's maintainers to package and push Nix updates rather than getting them directly from upstream.
+
+For example, to install with pacman:
 
 ```sh
 sudo pacman -S nix
 ```
 
-Then enable the daemon:
+After installing, you must manually enable the daemon.
+For users on a systemd distro, use this command:
 
 ```sh
 sudo systemctl enable --now nix-daemon
 ```
 
-Advanced users might want to use [Home Manager](../configuring-hyprland-with-home-manager).
-If you don't know what this is, just don't.
+{{% /tab %}}
 
+{{% /tabs %}}
+
+## Installing Hyprland
 Before you do anything, [enable flakes](https://nixos.wiki/wiki/Flakes#Enable_flakes), by adding this to `/etc/nix/nix.conf` or `~/.config/nix/nix.conf`:
 
 ```nix
