@@ -705,7 +705,7 @@ Path: `render`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
-| async_commit | Send DRM commits asynchronously when possible, reducing hw cursor latency | bool | `false` |
+| async_commit | Send DRM commits asynchronously when possible, reducing hw cursor latency | bool | `false` | |
 | cm_auto_hdr | Auto-switch to HDR in fullscreen when needed. `0` - disabled, `1` - switch to `hdr`, `2` - switch to `hdredid` | int | `1` | [0 - 2] |
 | cm_enabled | Whether the color management pipeline should be enabled or not. Requires restart | bool | `true` | |
 | cm_sdr_eotf | Default transfer function for displaying SDR apps. `default` - Use default value (sRGB), `gamma22` - treat unspecified as Gamma 2.2, `gamma22force` - treat unspecified and sRGB as Gamma 2.2, `srgb` - treat unspecified as sRGB. Options: `"default"`/`"gamma22"`/`"gamma22force"`/`"srgb"` | string | `"default"` | |
