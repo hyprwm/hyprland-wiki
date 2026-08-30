@@ -14,7 +14,7 @@ Here follows an example of how to write your `hyprland.lua` contents directly in
 
 ```lua {filename="hyprland.nix"}
 {
-    hjem.users.youruser.files.".config/hypr/hyprland.lua".text = /* lua */ ''
+    hjem.users.youruser.xdg.config.files."hypr/hyprland.lua".text = /* lua */ ''
       # Your hyprland.lua content goes here.
       # You can use string interpolation for Nix to evaluate variables at build time.
       # A snippet of a hyprland.lua config using string interpolation for some variables to be interpreted by Nix:
@@ -30,8 +30,33 @@ Here follows an example of how to write your `hyprland.lua` contents directly in
 
 ## Sourcing a hyprland.lua file at your Nix config
 
-Instead of writing your `hyprland.lua` contents directly inside your Nix config, you also have the possibility of sourcing a `hyprland.lua` file using Hjem, to link it into its place at `~/.config/hypr/`.
+Instead of writing your `hyprland.lua` contents directly inside your Nix config, you also have the possibility of sourcing an already existing `hyprland.lua` file using Hjem, to link it into its place at `~/.config/hypr/`.
+If using version control, make sure this `hyprland.lua` is in the same repository as your config.
 However, you can't use Nix string interpolation this way.
+
+```nix {filename="hyprland.nix"}
+{
+    hjem.users.youruser.xdg.config.files."hypr/hyprland.lua".source = ./relative/path/to/file;
+}
+```
+
+If you have already split your `hyprland.lua` into multiple files, you may source them the same way.
+
+```nix {filename="hyprland.nix"}
+{
+    hjem.users.youruser.xdg.config.files = {
+        "hypr/hyprland.lua".source = ./relative/path/to/hyprland.lua;
+        "hypr/rules.lua".source = ./relative/path/to/rules.lua;
+        "hypr/keybinds.lua".source = ./relative/path/to/keybinds.lua;
+        "hypr/animations.lua".source = ./relative/path/to/animations.lua;
+    };
+}
+```
+
+For multi-file examples such as the one above, you may prefer to just link a whole directory. 
+While you can do that in Hjem, it comes with the caveat that it makes the whole directory read-only.
+This can be undesirable as it blocks any new files from being made inside that directory, breaking certain apps.
+If you would like to recursively link only the files from inside a directory, [FindFiles](#findfiles) will interest you.
 
 ## Hjem-impure
 
@@ -45,3 +70,14 @@ So after that, you can write into your `~/.config/hyprland.lua` file deployed by
 **This enables experimentation.**
 What this means is that, after a NixOS build switch or after a system reboot, the changes that you made in `~/.config/hyprland.lua` **will be gone**.
 So after you are happy with your changes, write them into your Nix config for them to be persisted.
+
+## FindFiles
+
+[FindFiles](https://github.com/Michael-C-Buckley/findFiles.nix) is a small Nix library that allows you to easily link whole directories from inside your configuration to the correct locations.
+It combines with a home management tool such as Hjem, which manages the linking itself, but it recursively finds files inside a directory.
+This way you are linking every file in a folder instead of the folder itself all with one line of code.
+Normal directory linking with Hjem links the whole folder, meaning the folder becomes read-only.
+It works well with Hjem-impure if you desire hot reloading.
+An example of what you can do with FindFiles:
+- Have a config directory inside your repository and have it overlay on your entire `~/.config`.
+- Have a Hyprland directory that gets auto-placed at `~/.config/hypr/`.
