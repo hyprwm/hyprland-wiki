@@ -3,12 +3,15 @@ weight: 80
 title: Nix
 ---
 
-## Installing Hyprland on Nixos
+## Installing Hyprland on NixOS
 
-See [Hyprland on NixOS](./installing-hyprland-on-nixos).
+If you are already on NixOS or plan on writing a config for it, see [Hyprland on NixOS](./installing-hyprland-on-nixos).
 
-## Using Hyprland on any distro with the Nix package manager
+## Using Hyprland on any other distro with the Nix package manager
 
+If you want to use Hyprland but you are on a distro without official support, you can install just Nix itself --- the package manager.
+This will provide a better experience and be guaranteed to be up to date, especially on point-release distros.
+It is also simpler than compiling from source and allows you to use the binary cache, which is important for lower-spec devices. 
 See [this page](./hyprland-on-any-distro-using-nix).
 
 ## Advanced
