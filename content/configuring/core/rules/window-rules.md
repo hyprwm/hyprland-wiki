@@ -112,7 +112,7 @@ Dynamic effects are re-evaluated every time a property changes.
 | no_max_size | Removes max size limitations | bool | |
 | stay_focused | Forces focus on the window as long as it's visible | bool | |
 | animation | Forces an animation onto a window with an optional style (e.g., `"popin"`, `"popin 80%"`) | str | |
-| border_color | Sets the window's border to a color, gradient, or two gradients (active/inactive). E.g., `"rgb(FF0000)"`, `{ colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 }` | gradient | |
+| border_color | Sets the window's border to a color, gradient, or two gradients (active/inactive). E.g., `"rgb(FF0000)"`, `"rgb(FF8F3F) rgb(3161AF) 45deg rgb(D84BA9) rgb(7ED631) 45deg"`, `{ colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 }`. Combine with `focus = true/false` to specifically set the active or inactive border color in isolation. | gradient | |
 | idle_inhibit | Sets an idle inhibit rule. Modes: `"none"`, `"always"`, `"focus"`, `"fullscreen"` | str | |
 | opacity | Additional opacity multiplier (e.g., `"0.8"` overall, `"0.9 0.7"` active/inactive, `"1.0 0.8 0.9"` active/inactive/fullscreen). Append `" override"` after each value to set absolute instead of multiplied | str | |
 | tag | Applies a tag. Use prefix `+`/`-` to set/unset, or no prefix to toggle (e.g., `"+myTag"`) | str | |
