@@ -25,6 +25,8 @@ hl.bind("keys", dispatcher or function(), { bind_flags })
 The dispatcher list can be found in [Dispatchers](../dispatchers).
 You can also supply a Lua function to your bind, if you prefer, and the bind will call it for you.
 
+Bind flags are described [on their own page](./flags).
+
 {{% details title="Examples" closed="true" %}}
 
 ```lua
