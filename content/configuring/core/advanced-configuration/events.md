@@ -58,6 +58,7 @@ Event list:
 | workspace.removed | Emitted when a workspace is removed. | Workspace |
 | workspace.move_to_monitor | Emitted when a workspace is moved to a different monitor. | Workspace, Monitor |
 | config.reloaded | Emitted when the config has been reloaded **and applied**. | None |
+| config.unload | Emitted just before the config is unloaded and Lua state torn down, i.e. on reload or shutdown, to close or save things before they are lost. | None |
 | config.props_refreshed | Emitted when a prop refresh event is executed. | Bool: `true` if the [prop refresh](../lua-utilities/#prop-refresh) event is being executed as scheduled, `false` if executed prematurely with the Lua function |
 | keybinds.submap | Emitted when the active submap changes. An empty string means the default submap was restored. | String: Submap Name|
 | screenshare.state | Emitted when a screenshare session starts or stops. | Bool: Active, Integer: Type, String: Name |
