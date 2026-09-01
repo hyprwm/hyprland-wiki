@@ -112,7 +112,7 @@ Dynamic effects are re-evaluated every time a property changes.
 | no_max_size | Removes max size limitations | bool | |
 | stay_focused | Forces focus on the window as long as it's visible | bool | |
 | animation | Forces an animation onto a window with an optional style (e.g., `"popin"`, `"popin 80%"`) | str | |
-| border_color | Sets the window's border to a color, gradient, or two gradients (active/inactive). E.g., `"rgb(FF0000)"`, `"rgb(FF8F3F) rgb(3161AF) 45deg rgb(D84BA9) rgb(7ED631) 45deg"`, `{ colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 }`. Combine with `focus = true/false` to specifically set the active or inactive border color in isolation. | gradient | |
+| border_color | Sets the window's border to a color, gradient, or two gradients (active/inactive). See [border_color](#border_color-window-rule) below | gradient | |
 | idle_inhibit | Sets an idle inhibit rule. Modes: `"none"`, `"always"`, `"focus"`, `"fullscreen"` | str | |
 | opacity | Additional opacity multiplier (e.g., `"0.8"` overall, `"0.9 0.7"` active/inactive, `"1.0 0.8 0.9"` active/inactive/fullscreen). Append `" override"` after each value to set absolute instead of multiplied | str | |
 | tag | Applies a tag. Use prefix `+`/`-` to set/unset, or no prefix to toggle (e.g., `"+myTag"`) | str | |
@@ -171,6 +171,37 @@ The `group` effect takes a string with space-separated options:
 >
 > By default, `set` and `lock` only affect new windows once.
 > The `always` qualifier makes them always effective.
+
+### `border_color` window rule
+
+The `border_color` rule can receive the following:
+
+- A solid color (defaults to active border color):
+```lua
+border_color = "rgb(FF0000)"
+```
+
+- One or two colors/gradients:
+```lua
+border_color = "rgb(FF8F3F) rgb(3161AF) 45deg rgb(D84BA9) rgb(7ED631) 45deg"
+```
+
+- Or a lua table (only one color/gradient):
+```lua
+border_color = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 }
+```
+
+The `border_color` rule can also be used in conjunction with the `focus` prop in order to independently set the active or inactive border color of a window. For example:
+
+```lua
+-- Set firefox's inactive border color to a gradient from magenta to cyan
+hl.window_rule(
+  match = { focus = false, class = "firefox" },
+  border_color = { colors = { "rgba(ffff00ee)", "rgba(00ffffee)" }, angle = 33 }
+)
+```
+
+Combine two rules, one with `focus = true` and another with `focus = false` to set the active and inactive border colors of all matching windows.
 
 ### Tags
 
