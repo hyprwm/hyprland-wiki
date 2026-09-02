@@ -21,24 +21,25 @@ hl.workspace_rule({
 
 ## Rules
 
+<!-- SORT: monitor and default are together because it is easier to understand like that -->
 | Rule | Description | Type | Limits |
 | --- | --- | --- | --- |
 | animation | The animation style to use for this workspace | str | |
-| monitor | Binds a workspace to a monitor. See [syntax](#syntax) and [Monitors](../../monitors) | str | |
-| default | Whether this workspace should be the default workspace for the given monitor | bool | |
+| border_size | Set the border size around windows | int | |
+| decorate | Whether to draw window decorations or not | bool | |
+| default_name | A default name for the workspace | str | |
 | float_gaps | Set the gaps for floating windows | css_gaps | |
 | gaps_in | Set the gaps between windows | css_gaps | |
 | gaps_out | Set the gaps between windows and monitor edges | css_gaps | |
-| border_size | Set the border size around windows | int | |
-| no_border | Whether to disable borders | bool | |
-| no_shadow | Whether to disable shadows | bool | |
-| no_rounding | Whether to disable rounded windows | bool | |
-| decorate | Whether to draw window decorations or not | bool | |
-| persistent | Keep this workspace alive even if empty and inactive | bool | |
-| on_created_empty | A command to be executed once a workspace is created empty (i.e. not created by moving a window to it). See the [command syntax](../../dispatchers#executing-with-rules) | str | |
-| default_name | A default name for the workspace | str | |
 | layout | The layout to use for this workspace | str | |
 | layout_opts | A table of layout-specific options for this workspace. Keys and values depend on the layout | table | |
+| monitor | Binds a workspace to a monitor. See [syntax](#syntax) and [Monitors](../../monitors) | str | |
+| default | Whether this workspace should be the default workspace for the given monitor | bool | |
+| no_border | Whether to disable borders | bool | |
+| no_rounding | Whether to disable rounded windows | bool | |
+| no_shadow | Whether to disable shadows | bool | |
+| on_created_empty | A command to be executed once a workspace is created empty (i.e. not created by moving a window to it). See the [command syntax](../../dispatchers#executing-with-rules) | str | |
+| persistent | Keep this workspace alive even if empty and inactive | bool | |
 
 {{% details title="Examples" closed="true" %}}
 
