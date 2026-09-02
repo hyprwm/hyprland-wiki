@@ -31,19 +31,6 @@ It includes simple GUI settings apps, pre-configured feature-rich panels, a welc
 
 ![Image of ML4W dotfiles](https://i.ibb.co/fYj49BRB/screen-215.jpg)
 
-## JaKooLit
-
-Another great option is installing JaKooLit's dotfiles.
-They are another feature-rich and very well maintained option.
-
-JaKooLit provides installation scripts for many distros for their dotfiles, with many themes to choose from.
-
-[GitHub](https://github.com/JaKooLit/Hyprland-Dots)
-
-[Youtube](https://www.youtube.com/@Ja.KooLit)
-
-![Image of JaKooLit's dotfiles](https://i.ibb.co/7tMsnTv/default-waybar.png)
-
 ## end_4
 
 Like material styling?
@@ -97,6 +84,19 @@ A single installer command turns an existing install of many popular distros int
 [https://github.com/coffebar/dotfiles](https://github.com/coffebar/dotfiles)
 
 ## Notable, but outdated configurations
+
+### JaKooLit
+
+Another great option is installing JaKooLit's dotfiles.
+They are another feature-rich and very well maintained option.
+
+JaKooLit provides installation scripts for many distros for their dotfiles, with many themes to choose from.
+
+[GitHub](https://github.com/JaKooLit/Hyprland-Dots)
+
+[Youtube](https://www.youtube.com/@Ja.KooLit)
+
+![Image of JaKooLit's dotfiles](https://i.ibb.co/7tMsnTv/default-waybar.png)
 
 ### linuxmobile
 
