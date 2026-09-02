@@ -58,22 +58,21 @@ Dispatcher `hl.dsp.layout()` arguments:
 
 ### movetoroot
 
-Swap the window with the first child of its root node on the workspace.
+Make the specified window a child of its most immediate root node on the workspace.
+If the window is already a direct child of the root node, a warning is produced instead.
 
-By the code, stable is `[stable] in that the focused window occupies same side of screen`.
-And thus, providing "unstable" means it will swap root's children places.
+The default behavior is "stable" in that the focused window remains on the same side of screen.
+Adding `unstable` as the second argument will instead swap the positions of the root node's immediate children (i.e. which side of the screen they're on).
 
-P.s.: This syntax is ASS, and I wont comment that out, at least user must know that it is really that bad!
-You cant stop me, it is not in the "The things Wabar is not allowed to do at the foundtation" list!  
-Wabar.
+Note that `movetoroot unstable` is *not* valid, but `movetoroot active unstable` is the proper way to achieve this.
 
 ### splitratio
 
-`splitratio` uses delta value by default, add `"exact"` after a value to set it instead.
+`splitratio` uses delta value by default, add `exact` after a value to set it instead.
 A positive delta is used by default.
-To specify direction, prefix the value with plus ("+") or minus ("-") sign.
+To specify direction, prefix the value with plus (`+`) or minus (`-`) sign.
 
-Values outisde of [0.1 - 1.9] range will be clamped to the nearest limit.
+Values outside of the [0.1 - 1.9] range will be clamped to the nearest limit.
 
 {{% details title="Examples" closed="true" %}}
 

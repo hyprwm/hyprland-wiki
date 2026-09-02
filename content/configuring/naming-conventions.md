@@ -43,7 +43,7 @@ Coordinates are in an inverse-Y Cartesian system, so moving to the right is the 
 | int | Integer number |
 | float | Floating point number |
 | bool | Boolean, `true` or `false` |
-| string | Lua string. Symbols wrapped in `""`/`[[]]`/`''` (e.g., `"dwindle"`, `'master'`, `[[scrolling]]`). When using Lua literal strings (`[[]]`), escaping of `"` and `'` is not needed |
+| string | Lua string. Symbols wrapped in `""`/`''`/`[[]]` (e.g., `"dwindle"`, `'master'`, `[[scrolling]]`). When using Lua literal strings (`[[]]`), escaping of `"` and `'` is not needed |
 | table | A Lua table, `{ }` |
 | vec2 | Vector with 2 float values. `{x, y}` (e.g., `{20, 20}`) |
 | css_gaps | An integer, or `{ top?, left?, right?, bottom? }` |
@@ -163,19 +163,19 @@ No spaces are allowed inside props themselves.
 
 #### Workspace search
 
-> [!WARNING]
-> For `m`, `r`, and `e`, the sign is not optional.
-> `"m3"` is not a search selector, it is a worksapce name, and does nothing unless a workspace is literally named `m3`.
-
 Workspace search is performed by suffixing a search selector with a signed offset, `+n` or `-n`, for a match relative to the active workspace.
 To use an absolute, 1-indexed ID instead, `~` is put between selector and ID (e.g., `m~3` is the third workspace on the current monitor).
 
 | Selector | Description | Limits |
 | --- | --- | --- |
-| e | Search on all monitors | Wraps around if range exceeds amount of worksapces in the direction |
-| m | Search for workspace on current monitor | Wraps around if range exceeds amount of worksapces in the direction |
-| r | Search for workspace on current monitor including empty/nonexistent workspaces | [1 - ...] |
-| empty | Search for first empty workspace. Suffix with `m` to only search on monitor, and/or `n` to make it the _next_ available empty workspace (e.g., `emptynm`) | Undefined behavior if it lands past last available workspace, i.e. 2147483647 |
+| e | Existing workspaces on all monitors | Wraps around if range exceeds amount of worksapces in the direction |
+| m | Existing workspaces on current monitor | Wraps around if range exceeds amount of worksapces in the direction |
+| r | Workspaces on current monitor, including empty/nonexistent ones | [1 - ...] |
+| empty | Search for first empty workspace. Suffix with `m` to only search on monitor, and/or `n` to find the _next_ available empty workspace (e.g., `emptynm`) | Undefined behavior if it lands past last available workspace, i.e. 2147483647 |
+
+> [!WARNING]
+> For search selectors that accept an ID, a sign or `~` is required.
+> `m3` would be interpreted as a workspace name, not a search selector, and would do nothing unless there were a workspace named "m3".
 
 ### Direction
 
