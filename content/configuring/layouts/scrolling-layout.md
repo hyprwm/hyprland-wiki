@@ -47,13 +47,13 @@ Dispatcher `hl.dsp.layout()` arguments:
 | colresize | Resize the current column, to either a value or by a relative value (e.g., `0.5`, `+0.2`, `-0.2`), or cycle the preconfigured ones with `+conf` or `-conf`. Can also be `all (number)` for resizing all columns to a specific width | relative float/relative `conf` |
 | consume | Moves the current window into the previous column | none |
 | consume_or_expel | Expel if not alone, consume if alone in a column | `prev` or `next` |
-| expel | Moves the current window to a dedicated column | none |
+| expel | Moves the current window to its own new column (in the backward direction if window is in the top half of the screen, otherwise in the forward direction) | none |
 | fit | Executes a fit operation based on the argument. Available: `active`, `visible`, `all`, `toend`, `tobeg`, `expand`. `expand` will expand the current window to take up the remaining free space on the monitor | fit mode |
 | fit_into_view | Fits the currently active column fully into view | none |
 | focus | Moves the focus and centers the layout, while also wrapping instead of moving to neighboring monitors | direction |
 | inhibit_scroll | Prevents the scrolling view from moving for the currently active workspace. The switch is independent for each workspace | left empty for toggle, or `bool` for explicitly enabling/disabling
 | move | Move the layout horizontally, by either a relative logical px (`-200`, `+200`) or columns (`+col`, `-col`) | move data |
-| promote | Moves a window to its own new column | none |
+| promote | Moves a window to its own new column (in the forward direction) | none |
 | swapcol | Swaps the current column with its neighbor to the left (`l`) or right (`r`). The swap wraps around (e.g., swapping the first column left moves it to the end) | `l` or `r` |
 
 Example key bindings for your Hyprland config:

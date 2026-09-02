@@ -23,33 +23,33 @@ Path: `dwindle`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
-| force_split | 0 - split follows mouse, 1 - always split to the left (new = left or top) 2 - always split to the right (new = right or bottom) | int | `0` | [0 - 2] |
-| preserve_split | if enabled, the split (side/top) will not change regardless of what happens to the container | bool | `false` | |
-| smart_split | if enabled, allows a more precise control over the window split direction based on the cursor's position. The window is conceptually divided into four triangles, and cursor's triangle determines the split direction. This feature also turns on preserve_split | bool | `false` | |
-| smart_resizing | if enabled, resizing direction will be determined by the mouse's position on the window (nearest to which corner). Else, it is based on the window's tiling position | bool | `true` | |
-| permanent_direction_override | if enabled, makes the preselect direction persist until either this mode is turned off, another direction is specified, or a non-direction is specified (anything other than l,r,u/t,d/b) | bool | `false` | |
-| special_scale_factor | specifies the scale factor of windows on the special workspace | float | `1` | [0 - 1] |
-| split_width_multiplier | specifies the auto-split width multiplier. Multiplying window size is useful on widescreen monitors where window W > H even after several splits. | float | `1.0` | [0.1 - 3.0] |
-| use_active_for_splits | whether to prefer the active window or the mouse position for splits | bool | `true` | |
-| default_split_ratio | the default split ratio on window open. 1 means even 50/50 split | float | `1.0` | [0.1 - 1.9] |
-| split_bias | specifies which window will receive the split ratio. 0 - directional (the top or left window), 1 - the current window | int | `0` | [0 - 1] |
-| precise_mouse_move | bindm movewindow will drop the window more precisely depending on where your mouse is. | bool | `false` | |
+| force_split | 0 - split follows mouse, 1 - always split to the left (new = left or top), 2 - always split to the right (new = right or bottom) | int | `0` | [0 - 2] |
+| preserve_split | If enabled, the split (side/top) will not change regardless of what happens to the container | bool | `false` | |
+| smart_split | If enabled, allows a more precise control over the window split direction based on the cursor's position. The window is conceptually divided into four triangles, and cursor's triangle determines the split direction. This feature also turns on `preserve_split` | bool | `false` | |
+| smart_resizing | If enabled, resizing direction will be determined by the mouse's position on the window (nearest to which corner). Otherwise, it is based on the window's tiling position | bool | `true` | |
+| permanent_direction_override | If enabled, makes the preselect direction persist until either this mode is turned off, another direction is specified, or a non-direction is specified (anything other than `l`, `r`, `u`/`t`, `d`/`b`) | bool | `false` | |
+| special_scale_factor | Specifies the scale factor of windows on the special workspace | float | `1` | [0 - 1] |
+| split_width_multiplier | Specifies the auto-split width multiplier. Multiplying window size is useful on widescreen monitors where window W > H even after several splits | float | `1.0` | [0.1 - 3.0] |
+| use_active_for_splits | Whether to prefer the active window or the mouse position for splits | bool | `true` | |
+| default_split_ratio | The default split ratio on window open. 1 means an even 50/50 split | float | `1.0` | [0.1 - 1.9] |
+| split_bias | Specifies which window will receive the split ratio. 0 - directional (the top or left window), 1 - the current window | int | `0` | [0 - 1] |
+| precise_mouse_move | Dragging and dropping windows will place them more precisely, based on where your mouse is | bool | `false` | |
 
 ```lua
 hl.config({
-  dwindle = {
-      force_split                  = 0,
-      preserve_split               = false,
-      smart_split                  = false,
-      smart_resizing               = true,
-      permanent_direction_override = false,
-      special_scale_factor         = 1,
-      split_width_multiplier       = 1.0,
-      use_active_for_splits        = true,
-      default_split_ratio          = 1.0,
-      split_bias                   = 0,
-      precise_mouse_move           = false,
-  },
+    dwindle = {
+        force_split                  = 0,
+        preserve_split               = false,
+        smart_split                  = false,
+        smart_resizing               = true,
+        permanent_direction_override = false,
+        special_scale_factor         = 1,
+        split_width_multiplier       = 1.0,
+        use_active_for_splits        = true,
+        default_split_ratio          = 1.0,
+        split_bias                   = 0,
+        precise_mouse_move           = false,
+    },
 })
 ```
 
