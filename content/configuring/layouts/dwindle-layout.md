@@ -63,18 +63,18 @@ hl.config({
 hl.bind("SUPER + P", hl.dsp.window.pseudo())
 ```
 
-## Layout Messages
+## Layout messages
 
-Dispatcher `hl.dsp.layout(msg)` params:
+Dispatcher `hl.dsp.layout()` arguments:
 
 | Param | Description | Args |
 | --- | --- | --- |
-| splitratio | changes the split ratio | float [0.1-1.9] |
-| togglesplit | toggles the split (top/side) of the current window. `preserve_split` must be enabled for toggling to work. | none |
-| swapsplit | swaps the two halves of the split of the current window. | none |
-| rotatesplit | rotates the split of the current window by an optionally specified angle. Angle must be a multiple of 90. Positive numbers are clockwise, negative numbers are counter-clockwise. Default is 90. | [angle] |
+| movetoroot | Moves the selected window (active window if unspecified) to the root of its workspace tree. The default behavior maximizes the window in its current subtree. If `unstable` is provided as the second argument, the window will be swapped with the other subtree instead. It is not possible to only provide the second argument, but `movetoroot active unstable` will achieve the same result | [window, [ string ]] |
 | preselect | A one-time override for the split direction. (valid for the next window to be opened, only works on tiled windows) | direction |
-| movetoroot | moves the selected window (active window if unspecified) to the root of its workspace tree. The default behavior maximizes the window in its current subtree. If `unstable` is provided as the second argument, the window will be swapped with the other subtree instead. It is not possible to only provide the second argument, but `movetoroot active unstable` will achieve the same result. | [window, [ string ]] |
+| rotatesplit | Rotates the split of the current window by an optionally specified angle. Angle must be a multiple of 90. Positive numbers are clockwise, negative numbers are counter-clockwise. Default is 90 | [angle] |
+| splitratio | Changes the split ratio | float [0.1-1.9] |
+| swapsplit | Swaps the two halves of the split of the current window | none |
+| togglesplit | Toggles the split (top/side) of the current window. `preserve_split` must be enabled for toggling to work | none |
 
 > [!NOTE]
 > `splitratio` defaults to using a positive delta, so `"splitratio 0.5"` will make the current split move to the right by 0.5.

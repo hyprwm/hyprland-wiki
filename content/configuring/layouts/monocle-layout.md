@@ -16,9 +16,9 @@ For cycling monocle windows, either use `hl.dsp.layout("cyclenext")` or `hl.dsp.
 
 ## Layout messages
 
-Dispatcher `hl.dsp.layout(msg)` params:
+Dispatcher `hl.dsp.layout()` arguments:
 
 | name | description | params |
 | --- | --- | --- |
-| cyclenext | cycle to the next window | none |
-| cycleprev | cycle to the previous window | none |
+| cyclenext | Cycle to the next window | none |
+| cycleprev | Cycle to the previous window | none |
