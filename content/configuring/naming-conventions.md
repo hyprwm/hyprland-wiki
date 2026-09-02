@@ -165,29 +165,17 @@ No spaces are allowed inside props themselves.
 
 > [!WARNING]
 > For `m`, `r`, and `e`, the sign is not optional.
-> `m3` is not a relative match: it falls through to a workspace *name* lookup, and does nothing unless a workspace is literally named `m3`.
-> Write `m+3`, `m-3`, or `m~3`.
+> `"m3"` is not a search selector, it is a worksapce name, and does nothing unless a workspace is literally named `m3`.
 
 Workspace search is performed by suffixing a search selector with a signed offset, `+n` or `-n`, for a match relative to the active workspace.
 To use an absolute, 1-indexed ID instead, `~` is put between selector and ID (e.g., `m~3` is the third workspace on the current monitor).
 
-- `m` - Search for workspace on current monitor
-- `r` - Search for workspace on current monitor including empty/nonexistent workspaces
-- `e` - Search on all monitors
-- `empty` - Search for first empty workspace. Suffix with `m` to only search on monitor, and/or `n` to make it the _next_ available empty workspace (e.g., `emptynm`)
-
-`m` and `e` only traverse workspaces that already exist, and they wrap around at both ends of that list.
-They can therefore never select an empty workspace that has not been created yet.
-`r` walks workspace IDs instead, so it can select an empty workspace, and it clamps at 1 rather than wrapping.
-
-Assuming workspaces 1 through 4 exist and 5 does not:
-
-| Selector | Active workspace | Result |
+| Selector | Description | Limits |
 | --- | --- | --- |
-| `e+1` | 4 | 1, wrapping around; never 5 |
-| `r+1` | 4 | 5, which is created |
-| `e-1` | 1 | 4, wrapping around |
-| `r-1` | 1 | 1, clamped |
+| e | Search on all monitors | Wraps around if range exceeds amount of worksapces in the direction |
+| m | Search for workspace on current monitor | Wraps around if range exceeds amount of worksapces in the direction |
+| r | Search for workspace on current monitor including empty/nonexistent workspaces | [1 - ...] |
+| empty | Search for first empty workspace. Suffix with `m` to only search on monitor, and/or `n` to make it the _next_ available empty workspace (e.g., `emptynm`) | Undefined behavior if it lands past last available workspace, i.e. 2147483647 |
 
 ### Direction
 
