@@ -56,7 +56,7 @@ end)
 | Method | Description |
 | --- | --- |
 | `dpms({ monitor?, action? })` | Toggle monitors on/off (not physically, as in idle-screensaver). Do not use with a keybind directly! |
-| `event( string )` | Send an event to socket2 |
+| `event( str )` | Send an event to socket2 |
 | `exec_cmd( cmd, { rules }? )` | Execute a command. Rules can be a table of window rule effects to apply (see [below](#executing-with-rules)) |
 | `exec_raw( cmd )` | Execute a raw command. While `exec_cmd` will do `sh -c`, this won't |
 | `exit()` | Quit Hyprland. It's recommended to use `hyprshutdown` instead of this |
@@ -68,7 +68,7 @@ end)
 | `focus({ last })` | Move the focus to the last window |
 | `force_idle( int )` | Sets elapsed time for all idle timers in seconds, ignoring idle inhibitors. Timers return to normal behavior upon the next activity. Do not use with a keybind directly! |
 | `force_renderer_reload()` | Force reloads the renderer on all monitors |
-| `global( string )` | Activate a D-Bus global shortcut. See [Global shortcuts](../binds/globals) |
+| `global( str )` | Activate a D-Bus global shortcut. See [Global shortcuts](../binds/globals) |
 | `layout( message )` | Send a layout message as a string |
 | `no_op()` | Does nothing. Useful for conditional binds |
 | `pass({ window? })` | Pass the shortcut to a window |
@@ -132,11 +132,15 @@ end)
 
 | Method | Description |
 | --- | --- |
-| `change_id({ workspace, id })` | change a workspace's ID. Cannot be an ID already in use. Must be > 0 |
+| `change_id({ workspace, id })` | Change a workspace's ID. Cannot be an ID already in use. Must be > 0 |
 | `move({ workspace?, monitor })` | Move a workspace to a monitor |
 | `rename({ workspace, name? })` | Rename a workspace |
 | `swap_monitors({ monitor1, monitor2 })` | Swap current workspaces of two monitors |
 | `toggle_special( special_name )` | Toggle a special workspace by name |
+
+> [!NOTE]
+> When using `toggle_special()`, do **not** include the `special:` prefix as part of the workspace name.
+> See the note in [Naming conventions](../../naming-conventions) for details.
 
 ### Group
 
@@ -159,7 +163,7 @@ end)
 | Method | Description |
 | --- | --- |
 | `move({ x, y })` | Move the cursor to a given coordinate |
-| `move_to_corner({ window?, corner = int })` | Move the cursor to a given corner of the window. Corner is [0 - 3] |
+| `move_to_corner({ window?, corner })` | Move the cursor to a given corner of the window. Corner is [0 - 3] |
 
 ### Grouped (tabbed) windows
 

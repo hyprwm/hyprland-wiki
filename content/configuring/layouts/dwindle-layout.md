@@ -35,6 +35,8 @@ Path: `dwindle`
 | split_bias | Specifies which window will receive the split ratio. 0 - directional (the top or left window), 1 - the current window | int | `0` | [0 - 1] |
 | precise_mouse_move | Dragging and dropping windows will place them more precisely, based on where your mouse is | bool | `false` | |
 
+{{% details title="Examples" closed="true" %}}
+
 ```lua
 hl.config({
     dwindle = {
@@ -52,6 +54,8 @@ hl.config({
     },
 })
 ```
+
+{{% /details %}}
 
 ## Dispatchers
 

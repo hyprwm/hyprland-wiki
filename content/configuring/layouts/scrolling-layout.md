@@ -29,7 +29,7 @@ Path: `scrolling`
 
 | name | description | type |
 | --- | --- | --- |
-| direction | Same as `hl.config({ scrolling{ direction } })` | str |
+| direction | Same as the `scrolling.direction` config option, but per workspace | str |
 
 For example:
 

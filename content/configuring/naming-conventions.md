@@ -125,6 +125,11 @@ Workspaces can be selected by:
 - Previous workspace: `previous`, or `previous_per_monitor`
 - Special Workspace: `special` or `special:name` for named special workspaces.
 
+> [!NOTE]
+> In contexts where only special workspaces are accepted (e.g., the argument to `hl.dsp.toggle_special()`), do not include the `special:` workspace prefix.
+> This prefix is only needed in cases where a normal workspace would also be valid.
+> For example, `hl.dsp.toggle_special("foo")` targets the workspace typically referred to as `special:foo`.
+
 #### Workspace props
 
 <!-- TODO: i think we should make a petition to rework this for Lua -->
@@ -167,7 +172,7 @@ Workspace search is performed by suffixing a search selector with a signed offse
 To use an absolute, 1-indexed ID instead, `~` is put between selector and ID (e.g., `m~3` is the third workspace on the current monitor).
 
 - `m` - Search for workspace on current monitor
-- `r` - Search for workspace on current monitor including empty/non-existant workspaces
+- `r` - Search for workspace on current monitor including empty/nonexistent workspaces
 - `e` - Search on all monitors
 - `empty` - Search for first empty workspace. Suffix with `m` to only search on monitor, and/or `n` to make it the _next_ available empty workspace (e.g., `emptynm`)
 

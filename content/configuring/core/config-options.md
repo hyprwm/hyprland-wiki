@@ -613,7 +613,7 @@ Path: `misc`
 | disable_hyprland_guiutils_check | Disable the warning if hyprland-guiutils is not installed | bool | `false` | |
 | disable_hyprland_logo | Disables the random Hyprland logo/anime girl background. :( | bool | `false` | |
 | disable_scale_notification | Disables notification popup when a monitor fails to set a suitable scale | bool | `false` | |
-| disable_splash_rendering | Disables the Hyprland splash rendering (the small random bit of text on the background). Requires a monitor reload to take effect. Note hyprpaper has its own setting to disable it) | bool | `false` | |
+| disable_splash_rendering | Disables the Hyprland splash rendering (the small random bit of text on the background). Requires a monitor reload to take effect. Note hyprpaper has its own setting to disable it | bool | `false` | |
 | disable_watchdog_warning | Disables the warning about not using start-hyprland | bool | `false` | |
 | disable_xdg_env_checks | Disable the warning if XDG environment is externally managed | bool | `false` | |
 | enable_anr_dialog | Whether to enable the ANR (app not responding) dialog when your apps hang | bool | `true` | |
