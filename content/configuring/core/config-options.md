@@ -126,7 +126,7 @@ Path: `decoration`
 #### Opacity
 
 Opacity is a **product** of all opacities.
-Use `" override"` after an opacity value to set it as an exact value rather than a multiplier.
+Use `"override"` after an opacity value to set it as an exact value rather than a multiplier.
 
 For example, setting `active_opacity` to `0.5` and `opacity` window rule to `0.5` results in a total of `0.25`.
 
@@ -828,7 +828,7 @@ Path: `experimental`
 <!-- SORT: just do whatever you want here -->
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
-| wp_cm_1_2 | allow wp-cm-v1 version 2 | bool | `false` | |
+| wp_cm_1_2 | Allow wp-cm-v1 version 2 | bool | `false` | |
 
 ### More
 
