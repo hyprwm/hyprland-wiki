@@ -3,17 +3,18 @@ weight: 30
 title: Preconfigured setups
 ---
 
-> [!WARNING]
-> These configurations are popular and have many people using them.
-> PRs that add more configurations will not be merged.
-
-Don't want to spend days tinkering with Hyprland to get it just right from scratch, but you'd rather start from a DE-like setting?
-You've found the right place.
+<!-- WARNING:
+These configurations are popular and have many people using them.
+PRs that add more configurations will not be merged.
+-->
 
 > [!WARNING]
 > Many of these configurations aggressively inject themselves and modify your system at a deep level to ensure they can function as intended.
 > If you plan to remove them later, this may be more difficult than you anticipate.
 > Even the configurations' own uninstall scripts (if provided) may not clean up after themselves fully.
+
+Don't want to spend days tinkering with Hyprland to get it just right from scratch, but you'd rather start from a DE-like setting?
+You've found the right place.
 
 Here are a few options to consider:
 
