@@ -35,62 +35,59 @@ Path: `dwindle`
 | split_bias | Specifies which window will receive the split ratio. 0 - directional (the top or left window), 1 - the current window | int | `0` | [0 - 1] |
 | precise_mouse_move | Dragging and dropping windows will place them more precisely, based on where your mouse is | bool | `false` | |
 
-{{% details title="Examples" closed="true" %}}
-
-```lua
-hl.config({
-    dwindle = {
-        force_split                  = 0,
-        preserve_split               = false,
-        smart_split                  = false,
-        smart_resizing               = true,
-        permanent_direction_override = false,
-        special_scale_factor         = 1,
-        split_width_multiplier       = 1.0,
-        use_active_for_splits        = true,
-        default_split_ratio          = 1.0,
-        split_bias                   = 0,
-        precise_mouse_move           = false,
-    },
-})
-```
-
-{{% /details %}}
-
 ## Dispatchers
 
 | Dispatcher | Description | Params |
 | --- | --- | --- |
-| window.pseudo | toggles the given window's pseudo mode | left empty/`"active"` for current, or `"window"` for a specific window | |
-
-```lua
-hl.bind("SUPER + P", hl.dsp.window.pseudo())
-```
+| window.pseudo | Toggles the given window's pseudo mode | Left empty/`"active"` for current, or `"window"` for a specific window | |
 
 ## Layout messages
+
+<!-- TODO: we should make a petition to rework all layoutmsgs for Lua, current syntax is just AWFUL -->
 
 Dispatcher `hl.dsp.layout()` arguments:
 
 | Param | Description | Args |
 | --- | --- | --- |
-| movetoroot | Moves the selected window (active window if unspecified) to the root of its workspace tree. The default behavior maximizes the window in its current subtree. If `unstable` is provided as the second argument, the window will be swapped with the other subtree instead. It is not possible to only provide the second argument, but `movetoroot active unstable` will achieve the same result | [window, [ string ]] |
-| preselect | A one-time override for the split direction. (valid for the next window to be opened, only works on tiled windows) | direction |
-| rotatesplit | Rotates the split of the current window by an optionally specified angle. Angle must be a multiple of 90. Positive numbers are clockwise, negative numbers are counter-clockwise. Default is 90 | [angle] |
-| splitratio | Changes the split ratio | float [0.1-1.9] |
-| swapsplit | Swaps the two halves of the split of the current window | none |
-| togglesplit | Toggles the split (top/side) of the current window. `preserve_split` must be enabled for toggling to work | none |
+| movetoroot | Moves the window to the root of the workspace tree. See the note [below](#movetoroot) | window?, "unstable"? |
+| preselect | A one-time override for the split direction, valid for the next window to be opened, only works on tiled windows | direction |
+| rotatesplit | Rotates the split of the current window by an optionally specified angle. Angle must be a multiple of 90. Positive is clockwise, negative is counter-clockwise | int? = 90 |
+| splitratio | Changes the split ratio. See the note [below](#splitratio) | float |
+| swapsplit | Swaps the two halves of the split of the current window | None |
+| togglesplit | Toggles the split (top/side) of the current window. `preserve_split` must be enabled for toggling to work | None |
 
-> [!NOTE]
-> `splitratio` defaults to using a positive delta, so `"splitratio 0.5"` will make the current split move to the right by 0.5.
-> You can also explicitly make it a positive delta with `"splitratio +0.5"`.
->
-> Likewise, `"splitratio -0.5"` will move it to the left by 0.5.
->
-> Finally, we can use the `exact` keyword after a value to specifically set the split ratio to that value.
-> `"splitratio 1.0 exact"` will _always_ put the split in the exact center.
+### movetoroot
 
-Example usage:
+Swap the window with the first child of its root node on the workspace.
+
+By the code, stable is `[stable] in that the focused window occupies same side of screen`.
+And thus, providing "unstable" means it will swap root's children places.
+
+P.s.: This syntax is ASS, and I wont comment that out, at least user must know that it is really that bad!
+You cant stop me, it is not in the "The things Wabar is not allowed to do at the foundtation" list!  
+Wabar.
+
+### splitratio
+
+`splitratio` uses delta value by default, add `"exact"` after a value to set it instead.
+A positive delta is used by default.
+To specify direction, prefix the value with plus ("+") or minus ("-") sign.
+
+Values outisde of [0.1 - 1.9] range will be clamped to the nearest limit.
+
+{{% details title="Examples" closed="true" %}}
 
 ```lua
+-- Use movetoroot on window with "imcool" class
+hl.bind("SUPER + A", hl.dsp.layout("movetoroot class:imcool"))
+
 hl.bind("SUPER + A", hl.dsp.layout("togglesplit"))
+
+-- Set split ratio to 1.2
+hl.bind("SUPER + A", hl.dsp.layout("splitratio 1.2 exact"))
+
+-- Make split ratio 0.8 after previous dispatch
+hl.bind("SUPER + A", hl.dsp.layout("splitratio -0.4"))
 ```
+
+{{% /details %}}
