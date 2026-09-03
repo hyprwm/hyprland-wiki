@@ -37,6 +37,12 @@ If you get `.so` file mismatch/missing errors, it's _entirely your fault_ for do
 However, if you are an experienced user and want to beta-test new features, you're more than welcome to run the latest git head.
 Please don't come asking about ".so file missing" errors though!
 
+[Nix](../../nix/hyprland-on-any-distro-using-nix) fixes this.
+This is for more advanced users comfortable with running scripts.
+If you are on a distro that has subpar support for Hyprland, consider installing the Nix package manager.
+It solves the problems of mismatching `.so` files as well as library conflicts in general, and ensures your packages stay up to date.
+It is supported by all distros that use systemd and does not interfere with or replace your current package manager.
+
 ### Packages
 
 > [!WARNING]
