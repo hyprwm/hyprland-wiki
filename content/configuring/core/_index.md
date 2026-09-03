@@ -67,7 +67,7 @@ require("/usr/share/among/us")
 #### Require
 
 Use `require` to load other files into your config.
-This is **highly** recommended because each `require` call is specifically made by Hyprland to be a separate Lua "scope", so errors in one `require`d file do _not_ stop execution of other files.
+This is **highly** recommended because each `require` call is specifically made by Hyprland to be a separate Lua "scope", so errors in one required file do _not_ stop execution of other files.
 
 It's important to note that many errors will kill the execution of a given lua file.
 Error behavior is described further [below](#error-behavior).
