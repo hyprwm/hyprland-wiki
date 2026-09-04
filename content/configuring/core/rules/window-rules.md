@@ -176,20 +176,43 @@ The `group` effect takes a string with space-separated options:
 
 The `border_color` rule can receive the following:
 
-- A solid color (defaults to active border color):
+- A solid color or gradient (defaults to active border color)
+- Two solid colors or gradients
+- A solid color and a gradient
+- Or a lua table (only one color or gradient)
+
+{{% details title="Examples" closed="true" %}}
+
 ```lua
+-- Single solid color:
 border_color = "rgb(FF0000)"
+
+-- Two solid colors:
+border_color = "rgb(FFFFFF) rgb(000000)"
 ```
 
-- One or two colors/gradients:
 ```lua
+-- Single gradient:
+border_color = "rgb(00FF88) rgb(FF0088) rgb(FF8800) 45deg"
+
+-- Two gradients:
 border_color = "rgb(FF8F3F) rgb(3161AF) 45deg rgb(D84BA9) rgb(7ED631) 45deg"
 ```
 
-- Or a lua table (only one color/gradient):
 ```lua
-border_color = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 }
+-- Solid color and gradient (gradient first):
+border_color = "rgb(FF0000) rgb(00FF00) rgb(0000FF) 45deg rgb(888888)"
+
+-- Solid color and gradient (color first):
+border_color = "rgb(888888) 0deg rgb(FF0000) rgb(00FF00) rgb(0000FF) 45deg"
 ```
+
+```lua
+-- Lua table (gradient):
+border_color = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 }
+```
+
+{{% /details %}}
 
 The `border_color` rule can also be used in conjunction with the `focus` prop in order to independently set the active or inactive border color of a window. For example:
 
@@ -201,7 +224,8 @@ hl.window_rule(
 )
 ```
 
-Combine two rules, one with `focus = true` and another with `focus = false` to set the active and inactive border colors of all matching windows.
+> [!NOTE]
+> Combine two rules, one with `focus = true` and another with `focus = false` to set the active and inactive border colors of all matching windows.
 
 ### Tags
 
