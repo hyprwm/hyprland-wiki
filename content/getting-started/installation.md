@@ -382,7 +382,7 @@ for more information.
 The order in which you **must** build is:
 
 ```
-Lua
+lua
 hyprland-protocols
 hyprwayland-scanner
 hyprutils
