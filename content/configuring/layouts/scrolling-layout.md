@@ -20,16 +20,16 @@ Path: `scrolling`
 | focus_fit_method | When a column is focused, what method should be used to bring it into view. 0 = center, 1 = fit | int | `1` | [0 - 1] |
 | follow_focus | When a window is focused, should the layout move to bring it into view automatically | bool | `true` | |
 | follow_min_visible | When a window is focused, require that at least a given fraction of it is visible for focus to follow. Hard input (e.g., binds, clicks) will always follow | float | `0.4` | [0.0 - 1.0] |
-| explicit_column_widths | A comma-separated list of preconfigured widths for `colresize +conf/-conf` | str | `"0.333, 0.5, 0.667, 1.0"` | |
+| explicit_column_widths | A comma-separated list of preconfigured widths for `colresize +conf/-conf` | string | `"0.333, 0.5, 0.667, 1.0"` | |
 | wrap_focus | When enabled, causes `hl.dsp.layout("focus l/r")` to wrap around at the beginning and end | bool | `true` | |
 | wrap_swapcol | When enabled, causes `hl.dsp.layout("swapcol l/r")` to wrap around at the beginning and end | bool | `true` | |
-| direction | Direction in which new windows appear and the layout scrolls. `"left"`/`"right"`/`"down"`/`"up"` | str | `"right"` | |
+| direction | Direction in which new windows appear and the layout scrolls. `"left"`/`"right"`/`"down"`/`"up"` | string | `"right"` | |
 
 ## Workspace rules
 
 | name | description | type |
 | --- | --- | --- |
-| direction | Same as the `scrolling.direction` config option, but per workspace | str |
+| direction | Same as the `scrolling.direction` config option, but per workspace | string |
 
 For example:
 

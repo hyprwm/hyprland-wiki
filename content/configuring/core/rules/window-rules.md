@@ -7,7 +7,7 @@ title: Window Rules
 
 ```lua
 hl.window_rule({
-    name? = str,
+    name? = string,
     match = {
         prop = some_prop_value,
     },
@@ -26,7 +26,7 @@ The supported fields for the `match` table are:
 | Prop | Description | Type |
 | --- | --- | --- |
 | class | Windows with `class` matching `RegEx` | [RegEx] |
-| content | Windows with specified content type (none, photo, video, game) | str |
+| content | Windows with specified content type (none, photo, video, game) | string |
 | focus | Currently focused window | bool |
 | fullscreen | Fullscreen (covering or non-covering) windows | bool |
 | fullscreen_state_client | Windows with matching `fullscreenstate`. `0` - none, `1` - maximize, `2` - fullscreen, `3` - maximize and fullscreen | int |
@@ -37,9 +37,9 @@ The supported fields for the `match` table are:
 | initial_title | Windows with `initialTitle` matching `RegEx` | [RegEx] |
 | modal | Modal windows (e.g., "Are you sure" popups) | bool |
 | pin | Pins the window (i.e. show it on all workspaces). **Important: pinning is ignored for non-floating windows** | bool |
-| tag | Windows with matching `tag` | str |
+| tag | Windows with matching `tag` | string |
 | title | Windows with `title` matching `RegEx` | [RegEx] |
-| workspace | Windows on matching workspace. Can be `id`, `"name:string"` or a workspace selector | workspace selector |
+| workspace | Windows on matching workspace | workspace selector |
 | xdg_tag | Match a window by its xdgTag | [RegEx] |
 | xwayland | Xwayland windows | bool |
 
@@ -66,23 +66,23 @@ This essentially means that it is always the `initialTitle` and `initialClass` w
 | Effect | Description | Type |
 | --- | --- | --- |
 | center | If the window is floating, will center it on the monitor | bool |
-| content | Sets content type: `"none"`, `"photo"`, `"video"`, or `"game"` | str |
+| content | Sets content type: `"none"`, `"photo"`, `"video"`, or `"game"` | string |
 | float | Floats a window | bool |
 | fullscreen | Fullscreens a window | bool |
-| fullscreen_state | Sets the fullscreen mode for the internal client (e.g., `"1 2"`). Values: `0` none, `1` maximize, `2` fullscreen, `3` maximize and fullscreen | str |
-| group | Sets window group properties. See [group options](#group-window-rule-options) below | str |
+| fullscreen_state | Sets the fullscreen mode for the internal client (e.g., `"1 2"`). Values: `0` none, `1` maximize, `2` fullscreen, `3` maximize and fullscreen | string |
+| group | Sets window group properties. See [group options](#group-window-rule-options) below | string |
 | maximize | Maximizes a window | bool |
-| monitor | Sets the monitor on which a window should open (e.g., `"1"`, `"DP-1"`). Can be suffixed with `" silent"` | str |
-| move | Moves a floating window to the given monitor-local coordinates (e.g., `{100, 200}`, `{"(cursor_x-(window_w*0.5))", "(cursor_y-(window_h*0.5))"}`) | str |
+| monitor | Sets the monitor on which a window should open (e.g., `"1"`, `"DP-1"`). Can be suffixed with `" silent"` | string |
+| move | Moves a floating window to the given monitor-local coordinates (e.g., `{100, 200}`, `{"(cursor_x-(window_w*0.5))", "(cursor_y-(window_h*0.5))"}`) | string |
 | no_close_for | Makes the window uncloseable with `killactive` for a given number of ms on open | int |
 | no_initial_focus | Disables the initial focus to the window | bool |
 | pin | Pins the window (i.e. show it on all workspaces). _Note: pinning is ignored for non-floating windows. You most likely want to use this together with `float = true`_ | bool |
 | pseudo | Pseudotiles a window | bool |
 | scrolling_width | Set column width for window when starting on a workspace with the scrolling layout | float |
-| size | Resizes a floating window (e.g., `{800, 600}`, `{"(monitor_w*0.5)", "(monitor_h*0.5)"}`) | str |
-| suppress_event | Ignores specific events. Space-separated: `"fullscreen"`, `"maximize"`, `"activate"`, `"activatefocus"`, `"fullscreenoutput"`, `"x11configurerequest"` | str |
+| size | Resizes a floating window (e.g., `{800, 600}`, "200x500", `{"(monitor_w*0.5)", "(monitor_h*0.5)"}`) | table/string |
+| suppress_event | Ignores specific events. Space-separated: `"fullscreen"`, `"maximize"`, `"activate"`, `"activatefocus"`, `"fullscreenoutput"`, `"x11configurerequest"` | string |
 | tile | Tiles a window | bool |
-| workspace | Sets the workspace on which a window should open. Can also be `"unset"` or suffixed with `" silent"` | str |
+| workspace | Sets the workspace on which a window should open. Can also be `"unset"` or suffixed with `" silent"` | string |
 
 #### Expressions
 
@@ -110,14 +110,14 @@ Dynamic effects are re-evaluated every time a property changes.
 | Effect | Description | Argument | Limits |
 | --- | --- | --- | --- |
 | allows_input | Forces an Xwayland window to receive input even if it requests not to | bool | |
-| animation | Forces an animation onto a window with an optional style (e.g., `"popin"`, `"popin 80%"`) | str | |
+| animation | Forces an animation onto a window with an optional style (e.g., `"popin"`, `"popin 80%"`) | string | |
 | border_color | Sets the window's border to a color, gradient, or two gradients (active/inactive). E.g., `"rgb(FF0000)"`, `{ colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 }` | gradient | |
 | border_size | Sets the border size | int | |
 | confine_pointer | Locks the mouse cursor to the window. Mostly useful for keeping your mouse cursor locked to one monitor during gaming | bool | |
 | dim_around | Dims everything around the window. Meant for floating windows | bool | |
 | decorate | Whether to draw window decorations. (default: `true`) | bool | |
 | focus_on_activate | Whether Hyprland should focus an app that requests to be focused | bool | |
-| idle_inhibit | Sets an idle inhibit rule. Modes: `"none"`, `"always"`, `"focus"`, `"fullscreen"` | str | |
+| idle_inhibit | Sets an idle inhibit rule. Modes: `"none"`, `"always"`, `"focus"`, `"fullscreen"` | string | |
 | immediate | Forces the window to allow tearing | bool | |
 | keep_aspect_ratio | Forces aspect ratio when resizing with the mouse | bool | |
 | max_size | Sets the maximum size for floating windows (e.g., `{800, 600}`) | vec2 | |
@@ -137,7 +137,7 @@ Dynamic effects are re-evaluated every time a property changes.
 | no_vrr | Disables VRR for the window. Only works when `misc.vrr` is set to `2` or `3` | bool | |
 | no_wobble | Disables wobble for the window | bool | |
 | no_xdg_drags | If true, will disable XDG-driven drags for the window (e.g., dragging a CSD top bar) | bool | |
-| opacity | Additional opacity multiplier (e.g., `"0.8"` overall, `"0.9 0.7"` active/inactive, `"1.0 0.8 0.9"` active/inactive/fullscreen). Append `" override"` after each value to set absolute instead of multiplied | str | |
+| opacity | Additional opacity multiplier (e.g., `"0.8"` overall, `"0.9 0.7"` active/inactive, `"1.0 0.8 0.9"` active/inactive/fullscreen). Append `" override"` after each value to set absolute instead of multiplied | string | |
 | opaque | Set `decoration.active/inactive/fullscreen_opacity` to `1` for this window | bool | |
 | force_rgbx | Disables the window's own transparency *(not Hyprland's given transparency, in contrast to the opaque rule)* | bool | |
 | persistent_size | For floating windows, internally store their size. When a new floating window opens with the same class and title, restore the saved size | bool | |
@@ -148,8 +148,8 @@ Dynamic effects are re-evaluated every time a property changes.
 | scroll_touchpad | Forces the window to override `input.touchpad.scroll_factor` | float | |
 | stay_focused | Forces focus on the window as long as it's visible | bool | |
 | sync_fullscreen | Whether the fullscreen mode should always be the same as the one sent to the window | bool | |
-| tag | Applies a tag. Use prefix `+`/`-` to set/unset, or no prefix to toggle (e.g., `"+myTag"`) | str | |
-| tonemap | Tonemapping behavior: `on` (Default), `off` disables tonemapping, `clamp` clamps source luminance to target, `limited` uses a dynamic curve to tonemap only the top end out of bounds content | str | |
+| tag | Applies a tag. Use prefix `+`/`-` to set/unset, or no prefix to toggle (e.g., `"+myTag"`) | string | |
+| tonemap | Tonemapping behavior: `on` (Default), `off` disables tonemapping, `clamp` clamps source luminance to target, `limited` uses a dynamic curve to tonemap only the top end out of bounds content | string | |
 | xray | Sets blur xray mode for the window | bool | |
 
 All dynamic effects can be set with [`set_prop()`](../../dispatchers#set_prop).

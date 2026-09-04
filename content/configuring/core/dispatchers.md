@@ -56,7 +56,7 @@ end)
 | Method | Description |
 | --- | --- |
 | `dpms({ monitor?, action? })` | Toggle monitors on/off (not physically, as in idle-screensaver). Do not use with a keybind directly! |
-| `event( str )` | Send an event to socket2 |
+| `event( string )` | Send an event to socket2 |
 | `exec_cmd( cmd, { rules }? )` | Execute a command. Rules can be a table of window rule effects to apply (see [below](#executing-with-rules)) |
 | `exec_raw( cmd )` | Execute a raw command. While `exec_cmd` will do `sh -c`, this won't |
 | `exit()` | Quit Hyprland. It's recommended to use `hyprshutdown` instead of this |
@@ -68,7 +68,7 @@ end)
 | `focus({ last })` | Move the focus to the last window |
 | `force_idle( int )` | Sets elapsed time for all idle timers in seconds, ignoring idle inhibitors. Timers return to normal behavior upon the next activity. Do not use with a keybind directly! |
 | `force_renderer_reload()` | Force reloads the renderer on all monitors |
-| `global( str )` | Activate a D-Bus global shortcut. See [Global shortcuts](../binds/globals) |
+| `global( string )` | Activate a D-Bus global shortcut. See [Global shortcuts](../binds/globals) |
 | `layout( message )` | Send a layout message as a string |
 | `no_op()` | Does nothing. Useful for conditional binds |
 | `pass({ window? })` | Pass the shortcut to a window |

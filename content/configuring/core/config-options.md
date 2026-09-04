@@ -164,7 +164,7 @@ Path: `decoration.blur`
 | popups_ignorealpha | Works like ignore_alpha in layer rules. If pixel opacity is below the set value, will not blur | float | `0.2` | [0.0 - 1.0] |
 | size | Blur size (distance) | int | `8` | |
 | special | Whether to blur behind the special workspace (note: expensive) | bool | `false` | |
-| variant | Blur pattern variant. May significantly increase GPU and CPU usage | str | `kawase` | [see below](#blur-variants) |
+| variant | Blur pattern variant. May significantly increase GPU and CPU usage | string | `kawase` | [see below](#blur-variants) |
 | vibrancy | Increase saturation of blurred colors | float | `0.1696` | [0.0 - 1.0] |
 | vibrancy_darkness | How strong the effect of `vibrancy` is on dark areas | float | `0.0` | [0.0 - 1.0] |
 | xray | If enabled, floating windows will ignore tiled windows in their blur. Will reduce overhead on floating blur significantly. Disabled if `new_optimizations = false` | bool | `false` | |
@@ -304,7 +304,7 @@ Path: `decoration.shadow`
 | --- | --- | --- | --- | --- |
 | enabled | Enable drop shadows on windows | bool | `true` | |
 | color | Active window shadow's color. Alpha dictates the opacity | color/gradient | `0xee1a1a1a` | |
-| color_inactive | Inactive window shadow's color. If not set, will fall back to `color` | color/gradient | unset | |
+| color_inactive | Inactive window shadow's color. If not set, will fall back to `color` | color/gradient | \[\[Empty\]\] | |
 | offset | Shadow's rendering offset | vec2 | `{0, 0}` | |
 | range | Shadow range (size) in pixels | int | `4` | [0 - 100] |
 | render_power | In what power to render the falloff. More power, the faster the falloff | int | `3` | [1 - 4] |
@@ -319,7 +319,7 @@ Path: `decoration.glow`
 | --- | --- | --- | --- | --- |
 | enabled | Enable inner glow on windows | bool | `false` | |
 | color | Active window glow's color. Alpha dictates opacity | color | `0xee1a1a1a` | |
-| color_inactive | Inactive window glow's color. If not set, will fall back to `color` | color | unset | |
+| color_inactive | Inactive window glow's color. If not set, will fall back to `color` | color | \[\[Empty\]\] | |
 | range | Glow range (size) in pixels | int | `10` | [0 - 100] |
 | render_power | In what power to render the falloff. More power, the faster the falloff | int | `3` | [1 - 4] |
 
@@ -579,9 +579,9 @@ Path: `group.groupbar`
 | scrolling | Whether scrolling in the groupbar changes group active window | bool | `true` | |
 | stacked | Render the groupbar as a vertical stack | bool | `false` | |
 | text_color | Color for window titles in the groupbar | color | `0xffffffff` | |
-| text_color_inactive | Color for inactive windows' titles in the groupbar (if unset, defaults to text_color) | color | unset | |
-| text_color_locked_active | Color for the active window's title in a locked group (if unset, defaults to text_color) | color | unset | |
-| text_color_locked_inactive | Color for inactive windows' titles in locked groups (if unset, defaults to text_color_inactive) | color | unset | |
+| text_color_inactive | Color for inactive windows' titles in the groupbar, if unset, defaults to text_color | color | \[\[Empty\]\] | |
+| text_color_locked_active | Color for the active window's title in a locked group, if unset, defaults to text_color | color | \[\[Empty\]\ | |
+| text_color_locked_inactive | Color for inactive windows' titles in locked groups, if unset, defaults to text_color_inactive | color | \[\[Empty\]\ | |
 | text_offset | Adjust vertical position for titles | int | `0` | [-20 - 20] |
 | text_padding | Set horizontal padding for titles | int | `0` | [0 - 22] |
 

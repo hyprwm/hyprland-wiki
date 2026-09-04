@@ -9,7 +9,7 @@ Animations are declared with the `hl.animation()` method.
 
 Syntax:
 ```
-hl.animation({ leaf = str, enabled = bool, speed = float, curve = str, style? = str })
+hl.animation({ leaf = string, enabled = bool, speed = float, curve = string, style? = string })
 ```
 - `leaf` is the scope of the animation. See [Animation tree](#animation-tree).
 - `enabled` can be either `true` to enable or `false` to disable. _Note:_ if it's `false`, you can omit further arguments.
