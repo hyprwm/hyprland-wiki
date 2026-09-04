@@ -79,4 +79,8 @@ This custom fullscreen behavior allows you to scroll away from your fullscreen w
 You can use it by using `layout_aware = true` (or not specifying `layout_aware` option at all) in your fullscreen dispatches when on a scrolling layout workspace.
 It also works with existing window/workspace fullscreen-related selectors.
 
+> [!NOTE]
+> When a fullscreen window has focus, the `hl.dsp.focus({ direction })` dispatcher will by default look for other monitors in the specified direction, rather than changing windows on the current monitor.
+> If you want to take advantage of the layout-handled ability to scroll away from a fullscreen window, either set `binds.movefocus_cycles_fullscreen = true` to restore the focus dispatcher's window-seeking behavior, or use the scrolling layout's `focus` layout message instead.
+
 Learn more about Fullscreen Handlers [here](../../core/dispatchers#fullscreen-handlers).
