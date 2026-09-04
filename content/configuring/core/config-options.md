@@ -672,7 +672,7 @@ Path: `binds`
 | focus_preferred_method | Sets the preferred focus finding method when using `hl.dsp.focus({ direction })`/`hl.dsp.window.move({ direction })`/etc. `0` - most recent active window has priority, `1` - longer shared edges have priority) | int | `0` | [0 - 1] |
 | hide_special_on_workspace_change | If enabled, changing the active workspace (including to itself) will hide the special workspace on the monitor where the newly active workspace resides | bool | `false` | |
 | ignore_group_lock | If enabled, dispatchers like `hl.dsp.window.move({ into_group })` and `hl.dsp.window.move({ out_of_group })` will ignore lock per group | bool | `false` | |
-| movefocus_cycles_fullscreen | If enabled, when on a fullscreen window, `hl.dsp.focus({ direction })` will cycle fullscreen, else, it will move the focus in a direction | bool | `false` | |
+| movefocus_cycles_fullscreen | If enabled, when focus is on a fullscreen window, it allows `hl.dsp.focus({ direction })` to seek windows. If disabled, it will seek just monitors. | bool | `false` | |
 | movefocus_cycles_groupfirst | If enabled, when in a grouped window, `hl.dsp.focus({ direction })` will cycle windows in the groups first, then at each ends of the tabs, it'll move on to other windows/groups | bool | `false` | |
 | pass_mouse_when_bound | If enabled, will pass the mouse events to apps/dragging windows around if a keybind has been triggered | bool | `false` | |
 | scroll_event_delay | In ms, how many ms to wait after a scroll event to allow passing another one for the binds | int | `300` | [0 - 2000] |
