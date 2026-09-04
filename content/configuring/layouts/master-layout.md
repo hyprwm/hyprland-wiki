@@ -12,7 +12,7 @@ You can change the orientation on a per-workspace basis if you want to use anyth
 
 ## Config
 
-Path: `master`
+Category: `master`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |

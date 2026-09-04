@@ -27,7 +27,7 @@ hl.config({
 Or only a few with:
 
 ```lua
-hl.config({ ["path.option"] = value })
+hl.config({ ["category.option"] = value })
 ```
 
 Multiple `hl.config()` invocations can be used to set options, since each call will only update what was passed into it.
@@ -62,7 +62,7 @@ If the value of an option exceeds its limits, Hyprland will throw a config error
 
 ### General
 
-Path: `general`
+Category: `general`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -83,7 +83,7 @@ Path: `general`
 
 #### General colors
 
-Path: `general.col`
+Category: `general.col`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -94,7 +94,7 @@ Path: `general.col`
 
 #### Snap
 
-Path: `general.snap`
+Category: `general.snap`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -106,7 +106,7 @@ Path: `general.snap`
 
 ### Decoration
 
-Path: `decoration`
+Category: `decoration`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -147,7 +147,7 @@ hl.window_rule({
 
 #### Blur
 
-Path: `decoration.blur`
+Category: `decoration.blur`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -195,7 +195,7 @@ Available variants:
 ###### Acrylic
 
 Used by: `acrylic`  
-Path: `decoration.blur.acrylic`
+Category: `decoration.blur.acrylic`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -208,7 +208,7 @@ Path: `decoration.blur.acrylic`
 ###### Aurora
 
 Used by: `aurora`  
-Path: `decoration.blur.aurora`
+Category: `decoration.blur.aurora`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -220,7 +220,7 @@ Path: `decoration.blur.aurora`
 ###### Drops
 
 Used by: `drops`  
-Path: `decoration.blur.drops`
+Category: `decoration.blur.drops`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -229,7 +229,7 @@ Path: `decoration.blur.drops`
 ###### Fluid jar
 
 Used by: `fluid_jar`  
-Path: `decoration.blur.fluid_jar`
+Category: `decoration.blur.fluid_jar`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -244,7 +244,7 @@ Path: `decoration.blur.fluid_jar`
 ###### Glass
 
 Used by: `aurora`, `drops`, `heat_shimmer`, `prism`  
-Path: `decoration.blur.glass`
+Category: `decoration.blur.glass`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -255,7 +255,7 @@ Path: `decoration.blur.glass`
 ###### Haze
 
 Used by: `haze`  
-Path: `decoration.blur.haze`
+Category: `decoration.blur.haze`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -265,7 +265,7 @@ Path: `decoration.blur.haze`
 ###### Heat shimmer
 
 Used by: `heat_shimmer`  
-Path: `decoration.blur.heat_shimmer`
+Category: `decoration.blur.heat_shimmer`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -274,7 +274,7 @@ Path: `decoration.blur.heat_shimmer`
 ###### Ripple
 
 Used by: `ripple`  
-Path: `decoration.blur.ripple`
+Category: `decoration.blur.ripple`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -286,7 +286,7 @@ Path: `decoration.blur.ripple`
 ###### Water
 
 Used by: `water`  
-Path: `decoration.blur.water`
+Category: `decoration.blur.water`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -298,7 +298,7 @@ Path: `decoration.blur.water`
 
 #### Shadow
 
-Path: `decoration.shadow`
+Category: `decoration.shadow`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -313,7 +313,7 @@ Path: `decoration.shadow`
 
 #### Glow
 
-Path: `decoration.glow`
+Category: `decoration.glow`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -325,7 +325,7 @@ Path: `decoration.glow`
 
 #### Motion blur
 
-Path: `decoration.motion_blur`
+Category: `decoration.motion_blur`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -334,7 +334,7 @@ Path: `decoration.motion_blur`
 
 #### Wobble
 
-Path: `decoration.wobble`
+Category: `decoration.wobble`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -349,7 +349,7 @@ Path: `decoration.wobble`
 
 ### Animations
 
-Path: `animations`
+Category: `animations`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -360,7 +360,7 @@ More about animations can be read [here](../animations).
 
 ### Input
 
-Path: `input`
+Category: `input`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -427,7 +427,7 @@ To mimic the Windows acceleration curves, take a look at [this script](https://g
 
 #### Touchpad
 
-Path: `input.touchpad`
+Category: `input.touchpad`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -446,7 +446,7 @@ Path: `input.touchpad`
 
 #### Touchdevice
 
-Path: `input.touchdevice`
+Category: `input.touchdevice`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -456,7 +456,7 @@ Path: `input.touchdevice`
 
 #### Virtualkeyboard
 
-Path: `input.virtualkeyboard`
+Category: `input.virtualkeyboard`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -465,7 +465,7 @@ Path: `input.virtualkeyboard`
 
 #### Tablet
 
-Path: `input.tablet`
+Category: `input.tablet`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -481,7 +481,7 @@ Path: `input.tablet`
 
 #### Tablettool
 
-Path: `input.tablettool`
+Category: `input.tablettool`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -495,7 +495,7 @@ Described [here](../devices).
 
 ### Gestures
 
-Path: `gestures`
+Category: `gestures`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -514,7 +514,7 @@ Path: `gestures`
 
 #### Scrolling
 
-Path: `gestures.scrolling`
+Category: `gestures.scrolling`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -523,7 +523,7 @@ Path: `gestures.scrolling`
 
 ### Group
 
-Path: `group`
+Category: `group`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -538,7 +538,7 @@ Path: `group`
 
 #### Group colors
 
-Path: `group.col`
+Category: `group.col`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -549,7 +549,7 @@ Path: `group.col`
 
 #### Groupbar
 
-Path: `group.groupbar`
+Category: `group.groupbar`
 <!-- SORT: because of the 1st and 3rd rules combination, "gradients" is put at first position in gradient "group" -->
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -587,7 +587,7 @@ Path: `group.groupbar`
 
 ##### Groupbar colors
 
-Path: `group.groupbar.col`
+Category: `group.groupbar.col`
 | Name | Description | Type | Default | Limits
 | --- | --- | --- | --- | --- |
 | active | Active group bar background color | gradient | `0x66ffff00` | |
@@ -597,7 +597,7 @@ Path: `group.groupbar.col`
 
 ### Misc
 
-Path: `misc`
+Category: `misc`
 <!-- SORT: float force on screen and new_ variants are together because it is essentially 1 option -->
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -644,7 +644,7 @@ Path: `misc`
 | swallow_regex | The _class_ regex to be used for windows that should be swallowed (usually, a terminal) | string | \[\[Empty\]\] | |
 | vrr | Controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on, 2 - fullscreen only, 3 - fullscreen with `video` or `game` content type | int | `0` | [0 - 3] |
 
-Path: `misc.col`
+Category: `misc.col`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -652,7 +652,7 @@ Path: `misc.col`
 
 ### Layout
 
-Path: `layout`
+Category: `layout`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -661,7 +661,7 @@ Path: `layout`
 
 ### Binds
 
-Path: `binds`
+Category: `binds`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -682,7 +682,7 @@ Path: `binds`
 
 ### Xwayland
 
-Path: `xwayland`
+Category: `xwayland`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -693,7 +693,7 @@ Path: `xwayland`
 
 ### OpenGL
 
-Path: `opengl`
+Category: `opengl`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -701,7 +701,7 @@ Path: `opengl`
 
 ### Render
 
-Path: `render`
+Category: `render`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -729,7 +729,7 @@ Path: `render`
 
 ### Cursor
 
-Path: `cursor`
+Category: `cursor`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -759,7 +759,7 @@ Path: `cursor`
 
 ### Ecosystem
 
-Path: `ecosystem`
+Category: `ecosystem`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -769,7 +769,7 @@ Path: `ecosystem`
 
 ### Quirks
 
-Path: `quirks`
+Category: `quirks`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -782,7 +782,7 @@ Use `prefer_hdr` to fix it.
 
 ### Input Capture
 
-Path: `input-capture`
+Category: `input-capture`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -795,7 +795,7 @@ Path: `input-capture`
 > These settings are intended only for development and testing.
 > You do not want to change them in your normal config.
 
-Path: `debug`
+Category: `debug`
 <!-- SORT: please at least sort by alphabet -->
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -824,7 +824,7 @@ Path: `debug`
 
 ### Experimental
 
-Path: `experimental`
+Category: `experimental`
 <!-- SORT: just do whatever you want here -->
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |

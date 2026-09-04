@@ -19,7 +19,7 @@ You can make them permanent by enabling `preserve_split`.
 
 ## Config
 
-Path: `dwindle`
+Category: `dwindle`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |

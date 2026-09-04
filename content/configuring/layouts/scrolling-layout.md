@@ -11,7 +11,7 @@ Scrolling is a layout where windows are positioned on an infinitely growing tape
 
 ## Config
 
-Path: `scrolling`
+Category: `scrolling`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
