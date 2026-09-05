@@ -227,7 +227,7 @@ hl.bind("SUPER + tab", function ()
     if workspace.special then
         hl.workspace_rule({ workspace = tostring(workspace.name), layout = next_layout })
     else
-        hl.workspace_rule({ workspace = tostring(workspace.id), layout = next_layout })
+        hl.workspace_rule({ workspace = "name:" .. tostring(workspace.name), layout = next_layout })
     end
 end)
 ```
