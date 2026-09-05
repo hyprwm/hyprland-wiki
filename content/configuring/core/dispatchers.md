@@ -64,6 +64,7 @@ end)
 | `focus({ urgent_or_last })` | Move the focus to an urgent, or last window |
 | `focus({ last })` | Move the focus to the last window |
 | `exit()` | Quit Hyprland. It's recommended to use `hyprshutdown` instead of this. |
+| `reload_config()` | Reload the configuration, just like `hyprctl reload` |
 | `submap( name )` | Move to a submap |
 | `pass({ window? })` | Pass the shortcut to a window |
 | `send_shortcut({ window?, mods, key })` | Send a specific shortcut to a window |
