@@ -127,6 +127,27 @@ hl.on("window.open", function(w)
 end)
 ```
 
+### Open Tor Browser and Mullvad Browser at their default window size
+
+Tor Browser and Mullvad Browser open at a window size shared by all their users, so nobody stands out by screen dimensions.
+A tiled, maximized, or fullscreen window has a size of its own, and the browser letterboxes it to compensate.
+See the [Tor Browser 9.0 release notes](https://blog.torproject.org/new-release-tor-browser-90/) and [TZP](https://github.com/arkenfox/TZP).
+
+Float them so they keep their default size:
+
+```lua
+hl.window_rule({
+    name = "privacy-browsers-float",
+    match = { class = "^(Tor Browser|Mullvad Browser)$" },
+    float = true,
+    center = true,
+    fullscreen_state = "0 0",
+    suppress_event = "maximize",
+})
+```
+
+Do not add a `size` rule for these windows.
+
 ### Config versioning
 
 Some updates add breaking changes, which can be anticipated by looking at the Hyprland version.
