@@ -27,7 +27,7 @@ hl.config({
 Or only a few with:
 
 ```lua
-hl.config({ ["path.option"] = value })
+hl.config({ ["category.option"] = value })
 ```
 
 Multiple `hl.config()` invocations can be used to set options, since each call will only update what was passed into it.
@@ -62,7 +62,7 @@ If the value of an option exceeds its limits, Hyprland will throw a config error
 
 ### General
 
-Path: `general`
+Category: `general`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -83,7 +83,7 @@ Path: `general`
 
 #### General colors
 
-Path: `general.col`
+Category: `general.col`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -94,7 +94,7 @@ Path: `general.col`
 
 #### Snap
 
-Path: `general.snap`
+Category: `general.snap`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -106,7 +106,7 @@ Path: `general.snap`
 
 ### Decoration
 
-Path: `decoration`
+Category: `decoration`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -126,7 +126,7 @@ Path: `decoration`
 #### Opacity
 
 Opacity is a **product** of all opacities.
-Use `" override"` after an opacity value to set it as an exact value rather than a multiplier.
+Use `"override"` after an opacity value to set it as an exact value rather than a multiplier.
 
 For example, setting `active_opacity` to `0.5` and `opacity` window rule to `0.5` results in a total of `0.25`.
 
@@ -147,7 +147,7 @@ hl.window_rule({
 
 #### Blur
 
-Path: `decoration.blur`
+Category: `decoration.blur`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -164,7 +164,7 @@ Path: `decoration.blur`
 | popups_ignorealpha | Works like ignore_alpha in layer rules. If pixel opacity is below the set value, will not blur | float | `0.2` | [0.0 - 1.0] |
 | size | Blur size (distance) | int | `8` | |
 | special | Whether to blur behind the special workspace (note: expensive) | bool | `false` | |
-| variant | Blur pattern variant. May significantly increase GPU and CPU usage | str | `kawase` | [see below](#blur-variants) |
+| variant | Blur pattern variant. May significantly increase GPU and CPU usage | string | `kawase` | [see below](#blur-variants) |
 | vibrancy | Increase saturation of blurred colors | float | `0.1696` | [0.0 - 1.0] |
 | vibrancy_darkness | How strong the effect of `vibrancy` is on dark areas | float | `0.0` | [0.0 - 1.0] |
 | xray | If enabled, floating windows will ignore tiled windows in their blur. Will reduce overhead on floating blur significantly. Disabled if `new_optimizations = false` | bool | `false` | |
@@ -195,7 +195,7 @@ Available variants:
 ###### Acrylic
 
 Used by: `acrylic`  
-Path: `decoration.blur.acrylic`
+Category: `decoration.blur.acrylic`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -208,7 +208,7 @@ Path: `decoration.blur.acrylic`
 ###### Aurora
 
 Used by: `aurora`  
-Path: `decoration.blur.aurora`
+Category: `decoration.blur.aurora`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -220,7 +220,7 @@ Path: `decoration.blur.aurora`
 ###### Drops
 
 Used by: `drops`  
-Path: `decoration.blur.drops`
+Category: `decoration.blur.drops`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -229,7 +229,7 @@ Path: `decoration.blur.drops`
 ###### Fluid jar
 
 Used by: `fluid_jar`  
-Path: `decoration.blur.fluid_jar`
+Category: `decoration.blur.fluid_jar`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -244,7 +244,7 @@ Path: `decoration.blur.fluid_jar`
 ###### Glass
 
 Used by: `aurora`, `drops`, `heat_shimmer`, `prism`  
-Path: `decoration.blur.glass`
+Category: `decoration.blur.glass`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -255,7 +255,7 @@ Path: `decoration.blur.glass`
 ###### Haze
 
 Used by: `haze`  
-Path: `decoration.blur.haze`
+Category: `decoration.blur.haze`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -265,7 +265,7 @@ Path: `decoration.blur.haze`
 ###### Heat shimmer
 
 Used by: `heat_shimmer`  
-Path: `decoration.blur.heat_shimmer`
+Category: `decoration.blur.heat_shimmer`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -274,7 +274,7 @@ Path: `decoration.blur.heat_shimmer`
 ###### Ripple
 
 Used by: `ripple`  
-Path: `decoration.blur.ripple`
+Category: `decoration.blur.ripple`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -286,7 +286,7 @@ Path: `decoration.blur.ripple`
 ###### Water
 
 Used by: `water`  
-Path: `decoration.blur.water`
+Category: `decoration.blur.water`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -298,13 +298,13 @@ Path: `decoration.blur.water`
 
 #### Shadow
 
-Path: `decoration.shadow`
+Category: `decoration.shadow`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
 | enabled | Enable drop shadows on windows | bool | `true` | |
 | color | Active window shadow's color. Alpha dictates the opacity | color/gradient | `0xee1a1a1a` | |
-| color_inactive | Inactive window shadow's color. If not set, will fall back to `color` | color/gradient | unset | |
+| color_inactive | Inactive window shadow's color. If not set, will fall back to `color` | color/gradient | \[\[Empty\]\] | |
 | offset | Shadow's rendering offset | vec2 | `{0, 0}` | |
 | range | Shadow range (size) in pixels | int | `4` | [0 - 100] |
 | render_power | In what power to render the falloff. More power, the faster the falloff | int | `3` | [1 - 4] |
@@ -313,19 +313,19 @@ Path: `decoration.shadow`
 
 #### Glow
 
-Path: `decoration.glow`
+Category: `decoration.glow`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
 | enabled | Enable inner glow on windows | bool | `false` | |
 | color | Active window glow's color. Alpha dictates opacity | color | `0xee1a1a1a` | |
-| color_inactive | Inactive window glow's color. If not set, will fall back to `color` | color | unset | |
+| color_inactive | Inactive window glow's color. If not set, will fall back to `color` | color | \[\[Empty\]\] | |
 | range | Glow range (size) in pixels | int | `10` | [0 - 100] |
 | render_power | In what power to render the falloff. More power, the faster the falloff | int | `3` | [1 - 4] |
 
 #### Motion blur
 
-Path: `decoration.motion_blur`
+Category: `decoration.motion_blur`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -334,7 +334,7 @@ Path: `decoration.motion_blur`
 
 #### Wobble
 
-Path: `decoration.wobble`
+Category: `decoration.wobble`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -349,7 +349,7 @@ Path: `decoration.wobble`
 
 ### Animations
 
-Path: `animations`
+Category: `animations`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -360,7 +360,7 @@ More about animations can be read [here](../animations).
 
 ### Input
 
-Path: `input`
+Category: `input`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -427,7 +427,7 @@ To mimic the Windows acceleration curves, take a look at [this script](https://g
 
 #### Touchpad
 
-Path: `input.touchpad`
+Category: `input.touchpad`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -446,7 +446,7 @@ Path: `input.touchpad`
 
 #### Touchdevice
 
-Path: `input.touchdevice`
+Category: `input.touchdevice`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -456,7 +456,7 @@ Path: `input.touchdevice`
 
 #### Virtualkeyboard
 
-Path: `input.virtualkeyboard`
+Category: `input.virtualkeyboard`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -465,7 +465,7 @@ Path: `input.virtualkeyboard`
 
 #### Tablet
 
-Path: `input.tablet`
+Category: `input.tablet`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -481,7 +481,7 @@ Path: `input.tablet`
 
 #### Tablettool
 
-Path: `input.tablettool`
+Category: `input.tablettool`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -495,7 +495,7 @@ Described [here](../devices).
 
 ### Gestures
 
-Path: `gestures`
+Category: `gestures`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -514,7 +514,7 @@ Path: `gestures`
 
 #### Scrolling
 
-Path: `gestures.scrolling`
+Category: `gestures.scrolling`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -523,7 +523,7 @@ Path: `gestures.scrolling`
 
 ### Group
 
-Path: `group`
+Category: `group`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -538,7 +538,7 @@ Path: `group`
 
 #### Group colors
 
-Path: `group.col`
+Category: `group.col`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -549,7 +549,7 @@ Path: `group.col`
 
 #### Groupbar
 
-Path: `group.groupbar`
+Category: `group.groupbar`
 <!-- SORT: because of the 1st and 3rd rules combination, "gradients" is put at first position in gradient "group" -->
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -579,15 +579,15 @@ Path: `group.groupbar`
 | scrolling | Whether scrolling in the groupbar changes group active window | bool | `true` | |
 | stacked | Render the groupbar as a vertical stack | bool | `false` | |
 | text_color | Color for window titles in the groupbar | color | `0xffffffff` | |
-| text_color_inactive | Color for inactive windows' titles in the groupbar (if unset, defaults to text_color) | color | unset | |
-| text_color_locked_active | Color for the active window's title in a locked group (if unset, defaults to text_color) | color | unset | |
-| text_color_locked_inactive | Color for inactive windows' titles in locked groups (if unset, defaults to text_color_inactive) | color | unset | |
+| text_color_inactive | Color for inactive windows' titles in the groupbar, if unset, defaults to text_color | color | \[\[Empty\]\] | |
+| text_color_locked_active | Color for the active window's title in a locked group, if unset, defaults to text_color | color | \[\[Empty\]\ | |
+| text_color_locked_inactive | Color for inactive windows' titles in locked groups, if unset, defaults to text_color_inactive | color | \[\[Empty\]\ | |
 | text_offset | Adjust vertical position for titles | int | `0` | [-20 - 20] |
 | text_padding | Set horizontal padding for titles | int | `0` | [0 - 22] |
 
 ##### Groupbar colors
 
-Path: `group.groupbar.col`
+Category: `group.groupbar.col`
 | Name | Description | Type | Default | Limits
 | --- | --- | --- | --- | --- |
 | active | Active group bar background color | gradient | `0x66ffff00` | |
@@ -597,7 +597,7 @@ Path: `group.groupbar.col`
 
 ### Misc
 
-Path: `misc`
+Category: `misc`
 <!-- SORT: float force on screen and new_ variants are together because it is essentially 1 option -->
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -613,7 +613,7 @@ Path: `misc`
 | disable_hyprland_guiutils_check | Disable the warning if hyprland-guiutils is not installed | bool | `false` | |
 | disable_hyprland_logo | Disables the random Hyprland logo/anime girl background. :( | bool | `false` | |
 | disable_scale_notification | Disables notification popup when a monitor fails to set a suitable scale | bool | `false` | |
-| disable_splash_rendering | Disables the Hyprland splash rendering (the small random bit of text on the background). Requires a monitor reload to take effect. Note hyprpaper has its own setting to disable it) | bool | `false` | |
+| disable_splash_rendering | Disables the Hyprland splash rendering (the small random bit of text on the background). Requires a monitor reload to take effect. Note hyprpaper has its own setting to disable it | bool | `false` | |
 | disable_watchdog_warning | Disables the warning about not using start-hyprland | bool | `false` | |
 | disable_xdg_env_checks | Disable the warning if XDG environment is externally managed | bool | `false` | |
 | enable_anr_dialog | Whether to enable the ANR (app not responding) dialog when your apps hang | bool | `true` | |
@@ -644,7 +644,7 @@ Path: `misc`
 | swallow_regex | The _class_ regex to be used for windows that should be swallowed (usually, a terminal) | string | \[\[Empty\]\] | |
 | vrr | Controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on, 2 - fullscreen only, 3 - fullscreen with `video` or `game` content type | int | `0` | [0 - 3] |
 
-Path: `misc.col`
+Category: `misc.col`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -652,7 +652,7 @@ Path: `misc.col`
 
 ### Layout
 
-Path: `layout`
+Category: `layout`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -661,7 +661,7 @@ Path: `layout`
 
 ### Binds
 
-Path: `binds`
+Category: `binds`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -672,7 +672,7 @@ Path: `binds`
 | focus_preferred_method | Sets the preferred focus finding method when using `hl.dsp.focus({ direction })`/`hl.dsp.window.move({ direction })`/etc. `0` - most recent active window has priority, `1` - longer shared edges have priority) | int | `0` | [0 - 1] |
 | hide_special_on_workspace_change | If enabled, changing the active workspace (including to itself) will hide the special workspace on the monitor where the newly active workspace resides | bool | `false` | |
 | ignore_group_lock | If enabled, dispatchers like `hl.dsp.window.move({ into_group })` and `hl.dsp.window.move({ out_of_group })` will ignore lock per group | bool | `false` | |
-| movefocus_cycles_fullscreen | If enabled, when on a fullscreen window, `hl.dsp.focus({ direction })` will cycle fullscreen, else, it will move the focus in a direction | bool | `false` | |
+| movefocus_cycles_fullscreen | If enabled, when focus is on a fullscreen window, it allows `hl.dsp.focus({ direction })` to seek windows. If disabled, it will seek just monitors. | bool | `false` | |
 | movefocus_cycles_groupfirst | If enabled, when in a grouped window, `hl.dsp.focus({ direction })` will cycle windows in the groups first, then at each ends of the tabs, it'll move on to other windows/groups | bool | `false` | |
 | pass_mouse_when_bound | If enabled, will pass the mouse events to apps/dragging windows around if a keybind has been triggered | bool | `false` | |
 | scroll_event_delay | In ms, how many ms to wait after a scroll event to allow passing another one for the binds | int | `300` | [0 - 2000] |
@@ -682,7 +682,7 @@ Path: `binds`
 
 ### Xwayland
 
-Path: `xwayland`
+Category: `xwayland`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -693,7 +693,7 @@ Path: `xwayland`
 
 ### OpenGL
 
-Path: `opengl`
+Category: `opengl`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -701,7 +701,7 @@ Path: `opengl`
 
 ### Render
 
-Path: `render`
+Category: `render`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -729,7 +729,7 @@ Path: `render`
 
 ### Cursor
 
-Path: `cursor`
+Category: `cursor`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -759,7 +759,7 @@ Path: `cursor`
 
 ### Ecosystem
 
-Path: `ecosystem`
+Category: `ecosystem`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -769,7 +769,7 @@ Path: `ecosystem`
 
 ### Quirks
 
-Path: `quirks`
+Category: `quirks`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -782,7 +782,7 @@ Use `prefer_hdr` to fix it.
 
 ### Input Capture
 
-Path: `input-capture`
+Category: `input-capture`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -795,7 +795,7 @@ Path: `input-capture`
 > These settings are intended only for development and testing.
 > You do not want to change them in your normal config.
 
-Path: `debug`
+Category: `debug`
 <!-- SORT: please at least sort by alphabet -->
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
@@ -824,11 +824,11 @@ Path: `debug`
 
 ### Experimental
 
-Path: `experimental`
+Category: `experimental`
 <!-- SORT: just do whatever you want here -->
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
-| wp_cm_1_2 | allow wp-cm-v1 version 2 | bool | `false` | |
+| wp_cm_1_2 | Allow wp-cm-v1 version 2 | bool | `false` | |
 
 ### More
 

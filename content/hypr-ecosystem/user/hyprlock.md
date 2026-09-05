@@ -68,10 +68,10 @@ Variables in the `auth` category:
 | Variable | Description | Type | Default |
 | --- | --- | --- | --- |
 | `pam:enabled` | Whether to enable PAM authentication | bool | `true` |
-| `pam:module` | Sets the PAM module used for authentication. If the module isn't found in `/etc/pam.d`, "su" will be used as a fallback | str | `hyprlock` |
+| `pam:module` | Sets the PAM module used for authentication. If the module isn't found in `/etc/pam.d`, "su" will be used as a fallback | string | `hyprlock` |
 | `fingerprint:enabled` | Enables parallel fingerprint auth with fprintd | bool | `false` |
-| `fingerprint:ready_message` | Sets the message that will be displayed when fprintd is ready to scan a fingerprint | str | `(Scan fingerprint to unlock)` |
-| `fingerprint:present_message` | Sets the message that will be displayed when a finger is placed on the scanner | str | `Scanning fingerprint` |
+| `fingerprint:ready_message` | Sets the message that will be displayed when fprintd is ready to scan a fingerprint | string | `(Scan fingerprint to unlock)` |
+| `fingerprint:present_message` | Sets the message that will be displayed when a finger is placed on the scanner | string | `Scanning fingerprint` |
 | `fingerprint:retry_delay` | Sets the delay in ms after an unrecognized finger is scanned before another finger can be scanned | int | `250` |
 
 > [!NOTE]
@@ -210,7 +210,7 @@ You can launch arbitrary commands when clicking on them by configuring the follo
 
 | Variable | Description | Type | Default |
 | --- | --- | --- | --- |
-| `onclick` | Command to run when clicked | str | empty |
+| `onclick` | Command to run when clicked | string | [[Empty]] |
 
 ### Background
 
@@ -221,8 +221,8 @@ If `path` is `screenshot`, a screenshot of your desktop at launch will be used.
 
 | Variable | Description | Type | Default |
 | --- | --- | --- | --- |
-| `monitor` | Monitor to draw on | str | empty |
-| `path` | Image path, `screenshot` or empty to fill with `color` | str | empty |
+| `monitor` | Monitor to draw on | string | [[Empty]] |
+| `path` | Image path, `screenshot` or empty to fill with `color` | string | [[Empty]] |
 | `color` | Fallback background color | color | `rgba(17, 17, 17, 1.0)` |
 | `blur_passes` | The amount of passes to perform. `0` disables blurring | int | `0` |
 | `blur_size` | Blur size (distance) | int | `7` |
@@ -232,7 +232,7 @@ If `path` is `screenshot`, a screenshot of your desktop at launch will be used.
 | `vibrancy` | Increase saturation of blurred colors | float | `0.1696` |
 | `vibrancy_darkness` | How strong the effect of vibrancy is on dark areas | float | `0.05` |
 | `reload_time` | Seconds between reloading, `0` to reload with `SIGUSR2`. Ignored if `path` is `screenshot` | int | `-1` |
-| `reload_cmd` | Command to get new path. If empty, old path will be used | str | empty |
+| `reload_cmd` | Command to get new path. If empty, old path will be used | string | [[Empty]] |
 | `crossfade_time` | Cross-fade time in seconds between old and new background on reload. A negative value means no cross-fade | float | `-1.0` |
 | `zindex` | z-index of the widget | int | `-1` |
 
@@ -264,18 +264,18 @@ If `path` is empty or missing, nothing will be shown.
 
 | Variable | Description | Type | Default |
 | --- | --- | --- | --- |
-| `monitor` | Monitor to draw on | str | _empty_ |
-| `path` | Image path | str | _empty_ |
+| `monitor` | Monitor to draw on | string | [[Empty]] |
+| `path` | Image path | string | [[Empty]] |
 | `size` | Size scale based on the lesser side of the image | int | `150` |
 | `rounding` | Negative values result in a circle | int | `-1` |
 | `border_size` | Border size | int | `4` |
 | `border_color` | Border color | gradient | `rgba(221, 221, 221, 1.0)` |
 | `rotate` | Rotation in degrees, counter-clockwise | int | `0` |
 | `reload_time` | Seconds between reloading, `0` to reload with `SIGUSR2` | int | `-1` |
-| `reload_cmd` | Command to get new path. if empty, old path will be used. don't run "follow" commands like `tail -F` | str | _empty_ |
+| `reload_cmd` | Command to get new path. if empty, old path will be used. don't run "follow" commands like `tail -F` | string | [[Empty]] |
 | `position` | Position of the image | layoutxy | `0, 0` |
-| `halign` | Horizontal alignment | str | `center` |
-| `valign` | Vertical alignment | str | `center` |
+| `halign` | Horizontal alignment | string | `center` |
+| `valign` | Vertical alignment | string | `center` |
 | `zindex` | z-index of the widget | int | `0` |
 
 {{% details title="Example image" closed="true" %}}
@@ -304,7 +304,7 @@ Draws a shape.
 
 | Variable | Description | Type | Default |
 | --- | --- | --- | --- |
-| `monitor` | Monitor to draw on | str | _empty_ |
+| `monitor` | Monitor to draw on | string | [[Empty]] |
 | `size` | Size of the shape | layoutxy | 100, 100 |
 | `color` | Color of the shape | color | `rgba(17, 17, 17, 1.0)` |
 | `rounding` | Negative values result in a circle | int | `-1` |
@@ -313,8 +313,8 @@ Draws a shape.
 | `border_color` | Border color | gradient | `rgba(0, 207, 230, 1.0)` |
 | `xray` | If `true`, make a "hole" in the background (rectangle of specified size, no rotation) | bool | `false` |
 | `position` | Position of the shape | layoutxy | `0, 0` |
-| `halign` | Horizontal alignment | str | `center` |
-| `valign` | Vertical alignment | str | `center` |
+| `halign` | Horizontal alignment | string | `center` |
+| `valign` | Vertical alignment | string | `center` |
 | `zindex` | z-index of the widget | int | `0` |
 
 {{% details title="Example shape" closed="true" %}}
@@ -344,36 +344,36 @@ Draws a password input field.
 
 | Variable | Description | Type | Default |
 | --- | --- | --- | --- |
-| `monitor` | Monitor to draw on | str | _empty_ |
+| `monitor` | Monitor to draw on | string | [[Empty]] |
 | `size` | Size of the input field | layoutxy | `400, 90` |
 | `outline_thickness` | Thickness of the outline | int | `4` |
 | `dots_size` | Size of the dots. [0.001 - 0.8] | float | `0.25` |
 | `dots_spacing` | Spacing between dots. [-1.0 - 1.0] | float | `0.15` |
 | `dots_center` | Whether to center the dots. Align left otherwise | bool | `true` |
 | `dots_rounding` | Rounding of the dots | int | `-1` |
-| `dots_text_format` | Text character(s) used for the input indicator, rounded rectangles are the default | str | _empty_ |
+| `dots_text_format` | Text character(s) used for the input indicator, rounded rectangles are the default | string | [[Empty]] |
 | `outer_color` | Border color | gradient | `rgba(17, 17, 17, 1.0)` |
 | `inner_color` | Color of the inner box | color | `rgba(200, 200, 200, 1.0)` |
 | `font_color` | Color of the font | color | `rgba(10, 10, 10, 1.0)` |
-| `font_family` | Font family | str | `Noto Sans` |
+| `font_family` | Font family | string | `Noto Sans` |
 | `fade_on_empty` | Fade the input field when empty | bool | `true` |
 | `fade_timeout` | Milliseconds before `fade_on_empty` is triggered | int | `2000` |
-| `placeholder_text` | Text rendered in the input box when it's empty | str | `<i>Input Password...</i>` |
+| `placeholder_text` | Text rendered in the input box when it's empty | string | `<i>Input Password...</i>` |
 | `hide_input` | Render an input indicator similar to swaylock instead of dots when set to `true` | bool | `false` |
 | `hide_input_base_color` | This color's hue is randomly rotated (oklab color space) to get colors for `hide_input` | color | `rgba(153, 170, 187)` |
 | `rounding` | `-1` means complete rounding (circle/oval) | int | `-1` |
 | `check_color` | Color accent when waiting for the authentication result | gradient | `rgba(204, 136, 34, 1.0)` |
-| `check_text` | Text rendered when waiting for the authentication result | str | _empty_ |
+| `check_text` | Text rendered when waiting for the authentication result | string | [[Empty]] |
 | `fail_color` | Color accent when authentication fails | gradient | `rgba(204, 34, 34, 1.0)` |
-| `fail_text` | Text rendered when authentication fails | str | `<i>$FAIL <b>($ATTEMPTS)</b></i>` |
-| `capslock_color` | Color accent when Caps Lock is active | gradient | _empty_ |
-| `numlock_color` | Color accent when numlock is active | gradient | _empty_ |
-| `bothlock_color` | Color accent when both locks are active | gradient | _empty_ |
+| `fail_text` | Text rendered when authentication fails | string | `<i>$FAIL <b>($ATTEMPTS)</b></i>` |
+| `capslock_color` | Color accent when Caps Lock is active | gradient | [[Empty]] |
+| `numlock_color` | Color accent when numlock is active | gradient | [[Empty]] |
+| `bothlock_color` | Color accent when both locks are active | gradient | [[Empty]] |
 | `invert_numlock` | Change color if numlock is off | bool | `false` |
 | `swap_font_color` | Swap font and inner colors on color change events | bool | `false` |
 | `position` | Position of the input field | layoutxy | `0, 0` |
-| `halign` | Horizontal alignment | str | `center` |
-| `valign` | Vertical alignment | str | `center` |
+| `halign` | Horizontal alignment | string | `center` |
+| `valign` | Vertical alignment | string | `center` |
 | `zindex` | z-index of the widget | int | `0` |
 
 > [!NOTE] **Colors information**
@@ -419,16 +419,16 @@ Draws a label.
 
 | Variable | Description | Type | Default |
 | --- | --- | --- | --- |
-| `monitor` | Monitor to draw on | str | _empty_ |
-| `text` | Text to render | str | `Sample Text` |
-| `text_align` | Multi-line text alignment inside label container. center/right or any value for default left | str | `center` |
+| `monitor` | Monitor to draw on | string | [[Empty]] |
+| `text` | Text to render | string | `Sample Text` |
+| `text_align` | Multi-line text alignment inside label container. center/right or any value for default left | string | `center` |
 | `color` | Color of the text | color | `rgba(254, 254, 254, 1.0)` |
 | `font_size` | Size of the font | int |`16` |
-| `font_family` | Font family | str | `Sans` |
+| `font_family` | Font family | string | `Sans` |
 | `rotate` | Rotation in degrees, counter-clockwise | int | `0` |
 | `position` | Position of the label | layoutxy | `0, 0` |
-| `halign` | Horizontal alignment | str | `center` |
-| `valign` | Vertical alignment | str | `center` |
+| `halign` | Horizontal alignment | string | `center` |
+| `valign` | Vertical alignment | string | `center` |
 
 #### Dynamic Labels
 
@@ -444,7 +444,7 @@ text = cmd[update:1000] echo "<span foreground='##ff2222'>$(date)</span>"
 > - label can be forcefully updated by specifying `update:<time>:1` or `update:<time>:true` and sending `SIGUSR2` to hyprlock, `<time>` can be `0` in this case.
 > - `$ATTEMPTS[<string>]` format can be used to show `<string>` when there are no failed attempts.
 >   You can use pango-markup here. `<string>` can be empty to hide.
-> - `$LAYOUT[<str0>,<str1>,...]` format is available to replace indexed layouts.
+> - `$LAYOUT[<string0>,<string1>,...]` format is available to replace indexed layouts.
 >   You can use settings from `hyprland.lua` (e.g., `$LAYOUT[en,ru,de]`).
 >   Also, a single `!` character will hide layout (e.g., `$LAYOUT[!]` will hide default (0 indexed) and show others).
 > - `$TIME` and `$TIME12` will use timezone from the TZ environment variable.

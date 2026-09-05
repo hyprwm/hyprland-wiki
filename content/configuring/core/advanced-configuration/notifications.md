@@ -11,9 +11,9 @@ Notifications are simple text boxes, with an optional icon, positioned in the to
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
-| text | Text of the notification | str | [[Empty]] | |
+| text | Text of the notification | string | [[Empty]] | |
 | timeout | Timeout/duration in ms | int | [[Required]] | |
-| icon | Icon type, see [below](#icon)| str | `"none"` | |
+| icon | Icon type, see [below](#icon)| string | `"none"` | |
 | color | Notification color. `0` means "default color for icon" | color | 0 | |
 | font_size | Size of the font used to display the notification | int | 13 | |
 

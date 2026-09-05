@@ -55,28 +55,28 @@ end)
 
 | Method | Description |
 | --- | --- |
-| `exec_cmd( cmd, { rules }? )` | Execute a command. Rules can be a table of window rule effects to apply (see [below](#executing-with-rules)). |
-| `exec_raw( cmd )` | Execute a raw command. While `exec_cmd` will do `sh -c`, this won't. |
+| `dpms({ monitor?, action? })` | Toggle monitors on/off (not physically, as in idle-screensaver). Do not use with a keybind directly! |
+| `event( string )` | Send an event to socket2 |
+| `exec_cmd( cmd, { rules }? )` | Execute a command. Rules can be a table of window rule effects to apply (see [below](#executing-with-rules)) |
+| `exec_raw( cmd )` | Execute a raw command. While `exec_cmd` will do `sh -c`, this won't |
+| `exit()` | Quit Hyprland. It's recommended to use `hyprshutdown` instead of this |
 | `focus({ direction })` | Move the focus in a direction |
 | `focus({ monitor })` | Move the focus to a monitor |
 | `focus({ workspace, on_current_monitor? })` | Move the focus to a workspace |
 | `focus({ window })` | Move the focus to a window |
 | `focus({ urgent_or_last })` | Move the focus to an urgent, or last window |
 | `focus({ last })` | Move the focus to the last window |
-| `exit()` | Quit Hyprland. It's recommended to use `hyprshutdown` instead of this. |
-| `reload_config()` | Reload the configuration, just like `hyprctl reload` |
-| `submap( name )` | Move to a submap |
-| `pass({ window? })` | Pass the shortcut to a window |
-| `send_shortcut({ window?, mods, key })` | Send a specific shortcut to a window |
-| `send_key_state({ window?, mods, key, state })` | Same as send_shortcut, but `state` can be controlled with: `"down"`/`"up"` |
-| `layout( message )` | Send a layout message as a string |
-| `dpms({ monitor?, action? })` | Toggle monitors on/off (not physically, as in idle-screensaver). Do not use with a keybind directly! |
-| `event( string )` | Send an event to socket2. |
+| `force_idle( int )` | Sets elapsed time for all idle timers in seconds, ignoring idle inhibitors. Timers return to normal behavior upon the next activity. Do not use with a keybind directly! |
+| `force_renderer_reload()` | Force reloads the renderer on all monitors |
 | `global( string )` | Activate a D-Bus global shortcut. See [Global shortcuts](../binds/globals) |
-| `force_idle( int )` | Sets elapsed time for all idle timers in seconds, ignoring idle inhibitors. Timers return to normal behavior upon the next activity. Do not use with a keybind directly. |
-| `no_op()` | Does nothing. Useful for conditional binds. |
-| `force_renderer_reload()` | Force reloads the renderer on all monitors. |
-| `release_input_capture()` | Releases any active input capture session. |
+| `layout( message )` | Send a layout message as a string |
+| `no_op()` | Does nothing. Useful for conditional binds |
+| `pass({ window? })` | Pass the shortcut to a window |
+| `release_input_capture()` | Releases any active input capture session |
+| `reload_config()` | Reload the configuration, just like `hyprctl reload` |
+| `send_key_state({ window?, mods, key, state })` | Same as send_shortcut, but `state` can be controlled with: `"down"`/`"up"` |
+| `send_shortcut({ window?, mods, key })` | Send a specific shortcut to a window |
+| `submap( name )` | Move to a submap |
 
 > [!WARNING]
 > It is NOT recommended to set DPMS or force_idle with a keybind directly, as it might cause undefined behavior.
@@ -95,36 +95,36 @@ end)
 
 | Method | Description |
 | --- | --- |
-| `close({ window? })` | Send a graceful request to close the window. |
-| `kill({ window? })` | Kill the process owning the window with a `SIGKILL`. |
-| `signal({ window?, signal })` | Send a POSIX signal to the process owning the window. |
+| `alter_zorder({ window?, mode })` | Mode can be "top" or "bottom" |
+| `center({ window? })` | Center the current window on screen |
+| `clear_tags({ window? })` | Clear all tags from a window |
+| `close({ window? })` | Send a graceful request to close the window |
+| `cycle_next({ window?, next?, tiled?, floating? })` | Focus the next window |
+| `deny_from_group({ action? })` | Deny a window from entering a group |
+| `drag()` | Begin an interactive drag. To be used with mouse binds |
 | `float({ window?, action? })` | Set a window's floating state. |
-| `fullscreen({ window?, action?, mode?, layout_aware? })` | Set a window's fullscreen state. `mode` can be "maximized" and "fullscreen". `action` can be `toggle`/`set`/`unset`. `layout_aware` takes `true`(default)/`false`, allows you to choose if you want to use layout- or default-handled fullscreen behavior. |
 | `fullscreen_state({ window?, action?, internal, client, layout_aware? })` | Set a window's fullscreen state with more precision. `action` can be `toggle`/`set`/`unset`. `layout_aware` takes `true`(default)/`false`, allows you to choose if you want to use layout- or default-handled fullscreen behavior. See [fullscreen_state](#fullscreen_state), [fullscreen handlers](#fullscreen-handlers) |
-| `pseudo({ window?, action? })` | Set a window's pseudotiling state. |
-| `move({ window?, direction, group_aware? })` | Move a window in a direction. `group_aware = true` will put windows in/out of groups alongside the given direction. |
+| `fullscreen({ window?, action?, mode?, layout_aware? })` | Set a window's fullscreen state. `mode` can be "maximized" and "fullscreen". `action` can be `toggle`/`set`/`unset`. `layout_aware` takes `true`(default)/`false`, allows you to choose if you want to use layout- or default-handled fullscreen behavior |
+| `kill({ window? })` | Kill the process owning the window with a `SIGKILL` |
+| `move({ window?, direction, group_aware? })` | Move a window in a direction. `group_aware = true` will put windows in/out of groups alongside the given direction |
 | `move({ window?, workspace, follow? })` | Move a window to a workspace |
 | `move({ window?, monitor, follow? })` | Move a window to a monitor |
 | `move({ window?, x, y, relative? })` | Move a window by (`relative = true`) or to (`relative = false`) a coord |
 | `move({ window?, into_group = direction })` | Move a window into a group in a direction |
 | `move({ window?, into_or_create_group = direction })` | Move a window into a group in a direction, or create a group if no group exists in that direction |
 | `move({ window?, out_of_group })` | Move a window out of a group. `true` for directionless, direction for a direction |
+| `pin({ window?, action? })` | Pin a window |
+| `pseudo({ window?, action? })` | Set a window's pseudotiling state |
+| `resize({ keep_aspect_ratio? })` | begin an interactive resize. To be used with mouse binds. Overrides window's `keep_aspect_ratio` prop |
+| `resize({ window?, x, y, relative? })` | Resize a window |
+| `set_prop({ window?, prop, value })` | Set a window property |
+| `signal({ window?, signal })` | Send a POSIX signal to the process owning the window |
 | `swap({ direction })` | Swap the current window with another one in a given direction |
 | `swap({ target })` | Swap the current window with another one |
 | `swap({ next })` | Swap the current window with the next one |
 | `swap({ prev })` | Swap the current window with the previous one |
-| `center({ window? })` | Center the current window on screen |
-| `cycle_next({ window?, next?, tiled?, floating? })` | Focus the next window |
 | `tag({ window?, tag })` | Tag a window |
-| `clear_tags({ window? })` | Clear all tags from a window |
 | `toggle_swallow()` | Toggle all swallowed windows visible |
-| `pin({ window?, action? })` | Pin a window |
-| `alter_zorder({ window?, mode })` | Mode can be "top" or "bottom" |
-| `set_prop({ window?, prop, value })` | Set a window property |
-| `deny_from_group({ action? })` | Deny a window from entering a group |
-| `drag()` | Begin an interactive drag. To be used with mouse binds. |
-| `resize({ keep_aspect_ratio? })` | begin an interactive resize. To be used with mouse binds. Overrides window's `keep_aspect_ratio` prop. |
-| `resize({ window?, x, y, relative? })` | Resize a window |
 
 ### Workspace
 
@@ -132,11 +132,15 @@ end)
 
 | Method | Description |
 | --- | --- |
-| `change_id({ workspace, id })` | change a workspace's ID. Cannot be an ID already in use. Must be > 0. |
-| `rename({ workspace, name? })` | Rename a workspace |
+| `change_id({ workspace, id })` | Change a workspace's ID. Cannot be an ID already in use. Must be > 0 |
 | `move({ workspace?, monitor })` | Move a workspace to a monitor |
+| `rename({ workspace, name? })` | Rename a workspace |
 | `swap_monitors({ monitor1, monitor2 })` | Swap current workspaces of two monitors |
 | `toggle_special( special_name )` | Toggle a special workspace by name |
+
+> [!NOTE]
+> When using `toggle_special()`, do **not** include the `special:` prefix as part of the workspace name.
+> See the note in [Naming conventions](../../naming-conventions) for details.
 
 ### Group
 
@@ -144,13 +148,13 @@ end)
 
 | Method | Description |
 | --- | --- |
-| `toggle({ window? })` | Toggle a group |
-| `next({ window? })` | Switch to the next window in a group |
-| `prev({ window? })` | Switch to the previous window in a group |
 | `active({ window?, index })` | Switch to a window in a group, indexed |
-| `move_window({ window?, forward? })` | Move a window in the group order |
 | `lock({ window?, action? })` | Lock a group |
 | `lock_active({ action? })` | Lock the active group |
+| `move_window({ window?, forward? })` | Move a window in the group order |
+| `next({ window? })` | Switch to the next window in a group |
+| `prev({ window? })` | Switch to the previous window in a group |
+| `toggle({ window? })` | Toggle a group |
 
 ### Cursor
 
@@ -158,8 +162,8 @@ end)
 
 | Method | Description |
 | --- | --- |
-| `move_to_corner({ window?, corner = int })` | Move the cursor to a given corner of the window. Corner is [0 - 3] |
 | `move({ x, y })` | Move the cursor to a given coordinate |
+| `move_to_corner({ window?, corner })` | Move the cursor to a given corner of the window. Corner is [0 - 3] |
 
 ### Grouped (tabbed) windows
 

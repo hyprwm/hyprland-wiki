@@ -382,7 +382,7 @@ for more information.
 The order in which you **must** build is:
 
 ```
-Lua
+lua
 hyprland-protocols
 hyprwayland-scanner
 hyprutils
@@ -398,15 +398,13 @@ hyprland
 
 Other packages from hypr\* stack (e.g., hyprlock, hyprsunset, etc.) can be built in any order after Hyprland.
 
-### CMake (recommended)
+#### Building with CMake
 
 ```sh
 git clone --recursive https://github.com/hyprwm/Hyprland
 cd Hyprland
 make all && sudo make install
 ```
-
-_CMake is always recommended as it's the intended way Hyprland should be installed._
 
 ## Crash on launch
 

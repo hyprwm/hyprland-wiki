@@ -9,18 +9,18 @@ All fields beyond `output` are optional and fall back to sensible defaults.
 
 | Field | Description | Type | Default |
 | --- | --- | --- | --- |
-| output | Output name or `desc:...` description prefix | str | [[Required]] |
+| output | Output name or `desc:...` description prefix | string | [[Required]] |
 | disabled | Removes the monitor from the layout | bool | `false` |
-| mode | Resolution and refresh rate (e.g. `"1920x1080@144"`). See the [note](./modes#modes) for predefined modes. Options: `mode`/`"preferred"`/`"highres"`/`"highrr"`/`"maxwidth"` | str | `"preferred"` |
-| scale | Scale factor (e.g., `1.5`). `"auto"` = use monitor's PPI to decide the scale. Options: `scale`/`"auto"` | float or str | `"auto"` |
+| mode | Resolution and refresh rate (e.g. `"1920x1080@144"`). See the [note](./modes#modes) for predefined modes. Options: `mode`/`"preferred"`/`"highres"`/`"highrr"`/`"maxwidth"` | string | `"preferred"` |
+| scale | Scale factor (e.g., `1.5`). `"auto"` = use monitor's PPI to decide the scale. Options: `scale`/`"auto"` | float/string | `"auto"` |
 | transform | Rotation/flip transform (0–7) | int | 0 |
-| position | Position in the virtual layout (e.g., `"1920x0"`). See the [note](./positioning#positions) for predefined positions | str | `"auto"` |
-| mirror | Output name to mirror | str | [[Empty]] |
+| position | Position in the virtual layout (e.g., `"1920x0"`). See the [note](./positioning#positions) for predefined positions | string | `"auto"` |
+| mirror | Output name to mirror | string | [[Empty]] |
 | bitdepth | Bit depth. Options: `8`/`10` | int | `8` |
-| cm | Color management preset | str | `"srgb"` |
-| sdr_eotf | SDR transfer function Options: `"default"`/`"gamma22"`/`"srgb"` | str | `"default"` |
+| cm | Color management preset | string | `"srgb"` |
+| sdr_eotf | SDR transfer function Options: `"default"`/`"gamma22"`/`"srgb"` | string | `"default"` |
 | vrr | VRR modes | int | `0` |
-| icc | Absolute path to an ICC profile | str | [[Empty]] |
+| icc | Absolute path to an ICC profile | string | [[Empty]] |
 | reserved_area | Reserved area: `int` for all sides or table | css_gaps | `0` |
 | supports_wide_color | Force wide color gamut (-1 = off, 0 = auto, 1 = on) | int | `0` |
 | supports_hdr | Force HDR support. -1 = off, 0 = auto, 1 = on. Options: [-1 - 1] | int | `0` |

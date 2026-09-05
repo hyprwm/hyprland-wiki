@@ -20,12 +20,12 @@ Variables in the `general` category:
 
 | Variable | Description | Type | Default |
 | --- | --- | --- | --- |
-| `lock_cmd` | command to run when receiving a D-Bus lock event (e.g., `loginctl lock-session`) | string | empty |
-| `unlock_cmd` | command to run when receiving a D-Bus unlock event (e.g., `loginctl unlock-session`) | string | empty |
-| `on_lock_cmd` | command to run when the session gets locked by a lock screen app | string | empty |
-| `on_unlock_cmd` | command to run when the session gets unlocked by a lock screen app | string | empty |
-| `before_sleep_cmd` | command to run when receiving a D-Bus prepare_sleep event | string | empty |
-| `after_sleep_cmd` | command to run when receiving a D-Bus post prepare_sleep event | string | empty |
+| `lock_cmd` | command to run when receiving a D-Bus lock event (e.g., `loginctl lock-session`) | string | [[Empty]] |
+| `unlock_cmd` | command to run when receiving a D-Bus unlock event (e.g., `loginctl unlock-session`) | string | [[Empty]] |
+| `on_lock_cmd` | command to run when the session gets locked by a lock screen app | string | [[Empty]] |
+| `on_unlock_cmd` | command to run when the session gets unlocked by a lock screen app | string | [[Empty]] |
+| `before_sleep_cmd` | command to run when receiving a D-Bus prepare_sleep event | string | [[Empty]] |
+| `after_sleep_cmd` | command to run when receiving a D-Bus post prepare_sleep event | string | [[Empty]] |
 | `ignore_dbus_inhibit` | whether to ignore D-Bus idle inhibit events (e.g., from firefox) | bool | `false` |
 | `ignore_systemd_inhibit` | whether to ignore `systemd-inhibit --what=idle` inhibitors | bool | `false` |
 | `ignore_wayland_inhibit` | whether to ignore Wayland protocol idle inhibitors | bool | `false` |
@@ -66,10 +66,10 @@ Variables in the `listener` category:
 | Variable | Description | Type | Default |
 | --- | --- | --- | --- |
 | `timeout` | Idle time in seconds | int | none, value must be specified |
-| `on-timeout` | Command to run when timeout has passed | string | empty |
-| `on-resume` | Command to run when activity is detected after timeout has fired | string | empty |
+| `on-timeout` | Command to run when timeout has passed | string | [[Empty]] |
+| `on-resume` | Command to run when activity is detected after timeout has fired | string | [[Empty]] |
 | `ignore_inhibit` | Ignore idle inhibitors (of all types) for this rule | bool | `false` |
-| `condition_cmd` | Command run when the timeout is reached, _before_ `on-timeout`. Run via `/bin/sh -c`; exit code `0` lets `on-timeout` fire, non-zero defers it | string | empty |
+| `condition_cmd` | Command run when the timeout is reached, _before_ `on-timeout`. Run via `/bin/sh -c`; exit code `0` lets `on-timeout` fire, non-zero defers it | string | [[Empty]] |
 | `condition_retry` | When `condition_cmd` defers, re-run it every N seconds while the user stays idle, firing `on-timeout` as soon as it succeeds. `0` disables retrying (the deferred `on-timeout` is skipped for this idle cycle) | int | `0` |
 
 #### Conditional timeouts

@@ -75,7 +75,7 @@ E.g.: `workspace>>2`
 | moveoutofgroup | emitted when the window is removed from a group. returns the address of a removed window | `WINDOWADDRESS` |
 | ignoregrouplock | emitted when `ignoregrouplock` is toggled. | `0/1` |
 | lockgroups | emitted when `lockgroups` is toggled. | `0/1` |
-| configreloaded | emitted when the config is done reloading | empty |
+| configreloaded | emitted when the config is done reloading | [[Empty]] |
 | pin | emitted when a window is pinned or unpinned | `WINDOWADDRESS,PINSTATE` |
 | minimized | emitted when an external taskbar-like app requests a window to be minimized | `WINDOWADDRESS,0/1` |
 | bell | emitted when an app requests to ring the system bell via `xdg-system-bell-v1`. Window address parameter may be empty. | `WINDOWADDRESS` |
