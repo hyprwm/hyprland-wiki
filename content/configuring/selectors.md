@@ -3,9 +3,6 @@ weight: 20
 title: Selectors
 ---
 
-
-# Selectors
-
 <!-- They are placed here because selectors may be used in multiple places and not only in rules -->
 
 Any ID can be selected by using either of the following two selectors:
