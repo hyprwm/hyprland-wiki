@@ -17,6 +17,25 @@ hl.window_rule({
 
 ## Window Rules
 
+> [!WARNING]
+> A rule that has a `match` but no effect is accepted silently and does nothing.
+> `name` is only a label used to reference the rule later, it is not an effect.
+>
+> Unknown fields, in contrast, are a hard error, reported by `hyprctl configerrors`:
+>
+> ```lua
+> -- Accepted, but does nothing: no effect was given
+> hl.window_rule({ name = "no-anim", match = { class = "kitty" } })
+>
+> -- Correct
+> hl.window_rule({ match = { class = "kitty" }, no_anim = true })
+>
+> -- Error: unknown field 'noanim'
+> hl.window_rule({ match = { class = "kitty" }, noanim = true })
+> ```
+>
+> An empty `hyprctl configerrors` therefore does not prove that a rule does anything.
+
 You can set window rules to achieve different window behaviors based on their properties.
 
 ### Props
