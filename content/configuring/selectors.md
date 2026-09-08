@@ -4,7 +4,7 @@ title: Selectors
 ---
 
 
-## Selectors
+# Selectors
 
 <!-- They are placed here because selectors may be used in multiple places and not only in rules -->
 
@@ -12,7 +12,7 @@ Any ID can be selected by using either of the following two selectors:
 - Relative selection via `+` or `-`
 - Absolute selection via the ID itself
 
-### RegEx selector
+## RegEx selector
 
 Hyprland uses [Google's RE2](https://github.com/google/re2) for parsing RegEx.
 This means that all operations requiring polynomial time to compute will not work.
@@ -26,7 +26,7 @@ If you want to _negate_ a RegEx, as in pass only when the RegEx _fails_, you can
 > Lua's literal-string `[[]]` syntax may be helpful to avoid "backslash hell".
 > For example, you might write `[[\b\w*apple\b]]` instead of `"\\b\\w*apple\\b"`.
 
-### Window selector
+## Window selector
 
 Windows can be selected by:
 - Window object
@@ -46,7 +46,7 @@ Windows can be selected by:
 
 If no window is provided, the active window is used.
 
-### Workspace selectors
+## Workspace selectors
 
 > [!WARNING]
 > Numerical workspaces (e.g., `1`, `2`, `13371337`) are allowed **ONLY** between 1 and 2147483647, inclusive.
@@ -63,7 +63,7 @@ Workspaces can be selected by:
 - Previous workspace: `previous`, or `previous_per_monitor`
 - Special Workspace: `special` or `special:name` for named special workspaces.
 
-#### Workspace props
+### Workspace props
 
 <!-- TODO: i think we should make a petition to rework this for Lua -->
 
@@ -94,7 +94,7 @@ No spaces are allowed inside props themselves.
   `2`: fullscreen without sending fullscreen state to the window.
   Only matches workspaces with covering fullscreen windows.
 
-#### Workspace search
+### Workspace search
 
 > [!WARNING]
 > For `m`, `r`, and `e`, the sign is not optional.
@@ -122,7 +122,7 @@ Assuming workspaces 1 through 4 exist and 5 does not:
 | `e-1` | 1 | 4, wrapping around |
 | `r-1` | 1 | 1, clamped |
 
-### Direction
+## Direction
 
 A direction.
 - `l`/`left` - left
@@ -130,7 +130,7 @@ A direction.
 - `u`/`up` - up
 - `d`/`down` - down
 
-### Monitor
+## Monitor
 
 Monitors can be selected by:
 - Monitor object
