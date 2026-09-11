@@ -5,9 +5,9 @@ title: Selectors
 
 <!-- They are placed here because selectors may be used in multiple places and not only in rules -->
 
-Any workspace number can be selected by using either of the following two selectors:
+Any ID/Workspace Number can be selected by using either of the following two selectors:
 - Relative selection via `+` or `-`
-- Absolute selection via the workspace number itself
+- Absolute selection via the ID/Workspace Number itself
 
 ## RegEx selector
 
@@ -98,7 +98,9 @@ No spaces are allowed inside props themselves.
 > `m3` is not a relative match: it falls through to a workspace *name* lookup, and does nothing unless a workspace is literally named `m3`.
 > Write `m+3`, `m-3`, or `m~3`.
 
-A workspace query has two modes, either it's an exact query:
+A workspace filter has two modes.
+
+Either it's an exact query:
 - `1` - By number
 - `previous` - Previous workspace
 - `special:name` - Special workspaces (aka. scratchpads)
@@ -106,7 +108,7 @@ A workspace query has two modes, either it's an exact query:
 
 These are very explicit and self-describing.
 
-The second mode is a parametric query, where it turns into a search:
+Or is a parametric query, where it turns into a search:
 
 A workspace search is performed by suffixing a search selector with a signed offset, `+n` or `-n`, for a match relative to the active workspace.
 To use an absolute, 1-indexed workspace number instead, `~` is put between selector and workspace number (e.g., `m~3` is the third workspace on the current monitor).
