@@ -54,7 +54,7 @@ Workspaces can be:
 - Workspace object
 - Workspace ID
 - [Workspace selectors](#workspace-selectors)
-- [Workspace search](#workspace-search)
+- [Workspace search](#workspace-filter)
 
 - Name: E.g., `name:Web`, `name:Anime`, `name:Better anime`
 - Previous workspace: `previous`, or `previous_per_monitor`
