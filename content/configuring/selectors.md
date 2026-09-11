@@ -5,9 +5,9 @@ title: Selectors
 
 <!-- They are placed here because selectors may be used in multiple places and not only in rules -->
 
-Any ID can be selected by using either of the following two selectors:
+Any workspace number can be selected by using either of the following two selectors:
 - Relative selection via `+` or `-`
-- Absolute selection via the ID itself
+- Absolute selection via the workspace number itself
 
 ## RegEx selector
 
@@ -43,24 +43,24 @@ Windows can be selected by:
 
 If no window is provided, the active window is used.
 
-## Workspace selectors
+## Workspaces
 
 > [!WARNING]
 > Numerical workspaces (e.g., `1`, `2`, `13371337`) are allowed **ONLY** between 1 and 2147483647, inclusive.
 > Neither `0` nor negative numbers are allowed.
 
-Workspaces can be selected by:
+Workspaces can be:
 
 - Workspace object
 - Workspace ID
-- [Workspace prop](#workspace-props)
+- [Workspace selectors](#workspace-selectors)
 - [Workspace search](#workspace-search)
 
 - Name: E.g., `name:Web`, `name:Anime`, `name:Better anime`
 - Previous workspace: `previous`, or `previous_per_monitor`
 - Special Workspace: `special` or `special:name` for named special workspaces.
 
-### Workspace props
+### Workspace selectors
 
 <!-- TODO: i think we should make a petition to rework this for Lua -->
 
@@ -69,7 +69,7 @@ Workspaces that have already been created can be targeted by workspace selectors
 Props separated by a space.
 No spaces are allowed inside props themselves.
 
-- `r[A-B]` - ID range from A to B inclusive
+- `r[A-B]` - Number range from A to B inclusive
 - `s[bool]` - Whether the workspace is special or not
 - `n[bool]`, `n[s:string]`, `n[e:string]` - named actions.
   `n[bool]` - whether a workspace is a named workspace.
@@ -91,15 +91,25 @@ No spaces are allowed inside props themselves.
   `2`: fullscreen without sending fullscreen state to the window.
   Only matches workspaces with covering fullscreen windows.
 
-### Workspace search
+### Workspace filter
 
 > [!WARNING]
 > For `m`, `r`, and `e`, the sign is not optional.
 > `m3` is not a relative match: it falls through to a workspace *name* lookup, and does nothing unless a workspace is literally named `m3`.
 > Write `m+3`, `m-3`, or `m~3`.
 
-Workspace search is performed by suffixing a search selector with a signed offset, `+n` or `-n`, for a match relative to the active workspace.
-To use an absolute, 1-indexed ID instead, `~` is put between selector and ID (e.g., `m~3` is the third workspace on the current monitor).
+A workspace query has two modes, either it's an exact query:
+- `1` - By number
+- `previous` - Previous workspace
+- `special:name` - Special workspaces (aka. scratchpads)
+- `name` - Named workspace, e.g. `documents`.
+
+These are very explicit and self-describing.
+
+The second mode is a parametric query, where it turns into a search:
+
+A workspace search is performed by suffixing a search selector with a signed offset, `+n` or `-n`, for a match relative to the active workspace.
+To use an absolute, 1-indexed workspace number instead, `~` is put between selector and workspace number (e.g., `m~3` is the third workspace on the current monitor).
 
 - `m` - Search for workspace on current monitor
 - `r` - Search for workspace on current monitor including empty/non-existant workspaces
