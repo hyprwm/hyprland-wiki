@@ -341,3 +341,60 @@ hl.define_submap("group_management", function()
     hl.bind("escape", hl.dsp.submap("reset"), { description = "Quit submap" })
 end)
 ```
+
+### Close All Windows At Once
+
+```lua
+local function closeAllWindows()
+    local windows = hl.get_windows()
+
+    for _,w in pairs(windows) do
+        hl.dispatch(hl.dsp.window.close({ window = w }))
+    end
+end
+
+local function closeAllWindowsCurrentWorkspace()
+    local cws = hl.get_active_workspace()
+    local windows = hl.get_windows({ workspace = cws })
+
+    for _,w in pairs(windows) do
+        hl.dispatch(hl.dsp.window.close({ window = w }))
+    end
+end
+
+hl.bind("SUPER+BackSpace", closeAllWindowsCurrentWorkspace )
+hl.bind("SUPER+Delete", closeAllWindows )
+```
+
+### Move All Windows In Current Workspace To Another
+
+```lua
+local function moveWindowsCurrentWorkspace(ws, f)
+    local cws = hl.get_active_workspace()
+    local windows = hl.get_windows({ workspace = cws })
+
+    for _,w in pairs(windows) do
+        hl.dispatch(
+            hl.dsp.window.move({
+                window = w ,
+                workspace = ws ,
+                follow = f
+            })
+        )
+    end
+end
+
+for i = 1, 10 do
+    local key = i % 10
+    hl.bind("SUPER+SHIFT+ALT+" .. key, function()
+        moveWindowsCurrentWorkspace(i, true)
+    end)
+end
+
+for i = 1, 10 do
+    local key = i % 10
+    hl.bind("SUPER+CTRL+ALT+" .. key, function()
+        moveWindowsCurrentWorkspace(i, false)
+    end)
+end
+```
