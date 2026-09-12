@@ -154,3 +154,48 @@ Note that video players and browsers commonly hold a Wayland idle-inhibit lock d
 If you want the keyboard backlight to keep responding to real input while a video plays, set `ignore_inhibit = true` on that listener specifically, rather than on `general:ignore_wayland_inhibit` which would disable inhibit-awareness for every listener.
 
 {{% /details %}}
+
+## Locking on suspend and hibernate
+
+The session is locked *before* going to sleep, not after resuming.
+Every route into sleep goes through logind's `PrepareForSleep` signal --- `systemctl suspend`, `systemctl hibernate`, `systemctl suspend-then-hibernate`, a listener with `on-timeout = systemctl suspend`, or closing the laptop lid with logind's `HandleLidSwitch`.
+`general:before_sleep_cmd` therefore fires for all of them, including sleeps that hypridle did not initiate itself.
+
+```ini { filename="~/.config/hypr/hypridle.conf" }
+general {
+    lock_cmd = pidof hyprlock || hyprlock     # run when the session is asked to lock.
+    before_sleep_cmd = loginctl lock-session  # ask for the lock before sleeping.
+}
+```
+
+`before_sleep_cmd` does not start the locker itself.
+`loginctl lock-session` only emits logind's `Lock` signal for the session; hypridle picks it up and runs `general:lock_cmd`.
+Keeping the two apart means the locker is named in exactly one place, and a manual `loginctl lock-session` --- from a keybind, for example --- takes the same path as sleeping does.
+
+Lid handling belongs to logind, not to Hyprland; see the [warning about `HandleLidSwitch`](../../../configuring/core/binds/switches).
+No extra bind is needed to lock on lid close: logind emits `PrepareForSleep` for that path too.
+
+hypridle does not choose between suspend and hibernate, it only runs the command you give it.
+`systemctl hibernate` needs a working resume device, and `systemctl suspend-then-hibernate` suspends first and hibernates after `HibernateDelaySec`, set in `/etc/systemd/sleep.conf.d/`.
+
+### Waiting for the lock to be drawn
+
+`loginctl lock-session` returns as soon as the signal has been sent, long before the locker has drawn anything.
+Without inhibition the system can freeze in that gap, and the frame that shows up on resume is the unlocked desktop, until the locker finally appears on top of it.
+
+[`general:inhibit_sleep`](#general) exists for this: hypridle takes a `delay` sleep inhibitor from logind and releases it once its before-sleep handling is done.
+What "done" means differs per mode:
+
+- `1` releases the inhibitor as soon as `before_sleep_cmd` has been *spawned*, which is not enough for `loginctl lock-session`.
+- `3` releases it only once the session is really locked, as reported over the `hyprland-lock-notify-v1` protocol.
+- `2` (the default) picks `3` only when it recognizes hyprlock, that is when `before_sleep_cmd` contains `hyprlock`, or when `lock_cmd` contains `hyprlock` and `before_sleep_cmd` contains `lock-session`.
+  It falls back to `1` otherwise.
+
+With any other lock screen app, set `inhibit_sleep = 3` explicitly.
+Prefer that over padding `before_sleep_cmd` with a `sleep`: the inhibitor waits for the lock event itself instead of for a guess.
+Which mode was picked is printed at startup, as `Sleep inhibition enabled - inhibiting until the wayland session gets locked`.
+
+> [!NOTE]
+> The session counts as locked once the lock surface is up, which can be before the locker has finished fading in.
+> If a translucent lock screen still shows through on resume, disable the fade-in as well ([hypridle#146](https://github.com/hyprwm/hypridle/issues/146)).
+> With hyprlock, start it as `hyprlock --no-fade-in`, or turn off its [animations](../hyprlock#animations) entirely.
