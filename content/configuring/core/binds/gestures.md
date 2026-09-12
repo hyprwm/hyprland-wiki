@@ -5,16 +5,18 @@ title: Gestures
 
 ## General
 
-Hyprland supports 1:1 gestures for the trackpad for some operations.
+Hyprland supports 1:1 gestures for some operations. Gestures can be triggered by a native trackpad gesture with `fingers`, or by holding a key/button and selecting a delta stream with `source`.
 The basic syntax looks like this:
 
 ```lua
 hl.gesture({
-  fingers = 3,
+  fingers = 3, -- or button = "G", source = "wheel"
   direction = "...",
   action = "...",
 })
 ```
+
+`fingers` and `button` are mutually exclusive; one of them is required. Button gestures need to declare `source`, which selects the delta stream used as their swipe delta, and support swipe directions only. `button` accepts a keyboard key or a mouse button such as `"mouse:274"`.
 
 You can restrict gestures to a modifier with `mods`, or scale the animation speed with `scale`:
 
@@ -41,7 +43,7 @@ The following directions are supported:
 ### Actions
 
 Specifying `unset` as the action will unset a specific gesture that was previously set.
-Please note it needs to exactly match everything from the original gesture including direction, mods, fingers and scale.
+Please note it needs to exactly match everything from the original gesture including direction, mods, fingers/button, source, and scale.
 
 | action | Description | Additional arguments |
 | --- | --- | --- |
@@ -111,7 +113,7 @@ The `start` and `update` methods are passed a table with the following fields:
 | --- | --- | --- |
 | type | string | Either `swipe` or `pinch` |
 | time_ms | integer | The timestamp at which the even occurred, measured from when the system was booted |
-| fingers | integer | Number of fingers (2–9) |
+| fingers | integer | Number of fingers (2–9) for a trackpad gesture |
 | delta.x | float | Horizontal motion relative to the last update. Right motion is positive, left is negative |
 | delta.y | float | Vertical motion relative to the last update. Downwards motion is positive, upwards is negative |
 | scale | float | The change in size of the finger arrangement, relative to the start of the gesture. Spread is positive, pinch is negative. `Nil` if the gesture type is not `pinch` |
@@ -166,7 +168,9 @@ hl.gesture({
 
 | Field | Type | Description |
 | --- | --- | --- |
-| fingers | integer | Number of fingers (2–9) |
+| fingers | integer | Number of fingers (2–9) for a native trackpad gesture. Mutually exclusive with `button` |
+| button | string | Keyboard key or pointer button that activates the gesture, e.g. `"G"` or `"mouse:274"`. Mutually exclusive with `fingers` |
+| source | string | Required with `button`; selects its delta stream. `"mouse"`, `"wheel"`, `"finger"`, `"continuous"`, and `"wheel_tilt"`. `"finger"` is touchpad finger-scrolling, unlike a native `fingers` gesture. |
 | direction | string | Gesture direction (see above) |
 | action | string | Action to perform (see above) |
 | mods | string | Optional modifier mask, e.g. `"SUPER"` or `"ALT SHIFT"` |
@@ -176,6 +180,18 @@ hl.gesture({
 Some gestures might have their own additional fields, which are described in the [Actions](#actions) table.
 
 ### Examples
+
+Move the scrolling layout while holding SUPER+G and using a physical wheel:
+
+```lua
+hl.gesture({ button = "G", mods = "SUPER", source = "wheel", direction = "swipe", action = "scroll_move" })
+```
+
+Move the scrolling layout while holding SUPER+SHIFT+G and finger-scrolling on a touchpad:
+
+```lua
+hl.gesture({ button = "G", mods = "SUPER SHIFT", source = "finger", direction = "swipe", action = "scroll_move" })
+```
 
 Run a Lua lambda function, open a terminal with a 4-finger swipe up:
 
