@@ -149,8 +149,8 @@ end)
 | `prev({ window? })` | Switch to the previous window in a group |
 | `active({ window?, index })` | Switch to a window in a group, indexed |
 | `move_window({ window?, forward? })` | Move a window in the group order |
-| `lock({ window?, action? })` | Lock a group |
-| `lock_active({ action? })` | Lock the active group |
+| `lock({ all?, action? })` | Lock all groups |
+| `lock({ window?, action? })` | Lock the specified window's group |
 
 ### Cursor
 
