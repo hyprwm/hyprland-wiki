@@ -55,7 +55,8 @@ Event list:
 | monitor.layout_changed | Emitted when the monitor arrangement changes. This occurs when a monitor is added or removed, a monitor's resolution or refresh rate is changed, or the config is reloaded with different rules. | None |
 | workspace.active | Emitted when the active workspace on a monitor changes. | Workspace |
 | workspace.special_active | Emitted when the opened special workspace on a monitor changes. Workspace of nil means no special workspace is open. | Workspace, Monitor |
-| workspace.created | Emitted when a workspace is created. | Workspace |
+| workspace.created | Emitted when a workspace is created, after activating if appropriate | Workspace |
+| workspace.created_early | Emitted when a workspace is created, but **before** it is activated | Workspace |
 | workspace.removed | Emitted when a workspace is removed. | Workspace |
 | workspace.move_to_monitor | Emitted when a workspace is moved to a different monitor. | Workspace, Monitor |
 | config.reloaded | Emitted when the config has been reloaded **and applied**. | None |
