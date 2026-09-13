@@ -17,6 +17,25 @@ hl.window_rule({
 
 ## Window Rules
 
+> [!WARNING]
+> A rule that has a `match` but no effect is accepted silently and does nothing.
+> `name` is only a label used to reference the rule later, it is not an effect.
+>
+> Unknown fields, in contrast, are a hard error, reported by `hyprctl configerrors`:
+>
+> ```lua
+> -- Accepted, but does nothing: no effect was given
+> hl.window_rule({ name = "no-anim", match = { class = "kitty" } })
+>
+> -- Correct
+> hl.window_rule({ match = { class = "kitty" }, no_anim = true })
+>
+> -- Error: unknown field 'noanim'
+> hl.window_rule({ match = { class = "kitty" }, noanim = true })
+> ```
+>
+> An empty `hyprctl configerrors` therefore does not prove that a rule does anything.
+
 You can set window rules to achieve different window behaviors based on their properties.
 
 ### Props
@@ -73,13 +92,13 @@ This essentially means that it is always the `initialTitle` and `initialClass` w
 | group | Sets window group properties. See [group options](#group-window-rule-options) below | str |
 | maximize | Maximizes a window | bool |
 | monitor | Sets the monitor on which a window should open (e.g., `"1"`, `"DP-1"`). Can be suffixed with `" silent"` | str |
-| move | Moves a floating window to the given monitor-local coordinates (e.g., `{100, 200}`, `{"(cursor_x-(window_w*0.5))", "(cursor_y-(window_h*0.5))"}`) | str |
+| move | Moves a floating window to the given monitor-local coordinates (e.g., `{100, 200}`, `{"(cursor_x-(window_w*0.5))", "(cursor_y-(window_h*0.5))"}`) | vec2 |
 | no_close_for | Makes the window uncloseable with `killactive` for a given number of ms on open | int |
 | no_initial_focus | Disables the initial focus to the window | bool |
 | pin | Pins the window (i.e. show it on all workspaces). _Note: pinning is ignored for non-floating windows. You most likely want to use this together with `float = true`_ | bool |
 | pseudo | Pseudotiles a window | bool |
 | scrolling_width | Set column width for window when starting on a workspace with the scrolling layout | float |
-| size | Resizes a floating window (e.g., `{800, 600}`, `{"(monitor_w*0.5)", "(monitor_h*0.5)"}`) | str |
+| size | Resizes a floating window (e.g., `{800, 600}`, `{"(monitor_w*0.5)", "(monitor_h*0.5)"}`) | vec2 |
 | suppress_event | Ignores specific events. Space-separated: `"fullscreen"`, `"maximize"`, `"activate"`, `"activatefocus"`, `"fullscreenoutput"`, `"x11configurerequest"` | str |
 | tile | Tiles a window | bool |
 | workspace | Sets the workspace on which a window should open. Can also be `"unset"` or suffixed with `" silent"` | str |
@@ -95,11 +114,14 @@ All position variables are monitor-local.
 - `window_w` and `window_h` for window size
 - `cursor_x` and `cursor_y` for cursor position
 
+`move`, `size`, `max_size` and `min_size` all accept either a `{x, y}` table or a single space-separated string.
+
 Example expressions:
 
 ```lua
 move = {"window_w * 0.5", "(monitor_h / 2) + 17"}
 size = {"monitor_w * 0.5", "monitor_h * 0.5"}
+size = "800 600"
 ```
 
 ### Dynamic effects
