@@ -116,7 +116,7 @@ Workspaces can be referenced by:
 - Previous workspace: `previous`, or `previous_per_monitor`
 - Special Workspace: `special` or `special:name` for named special workspaces.
 - Workspace object
-- [Workspace selectors](#workspace-selectors)
+- [Workspace filters](#workspace-filters)
 - [Workspace query](#workspace-query)
 
 > [!NOTE]
@@ -124,14 +124,14 @@ Workspaces can be referenced by:
 > This prefix is only needed in cases where a normal workspace would also be valid.
 > For example, `hl.dsp.toggle_special("foo")` targets the workspace typically referred to as `special:foo`.
 
-#### Workspace selectors
+#### Workspace filters
 
 <!-- TODO: i think we should make a petition to rework this for Lua -->
 
-Workspaces that have already been created can be targeted by workspace selectors (e.g., `r[2-4] w[t1]`)
+Workspaces that have already been created can be targeted by workspace filters (e.g., `r[2-4] w[t1]`)
 
-Props separated by a space.
-No spaces are allowed inside props themselves.
+A filter is a sequence of filter expressions separated by spaces.
+No spaces are allowed inside expressions themselves.
 
 - `r[A-B]` - ID range from A to B inclusive
 - `s[bool]` - Whether the workspace is special or not
@@ -155,6 +155,10 @@ No spaces are allowed inside props themselves.
   `2`: fullscreen without sending fullscreen state to the window.
   Only matches workspaces with covering fullscreen windows.
 
+> [!NOTE]
+> Filters can *only* target workspaces that already exist.
+> Trying to apply rules (for example `persistent`) to nonexistent workspaces will fail.
+
 #### Workspace query
 
 A workspace query is performed by suffixing a query selector with a signed offset, `+n` or `-n`, for a match relative to the active workspace.
@@ -168,8 +172,8 @@ To use an absolute, 1-indexed ID instead, `~` is put between selector and ID (e.
 | empty | Look for first empty workspace. Suffix with `m` to only look on current monitor, and/or `n` to find the _next_ available empty workspace (e.g., `emptynm`) | Wraps around if it lands past the last numerical workspace, 2147483647 |
 
 > [!WARNING]
-> For search selectors that accept an ID, a sign or `~` is required.
-> `m3` would be interpreted as a workspace name, not a search selector, and would do nothing unless there were a workspace named "m3".
+> For query selectors that accept an ID, a sign or `~` is required.
+> `m3` would be interpreted as a workspace name, not a query selector, and would do nothing unless there were a workspace named "m3".
 
 ### Direction
 
