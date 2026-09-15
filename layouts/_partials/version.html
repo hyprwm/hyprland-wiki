@@ -1,23 +1,31 @@
 {{- $version := .params.version | default .params.name -}}
 
-{{- $outdated := "" -}}
-{{- if .params.outdated -}}
-  {{- $outdated = "outdated" -}}
-{{- end -}}
+{{- $outdated := .params.outdated -}}
+{{- $git := eq $version "Git" -}}
+{{- $latest := and (not $outdated) (eq $version (index .params.list 0)) -}}
 
 <span class="hx:flex hx:items-center hx:gap-4 hx:ltr:mr-auto hx:rtl:ml-auto">
-  <a href="{{ .params.url }}" rel="noreferer" class="{{ $outdated }} hx:hover:opacity-75">
-    <span class="hx:text-center">{{ $version }}</span>
-  </a>
-  <span class="hx:text-center hx:text-sm hx:opacity-50">switch to:</span>
-  {{ if ne $version "Git" }}
-  <a href="/git" rel="noreferer" class="hx:hover:opacity-75">
+  <a href="/git" rel="noreferer" class="hx:hover:opacity-75"
+    {{- if $git -}}
+      aria-current="page"
+    {{- end -}}
+    >
     <span class="hx:text-center">Git</span>
   </a>
-  {{ end }}
-  {{ if ne $version (index .params.list 0) }}
-  <a href="/latest" rel="noreferer" class="hx:hover:opacity-75">
+  <a href="/latest" rel="noreferer" class="hx:hover:opacity-75"
+    {{- if $latest -}}
+      aria-current="page"
+    {{- end -}}
+    >
     <span class="hx:text-center">Latest</span>
   </a>
-  {{ end }}
+  <a href="{{ .params.url }}" rel="noreferer" class="hx:hover:opacity-75
+    {{- if $outdated }}
+      outdated" aria-current="page">
+      <span class="hx:text-center">{{ $version }}</span>
+    {{- else -}}
+      ">
+      <span class="hx:text-center">More...</span>
+    {{- end -}}
+  </a>
 </span>
