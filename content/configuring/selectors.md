@@ -5,9 +5,9 @@ title: Selectors
 
 <!-- They are placed here because selectors may be used in multiple places and not only in rules -->
 
-Any ID/Workspace Number can be selected by using either of the following two selectors:
+Any Workspace Number can be selected by using either of the following two selectors:
 - Relative selection via `+` or `-`
-- Absolute selection via the ID/Workspace Number itself
+- Absolute selection via the Workspace Number itself
 
 ## RegEx selector
 
@@ -52,7 +52,7 @@ If no window is provided, the active window is used.
 Workspaces can be:
 
 - Workspace object
-- Workspace ID
+- Workspace number
 - [Workspace selectors](#workspace-selectors)
 - [Workspace search](#workspace-filter)
 
@@ -60,14 +60,14 @@ Workspaces can be:
 - Previous workspace: `previous`, or `previous_per_monitor`
 - Special Workspace: `special` or `special:name` for named special workspaces.
 
-### Workspace selectors
+### Workspace filters
 
 <!-- TODO: i think we should make a petition to rework this for Lua -->
 
-Workspaces that have already been created can be targeted by workspace selectors (e.g., `r[2-4] w[t1]`)
+Workspaces that have already been created can be targeted by workspace filters (e.g., `r[2-4] w[t1]`)
 
-Props separated by a space.
-No spaces are allowed inside props themselves.
+A filter is a sequence of filter expressions separated by spaces.
+No spaces are allowed inside expressions themselves.
 
 - `r[A-B]` - Number range from A to B inclusive
 - `s[bool]` - Whether the workspace is special or not
@@ -91,45 +91,28 @@ No spaces are allowed inside props themselves.
   `2`: fullscreen without sending fullscreen state to the window.
   Only matches workspaces with covering fullscreen windows.
 
-### Workspace filter
 
-> [!WARNING]
-> For `m`, `r`, and `e`, the sign is not optional.
-> `m3` is not a relative match: it falls through to a workspace *name* lookup, and does nothing unless a workspace is literally named `m3`.
-> Write `m+3`, `m-3`, or `m~3`.
+> [!NOTE]
+> Filters can *only* target workspaces that already exist.
+> Trying to apply rules (for example `persistent`) to nonexistent workspaces will fail.
 
-A workspace filter has two modes.
 
-Either it's an exact query:
-- `1` - By number
-- `previous` - Previous workspace
-- `special:name` - Special workspaces (aka. scratchpads)
-- `name` - Named workspace, e.g. `documents`.
 
-These are very explicit and self-describing.
+#### Workspace selector
 
-Or is a parametric query, where it turns into a search:
-
-A workspace search is performed by suffixing a search selector with a signed offset, `+n` or `-n`, for a match relative to the active workspace.
+A workspace selection is performed by suffixing a selector with a signed offset, `+n` or `-n`, for a match relative to the active workspace.
 To use an absolute, 1-indexed workspace number instead, `~` is put between selector and workspace number (e.g., `m~3` is the third workspace on the current monitor).
 
-- `m` - Search for workspace on current monitor
-- `r` - Search for workspace on current monitor including empty/non-existant workspaces
-- `e` - Search on all monitors
-- `empty` - Search for first empty workspace. Suffix with `m` to only search on monitor, and/or `n` to make it the _next_ available empty workspace (e.g., `emptynm`)
-
-`m` and `e` only traverse workspaces that already exist, and they wrap around at both ends of that list.
-They can therefore never select an empty workspace that has not been created yet.
-`r` walks workspace IDs instead, so it can select an empty workspace, and it clamps at 1 rather than wrapping.
-
-Assuming workspaces 1 through 4 exist and 5 does not:
-
-| Selector | Active workspace | Result |
+| Selector | Description | Limits |
 | --- | --- | --- |
-| `e+1` | 4 | 1, wrapping around; never 5 |
-| `r+1` | 4 | 5, which is created |
-| `e-1` | 1 | 4, wrapping around |
-| `r-1` | 1 | 1, clamped |
+| e | Look on all monitors | Wraps around if range exceeds amount of worksapces in the direction |
+| m | Look on current monitor | Wraps around if range exceeds amount of worksapces in the direction |
+| r | Look on current monitor, including empty/nonexistent workspaces | [1 - ...] |
+| empty | Look for first empty workspace. Suffix with `m` to only look on current monitor, and/or `n` to find the _next_ available empty workspace (e.g., `emptynm`) | Wraps around if it lands past the last numerical workspace, 2147483647 |
+
+> [!WARNING]
+> For selectors that accept a workspace number, a sign or `~` is required.
+> `m3` would be interpreted as a workspace name, not a selector, and would do nothing unless there were a workspace named "m3".
 
 ## Direction
 
