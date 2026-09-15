@@ -56,10 +56,6 @@ Some of them are for debugging, others may cause system instability if not used 
 
 - `hl.env("GTK_THEME", "yourVeryPrettyTheme")` - Set a GTK theme manually, for those who want to avoid appearance tools such as lxappearance or nwg-look.
 
-## NVIDIA-specific
-
-[Go to Nvidia page.](../../../nvidia/#environment-variables)
-
 ## GUI toolkits' backend
 
 - `hl.env("GDK_BACKEND", "wayland,x11,*")` - GTK: Use Wayland if available; if not, try X11 and  then any other GDK backend.
