@@ -7,7 +7,7 @@ title: Layer rules
 
 ```lua
 hl.layer_rule({
-    name? = str,
+    name? = string,
     match = {
         prop = some_prop_value,
     },
@@ -32,7 +32,7 @@ The syntax is the same as `hl.window_rule()`.
 | Effect | Description | Type | Limits |
 | ---- | --- | --- | --- |
 | above_lock | If non-zero, renders the layer above the lock screen. `2` = interactive on lock screen | int | |
-| animation | Sets a specific animation style for this layer | str | |
+| animation | Sets a specific animation style for this layer | string | |
 | blur | Enables blur for the layer | bool | |
 | blur_popups | Enables blur for popups | bool | |
 | dim_around | Dims everything behind the layer | bool | |

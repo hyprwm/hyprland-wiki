@@ -9,7 +9,7 @@ Animations are declared with the `hl.animation()` method.
 
 Syntax:
 ```
-hl.animation({ leaf = str, enabled = bool, speed = float, curve = str, style? = str })
+hl.animation({ leaf = string, enabled = bool, speed = float, curve = string, style? = string })
 ```
 - `leaf` is the scope of the animation. See [Animation tree](#animation-tree).
 - `enabled` can be either `true` to enable or `false` to disable. _Note:_ if it's `false`, you can omit further arguments.
@@ -101,9 +101,9 @@ The more "stiffness", the more speed, and the more "damping", the less bounce.
 
 If the spring is critically damped, it settles fast and doesn't overshoot (no bounce).
 
-Critical damping occurs when $\zeta = 1$, where
+Critical damping occurs when \(\zeta = 1\), where
 
-$$
+\[
 \zeta = \frac{c}{c_c} = \frac{c}{2\sqrt{k\,m}}, \quad
 \begin{cases}
 c   & \text{damping coefficient*} \\
@@ -111,7 +111,7 @@ c_c & \text{critical damping coefficient} \\
 k   & \text{stiffness} \\
 m   & \text{mass}
 \end{cases}
-$$
+\]
 
 > \* This is the damping value you give to the curve.
 
@@ -119,15 +119,15 @@ You probably want your damping around `0.6` to `0.8` for it to feel responsive a
 
 ##### Overdamped
 
-Occurs when $\zeta > 1$.
+Occurs when \(\zeta > 1\).
 
 Returns slowly, no oscillation (doesn't bounce).
 
 ##### Underdamped
 
-Occurs when $\zeta < 1$.
+Occurs when \(\zeta < 1\).
 
-Oscillates (bounces), decays* exponentially.
+Oscillates (bounces), decays\* exponentially.
 
 > \* The amplitude of the bounces shrinks exponentially over time.
 

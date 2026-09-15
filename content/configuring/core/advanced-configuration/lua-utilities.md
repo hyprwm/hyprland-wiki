@@ -38,7 +38,7 @@ Hyprland exposes the following convenience functions:
 - `hl.get_monitors({ all? })`
 - `hl.get_monitor(selector)`
 - `hl.get_active_monitor()`
-- `hl.get_monitor_at({ x = num, y = num })`
+- `hl.get_monitor_at({ x = int, y = int })`
 - `hl.get_monitor_at_cursor()`
 - `hl.get_cursor_pos()`
 - `hl.get_last_window()`
@@ -50,7 +50,7 @@ Hyprland exposes the following convenience functions:
 - `hl.exec_cmd()`
 - `hl.exec_scheduled_prop_refresh_immediately()`
 - `hl.get_loaded_plugins()`
-- `hl.is_key_down(key = num|str)`
+- `hl.is_key_down(key = int/string)`
 
 Use the LSP (or examine the stubs yourself) for the return values (classes and their parameters) of these functions.
 See [here](../../../core#editor-autocompletion) to set up the LSP in your code editor.

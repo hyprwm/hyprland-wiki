@@ -293,6 +293,9 @@ sudo eopkg install hyprland
 ---
 <!-- NOTE: this ^^^ line is here to visually separate contents of tabs; it is thin, but it is there -->
 
+> [!NOTE]
+> If you plan to use plugins, note that `hyprpm` may be packaged separately on some distros.
+
 ### Manual build
 
 #### Dependencies:
@@ -382,7 +385,7 @@ for more information.
 The order in which you **must** build is:
 
 ```
-Lua
+lua
 hyprland-protocols
 hyprwayland-scanner
 hyprutils
@@ -398,15 +401,13 @@ hyprland
 
 Other packages from hypr\* stack (e.g., hyprlock, hyprsunset, etc.) can be built in any order after Hyprland.
 
-### CMake (recommended)
+#### Building with CMake
 
 ```sh
 git clone --recursive https://github.com/hyprwm/Hyprland
 cd Hyprland
 make all && sudo make install
 ```
-
-_CMake is always recommended as it's the intended way Hyprland should be installed._
 
 ## Crash on launch
 

@@ -137,7 +137,7 @@ Make sure to also edit `~/.config/gtk-4.0/settings.ini` and `~/.gtkrc-2.0`, if n
 
 [https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland](https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland)
 
-### My \[program name\] is freezing
+### My [program name] is freezing
 
 Make sure you have a notification daemon running, for example `dunst`.
 You can autostart them in your config if the usual D-Bus autostart fails.
