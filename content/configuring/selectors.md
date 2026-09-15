@@ -54,7 +54,7 @@ Workspaces can be:
 - Workspace object
 - Workspace number
 - [Workspace selectors](#workspace-selectors)
-- [Workspace search](#workspace-filter)
+- [Workspace search](#workspace-filters)
 
 - Name: E.g., `name:Web`, `name:Anime`, `name:Better anime`
 - Previous workspace: `previous`, or `previous_per_monitor`
@@ -98,7 +98,7 @@ No spaces are allowed inside expressions themselves.
 
 
 
-#### Workspace selector
+#### Workspace selectors
 
 A workspace selection is performed by suffixing a selector with a signed offset, `+n` or `-n`, for a match relative to the active workspace.
 To use an absolute, 1-indexed workspace number instead, `~` is put between selector and workspace number (e.g., `m~3` is the third workspace on the current monitor).
