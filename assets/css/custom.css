@@ -8,6 +8,10 @@
   filter: invert(100%);
 }
 
+nav a[aria-current="page"] {
+  color: var(--hx-color-primary-600);
+}
+
 .outdated span {
   color: #df1500;
 }
