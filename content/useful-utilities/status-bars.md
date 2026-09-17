@@ -104,6 +104,20 @@ This provides a DE-like experience out of the box, with little to no coding invo
 - Configurable through a built-in GUI settings app, extensible with plugins and widgets.
 - Built on Quickshell and Go.
 
+### hyprbaric
+
+[hyprbaric](https://asaphaaning.github.io/hyprbaric/) is a hyprland-native bar and desktop shell.
+Watch the modules rendered [directly in your browser](https://asaphaaning.github.io/hyprbaric/) before you opt-in.
+
+- First-class support for fractional scaling.
+- Includes a macOS-style global menu that moves the focused application's menu bar onto the panel.
+- Ships workspaces, tray, notifications, an app launcher, session controls, and audio, network, and power panels as one package.
+- Notification center with history and *Do Not Disturb*.
+- Screenshots, color picking, recording, night light, caffeine, and more.
+- Configurable through TOML or the UI, backed by the same file.
+  You pick your preference.
+- Built on Flutter and Rust.
+
 ## Widget systems
 
 Use them when you want custom menus with fully customizable layout.
