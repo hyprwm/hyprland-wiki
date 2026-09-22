@@ -73,34 +73,61 @@ This essentially means that it is always the `initialTitle` and `initialClass` w
 | group | Sets window group properties. See [group options](#group-window-rule-options) below | string |
 | maximize | Maximizes a window | bool |
 | monitor | Sets the monitor on which a window should open (e.g., `"1"`, `"DP-1"`). Can be suffixed with `" silent"` | string |
-| move | Moves a floating window to the given monitor-local coordinates (e.g., `{100, 200}`, `{"(cursor_x-(window_w*0.5))", "(cursor_y-(window_h*0.5))"}`) | string |
+| move | Moves a floating window to the given monitor-local coordinates. See [position and size](#position-and-size) below | table or string |
 | no_close_for | Makes the window uncloseable with `killactive` for a given number of ms on open | int |
 | no_initial_focus | Disables the initial focus to the window | bool |
 | pin | Pins the window (i.e. show it on all workspaces). _Note: pinning is ignored for non-floating windows. You most likely want to use this together with `float = true`_ | bool |
 | pseudo | Pseudotiles a window | bool |
 | scrolling_width | Set column width for window when starting on a workspace with the scrolling layout | float |
-| size | Resizes a floating window (e.g., `{800, 600}`, "200x500", `{"(monitor_w*0.5)", "(monitor_h*0.5)"}`) | table/string |
+| size | Resizes a floating window. See [position and size](#position-and-size) below | table or string |
 | suppress_event | Ignores specific events. Space-separated: `"fullscreen"`, `"maximize"`, `"activate"`, `"activatefocus"`, `"fullscreenoutput"`, `"x11configurerequest"` | string |
 | tile | Tiles a window | bool |
 | workspace | Sets the workspace on which a window should open. Can also be `"unset"` or suffixed with `" silent"` | string |
 
-#### Expressions
+#### Position and size
 
-Expressions are used with `move` and `size`.
-They are space-separated (no spaces within each expression).
+<!-- TODO: Table arguments should be { x = int, y = int }, https://github.com/hyprwm/Hyprland/discussions/16339. When (I hope it is "when", and not "if") this is fixed, section below should be edited to mention the correct form -->
+
+Position and size arguments take a Lua table or a string.
+Value can be a number or an [expression](#expressions).
+The string argument is split at the first whitespace.
+
+A single value, a table without exactly two elements, and any separator other than a whitespace, e.g.:`"800,600"`, `"800x600"`, are config errors.
+
+##### Expressions
+
+Expressions are shortcodes for basic information.
 All position variables are monitor-local.
+To be correctly parsed in a string argument, they should not contain spaces.
 
 - `monitor_w` and `monitor_h` for monitor size
 - `window_x` and `window_y` for window position
 - `window_w` and `window_h` for window size
 - `cursor_x` and `cursor_y` for cursor position
 
-Example expressions:
+{{% details title="Examples" closed="true" %}}
 
 ```lua
+-- Set size to x = 800, y = 600
+size = { 800, 600 }
+
+-- Same size, but via string
+size = "800 600"
+
+-- Move window center to the cursor position
+move = { "cursor_x - (window_w * 0.5)", "cursor_y - (window_h * 0.5)" }
+
+-- Move window to the top-left corner + 17 pixels in y direction
 move = {"window_w * 0.5", "(monitor_h / 2) + 17"}
+
+-- Set windiw suze to the half monitor resolution
 size = {"monitor_w * 0.5", "monitor_h * 0.5"}
+
+-- Set max_size as half of the monitor width and height
+max_size = "monitor_w*0.5 monitor_h*0.5"
 ```
+
+{{% /details %}}
 
 ### Dynamic effects
 
@@ -120,8 +147,8 @@ Dynamic effects are re-evaluated every time a property changes.
 | idle_inhibit | Sets an idle inhibit rule. Modes: `"none"`, `"always"`, `"focus"`, `"fullscreen"` | string | |
 | immediate | Forces the window to allow tearing | bool | |
 | keep_aspect_ratio | Forces aspect ratio when resizing with the mouse | bool | |
-| max_size | Sets the maximum size for floating windows (e.g., `{800, 600}`) | vec2 | |
-| min_size | Sets the minimum size for floating windows (e.g., `{200, 150}`) | vec2 | |
+| max_size | Sets the maximum size for floating windows. See [position and size](#position-and-size) above | table or string | |
+| min_size | Sets the minimum size for floating windows. See [position and size](#position-and-size) above | table or string | |
 | nearest_neighbor | Forces nearest-neighbor filtering | bool | |
 | no_anim | Disables animations for the window | bool | |
 | no_auto_hdr | Disables AutoHDR for the window. This is useful to stop programs like `foot` triggering AutoHDR when they are fullscreened | bool | |
