@@ -96,7 +96,7 @@ A single value, a table without exactly two elements, and any separator other th
 
 ##### Expressions
 
-Expressions are shortcodes for basic information.
+Expressions are simple shortcodes for basic information.
 All position variables are monitor-local.
 To be correctly parsed in a string argument, they should not contain spaces.
 
@@ -117,11 +117,11 @@ size = "800 600"
 -- Move window center to the cursor position
 move = { "cursor_x - (window_w * 0.5)", "cursor_y - (window_h * 0.5)" }
 
--- Move window to the top-left corner + 17 pixels in y direction
-move = {"window_w * 0.5", "(monitor_h / 2) + 17"}
+-- Align window with the left monitor border and 17 pixels below monitor center
+move = { "window_w * 0.5", "(monitor_h / 2) + 17" }
 
 -- Set windiw suze to the half monitor resolution
-size = {"monitor_w * 0.5", "monitor_h * 0.5"}
+size = { "monitor_w * 0.5", "monitor_h * 0.5" }
 
 -- Set max_size as half of the monitor width and height
 max_size = "monitor_w*0.5 monitor_h*0.5"
