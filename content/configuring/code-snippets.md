@@ -210,15 +210,6 @@ hl.bind("SUPER + F1", function ()
 end)
 ```
 
-### Per workspace layouts
-
-You can use workspace rules to set per-workspace layouts:
-
-```lua
-hl.workspace_rule({ workspace = "2", layout = "scrolling" })
-hl.workspace_rule({ workspace = "3", layout = "dwindle" })
-```
-
 ### Cycle layout for current workspace
 
 To change the layout of the current workspace, you can use this bind:
@@ -248,7 +239,7 @@ hl.bind("SUPER + tab", function ()
     if workspace.special then
         hl.workspace_rule({ workspace = tostring(workspace.name), layout = next_layout })
     else
-        hl.workspace_rule({ workspace = tostring(workspace.id), layout = next_layout })
+        hl.workspace_rule({ workspace = "name:" .. tostring(workspace.name), layout = next_layout })
     end
 end)
 ```
@@ -302,7 +293,7 @@ end, { description = "Switch focus between tiled and floating windows" })
 ## Vim-like keymaps
 
 Hyprland has so many features that you might run out of keys on your keyboard if you want to bind them all.
-Rest assured, you can utilize submaps to create keymaps if you want more, and they're also easier to press than a single bind with many modidiers.
+Rest assured, you can utilize submaps to create keymaps if you want more, and they're also easier to press than a single bind with many modifiers.
 
 Here's an example of managing window groups this way:
 
