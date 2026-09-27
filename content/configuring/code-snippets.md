@@ -284,8 +284,11 @@ This functions similarly to the i3 `focus mode_toggle` bind.
 
 ```lua
 hl.bind("SUPER + space", function()
+    local window = hl.get_active_window()
+    if not window then return end
     hl.dispatch(hl.dsp.window.cycle_next({
-        floating = not hl.get_active_window().floating
+        floating = not window.floating,
+        tiled = window.floating,
     }))
 end, { description = "Switch focus between tiled and floating windows" })
 ```
