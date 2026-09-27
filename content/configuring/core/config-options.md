@@ -677,8 +677,7 @@ Category: `binds`
 | pass_mouse_when_bound | If enabled, will pass the mouse events to apps/dragging windows around if a keybind has been triggered | bool | `false` | |
 | scroll_event_delay | In ms, how many ms to wait after a scroll event to allow passing another one for the binds | int | `300` | [0 - 2000] |
 | window_direction_monitor_fallback | If enabled, moving a window or focus over the edge of a monitor with a direction will move it to the next monitor in that direction | bool | `true` | |
-| workspace_back_and_forth | If enabled, an attempt to switch to the currently focused workspace will instead switch to the previous workspace, akin to i3's `_auto_back_and_forth_` | bool | `false` | |
-| workspace_back_and_forth_per_monitor | If enabled, `workspace_back_and_forth` will not consider the workspaces of other monitors | bool | `false` | |
+| workspace_back_and_forth | An attempt to switch to the currently focused workspace will instead switch to the previous workspace, akin to i3's `_auto_back_and_forth_`. `0` - disabled, `1` - enabled, `2` - per monitor | int | `0` | [0 - 2] |
 | workspace_center_on | Whether switching workspaces should center the cursor on the workspace (0) or on the last active window for that workspace (1) | int | `1` | [0 - 1] |
 
 ### Xwayland
