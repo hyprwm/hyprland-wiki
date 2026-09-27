@@ -336,7 +336,7 @@ To apply this rule to all fullscreen apps with content type 'game', the below ru
 hl.window_rule({ match = { content = "game", fullscreen = true }, confine_pointer = true })
 ```
 
-### spring `damping`?
+### Spring `damping`?
 
 Yes, it is `damping`. Not `dampening`, `damping`.
 
