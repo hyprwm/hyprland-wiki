@@ -26,7 +26,7 @@ You can also use the `output` setting for tablets to bind them to outputs.
 Remember to use the name of the `Tablet` and not `Tablet Pad` or `Tablet Tool`.
 
 A few additional properties can only be specified in per-device configs:
-- `enabled` (only for mice/touchpads/touchdevices/keyboards)
+- `enabled` (only for mice/touchpads/touchdevices/keyboards/tablets)
   - Enables/disables the device (connects/disconnects from the on-screen cursor)
   - Default: `true`
 - `keybinds` (only for devices that send key events)

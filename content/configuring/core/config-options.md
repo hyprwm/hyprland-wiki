@@ -469,6 +469,7 @@ Category: `input.tablet`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
+| enabled | Whether input is enabled for tablets | bool | `true` | |
 | output | The monitor to bind tablets. Can be `"current"` or a monitor name. Leave empty to map across all monitors | string | [[Empty]] | |
 | transform | Transform the input from tablets. The possible transformations are the same as [those of the monitors](../monitors/positioning#rotation) | int | `0` | [0 - 6] |
 | absolute_region_position | Whether to treat the `region_position` as an absolute position in monitor layout. Only applies when `output` is empty | bool | `false` | |
