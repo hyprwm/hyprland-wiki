@@ -133,7 +133,6 @@ end)
 | Method | Description |
 | --- | --- |
 | `move({ workspace?, monitor })` | Move a workspace to a monitor |
-| `rename({ workspace, name? })` | Rename a workspace |
 | `rename({ workspace, name? })` | Rename a workspace. Note the workspace's identity doesn't change, only the display name. Config actions will still refer to it by what it was created as |
 | `swap_monitors({ monitor1, monitor2 })` | Swap current workspaces of two monitors |
 | `toggle_special( special_name )` | Toggle a special workspace by name |
