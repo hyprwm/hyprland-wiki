@@ -18,6 +18,14 @@ You've found the right place.
 
 Here are a few options to consider:
 
+## Omarchy
+
+An opinionated Arch + Hyprland Setup by DHH.
+
+[Website](https://omarchy.org/)
+
+![Image of Omarchy](https://i.ytimg.com/vi/Cft6mZDzIng/maxresdefault.jpg)
+
 ## ML4W
 
 ML4W (My Linux 4 Work) is a great out of the box DE-like experience made by Stephan Raabe.
@@ -52,14 +60,6 @@ HyDE dotfiles by HyDE Project are a very popular choice that will suit your need
 [GitHub](https://github.com/HyDE-Project/HyDE)
 
 ![Image of HyDE dotfiles](https://i.ibb.co/W3SYJCc/showcase-2-2412602747.png)
-
-## Omarchy
-
-An opinionated Arch + Hyprland Setup by DHH.
-
-[Website](https://omarchy.org/)
-
-![Image of Omarchy](https://i.ytimg.com/vi/Cft6mZDzIng/maxresdefault.jpg)
 
 ## Dank Linux
 
