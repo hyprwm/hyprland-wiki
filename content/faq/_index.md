@@ -335,3 +335,9 @@ To apply this rule to all fullscreen apps with content type 'game', the below ru
 ```lua
 hl.window_rule({ match = { content = "game", fullscreen = true }, confine_pointer = true })
 ```
+
+### Spring `damping`?
+
+Yes, it is `damping`. Not `dampening`, `damping`.
+
+https://en.wikipedia.org/wiki/Damping
