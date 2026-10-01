@@ -293,6 +293,49 @@ hl.bind("SUPER + space", function()
 end, { description = "Switch focus between tiled and floating windows" })
 ```
 
+### Pin floating windows with no_focus, and restore them
+
+This function lets floating windows such as lyrics stay visible on every workspace, without stealing focus from other windows.
+It also restores them to normal floating windows when you need to move them around.
+Note that calling the function again while a window handled this way is focused restores all windows that were set to this state.
+
+```lua
+local function pin_nofocus_toggle()
+    local tag = "pin_nofocus"
+
+    local function has_tag(window)
+        for _, t in ipairs(window.tags or {}) do
+            if t == tag then
+                return true
+            end
+        end
+        return false
+    end
+
+    return function()
+        local window = hl.get_active_window()
+        if not window then return end
+
+        if window.floating and window.fullscreen == 0 and not window.pinned and not has_tag(window) then
+            -- Tag the window and mark it as pinned with no_focus
+            hl.dispatch(hl.dsp.window.tag({ tag = "+" .. tag, window = window }))
+            hl.dispatch(hl.dsp.window.pin({ window = window }))
+            hl.dispatch(hl.dsp.window.set_prop({ prop = "no_focus", value = "1", window = window }))
+        else
+            -- Restore all windows that were marked this way
+            for _, marked_window in ipairs(hl.get_windows({ tag = tag })) do
+                hl.dispatch(hl.dsp.window.set_prop({ prop = "no_focus", value = "unset", window = marked_window }))
+                if window.pinned then
+                    hl.dispatch(hl.dsp.window.pin({ window = marked_window }))
+                end
+                hl.dispatch(hl.dsp.window.tag({ tag = "-" .. tag, window = marked_window }))
+            end
+        end
+    end
+end
+hl.bind("SUPER + P", pin_nofocus_toggle())
+```
+
 ## Vim-like keymaps
 
 Hyprland has so many features that you might run out of keys on your keyboard if you want to bind them all.
