@@ -86,10 +86,10 @@ dateFormat         = "January 2, 2006"
 keywords           = ["hyprland", "wiki", "hypr", "land"]
 
 [params.version]
-name       = "Latest git"
+name       = "Git"
 url        = "/version-selector/"
 outdated   = false  # set for any version that isn't the current one
-version    = ""     # only change when setting the version, otherwise it is "Latest git" by default
+version    = ""     # only change when setting the version, otherwise it is `name` by default
 list       = [
   "0.56.0",
   "0.55.0",

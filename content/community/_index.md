@@ -1,5 +1,5 @@
 ---
-weight: 130
+weight: 110
 title: Community
 ---
 

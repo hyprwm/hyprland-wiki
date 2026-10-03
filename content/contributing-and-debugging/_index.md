@@ -1,5 +1,5 @@
 ---
-weight: 140
+weight: 120
 title: Contributing and debugging
 ---
 
