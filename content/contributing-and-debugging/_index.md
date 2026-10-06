@@ -13,6 +13,10 @@ Before you submit a PR, you need to be vouched, or your PR will be closed automa
 
 Please make a vouch request over [here](https://github.com/hyprwm/.github/discussions) if you wish to do so.
 
+### Exemptions
+
+PRs made for localisation purposes are exempt from the vouch requirement. Please read the comment on top of the PR body when making your PR for instructions for how to make such a PR.
+
 ## Build in debug mode
 
 ### Required packages
