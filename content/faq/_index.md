@@ -31,7 +31,7 @@ When building yourself, you need to _build all hypr\* components_, you cannot us
 
 Read about building order [here](../getting-started/installation#manual-build).
 
-### Will rest of the Hypr* ecosystem switch to Lua from hyprlang?
+### Will rest of the Hypr\* ecosystem switch to Lua from hyprlang?
 
 No.
 
