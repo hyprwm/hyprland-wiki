@@ -34,6 +34,7 @@ Once the clock strikes 21:00, hyprsunset will automatically apply the new profil
 | `temperature` | The screen temperature. Lower means warmer | int | `6000` |
 | `gamma` | The perceived brightness of the screen. This will allow you to lower the brightness beyond your screen's minimum | float | `1.0` |
 | `identity` | When set, the value of temperature is ignored and the only effect of hyprsunset is the change in apparent brightness by gamma | bool | `false` |
+| `on-switch` | A command to be executed when the profile is activated | string | [[Empty]] |
 
 {{% details title="Example" closed="true" %}}
 
@@ -101,3 +102,27 @@ hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("hyprctl hyprsunset gamma -10")
 > [!WARNING]
 > Using the gamma control will degrade color accuracy.
 > If your monitor does support software control, it is highly recommended to use that instead.
+
+## On-Switch Command
+
+The following example shows how the `on-switch` command can be utilized.
+This particular example shows that a GTK theme command is run for each profile as a form of light and dark mode.
+When a profile is activated, the designated `on-switch` command is run:
+
+```ini
+# Light Mode
+profile {
+	time = 8:00
+	temperature = 6000
+	on-switch = gsettings set org.gnome.desktop.interface color-scheme "prefer-light"
+}
+
+# Dark Mode
+profile {
+	time = 20:00
+	temperature = 1500
+	on-switch = gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+}
+```
+
+Other use cases for this include updating the Omarchy night light indicator by setting the `on-switch` command to `omarchy-shell -q nightlight refresh`.
