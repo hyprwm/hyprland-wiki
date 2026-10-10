@@ -196,16 +196,6 @@ enable = true
 # Images should be light variants
 # The theme recolors them when needed
 [[params.sponsors.list]]
-name  = "37signals"
-image = "https://hypr.land/imgs/sponsors/37signals.svg"
-url   = "https://37signals.com"
-
-[[params.sponsors.list]]
-name  = "framework"
-image = "https://hypr.land/imgs/sponsors/framework-white.png"
-url   = "https://frame.work"
-
-[[params.sponsors.list]]
-name  = "butterfly"
-image = "https://hypr.land/imgs/sponsors/butterfly-white.svg"
-url   = "https://butterfly.so"
+name  = "Omacom Foundation"
+image = "https://hypr.land/imgs/sponsors/omarchy.svg"
+url   = "https://omarchy.org"
