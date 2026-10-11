@@ -134,8 +134,8 @@ The compositor's `sdr_max_luminance` does not, by itself, guarantee that Chromiu
 See Erik Bourget's third-party patch: [cc0c509 — advertise gamma 2.2 sRGB as the preferred description on HDR outputs](https://github.com/erikwb/Hyprland/commit/cc0c5094ffdee16c820162a66ce9dbeb77cdbe9e).
 It keeps the display's HDR output while advertising an SDR blending description to clients, with the white level derived from `sdr_max_luminance`.
 
-The plugin currently used with this setup is [hypr-sdr-white (source download)](/attachments/hypr-sdr-white-source.tar.gz), a local adaptation of the preferred-client-description part of that commit for Hyprland 0.56.2.
-The archive includes source, build instructions, and the license; it does not include a prebuilt plugin.
+The plugin currently used with this setup is [hypr-sdr-white](https://github.com/gfhdhytghd/hypr-sdr-white), a local adaptation of the preferred-client-description part of that commit for Hyprland 0.56.2.
+The repository includes source, build instructions, and the license; build it against your exact running Hyprland version.
 
 > [!NOTE]
 > This patch is not included in the Hyprland 0.56.2 release used for this guide.
