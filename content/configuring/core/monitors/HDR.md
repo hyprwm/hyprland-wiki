@@ -104,13 +104,15 @@ hl.window_rule({
 })
 ```
 `limited` leaves luminance below a knee unchanged, so SDR white keeps its level, and rolls HDR highlights off into the display peak instead of clipping them.
+
 The default curve compresses from black upward, which dims SDR white; `clamp` keeps SDR white but clips highlights above the display peak.
 Keep the rule scoped to affected applications.
 
 Electron applications normally use their own window classes.
 Inspect `hyprctl clients` and add confirmed classes to the expression, for example `discord` or `code-oss`.
+
 There is no single reliable class shared by every Electron application.
-See [Window rules](../../rules/window-rules/).
+See [Window rules](../../rules/window-rules/). But you may try just apply limited tonemap to all windows with ` match = { class = ".*" }`
 
 Compare a plain white page with an ordinary SDR window after both fixes.
 
