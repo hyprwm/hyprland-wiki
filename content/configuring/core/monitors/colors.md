@@ -3,8 +3,6 @@ weight: 40
 title: Colors and colorspaces
 ---
 
-For a step-by-step HDR setup, SDR white levels, and Chromium workarounds, see [HDR and SDR brightness](../HDR/).
-
 ## Color management presets
 
 Use the `cm` field to change the default sRGB output preset:
