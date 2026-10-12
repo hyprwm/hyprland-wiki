@@ -2,13 +2,14 @@
 weight: 30
 title: HDR setup
 ---
-This is a guide about how to configurate HDR.
+
+This guide covers HDR setup and SDR brightness.
 
 ## Enable 10-bit output, wide color gamut, and HDR
 
-check [Colors and colorspaces](colors.md) for enable 10-bit and hdr/hdredid color management
+See [Colors and colorspaces](../colors/) to enable 10-bit output and the `hdr` or `hdredid` color-management preset.
 
-an example:
+Check the effective monitor configuration:
 
 ```sh
 hyprctl monitors all
@@ -16,7 +17,7 @@ hyprctl monitors all
 
 Look for the HDR color-management preset and a 10-bit format such as `XRGB2101010` or `XBGR2101010`.
 
-Leave the display luminance overrides at their EDID-derived defaults unless you have reliable panel data.
+Leave display luminance overrides unset to use the values reported by the display in its EDID, unless you have more reliable panel data.
 If detection is incorrect, `supports_hdr` and `supports_wide_color` can override capability detection for a verified HDR panel; they cannot add capabilities to an SDR panel.
 ICC profiles override the color preset and are not a suitable starting point for this HDR setup.
 
@@ -28,7 +29,8 @@ See [ArchWiki: HDR](https://wiki.archlinux.org/title/HDR) for reading and checki
 For EDID extraction and overrides, see [ArchWiki: Kernel mode setting](https://wiki.archlinux.org/title/Kernel_mode_setting#Forcing_modes_and_EDID).
 EDID luminance values are display-reported metadata, not measurements of current or sustained full-screen brightness.
 
-Use below for hyprland report
+Use `hyprctl` and `jq` to inspect the current Hyprland settings:
+
 ```sh
 hyprctl -j monitors all | jq '.[] | {
     name,
@@ -38,10 +40,10 @@ hyprctl -j monitors all | jq '.[] | {
     sdrMinLuminance,
     sdrMaxLuminance
 }'
-{
-  "name": "DP-4",
-  "col
 ```
+
+These values are compositor settings, not measured panel luminance.
+
 ## Choose an SDR reference brightness
 
 In HDR mode, SDR white is mapped to a target luminance.
@@ -57,8 +59,8 @@ Keep `sdrbrightness = 1.0` initially so that a separate multiplier does not comp
 | --- | --- |
 | `sdr_max_luminance` | White level for SDR-to-HDR mapping |
 | `sdr_min_luminance` | Black level for SDR-to-HDR mapping; `0` can suit a verified OLED |
-| `max_luminance` | Display's peak brightness for a small area |
-| `max_avg_luminance` | Display's maximum luminance for whole screen|
+| `max_luminance` | Override for the display-reported HDR peak luminance |
+| `max_avg_luminance` | Override for the display-reported maximum frame-average luminance |
 
 ## Chromium-based applications
 
@@ -67,29 +69,32 @@ Two separate issues need to be handled.
 
 ### Start Chrome and Electron on native Wayland
 
-Check [Arch wiki Chromium Page](https://wiki.archlinux.org/title/Chromium)
-for how to force chromium based app using wayland
-You also need this for hdr canvas enable.
+See [Force apps to use Wayland](../../../../getting-started/master-tutorial/#force-apps-to-use-wayland) and [ArchWiki: Chromium](https://wiki.archlinux.org/title/Chromium) for native Wayland startup configuration.
+Some HDR Canvas tests require the following startup flag, depending on the Chromium version:
 
-```sh
+```plain
 --enable-experimental-web-platform-features
 ```
 
+This enables experimental web APIs; it is not a general requirement for HDR video or a brightness fix.
+
 ### Provide the client with the SDR white level
 
-For context, see [the reference-luminance discussion](https://github.com/hyprwm/Hyprland/discussions/14999).
-
-The compositor's `sdr_max_luminance` does not, by itself, guarantee that Chromium receives the same reference brightness in its preferred image description. You may notice chromium based app darker or brighter than others.
-
-You may try this Plugin as a solution or write your own patch or plugin.
-[hypr-sdr-white](https://github.com/gfhdhytghd/hypr-sdr-white), a local adaptation of the preferred-client-description part of that commit for Hyprland 0.56.2.
-
 > [!WARNING]
-> **This is an NON-OFFICIAL solution. Be responsible for your own machine. Do not seek support from Hyprland official for this plugin.**
+> This plugin is an unaudited, unofficial temporary workaround.
+> Plugin support belongs in its own repository, not the Hyprland support channels.
+
+See [the reference-luminance discussion](https://github.com/hyprwm/Hyprland/discussions/14999) for context.
+On Hyprland 0.56.2, `sdr_max_luminance` does not, by itself, guarantee that Chromium receives the same reference brightness in its preferred image description.
+Chromium-based applications can consequently appear darker or brighter than ordinary SDR windows.
+
+[hypr-sdr-white](https://github.com/gfhdhytghd/hypr-sdr-white) is a plugin adaptation of [Erik Bourget's preferred-client-description patch](https://github.com/erikwb/Hyprland/commit/cc0c5094ffdee16c820162a66ce9dbeb77cdbe9e) for Hyprland 0.56.2.
+The patch is not included in that release.
+See the plugin repository for configuration, build requirements, and compatibility information.
 
 ### Chromium window rule
 
-If chromium seems darker than other window, after the same SDR brightnedd config been passed correctly. You may need the following window rule.
+If Chromium still appears darker than other windows after receiving the same SDR reference white, the following window rule can avoid the additional tone-mapping compression:
 
 ```lua
 hl.window_rule({
@@ -98,14 +103,18 @@ hl.window_rule({
     tonemap = "clamp",
 })
 ```
+
+This preserves SDR white but clips HDR highlights above the display peak.
+Keep the rule scoped to affected applications.
+
 Electron applications normally use their own window classes.
 Inspect `hyprctl clients` and add confirmed classes to the expression, for example `discord` or `code-oss`.
 There is no single reliable class shared by every Electron application.
 See [Window rules](../../rules/window-rules/).
 
-Compare a plain white page, with an ordinary SDR window after both fixes to check.
+Compare a plain white page with an ordinary SDR window after both fixes.
 
-Use https://testufo.com/hdr to test if HDR and WCG is working in browser.
+Use [TestUFO HDR](https://testufo.com/hdr) to test the browser's HDR and wide-color-gamut output, following the page's test instructions.
 
 ## Restore SDR brightness after enabling HDR
 
@@ -120,7 +129,7 @@ One example mapping is:
 | 70–100% | Remains at 100% | Baseline up to sustained full-screen luminance |
 
 The 70% boundary is a design choice.
-Use the panel's max full-screen luminance as the endpoint, rather than its small-window HDR peak.
+Use the panel's sustained full-screen luminance as the endpoint, rather than its small-window HDR peak.
 OLED automatic brightness limiting can still reduce real output; this mapping does not bypass it.
 
 The white-level calculation can be implemented in Lua or your existing script:
@@ -138,7 +147,8 @@ end
 
 ## Screenshots under HDR
 
-[HyprCapture](https://github.com/gfhdhytghd/HyprCapture) and [KMshot]{https://github.com/foraphe/kmshot)is the only two avaslible choice so far.
+Tools with HDR screenshot support include [HyprCapture](https://github.com/gfhdhytghd/HyprCapture) and [KMShot](https://github.com/foraphe/kmshot).
 
-## Wiew image under HDR in Hyprland
-You may try [HDRview](https://github.com/wkjarosz/hdrview) or [Simple Image Viewer](https://github.com/z16166/SimpleImageViewer)
+## View HDR images in Hyprland
+
+Viewers to consider include [HDRView](https://github.com/wkjarosz/hdrview) or [Simple Image Viewer](https://github.com/z16166/SimpleImageViewer).
