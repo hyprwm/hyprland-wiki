@@ -143,22 +143,7 @@ The repository includes source, build instructions, and the license; build it ag
 > You may need to build a compatible patched compositor or write a plugin for your exact Hyprland version.
 > Check your installed version before applying the workaround.
 
-A local plugin implementation, `hypr-sdr-white`, supplied an independently adjustable client reference white and a feedback refresh operation.
-Those are **plugin-specific interfaces**, not built-in Hyprland options.
-The intended behavior is to keep the client's reference white equal to the desktop's SDR white and refresh the feedback whenever brightness changes.
-Existing clients may need a restart if they retain the old description.
-
-After loading `hypr-sdr-white`, set its reference white to the same value as the monitor's `sdr_max_luminance` and refresh client feedback:
-
-```lua
-hl.config({
-    plugin = { hypr_sdr_white = { reference_luminance = 203 } },
-})
-hl.plugin.hypr_sdr_white.refresh()
-```
-
-Replace `203` with your chosen SDR white level.
-Run these calls only after the plugin has loaded; they are not available in an unmodified Hyprland installation.
+For plugin-specific configuration and client feedback refresh instructions, see the [hypr-sdr-white configuration guide](https://github.com/gfhdhytghd/hypr-sdr-white#configuration).
 
 For context, see [the reference-luminance discussion](https://github.com/hyprwm/Hyprland/discussions/14999).
 
