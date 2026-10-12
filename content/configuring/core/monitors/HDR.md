@@ -100,11 +100,11 @@ If Chromium still appears darker than other windows after receiving the same SDR
 hl.window_rule({
     name = "chromium-hdr-preserve-sdr-white",
     match = { class = "(?i)^(google-chrome.*|chromium.*|chrome-.*)$" },
-    tonemap = "clamp",
+    tonemap = "limited",
 })
 ```
-
-This preserves SDR white but clips HDR highlights above the display peak.
+`limited` leaves luminance below a knee unchanged, so SDR white keeps its level, and rolls HDR highlights off into the display peak instead of clipping them.
+The default curve compresses from black upward, which dims SDR white; `clamp` keeps SDR white but clips highlights above the display peak.
 Keep the rule scoped to affected applications.
 
 Electron applications normally use their own window classes.
