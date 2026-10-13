@@ -18,3 +18,33 @@ Add `systemctl --user start hyprpolkitagent` to your Hyprland config's autostart
 On distributions that use a different init system, such as Gentoo, it may be necessary to use `/usr/lib64/libexec/hyprpolkitagent` instead.
 
 Other possible paths include `/usr/lib/hyprpolkitagent` and `/usr/libexec/hyprpolkitagent`.
+
+## Configuration
+
+The config file is located at `~/.config/hyprpolkitagent/hyprpolkitagent.conf`.
+It is not required.
+Changes apply the next time the agent starts.
+
+Variables in the `general` category:
+
+| Variable | Description | Type | Default |
+| --- | --- | --- | --- |
+| `allow_empty_password` | Whether an empty password can be submitted. Useful when PAM falls through to another method after the password module fails, e.g. face recognition with howdy | bool | `false` |
+| `password_field_width` | Width of the password input, in px | int | `340` |
+| `show_details` | Whether the action and command panel can be toggled | bool | `true` |
+| `window_height` | Height of the dialog, in px | int | `440` |
+| `window_width` | Width of the dialog, in px | int | `520` |
+
+{{% details title="Example" closed="true" %}}
+
+```ini { filename="~/.config/hyprpolkitagent/hyprpolkitagent.conf" }
+general {
+    show_details = true
+}
+```
+
+{{% /details %}}
+
+### Theming
+
+Colors, rounding and fonts follow your [hyprtoolkit](../hyprtoolkit) theme.
