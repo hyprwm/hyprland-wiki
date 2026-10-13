@@ -278,6 +278,33 @@ hl.bind("SUPER + minus", function()
 end)
 ```
 
+### Launching programs on workspace creation
+
+To replicate the behavior of the old `on_created_empty` workspace rule,
+use the `workspace.created` [event](../core/advanced-configuration/events) to launch programs.
+For example:
+
+```lua
+local workspace_programs = {
+    ["5"] = { "firefox", { float = true } },
+    ["6"] = { "kitty",   { fullscreen = true } },
+}
+hl.on("workspace.created", function(ws)
+    if ws.is_empty then return end
+
+    local program = workspace_programs[ws.name]
+    if program == nil then return end
+
+    local cmd, rules = table.unpack(program)
+    -- shallow-copy the rules table so we can add the workspace to it
+    local rules2 = {}
+    for k, v in rules do rules2[k] = v end
+    rules2.workspace = ws.name .. " silent"
+    -- run it!
+    hl.exec_cmd(cmd, rules2)
+end)
+```
+
 ### Move focus between tiled and floating windows
 
 This functions similarly to the i3 `focus mode_toggle` bind.

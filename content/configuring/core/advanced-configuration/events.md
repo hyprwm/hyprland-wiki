@@ -60,7 +60,8 @@ Event list:
 | window.update_rules | Emitted when a window's rules are re-evaluated, e.g. when its title or class changes | Window |
 | window.urgent | Emitted when a window requests an `urgent` state | Window |
 | workspace.active | Emitted when the active workspace on a monitor changes | Workspace |
-| workspace.created | Emitted when a workspace is created | Workspace |
+| workspace.created | Emitted when a workspace is created, after activating if appropriate | Workspace |
+| workspace.created_early | Emitted when a workspace is created, but **before** it is activated | Workspace |
 | workspace.move_to_monitor | Emitted when a workspace is moved to a different monitor | Workspace; Monitor |
 | workspace.removed | Emitted when a workspace is removed | Workspace |
 | workspace.special_active | Emitted when the opened special workspace on a monitor changes. Workspace of nil means no special workspace is open | Workspace; Monitor |
