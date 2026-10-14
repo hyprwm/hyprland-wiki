@@ -8,10 +8,26 @@ title: Naming conventions
 > [!TIP]
 > For ease of understanding, this wiki introduces a special syntax for some elements.
 
-### Optional parameters
+### Parameters
 
-Text followed by a question mark (`?`) indicates that the parameter is optional and may be omitted.
-If the question mark is followed by `= data_type`/`= value`, this means that the parameter can only take the specified data type or defaults to the specified value.
+Many of Hyprland's Lua functions expect to be given Lua tables as input.
+Tables are created by enclosing key-value pairs in curly braces, like so: `{ key1 = value1, key2 = value2 }`.
+Key-value ordering within a table does not matter, and nonexistent keys act as if they hold the value `nil`.
+
+In this wiki, if a parameter (table key) is followed by `= data_type`, this means that the parameter only accepts the specified data type.
+
+You can read more about Lua tables [here](https://www.lua.org/pil/2.5.html).
+
+{{% details title="Example" closed="true" %}}
+    TBD
+{{% /details %}}
+
+#### Optional parameters
+
+In this wiki, a parameter name followed by a question mark (`?`) indicates that the parameter is optional and may be omitted.
+The question mark is not Lua syntax, and cannot be used in your actual config.
+
+Optional parameters may be followed by `= value`, to indicate the value Hyprland will assume if the parameter is not given.
 
 {{% details title="Example" closed="true" %}}
 
