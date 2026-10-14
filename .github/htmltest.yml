@@ -3,3 +3,8 @@ CheckExternal: false
 CheckMailto: false
 IgnoreDirectoryMissingTrailingSlash: true
 IgnoreInternalEmptyHash: true
+IgnoreURLs: [
+  "^/git",
+  "^/latest",
+  "^/\\d+\\.\\d+\\.\\d+",
+]
