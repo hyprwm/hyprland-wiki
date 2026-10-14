@@ -148,8 +148,8 @@ end)
 | Method | Description |
 | --- | --- |
 | `active({ window?, index })` | Switch to a window in a group, indexed |
-| `lock({ window?, action? })` | Lock a group |
-| `lock_active({ action? })` | Lock the active group |
+| `lock({ all?, action? })` | Lock all groups |
+| `lock({ window?, action? })` | Lock the specified window's group |
 | `move_window({ window?, forward? })` | Move a window in the group order |
 | `next({ window? })` | Switch to the next window in a group |
 | `prev({ window? })` | Switch to the previous window in a group |
