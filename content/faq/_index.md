@@ -34,7 +34,7 @@ Read about building order [here](../getting-started/installation#manual-build).
 ### Will rest of the Hypr\* ecosystem switch to Lua from hyprlang?
 
 Hyprland will continue using Lua.
-Other Hypr* packages will keep Hyprlang, but there are plans for Hyprlock-neo that will use Lua.
+There are no plans to switch other Hypr* projects from Hyprlang.
 
 ### My apps are pixelated
 
