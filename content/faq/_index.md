@@ -31,6 +31,11 @@ When building yourself, you need to _build all hypr\* components_, you cannot us
 
 Read about building order [here](../getting-started/installation#manual-build).
 
+### Will rest of the Hypr\* ecosystem switch to Lua from hyprlang?
+
+Hyprland will continue using Lua.
+There are no plans to switch other Hypr\* projects from Hyprlang.
+
 ### My apps are pixelated
 
 This just means they are running through Xwayland, which physically cannot scale by fractional amounts.
