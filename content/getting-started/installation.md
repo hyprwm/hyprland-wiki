@@ -201,8 +201,16 @@ Hyprland and related are in the default repository:
 
 {{< tab name="Ubuntu*" >}}
 
+#### Ubuntu 26.10 (Stonking Stingray) universe repository
+
+Ubuntu 26.10 includes `hyprland` `0.56.2`, installing from `apt` is recommended.
+
+```bash
+sudo add-apt-repository universe && sudo apt update && sudo apt install hyprland
+```
+
 > [!WARNING]
-> Ubuntu's Hyprland is **extremely** outdated.
+> Ubuntu 26.04 and before includes an **extremely** outdated `hyprland` package.
 > It is not recommended to use the packaged versions at all.
 > Build the entire stack [manually](#manual-build) instead.
 
