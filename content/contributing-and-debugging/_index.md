@@ -15,7 +15,8 @@ Please make a vouch request over [here](https://github.com/hyprwm/.github/discus
 
 ### Exemptions
 
-PRs made for i18n(localisation) purposes are exempt from the vouch requirement. Please read the comment on top of the PR body when making your PR for instructions for how to make such a PR.
+PRs made for i18n (localisation) purposes are exempt from the vouch requirement.
+Please read the comment on top of the PR body when making your PR for instructions for how to make such a PR.
 
 ## Build in debug mode
 
