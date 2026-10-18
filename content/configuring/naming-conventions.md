@@ -18,10 +18,6 @@ In this wiki, if a parameter (table key) is followed by `= data_type`, this mean
 
 You can read more about Lua tables [here](https://www.lua.org/pil/2.5.html).
 
-{{% details title="Example" closed="true" %}}
-    TBD
-{{% /details %}}
-
 #### Optional parameters
 
 In this wiki, a parameter name followed by a question mark (`?`) indicates that the parameter is optional and may be omitted.
@@ -29,10 +25,24 @@ The question mark is not Lua syntax, and cannot be used in your actual config.
 
 Optional parameters may be followed by `= value`, to indicate the value Hyprland will assume if the parameter is not given.
 
-{{% details title="Example" closed="true" %}}
+{{% details title="Optional parameters example" closed="true" %}}
 
 `hl.dsp.window.float({ window?, action? })` means that `window` and `action` are not required.
 The dispatcher will use their default values instead: the currently active window, and an action of `"toggle"`.
+
+{{% /details %}}
+
+{{% details title="Parameters example" closed="true" %}}
+
+To demonstrate the difference between parameter types, dispatchers from this snippet will be explained:
+
+```lua
+hl.bind("SUPER + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("magic"))
+```
+
+First bind uses `hl.dsp.window.move` and it requires a table with `window?, workspace, follow?` parameters, which is indicated by the use of `{}` in the method description: `move({ window?, workspace, follow? })`.
+Second bind uses a dispatcher that takes just one argument, which is indicated by absenc of `{}` in parameter listing: `toggle_special( special_name )`.
 
 {{% /details %}}
 
