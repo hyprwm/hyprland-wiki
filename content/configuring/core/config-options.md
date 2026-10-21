@@ -644,13 +644,19 @@ Category: `misc`
 | swallow_exception_regex | The _title_ regex to be used for windows that should _not_ be swallowed by the windows specified in swallow_regex, e.g. `wev`. The regex is matched against the parent, e.g. Kitty, window's title on the assumption that it changes to whatever process it's running | string | [[Empty]] | |
 | swallow_regex | The _class_ regex to be used for windows that should be swallowed (usually, a terminal) | string | [[Empty]] | |
 | vrr | Controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on, 2 - fullscreen only, 3 - fullscreen with `video` or `game` content type | int | `0` | [0 - 3] |
-| allow_new_top_layers_over_existing_fullscreen | If False, newly mapped layers are not allowed to render over existing covering fullscreen. Note that fullscreen hides all pre-existing top layers regardless of this setting | bool | `true` | |
 
 Category: `misc.col`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
 | splash | Changes the color of the splash text (requires a monitor reload to take effect) | color | `0x55ffffff` | |
+
+
+### Layers
+
+| Name | Description | Type | Default | Limits |
+| --- | --- | --- | --- | --- |
+| allow_new_top_layers_over_existing_fullscreen | If False, newly mapped layers are not allowed to render over existing covering fullscreen window. Note that fullscreen hides all pre-existing top layers regardless of this setting | bool | `true` | |
 
 ### Layout
 
