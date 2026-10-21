@@ -59,6 +59,7 @@ Event list:
 | window.title | Emitted when a window title changes | Window |
 | window.update_rules | Emitted when a window's rules are re-evaluated, e.g. when its title or class changes | Window |
 | window.urgent | Emitted when a window requests an `urgent` state | Window |
+| window.update_state | Emitted when a window's desktop state changes. State table has flags (e.g. `pinned` or `floating`). Nil means unchanged. | Window, State table |
 | workspace.active | Emitted when the active workspace on a monitor changes | Workspace |
 | workspace.created | Emitted when a workspace is created | Workspace |
 | workspace.move_to_monitor | Emitted when a workspace is moved to a different monitor | Workspace; Monitor |
