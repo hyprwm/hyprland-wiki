@@ -655,8 +655,8 @@ Category: `misc.col`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
-| layers_hog_keyboard_focus | If True, will make keyboard-interactive layers keep their focus on mouse move, e.g. `wofi`, `bemenu` | bool | `true` | |
-| allow_new_top_layers_over_existing_fullscreen | If False, newly mapped layers are not allowed to render over existing covering fullscreen window. Note that fullscreen hides all pre-existing top layers regardless of this setting | bool | `true` | |
+| layers_hog_keyboard_focus | If true, will make keyboard-interactive layers keep their focus on mouse move, e.g. `wofi`, `bemenu` | bool | `true` | |
+| allow_new_top_layers_over_existing_fullscreen | If false, newly mapped layers are not allowed to render over existing covering fullscreen window. Note that fullscreen hides all pre-existing top layers regardless of this setting | bool | `true` | |
 
 ### Layout
 
