@@ -92,7 +92,7 @@ hl.bind("SUPER + Tab", function()
     -- Change focus to another window
     hl.dispatch(hl.dsp.window.cycle_next())
     -- Bring it to the top
-    hl.dispatch(hl.dsp.window.bring_to_top())
+    hl.dispatch(hl.dsp.window.alter_zorder({ mode = "top" }))
 end)
 ```
 

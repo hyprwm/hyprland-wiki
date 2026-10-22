@@ -21,7 +21,7 @@ In the first snippet, the `function()` actually triggers the actions by calling 
 ```lua
 hl.bind("ALT + Tab", function()
     hl.dispatch(hl.dsp.window.cycle_next())
-    hl.dispatch(hl.dsp.window.bring_to_top())
+    hl.dispatch(hl.dsp.window.alter_zorder({ mode = "top" }))
 end)
 ```
 
@@ -31,7 +31,7 @@ Since nothing executes them, they do nothing.
 ```lua
 hl.bind("ALT + Tab", function()
     hl.dsp.window.cycle_next()
-    hl.dsp.window.bring_to_top()
+    hl.dsp.window.alter_zorder({ mode = "top" })
 end)
 ```
 
