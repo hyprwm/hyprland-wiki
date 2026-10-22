@@ -296,8 +296,8 @@ end, { description = "Switch focus between tiled and floating windows" })
 ### Pin floating windows with no_focus, and restore them
 
 This function lets floating windows such as lyrics stay visible on every workspace, without stealing focus from other windows.
-It also restores them to normal floating windows when you need to move them around.
-Note that calling the function again while a window handled this way is focused restores all windows that were set to this state.
+It also restores them to normal floating windows when you need to move them around.  
+Note: calling the function again at a common window will restores all windows that were set to this state.
 
 ```lua
 local function pin_nofocus_toggle()
@@ -325,7 +325,7 @@ local function pin_nofocus_toggle()
             -- Restore all windows that were marked this way
             for _, marked_window in ipairs(hl.get_windows({ tag = tag })) do
                 hl.dispatch(hl.dsp.window.set_prop({ prop = "no_focus", value = "unset", window = marked_window }))
-                if window.pinned then
+                if marked_window.pinned then
                     hl.dispatch(hl.dsp.window.pin({ window = marked_window }))
                 end
                 hl.dispatch(hl.dsp.window.tag({ tag = "-" .. tag, window = marked_window }))
@@ -336,7 +336,7 @@ end
 hl.bind("SUPER + P", pin_nofocus_toggle())
 ```
 
-## Vim-like keymaps
+### Vim-like keymaps
 
 Hyprland has so many features that you might run out of keys on your keyboard if you want to bind them all.
 Rest assured, you can utilize submaps to create keymaps if you want more, and they're also easier to press than a single bind with many modifiers.
