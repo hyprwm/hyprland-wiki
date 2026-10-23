@@ -63,6 +63,13 @@ hl.bind(mainMod .. " + period", hl.dsp.layout("move +col"))
 hl.bind(mainMod .. " + comma", hl.dsp.layout("swapcol l"))
 ```
 
+## Convenience functions
+
+| name | description | params |
+| --- | --- | --- |
+| `hl.get_scrolling_offset()` | get the scrolling tape offset. Returns `double` |  |
+| `hl.set_scrolling_offset(key = int/string)` | set the scrolling tape offset | `double` (it can take `number` but offset is `double` so watch out for narrowing conversions) |
+
 ## Window rules
 
 With the static rule scrolling_width you can set a starting column width for a window.
