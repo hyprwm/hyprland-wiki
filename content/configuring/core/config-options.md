@@ -667,6 +667,7 @@ Category: `binds`
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
 | allow_pin_fullscreen | If enabled, allow fullscreen to pinned windows, and restore their pinned status afterwards | bool | `false` | |
+| client_requested_fs_uses_layout_handler | If false, client requested FS will use default FS handler | bool | `true` | |
 | allow_workspace_cycles | If enabled, workspaces don't forget their previous workspace, so cycles can be created by switching to the first workspace in a sequence, then endlessly going to the previous workspace | bool | `false` | |
 | disable_keybind_grabbing | If enabled, apps that request keybinds to be disabled, e.g. `VMs`, will not be able to do so | bool | `false` | |
 | drag_threshold | Movement threshold in pixels for window dragging and `click`/`drag` bind flags. `0` means disabled | int | `0` | [0 - ...] |
