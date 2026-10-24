@@ -162,6 +162,7 @@ Category: `decoration.blur`
 | passes | The amount of passes to perform | int | `1` | [0 - 10] |
 | popups | Whether to blur popups, e.g. `right-click menus` | bool | `false` | |
 | popups_ignorealpha | Works like ignore_alpha in layer rules. If pixel opacity is below the set value, will not blur | float | `0.2` | [0.0 - 1.0] |
+| proportional | If enabled, blur strength will be proportional to pixel opacity. Requires `render:use_shader_blur_blend` | bool | `false` | |
 | size | Blur size (distance) | int | `8` | |
 | special | Whether to blur behind the special workspace (note: expensive) | bool | `false` | |
 | variant | Blur pattern variant. May significantly increase GPU and CPU usage | string | `kawase` | [see below](#blur-variants) |
