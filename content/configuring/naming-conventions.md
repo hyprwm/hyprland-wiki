@@ -14,16 +14,13 @@ Many of Hyprland's Lua functions expect to be given Lua tables as input.
 Tables are created by enclosing key-value pairs in curly braces, like so: `{ key1 = value1, key2 = value2 }`.
 Key-value ordering within a table does not matter, and nonexistent keys act as if they hold the value `nil`.
 
-In this wiki, if a parameter (table key) is followed by `= data_type`, this means that the parameter only accepts the specified data type.
+A parameter name followed by a question mark (`?`) indicates that the parameter is optional and may be omitted.
+The question mark is not Lua syntax, and cannot be used in actual config.
+
+If a parameter is followed by `= data_type`, this means that the parameter only accepts the specified data type.
+An optional parameter may be followed by `= value`, to show the default value, when the parameter is not set.
 
 You can read more about Lua tables [here](https://www.lua.org/pil/2.5.html).
-
-#### Optional parameters
-
-In this wiki, a parameter name followed by a question mark (`?`) indicates that the parameter is optional and may be omitted.
-The question mark is not Lua syntax, and cannot be used in your actual config.
-
-Optional parameters may be followed by `= value`, to indicate the value Hyprland will assume if the parameter is not given.
 
 {{% details title="Parameters example" closed="true" %}}
 
@@ -34,9 +31,10 @@ hl.bind("SUPER + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" })
 hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("magic"))
 ```
 
-First bind uses `hl.dsp.window.move` and it requires a table with `window?, workspace, follow?` parameters, which is indicated by the use of `{}` in dispatcher parameters: `move({ window?, workspace, follow? })`.
-`move({ window?, workspace, follow? }) means that `window` and `follow` are not required and will default to `"activewindow"` and `true` respectively.
-Second bind uses a dispatcher that takes just one argument, which is indicated by absence of `{}` in dispatcher parameter: `toggle_special( special_name )`.
+In the first bind, `hl.dsp.window.move` and takes a table, which is indicated by the use of curly braces (`{}`), with `window?, workspace, follow?` in dispatcher parameter notation: `move({ window?, workspace, follow? })`.
+In this case, `workspace` is required, while `window` and `follow` are optional and will default to `"activewindow"` and `true`, respectively.
+
+In the second bind, the dispatcher takes one regular, i.e. positional, not a table, argument, indicated by the absence of curly braces (`{}`) in dispatcher parameter notation: `toggle_special( special_name )`.
 
 {{% /details %}}
 
