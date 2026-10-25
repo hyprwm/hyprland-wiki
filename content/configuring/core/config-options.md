@@ -394,6 +394,7 @@ Category: `input`
 | scroll_factor | Multiplier added to scroll movement for external mice. Note that there is a separate setting for [touchpad scroll_factor](#touchpad)  | float | `1.0` | [0 - 100] |
 | sensitivity | Sets the mouse input sensitivity. Additional info: [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) | float | `0.0` | [-1.0 - 1.0] |
 | special_fallthrough | if enabled, having only floating windows in the special workspace will not block focusing windows in the regular workspace | bool | `false` | |
+| swallow_focus_click | If enabled, the first click on unfocused window will focus it without forwarding the click action. Only relevant when mouse focus is detached, e.g. `input.follow_mouse` is `0` or `2` | bool | `false` | |
 
 ##### XKB keymap params
 
