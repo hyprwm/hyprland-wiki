@@ -25,13 +25,6 @@ The question mark is not Lua syntax, and cannot be used in your actual config.
 
 Optional parameters may be followed by `= value`, to indicate the value Hyprland will assume if the parameter is not given.
 
-{{% details title="Optional parameters example" closed="true" %}}
-
-`hl.dsp.window.float({ window?, action? })` means that `window` and `action` are not required.
-The dispatcher will use their default values instead: the currently active window, and an action of `"toggle"`.
-
-{{% /details %}}
-
 {{% details title="Parameters example" closed="true" %}}
 
 To demonstrate the difference between parameter types, dispatchers from this snippet will be explained:
@@ -41,8 +34,9 @@ hl.bind("SUPER + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" })
 hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("magic"))
 ```
 
-First bind uses `hl.dsp.window.move` and it requires a table with `window?, workspace, follow?` parameters, which is indicated by the use of `{}` in the method description: `move({ window?, workspace, follow? })`.
-Second bind uses a dispatcher that takes just one argument, which is indicated by absenc of `{}` in parameter listing: `toggle_special( special_name )`.
+First bind uses `hl.dsp.window.move` and it requires a table with `window?, workspace, follow?` parameters, which is indicated by the use of `{}` in dispatcher parameters: `move({ window?, workspace, follow? })`.
+`move({ window?, workspace, follow? }) means that `window` and `follow` are not required and will default to `"activewindow"` and `true` respectively.
+Second bind uses a dispatcher that takes just one argument, which is indicated by absence of `{}` in dispatcher parameter: `toggle_special( special_name )`.
 
 {{% /details %}}
 
