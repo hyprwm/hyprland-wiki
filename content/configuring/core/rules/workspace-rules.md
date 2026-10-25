@@ -38,7 +38,6 @@ hl.workspace_rule({
 | no_border | Whether to disable borders | bool | |
 | no_rounding | Whether to disable rounded windows | bool | |
 | no_shadow | Whether to disable shadows | bool | |
-| on_created_empty | A command to be executed once a workspace is created empty (i.e. not created by moving a window to it). See the [command syntax](../../dispatchers#executing-with-rules) | string | |
 | persistent | Keep this workspace alive even if empty and inactive | bool | |
 
 {{% details title="Examples" closed="true" %}}
@@ -49,8 +48,6 @@ hl.workspace_rule({ workspace = "name:coding", no_rounding = true, decorate = fa
 hl.workspace_rule({ workspace = "8", border_size = 8 })
 hl.workspace_rule({ workspace = "name:Hello", monitor = "DP-1", default = true })
 hl.workspace_rule({ workspace = "name:gaming", monitor = "desc:Chimei Innolux Corporation 0x150C", default = true })
-hl.workspace_rule({ workspace = "5", on_created_empty = "[float] firefox" })
-hl.workspace_rule({ workspace = "special:scratchpad", on_created_empty = "foot" })
 hl.workspace_rule({ workspace = "15", animation = "slidevert", default_name = "slider" })
 ```
 
