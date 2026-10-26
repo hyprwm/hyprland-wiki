@@ -65,10 +65,10 @@ hl.bind(mainMod .. " + comma", hl.dsp.layout("swapcol l"))
 
 ## Convenience functions
 
-| name | description | params |
+| Name | Description | Params | Return |
 | --- | --- | --- |
-| `hl.get_scrolling_offset()` | get the scrolling tape offset. Returns `double` |  |
-| `hl.set_scrolling_offset(key = int/string)` | set the scrolling tape offset | `double` (it can take `number` but offset is `double` so watch out for narrowing conversions) |
+| `hl.get_scrolling_offset()` | Get the scrolling tape offset | | `float` |
+| `hl.set_scrolling_offset()` | Set the scrolling tape offset | `float`/`string` | |
 
 ## Window rules
 
