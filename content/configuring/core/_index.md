@@ -151,6 +151,27 @@ This will be mentioned in the error popup.
 Hyprland has protections in place to avoid scripts that would run forever from taking down the session.
 These will kill your script after a given timeout/limit has been reached.
 
+#### Predicates
+
+Some options take a predicate, a function that gets something from Hyprland (e.g., a workspace) and returns `true` or `false`.
+Any other return value, an error, or a timeout counts as `false` and pops an error once.
+
+Predicates run in the middle of Hyprland's work, like mapping a window or a layout pass, so:
+- A predicate can read anything, `print`, show notifications, and start `hl.timer`s.
+  Functions that change compositor or config state raise an error, defer them with `hl.timer` instead.
+- Keep predicates fast, Hyprland can call them often.
+  Never block in them (e.g., `os.execute`, `io.popen`), it freezes Hyprland.
+
+```lua
+-- no gaps when the workspace has a single tiled window
+hl.workspace_rule({
+    workspace = function(ws)
+        return ws:count_windows({ tiled = true }) == 1
+    end,
+    gaps_out = 0,
+})
+```
+
 #### Standard library
 
 The Lua standard libraries are loaded by default.
