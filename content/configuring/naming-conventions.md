@@ -31,7 +31,7 @@ hl.bind("SUPER + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" })
 hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("magic"))
 ```
 
-In the first bind, `hl.dsp.window.move` and takes a table, which is indicated by the use of curly braces (`{}`), with `window?, workspace, follow?` in dispatcher parameter notation: `move({ window?, workspace, follow? })`.
+In the first bind, `hl.dsp.window.move` takes a table, which is indicated by the use of curly braces (`{}`), with `window?, workspace, follow?` in dispatcher parameter notation: `move({ window?, workspace, follow? })`.
 In this case, `workspace` is required, while `window` and `follow` are optional and will default to `"activewindow"` and `true`, respectively.
 
 In the second bind, the dispatcher takes one regular, i.e. positional, not a table, argument, indicated by the absence of curly braces (`{}`) in dispatcher parameter notation: `toggle_special( special_name )`.
