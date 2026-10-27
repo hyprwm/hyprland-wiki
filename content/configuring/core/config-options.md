@@ -630,7 +630,6 @@ Category: `misc`
 | initial_workspace_token_timeout | the time in seconds a window has to open on its invoked workspace before the tracking token expires. | int | `10` | [1 - 3600] |
 | initial_workspace_tracking | If enabled, windows will open on the workspace they were invoked on. 0 - disabled, 1 - single-shot, 2 - persistent (all children too) | int | `1` | |
 | key_press_enables_dpms | If DPMS is set to off, wake up the monitors if a key is pressed | bool | `false` | |
-| layers_hog_keyboard_focus | If true, will make keyboard-interactive layers keep their focus on mouse move, e.g. `wofi`, `bemenu` | bool | `true` | |
 | lockdead_screen_delay | Delay in ms after which the "lockdead" screen will appear in case a locks creen app fails to cover all the outputs | int | `1000` | [0 - 5000] |
 | middle_click_paste | Whether to enable middle-click-paste (aka primary selection) | bool | `true` | |
 | mouse_move_enables_dpms | If DPMS is set to off, wake up the monitors if the mouse moves | bool | `false` | |
@@ -652,6 +651,14 @@ Category: `misc.col`
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
 | splash | Changes the color of the splash text (requires a monitor reload to take effect) | color | `0x55ffffff` | |
+
+
+### Layers
+
+| Name | Description | Type | Default | Limits |
+| --- | --- | --- | --- | --- |
+| allow_new_top_layers_over_existing_fullscreen | If false, newly mapped layers are not allowed to render over existing covering fullscreen window. Note that fullscreen hides all pre-existing top layers regardless of this setting | bool | `true` | |
+| layers_hog_keyboard_focus | If true, will make keyboard-interactive layers keep their focus on mouse move, e.g. `wofi`, `bemenu` | bool | `true` | |
 
 ### Layout
 
