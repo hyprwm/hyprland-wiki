@@ -60,6 +60,7 @@ Variables in the `general` category:
 | `fractional_scaling` | Whether to use fractional scaling. `0` - disabled, `1` - enabled, `2` - auto | int | `2` |
 | `screencopy_mode` | Selects screencopy mode: `0` - GPU-accelerated, `1` - CPU-based (slow) | int | `0` |
 | `fail_timeout` | Milliseconds until the ui resets after a failed auth attempt | int | `2000` |
+| `disable_screencopy` | Disables taking a screencopy for applying background effects. Useful with a semitransparent background and Hyprland's `misc:session_lock_xray` enabled | bool | `false` |
 
 ### Authentication
 
