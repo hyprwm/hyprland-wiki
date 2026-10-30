@@ -27,7 +27,7 @@ By building yourself, the responsibility for maintaining this consistency falls 
 
 When building yourself, you need to _build all hypr\* components_, you cannot use some from packages and some from repos.
 
-**For Arch users**: `-git` packages count as building yourself.
+**For Arch users:** `-git` packages count as building yourself.
 
 Read about building order [here](../getting-started/installation#manual-build).
 
