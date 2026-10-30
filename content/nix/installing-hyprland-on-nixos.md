@@ -131,4 +131,3 @@ It allows for configuring a range of apps with pure Nix code, which may be desir
 
 For the adventurous, [@spikespaz](https://github.com/spikespaz) has made a Hyprland module that can be used in Home Manager and NixOS.
 It can be found [here](https://github.com/hyprland-community/hyprnix).
-```
