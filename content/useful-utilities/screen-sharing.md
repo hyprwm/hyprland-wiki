@@ -12,10 +12,6 @@ Make sure you have `pipewire`, `wireplumber` and [`xdg-desktop-portal-hyprland`]
 Ensure that the `bitdepth` set in your configuration matches that of your physical monitor.
 See [Monitors](../../configuring/core/monitors).
 
-## Screen sharing
-
-Read [this amazing gist by Bruno Ancona Sala](https://gist.github.com/brunoanc/2dea6ddf6974ba4e5d26c3139ffb7580) for a great tutorial.
-
 ## Xwayland
 
 If your screen sharing application is running under Xwayland (like Discord or Skype), it can only see other Xwayland windows and cannot share an entire screen or a Wayland window.
