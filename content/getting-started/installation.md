@@ -33,6 +33,7 @@ It is **heavily** recommended you use **what the distro packages for you**, **no
 Hyprland's ecosystem and dependencies are vast and intertwined, and compiling manually will only potentially expose you to outdated, or incompatible versions of these dependencies.
 
 If you get `.so` file mismatch/missing errors, it's _entirely your fault_ for doing this!
+See [this FAQ entry](../../faq#symbol-lookup-errors).
 
 However, if you are an experienced user and want to beta-test new features, you're more than welcome to run the latest git head.
 Please don't come asking about ".so file missing" errors though!
@@ -306,11 +307,11 @@ sudo eopkg install hyprland
 
 ### Manual build
 
-#### Dependencies:
+#### Dependencies
 
 > [!WARNING]
 > ***Never, under any circumstances***, symbolically link different .so versions together, this will lead to memory bugs and crashes.
-> We don't care what some random person from the Internet tells you that.
+> We don't care what some random person from the Internet tells you.
 > Do _not_ do it.
 
 > [!IMPORTANT]
@@ -434,7 +435,7 @@ See [Crashes and Bugs](../../crashes-and-bugs).
    make <PRESET> && sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
    ```
 
-## Custom Build flags
+## Custom build flags
 
 To apply custom build flags, you'll have to ditch make.
 
@@ -472,7 +473,7 @@ To install, run:
 sudo cmake --install ./build
 ```
 
-## Running In a VM
+## Running in a VM
 
 _YMMV, this is not officially supported._
 
