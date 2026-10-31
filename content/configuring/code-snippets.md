@@ -254,7 +254,7 @@ hl.bind("SUPER + tab", function ()
     end
 
     ::dispatch::
-    hl.workspace_rule({ workspace = workspace.name, layout = next_layout })
+    hl.workspace_rule({ workspace = workspace.addressable_name, layout = next_layout })
 end)
 ```
 
