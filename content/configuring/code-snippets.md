@@ -254,7 +254,7 @@ hl.bind("SUPER + tab", function ()
     end
 
     ::dispatch::
-    hl.workspace_rule({ workspace = workspace.name, layout = next_layout })
+    hl.workspace_rule({ workspace = workspace.addressable_name, layout = next_layout })
 end)
 ```
 
@@ -304,13 +304,16 @@ local workspace_programs = {
 hl.on("workspace.created", function(ws)
     if not ws.is_empty then return end
 
-    local program = workspace_programs[ws.name]
+    local program = workspace_programs[ws.addressable_name]
     if not program then return end
 
     local cmd, rules = table.unpack(program)
-    rules.workspace = ws.name .. " silent"
+    -- shallow-copy the rules table so we can add the workspace to it
+    local rules2 = {}
+    for k, v in rules do rules2[k] = v end
+    rules2.workspace = ws.addressable_name .. " silent"
 
-    hl.exec_cmd(cmd, rules)
+    hl.exec_cmd(cmd, rules2)
 end)
 ```
 
