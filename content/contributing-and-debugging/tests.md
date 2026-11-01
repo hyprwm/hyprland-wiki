@@ -9,13 +9,26 @@ Building in Debug will by default build tests.
 
 ## Running tests
 
+Hyprland provides a `test` Makefile target, so the full suite can be run simply via:
+
+```sh
+make test
+```
+
+Unit and integration tests can also be run separately; see the remainder of this section for details.
+
 ### GTests
 
 GTests are GoogleTests that are _unit tests_.
 These tests simply check how some elements behave when they can run on their own.
 
-In all hypr\* projects, GTests are ran by ctest.
-Run:
+For Hyprland, run:
+
+```sh
+make gtest
+```
+
+In other projects, invoke ctest manually:
 
 ```sh
 ctest -j$(nproc) -C Debug --test-dir=build
@@ -38,7 +51,7 @@ To run Hyprtester, execute the following in a debug build:
 or invoke the relevant Makefile target:
 
 ```sh
-make test
+make hyprtest
 ```
 
 *This will run for a while!*
@@ -54,10 +67,10 @@ When you only want to run specific tests, just list their names (without group/f
 ./build/hyprtester/hyprtester dwindleSplit focusMasterPrevious processSpawning -c hyprtester/test.lua -b ./build/Hyprland -p hyprtester/plugin/hyprtestplugin.so
 ```
 
-or invoke the Makefile target with the extra `TESTS` variable set:
+or invoke the Makefile target with the extra `HYPRTESTS` variable set:
 
 ```sh
-make TESTS="dwindleSplit focusMasterPrevious processSpawning" test
+make HYPRTESTS="dwindleSplit focusMasterPrevious processSpawning" hyprtest
 ```
 
 ## Submitting new tests
