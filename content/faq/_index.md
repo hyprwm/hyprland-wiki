@@ -351,4 +351,6 @@ https://en.wikipedia.org/wiki/Damping
 
 If blur doesn't work in certain applications, they might be using the background effect protocol and blur is disabled by the application settings.
 
-GTK 4 is known to disable blur in the whole toolkit by default. You can disable the protocol in GTK with the environment variable `GDK_WAYLAND_DISABLE=ext_background_effect_manager_v1` or enable blur for specific elements with e.g. `window { backdrop-filter: blur(20px); }` in your gtk.css. Refer to the client documentation on what elements to theme.
+GTK 4 is known to disable blur in the whole toolkit by default.
+You can disable the protocol in GTK with the environment variable `GDK_WAYLAND_DISABLE=ext_background_effect_manager_v1` or enable blur for specific elements with e.g. `window { backdrop-filter: blur(20px); }` in your gtk.css.
+Refer to the client documentation on what elements to theme.
