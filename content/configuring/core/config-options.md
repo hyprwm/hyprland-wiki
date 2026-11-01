@@ -475,11 +475,11 @@ Category: `input.tablet`
 | output | The monitor to bind tablets. Can be `"current"` or a monitor name. Leave empty to map across all monitors | string | [[Empty]] | |
 | transform | Transform the input from tablets. The possible transformations are the same as [those of the monitors](../monitors/positioning#rotation) | int | `0` | [0 - 6] |
 | absolute_region_position | Whether to treat the `region_position` as an absolute position in monitor layout. Only applies when `output` is empty | bool | `false` | |
-| active_area_position | Position of the active area in mm | vec2 | `{0, 0}` | |
-| active_area_size | Size of tablet's active area in mm | vec2 | `{0, 0}` | |
+| active_area_position | Position of the active area in mm | vec2 | `{0, 0}` | [0 - 5000] |
+| active_area_size | Size of tablet's active area in mm | vec2 | `{0, 0}` | [0 - 5000] |
 | left_handed | If enabled, the tablet will be rotated 180 degrees | bool | `false` | |
-| region_position | Position of the mapped region in monitor layout relative to the top left corner of the bound monitor or all monitors | vec2 | `{0, 0}` | |
-| region_size | Size of the mapped region. When this variable is set, tablet input will be mapped to the region. `{0, 0}` or invalid size means unset | vec2 | `{0, 0}` | |
+| region_position | Position of the mapped region in monitor layout relative to the top left corner of the bound monitor or all monitors | vec2 | `{0, 0}` | [-100000 - 100000] |
+| region_size | Size of the mapped region. When this variable is set, tablet input will be mapped to the region. `{0, 0}` or invalid size means unset | vec2 | `{0, 0}` | [1 - 100000] |
 | relative_input | Whether the input should be relative | bool | `false` | |
 
 #### Tablettool
