@@ -65,25 +65,21 @@ hl.bind("SUPER + X", function ()
 end)
 ```
 
-## Share keybinds with nested sessions
+### Share keybinds with nested sessions
 
 When developing for Hyprland (or writing a plugin), you may want to share keybinds between your regular Hyprland session and a nested one.
 To achieve this, add the following to your Lua config:
 
 ```lua
 hl.define_submap("locked", function()
-    hl.bind("catchall", function() end, {
-        non_consuming = true
-    })
-    
+    hl.bind("catchall", hl.dsp.no_op(), { non_consuming = true })
+
     -- Emergency escape hatch
-    hl.bind("CTRL + SHIFT + Escape", function()
-        hl.dispatch(hl.dsp.submap("reset"))
-    end)
+    hl.bind("CTRL + SHIFT + Escape", hl.dsp.submap("reset"))
 end)
 
 hl.on("window.active", function(window)
-    if window ~= nil and window.class == "aquamarine" then
+    if not window or window.class == "aquamarine" then
         hl.dispatch(hl.dsp.submap("locked"))
     else
         hl.dispatch(hl.dsp.submap("reset"))
