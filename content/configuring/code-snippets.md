@@ -79,7 +79,7 @@ hl.define_submap("locked", function()
 end)
 
 hl.on("window.active", function(window)
-    if window ~= nil and window.class == "aquamarine" then
+    if window and window.class == "aquamarine" then
         hl.dispatch(hl.dsp.submap("locked"))
     else
         hl.dispatch(hl.dsp.submap("reset"))
