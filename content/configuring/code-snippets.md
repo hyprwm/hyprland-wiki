@@ -93,7 +93,7 @@ end)
 
 This allows you to use the same shortcuts in your host and nested Hyprland sessions, by preventing the host session from seeing the key presses if the nested session is focused.
 Changing the active window or closing the nested session will restore your default keybinds.
-The shortcut `CTRL + SHIFT+ Escape` will also force your default keybinds back in case you need them.
+The shortcut `CTRL + SHIFT + Escape` will also force your default keybinds back in case you need them.
 
 ### Smart gaps
 
