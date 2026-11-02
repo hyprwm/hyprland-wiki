@@ -344,7 +344,7 @@ Category: `decoration.wobble`
 | stiffness | spring stiffness for wobble deformation | float | `200` | [0.0001 - 1000] |
 | damping | spring damping for wobble deformation | float | `12` | [0 - 1000] |
 | mass | spring mass for wobble deformation | float | `1` | [0.0001 - 1000] |
-| intensity | wobble deformation impulse multiplier | float | `0.2` |[0 - 3] |
+| intensity | wobble deformation impulse multiplier | float | `0.2` | [0 - 2] |
 | value_epsilon | position epsilon below which wobble is considered stable | float | `0.25` | [0 - 100] |
 | velocity_epsilon | velocity epsilon below which wobble is considered stable | float | `2` | [0 - 1000] |
 
