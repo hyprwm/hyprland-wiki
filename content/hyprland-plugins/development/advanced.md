@@ -140,6 +140,29 @@ Please remember that the pointer to your config value will never change after `P
 static auto* const MYVAR = &HyprlandAPI::getConfigValue(PHANDLE, "plugin:myPlugin:variable1")->intValue;
 ```
 
+## Share keybinds with nested sessions
+
+When developing a plugin, you may want to share keybinds between your regular Hyprland session and a nested one. 
+To achieve this, add the following to your Lua config:
+
+```lua
+hl.define_submap("locked", function()
+    hl.bind("catchall", function() end, {
+        non_consuming = true
+    })
+end)
+
+hl.on("window.active", function(window)
+    if window ~= nil and window.class == "aquamarine" then
+        hl.dispatch(hl.dsp.submap("locked"))
+    else
+        hl.dispatch(hl.dsp.submap("reset"))
+    end
+end)
+```
+
+This allows you to use the same shortcuts in your host and nested Hyprland sessions, by preventing the host session from seeing key presses if the nested session is the active window.
+
 ## Further
 
 Read the API at `src/plugins/PluginAPI.hpp`, check out the [official plugins](https://github.com/hyprwm/hyprland-plugins).
