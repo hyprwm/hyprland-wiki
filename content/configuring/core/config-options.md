@@ -174,6 +174,8 @@ Category: `decoration.blur`
 > `blur.size` and `blur.passes` have to be at least 1 to apply blur.
 >
 > Increasing `blur.passes` is necessary to prevent blur looking wrong on higher `blur.size` values, but remember that higher `blur.passes` will place more strain on the GPU.
+>
+> If blur doesn't work in certain windows when enabled, it might be controlled by the client settings. See [FAQ](../../../faq/#blur).
 
 ##### Blur variants
 

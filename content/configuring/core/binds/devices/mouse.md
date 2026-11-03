@@ -47,7 +47,7 @@ hl.config({
 -- ALT + LMB: Move a window by dragging more than 10px.
 hl.bind("ALT + mouse:272", hl.dsp.window.drag(), { mouse = true })
 -- ALT + LMB (click): Floats a window by clicking
-hl.bind("ALT + mouse:272", hl.dsp.window.float(), { mouse = true, click = true })
+hl.bind("ALT + mouse:272", hl.dsp.window.float(), { click = true })
 -- ALT + LMB: Resizes a window by dragging
 hl.bind("ALT + mouse:273", hl.dsp.window.resize(), { mouse = true })
 ```

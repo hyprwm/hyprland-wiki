@@ -29,6 +29,9 @@ The syntax is the same as `hl.window_rule()`.
 
 ### Effects
 
+> [!NOTE]
+> If blur doesn't work in certain layers when enabled, it might be controlled by the client settings. See [FAQ](../../../../faq/#blur).
+
 | Effect | Description | Type | Limits |
 | ---- | --- | --- | --- |
 | above_lock | If non-zero, renders the layer above the lock screen. `2` = interactive on lock screen | int | |

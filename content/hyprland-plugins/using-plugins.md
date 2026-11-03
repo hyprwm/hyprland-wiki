@@ -75,8 +75,10 @@ To load plugins manually, use `hyprctl plugin load path`.
 
 You can unload plugins with `hyprctl plugin unload path`.
 
+You can also load plugins with Lua `hl.plugin.load(path)`.
+
 > [!WARNING]
-> Path has to be absolute!
+> All paths have to be absolute!
 
 ## FAQ About Plugins
 
@@ -85,6 +87,10 @@ You can unload plugins with `hyprctl plugin unload path`.
 Example:
 
 ```lua
+hl.on("hyprland.start", function()
+    hl.exec_cmd("hyprpm reload")
+end)
+
 function M.setup_vkfix()
     if hl.plugin.csgo_vulkan_fix ~= nil then
         hl.plugin.csgo_vulkan_fix.vkfix_app({ app = "cs2", w = 2304, h = 1440 })
@@ -99,7 +105,28 @@ function M.setup_vkfix()
 end
 ```
 
-The `if` is there so that we don't get an error if the plugin is not loaded yet.
+The `if` is there so that we don't get an error if the plugin is not loaded yet. Not all plugins can be detected this way. This example tries to load manually built plugin with Lua and configures it if that succeeded:
+
+```lua
+function is_plugin_loaded(name)
+    for _,v in pairs(hl.get_loaded_plugins()) do
+        if v.name == name then return true end
+    end
+    return false
+end
+
+hl.plugin.load("/absolute/path/to/example.so")
+
+if is_plugin_loaded("example") then
+    hl.config({
+        plugin = {
+            example = {
+                ...
+            }
+        }
+    })
+end
+```
 
 ### My Hyprland crashes!
 

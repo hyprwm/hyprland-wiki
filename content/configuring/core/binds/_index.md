@@ -75,6 +75,9 @@ hl.bind("Super_L + Alt_L", hl.dsp.exec_cmd("kitty"))
 
 -- bind left ctrl and right ctrl
 hl.bind("Ctrl_L + Ctrl_R", hl.dsp.exec_cmd("kitty"))
+
+-- bind super release to trigger only when not used as part of a key combo
+hl.bind("Super_L", hl.dsp.exec_cmd("hyprlauncher -t"), { release = true })
 ```
 
 {{% /details %}}
