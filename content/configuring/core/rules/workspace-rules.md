@@ -19,6 +19,35 @@ hl.workspace_rule({
 })
 ```
 
+`workspace` can also be a [predicate](../../#predicates).
+It gets an `HL.Workspace` and the rule applies to every workspace it returns `true` for.
+See [Editor autocompletion](../../#editor-autocompletion) for the workspace's fields and methods.
+
+```lua
+-- no gaps when a normal workspace has a single tiled window
+hl.workspace_rule({
+    workspace = function(ws)
+        return not ws.special and ws:count_windows({ tiled = true, visible = true }) == 1
+    end,
+    gaps_out = 0,
+    gaps_in = 0,
+})
+
+-- smaller gaps on the laptop screen
+hl.workspace_rule({
+    workspace = function(ws)
+        return ws.monitor and ws.monitor.name == "eDP-1"
+    end,
+    gaps_out = 5,
+})
+```
+
+`ws:count_windows(opts)` and `ws:count_groups(opts)` count the workspace's windows and groups.
+`opts` can have `tiled`, `pinned` and `visible`: `true` counts only those, `false` only the others, and leaving it out counts all.
+
+`monitor`, `default` and `persistent` can't be used with a predicate.
+They create or bind a workspace before it exists, and a predicate needs an existing workspace to look at.
+
 ## Rules
 
 <!-- SORT: monitor and default are together because it is easier to understand like that -->
