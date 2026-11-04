@@ -56,7 +56,7 @@ Coordinates are in an inverse-Y Cartesian system, so moving to the right is the 
 
 ## Data types
 
-| type | description |
+| Type | Description |
 | --- | --- |
 | int | Integer number |
 | float | Floating point number |
