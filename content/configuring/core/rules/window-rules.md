@@ -173,6 +173,7 @@ Dynamic effects are re-evaluated every time a property changes.
 | rounding_power | Overrides the rounding power for the window | float | |
 | scroll_mouse | Forces the window to override `input.scroll_factor` | float | |
 | scroll_touchpad | Forces the window to override `input.touchpad.scroll_factor` | float | |
+| shortcuts_inhibit | Forces the window to inhibit shortcuts when focused | bool | |
 | stay_focused | Forces focus on the window as long as it's visible | bool | |
 | sync_fullscreen | Whether the fullscreen mode should always be the same as the one sent to the window | bool | |
 | tag | Applies a tag. Use prefix `+`/`-` to set/unset, or no prefix to toggle (e.g., `"+myTag"`) | string | |
