@@ -21,28 +21,28 @@ Available flags are:
 
 | Flag | Description |
 |------|-------------|
-| `locked` | Will also work when an input inhibitor (e.g. a lock screen) is active. |
-| `release` | Will trigger on release of a key. |
-| `click` | Will trigger on release of a key or button as long as the mouse cursor stays inside `binds:drag_threshold`. |
-| `drag` | Will trigger on release of a key or button as long as the mouse cursor moves outside `binds:drag_threshold`. |
-| `long_press` | Will trigger on long press of a key. |
-| `repeating` | Will repeat when held. |
-| `non_consuming` | Key/mouse events will be passed to the active window in addition to triggering the dispatcher. |
-| `auto_consuming` | Key/mouse events will be passed to the active window if the dispatcher doesn't succeed. |
-| `mouse`| See the dedicated [Mouse binds](../devices/mouse) section. |
-| `transparent` | Cannot be shadowed by other binds. |
-| `ignore_mods` | Will ignore modifiers. |
-| `description` | Will allow you to write a description for your bind. |
-| `dont_inhibit` | Bypasses the app's requests to inhibit keybinds. |
-| `submap_universal` | Will be active no matter the submap. |
+| `allow_input_capture` | When input is captured by a client, this bind will still be processed |
+| `auto_consuming` | Key/mouse events will be passed to the active window if the dispatcher doesn't succeed |
 | `device` | Allow binds to be set per device. See [Per-Device binds](../devices/per-device) |
-| `allow_input_capture` | When input is captured by a client, this bind will still be processed. |
+| `description` | Will allow you to write a description for your bind |
+| `dont_inhibit` | Bypasses the app's requests to inhibit keybinds |
+| `drag` | Will trigger on release of a key or button as long as the mouse cursor moves outside `binds:drag_threshold` |
+| `click` | Will trigger on release of a key or button as long as the mouse cursor stays inside `binds:drag_threshold` |
+| `ignore_mods` | Will ignore modifiers |
+| `locked` | Will also work when an input inhibitor (e.g. a lock screen) is active |
+| `long_press` | Will trigger on long press of a key |
+| `mouse`| See the dedicated [Mouse binds](../devices/mouse) section |
+| `non_consuming` | Key/mouse events will be passed to the active window in addition to triggering the dispatcher |
+| `release` | Will trigger on release of a key |
+| `repeating` | Will repeat when held |
+| `submap_universal` | Will be active no matter the submap |
+| `transparent` | Cannot be shadowed by other binds |
 
 {{% details title="Examples" closed="true" %}}
 
 ```lua
 -- Close wofi if it's open, open it if it's not
-hl.bind("SUPER_L", hl.dsp.exec_cmd("pkill wofi || wofi"))
+hl.bind("Super_L", hl.dsp.exec_cmd("pkill wofi || wofi"), {release = true})
 ```
 
 These binds set the expected behavior for regular keyboard media volume keys,
@@ -72,7 +72,7 @@ You can describe your keybind with the `description` flag.
 Your description always goes in the flags section.
 
 ```lua
-hl.bind(keys, dispatcher, { description = "your description here"})
+hl.bind(keys, dispatcher, { description = "Your description here"})
 ```
 
 For example:
