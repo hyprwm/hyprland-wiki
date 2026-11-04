@@ -56,8 +56,8 @@ Make a copy of your config in `~/.config/hypr` called `hyprlandd.lua`.
 #### Recommended debug config changes
 
 - Remove _all_ autoexec directives from your config.
-- Change default modifier for binds (e.g. `SUPER` → `ALT`)
-- Alternatively, use `hl.window_rule({ match = { class = "aquamarine" }, shortcuts_inhibit = true })` and keep the same binds
+- Change default modifier for binds (e.g. `SUPER` → `ALT`).
+- Alternatively, use `hl.window_rule({ match = { class = "aquamarine" }, shortcuts_inhibit = true })` and keep the same binds.
 
 #### Launch the dev env
 
