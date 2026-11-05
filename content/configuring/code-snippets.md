@@ -12,6 +12,8 @@ Code snippets provided on this page may prove useful as inspiration or straight-
 ### Per-layout binds
 
 ```lua
+---@param bind_table table<HL.LayoutNamespace, HL.Dispatcher>
+---@return fun()
 local function layout_bind(bind_table)
     return function ()
         local workspace = hl.get_active_special_workspace() or hl.get_active_workspace()
@@ -194,6 +196,9 @@ end
 ### "Starts with" helper function
 
 ```lua
+---@param string string
+---@param prefix string
+---@return boolean
 local function starts_with(string, prefix)
     return string:find(prefix, 1, true) == 1
 end
@@ -302,18 +307,18 @@ local workspace_programs = {
 }
 
 hl.on("workspace.created", function(ws)
-    if not ws.is_empty then return end
-
     local program = workspace_programs[ws.addressable_name]
     if not program then return end
 
     local cmd, rules = table.unpack(program)
-    -- shallow-copy the rules table so we can add the workspace to it
-    local rules2 = {}
-    for k, v in rules do rules2[k] = v end
-    rules2.workspace = ws.addressable_name .. " silent"
+    local shallow_rules = {}
 
-    hl.exec_cmd(cmd, rules2)
+    -- Shallow-copy the rules table
+    -- Without the copy, it would modify the original table in workspace_programs
+    for k, v in next, rules do shallow_rules[k] = v end
+    shallow_rules.workspace = ws.addressable_name .. " silent"
+
+    hl.exec_cmd(cmd, shallow_rules)
 end)
 ```
 
@@ -386,6 +391,10 @@ Here's an example of managing window groups this way:
 ```lua
 hl.bind("SUPER + G", hl.dsp.submap("group_management"), { description = "Enter a group management submap" })
 
+---@param keys string
+---@param action HL.Dispatcher
+---@param description string
+---@return HL.Keybind
 local map = function(key, action, description)
     hl.bind(key, function()
         hl.dispatch(action)
@@ -446,16 +455,19 @@ hl.bind("SUPER + Delete", closeAllWindows )
 ### Move All Windows In Current Workspace To Another
 
 ```lua
-local function moveWindowsCurrentWorkspace(ws, f)
+---@param ws HL.Workspace
+---@param follow boolean
+---@return nil
+local function moveWindowsCurrentWorkspace(ws, follow)
     local cws = hl.get_active_special_workspace() or hl.get_active_workspace()
     local windows = hl.get_windows({ workspace = cws })
 
-    for _,w in pairs(windows) do
+    for _, w in pairs(windows) do
         hl.dispatch(
             hl.dsp.window.move({
-                window = w ,
-                workspace = ws ,
-                follow = f
+                window = w,
+                workspace = ws,
+                follow = follow
             })
         )
     end
@@ -478,7 +490,7 @@ end
 
 ### Switch To Workspaces 01-99
 
-```lua 
+```lua
 hl.bind("SUPER + P", hl.dsp.submap("ws_tens"), { description = "Workspace picker (01-99)" })
 
 hl.define_submap("ws_tens", function()
