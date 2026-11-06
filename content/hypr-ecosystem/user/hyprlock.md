@@ -54,14 +54,14 @@ Variables in the `general` category:
 | Variable | Description | Type | Default |
 | --- | --- | --- | --- |
 | `compositor_fade` | Uses compositor-controlled opacity to smoothly fade lock surface content together with compositor blur | bool | `false` |
+| `disable_screencopy` | Disables taking a screencopy for applying background effects. Useful with a semitransparent background and Hyprland's `misc:session_lock_xray` enabled | bool | `false` |
+| `fail_timeout` | Milliseconds until the ui resets after a failed auth attempt | int | `2000` |
+| `fractional_scaling` | Whether to use fractional scaling. `0` - disabled, `1` - enabled, `2` - auto | int | `2` |
 | `hide_cursor` | Hides the cursor instead of making it visible | bool | `false` |
 | `ignore_empty_input` | Skips validation when no password is provided | bool | `false` |
 | `immediate_render` | Makes hyprlock immediately start to draw widgets. Backgrounds will render `background:color` until their `background:path` resource is available | bool | `false` |
-| `text_trim` | Sets if the text should be trimmed, useful to avoid trailing newlines in commands' output | bool | `true` |
-| `fractional_scaling` | Whether to use fractional scaling. `0` - disabled, `1` - enabled, `2` - auto | int | `2` |
 | `screencopy_mode` | Selects screencopy mode: `0` - GPU-accelerated, `1` - CPU-based (slow) | int | `0` |
-| `fail_timeout` | Milliseconds until the ui resets after a failed auth attempt | int | `2000` |
-| `disable_screencopy` | Disables taking a screencopy for applying background effects. Useful with a semitransparent background and Hyprland's `misc:session_lock_xray` enabled | bool | `false` |
+| `text_trim` | Sets if the text should be trimmed, useful to avoid trailing newlines in commands' output | bool | `true` |
 
 #### Compositor Fade and Live Background
 
