@@ -23,7 +23,7 @@ hl.define_submap("resize", function()
     hl.bind("down", hl.dsp.window.resize({ x = 0, y = -10, relative = true}), { repeating = true })
 
     -- Use `reset` to go back to the global submap
-    hl.bind("escape", hl.dsp.submap("reset"))
+    hl.bind("Escape", hl.dsp.submap("reset"))
 
 end)
 
@@ -31,7 +31,7 @@ end)
 ```
 
 > [!WARNING]
-> Do not forget a keybind (`escape`, in this case) to reset the keymap while inside it!
+> Do not forget a keybind (`Escape`, in this case) to reset the keymap while inside it!
 >
 > If you get stuck inside a keymap, you can use `hyprctl dispatch 'hl.dsp.submap("reset")'` to go back.
 > If you do not have a terminal open, open a new TTY and use the `--instance` flag to select which instance of Hyprland to operate on (if you only have one running this is 0).
@@ -63,36 +63,28 @@ hl.bind(mainMod .. " + K", hl.dsp.exec_cmd("kitty"), { submap_universal = true }
 Submaps can be nested, see the following example:
 
 ```lua
-hl.bind(mainMod .. " + M", hl.dsp.submap("main_submap"))
-hl.define_submap(main_submap, function()
+hl.bind(mainMod .. " + M", hl.dsp.submap("main"))
+hl.define_submap("main", function()
 
-    -- ...
-
-    -- nested_one
     hl.bind("1", hl.dsp.submap("nested_one"))
     hl.define_submap("nested_one", function()
 
-        -- ...
+        hl.bind("SHIFT + Escape", hl.dsp.submap("reset"))
+        hl.bind("Escape", hl.dsp.submap("main_submap"))
 
-        hl.bind("SHIFT + escape", hl.dsp.submap("reset"))
-        hl.bind("escape", hl.dsp.submap("main_submap"))
-
-        -- nested_two
         hl.bind("2", hl.dsp.submap("nested_two"))
         hl.define_submap("nested_two", function()
 
-                -- ...
+            hl.bind("SHIFT + Escape", hl.dsp.submap("reset"))
+            hl.bind("Escape", hl.dsp.submap("main_submap"))
 
-            hl.bind("SHIFT + escape", hl.dsp.submap("reset"))
-            hl.bind("escape", hl.dsp.submap("main_submap"))
-
-        -- /nested_two
+        -- End of nested_two submap
         end)
-    -- /nested_one
+    -- End of nested_one submap
     end)
 
-    hl.bind("escape", hl.dsp.submap("reset"))
--- /main_submap
+    hl.bind("Escape", hl.dsp.submap("reset"))
+-- End of main submap
 end)
 ```
 

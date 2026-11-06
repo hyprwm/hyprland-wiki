@@ -396,7 +396,7 @@ Category: `input`
 | scroll_method | Sets the scroll method. Additional info: [libinput#scrolling](https://wayland.freedesktop.org/libinput/doc/latest/scrolling.html). Options: `"2fg"`/`"edge"`/`"on_button_down"`/`"no_scroll"` (2fg - 2 fingers) | string | [[Empty]] | |
 | scroll_factor | Multiplier added to scroll movement for external mice. Note that there is a separate setting for [touchpad scroll_factor](#touchpad)  | float | `1.0` | [0 - 100] |
 | sensitivity | Sets the mouse input sensitivity. Additional info: [libinput#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration) | float | `0.0` | [-1.0 - 1.0] |
-| special_fallthrough | if enabled, having only floating windows in the special workspace will not block focusing windows in the regular workspace | bool | `false` | |
+| special_fallthrough | If enabled, having only floating windows in the special workspace will not block focusing windows in the regular workspace | bool | `false` | |
 | swallow_focus_click | If enabled, the first click on unfocused window will focus it without forwarding the click action. Only relevant when mouse focus is detached, e.g. `input.follow_mouse` is `0` or `2` | bool | `false` | |
 
 ##### XKB keymap params
@@ -799,8 +799,8 @@ Category: `input-capture`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
-| capture_modifiers | if enabled, modifiers are also captured and sent to the program | bool | `false` | |
-| enforce_barriers | if enabled, throw a Wayland error when an invalid barrier is received | bool | `true` | |
+| capture_modifiers | If enabled, modifiers are also captured and sent to the program | bool | `false` | |
+| enforce_barriers | If enabled, throw a Wayland error when an invalid barrier is received | bool | `true` | |
 
 ### Debug
 
