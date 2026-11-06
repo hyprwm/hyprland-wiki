@@ -302,20 +302,23 @@ For example:
 
 ```lua
 local workspace_programs = {
-    ["5"] = { "firefox", { float = true } },
-    ["special:terminal"] = { "kitty",   { fullscreen = true } },
+    ["5"]               = { "firefox", { float = true } },
+    ["6"]               = { "kitty",   { fullscreen = true } },
+    ["special:special"] = { "discord", {} },
 }
 
 hl.on("workspace.created", function(ws)
+    if not ws.is_empty then return end
+
     local program = workspace_programs[ws.addressable_name]
     if not program then return end
 
     local cmd, rules = table.unpack(program)
-    local shallow_rules = {}
 
     -- Shallow-copy the rules table
     -- Without the copy, it would modify the original table in workspace_programs
-    for k, v in next, rules do shallow_rules[k] = v end
+    local shallow_rules = {}
+    for k, v in pairs(rules) do shallow_rules[k] = v end
     shallow_rules.workspace = ws.addressable_name .. " silent"
 
     hl.exec_cmd(cmd, shallow_rules)
