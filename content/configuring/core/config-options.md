@@ -321,8 +321,8 @@ Category: `decoration.glow`
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
 | enabled | Enable inner glow on windows | bool | `false` | |
-| color | Active window glow's color. Alpha dictates opacity | color | `0xee1a1a1a` | |
-| color_inactive | Inactive window glow's color. If not set, will fall back to `color` | color | [[Empty]] | |
+| color | Active window glow's color. Alpha dictates opacity | gradient | `0xee1a1a1a` | |
+| color_inactive | Inactive window glow's color. If not set, will fall back to `color` | gradient | [[Empty]] | |
 | range | Glow range (size) in pixels | int | `10` | [0 - 100] |
 | render_power | In what power to render the falloff. More power, the faster the falloff | int | `3` | [1 - 4] |
 
