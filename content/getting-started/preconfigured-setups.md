@@ -18,7 +18,7 @@ You've found the right place.
 
 Here are a few options to consider:
 
-## Omarchy
+## Omarchy <span style="color: gray; font-size: 12px;">Sponsored</span>
 
 An opinionated Arch + Hyprland Setup by DHH.
 
