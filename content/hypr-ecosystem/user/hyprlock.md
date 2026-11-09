@@ -53,14 +53,56 @@ Variables in the `general` category:
 
 | Variable | Description | Type | Default |
 | --- | --- | --- | --- |
+| `compositor_fade` | Uses compositor-controlled opacity to smoothly fade lock surface content together with compositor blur | bool | `false` |
+| `disable_screencopy` | Disables taking a screencopy for applying background effects. Useful with a semitransparent background and Hyprland's `misc:session_lock_xray` enabled | bool | `false` |
+| `fail_timeout` | Milliseconds until the ui resets after a failed auth attempt | int | `2000` |
+| `fractional_scaling` | Whether to use fractional scaling. `0` - disabled, `1` - enabled, `2` - auto | int | `2` |
 | `hide_cursor` | Hides the cursor instead of making it visible | bool | `false` |
 | `ignore_empty_input` | Skips validation when no password is provided | bool | `false` |
 | `immediate_render` | Makes hyprlock immediately start to draw widgets. Backgrounds will render `background:color` until their `background:path` resource is available | bool | `false` |
-| `text_trim` | Sets if the text should be trimmed, useful to avoid trailing newlines in commands' output | bool | `true` |
-| `fractional_scaling` | Whether to use fractional scaling. `0` - disabled, `1` - enabled, `2` - auto | int | `2` |
 | `screencopy_mode` | Selects screencopy mode: `0` - GPU-accelerated, `1` - CPU-based (slow) | int | `0` |
-| `fail_timeout` | Milliseconds until the ui resets after a failed auth attempt | int | `2000` |
-| `disable_screencopy` | Disables taking a screencopy for applying background effects. Useful with a semitransparent background and Hyprland's `misc:session_lock_xray` enabled | bool | `false` |
+| `text_trim` | Sets if the text should be trimmed, useful to avoid trailing newlines in commands' output | bool | `true` |
+
+#### Compositor Fade and Live Background
+
+Enable `general:compositor_fade` to fade lock surface content and compositor blur together using the existing [`fadeIn` and `fadeOut` animations](#animations).
+This animates the contribution of compositor blur, **not the blur radius itself**.
+If the compositor does not advertise the `hyprland_surface_manager_v1` Wayland protocol, hyprlock automatically falls back to the standard client-side fade.
+
+For a live, blurred desktop backdrop, enable `misc:session_lock_xray` and `misc:session_lock_blur` in Hyprland's `hyprland.lua`:
+
+```lua
+hl.config({
+    misc = {
+        session_lock_xray = true,
+        session_lock_blur = true,
+    },
+})
+```
+
+Use a transparent [background](#background) with an empty `path` in `hyprlock.conf`:
+
+```ini
+general {
+    compositor_fade = true
+}
+
+background {
+    monitor =
+    path =
+    color = rgba(0, 0, 0, 0.0)
+}
+
+animations {
+    enabled = true
+    bezier = linear, 1, 1, 0, 0
+    animation = fadeIn, 1, 5, linear
+    animation = fadeOut, 1, 5, linear
+}
+```
+
+With this setup, the desktop behind the lock screen stays live.
+An explicit `background:path = screenshot` still captures a static image at launch instead of showing a live backdrop, even with `compositor_fade` enabled.
 
 ### Authentication
 
