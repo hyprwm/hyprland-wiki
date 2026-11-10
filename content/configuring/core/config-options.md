@@ -719,7 +719,7 @@ Category: `render`
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
 | async_commit | Send DRM commits asynchronously when possible, reducing hw cursor latency | bool | `false` | |
-| cm_auto_hdr | Auto-switch to HDR in fullscreen when needed. `0` - disabled, `1` - switch to `hdr`, `2` - switch to `hdredid` | int | `1` | [0 - 2] |
+| cm_auto_hdr | Auto-switch to HDR in fullscreen if client requests it. `0` - disabled, `1` - switch to `hdr`, `2` - switch to `hdredid` | int | `1` | [0 - 2] |
 | cm_enabled | Whether the color management pipeline should be enabled or not. Requires restart | bool | `true` | |
 | cm_sdr_eotf | Default transfer function for displaying SDR apps. `default` - Use default value (sRGB), `gamma22` - treat unspecified as Gamma 2.2, `gamma22force` - treat unspecified and sRGB as Gamma 2.2, `srgb` - treat unspecified as sRGB. Options: `"default"`/`"gamma22"`/`"gamma22force"`/`"srgb"` | string | `"default"` | |
 | ctm_animation | Whether to enable a fade animation for CTM changes (hyprsunset). 2 means "auto" which disables them on NVIDIA | int | `2` | [0 - 2] |
@@ -738,7 +738,10 @@ Category: `render`
 | use_shader_blur_blend | Use experimental blurred bg blending (glitched on rotated screens). Set to `true` if blur is missing with fp16 or `keep_unmodified_copy` | bool | `false` | |
 | xp_mode | Disables back buffer and bottom layer rendering | bool | `false` | |
 
-`cm_auto_hdr` requires the `--target-colorspace-hint-mode=source` mpv option to work with mpv versions greater than v0.40.0.
+
+#### HDR
+
+- `cm_auto_hdr` might cause electron/chromium/CEF apps to always trigger HDR in fullscreen due to them always requesting HDR. If this is unwanted, use `no_auto_hdr` window rule, always use HDR regardless of client request (see [here](../monitors/colors/#color-management-presets)), or disable `cm_auto_hdr` entirely.
 
 ### Cursor
 
