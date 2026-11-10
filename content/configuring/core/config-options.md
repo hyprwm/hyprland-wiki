@@ -682,6 +682,7 @@ Category: `binds`
 | allow_workspace_cycles | If enabled, workspaces don't forget their previous workspace, so cycles can be created by switching to the first workspace in a sequence, then endlessly going to the previous workspace | bool | `false` | |
 | disable_keybind_grabbing | If enabled, apps that request keybinds to be disabled, e.g. `VMs`, will not be able to do so | bool | `false` | |
 | drag_threshold | Movement threshold in pixels for window dragging and `click`/`drag` bind flags. `0` means disabled | int | `0` | [0 - ...] |
+| drag_center_window | Whether to center the window on the pointer, or use the initial hotspot | bool | true | |
 | focus_preferred_method | Sets the preferred focus finding method when using `hl.dsp.focus({ direction })`/`hl.dsp.window.move({ direction })`/etc. `0` - most recent active window has priority, `1` - longer shared edges have priority) | int | `0` | [0 - 1] |
 | hide_special_on_workspace_change | If enabled, changing the active workspace (including to itself) will hide the special workspace on the monitor where the newly active workspace resides | bool | `false` | |
 | ignore_group_lock | If enabled, dispatchers like `hl.dsp.window.move({ into_group })` and `hl.dsp.window.move({ out_of_group })` will ignore lock per group | bool | `false` | |
