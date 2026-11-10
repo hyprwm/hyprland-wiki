@@ -6,6 +6,10 @@ title: Configuring Hyprland with Home Manager
 For a list of available options, check the [Home Manager options](https://nix-community.github.io/home-manager/options.xhtml#opt-wayland.windowManager.hyprland.enable).
 
 > [!WARNING]
+> **Outdated:**
+>   This page uses old hyprlang style. Support for this was removed in hyprland 0.57 in favor of lua style. 
+
+> [!WARNING]
 > **Required:**
 > - **NixOS Module:** enables critical components needed to run Hyprland properly.
 >   Without this, you may have issues with missing session files in your Display Manager.
