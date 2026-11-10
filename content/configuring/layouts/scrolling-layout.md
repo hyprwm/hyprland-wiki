@@ -41,7 +41,7 @@ hl.workspace_rule({ workspace = "2", layout_opts = { direction = "right" } })
 
 Dispatcher `hl.dsp.layout()` arguments:
 
-| name | description | params |
+| Name | Description | Params |
 | --- | --- | --- |
 | center | Centers the currently focused column | none |
 | colresize | Resize the current column, to either a value or by a relative value (e.g., `0.5`, `+0.2`, `-0.2`), or cycle the preconfigured ones with `+conf` or `-conf`. Can also be `all (number)` for resizing all columns to a specific width | relative float/relative `conf` |
@@ -65,10 +65,10 @@ hl.bind(mainMod .. " + comma", hl.dsp.layout("swapcol l"))
 
 ## Convenience functions
 
-| Name | Description | Params | Return |
-| --- | --- | --- |
-| `hl.get_scrolling_offset()` | Get the scrolling tape offset | | `float` |
-| `hl.set_scrolling_offset()` | Set the scrolling tape offset | `float`/`string` | |
+- `hl.get_scrolling_offset()`
+- `hl.set_scrolling_offset(double)`
+
+Use the LSP (or examine the stubs yourself) for the return values. See [here](../../core#editor-autocompletion) to set up the LSP in your code editor.
 
 ## Window rules
 
