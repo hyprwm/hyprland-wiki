@@ -657,6 +657,8 @@ Category: `misc.col`
 
 ### Layers
 
+Category: `layers`
+
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
 | allow_new_top_layers_over_existing_fullscreen | If false, newly mapped layers are not allowed to render over existing covering fullscreen window. Note that fullscreen hides all pre-existing top layers regardless of this setting | bool | `true` | |
