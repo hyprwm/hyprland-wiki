@@ -56,3 +56,4 @@ hl.bind("SUPER + SHIFT + A", hl.dsp.global("coolApp:myToggle"))
 The global shortcuts protocol can send both "activated" and "deactivated" events.
 By default, the `global` dispatcher sends events based on the key input that triggered it.
 For example, if used in a release bind, it will only send "deactivated" events, which your app may not respond to.
+To override this and send a specific event, pass a boolean second argument to `global` (`true`/`false` for an activated/deactivated event, respectively).
