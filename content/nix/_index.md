@@ -1,5 +1,5 @@
 ---
-weight: 80
+weight: 60
 title: Nix
 ---
 
