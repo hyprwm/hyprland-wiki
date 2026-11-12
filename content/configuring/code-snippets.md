@@ -7,19 +7,17 @@ title: Lua code snippets
 
 Code snippets provided on this page may prove useful as inspiration or straight-up copy-paste.
 
-<!-- TODO: scrape discord/forums for helper functions that may or may not be useful -->
+<!-- TODO: scrape DA WEB for snippets that may or may not be useful -->
 
 ### Per-layout binds
 
 ```lua
+---@param bind_table table<HL.LayoutNamespace, HL.Dispatcher>
+---@return fun()
 local function layout_bind(bind_table)
     return function ()
-        local workspace = hl.get_active_special_workspace() or
-                          hl.get_active_workspace()
-
-        if not workspace then
-            return
-        end
+        local workspace = hl.get_active_special_workspace() or hl.get_active_workspace()
+        if not workspace then return end
 
         local layout = workspace.tiled_layout
 
@@ -198,6 +196,9 @@ end
 ### "Starts with" helper function
 
 ```lua
+---@param string string
+---@param prefix string
+---@return boolean
 local function starts_with(string, prefix)
     return string:find(prefix, 1, true) == 1
 end
@@ -208,31 +209,33 @@ end
 Easily toggling animations and other effects with a bind could be useful for temporarily having less distractions, or for saving battery on a laptop:
 
 ```lua
-hl.bind("SUPER + F1", function ()
-    local game_mode = (hl.get_config("animations.enabled") == false)
+local game_mode = false
 
+hl.bind("SUPER + F1", function ()
     if game_mode then
-        hl.exec_cmd("hyprctl reload")
+        hl.dispatch(hl.dsp.reload_config())
         return
     end
 
     hl.config({
         general = {
-            gaps_in = 0, gaps_out = 0, -- Disable gaps
+            gaps_in = 0,
+            gaps_out = 0,
             border_size = 0,
         },
 
         animations = {
-            enabled = false, -- Disable animations
+            enabled = false,
         },
 
-        -- Disable blur, shadow and window rounding
         decoration = {
             shadow = { enabled = false },
             blur = { enabled = false },
             rounding = 0,
         }
     })
+
+    game_mode = true
 end)
 ```
 
@@ -243,30 +246,20 @@ To change the layout of the current workspace, you can use this bind:
 ```lua
 hl.bind("SUPER + tab", function ()
     local layouts   = { "scrolling", "dwindle", "master", "monocle" }
-    local workspace = hl.get_active_workspace()
-    if hl.get_active_special_workspace() then
-        workspace = hl.get_active_special_workspace()
-    end
+    local next_layout
 
-    local next_layout = "dwindle"
-
-    if not workspace then
-        return
-    end
+    local workspace = hl.get_active_special_workspace() or hl.get_active_workspace()
+    if not workspace then return end
 
     for i = 1, #layouts do
         if layouts[i] == workspace.tiled_layout then
-            local next_layout_idx = (i % #layouts) + 1
-            next_layout = layouts[next_layout_idx]
-            break
+            next_layout = layouts[ i % #layouts + 1 ]
+            goto dispatch
         end
     end
 
-    if workspace.special then
-        hl.workspace_rule({ workspace = tostring(workspace.name), layout = next_layout })
-    else
-        hl.workspace_rule({ workspace = "name:" .. tostring(workspace.name), layout = next_layout })
-    end
+    ::dispatch::
+    hl.workspace_rule({ workspace = workspace.addressable_name, layout = next_layout })
 end)
 ```
 
@@ -278,20 +271,18 @@ This acts similarly to Windows Magnifier, in its full-screen mode.
 ```lua
 local MAX_ZOOM = 3
 local MIN_ZOOM = 1
-local ZOOM_TOGGLE_FACTOR = 1.5
+local ZOOM_TOGGLE_FACTOR = 0.5
 
 ---@param offset number
 ---@return nil
 local function zoom(offset)
     local current = hl.get_config("cursor.zoom_factor")
-    if offset ~= nil then
-        current = current + offset
-    elseif current ~= MIN_ZOOM then
-        current = MIN_ZOOM
-    else
-        current = ZOOM_TOGGLE_FACTOR
-    end
-    current = math.max(MIN_ZOOM, math.min(MAX_ZOOM, current))
+
+    -- If no offset is provided, default to zoom after toggle, else use passed zoom value
+    current = current + (offset and offset or ZOOM_TOGGLE_FACTOR)
+    if current < MIN_ZOOM then current = MIN_ZOOM end
+    if current > MAX_ZOOM then current = MAX_ZOOM end
+
     hl.config({ cursor = { zoom_factor = current } })
 end
 
@@ -299,41 +290,38 @@ hl.bind("SUPER + Z", zoom)
 hl.bind("SUPER + KP_ADD", function()
     zoom(0.5)
 end)
-hl.bind("SUPER + minus", function()
+hl.bind("SUPER + Minus", function()
     zoom(-0.5)
 end)
 ```
 
 ### Launching programs on workspace creation
 
-To replicate the behavior of the old `on_created_empty` workspace rule,
-use the `workspace.created` [event](../core/advanced-configuration/events) to launch programs.
+To replicate the behavior of the old `on_created_empty` workspace rule, use the `workspace.created` [event](../core/advanced-configuration/events) to launch programs.
 For example:
 
 ```lua
 local workspace_programs = {
-    ["5"] = { "firefox", { float = true } },
-    ["special:terminal"] = { "kitty",   { fullscreen = true } },
+    ["5"]               = { "firefox", { float = true } },
+    ["6"]               = { "kitty",   { fullscreen = true } },
+    ["special:special"] = { "discord", {} },
 }
+
 hl.on("workspace.created", function(ws)
-	if not ws.is_empty then return end
+    if not ws.is_empty then return end
 
-	-- use programs associated with window id by default
-	local program = ws.id and workspace_programs[tostring(ws.id)]
-		or workspace_programs[ws.name]
-	if program == nil then return end
+    local program = workspace_programs[ws.addressable_name]
+    if not program then return end
 
-	local cmd, provided_rules = table.unpack(program)
-	-- shallow-copy the rules table so we can add the workspace to it
-	local rules = {}
-	if provided_rules ~= nil then
-		for k, v in provided_rules do rules[k] = v end
-	end
-	-- force program to open on desired workspace, even if focus is moved to another
-	-- workspace before the program window appears
-	rules.workspace = (ws.id and tostring(ws.id) or ws.name) .. " silent"
-	-- run it!
-	hl.exec_cmd(cmd, rules)
+    local cmd, rules = table.unpack(program)
+
+    -- Shallow-copy the rules table
+    -- Without the copy, it would modify the original table in workspace_programs
+    local shallow_rules = {}
+    for k, v in pairs(rules) do shallow_rules[k] = v end
+    shallow_rules.workspace = ws.addressable_name .. " silent"
+
+    hl.exec_cmd(cmd, shallow_rules)
 end)
 ```
 
@@ -345,6 +333,7 @@ This functions similarly to the i3 `focus mode_toggle` bind.
 hl.bind("SUPER + space", function()
     local window = hl.get_active_window()
     if not window then return end
+
     hl.dispatch(hl.dsp.window.cycle_next({
         floating = not window.floating,
         tiled = window.floating,
@@ -405,6 +394,10 @@ Here's an example of managing window groups this way:
 ```lua
 hl.bind("SUPER + G", hl.dsp.submap("group_management"), { description = "Enter a group management submap" })
 
+---@param keys string
+---@param action HL.Dispatcher
+---@param description string
+---@return HL.Keybind
 local map = function(key, action, description)
     hl.bind(key, function()
         hl.dispatch(action)
@@ -413,28 +406,28 @@ local map = function(key, action, description)
 end
 
 hl.define_submap("group_management", function()
-    map("g", hl.dsp.group.toggle(), "Toggle window group")
+    map("G", hl.dsp.group.toggle(), "Toggle window group")
 
-    map("h", hl.dsp.window.move({ into_group = "l" }), "Move window into a group on the left")
-    map("j", hl.dsp.window.move({ into_group = "d" }), "Move window into a group on the bottom")
-    map("k", hl.dsp.window.move({ into_group = "u" }), "Move window into a group on the top")
-    map("l", hl.dsp.window.move({ into_group = "r" }), "Move window into a group on the right")
+    map("H", hl.dsp.window.move({ into_group = "l" }), "Move window into a group on the left")
+    map("J", hl.dsp.window.move({ into_group = "d" }), "Move window into a group on the bottom")
+    map("K", hl.dsp.window.move({ into_group = "u" }), "Move window into a group on the top")
+    map("L", hl.dsp.window.move({ into_group = "r" }), "Move window into a group on the right")
 
-    map("e", hl.dsp.window.move({ out_of_group = true }), "Move window out of group")
+    map("E", hl.dsp.window.move({ out_of_group = true }), "Move window out of group")
 
-    map("n", hl.dsp.group.next(), "Next window in group")
-    map("p", hl.dsp.group.prev(), "Previous window in group")
+    map("N", hl.dsp.group.next(), "Next window in group")
+    map("P", hl.dsp.group.prev(), "Previous window in group")
 
-    map("f", hl.dsp.group.move_window(), "Move window forward in the group order")
-    map("b", hl.dsp.group.move_window({ forward = false }), "Move window backward in the group order")
+    map("F", hl.dsp.group.move_window(), "Move window forward in the group order")
+    map("B", hl.dsp.group.move_window({ forward = false }), "Move window backward in the group order")
 
-    map("t", hl.dsp.group.lock_active(), "Toggle group lock")
+    map("T", hl.dsp.group.lock_active(), "Toggle group lock")
 
     for i = 1, 10 do
         map(tostring(i % 10), hl.dsp.group.active({ index = i }), "Focus window " .. i .. " in a group")
     end
 
-    hl.bind("escape", hl.dsp.submap("reset"), { description = "Quit submap" })
+    hl.bind("Escape", hl.dsp.submap("reset"), { description = "Quit submap" })
 end)
 ```
 
@@ -450,7 +443,7 @@ local function closeAllWindows()
 end
 
 local function closeAllWindowsCurrentWorkspace()
-    local cws = hl.get_active_workspace()
+    local cws = hl.get_active_special_workspace() or hl.get_active_workspace()
     local windows = hl.get_windows({ workspace = cws })
 
     for _,w in pairs(windows) do
@@ -458,23 +451,26 @@ local function closeAllWindowsCurrentWorkspace()
     end
 end
 
-hl.bind("SUPER+BackSpace", closeAllWindowsCurrentWorkspace )
-hl.bind("SUPER+Delete", closeAllWindows )
+hl.bind("SUPER + BackSpace", closeAllWindowsCurrentWorkspace )
+hl.bind("SUPER + Delete", closeAllWindows )
 ```
 
 ### Move All Windows In Current Workspace To Another
 
 ```lua
-local function moveWindowsCurrentWorkspace(ws, f)
-    local cws = hl.get_active_workspace()
+---@param ws HL.Workspace
+---@param follow boolean
+---@return nil
+local function moveWindowsCurrentWorkspace(ws, follow)
+    local cws = hl.get_active_special_workspace() or hl.get_active_workspace()
     local windows = hl.get_windows({ workspace = cws })
 
-    for _,w in pairs(windows) do
+    for _, w in pairs(windows) do
         hl.dispatch(
             hl.dsp.window.move({
-                window = w ,
-                workspace = ws ,
-                follow = f
+                window = w,
+                workspace = ws,
+                follow = follow
             })
         )
     end
@@ -482,14 +478,14 @@ end
 
 for i = 1, 10 do
     local key = i % 10
-    hl.bind("SUPER+SHIFT+ALT+" .. key, function()
+    hl.bind("SUPER + SHIFT + ALT + " .. key, function()
         moveWindowsCurrentWorkspace(i, true)
     end)
 end
 
 for i = 1, 10 do
     local key = i % 10
-    hl.bind("SUPER+CTRL+ALT+" .. key, function()
+    hl.bind("SUPER + CTRL + ALT + " .. key, function()
         moveWindowsCurrentWorkspace(i, false)
     end)
 end
@@ -497,8 +493,8 @@ end
 
 ### Switch To Workspaces 01-99
 
-```lua 
-hl.bind("SUPER+P", hl.dsp.submap("ws_tens"), { description = "Workspace picker (01-99)" })
+```lua
+hl.bind("SUPER + P", hl.dsp.submap("ws_tens"), { description = "Workspace picker (01-99)" })
 
 hl.define_submap("ws_tens", function()
     for tens = 0, 9 do
@@ -509,7 +505,7 @@ hl.define_submap("ws_tens", function()
     for i = 1, #letters do
         hl.bind(letters:sub(i, i), hl.dsp.submap("reset"))
     end
-    hl.bind("escape", hl.dsp.submap("reset"))
+    hl.bind("Escape", hl.dsp.submap("reset"))
 end)
 
 for tens = 0, 9 do
@@ -520,7 +516,7 @@ for tens = 0, 9 do
                 hl.bind(tostring(units), hl.dsp.focus({ workspace = target }))
             end
         end
-        hl.bind("escape", hl.dsp.submap("reset"))
+        hl.bind("Escape", hl.dsp.submap("reset"))
         hl.bind("catchall", hl.dsp.submap("reset"))
     end)
 end

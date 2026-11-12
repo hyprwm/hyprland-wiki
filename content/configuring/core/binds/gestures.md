@@ -26,7 +26,9 @@ hl.gesture({ fingers = 3, direction = "left", scale = 1.5, action = "float" })
 ```
 
 ### Fields
+
 <!-- SORT: fingers after direction because it is a required field -->
+
 | Field | Description | Type | Limits |
 | --- | --- | --- | --- |
 | action | Action to perform | string | |
@@ -41,7 +43,9 @@ Some gestures might have their own additional fields, which are described in the
 ### Directions
 
 The following directions are supported:
+
 <!-- SORT: Grouped by: swipe, direction, pinch. Directions are sorted by, I guess, vibe? -->
+
 | Direction | Description |
 | --- | --- |
 | swipe | Any swipe |
@@ -61,6 +65,7 @@ Specifying `unset` as the action will unset a specific gesture that was previous
 Please note it needs to exactly match everything from the original gesture including direction, mods, fingers and scale.
 
 <!-- SORT: Lua functions are at the top because they're fancy -->
+
 | Action | Description | Additional arguments |
 | --- | --- | --- |
 | _lua function_ | Executes a named Lua function or Lua lambda function. See below | none |
@@ -106,7 +111,9 @@ hl.gesture({
 ```
 
 An example with a named function:
+
 <!-- TODO: im lazy to boot my laptop and test if it actually works right now, i will remove this comment later -->
+
 ```lua
 local function swipe()
     hl.notification.create({ text = "I just swiped on my trackpad!", timeout = 5000, icon = "ok" })
