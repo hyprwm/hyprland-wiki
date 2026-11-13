@@ -68,7 +68,7 @@ end)
 | `focus({ last })` | Move the focus to the last window |
 | `force_idle( int )` | Sets elapsed time for all idle timers in seconds, ignoring idle inhibitors. Timers return to normal behavior upon the next activity. Do not use with a keybind directly! |
 | `force_renderer_reload()` | Force reloads the renderer on all monitors |
-| `global( string )` | Activate a D-Bus global shortcut. See [Global shortcuts](../binds/globals) |
+| `global( string, activate? )` | Trigger a D-Bus global shortcut, optionally sending specifically an activate or deactivate event. See [Global shortcuts](../binds/globals#d-bus-global-shortcuts) |
 | `layout( message )` | Send a layout message as a string |
 | `no_op()` | Does nothing. Useful for conditional binds |
 | `pass({ window? })` | Pass the shortcut to a window |
