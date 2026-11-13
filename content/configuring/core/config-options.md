@@ -632,7 +632,7 @@ Category: `misc`
 | initial_workspace_token_timeout | the time in seconds a window has to open on its invoked workspace before the tracking token expires. | int | `10` | [1 - 3600] |
 | initial_workspace_tracking | If enabled, windows will open on the workspace they were invoked on. 0 - disabled, 1 - single-shot, 2 - persistent (all children too) | int | `1` | |
 | key_press_enables_dpms | If DPMS is set to off, wake up the monitors if a key is pressed | bool | `false` | |
-| lockdead_screen_delay | Delay in ms after which the "lockdead" screen will appear in case a locks creen app fails to cover all the outputs | int | `1000` | [0 - 5000] |
+| lockdead_screen_delay | Delay in ms after which the "lockdead" screen will appear in case a lock screen app fails to cover all the outputs | int | `1000` | [0 - 5000] |
 | middle_click_paste | Whether to enable middle-click-paste (aka primary selection) | bool | `true` | |
 | mouse_move_enables_dpms | If DPMS is set to off, wake up the monitors if the mouse moves | bool | `false` | |
 | mouse_move_focuses_monitor | Whether mouse moving into a different monitor should focus it | bool | `true` | |
