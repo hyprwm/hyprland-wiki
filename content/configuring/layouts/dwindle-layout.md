@@ -28,7 +28,6 @@ Category: `dwindle`
 | smart_split | If enabled, allows a more precise control over the window split direction based on the cursor's position. The window is conceptually divided into four triangles, and cursor's triangle determines the split direction. This feature also turns on `preserve_split` | bool | `false` | |
 | smart_resizing | If enabled, resizing direction will be determined by the mouse's position on the window (nearest to which corner). Otherwise, it is based on the window's tiling position | bool | `true` | |
 | permanent_direction_override | If enabled, makes the preselect direction persist until either this mode is turned off, another direction is specified, or a non-direction is specified (anything other than `l`, `r`, `u`/`t`, `d`/`b`) | bool | `false` | |
-| special_scale_factor | Specifies the scale factor of windows on the special workspace | float | `1` | [0 - 1] |
 | split_width_multiplier | Specifies the auto-split width multiplier. Multiplying window size is useful on widescreen monitors where window W > H even after several splits | float | `1.0` | [0.1 - 3.0] |
 | use_active_for_splits | Whether to prefer the active window or the mouse position for splits | bool | `true` | |
 | default_split_ratio | The default split ratio on window open. 1 means an even 50/50 split | float | `1.0` | [0.1 - 1.9] |
