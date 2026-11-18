@@ -94,28 +94,20 @@ Be aware that updating dependencies like `hyprutils` might still require you to 
 
 {{< tab name="Nix" >}}
 
-Enable Hyprland in your NixOS configuration:
-
-```nix
-{
-  programs.hyprland.enable = true;
-}
-```
-
-For more details, read the [Nix page](../../nix).
+Read about installation Hyprland on the [Nix page](../../nix).
 
 {{< /tab >}}
 
 {{< tab name="openSUSE*" >}}
 
 Hyprland is part of factory, starting with snapshot 20230411.
-To install it simply use zypper
+To install it simply use zypper:
 
 ```sh
 sudo zypper in hyprland
 ```
 
-or install the "hyprland" package via YaST2 Software.
+Or install the "hyprland" package via YaST2 Software.
 
 For `hyprpm` to recognize its dependencies, you'll also need to install `hyprland-devel`:
 
@@ -123,7 +115,7 @@ For `hyprpm` to recognize its dependencies, you'll also need to install `hyprlan
 sudo zypper in hyprland-devel
 ```
 
-Alternatively, you can also follow the instructions under [Manual build](#manual-build) to build Hyprland yourself.
+Alternatively, you can follow the instructions under [Manual build](#manual-build) to build Hyprland yourself.
 
 > [!NOTE]
 > Hyprland is not available for Leap, as most libraries (and compiler) that Hyprland needs are too old.
@@ -140,20 +132,17 @@ You can also compile it yourself by following the instructions [here](https://gi
 
 {{< tab name="Debian*" >}}
 
-`hyprland` is available as of Debian 14 (Forky) and in the Debian 13 (Trixie) backports
+Hyprland is available as of Debian 14 (Forky):
 
 ```bash
 sudo apt install hyprland
 ```
 
-or
+And in the Debian 13 (Trixie) backports:
 
 ```bash
 sudo apt install -t trixie-backports hyprland
 ```
-
-> [!NOTE]
-> Hyprland is not available for Bookworm as its packages are too old.
 
 {{< /tab >}}
 
