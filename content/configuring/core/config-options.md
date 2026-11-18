@@ -69,7 +69,7 @@ Category: `general`
 | allow_tearing | Master switch for allowing tearing to occur. See the [Tearing page](../../extra/tearing) | bool | `false` | |
 | border_size | Size of the border around windows | int | `1` | [0 - 20] |
 | extend_border_grab_area | Extends the area around the border where you can click and drag on, only used when `general.resize_on_border` is on | int | `15` | [0 - 100] |
-| float_gaps | Gaps between windows and monitor edges for floating windows `-1` means default | css_gaps | `0` | |
+| float_gaps | Gaps between windows and monitor edges for floating windows `-1` means default. | css_gaps | `0` | |
 | gaps_in | Gaps between windows | css_gaps | `5` | |
 | gaps_out | Gaps between windows and monitor edges | css_gaps | `20` | |
 | gaps_workspaces | Gaps between workspaces. Stacks with gaps_out | int | `0` | [0 - 100] |
