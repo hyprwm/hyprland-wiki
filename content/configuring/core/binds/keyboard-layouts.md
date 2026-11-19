@@ -54,23 +54,23 @@ grep 'grp:.*toggle' /usr/share/X11/xkb/rules/base.lst
 
 ### Workspace bindings on non-QWERTY layouts
 
-Keys used for keybinds need to be accessible without any modifiers in your layout.
+Keys used for keybinds must be accessible on your keyboard layout without any modifiers.
 
-For instance, the [French AZERTY](https://en.wikipedia.org/wiki/AZERTY) layout uses SHIFT + _`unmodified key`_ to write `0-9` numbers.
-As such, the keybinds for this layout need to use the names of the _`unmodified keys`_ , and will not work when using the `0-9` numbers.
+For example, the [French AZERTY](https://en.wikipedia.org/wiki/AZERTY) layout uses SHIFT + _`unmodified key`_ to write `0-9` numbers.
+As such, the keybinds for this layout need to use the names of the _unmodified keys_ , and will not work when using the `0-9` numbers.
 
 > [!NOTE]
 > To get the correct name for an `unmodified_key`, refer to [the section on uncommon syms](..#uncommon-syms--binding-with-a-keycode).
 
 There are a few ways of solving this:
-1. Using a keycode
-1. Using the generic key name
-
-<!-- TODO: This reads like ass, needs redo -->
+1. using a keycode;
+1. using the generic key name.
 
 #### Keycodes
 
-Keys from 1–0 are mapped to codes 10–19
+You can bind a key by its keycode using the `code:int` syntax.
+Keys from 1–0 are mapped to codes 10–19, respectively.
+For example, `1` is `code:10`.
 
 #### Generic key name
 
