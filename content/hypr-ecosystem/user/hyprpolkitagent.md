@@ -31,6 +31,7 @@ Variables in the `general` category:
 | --- | --- | --- | --- |
 | `allow_empty_password` | Whether an empty password can be submitted. Useful when PAM falls through to another method after the password module fails, e.g. face recognition with howdy | bool | `false` |
 | `password_field_width` | Width of the password input, in px | int | `340` |
+| `require_confirmation` | Whether authentication that passes without any input (e.g. face recognition with howdy, or a fingerprint) waits for you to confirm before the action is allowed | bool | `false` |
 | `show_details` | Whether the action and command panel can be toggled | bool | `true` |
 | `window_height` | Height of the dialog, in px | int | `440` |
 | `window_width` | Width of the dialog, in px | int | `520` |
