@@ -547,10 +547,10 @@ Category: `group.col`
 
 | Name | Description | Type | Default | Limits |
 | --- | --- | --- | --- | --- |
-| border_active | Active group border color | gradient | `0x66ffff00` | |
-| border_inactive | Inactive group border color | gradient | `0x66777700` | |
-| border_locked_active | Active locked group border color | gradient | `0x66ff5500` | |
-| border_locked_inactive | Inactive locked group border color | gradient | `0x66775500` | |
+| border_active | Active group border color. Supports `whole_monitor = true` in the gradient. | gradient | `0x66ffff00` | |
+| border_inactive | Inactive group border color. Supports `whole_monitor = true` in the gradient. | gradient | `0x66777700` | |
+| border_locked_active | Active locked group border color. Supports `whole_monitor = true` in the gradient. | gradient | `0x66ff5500` | |
+| border_locked_inactive | Inactive locked group border color. Supports `whole_monitor = true` in the gradient. | gradient | `0x66775500` | |
 
 #### Groupbar
 

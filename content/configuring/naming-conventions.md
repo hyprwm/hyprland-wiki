@@ -66,7 +66,7 @@ Coordinates are in an inverse-Y Cartesian system, so moving to the right is the 
 | vec2 | Vector with 2 float values. `{x, y}` (e.g., `{20, 20}`) |
 | css_gaps | A float, or `{ top?, left?, right?, bottom? }` |
 | color | Color. See hint below for color info |
-| gradient | A gradient, will accept a color, or `{ colors = { color, color }, angle? = float }` structure |
+| gradient | A gradient, will accept a color, or `{ colors = { color, color }, angle? = float }` structure. Some gradients might expose extra parameters. |
 | font_weight | An integer between 100 and 1000, or one of the following presets: `thin` (100) `ultralight` (200) `light` (300) `semilight` (350) `book` (380) `normal` (400) `medium` (500) `semibold` (600) `bold` (700) `ultrabold` (800) `heavy` (900) `ultraheavy` (1000) |
 
 There are implicit conversions between certain types, however, this may lead to undefined behavior later.
