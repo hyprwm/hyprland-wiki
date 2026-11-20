@@ -6,23 +6,11 @@ title: Hyprland on NixOS
 ## Installing Hyprland on NixOS
 
 You can install Hyprland from:
-- The Nixpkgs repository if you want a proper released version from Hyprland.
-- The Hyprland flake if you want the latest git commit available at the moment.
-- Flake-compat if you want to use the Hyprland flake, but don't want to enable the use of flakes in your NixOS system.
+- the Hyprland flake if you want the latest git commit available at the moment;
+- flake-compat if you want to use the Hyprland flake, but don't want to enable the use of flakes in your NixOS system;
+- the Nixpkgs repository.
 
 {{< tabs >}}
-
-{{< tab name="Nixpkgs repository" >}}
-
-```nix {filename="configuration.nix"}
-{
-  programs.hyprland.enable = true;
-}
-```
-
-This will use the Hyprland version included in the Nixpkgs release you're using.
-
-{{< /tab >}}
 
 {{< tab name="The Hyprland flake" >}}
 
@@ -110,6 +98,18 @@ in {
 
 {{< /tab >}}
 
+{{< tab name="Nixpkgs repository" >}}
+
+```nix {filename="configuration.nix"}
+{
+  programs.hyprland.enable = true;
+}
+```
+
+This will use the Hyprland version included in the Nixpkgs release you're using.
+
+{{< /tab >}}
+
 {{< /tabs >}}
 
 ## Configuring Hyprland on NixOS
@@ -131,4 +131,3 @@ It allows for configuring a range of apps with pure Nix code, which may be desir
 
 For the adventurous, [@spikespaz](https://github.com/spikespaz) has made a Hyprland module that can be used in Home Manager and NixOS.
 It can be found [here](https://github.com/hyprland-community/hyprnix).
-```

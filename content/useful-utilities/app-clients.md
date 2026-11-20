@@ -23,6 +23,6 @@ Here are great replacements for them:
 
 ## Matrix/Element
 
-[Fractal](https://wiki.gnome.org/Apps/Fractal) is a Matrix client written in GTK4.
+[Fractal](https://gitlab.gnome.org/World/fractal) is a Matrix client written in GTK4.
 Much like Discord, Element is known to have a lot of problems as a result of being based on Electron.
 Fractal currently doesn't support VoIP calling, but all other features are supported, including E2EE and cross-device verification.

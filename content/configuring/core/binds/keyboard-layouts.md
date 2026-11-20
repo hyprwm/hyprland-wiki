@@ -54,18 +54,39 @@ grep 'grp:.*toggle' /usr/share/X11/xkb/rules/base.lst
 
 ### Workspace bindings on non-QWERTY layouts
 
-Keys used for keybinds need to be accessible without any modifiers in your layout.
+Keys used for keybinds must be accessible on your keyboard layout without any modifiers.
 
-For instance, the [French AZERTY](https://en.wikipedia.org/wiki/AZERTY) layout uses SHIFT + _`unmodified key`_ to write `0-9` numbers. As such, the workspace keybinds for this layout need to use the names of the _`unmodified keys`_ , and will not work when using the `0-9` numbers.
+For example, the [French AZERTY](https://en.wikipedia.org/wiki/AZERTY) layout uses SHIFT + _`unmodified key`_ to write `0-9` numbers.
+As such, the keybinds for this layout need to use the names of the _unmodified keys_ , and will not work when using the `0-9` numbers.
 
 > [!NOTE]
 > To get the correct name for an `unmodified_key`, refer to [the section on uncommon syms](..#uncommon-syms--binding-with-a-keycode).
 
-```lua
--- On a French layout, instead of:
--- hl.bind(mainMod .. " + 1", hl.workspace(1))
--- Use:
-hl.bind(mainMod .. " + ampersand", hl.workspace(1))
-```
+There are a few ways of solving this:
+1. using a keycode;
+1. using the generic key name.
 
-For help configuring the French AZERTY layout, see this [article](https://rherault.dev/articles/hyprland-fr-layout).
+#### Keycodes
+
+You can bind a key by its keycode using the `code:int` syntax.
+Keys from 1–0 are mapped to codes 10–19, respectively.
+For example, `1` is `code:10`.
+
+#### Generic key name
+
+To get generic key name, you need to read XKB file for your layout.
+
+For example, French layout is located in `/usr/share/X11/xkb/symbols/fr` file, and has the following names:
+
+```plain
+1 — ampersand
+2 — eacute
+3 — quotedbl
+4 — apostrophe
+5 — parenleft
+6 — egrave
+7 — minus
+8 — underscore
+9 — ccedilla
+0 — agrave
+```

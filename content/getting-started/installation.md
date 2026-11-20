@@ -33,6 +33,7 @@ It is **heavily** recommended you use **what the distro packages for you**, **no
 Hyprland's ecosystem and dependencies are vast and intertwined, and compiling manually will only potentially expose you to outdated, or incompatible versions of these dependencies.
 
 If you get `.so` file mismatch/missing errors, it's _entirely your fault_ for doing this!
+See [this FAQ entry](../../faq#symbol-lookup-errors).
 
 However, if you are an experienced user and want to beta-test new features, you're more than welcome to run the latest git head.
 Please don't come asking about ".so file missing" errors though!
@@ -93,28 +94,20 @@ Be aware that updating dependencies like `hyprutils` might still require you to 
 
 {{< tab name="Nix" >}}
 
-Enable Hyprland in your NixOS configuration:
-
-```nix
-{
-  programs.hyprland.enable = true;
-}
-```
-
-For more details, read the [Nix page](../../nix).
+Read about installation Hyprland on the [Nix page](../../nix).
 
 {{< /tab >}}
 
 {{< tab name="openSUSE*" >}}
 
 Hyprland is part of factory, starting with snapshot 20230411.
-To install it simply use zypper
+To install it simply use zypper:
 
 ```sh
 sudo zypper in hyprland
 ```
 
-or install the "hyprland" package via YaST2 Software.
+Or install the "hyprland" package via YaST2 Software.
 
 For `hyprpm` to recognize its dependencies, you'll also need to install `hyprland-devel`:
 
@@ -122,7 +115,7 @@ For `hyprpm` to recognize its dependencies, you'll also need to install `hyprlan
 sudo zypper in hyprland-devel
 ```
 
-Alternatively, you can also follow the instructions under [Manual build](#manual-build) to build Hyprland yourself.
+Alternatively, you can follow the instructions under [Manual build](#manual-build) to build Hyprland yourself.
 
 > [!NOTE]
 > Hyprland is not available for Leap, as most libraries (and compiler) that Hyprland needs are too old.
@@ -139,20 +132,17 @@ You can also compile it yourself by following the instructions [here](https://gi
 
 {{< tab name="Debian*" >}}
 
-`hyprland` is available as of Debian 14 (Forky) and in the Debian 13 (Trixie) backports
+Hyprland is available as of Debian 14 (Forky):
 
 ```bash
 sudo apt install hyprland
 ```
 
-or
+And in the Debian 13 (Trixie) backports:
 
 ```bash
 sudo apt install -t trixie-backports hyprland
 ```
-
-> [!NOTE]
-> Hyprland is not available for Bookworm as its packages are too old.
 
 {{< /tab >}}
 
@@ -306,11 +296,11 @@ sudo eopkg install hyprland
 
 ### Manual build
 
-#### Dependencies:
+#### Dependencies
 
 > [!WARNING]
 > ***Never, under any circumstances***, symbolically link different .so versions together, this will lead to memory bugs and crashes.
-> We don't care what some random person from the Internet tells you that.
+> We don't care what some random person from the Internet tells you.
 > Do _not_ do it.
 
 > [!IMPORTANT]
@@ -434,7 +424,7 @@ See [Crashes and Bugs](../../crashes-and-bugs).
    make <PRESET> && sudo cp ./build/Hyprland /usr/bin && sudo cp ./example/hyprland.desktop /usr/share/wayland-sessions
    ```
 
-## Custom Build flags
+## Custom build flags
 
 To apply custom build flags, you'll have to ditch make.
 
@@ -472,7 +462,7 @@ To install, run:
 sudo cmake --install ./build
 ```
 
-## Running In a VM
+## Running in a VM
 
 _YMMV, this is not officially supported._
 

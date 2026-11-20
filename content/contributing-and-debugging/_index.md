@@ -3,6 +3,18 @@ weight: 140
 title: Contributing and debugging
 ---
 
+<!-- TODO:
+If someone sees this todo and knows how to write that in a better way: be my guest :/
+Also idk where to place it, so i just slapped it here
+-->
+
+> [!IMPORTANT]
+> Please use English for all communications!
+> This helps developers and other community members understand and participate.
+> Content in any other language may be closed or ignored!
+>
+> Thanks for understanding.
+
 PR, code styling and code FAQs are [here](./pr-guidelines).
 
 For issues, please see [the guidelines](https://github.com/hyprwm/Hyprland/blob/main/docs/ISSUE_GUIDELINES.md).

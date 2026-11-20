@@ -200,7 +200,7 @@ hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("magic"))
 
 ## Executing with rules
 
-The `exec_cmd` dispatcher supports adding rules.
+The `exec_cmd` dispatcher supports adding [Window rules](../rules).
 Please note some windows might work better, some worse.
 It records the PID of the spawned process and uses that.
 For example, if your process forks and then the fork opens a window, this will not work.
