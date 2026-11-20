@@ -104,6 +104,15 @@ This provides a DE-like experience out of the box, with little to no coding invo
 - Configurable through a built-in GUI settings app, extensible with plugins and widgets.
 - Built on Quickshell and Go.
 
+### Cornice
+
+[Cornice](https://github.com/mainliufeng/cornice) is a Hyprland shell built on [Quickshell](https://quickshell.org),
+with independent desktops for a person and their agents.
+
+- Tasks acquire a secondary desktop, so agent clicks and typing stay there while the human desktop keeps working.
+- The observer is read-only.
+  Explicit takeover routes human input to that desktop and pauses the agent.
+
 ## Widget systems
 
 Use them when you want custom menus with fully customizable layout.
