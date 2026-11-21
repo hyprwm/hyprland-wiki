@@ -50,6 +50,8 @@ A neat wrapper for Hyprland's IPC written in Rust.
   Bluetooth settings frontend in GTK.
 - [Overskride](https://github.com/kaii-lb/overskride) by _kaii-lb_:
   A simple yet powerful bluetooth client in GTK4.
+- [Adwaita Bluetooth](https://github.com/ezratweaver/adw-bluetooth) by _ezratweaver_:
+  Bluetooth device manager built with GTK4 and Libadwaita, with file transfer and Vim keyboard shortcuts.
 - [nm-applet](https://gitlab.gnome.org/GNOME/network-manager-applet) by _GNOME_:
   Applet for interfacing with NetworkManager in GTK.
 
