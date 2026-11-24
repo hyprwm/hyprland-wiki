@@ -169,7 +169,7 @@ Dynamic effects are re-evaluated every time a property changes.
 | force_rgbx | Disables the window's own transparency *(not Hyprland's given transparency, in contrast to the opaque rule)* | bool | |
 | persistent_size | For floating windows, internally store their size. When a new floating window opens with the same class and title, restore the saved size | bool | |
 | render_unfocused | Forces the window to think it's being rendered when it's not visible | bool | |
-| rounding | Forces X pixels of rounding, ignoring the default | int | |
+| rounding | Forces X pixels of rounding, ignoring the default | int / `{ top_left?, top_right?, bottom_left?, bottom_right?}` | |
 | rounding_power | Overrides the rounding power for the window | float | |
 | scroll_mouse | Forces the window to override `input.scroll_factor` | float | |
 | scroll_touchpad | Forces the window to override `input.touchpad.scroll_factor` | float | |

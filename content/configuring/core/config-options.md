@@ -119,7 +119,7 @@ Category: `decoration`
 | dim_strength | How much inactive windows should be dimmed | float | `0.5` |[0.0 - 1.0] |
 | fullscreen_opacity | Opacity of fullscreen windows | float | `1.0` | [0.0 - 1.0] |
 | inactive_opacity | Opacity of inactive windows | float | `1.0` | [0.0 - 1.0] |
-| rounding | Rounded corners' radius (in layout px) | int | `0` | [0 - 100] |
+| rounding | Rounded corners' radius (in layout px) | int / `{ top_left?, top_right?, bottom_left?, bottom_right?}` | `0` | [0 - 100] |
 | rounding_power | Adjusts the curve used for rounding corners, larger is smoother, 1.0 is a triangular corner, 2.0 is a circle, 4.0 is a squircle | float | `2.0` | [1.0 - 10.0] |
 | screen_shader | A path to a custom shader to be applied at the end of rendering. See `examples/screenShader.frag` for an example | string | [[Empty]] | |
 
