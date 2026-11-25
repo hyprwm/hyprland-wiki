@@ -64,6 +64,9 @@ Workspaces can be referenced by:
 
 <!-- TODO: i think we should make a petition to rework this for Lua -->
 
+> [!NOTE]
+> [Workspace rules](../core/rules/workspace-rules) can take a [predicate](../core#predicates) instead, which is a plain Lua function and is easier to read and write.
+
 Workspaces that have already been created can be targeted by workspace filters (e.g., `r[2-4] w[t1]`)
 
 A filter is a sequence of filter expressions separated by spaces.
