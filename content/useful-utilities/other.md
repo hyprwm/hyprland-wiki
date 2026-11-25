@@ -30,6 +30,9 @@ A LSP server to provide auto-completion and more for Hyprland's configuration fi
 [hyprKCS](https://github.com/kosa12/hyprKCS) by _kosa12_:
 A fast, minimal Hyprland keybind manager written in Rust/GTK4.
 
+[keybind-find](https://github.com/Benjmhart/keybind-find) by _Ben Hart_:
+One hotkey for a searchable list of the binds that work in the focused window: Hyprland's own (read from `hyprctl binds`, with their descriptions) and the focused app's (nvim, tmux, terminals and more). Picking one sends its keys.
+
 ### IPC wrappers
 
 [hyprland-rs](https://github.com/yavko/hyprland-rs) by _yavko_:
