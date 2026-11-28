@@ -55,6 +55,23 @@ Hyprland exposes the following convenience functions:
 Use the LSP (or examine the stubs yourself) for the return values (classes and their parameters) of these functions.
 See [here](../../../core#editor-autocompletion) to set up the LSP in your code editor.
 
+### `window:get_floating_restore_box` method
+
+Lua window objects expose `window:get_floating_restore_box()`, returning the current cached location/size that is restored when a floating window exits a fullscreen/maximized state.
+
+The returned object is a Lua table with 4 keys, `x/y` being the window coordinates in global logical units, `w/h` being the window's width and height in logical units.
+
+Windows inside a floating group will return the group's restore box.
+
+The function will return `nil` when there is no cached box available (e.g. window is not floating, not mapped, etc.).
+
+```lua
+local box = window:get_floating_restore_box()
+if box then
+    print(box.x, box.y, box.w, box.h)
+end
+```
+
 ### `hl.exec_cmd` function
 
 `hl.exec_cmd()` will spawn an asynchronous process, so there is no need for `& disown` at the end.
